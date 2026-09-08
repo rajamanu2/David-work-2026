@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>Account$Name</field>
+    </columns>
+    <columns>
+        <field>Account$Rating</field>
+    </columns>
+    <columns>
+        <field>Account.Integrations__r$Name</field>
+    </columns>
+    <columns>
+        <field>Account.Integrations__r$Integration_Type__c</field>
+    </columns>
+    <columns>
+        <field>Account.Integrations__r$Partner_Account__c</field>
+    </columns>
+    <columns>
+        <field>Account.Integrations__r$Partner_System_Version__c</field>
+    </columns>
+    <columns>
+        <field>Account.Integrations__r$RecordType</field>
+    </columns>
+    <currency>USD</currency>
+    <filter>
+        <criteriaItems>
+            <column>Account$RecordType</column>
+            <columnToColumn>false</columnToColumn>
+            <isUnlocked>true</isUnlocked>
+            <operator>equals</operator>
+            <value>Account.Education</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Account$Rating</column>
+            <columnToColumn>false</columnToColumn>
+            <isUnlocked>true</isUnlocked>
+            <operator>equals</operator>
+            <value>Bronze,Penny</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Account$Account_Status__c</column>
+            <columnToColumn>false</columnToColumn>
+            <isUnlocked>true</isUnlocked>
+            <operator>equals</operator>
+            <value>Active (Product Live)</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Account$Account_Sub_Industry__c</column>
+            <columnToColumn>false</columnToColumn>
+            <isUnlocked>true</isUnlocked>
+            <operator>equals</operator>
+            <value>Higher Ed</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Account$ShippingCountry</column>
+            <columnToColumn>false</columnToColumn>
+            <isUnlocked>true</isUnlocked>
+            <operator>notEqual</operator>
+            <value>Australia,Egypt,China,Japan,Korea,Germany,Italy,Spain,Argentina,Brazil,Chile,Colombia,Mexico,Peru,Indonesia,Taiwan,Vietnam,India,Nigeria,Pakistan,Uganda,United Arab Emirates,Ecuador,Uruguay</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Account$Name</column>
+            <columnToColumn>false</columnToColumn>
+            <isUnlocked>true</isUnlocked>
+            <operator>notEqual</operator>
+            <value>Rutgers University,University of New Hampshire,Curtin University - Sarawak Malaysia,Universiti of Malaya (UM),ESSEC Asia-Pacific,JCU Singapore,Lasalle College of the Arts,Kwantlen Polytechnic,Langara College,University of Liverpool,London School of Economics and Political Science,Courtauld Institute of Art,University of the Arts London,Glion Institute UK,JOHNSON &amp; WALES UNIVERSITY (JWU),WILLIAMS COLLEGE,Johnson &amp; Wales University,California State Polytechnic University - Pomona,California State University - Fullerton,Texas A&amp;M University - Kingsville,Texas Tech University,University of North Texas,University of Utah,Washington State University,exas Tech,TAM Kingsville,Wichita State University,Kansas State University,University of Oklahoma,University of Central Oklahoma,University of Kansas,Chapman University,Pacific Lutheran University,Reed College,University of Portland,Macleay College,Canning College</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Account$Name</column>
+            <columnToColumn>false</columnToColumn>
+            <isUnlocked>true</isUnlocked>
+            <operator>notContain</operator>
+            <value>California State University</value>
+        </criteriaItems>
+    </filter>
+    <format>Tabular</format>
+    <name>INTEGRATION iFrame Embed Email-Higher Ed</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>Accounts_wwo_Integrations_C__c</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <showGrandTotal>true</showGrandTotal>
+    <showSubTotals>true</showSubTotals>
+    <timeFrameFilter>
+        <dateColumn>Account$Account_Status_Date__c</dateColumn>
+        <interval>INTERVAL_CUSTOM</interval>
+    </timeFrameFilter>
+</Report>

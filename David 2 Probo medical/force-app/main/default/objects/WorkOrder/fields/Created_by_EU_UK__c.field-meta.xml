@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Created_by_EU_UK__c</fullName>
+    <formula>OR(
+ISPICKVAL(CreatedBy.Location__c,&quot;Bristol, UK&quot;),
+ISPICKVAL(CreatedBy.Location__c,&quot;Dusseldorf, Germany&quot;),
+ISPICKVAL(CreatedBy.Location__c,&quot;Gloucester, UK&quot;),
+ISPICKVAL(CreatedBy.Location__c,&quot;Nantes, FR&quot;),
+ISPICKVAL(CreatedBy.Location__c,&quot;Knowsley, UK&quot;),
+ISPICKVAL(CreatedBy.Location__c,&quot;Nottingham, UK&quot;)
+)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Created by EU/UK</label>
+    <trackHistory>false</trackHistory>
+    <type>Checkbox</type>
+</CustomField>

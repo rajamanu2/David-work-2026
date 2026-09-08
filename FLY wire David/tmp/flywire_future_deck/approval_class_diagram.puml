@@ -1,0 +1,40 @@
+@startuml
+top to bottom direction
+skinparam backgroundColor white
+skinparam shadowing false
+skinparam classBackgroundColor #F6F7F8
+skinparam classBorderColor #222222
+skinparam classArrowColor #3D8DFF
+skinparam classHeaderBackgroundColor #D0EDFA
+hide circle
+
+class QuoteOrchestrationService {
+  +evaluate(quoteId) : EvaluationResult
+  +submit(quoteId) : SubmissionResult
+  +recall(quoteId) : RecallResult
+}
+class QuoteContextProvider {
+  +load(quoteId) : QuoteContext
+}
+class ApprovalRuleRepository {
+  +activeRules() : List<ApprovalRule>
+}
+class ApprovalDecisionEngine {
+  +evaluate(context, rules) : ApprovalPlan
+}
+class ApprovalLifecycleService {
+  +createRequest(plan) : ApprovalRequest
+  +resolveApprover(persona) : UserId
+  +recordDecision(stepId, decision)
+}
+class QuoteLockService {
+  +lockCommercialValues(quoteId)
+  +unlockCommercialValues(quoteId)
+}
+
+QuoteOrchestrationService --> QuoteContextProvider
+QuoteOrchestrationService --> ApprovalRuleRepository
+QuoteOrchestrationService --> ApprovalDecisionEngine
+QuoteOrchestrationService --> ApprovalLifecycleService
+QuoteOrchestrationService --> QuoteLockService
+@enduml

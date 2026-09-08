@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Disq_Reason_Country</fullName>
+    <active>true</active>
+    <description>If the Disqualified Reason is Country then make Country field required.</description>
+    <errorConditionFormula>AND(
+ISPICKVAL(Lead_Disqualified_Reason__c, &quot;Country&quot;),
+ISBLANK(Country),
+NOT ($UserRole.Name = &quot;Admin&quot;) 
+)
+&amp;&amp; Lead_Val_Bypass__c = False</errorConditionFormula>
+    <errorDisplayField>Country</errorDisplayField>
+    <errorMessage>If you are disqualifying based on Country you must enter the Country in the Address Field.</errorMessage>
+</ValidationRule>

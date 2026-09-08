@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Cant_Modify_Product_After_Opp_Closed</fullName>
+    <active>true</active>
+    <description>Once the Opp is closed only admin can modify the Opp Product.</description>
+    <errorConditionFormula>AND(
+    $Profile.Name &lt;&gt; &apos;System Administrator&apos;,
+    $Profile.Name &lt;&gt; &quot;A - RevOps&quot;,
+    $Profile.Name &lt;&gt; &quot;B - Looker&quot;,
+    $User.Alias &lt;&gt; &apos;Workato&apos;,
+    ISNEW(),
+    NOT(ISBLANK (Opportunity.Date_100__c))
+)</errorConditionFormula>
+    <errorMessage>Can&apos;t Modify Product after Opp is Won. See Admin for help.</errorMessage>
+</ValidationRule>

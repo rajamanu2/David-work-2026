@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Price__c</fullName>
+    <description>BOPI-460 This field is used on the Quote Advanced Approval email templates and Quote Document to show a single column with a price regardless of the product Rate Type and Usage Type</description>
+    <externalId>false</externalId>
+    <formula>IF(
+    ISPICKVAL(Rate_Type__c, &quot;Fixed&quot;),
+    TEXT(CurrencyIsoCode) &amp; &quot; &quot; &amp; TEXT(ROUND(NS_Billing_Price__c, 2)) &amp;
+    IF(
+        MOD(ROUND(NS_Billing_Price__c, 2), 1) = 0,
+        &quot;.00&quot;,
+        &quot;&quot;
+    ), 
+    CASE(
+        Usage_Type__c,
+        &quot;Percent&quot;,
+        IF(
+            AND(
+                Quoted_Usage_Percent__c &lt; 0.01,
+                Quoted_Usage_Percent__c &gt; 0
+            ), &quot;0&quot;, &quot;&quot;
+        ) &amp;
+        TEXT(ROUND(Quoted_Usage_Percent__c * 100, 2)) &amp;
+        IF(
+            MOD(ROUND(Quoted_Usage_Percent__c * 100, 2), 1) = 0,
+            &quot;.00&quot;,
+            IF(
+                MOD(ROUND(Quoted_Usage_Percent__c * 1000, 2), 1) = 0,
+                &quot;0&quot;,
+                &quot;&quot;
+            )
+        ) &amp; &quot;%&quot;,
+        &quot;Amount&quot;,
+        TEXT(CurrencyIsoCode) &amp; &quot; &quot; &amp;
+        IF(
+            AND(
+                Quoted_Usage_Amt__c &lt; 1,
+                Quoted_Usage_Amt__c &gt; 0
+            ), &quot;0&quot;, &quot;&quot;
+        ) &amp;
+        TEXT(ROUND(Quoted_Usage_Amt__c, 2)) &amp;
+        IF(
+            MOD(ROUND(Quoted_Usage_Amt__c, 2), 1) = 0,
+            &quot;.00&quot;,
+            IF(
+                MOD(ROUND(Quoted_Usage_Amt__c * 10, 2), 1) = 0,
+                &quot;0&quot;,
+                &quot;&quot;
+            )
+        ),
+        &quot;Both&quot;,
+        TEXT(CurrencyIsoCode) &amp; &quot; 0.00&quot;,
+        TEXT(CurrencyIsoCode) &amp; &quot; 0.00&quot;
+    )
+)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <inlineHelpText>Will show the usage rate if the product rate type is usage based or a price amount if the product rate type is fixed</inlineHelpText>
+    <label>Price</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

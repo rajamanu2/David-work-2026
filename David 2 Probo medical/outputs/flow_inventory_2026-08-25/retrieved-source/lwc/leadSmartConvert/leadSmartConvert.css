@@ -1,0 +1,132 @@
+:host { display: block; }
+
+.wrap { padding: 0.75rem 1rem 1rem; }
+
+.summary {
+  display: flex; gap: 0.5rem; align-items: center;
+  margin-bottom: 0.75rem;
+}
+
+/* Optional: if this ever errors, swap to a hex like #706e6b */
+.summary .label { color: var(--lwc-colorTextWeak); }
+
+.section {
+  border: 1px solid var(--lwc-colorBorder);
+  border-radius: var(--lwc-borderRadiusMedium);
+  background: var(--lwc-colorBackgroundAlt);
+  padding: 0.75rem;
+  margin-bottom: 1rem;
+}
+
+.section__title {
+  display: flex; align-items: center; gap: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+.section__title h3 { margin: 0; font-weight: 600; }
+
+.grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; }
+@media (max-width: 900px) { .grid-2 { grid-template-columns: 1fr; } }
+
+.grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.75rem; }
+@media (max-width: 900px) { .grid-3 { grid-template-columns: 1fr; } }
+
+.field { width: 100%; }
+
+.hint { color: var(--lwc-colorTextWeak); font-size: 0.8rem; }
+
+.footer {
+  display: flex; align-items: center; gap: 0.75rem;
+  margin-bottom: 0.5rem;
+}
+
+.msg { margin-left: 0.5rem; }
+
+/* ✅ Use hard-coded colors; no internal tokens */
+.msg--success { color: #2e844a; }  /* success green */
+.msg--error   { color: #c23934; }  /* error red    */
+
+/* Lead id coloring (also hard-coded) */
+.lead-id--ok  { color: #2e844a; }
+.lead-id--bad { color: #c23934; }
+
+.card-center {
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  padding: 0.75rem;
+}
+.card-name { margin-top: 0.5rem; font-weight: 600; text-align: center; }
+
+.card-link { display: block; text-decoration: none; color: inherit; }
+.card-link:hover .card-name { text-decoration: underline; }
+
+/* Space between list items */
+.account-option { padding: 0.375rem 0.5rem; }
+
+/* Address line under the account name */
+.account-subline {
+  display: block;            /* ensure it’s on its own line */
+  margin-top: 0.125rem;      /* vertical breathing room */
+  padding-left: 0.25rem;     /* ← adds a small leading space/indent */
+  font-size: 0.8rem;
+}
+
+/* “Terms” badge */
+.terms-badge {
+  display: inline-block;
+  padding: 0.1rem 0.4rem;
+  border-radius: 0.75rem;
+  font-size: 0.72rem;
+  line-height: 1rem;
+  background: #f3f2f2;           /* SLDS gray-1 vibe */
+  color: #3e3e3c;                /* text weak */
+  white-space: nowrap;
+  margin-left: 0.5rem;
+  margin-right: 0.35rem;
+}
+
+/* Clean, compact warning banner */
+.mismatch {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 0.75rem;
+
+  padding: 0.75rem 0.875rem;
+  border: 1px solid #e3a008;               /* warm amber */
+  border-left-width: 4px;
+  border-radius: 0.5rem;
+
+  background: linear-gradient(135deg, #fff6e6, #ffeacc); /* soft amber */
+}
+
+/* icon column */
+.mismatch__icon {
+  display: flex;
+  align-items: center;
+}
+.mismatch__icon .slds-icon {
+  fill: #a16107;                            /* icon color */
+}
+
+/* message */
+.mismatch__msg {
+  color: #3e3e3c;
+  line-height: 1.25rem;
+}
+.mismatch__msg strong {
+  font-weight: 700;
+}
+
+/* button alignment */
+.mismatch__actions {
+  display: flex;
+  align-items: center;
+}
+
+/* small screens: stack nicely */
+@media (max-width: 640px) {
+  .mismatch {
+    grid-template-columns: 1fr;
+    gap: 0.5rem;
+  }
+  .mismatch__actions { justify-content: flex-start; }
+}

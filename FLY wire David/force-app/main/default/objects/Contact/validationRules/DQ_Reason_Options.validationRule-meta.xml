@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>DQ_Reason_Options</fullName>
+    <active>true</active>
+    <description>Only allows users to change DQ Reasons to Account Not Qualified, Competitor, Country, No Response, Payer, Account Too Small, or Trash. 1/10/2024 – updated with Bad Email Address SAL-3511</description>
+    <errorConditionFormula>AND(
+$Profile.Name &lt;&gt; &apos;System Administrator&apos;,
+$Profile.Name &lt;&gt; &apos;B - Marketo Integration&apos;,
+$User.User_LongID__c &lt;&gt; &apos;005f2000009yztxAAA&apos;,
+$User.User_LongID__c &lt;&gt; &apos;0058W00000AFZm6QAH&apos;,
+NOT(ISNEW()),
+ISCHANGED(Disqualified_Reason__c),
+NOT(ISBLANK(TEXT(Disqualified_Reason__c))),
+TEXT(Disqualified_Reason__c)&lt;&gt;&quot;Account Not Qualified&quot;,
+TEXT(Disqualified_Reason__c)&lt;&gt;&quot;Bad Email Address&quot;,
+TEXT(Disqualified_Reason__c)&lt;&gt;&quot;Competitor&quot;,
+TEXT(Disqualified_Reason__c)&lt;&gt;&quot;Country&quot;,
+TEXT(Disqualified_Reason__c)&lt;&gt;&quot;No Response&quot;,
+TEXT(Disqualified_Reason__c)&lt;&gt;&quot;Too Small&quot;,
+TEXT(Disqualified_Reason__c)&lt;&gt;&quot;Trash&quot;,
+TEXT(Disqualified_Reason__c)&lt;&gt;&quot;Payer&quot;
+)
+&amp;&amp; Contact_Automation_Bypassed__c = False</errorConditionFormula>
+    <errorDisplayField>Disqualified_Reason__c</errorDisplayField>
+    <errorMessage>You can only update the Disqualification Reason to Account Not Qualified, Account Too Small, Bad Email Address, Competitor, Country, No Response, Trash, or Payer.</errorMessage>
+</ValidationRule>

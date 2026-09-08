@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>66.0</apiVersion>
+    <areMetricsLoggedToDataCloud>false</areMetricsLoggedToDataCloud>
+    <assignments>
+        <name>Scrub_AvaTax_Exception_Code_on_Creation</name>
+        <label>Scrub AvaTax Exception Code on Creation</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <assignmentItems>
+            <assignToReference>$Record.AVA_SFCLOUD__AvaTax_Tax_Code__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue></stringValue>
+            </value>
+        </assignmentItems>
+    </assignments>
+    <description>04/10/2026 (BW) - Ensures Cloned Products do not carry the same exemption codes</description>
+    <environments>Default</environments>
+    <interviewLabel>Scrub AvaTax Exception Code from Cloned Products {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Scrub AvaTax Exception Code from New Products</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <start>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Scrub_AvaTax_Exception_Code_on_Creation</targetReference>
+        </connector>
+        <filterFormula>ISCLONE() &amp;&amp; !ISBLANK({!$Record.AVA_SFCLOUD__AvaTax_Tax_Code__c})</filterFormula>
+        <object>Product2</object>
+        <recordTriggerType>Create</recordTriggerType>
+        <triggerType>RecordBeforeSave</triggerType>
+    </start>
+    <status>Active</status>
+</Flow>

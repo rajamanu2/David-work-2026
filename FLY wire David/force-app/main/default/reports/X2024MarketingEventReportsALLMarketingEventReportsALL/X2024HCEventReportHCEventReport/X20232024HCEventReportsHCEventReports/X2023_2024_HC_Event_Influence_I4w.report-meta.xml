@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>bizible2__Bizible_Attribution_Touchpoint__c.bizible2__Touchpoint_Source__c</field>
+    </columns>
+    <columns>
+        <field>CUST_NAME</field>
+    </columns>
+    <columns>
+        <field>FK_ACC_NAME</field>
+    </columns>
+    <columns>
+        <field>FK_NAME</field>
+    </columns>
+    <columns>
+        <field>bizible2__Bizible_Attribution_Touchpoint__c.bizible2__Contact__c</field>
+    </columns>
+    <columns>
+        <field>bizible2__Bizible_Attribution_Touchpoint__c.bizible2__Touchpoint_Type__c</field>
+    </columns>
+    <columns>
+        <field>bizible2__Bizible_Attribution_Touchpoint__c.bizible2__Medium__c</field>
+    </columns>
+    <columns>
+        <aggregateTypes>Sum</aggregateTypes>
+        <field>bizible2__Bizible_Attribution_Touchpoint__c.bizible2__Revenue_Custom_Model__c</field>
+    </columns>
+    <currency>USD</currency>
+    <description>Displays revenue attribution summarized by Marketing Channel and Source</description>
+    <filter>
+        <booleanFilter>1 AND 2 AND 3 AND (4 OR 5 OR 6)</booleanFilter>
+        <criteriaItems>
+            <column>FK_OPP_TYPE</column>
+            <columnToColumn>false</columnToColumn>
+            <isUnlocked>true</isUnlocked>
+            <operator>equals</operator>
+            <value>Existing Business,New Business</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>FK_OPP_RECORDTYPE</column>
+            <columnToColumn>false</columnToColumn>
+            <isUnlocked>true</isUnlocked>
+            <operator>equals</operator>
+            <value>Opportunity.Healthcare</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>FK_NAME</column>
+            <columnToColumn>false</columnToColumn>
+            <isUnlocked>true</isUnlocked>
+            <operator>notContain</operator>
+            <value>test</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>bizible2__Bizible_Attribution_Touchpoint__c.bizible2__SF_Campaign__c</column>
+            <columnToColumn>false</columnToColumn>
+            <isUnlocked>true</isUnlocked>
+            <operator>equals</operator>
+            <value>Event_HC_Arab Health_January 2024,Event_HC_Artera Heartbeat Conference_September 2024,Event_HC_ASCA_April 2024,Event_HC_Becker&apos;s Rev Cycle &amp; HIT Conference_October 2024,Event_HC_Beckers Rev Cycle &amp; HIT Conference_October 2023,Event_HC_Beckers Rev Cycle &amp; HIT Conference Cocktail Reception_October 2023,Event_HC_CPCA Annual Conference_October 2024,Event_HC_Eastern Plains_August 2024,Event_HC_Finvi Power Up_March 2024,Event_HC_Healthcare Finance Institute_April 2023,Event_HC_Healthcare Financial Institute (HFI)_April 2024,Event_HC_HealthLeaders_CFO Exchange_August 2023,Event_HC_HealthLeaders_Patient Financial Experience Now_April 2023,Event_HC_HealthLeaders CFO Exchange_August 2024,Event_HC_HFMA Annual Conference_June 2023,Event_HC_HFMA Annual Conference_June 2024,Event_HC_HFMA Annual Conference Cocktail Reception_June 2023,Event_HC_HFMA Annual Dinner_June 2024,Event_HC_HFMA Annual Happy Hour_June 2024,Event_HC_HFMA Colorado_April 2024,Event_HC_HFMA Georgia_April 2023,Event_HC_HFMA Gulf Coast_February 2024,Event_HC_HFMA Hawaii_March 2024,Event_HC_HFMA Hawaii Conference_November 2024,Event_HC_HFMA MA-RI_January 2024,Event_HC_HFMA Metro NY_March 2024,Event_HC_HFMA Metro NY Annual Institute_March 2023,Event_HC_HFMA Region 1_May 2024,Event_HC_HFMA Region 6_September 2024</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>bizible2__Bizible_Attribution_Touchpoint__c.bizible2__SF_Campaign__c</column>
+            <columnToColumn>false</columnToColumn>
+            <isUnlocked>true</isUnlocked>
+            <operator>equals</operator>
+            <value>Event_HC_HFMA Rev Cycle_March 2023,Event_HC_HFMA Revenue Cycle Conference_February 2024,Event_HC_HFMA Tri State_September 2023,Event_HC_HFMA Western Symposium_January 2024,Event_HC_HFMA Western Symposium Cocktail Reception_January 2023,Event_HC_HFMA Western Symposium Reception_January 2024,Event_HC_HFMA Wisconsin_May 2023,Event_HC_HFMA Wisconsin_May 2024,Event_HC_HFMA Wisconsin_September 2024,Event_HC_HFMA Women&apos;s Conference_April 2023,Event_HC_HIMSS_March 2024,Event_HC_HL Revenue Cycle_February 2024,Event_HC_HL Revenue Cycle Tech Exchange_November 2023,Event_HC_KLAS Revenue Cycle Summit_October 2024,Event_HC_MedTrade Non Acute_March 2024,Event_HC_MGMA Financial Conference_April 2024,Event_HC_MGMA Leadership Conference_October 2024,Event_HC_NACH FOM/IT Conference_October 2024,Event_HC_NAHAM_May 2023,Event_HC_NCHL USCIPP_November 2023,Event_HC_NCHL USCIPP Gala_November 2023,Event_HC_Oracle Cloud World Happy Hour_September 2024,Event_HC_Oracle CommunityWorks_May 2024,Event_HC_Oracle Community Works_October 2023,Event_HC_Oracle CommunityWorks Happy Hour_May 2024,Event_HC_Oracle Health Conference_September 2023,Event_HC_Oracle Health Dinner_September 2023,Event_HC_Oracle Health Summit_October 2024,Event_HC_Oracle Health Summit Opry Event_October 2024</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>bizible2__Bizible_Attribution_Touchpoint__c.bizible2__SF_Campaign__c</column>
+            <columnToColumn>false</columnToColumn>
+            <isUnlocked>true</isUnlocked>
+            <operator>equals</operator>
+            <value>Event_HC_Q1 Production Meetings_October 2023,Event_HC_Q1 Productions Los Angeles_December 2023,Event_HC_RCM Conference_November 2023,Event_HC_RCM Congress_May 2024,Event_HC_RCM Congress_November 2024,Event_HC_Rural 9 Health Association_October 2024,Event_HC_The Academy_November 2023,Event_HC_The Academy_RevCycle Spring_April 2024,Event_HC_UGM Conference Cocktail Reception_August 2024,Event_HC_Vive Health_March 2023,Flywire Hosted_HC_Boston Globe_June 2023</value>
+        </criteriaItems>
+    </filter>
+    <format>Summary</format>
+    <groupingsDown>
+        <dateGranularity>Day</dateGranularity>
+        <field>bizible2__Bizible_Attribution_Touchpoint__c.bizible2__SF_Campaign__c</field>
+        <sortOrder>Asc</sortOrder>
+    </groupingsDown>
+    <name>2023 &amp; 2024 HC Event Influence</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>CustomEntity$bizible2__Bizible_Attribution_Touchpoint__c@bizible2__Bizible_Attribution_Touchpoint__c.bizible2__Opportunity__c</reportType>
+    <scope>organization</scope>
+    <showDetails>false</showDetails>
+    <showGrandTotal>true</showGrandTotal>
+    <showSubTotals>true</showSubTotals>
+    <timeFrameFilter>
+        <dateColumn>FK_CREATED_DATE</dateColumn>
+        <endDate>2024-12-31</endDate>
+        <interval>INTERVAL_CUSTOM</interval>
+        <startDate>2022-11-01</startDate>
+    </timeFrameFilter>
+</Report>

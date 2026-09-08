@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Replacement_Status__c</fullName>
+    <externalId>false</externalId>
+    <formula>IF( ISBLANK(Date_RMA_Item_Received__c), &quot;Not Received&quot;, &quot;Received&quot;)</formula>
+    <label>Replacement Status</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>RMA_Item_Asset_Sold__c</fullName>
+    <formula>IF(ProductItem__r.sold__c = TRUE, TRUE, FALSE)</formula>
+    <label>RMA Item Asset Sold?</label>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

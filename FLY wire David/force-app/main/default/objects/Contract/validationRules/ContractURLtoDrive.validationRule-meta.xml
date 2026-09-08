@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>ContractURLtoDrive</fullName>
+    <active>true</active>
+    <description>Ensure the URL entered is to a doc in Google Drive
+BOPI-662 Updated to ignore the workato user
+SAL-5926: Updated to allow Agents add the Admin url</description>
+    <errorConditionFormula>AND(
+$Profile.Name &lt;&gt; &quot;B - Looker&quot;,
+$User.Alias &lt;&gt; &quot;Workato&quot;,
+NOT(ISBLANK(Contract_URL__c)),
+LOWER(LEFT(Contract_URL__c,24)) &lt;&gt; &quot;https://drive.google.com&quot;,
+LOWER(LEFT(Contract_URL__c,43)) &lt;&gt; &quot;https://client-admin.backoffice.flywire.com&quot;
+
+)</errorConditionFormula>
+    <errorDisplayField>Contract_URL__c</errorDisplayField>
+    <errorMessage>The Contract linked should be the final countersigned version in the &quot;Legal -Contracts&quot; folder in Drive.</errorMessage>
+</ValidationRule>

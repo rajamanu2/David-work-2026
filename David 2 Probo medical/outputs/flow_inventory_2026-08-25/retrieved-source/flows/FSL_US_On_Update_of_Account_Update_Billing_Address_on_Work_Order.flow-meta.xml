@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>66.0</apiVersion>
+    <areMetricsLoggedToDataCloud>false</areMetricsLoggedToDataCloud>
+    <description>03/25/2026 (BW) - Updating the fields to also set the billing account name</description>
+    <environments>Default</environments>
+    <interviewLabel>FSL US: On Update of Account | Update Billing Address on Work Order {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>FSL US: On Update of Account | Update Billing Address on Work Order</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <recordUpdates>
+        <name>Update_Billing_Address_from_Account</name>
+        <label>Update Billing Address from Account</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <inputAssignments>
+            <field>Billing_Account_Name__c</field>
+            <value>
+                <elementReference>$Record.Account.Name</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Billing_City__c</field>
+            <value>
+                <elementReference>$Record.Account.BillingCity</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Billing_State__c</field>
+            <value>
+                <elementReference>$Record.Account.BillingState</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Billing_Street__c</field>
+            <value>
+                <elementReference>$Record.Account.BillingStreet</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Billing_Zip_Postal_Code__c</field>
+            <value>
+                <elementReference>$Record.Billing_Zip_Postal_Code__c</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <start>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Update_Billing_Address_from_Account</targetReference>
+        </connector>
+        <filterFormula>(ISNEW() || ISCHANGED({!$Record.AccountId})) &amp;&amp; !ISBLANK({!$Record.AccountId}) &amp;&amp; {!$Record.Country} == &quot;United States&quot; &amp;&amp; {!$Record.RecordType.Name} == &quot;FSL Work Order&quot;</filterFormula>
+        <object>WorkOrder</object>
+        <recordTriggerType>CreateAndUpdate</recordTriggerType>
+        <triggerType>RecordAfterSave</triggerType>
+    </start>
+    <status>Active</status>
+</Flow>

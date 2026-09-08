@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Travel_Amount_10</fullName>
+    <active>true</active>
+    <description>Created per Colin and Ryan O. to ensure we do not sell to clients without meeting this threshold. Changing rule from 10% to 90% so Sales can add quotes. Cant create a quote with this rule in place.</description>
+    <errorConditionFormula>AND(
+$Profile.Name &lt;&gt; &apos;System Administrator&apos;,
+$Profile.Name &lt;&gt; &quot;B - Looker&quot;,
+$User.Alias &lt;&gt; &quot;Workato&quot;,
+RecordType.Name = &apos;Travel&apos;,
+Probability &gt;0.90,
+Opp_ARR__c &lt; 5000.00,
+NOT(HasOpportunityLineItem)
+)
+&amp;&amp; Opp_Val_Bypass__c = false</errorConditionFormula>
+    <errorMessage>You must add a Product and Opportunity Amount must be over $5000. If you are trying to add a quote, please move Stage back to discovery, add quote then move forward.</errorMessage>
+</ValidationRule>

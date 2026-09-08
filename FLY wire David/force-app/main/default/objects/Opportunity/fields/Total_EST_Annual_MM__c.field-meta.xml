@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Total_EST_Annual_MM__c</fullName>
+    <description>RollUp Summary for EST Annual MM in Opportunity Product</description>
+    <inlineHelpText>Total Amount for EST Annual MM in Opportunity Product</inlineHelpText>
+    <label>Total EST Annual MM</label>
+    <summarizedField>OpportunityLineItem.Est_Annual_MM__c</summarizedField>
+    <summaryForeignKey>OpportunityLineItem.OpportunityId</summaryForeignKey>
+    <summaryOperation>sum</summaryOperation>
+    <trackHistory>false</trackHistory>
+    <type>Summary</type>
+</CustomField>

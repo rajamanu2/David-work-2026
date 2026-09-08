@@ -1,0 +1,3084 @@
+{
+  "records": [
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/Case.Id"
+      },
+      "DurableId": "Case.Id",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/Case"
+        },
+        "QualifiedApiName": "Case"
+      },
+      "QualifiedApiName": "Id",
+      "Label": "Case ID",
+      "DataType": "Lookup()",
+      "IsCalculated": false
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/Case.IsDeleted"
+      },
+      "DurableId": "Case.IsDeleted",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/Case"
+        },
+        "QualifiedApiName": "Case"
+      },
+      "QualifiedApiName": "IsDeleted",
+      "Label": "Deleted",
+      "DataType": "Checkbox",
+      "IsCalculated": false
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/Case.MasterRecord"
+      },
+      "DurableId": "Case.MasterRecord",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/Case"
+        },
+        "QualifiedApiName": "Case"
+      },
+      "QualifiedApiName": "MasterRecordId",
+      "Label": "Case",
+      "DataType": "Lookup(Case)",
+      "IsCalculated": false
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/Case.CaseNumber"
+      },
+      "DurableId": "Case.CaseNumber",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/Case"
+        },
+        "QualifiedApiName": "Case"
+      },
+      "QualifiedApiName": "CaseNumber",
+      "Label": "Case Number",
+      "DataType": "Auto Number",
+      "IsCalculated": false
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/Case.Contact"
+      },
+      "DurableId": "Case.Contact",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/Case"
+        },
+        "QualifiedApiName": "Case"
+      },
+      "QualifiedApiName": "ContactId",
+      "Label": "Contact Name",
+      "DataType": "Lookup(Contact)",
+      "IsCalculated": false
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/Case.Account"
+      },
+      "DurableId": "Case.Account",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/Case"
+        },
+        "QualifiedApiName": "Case"
+      },
+      "QualifiedApiName": "AccountId",
+      "Label": "Account Name",
+      "DataType": "Lookup(Account)",
+      "IsCalculated": false
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/Case.Asset"
+      },
+      "DurableId": "Case.Asset",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/Case"
+        },
+        "QualifiedApiName": "Case"
+      },
+      "QualifiedApiName": "AssetId",
+      "Label": "Service Asset",
+      "DataType": "Lookup(Service Asset)",
+      "IsCalculated": false
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/Case.Product"
+      },
+      "DurableId": "Case.Product",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/Case"
+        },
+        "QualifiedApiName": "Case"
+      },
+      "QualifiedApiName": "ProductId",
+      "Label": "Product",
+      "DataType": "Lookup(Product)",
+      "IsCalculated": false
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/Case.Entitlement"
+      },
+      "DurableId": "Case.Entitlement",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/Case"
+        },
+        "QualifiedApiName": "Case"
+      },
+      "QualifiedApiName": "EntitlementId",
+      "Label": "Entitlement Name",
+      "DataType": "Lookup(Entitlement)",
+      "IsCalculated": false
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/Case.Source"
+      },
+      "DurableId": "Case.Source",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/Case"
+        },
+        "QualifiedApiName": "Case"
+      },
+      "QualifiedApiName": "SourceId",
+      "Label": "Case Source",
+      "DataType": "Lookup(Social Post,Email Message,Messaging Session)",
+      "IsCalculated": false
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/Case.BusinessHours"
+      },
+      "DurableId": "Case.BusinessHours",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/Case"
+        },
+        "QualifiedApiName": "Case"
+      },
+      "QualifiedApiName": "BusinessHoursId",
+      "Label": "Business Hours",
+      "DataType": "Lookup(Business Hours)",
+      "IsCalculated": false
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/Case.Parent"
+      },
+      "DurableId": "Case.Parent",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/Case"
+        },
+        "QualifiedApiName": "Case"
+      },
+      "QualifiedApiName": "ParentId",
+      "Label": "Parent Case",
+      "DataType": "Lookup(Case)",
+      "IsCalculated": false
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/Case.SuppliedName"
+      },
+      "DurableId": "Case.SuppliedName",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/Case"
+        },
+        "QualifiedApiName": "Case"
+      },
+      "QualifiedApiName": "SuppliedName",
+      "Label": "Web Name",
+      "DataType": "Text(80)",
+      "IsCalculated": false
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/Case.SuppliedEmail"
+      },
+      "DurableId": "Case.SuppliedEmail",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/Case"
+        },
+        "QualifiedApiName": "Case"
+      },
+      "QualifiedApiName": "SuppliedEmail",
+      "Label": "Web Email",
+      "DataType": "Email",
+      "IsCalculated": false
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/Case.SuppliedPhone"
+      },
+      "DurableId": "Case.SuppliedPhone",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/Case"
+        },
+        "QualifiedApiName": "Case"
+      },
+      "QualifiedApiName": "SuppliedPhone",
+      "Label": "Web Phone",
+      "DataType": "Text(40)",
+      "IsCalculated": false
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/Case.SuppliedCompany"
+      },
+      "DurableId": "Case.SuppliedCompany",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/Case"
+        },
+        "QualifiedApiName": "Case"
+      },
+      "QualifiedApiName": "SuppliedCompany",
+      "Label": "Web Company",
+      "DataType": "Text(80)",
+      "IsCalculated": false
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/Case.Type"
+      },
+      "DurableId": "Case.Type",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/Case"
+        },
+        "QualifiedApiName": "Case"
+      },
+      "QualifiedApiName": "Type",
+      "Label": "Type",
+      "DataType": "Picklist",
+      "IsCalculated": false
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/Case.RecordType"
+      },
+      "DurableId": "Case.RecordType",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/Case"
+        },
+        "QualifiedApiName": "Case"
+      },
+      "QualifiedApiName": "RecordTypeId",
+      "Label": "Case Record Type",
+      "DataType": "Record Type",
+      "IsCalculated": false
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/Case.Status"
+      },
+      "DurableId": "Case.Status",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/Case"
+        },
+        "QualifiedApiName": "Case"
+      },
+      "QualifiedApiName": "Status",
+      "Label": "Status",
+      "DataType": "Picklist",
+      "IsCalculated": false
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/Case.Reason"
+      },
+      "DurableId": "Case.Reason",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/Case"
+        },
+        "QualifiedApiName": "Case"
+      },
+      "QualifiedApiName": "Reason",
+      "Label": "Case Reason",
+      "DataType": "Picklist",
+      "IsCalculated": false
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/Case.Origin"
+      },
+      "DurableId": "Case.Origin",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/Case"
+        },
+        "QualifiedApiName": "Case"
+      },
+      "QualifiedApiName": "Origin",
+      "Label": "Case Origin",
+      "DataType": "Picklist",
+      "IsCalculated": false
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/Case.Language"
+      },
+      "DurableId": "Case.Language",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/Case"
+        },
+        "QualifiedApiName": "Case"
+      },
+      "QualifiedApiName": "Language",
+      "Label": "Language",
+      "DataType": "Picklist",
+      "IsCalculated": false
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/Case.Subject"
+      },
+      "DurableId": "Case.Subject",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/Case"
+        },
+        "QualifiedApiName": "Case"
+      },
+      "QualifiedApiName": "Subject",
+      "Label": "Subject",
+      "DataType": "Text(255)",
+      "IsCalculated": false
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/Case.Priority"
+      },
+      "DurableId": "Case.Priority",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/Case"
+        },
+        "QualifiedApiName": "Case"
+      },
+      "QualifiedApiName": "Priority",
+      "Label": "Priority",
+      "DataType": "Picklist",
+      "IsCalculated": false
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/Case.Description"
+      },
+      "DurableId": "Case.Description",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/Case"
+        },
+        "QualifiedApiName": "Case"
+      },
+      "QualifiedApiName": "Description",
+      "Label": "Description",
+      "DataType": "Long Text Area(32000)",
+      "IsCalculated": false
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/Case.IsClosed"
+      },
+      "DurableId": "Case.IsClosed",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/Case"
+        },
+        "QualifiedApiName": "Case"
+      },
+      "QualifiedApiName": "IsClosed",
+      "Label": "Closed",
+      "DataType": "Checkbox",
+      "IsCalculated": false
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/Case.ClosedDate"
+      },
+      "DurableId": "Case.ClosedDate",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/Case"
+        },
+        "QualifiedApiName": "Case"
+      },
+      "QualifiedApiName": "ClosedDate",
+      "Label": "Date/Time Closed",
+      "DataType": "Date/Time",
+      "IsCalculated": false
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/Case.IsEscalated"
+      },
+      "DurableId": "Case.IsEscalated",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/Case"
+        },
+        "QualifiedApiName": "Case"
+      },
+      "QualifiedApiName": "IsEscalated",
+      "Label": "Escalated",
+      "DataType": "Checkbox",
+      "IsCalculated": false
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/Case.CurrencyIsoCode"
+      },
+      "DurableId": "Case.CurrencyIsoCode",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/Case"
+        },
+        "QualifiedApiName": "Case"
+      },
+      "QualifiedApiName": "CurrencyIsoCode",
+      "Label": "Case Currency",
+      "DataType": "Picklist",
+      "IsCalculated": false
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/Case.Owner"
+      },
+      "DurableId": "Case.Owner",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/Case"
+        },
+        "QualifiedApiName": "Case"
+      },
+      "QualifiedApiName": "OwnerId",
+      "Label": "Case Owner",
+      "DataType": "Lookup(User,Group)",
+      "IsCalculated": false
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/Case.IsClosedOnCreate"
+      },
+      "DurableId": "Case.IsClosedOnCreate",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/Case"
+        },
+        "QualifiedApiName": "Case"
+      },
+      "QualifiedApiName": "IsClosedOnCreate",
+      "Label": "Closed When Created",
+      "DataType": "Checkbox",
+      "IsCalculated": false
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/Case.SlaStartDate"
+      },
+      "DurableId": "Case.SlaStartDate",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/Case"
+        },
+        "QualifiedApiName": "Case"
+      },
+      "QualifiedApiName": "SlaStartDate",
+      "Label": "Sla Policy Start Time",
+      "DataType": "Date/Time",
+      "IsCalculated": false
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/Case.SlaExitDate"
+      },
+      "DurableId": "Case.SlaExitDate",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/Case"
+        },
+        "QualifiedApiName": "Case"
+      },
+      "QualifiedApiName": "SlaExitDate",
+      "Label": "Sla Policy End Time",
+      "DataType": "Date/Time",
+      "IsCalculated": false
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/Case.IsStopped"
+      },
+      "DurableId": "Case.IsStopped",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/Case"
+        },
+        "QualifiedApiName": "Case"
+      },
+      "QualifiedApiName": "IsStopped",
+      "Label": "Stopped",
+      "DataType": "Checkbox",
+      "IsCalculated": false
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/Case.StopStartDate"
+      },
+      "DurableId": "Case.StopStartDate",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/Case"
+        },
+        "QualifiedApiName": "Case"
+      },
+      "QualifiedApiName": "StopStartDate",
+      "Label": "Stopped Since",
+      "DataType": "Date/Time",
+      "IsCalculated": false
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/Case.CreatedDate"
+      },
+      "DurableId": "Case.CreatedDate",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/Case"
+        },
+        "QualifiedApiName": "Case"
+      },
+      "QualifiedApiName": "CreatedDate",
+      "Label": "Date/Time Opened",
+      "DataType": "Date/Time",
+      "IsCalculated": false
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/Case.CreatedBy"
+      },
+      "DurableId": "Case.CreatedBy",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/Case"
+        },
+        "QualifiedApiName": "Case"
+      },
+      "QualifiedApiName": "CreatedById",
+      "Label": "Created By",
+      "DataType": "Lookup(User)",
+      "IsCalculated": false
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/Case.LastModifiedDate"
+      },
+      "DurableId": "Case.LastModifiedDate",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/Case"
+        },
+        "QualifiedApiName": "Case"
+      },
+      "QualifiedApiName": "LastModifiedDate",
+      "Label": "Last Modified Date",
+      "DataType": "Date/Time",
+      "IsCalculated": false
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/Case.LastModifiedBy"
+      },
+      "DurableId": "Case.LastModifiedBy",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/Case"
+        },
+        "QualifiedApiName": "Case"
+      },
+      "QualifiedApiName": "LastModifiedById",
+      "Label": "Last Modified By",
+      "DataType": "Lookup(User)",
+      "IsCalculated": false
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/Case.SystemModstamp"
+      },
+      "DurableId": "Case.SystemModstamp",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/Case"
+        },
+        "QualifiedApiName": "Case"
+      },
+      "QualifiedApiName": "SystemModstamp",
+      "Label": "System Modstamp",
+      "DataType": "Date/Time",
+      "IsCalculated": false
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/Case.ContactPhone"
+      },
+      "DurableId": "Case.ContactPhone",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/Case"
+        },
+        "QualifiedApiName": "Case"
+      },
+      "QualifiedApiName": "ContactPhone",
+      "Label": "Contact Phone",
+      "DataType": "Phone",
+      "IsCalculated": false
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/Case.ContactMobile"
+      },
+      "DurableId": "Case.ContactMobile",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/Case"
+        },
+        "QualifiedApiName": "Case"
+      },
+      "QualifiedApiName": "ContactMobile",
+      "Label": "Contact Mobile",
+      "DataType": "Phone",
+      "IsCalculated": false
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/Case.ContactEmail"
+      },
+      "DurableId": "Case.ContactEmail",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/Case"
+        },
+        "QualifiedApiName": "Case"
+      },
+      "QualifiedApiName": "ContactEmail",
+      "Label": "Contact Email",
+      "DataType": "Email",
+      "IsCalculated": false
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/Case.ContactFax"
+      },
+      "DurableId": "Case.ContactFax",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/Case"
+        },
+        "QualifiedApiName": "Case"
+      },
+      "QualifiedApiName": "ContactFax",
+      "Label": "Contact Fax",
+      "DataType": "Phone",
+      "IsCalculated": false
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/Case.Comments"
+      },
+      "DurableId": "Case.Comments",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/Case"
+        },
+        "QualifiedApiName": "Case"
+      },
+      "QualifiedApiName": "Comments",
+      "Label": "Internal Comments",
+      "DataType": "Text Area(4000)",
+      "IsCalculated": false
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/Case.LastViewedDate"
+      },
+      "DurableId": "Case.LastViewedDate",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/Case"
+        },
+        "QualifiedApiName": "Case"
+      },
+      "QualifiedApiName": "LastViewedDate",
+      "Label": "Last Viewed Date",
+      "DataType": "Date/Time",
+      "IsCalculated": false
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/Case.LastReferencedDate"
+      },
+      "DurableId": "Case.LastReferencedDate",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/Case"
+        },
+        "QualifiedApiName": "Case"
+      },
+      "QualifiedApiName": "LastReferencedDate",
+      "Label": "Last Referenced Date",
+      "DataType": "Date/Time",
+      "IsCalculated": false
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/Case.UserRecordAccess"
+      },
+      "DurableId": "Case.UserRecordAccess",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/Case"
+        },
+        "QualifiedApiName": "Case"
+      },
+      "QualifiedApiName": "UserRecordAccessId",
+      "Label": "Object Access Level",
+      "DataType": "Lookup(User Record Access)",
+      "IsCalculated": false
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/Case.ServiceContract"
+      },
+      "DurableId": "Case.ServiceContract",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/Case"
+        },
+        "QualifiedApiName": "Case"
+      },
+      "QualifiedApiName": "ServiceContractId",
+      "Label": "Service Contract",
+      "DataType": "Lookup(Service Contract)",
+      "IsCalculated": false
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/Case.MilestoneStatus"
+      },
+      "DurableId": "Case.MilestoneStatus",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/Case"
+        },
+        "QualifiedApiName": "Case"
+      },
+      "QualifiedApiName": "MilestoneStatus",
+      "Label": "Milestone Status",
+      "DataType": "Text(30)",
+      "IsCalculated": false
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/Case.00N4O000006obRa"
+      },
+      "DurableId": "Case.00N4O000006obRa",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/Case"
+        },
+        "QualifiedApiName": "Case"
+      },
+      "QualifiedApiName": "ortoo_e2a__Thread_Id__c",
+      "Label": "Thread Id",
+      "DataType": "Formula (Text)",
+      "IsCalculated": true
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/Case.00N4O000006obxS"
+      },
+      "DurableId": "Case.00N4O000006obxS",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/Case"
+        },
+        "QualifiedApiName": "Case"
+      },
+      "QualifiedApiName": "Service_Contract__c",
+      "Label": "Service Contract",
+      "DataType": "Formula (Text)",
+      "IsCalculated": true
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/Case.00N4O000006hAFj"
+      },
+      "DurableId": "Case.00N4O000006hAFj",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/Case"
+        },
+        "QualifiedApiName": "Case"
+      },
+      "QualifiedApiName": "AVA_SFCLOUD__EngineeringReqNumber__c",
+      "Label": "Engineering Req Number",
+      "DataType": "Text(12)",
+      "IsCalculated": false
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/Case.00N4O000006N7Di"
+      },
+      "DurableId": "Case.00N4O000006N7Di",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/Case"
+        },
+        "QualifiedApiName": "Case"
+      },
+      "QualifiedApiName": "Case_Reason__c",
+      "Label": "Case Reason",
+      "DataType": "Picklist",
+      "IsCalculated": false
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/Case.00N4O000006N7rs"
+      },
+      "DurableId": "Case.00N4O000006N7rs",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/Case"
+        },
+        "QualifiedApiName": "Case"
+      },
+      "QualifiedApiName": "Opportunity__c",
+      "Label": "Opportunity",
+      "DataType": "Lookup(Opportunity)",
+      "IsCalculated": false
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/Case.00N5b00000DXQUZ"
+      },
+      "DurableId": "Case.00N5b00000DXQUZ",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/Case"
+        },
+        "QualifiedApiName": "Case"
+      },
+      "QualifiedApiName": "Repair_Eval_Coupon_Code__c",
+      "Label": "Repair Eval - Coupon Code",
+      "DataType": "Text(50)",
+      "IsCalculated": false
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/Case.00N5b00000DXQUe"
+      },
+      "DurableId": "Case.00N5b00000DXQUe",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/Case"
+        },
+        "QualifiedApiName": "Case"
+      },
+      "QualifiedApiName": "Repair_Eval_GCLID__c",
+      "Label": "Repair Eval - Google Ad ID",
+      "DataType": "Text(255)",
+      "IsCalculated": false
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/Case.00N5b00000DXQUt"
+      },
+      "DurableId": "Case.00N5b00000DXQUt",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/Case"
+        },
+        "QualifiedApiName": "Case"
+      },
+      "QualifiedApiName": "Account_Owner_ID__c",
+      "Label": "Account Owner ID",
+      "DataType": "Formula (Text)",
+      "IsCalculated": true
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/Case.00N5b00000DXQUy"
+      },
+      "DurableId": "Case.00N5b00000DXQUy",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/Case"
+        },
+        "QualifiedApiName": "Case"
+      },
+      "QualifiedApiName": "Account_FSE__c",
+      "Label": "Account FSE",
+      "DataType": "Formula (Text)",
+      "IsCalculated": true
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/Case.00N5b00000DXRbC"
+      },
+      "DurableId": "Case.00N5b00000DXRbC",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/Case"
+        },
+        "QualifiedApiName": "Case"
+      },
+      "QualifiedApiName": "Repair_Eval_Coupon_Discount__c",
+      "Label": "Repair Eval - Coupon Discount",
+      "DataType": "Formula (Percent)",
+      "IsCalculated": true
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/Case.00N5b00000DXTmQ"
+      },
+      "DurableId": "Case.00N5b00000DXTmQ",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/Case"
+        },
+        "QualifiedApiName": "Case"
+      },
+      "QualifiedApiName": "inov8__PMT_Days_Open__c",
+      "Label": "PMT Days Open",
+      "DataType": "Formula (Number)",
+      "IsCalculated": true
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/Case.00N5b00000DXTmR"
+      },
+      "DurableId": "Case.00N5b00000DXTmR",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/Case"
+        },
+        "QualifiedApiName": "Case"
+      },
+      "QualifiedApiName": "inov8__PMT_Project__c",
+      "Label": "PMT Project",
+      "DataType": "Lookup(PMT Project)",
+      "IsCalculated": false
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/Case.00N5b00000DXTof"
+      },
+      "DurableId": "Case.00N5b00000DXTof",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/Case"
+        },
+        "QualifiedApiName": "Case"
+      },
+      "QualifiedApiName": "inov8__PMT_Program__c",
+      "Label": "PMT Program",
+      "DataType": "Formula (Text)",
+      "IsCalculated": true
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/Case.00N5b00000DX1Ux"
+      },
+      "DurableId": "Case.00N5b00000DX1Ux",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/Case"
+        },
+        "QualifiedApiName": "Case"
+      },
+      "QualifiedApiName": "Repair_Eval_Probe_Type__c",
+      "Label": "Repair Eval - Probe Type",
+      "DataType": "Picklist",
+      "IsCalculated": false
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/Case.00N5b00000DX1VW"
+      },
+      "DurableId": "Case.00N5b00000DX1VW",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/Case"
+        },
+        "QualifiedApiName": "Case"
+      },
+      "QualifiedApiName": "Repair_Eval_Contact_First_Name__c",
+      "Label": "Repair Eval - Contact First Name",
+      "DataType": "Text(200)",
+      "IsCalculated": false
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/Case.00N5b00000DX1Vb"
+      },
+      "DurableId": "Case.00N5b00000DX1Vb",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/Case"
+        },
+        "QualifiedApiName": "Case"
+      },
+      "QualifiedApiName": "Repair_Eval_Contact_Last_Name__c",
+      "Label": "Repair Eval - Contact Last Name",
+      "DataType": "Text(200)",
+      "IsCalculated": false
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/Case.00N5b00000DX1Vg"
+      },
+      "DurableId": "Case.00N5b00000DX1Vg",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/Case"
+        },
+        "QualifiedApiName": "Case"
+      },
+      "QualifiedApiName": "Repair_Eval_Contact_Email__c",
+      "Label": "Repair Eval - Contact Email",
+      "DataType": "Email",
+      "IsCalculated": false
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/Case.00N5b00000DX1Vl"
+      },
+      "DurableId": "Case.00N5b00000DX1Vl",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/Case"
+        },
+        "QualifiedApiName": "Case"
+      },
+      "QualifiedApiName": "Repair_Eval_Probe_Manufacturer__c",
+      "Label": "Repair Eval - Probe Manufacturer",
+      "DataType": "Picklist",
+      "IsCalculated": false
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/Case.00N5b00000DX61W"
+      },
+      "DurableId": "Case.00N5b00000DX61W",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/Case"
+        },
+        "QualifiedApiName": "Case"
+      },
+      "QualifiedApiName": "Work_Order__c",
+      "Label": "Work Order",
+      "DataType": "Lookup(Work Order)",
+      "IsCalculated": false
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/Case.00N5b00000DX1W0"
+      },
+      "DurableId": "Case.00N5b00000DX1W0",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/Case"
+        },
+        "QualifiedApiName": "Case"
+      },
+      "QualifiedApiName": "Repair_Eval_Quote__c",
+      "Label": "Repair Eval - Quote",
+      "DataType": "Currency(16, 2)",
+      "IsCalculated": false
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/Case.00N5b00000DX1W1"
+      },
+      "DurableId": "Case.00N5b00000DX1W1",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/Case"
+        },
+        "QualifiedApiName": "Case"
+      },
+      "QualifiedApiName": "Repair_Eval_Suggested_Repairs__c",
+      "Label": "Repair Eval - Suggested Repairs",
+      "DataType": "Text(255)",
+      "IsCalculated": false
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/Case.00N5b00000DX1W5"
+      },
+      "DurableId": "Case.00N5b00000DX1W5",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/Case"
+        },
+        "QualifiedApiName": "Case"
+      },
+      "QualifiedApiName": "Repair_Eval_Contact_Street__c",
+      "Label": "Repair Eval - Contact Street",
+      "DataType": "Text(200)",
+      "IsCalculated": false
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/Case.00N5b00000DX1WA"
+      },
+      "DurableId": "Case.00N5b00000DX1WA",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/Case"
+        },
+        "QualifiedApiName": "Case"
+      },
+      "QualifiedApiName": "Repair_Eval_Contact_City__c",
+      "Label": "Repair Eval - Contact City",
+      "DataType": "Text(100)",
+      "IsCalculated": false
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/Case.00N5b00000DX1WF"
+      },
+      "DurableId": "Case.00N5b00000DX1WF",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/Case"
+        },
+        "QualifiedApiName": "Case"
+      },
+      "QualifiedApiName": "Repair_Eval_Contact_State__c",
+      "Label": "Repair Eval - Contact State",
+      "DataType": "Text(50)",
+      "IsCalculated": false
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/Case.00N5b00000DX1WK"
+      },
+      "DurableId": "Case.00N5b00000DX1WK",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/Case"
+        },
+        "QualifiedApiName": "Case"
+      },
+      "QualifiedApiName": "Repair_Eval_Contact_Postal_Code__c",
+      "Label": "Repair Eval - Contact Postal Code",
+      "DataType": "Text(10)",
+      "IsCalculated": false
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/Case.00N5b00000DX1WP"
+      },
+      "DurableId": "Case.00N5b00000DX1WP",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/Case"
+        },
+        "QualifiedApiName": "Case"
+      },
+      "QualifiedApiName": "Repair_Eval_Contact_Phone__c",
+      "Label": "Repair Eval - Contact Phone",
+      "DataType": "Text(20)",
+      "IsCalculated": false
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/Case.00N5b00000DX1WU"
+      },
+      "DurableId": "Case.00N5b00000DX1WU",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/Case"
+        },
+        "QualifiedApiName": "Case"
+      },
+      "QualifiedApiName": "Repair_Eval_Contact_Country__c",
+      "Label": "Repair Eval - Contact Country",
+      "DataType": "Text(200)",
+      "IsCalculated": false
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/Case.00N5b00000DXTrb"
+      },
+      "DurableId": "Case.00N5b00000DXTrb",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/Case"
+        },
+        "QualifiedApiName": "Case"
+      },
+      "QualifiedApiName": "SFDC_Object_of_Issue__c",
+      "Label": "Salesforce Object of Issue",
+      "DataType": "Picklist",
+      "IsCalculated": false
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/Case.00N5b00000DX1Vm"
+      },
+      "DurableId": "Case.00N5b00000DX1Vm",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/Case"
+        },
+        "QualifiedApiName": "Case"
+      },
+      "QualifiedApiName": "Repair_Eval_Probe_Model__c",
+      "Label": "Repair Eval - Probe Model",
+      "DataType": "Text Area(255)",
+      "IsCalculated": false
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/Case.00N5b00000DX1u2"
+      },
+      "DurableId": "Case.00N5b00000DX1u2",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/Case"
+        },
+        "QualifiedApiName": "Case"
+      },
+      "QualifiedApiName": "Repair_Eval_Probe_Model_Acuson__c",
+      "Label": "Repair Eval - Probe Model - Acuson",
+      "DataType": "Text Area(255)",
+      "IsCalculated": false
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/Case.00N5b00000DX1u3"
+      },
+      "DurableId": "Case.00N5b00000DX1u3",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/Case"
+        },
+        "QualifiedApiName": "Case"
+      },
+      "QualifiedApiName": "Repair_Eval_Probe_Model_GE__c",
+      "Label": "Repair Eval - Probe Model - GE",
+      "DataType": "Text Area(255)",
+      "IsCalculated": false
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/Case.00N5b00000DX1u4"
+      },
+      "DurableId": "Case.00N5b00000DX1u4",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/Case"
+        },
+        "QualifiedApiName": "Case"
+      },
+      "QualifiedApiName": "Repair_Eval_Probe_Model_Philips__c",
+      "Label": "Repair Eval - Probe Model - Philips",
+      "DataType": "Text Area(255)",
+      "IsCalculated": false
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/Case.00N5b00000DX1u5"
+      },
+      "DurableId": "Case.00N5b00000DX1u5",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/Case"
+        },
+        "QualifiedApiName": "Case"
+      },
+      "QualifiedApiName": "Repair_Eval_Probe_Model_Siemens__c",
+      "Label": "Repair Eval - Probe Model - Siemens",
+      "DataType": "Text Area(255)",
+      "IsCalculated": false
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/Case.00N5b00000DX1u6"
+      },
+      "DurableId": "Case.00N5b00000DX1u6",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/Case"
+        },
+        "QualifiedApiName": "Case"
+      },
+      "QualifiedApiName": "Repair_Eval_Probe_Model_SonoSite__c",
+      "Label": "Repair Eval - Probe Model - SonoSite",
+      "DataType": "Text Area(255)",
+      "IsCalculated": false
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/Case.00N5b00000DX1u7"
+      },
+      "DurableId": "Case.00N5b00000DX1u7",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/Case"
+        },
+        "QualifiedApiName": "Case"
+      },
+      "QualifiedApiName": "Repair_Eval_Probe_Model_Toshiba__c",
+      "Label": "Repair Eval - Probe Model - Toshiba",
+      "DataType": "Text Area(255)",
+      "IsCalculated": false
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/Case.00N5b00000DX1u8"
+      },
+      "DurableId": "Case.00N5b00000DX1u8",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/Case"
+        },
+        "QualifiedApiName": "Case"
+      },
+      "QualifiedApiName": "Repair_Eval_Probe_Model_Zonare__c",
+      "Label": "Repair Eval - Probe Model - Zonare",
+      "DataType": "Text Area(255)",
+      "IsCalculated": false
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/Case.00N5b00000DX6KE"
+      },
+      "DurableId": "Case.00N5b00000DX6KE",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/Case"
+        },
+        "QualifiedApiName": "Case"
+      },
+      "QualifiedApiName": "Parent_Work_Order__c",
+      "Label": "Parent Work Order",
+      "DataType": "Lookup(Work Order)",
+      "IsCalculated": false
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/Case.00N5b00000DXTsA"
+      },
+      "DurableId": "Case.00N5b00000DXTsA",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/Case"
+        },
+        "QualifiedApiName": "Case"
+      },
+      "QualifiedApiName": "Link_to_Example__c",
+      "Label": "Link to Example",
+      "DataType": "URL(255)",
+      "IsCalculated": false
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/Case.00N5b00000DXTsF"
+      },
+      "DurableId": "Case.00N5b00000DXTsF",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/Case"
+        },
+        "QualifiedApiName": "Case"
+      },
+      "QualifiedApiName": "Delegate_Resource_Assigned__c",
+      "Label": "Delegate Resource Assigned",
+      "DataType": "Picklist",
+      "IsCalculated": false
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/Case.00N5b00000DXN0q"
+      },
+      "DurableId": "Case.00N5b00000DXN0q",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/Case"
+        },
+        "QualifiedApiName": "Case"
+      },
+      "QualifiedApiName": "Account_Name__c",
+      "Label": "Account Name",
+      "DataType": "Formula (Text)",
+      "IsCalculated": true
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/Case.00N5b00000DXN0r"
+      },
+      "DurableId": "Case.00N5b00000DXN0r",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/Case"
+        },
+        "QualifiedApiName": "Case"
+      },
+      "QualifiedApiName": "Loaner_Requested__c",
+      "Label": "Loaner Requested",
+      "DataType": "Checkbox",
+      "IsCalculated": false
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/Case.00N5b00000DXN0s"
+      },
+      "DurableId": "Case.00N5b00000DXN0s",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/Case"
+        },
+        "QualifiedApiName": "Case"
+      },
+      "QualifiedApiName": "Repair_Eval_Probe_Serial_No__c",
+      "Label": "Repair Eval - Probe Serial No",
+      "DataType": "Text(255)",
+      "IsCalculated": false
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/Case.00N5b00000DX1UJ"
+      },
+      "DurableId": "Case.00N5b00000DX1UJ",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/Case"
+        },
+        "QualifiedApiName": "Case"
+      },
+      "QualifiedApiName": "Repair_Eval_Airscan__c",
+      "Label": "Repair Eval - Airscan",
+      "DataType": "Picklist (Multi-Select)",
+      "IsCalculated": false
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/Case.00N5b00000DX1Us"
+      },
+      "DurableId": "Case.00N5b00000DX1Us",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/Case"
+        },
+        "QualifiedApiName": "Case"
+      },
+      "QualifiedApiName": "Repair_Eval_Strain_Relief__c",
+      "Label": "Repair Eval - Strain Relief",
+      "DataType": "Picklist (Multi-Select)",
+      "IsCalculated": false
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/Case.00N5b00000DX1Un"
+      },
+      "DurableId": "Case.00N5b00000DX1Un",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/Case"
+        },
+        "QualifiedApiName": "Case"
+      },
+      "QualifiedApiName": "Repair_Eval_Probe_Handle__c",
+      "Label": "Repair Eval - Probe Handle",
+      "DataType": "Picklist (Multi-Select)",
+      "IsCalculated": false
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/Case.00N5b00000DXKzh"
+      },
+      "DurableId": "Case.00N5b00000DXKzh",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/Case"
+        },
+        "QualifiedApiName": "Case"
+      },
+      "QualifiedApiName": "Repair_Eval_Motor__c",
+      "Label": "Repair Eval - Motor",
+      "DataType": "Picklist (Multi-Select)",
+      "IsCalculated": false
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/Case.00N5b00000DX1Ui"
+      },
+      "DurableId": "Case.00N5b00000DX1Ui",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/Case"
+        },
+        "QualifiedApiName": "Case"
+      },
+      "QualifiedApiName": "Repair_Eval_Lens__c",
+      "Label": "Repair Eval - Lens",
+      "DataType": "Picklist (Multi-Select)",
+      "IsCalculated": false
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/Case.00N5b00000DX1UO"
+      },
+      "DurableId": "Case.00N5b00000DX1UO",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/Case"
+        },
+        "QualifiedApiName": "Case"
+      },
+      "QualifiedApiName": "Repair_Eval_Image__c",
+      "Label": "Repair Eval - Image",
+      "DataType": "Picklist (Multi-Select)",
+      "IsCalculated": false
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/Case.00N5b00000DXKzl"
+      },
+      "DurableId": "Case.00N5b00000DXKzl",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/Case"
+        },
+        "QualifiedApiName": "Case"
+      },
+      "QualifiedApiName": "Repair_Eval_CW_Artifacts__c",
+      "Label": "Repair Eval - CW Artifacts",
+      "DataType": "Picklist (Multi-Select)",
+      "IsCalculated": false
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/Case.00N5b00000DX1Ud"
+      },
+      "DurableId": "Case.00N5b00000DX1Ud",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/Case"
+        },
+        "QualifiedApiName": "Case"
+      },
+      "QualifiedApiName": "Repair_Eval_Connector__c",
+      "Label": "Repair Eval - Connector",
+      "DataType": "Picklist (Multi-Select)",
+      "IsCalculated": false
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/Case.00N5b00000DX1UY"
+      },
+      "DurableId": "Case.00N5b00000DX1UY",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/Case"
+        },
+        "QualifiedApiName": "Case"
+      },
+      "QualifiedApiName": "Repair_Eval_Color_Artifacts__c",
+      "Label": "Repair Eval - Color Artifacts",
+      "DataType": "Picklist (Multi-Select)",
+      "IsCalculated": false
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/Case.00N5b00000DXKzg"
+      },
+      "DurableId": "Case.00N5b00000DXKzg",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/Case"
+        },
+        "QualifiedApiName": "Case"
+      },
+      "QualifiedApiName": "Repair_Eval_Cap__c",
+      "Label": "Repair Eval - Cap",
+      "DataType": "Picklist (Multi-Select)",
+      "IsCalculated": false
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/Case.00N5b00000DX1UT"
+      },
+      "DurableId": "Case.00N5b00000DX1UT",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/Case"
+        },
+        "QualifiedApiName": "Case"
+      },
+      "QualifiedApiName": "Repair_Eval_Cable_Jacket__c",
+      "Label": "Repair Eval - Cable Jacket",
+      "DataType": "Picklist (Multi-Select)",
+      "IsCalculated": false
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/Case.00N5b00000DXTsU"
+      },
+      "DurableId": "Case.00N5b00000DXTsU",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/Case"
+        },
+        "QualifiedApiName": "Case"
+      },
+      "QualifiedApiName": "Delegate_E_Mail__c",
+      "Label": "Delegate E-Mail",
+      "DataType": "Formula (Text)",
+      "IsCalculated": true
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/Case.00N5b00000DXTsZ"
+      },
+      "DurableId": "Case.00N5b00000DXTsZ",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/Case"
+        },
+        "QualifiedApiName": "Case"
+      },
+      "QualifiedApiName": "Assigned_To__c",
+      "Label": "Assigned To",
+      "DataType": "Lookup(User)",
+      "IsCalculated": false
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/Case.00N5b00000DXTse"
+      },
+      "DurableId": "Case.00N5b00000DXTse",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/Case"
+        },
+        "QualifiedApiName": "Case"
+      },
+      "QualifiedApiName": "Error_Type__c",
+      "Label": "Error Type (If Applicable)",
+      "DataType": "Picklist",
+      "IsCalculated": false
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/Case.00N5b00000DXTsj"
+      },
+      "DurableId": "Case.00N5b00000DXTsj",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/Case"
+        },
+        "QualifiedApiName": "Case"
+      },
+      "QualifiedApiName": "Related_Object__c",
+      "Label": "Affected Salesforce Object",
+      "DataType": "Picklist",
+      "IsCalculated": false
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/Case.00N5b00000DXTst"
+      },
+      "DurableId": "Case.00N5b00000DXTst",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/Case"
+        },
+        "QualifiedApiName": "Case"
+      },
+      "QualifiedApiName": "Classification__c",
+      "Label": "Case Classification",
+      "DataType": "Picklist",
+      "IsCalculated": false
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/Case.00N5b00000DXTtD"
+      },
+      "DurableId": "Case.00N5b00000DXTtD",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/Case"
+        },
+        "QualifiedApiName": "Case"
+      },
+      "QualifiedApiName": "Error_Message__c",
+      "Label": "Error Message",
+      "DataType": "Long Text Area(1000)",
+      "IsCalculated": false
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/Case.00N5b00000DXUFO"
+      },
+      "DurableId": "Case.00N5b00000DXUFO",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/Case"
+        },
+        "QualifiedApiName": "Case"
+      },
+      "QualifiedApiName": "Invoice__c",
+      "Label": "Invoice",
+      "DataType": "Lookup(Invoice)",
+      "IsCalculated": false
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/Case.00N5b00000DXUFd"
+      },
+      "DurableId": "Case.00N5b00000DXUFd",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/Case"
+        },
+        "QualifiedApiName": "Case"
+      },
+      "QualifiedApiName": "Resolution_Notes__c",
+      "Label": "Resolution Notes",
+      "DataType": "Text Area(255)",
+      "IsCalculated": false
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/Case.00N5b00000EG99C"
+      },
+      "DurableId": "Case.00N5b00000EG99C",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/Case"
+        },
+        "QualifiedApiName": "Case"
+      },
+      "QualifiedApiName": "Hours_to_Complete__c",
+      "Label": "Hours to Complete",
+      "DataType": "Number(2, 2)",
+      "IsCalculated": false
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/Case.00N5b00000EGBVe"
+      },
+      "DurableId": "Case.00N5b00000EGBVe",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/Case"
+        },
+        "QualifiedApiName": "Case"
+      },
+      "QualifiedApiName": "Asset2__c",
+      "Label": "Asset2",
+      "DataType": "Lookup(Asset2)",
+      "IsCalculated": false
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/Case.00N5b00000EGKVL"
+      },
+      "DurableId": "Case.00N5b00000EGKVL",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/Case"
+        },
+        "QualifiedApiName": "Case"
+      },
+      "QualifiedApiName": "Zendesk_Support_Ticket_Assignee_Name__c",
+      "Label": "Zendesk Support Ticket Assignee Name",
+      "DataType": "Text(255)",
+      "IsCalculated": false
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/Case.00N5b00000EGKVM"
+      },
+      "DurableId": "Case.00N5b00000EGKVM",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/Case"
+        },
+        "QualifiedApiName": "Case"
+      },
+      "QualifiedApiName": "Zendesk_Support_Ticket_Brand_Name__c",
+      "Label": "Zendesk Support Ticket Brand Name",
+      "DataType": "Text(255)",
+      "IsCalculated": false
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/Case.00N5b00000EGKVN"
+      },
+      "DurableId": "Case.00N5b00000EGKVN",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/Case"
+        },
+        "QualifiedApiName": "Case"
+      },
+      "QualifiedApiName": "Zendesk_Support_Ticket_Created_At__c",
+      "Label": "Zendesk Support Ticket Created At",
+      "DataType": "Date/Time",
+      "IsCalculated": false
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/Case.00N5b00000EGKVO"
+      },
+      "DurableId": "Case.00N5b00000EGKVO",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/Case"
+        },
+        "QualifiedApiName": "Case"
+      },
+      "QualifiedApiName": "Zendesk_Support_Ticket_Form_Name__c",
+      "Label": "Zendesk Support Ticket Form Name",
+      "DataType": "Text(255)",
+      "IsCalculated": false
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/Case.00N5b00000EGKVP"
+      },
+      "DurableId": "Case.00N5b00000EGKVP",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/Case"
+        },
+        "QualifiedApiName": "Case"
+      },
+      "QualifiedApiName": "Zendesk_Support_Ticket_Group_Name__c",
+      "Label": "Zendesk Support Ticket Group Name",
+      "DataType": "Text(255)",
+      "IsCalculated": false
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/Case.00N5b00000EGKVQ"
+      },
+      "DurableId": "Case.00N5b00000EGKVQ",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/Case"
+        },
+        "QualifiedApiName": "Case"
+      },
+      "QualifiedApiName": "Zendesk_Support_Ticket_ID__c",
+      "Label": "Zendesk Support Ticket ID",
+      "DataType": "Text(255)",
+      "IsCalculated": false
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/Case.00N5b00000EGKVR"
+      },
+      "DurableId": "Case.00N5b00000EGKVR",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/Case"
+        },
+        "QualifiedApiName": "Case"
+      },
+      "QualifiedApiName": "Zendesk_Support_Ticket_Initial_Assigned__c",
+      "Label": "Zendesk Support Ticket Initial Assigned",
+      "DataType": "Date/Time",
+      "IsCalculated": false
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/Case.00N5b00000EGKVS"
+      },
+      "DurableId": "Case.00N5b00000EGKVS",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/Case"
+        },
+        "QualifiedApiName": "Case"
+      },
+      "QualifiedApiName": "Zendesk_Support_Ticket_Organization_Name__c",
+      "Label": "Zendesk Support Ticket Organization Name",
+      "DataType": "Text(255)",
+      "IsCalculated": false
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/Case.00N5b00000EGKVT"
+      },
+      "DurableId": "Case.00N5b00000EGKVT",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/Case"
+        },
+        "QualifiedApiName": "Case"
+      },
+      "QualifiedApiName": "Zendesk_Support_Ticket_Requester_As_Lead__c",
+      "Label": "Zendesk Support Ticket Requester As Lead",
+      "DataType": "Lookup(Lead)",
+      "IsCalculated": false
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/Case.00N5b00000EGKVU"
+      },
+      "DurableId": "Case.00N5b00000EGKVU",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/Case"
+        },
+        "QualifiedApiName": "Case"
+      },
+      "QualifiedApiName": "Zendesk_Support_Ticket_Requester_Email__c",
+      "Label": "Zendesk Support Ticket Requester Email",
+      "DataType": "Text(255)",
+      "IsCalculated": false
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/Case.00N5b00000EGKVV"
+      },
+      "DurableId": "Case.00N5b00000EGKVV",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/Case"
+        },
+        "QualifiedApiName": "Case"
+      },
+      "QualifiedApiName": "Zendesk_Support_Ticket_Requester_Name__c",
+      "Label": "Zendesk Support Ticket Requester Name",
+      "DataType": "Text(255)",
+      "IsCalculated": false
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/Case.00N5b00000EGKVW"
+      },
+      "DurableId": "Case.00N5b00000EGKVW",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/Case"
+        },
+        "QualifiedApiName": "Case"
+      },
+      "QualifiedApiName": "Zendesk_Support_Ticket_Resolution_Bus__c",
+      "Label": "Zendesk Support Ticket Resolution (Bus)",
+      "DataType": "Number(18, 0)",
+      "IsCalculated": false
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/Case.00N5b00000EGKVX"
+      },
+      "DurableId": "Case.00N5b00000EGKVX",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/Case"
+        },
+        "QualifiedApiName": "Case"
+      },
+      "QualifiedApiName": "Zendesk_Support_Ticket_Resolution_Cal__c",
+      "Label": "Zendesk Support Ticket Resolution (Cal)",
+      "DataType": "Number(18, 0)",
+      "IsCalculated": false
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/Case.00N5b00000EGKVY"
+      },
+      "DurableId": "Case.00N5b00000EGKVY",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/Case"
+        },
+        "QualifiedApiName": "Case"
+      },
+      "QualifiedApiName": "Zendesk_Support_Ticket_Solved_At__c",
+      "Label": "Zendesk Support Ticket Solved At",
+      "DataType": "Date/Time",
+      "IsCalculated": false
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/Case.00N5b00000EGKVZ"
+      },
+      "DurableId": "Case.00N5b00000EGKVZ",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/Case"
+        },
+        "QualifiedApiName": "Case"
+      },
+      "QualifiedApiName": "Zendesk_Support_Ticket_Tags__c",
+      "Label": "Zendesk Support Ticket Tag",
+      "DataType": "Long Text Area(10000)",
+      "IsCalculated": false
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/Case.00N5b00000EGKVa"
+      },
+      "DurableId": "Case.00N5b00000EGKVa",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/Case"
+        },
+        "QualifiedApiName": "Case"
+      },
+      "QualifiedApiName": "Zendesk_Support_Ticket_URL__c",
+      "Label": "Zendesk Support Ticket URL",
+      "DataType": "URL(255)",
+      "IsCalculated": false
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/Case.00N5b00000EGKVb"
+      },
+      "DurableId": "Case.00N5b00000EGKVb",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/Case"
+        },
+        "QualifiedApiName": "Case"
+      },
+      "QualifiedApiName": "Zendesk_Support_Ticket_Updated_At__c",
+      "Label": "Zendesk Support Ticket Updated At",
+      "DataType": "Date/Time",
+      "IsCalculated": false
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/Case.00N5b00000EGf5x"
+      },
+      "DurableId": "Case.00N5b00000EGf5x",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/Case"
+        },
+        "QualifiedApiName": "Case"
+      },
+      "QualifiedApiName": "Account__c",
+      "Label": "Account",
+      "DataType": "Lookup(Account)",
+      "IsCalculated": false
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/Case.00N5b00000EGf62"
+      },
+      "DurableId": "Case.00N5b00000EGf62",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/Case"
+        },
+        "QualifiedApiName": "Case"
+      },
+      "QualifiedApiName": "RMA__c",
+      "Label": "RMA",
+      "DataType": "Lookup(RMA)",
+      "IsCalculated": false
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/Case.00N5b00000EGi8L"
+      },
+      "DurableId": "Case.00N5b00000EGi8L",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/Case"
+        },
+        "QualifiedApiName": "Case"
+      },
+      "QualifiedApiName": "Comments__c",
+      "Label": "Comments",
+      "DataType": "Long Text Area(10000)",
+      "IsCalculated": false
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/Case.00N5b00000DbtvO"
+      },
+      "DurableId": "Case.00N5b00000DbtvO",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/Case"
+        },
+        "QualifiedApiName": "Case"
+      },
+      "QualifiedApiName": "Escalated_to_Project__c",
+      "Label": "Escalated to Project",
+      "DataType": "Checkbox",
+      "IsCalculated": false
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/Case.00N5b00000EGlr4"
+      },
+      "DurableId": "Case.00N5b00000EGlr4",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/Case"
+        },
+        "QualifiedApiName": "Case"
+      },
+      "QualifiedApiName": "Created_by_EU_UK__c",
+      "Label": "Created by EU/UK",
+      "DataType": "Formula (Checkbox)",
+      "IsCalculated": true
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/Case.00N5b00000Dc76c"
+      },
+      "DurableId": "Case.00N5b00000Dc76c",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/Case"
+        },
+        "QualifiedApiName": "Case"
+      },
+      "QualifiedApiName": "Notes_Updates__c",
+      "Label": "Notes/Updates",
+      "DataType": "Formula (Text)",
+      "IsCalculated": true
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/Case.00N5b00000Dc76d"
+      },
+      "DurableId": "Case.00N5b00000Dc76d",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/Case"
+        },
+        "QualifiedApiName": "Case"
+      },
+      "QualifiedApiName": "RMA_Number__c",
+      "Label": "RMA Number",
+      "DataType": "Formula (Text)",
+      "IsCalculated": true
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/Case.00N5b00000Dc76e"
+      },
+      "DurableId": "Case.00N5b00000Dc76e",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/Case"
+        },
+        "QualifiedApiName": "Case"
+      },
+      "QualifiedApiName": "Reference_Number__c",
+      "Label": "Reference Number",
+      "DataType": "Formula (Text)",
+      "IsCalculated": true
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/Case.00N5b00000Dc76g"
+      },
+      "DurableId": "Case.00N5b00000Dc76g",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/Case"
+        },
+        "QualifiedApiName": "Case"
+      },
+      "QualifiedApiName": "Ship_Date__c",
+      "Label": "Ship Date",
+      "DataType": "Formula (Date)",
+      "IsCalculated": true
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/Case.00N5b00000Dc76i"
+      },
+      "DurableId": "Case.00N5b00000Dc76i",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/Case"
+        },
+        "QualifiedApiName": "Case"
+      },
+      "QualifiedApiName": "Stage_Status__c",
+      "Label": "Stage/Status",
+      "DataType": "Formula (Text)",
+      "IsCalculated": true
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/Case.00N5b00000Dc76l"
+      },
+      "DurableId": "Case.00N5b00000Dc76l",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/Case"
+        },
+        "QualifiedApiName": "Case"
+      },
+      "QualifiedApiName": "Tracking_Number__c",
+      "Label": "Tracking Number",
+      "DataType": "Formula (Text)",
+      "IsCalculated": true
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/Case.00N5b00000Dc76Z"
+      },
+      "DurableId": "Case.00N5b00000Dc76Z",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/Case"
+        },
+        "QualifiedApiName": "Case"
+      },
+      "QualifiedApiName": "Billable_Contract_Warranty__c",
+      "Label": "Billable/Contract/Warranty",
+      "DataType": "Text(55)",
+      "IsCalculated": false
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/Case.00N5b00000Dc76a"
+      },
+      "DurableId": "Case.00N5b00000Dc76a",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/Case"
+        },
+        "QualifiedApiName": "Case"
+      },
+      "QualifiedApiName": "Case_Info__c",
+      "Label": "Case Info",
+      "DataType": "Long Text Area(32768)",
+      "IsCalculated": false
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/Case.00N5b00000Dc76b"
+      },
+      "DurableId": "Case.00N5b00000Dc76b",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/Case"
+        },
+        "QualifiedApiName": "Case"
+      },
+      "QualifiedApiName": "KG_Case_Number__c",
+      "Label": "KG Case Number",
+      "DataType": "Text(50)",
+      "IsCalculated": false
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/Case.00N5b00000Dc76f"
+      },
+      "DurableId": "Case.00N5b00000Dc76f",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/Case"
+        },
+        "QualifiedApiName": "Case"
+      },
+      "QualifiedApiName": "Requested_Part_Number_s__c",
+      "Label": "Requested Part Number(s)",
+      "DataType": "Text(150)",
+      "IsCalculated": false
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/Case.00N5b00000Dc76h"
+      },
+      "DurableId": "Case.00N5b00000Dc76h",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/Case"
+        },
+        "QualifiedApiName": "Case"
+      },
+      "QualifiedApiName": "Shipping_Location__c",
+      "Label": "Shipping Location",
+      "DataType": "Text(250)",
+      "IsCalculated": false
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/Case.00N5b00000Dc76j"
+      },
+      "DurableId": "Case.00N5b00000Dc76j",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/Case"
+        },
+        "QualifiedApiName": "Case"
+      },
+      "QualifiedApiName": "System_Serial_Number__c",
+      "Label": "System Serial Number",
+      "DataType": "Text(150)",
+      "IsCalculated": false
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/Case.00N5b00000Dc76k"
+      },
+      "DurableId": "Case.00N5b00000Dc76k",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/Case"
+        },
+        "QualifiedApiName": "Case"
+      },
+      "QualifiedApiName": "Territory_Manager__c",
+      "Label": "Territory Manager",
+      "DataType": "Text(50)",
+      "IsCalculated": false
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/Case.00N5b00000Dc76r"
+      },
+      "DurableId": "Case.00N5b00000Dc76r",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/Case"
+        },
+        "QualifiedApiName": "Case"
+      },
+      "QualifiedApiName": "Territory_Manager_Email__c",
+      "Label": "Territory Manager Email",
+      "DataType": "Formula (Text)",
+      "IsCalculated": true
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/Case.00N5b00000Dc7pt"
+      },
+      "DurableId": "Case.00N5b00000Dc7pt",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/Case"
+        },
+        "QualifiedApiName": "Case"
+      },
+      "QualifiedApiName": "KG_Account_Name__c",
+      "Label": "KG Account Name",
+      "DataType": "Text(150)",
+      "IsCalculated": false
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/Case.00N5b00000Dc7q3"
+      },
+      "DurableId": "Case.00N5b00000Dc7q3",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/Case"
+        },
+        "QualifiedApiName": "Case"
+      },
+      "QualifiedApiName": "KG_Customer_HQ_Address__c",
+      "Label": "KG Customer HQ Address",
+      "DataType": "Text Area(255)",
+      "IsCalculated": false
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/Case.00N5b00000Dc7q8"
+      },
+      "DurableId": "Case.00N5b00000Dc7q8",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/Case"
+        },
+        "QualifiedApiName": "Case"
+      },
+      "QualifiedApiName": "KG_Customer_Site_Name__c",
+      "Label": "KG Customer Site Name",
+      "DataType": "Text(150)",
+      "IsCalculated": false
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/Case.00N5b00000Dc7qD"
+      },
+      "DurableId": "Case.00N5b00000Dc7qD",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/Case"
+        },
+        "QualifiedApiName": "Case"
+      },
+      "QualifiedApiName": "KG_Customer_Site_Address__c",
+      "Label": "KG Customer Site Address",
+      "DataType": "Text Area(255)",
+      "IsCalculated": false
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/Case.00NRo000000vxBR"
+      },
+      "DurableId": "Case.00NRo000000vxBR",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/Case"
+        },
+        "QualifiedApiName": "Case"
+      },
+      "QualifiedApiName": "Case_Owner_Profile__c",
+      "Label": "Case Owner Profile",
+      "DataType": "Formula (Text)",
+      "IsCalculated": true
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/Case.00NRo000001HCqb"
+      },
+      "DurableId": "Case.00NRo000001HCqb",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/Case"
+        },
+        "QualifiedApiName": "Case"
+      },
+      "QualifiedApiName": "Repair_Eval_Endoscopy_Type__c",
+      "Label": "Repair Eval - Endoscopy Type",
+      "DataType": "Picklist",
+      "IsCalculated": false
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/Case.00NRo000001HCtp"
+      },
+      "DurableId": "Case.00NRo000001HCtp",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/Case"
+        },
+        "QualifiedApiName": "Case"
+      },
+      "QualifiedApiName": "Repair_Eval_Facility_Name__c",
+      "Label": "Repair Eval - Facility Name",
+      "DataType": "Text(250)",
+      "IsCalculated": false
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/Case.00NRo000001HCyf"
+      },
+      "DurableId": "Case.00NRo000001HCyf",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/Case"
+        },
+        "QualifiedApiName": "Case"
+      },
+      "QualifiedApiName": "Repair_Eval_Sales_Rep__c",
+      "Label": "Repair Eval - Sales Rep",
+      "DataType": "Text(100)",
+      "IsCalculated": false
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/Case.00NRo000001HD3V"
+      },
+      "DurableId": "Case.00NRo000001HD3V",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/Case"
+        },
+        "QualifiedApiName": "Case"
+      },
+      "QualifiedApiName": "Repair_Eval_PO_Number__c",
+      "Label": "Repair Eval - PO Number",
+      "DataType": "Text(100)",
+      "IsCalculated": false
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/Case.00NRo000001HDDB"
+      },
+      "DurableId": "Case.00NRo000001HDDB",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/Case"
+        },
+        "QualifiedApiName": "Case"
+      },
+      "QualifiedApiName": "Repair_Eval_Disinfected__c",
+      "Label": "Repair Eval - Disinfected",
+      "DataType": "Checkbox",
+      "IsCalculated": false
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/Case.00NRo000001HDEn"
+      },
+      "DurableId": "Case.00NRo000001HDEn",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/Case"
+        },
+        "QualifiedApiName": "Case"
+      },
+      "QualifiedApiName": "Repair_Eval_Pre_Approved_Amount__c",
+      "Label": "Repair Eval - Pre Approved Amount",
+      "DataType": "Currency(18, 0)",
+      "IsCalculated": false
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/Case.00NRo000001I7or"
+      },
+      "DurableId": "Case.00NRo000001I7or",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/Case"
+        },
+        "QualifiedApiName": "Case"
+      },
+      "QualifiedApiName": "Repair_Eval_Endoscope_Manufacturer__c",
+      "Label": "Repair Eval - Endoscope Manufacturer",
+      "DataType": "Text(100)",
+      "IsCalculated": false
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/Case.00NRo000001I7qT"
+      },
+      "DurableId": "Case.00NRo000001I7qT",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/Case"
+        },
+        "QualifiedApiName": "Case"
+      },
+      "QualifiedApiName": "Repair_Eval_Endoscope_Model__c",
+      "Label": "Repair Eval - Endoscope Model",
+      "DataType": "Text(200)",
+      "IsCalculated": false
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/Case.00NRo000001frPb"
+      },
+      "DurableId": "Case.00NRo000001frPb",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/Case"
+        },
+        "QualifiedApiName": "Case"
+      },
+      "QualifiedApiName": "Disinfected_Text__c",
+      "Label": "Disinfected Text",
+      "DataType": "Formula (Text)",
+      "IsCalculated": true
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/Case.00NRo000005KqkL"
+      },
+      "DurableId": "Case.00NRo000005KqkL",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/Case"
+        },
+        "QualifiedApiName": "Case"
+      },
+      "QualifiedApiName": "My_Assigned__c",
+      "Label": "My Assigned",
+      "DataType": "Formula (Checkbox)",
+      "IsCalculated": true
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/Case.00NRo000006KF2f"
+      },
+      "DurableId": "Case.00NRo000006KF2f",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/Case"
+        },
+        "QualifiedApiName": "Case"
+      },
+      "QualifiedApiName": "Unassigned__c",
+      "Label": "Unassigned",
+      "DataType": "Formula (Checkbox)",
+      "IsCalculated": true
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/Case.00NRo000007DokX"
+      },
+      "DurableId": "Case.00NRo000007DokX",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/Case"
+        },
+        "QualifiedApiName": "Case"
+      },
+      "QualifiedApiName": "Created_by_Entity__c",
+      "Label": "Created by Entity",
+      "DataType": "Picklist",
+      "IsCalculated": false
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/Case.00NRo000008GRNy"
+      },
+      "DurableId": "Case.00NRo000008GRNy",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/Case"
+        },
+        "QualifiedApiName": "Case"
+      },
+      "QualifiedApiName": "AVA_MAPPER__Product__c",
+      "Label": "Product",
+      "DataType": "Picklist",
+      "IsCalculated": false
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/Case.00NRo000008qJwP"
+      },
+      "DurableId": "Case.00NRo000008qJwP",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/Case"
+        },
+        "QualifiedApiName": "Case"
+      },
+      "QualifiedApiName": "KPI_Exempt__c",
+      "Label": "KPI Exempt",
+      "DataType": "Checkbox",
+      "IsCalculated": false
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/Case.00NRo000008qJy1"
+      },
+      "DurableId": "Case.00NRo000008qJy1",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/Case"
+        },
+        "QualifiedApiName": "Case"
+      },
+      "QualifiedApiName": "Equipment__c",
+      "Label": "Equipment",
+      "DataType": "Lookup(Equipment)",
+      "IsCalculated": false
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/Case.00NRo000008qKNp"
+      },
+      "DurableId": "Case.00NRo000008qKNp",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/Case"
+        },
+        "QualifiedApiName": "Case"
+      },
+      "QualifiedApiName": "UK_Warehouse_KPI_Result__c",
+      "Label": "UK Warehouse KPI Result",
+      "DataType": "Formula (Text)",
+      "IsCalculated": true
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/Case.00NRo000008y42X"
+      },
+      "DurableId": "Case.00NRo000008y42X",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/Case"
+        },
+        "QualifiedApiName": "Case"
+      },
+      "QualifiedApiName": "Service_Appointment__c",
+      "Label": "Service Appointment",
+      "DataType": "Lookup(Service Appointment)",
+      "IsCalculated": false
+    }
+  ],
+  "totalSize": 171,
+  "done": true
+}

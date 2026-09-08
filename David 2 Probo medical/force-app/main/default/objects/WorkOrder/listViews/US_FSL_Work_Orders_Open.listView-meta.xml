@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>US_FSL_Work_Orders_Open</fullName>
+    <columns>Name</columns>
+    <columns>Owner</columns>
+    <columns>Account</columns>
+    <columns>Subject</columns>
+    <columns>WorkType</columns>
+    <columns>Status</columns>
+    <columns>Opportunity_Number__c</columns>
+    <columns>CreatedDate</columns>
+    <columns>LastModifiedDate</columns>
+    <columns>LastModifiedBy</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>RecordType</field>
+        <operation>equals</operation>
+        <value>WorkOrder.FSL_Work_Order</value>
+    </filters>
+    <filters>
+        <field>COUNTRY_CODE</field>
+        <operation>equals</operation>
+        <value>US</value>
+    </filters>
+    <filters>
+        <field>Contract_Type__c</field>
+        <operation>notContain</operation>
+        <value>UK</value>
+    </filters>
+    <filters>
+        <field>CurrencyIsoCode</field>
+        <operation>notEqual</operation>
+    </filters>
+    <filters>
+        <field>Account</field>
+        <operation>notEqual</operation>
+        <value>Probo Medical LTD (UK)</value>
+    </filters>
+    <filters>
+        <field>Status</field>
+        <operation>notEqual</operation>
+        <value>Canceled,Completed WO,Closed,Cannot Complete,Closed - Paid,Closed - Submitted</value>
+    </filters>
+    <label>US FSL Work Orders - Open</label>
+</ListView>

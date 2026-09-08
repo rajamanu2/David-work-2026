@@ -1,0 +1,249 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <buckets>
+        <bucketType>text</bucketType>
+        <developerName>BucketField_8434560</developerName>
+        <masterLabel>Product Type</masterLabel>
+        <nullTreatment>n</nullTreatment>
+        <otherBucketLabel>Other</otherBucketLabel>
+        <sourceColumnName>PRODUCT_NAME</sourceColumnName>
+        <useOther>true</useOther>
+        <values>
+            <sourceValues>
+                <sourceValue>A/R Collect</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>A/R Collect Domestic Payments</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>A/R Collect SAAS Fee</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>A/R Collet Cross Border Payments</sourceValue>
+            </sourceValues>
+            <value>A/R Collect</value>
+        </values>
+        <values>
+            <sourceValues>
+                <sourceValue>Cross Border - Commercial</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>Cross Border Payments</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>Cross Border Receivables FX (back-end)</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>Cross Border Receivables FX (front-end)</sourceValue>
+            </sourceValues>
+            <value>Cross-Border</value>
+        </values>
+        <values>
+            <sourceValues>
+                <sourceValue>Cross Border Payment Plans</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>International Payment Plans</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>Payment Plans Cross Border Payments</sourceValue>
+            </sourceValues>
+            <value>IPP</value>
+        </values>
+        <values>
+            <sourceValues>
+                <sourceValue>Payment Plans</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>Payment Plans SAAS Fee</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>Payment Plans Domestic Payments</sourceValue>
+            </sourceValues>
+            <value>Payment Plans</value>
+        </values>
+        <values>
+            <sourceValues>
+                <sourceValue>Payables</sourceValue>
+            </sourceValues>
+            <value>Payables</value>
+        </values>
+        <values>
+            <sourceValues>
+                <sourceValue>eStore</sourceValue>
+            </sourceValues>
+            <value>eStore</value>
+        </values>
+        <values>
+            <sourceValues>
+                <sourceValue>Domestic / LFL Receivables (Like-for-Like)</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>Domestic Payments</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>Domestic Payments  (Same Currency Payments)</sourceValue>
+            </sourceValues>
+            <value>Domestic</value>
+        </values>
+        <values>
+            <sourceValues>
+                <sourceValue>1098-T Reporting</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>Billing</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>CD Payment Request</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>Checkout PayEx</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>Deposits</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>Embedded PayEx</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>Refunds</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>Secure Checkout</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>Third Party Tools</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>Virtual Terminal</sourceValue>
+            </sourceValues>
+            <value>Other CRS</value>
+        </values>
+        <values>
+            <sourceValues>
+                <sourceValue>Cross Border Plus</sourceValue>
+            </sourceValues>
+            <value>Cross Border +</value>
+        </values>
+    </buckets>
+    <columns>
+        <field>FAMILY</field>
+    </columns>
+    <columns>
+        <field>PRODUCT_NAME</field>
+    </columns>
+    <columns>
+        <field>CAMPAIGN_NAME</field>
+    </columns>
+    <columns>
+        <field>OPPORTUNITY_NAME</field>
+    </columns>
+    <columns>
+        <field>CLOSE_DATE</field>
+    </columns>
+    <columns>
+        <field>ACCOUNT_NAME</field>
+    </columns>
+    <columns>
+        <field>STAGE_NAME</field>
+    </columns>
+    <columns>
+        <field>FULL_NAME</field>
+    </columns>
+    <columns>
+        <aggregateTypes>Sum</aggregateTypes>
+        <field>Opportunity.ARR__c</field>
+    </columns>
+    <columns>
+        <field>TYPE</field>
+    </columns>
+    <columns>
+        <aggregateTypes>Sum</aggregateTypes>
+        <field>PROBABILITY</field>
+    </columns>
+    <currency>USD</currency>
+    <filter>
+        <criteriaItems>
+            <column>Campaign.Participation_Level__c</column>
+            <columnToColumn>false</columnToColumn>
+            <isUnlocked>true</isUnlocked>
+            <operator>notEqual</operator>
+            <value>Attending Only</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>CREATED_DATE</column>
+            <columnToColumn>false</columnToColumn>
+            <isUnlocked>true</isUnlocked>
+            <operator>equals</operator>
+            <value>THIS_YEAR</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>CAMPAIGN_NAME</column>
+            <columnToColumn>false</columnToColumn>
+            <isUnlocked>true</isUnlocked>
+            <operator>notContain</operator>
+            <value>Pardot,Test,BDR,2015,2016,2017,2018,Email_</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Account.Account_Industry__c</column>
+            <columnToColumn>false</columnToColumn>
+            <isUnlocked>true</isUnlocked>
+            <operator>equals</operator>
+            <value>Education,Education Agent</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>CAMPAIGN_TYPE</column>
+            <columnToColumn>false</columnToColumn>
+            <isUnlocked>true</isUnlocked>
+            <operator>notEqual</operator>
+            <value>Email</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>PRODUCT_NAME</column>
+            <columnToColumn>false</columnToColumn>
+            <isUnlocked>true</isUnlocked>
+            <operator>notEqual</operator>
+            <value></value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>BucketField_8434560</column>
+            <columnToColumn>false</columnToColumn>
+            <isUnlocked>true</isUnlocked>
+            <operator>notEqual</operator>
+            <value>Other CRS</value>
+        </criteriaItems>
+    </filter>
+    <format>Summary</format>
+    <groupingsDown>
+        <dateGranularity>Day</dateGranularity>
+        <field>BucketField_8434560</field>
+        <sortOrder>Asc</sortOrder>
+    </groupingsDown>
+    <groupingsDown>
+        <dateGranularity>Day</dateGranularity>
+        <field>CAMPAIGN_TYPE</field>
+        <sortOrder>Asc</sortOrder>
+    </groupingsDown>
+    <name>EDU Mktg Opps - By Campaign Type w Prod.</name>
+    <params>
+        <name>open</name>
+        <value>all</value>
+    </params>
+    <params>
+        <name>probability</name>
+        <value>&gt;0</value>
+    </params>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>OpportunityCampaign</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <showGrandTotal>true</showGrandTotal>
+    <showSubTotals>true</showSubTotals>
+    <timeFrameFilter>
+        <dateColumn>CAMPAIGN_STARTDATE</dateColumn>
+        <interval>INTERVAL_CUSTOM</interval>
+    </timeFrameFilter>
+</Report>

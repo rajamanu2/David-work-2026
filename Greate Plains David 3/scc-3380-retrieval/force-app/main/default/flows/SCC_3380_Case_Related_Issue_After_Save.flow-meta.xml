@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>66.0</apiVersion>
+    <areMetricsLoggedToDataCloud>false</areMetricsLoggedToDataCloud>
+    <decisions>
+        <description>SCC-3380: Related Outage is an Incident lookup, so only Incident Case Related Issue records are copied onto the Case.</description>
+        <name>Is_Incident_Relationship</name>
+        <label>Is Incident Relationship</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <defaultConnectorLabel>Not an Incident</defaultConnectorLabel>
+        <rules>
+            <name>Related_To_Incident</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.RelatedEntityType</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Incident</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Stamp_Related_Outage_On_Case</targetReference>
+            </connector>
+            <label>Related To Incident</label>
+        </rules>
+    </decisions>
+    <description>SCC-3380: When a Case Related Issue links a Trouble Ticket to an Incident, stamps Related Outage on the Case so reports and Work Order formulas can group by the parent Incident. Unlink by deleting the Case Related Issue record.</description>
+    <environments>Default</environments>
+    <interviewLabel>SCC-3380 Case Related Issue After Save {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>SCC-3380 Case Related Issue After Save</label>
+    <processType>AutoLaunchedFlow</processType>
+    <recordUpdates>
+        <description>SCC-3380: Keeps Related Outage in sync with the Case Related Issue parent Incident. Does not change case number or other case details.</description>
+        <name>Stamp_Related_Outage_On_Case</name>
+        <label>Stamp Related Outage On Case</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>$Record.CaseId</elementReference>
+            </value>
+        </filters>
+        <inputAssignments>
+            <field>Related_Outage__c</field>
+            <value>
+                <elementReference>$Record.RelatedIssueId</elementReference>
+            </value>
+        </inputAssignments>
+        <object>Case</object>
+    </recordUpdates>
+    <start>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Is_Incident_Relationship</targetReference>
+        </connector>
+        <object>CaseRelatedIssue</object>
+        <recordTriggerType>Create</recordTriggerType>
+        <triggerType>RecordAfterSave</triggerType>
+    </start>
+    <status>Active</status>
+</Flow>

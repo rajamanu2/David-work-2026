@@ -1,0 +1,942 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>56.0</apiVersion>
+    <areMetricsLoggedToDataCloud>false</areMetricsLoggedToDataCloud>
+    <assignments>
+        <name>AssignCratingCost</name>
+        <label>AssignCratingCost</label>
+        <locationX>50</locationX>
+        <locationY>1367</locationY>
+        <assignmentItems>
+            <assignToReference>ShippingCostVariable</assignToReference>
+            <operator>Add</operator>
+            <value>
+                <elementReference>CratingCostFormulaUSD</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>AssignShippingCostUSD</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>AssignCratingCost0</name>
+        <label>AssignCratingCost0</label>
+        <locationX>842</locationX>
+        <locationY>1367</locationY>
+        <assignmentItems>
+            <assignToReference>ShippingCostVariable</assignToReference>
+            <operator>Add</operator>
+            <value>
+                <numberValue>0.0</numberValue>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>UpdateWithShippingCost0</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>AssignCratingCostEUR</name>
+        <label>AssignCratingCostEUR</label>
+        <locationX>578</locationX>
+        <locationY>1367</locationY>
+        <assignmentItems>
+            <assignToReference>ShippingCostVariable</assignToReference>
+            <operator>Add</operator>
+            <value>
+                <elementReference>CratingCostFormulaEUR</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>AssignUSShippingCostEUR</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>AssignCratingCostGBP</name>
+        <label>AssignCratingCostGBP</label>
+        <locationX>314</locationX>
+        <locationY>1367</locationY>
+        <assignmentItems>
+            <assignToReference>ShippingCostVariable</assignToReference>
+            <operator>Add</operator>
+            <value>
+                <elementReference>CratingCostFormulaGBP</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>AssignShippingChargesGBP</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>AssignRemovalChargeEUR</name>
+        <label>AssignRemovalChargeEUR</label>
+        <locationX>1667</locationX>
+        <locationY>575</locationY>
+        <assignmentItems>
+            <assignToReference>RemovalCost</assignToReference>
+            <operator>Add</operator>
+            <value>
+                <elementReference>RemovalCostFormulaEUR</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>UpdateRemovalCostEUR</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>AssignRemovalChargeGBP</name>
+        <label>AssignRemovalChargeGBP</label>
+        <locationX>1403</locationX>
+        <locationY>575</locationY>
+        <assignmentItems>
+            <assignToReference>RemovalCost</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>RemovalCostFormulaGBP</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>UpdateRemovalCostGBP</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>AssignRemovalChargeUSD</name>
+        <label>AssignRemovalChargeUSD</label>
+        <locationX>1139</locationX>
+        <locationY>575</locationY>
+        <assignmentItems>
+            <assignToReference>RemovalCost</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>RemovalCostFormulaUSD</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>UpdateRemovalCostUSD</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>AssignRoadCratingCost0</name>
+        <label>AssignRoadCratingCost0</label>
+        <locationX>1634</locationX>
+        <locationY>1367</locationY>
+        <assignmentItems>
+            <assignToReference>ShippingCostVariable</assignToReference>
+            <operator>Add</operator>
+            <value>
+                <numberValue>0.0</numberValue>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Copy_1_of_UpdateWithShippingCost0</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>AssignRoadCratingCostGBP</name>
+        <label>AssignRoadCratingCostGBP</label>
+        <locationX>1106</locationX>
+        <locationY>1367</locationY>
+        <assignmentItems>
+            <assignToReference>ShippingCostVariable</assignToReference>
+            <operator>Add</operator>
+            <value>
+                <elementReference>RoadCratingCostGBP</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Copy_1_of_UpdateWithShippingCostGBP</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>AssignShippingChargesGBP</name>
+        <label>AssignShippingChargesGBP</label>
+        <locationX>314</locationX>
+        <locationY>1487</locationY>
+        <assignmentItems>
+            <assignToReference>ShippingCostVariable</assignToReference>
+            <operator>Add</operator>
+            <value>
+                <elementReference>ShippingUSFormulaGBP</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>UpdateWithShippingCostGBP</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>AssignShippingCostUSD</name>
+        <label>AssignShippingCostUSD</label>
+        <locationX>50</locationX>
+        <locationY>1487</locationY>
+        <assignmentItems>
+            <assignToReference>ShippingCostVariable</assignToReference>
+            <operator>Add</operator>
+            <value>
+                <elementReference>ShippingUSFormulaUSD</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>UpdateWithShippingCost</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>AssignUSRoadCratingCost</name>
+        <label>AssignUSRoadCratingCost</label>
+        <locationX>1898</locationX>
+        <locationY>1247</locationY>
+        <assignmentItems>
+            <assignToReference>ShippingCostVariable</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>USRoadCratingCostFormulaUSD</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>UpdateWithShippingCostRoadUSUSD</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>AssignUSRoadCratingCost0</name>
+        <label>AssignUSRoadCratingCost0</label>
+        <locationX>2162</locationX>
+        <locationY>1247</locationY>
+        <assignmentItems>
+            <assignToReference>ShippingCostVariable</assignToReference>
+            <operator>Add</operator>
+            <value>
+                <numberValue>0.0</numberValue>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>UpdateWithUSShippingCost0</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>AssignUSShippingCostEUR</name>
+        <label>AssignUSShippingCostEUR</label>
+        <locationX>578</locationX>
+        <locationY>1487</locationY>
+        <assignmentItems>
+            <assignToReference>ShippingCostVariable</assignToReference>
+            <operator>Add</operator>
+            <value>
+                <elementReference>ShippingUSFormulaEUR</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>UpdateWithShippingCostEUR</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>RoadCratingCostEUR</name>
+        <label>RoadCratingCostEUR</label>
+        <locationX>1370</locationX>
+        <locationY>1367</locationY>
+        <assignmentItems>
+            <assignToReference>ShippingCostVariable</assignToReference>
+            <operator>Add</operator>
+            <value>
+                <elementReference>AssignRoadCratingCostEUR</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Copy_1_of_UpdateWithShippingCostEUR</targetReference>
+        </connector>
+    </assignments>
+    <decisions>
+        <name>Copy_1_of_Currency</name>
+        <label>Currency?</label>
+        <locationX>1370</locationX>
+        <locationY>1247</locationY>
+        <defaultConnector>
+            <targetReference>AssignRoadCratingCost0</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>GBP1</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.CurrencyIsoCode</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>GBP</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>AssignRoadCratingCostGBP</targetReference>
+            </connector>
+            <label>GBP1</label>
+        </rules>
+        <rules>
+            <name>EUR1</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.CurrencyIsoCode</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>EUR</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>RoadCratingCostEUR</targetReference>
+            </connector>
+            <label>EUR1</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Currency</name>
+        <label>Currency?</label>
+        <locationX>1535</locationX>
+        <locationY>455</locationY>
+        <defaultConnector>
+            <targetReference>Copy_3_of_UpdateRemovalCost0</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>CAD</defaultConnectorLabel>
+        <rules>
+            <name>USD</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.CurrencyIsoCode</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>USD</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>AssignRemovalChargeUSD</targetReference>
+            </connector>
+            <label>USD</label>
+        </rules>
+        <rules>
+            <name>GBP</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record__Prior.CurrencyIsoCode</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>GBP</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>AssignRemovalChargeGBP</targetReference>
+            </connector>
+            <label>GBP</label>
+        </rules>
+        <rules>
+            <name>EUR</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.CurrencyIsoCode</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>EUR</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>AssignRemovalChargeEUR</targetReference>
+            </connector>
+            <label>EUR</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>CurrencyDecision</name>
+        <label>Currency?</label>
+        <locationX>446</locationX>
+        <locationY>1247</locationY>
+        <defaultConnector>
+            <targetReference>AssignCratingCost0</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>IsUSD</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.CurrencyIsoCode</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>USD</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>AssignCratingCost</targetReference>
+            </connector>
+            <label>USD</label>
+        </rules>
+        <rules>
+            <name>IsGBP</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.CurrencyIsoCode</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>GBP</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>AssignCratingCostGBP</targetReference>
+            </connector>
+            <label>GBP</label>
+        </rules>
+        <rules>
+            <name>IsEUR</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.CurrencyIsoCode</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>EUR</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>AssignCratingCostEUR</targetReference>
+            </connector>
+            <label>EUR</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Estimated_Shipping_Cost_is_Null</name>
+        <label>Estimated Removal Cost is Null?</label>
+        <locationX>1865</locationX>
+        <locationY>335</locationY>
+        <defaultConnector>
+            <targetReference>Final_Asset_Added</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>IsNotNull</defaultConnectorLabel>
+        <rules>
+            <name>IsNull</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Estimated_Removal_Cost__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Currency</targetReference>
+            </connector>
+            <label>IsNull</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Final_Asset_Added</name>
+        <label>Final Asset Added?</label>
+        <locationX>1865</locationX>
+        <locationY>1007</locationY>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>FinalAssetAdded</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Final_Asset__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>ShippingTo</targetReference>
+            </connector>
+            <doesRequireRecordChangedToMeetCriteria>true</doesRequireRecordChangedToMeetCriteria>
+            <label>FinalAssetAdded</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>ShippingTo</name>
+        <label>ShippingTo?</label>
+        <locationX>1304</locationX>
+        <locationY>1127</locationY>
+        <defaultConnector>
+            <targetReference>AssignUSRoadCratingCost0</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>ShippingToUSAorViceVersa</name>
+            <conditionLogic>(1 AND 2) OR (3 AND 4)</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Initial_Asset__r.Ownership__c</leftValueReference>
+                <operator>NotEqualTo</operator>
+                <rightValue>
+                    <stringValue>PROBO-US</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Final_Asset__r.Ownership__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>PROBO-US</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Initial_Asset__r.Ownership__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>PROBO-US</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Final_Asset__r.Ownership__c</leftValueReference>
+                <operator>NotEqualTo</operator>
+                <rightValue>
+                    <stringValue>PROBO-US</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>CurrencyDecision</targetReference>
+            </connector>
+            <label>Shipping To US From EU or Vice Versa</label>
+        </rules>
+        <rules>
+            <name>ShippingToFRorUK</name>
+            <conditionLogic>(1 OR 2) AND (3 OR 4)</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Initial_Asset__r.Ownership__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>PROBO-UK</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Initial_Asset__r.Ownership__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>PROBO-SAS</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Final_Asset__r.Ownership__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>PROBO-UK</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Final_Asset__r.Ownership__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>PROBO-SAS</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Copy_1_of_Currency</targetReference>
+            </connector>
+            <label>Shipping to EU from EU</label>
+        </rules>
+        <rules>
+            <name>Shipping_US_to_US</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Initial_Asset__r.Ownership__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>PROBO-US</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Final_Asset__r.Ownership__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>PROBO-US</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>AssignUSRoadCratingCost</targetReference>
+            </connector>
+            <label>Shipping US to US</label>
+        </rules>
+    </decisions>
+    <environments>Default</environments>
+    <formulas>
+        <name>AssignRoadCratingCostEUR</name>
+        <dataType>Currency</dataType>
+        <expression>IF({!$Record.Modality__c} = &quot;MRI&quot;, 1125.30, 
+IF({!$Record.Modality__c} = &quot;CT&quot;, 562.65,
+IF({!$Record.Modality__c} = &quot;X-Ray&quot;, 337.65,
+IF({!$Record.Modality__c} = &quot;Portable&quot;, 225.06,
+IF({!$Record.Modality__c} = &quot;Mammography&quot;, 337.59,
+IF({!$Record.Modality__c} = &quot;C-Arm&quot;, 337.59,
+300)
+)))))</expression>
+        <scale>2</scale>
+    </formulas>
+    <formulas>
+        <name>CratingCostFormulaEUR</name>
+        <dataType>Currency</dataType>
+        <expression>IF({!$Record.Modality__c} = &quot;MRI&quot;, 6189.15, 
+IF({!$Record.Modality__c} = &quot;CT&quot;, 3150.84,
+IF({!$Record.Modality__c} = &quot;X-Ray&quot;, 2813.25,
+IF({!$Record.Modality__c} = &quot;Portable&quot;, 1125.30,
+IF({!$Record.Modality__c} = &quot;Mammography&quot;, 1350.36,
+IF({!$Record.Modality__c} = &quot;C-Arm&quot;, 1125.30,
+2330)
+)))))</expression>
+        <scale>2</scale>
+    </formulas>
+    <formulas>
+        <name>CratingCostFormulaGBP</name>
+        <dataType>Currency</dataType>
+        <expression>IF({!$Record.Modality__c} = &quot;MRI&quot;, 5500, 
+IF({!$Record.Modality__c} = &quot;CT&quot;, 2800,
+IF({!$Record.Modality__c} = &quot;X-Ray&quot;, 2500,
+IF({!$Record.Modality__c} = &quot;Portable&quot;, 1000,
+IF({!$Record.Modality__c} = &quot;Mammography&quot;, 1200,
+IF({!$Record.Modality__c} = &quot;C-Arm&quot;, 1200,
+2000)
+)))))</expression>
+        <scale>2</scale>
+    </formulas>
+    <formulas>
+        <name>CratingCostFormulaUSD</name>
+        <dataType>Currency</dataType>
+        <expression>IF({!$Record.Modality__c} = &quot;MRI&quot;, 6655, 
+IF({!$Record.Modality__c} = &quot;CT&quot;, 3388,
+IF({!$Record.Modality__c} = &quot;X-Ray&quot;, 3025,
+IF({!$Record.Modality__c} = &quot;Portable&quot;, 1210,
+IF({!$Record.Modality__c} = &quot;Mammography&quot;, 1452,
+IF({!$Record.Modality__c} = &quot;C-Arm&quot;, 1210,
+2500)
+)))))</expression>
+        <scale>2</scale>
+    </formulas>
+    <formulas>
+        <name>RemovalCostFormulaEUR</name>
+        <dataType>Currency</dataType>
+        <expression>(IF({!$Record.Initial_Purchasing_Opportunity__r.Zone_1__c}, IF(({!$Record.Modality__c}) = &apos;X-Ray&apos;, 2600, IF(OR(({!$Record.Modality__c}) = &apos;Gamma Camera&apos;, ({!$Record.Modality__c}) = &apos;Fluoroscopy&apos;, ({!$Record.Modality__c}) = &apos;CT&apos;), 5200, IF(OR(({!$Record.Modality__c}) = &apos;Bone Density&apos;, ({!$Record.Modality__c}) = &apos;Dental&apos;, ({!$Record.Modality__c}) = &apos;Mammography&apos;), 1950, IF(OR(({!$Record.Modality__c}) = &apos;CV&apos;, ({!$Record.Modality__c}) = &apos;PET&apos;), 6500, IF(OR(({!$Record.Modality__c}) = &apos;Portable&apos;, ({!$Record.Modality__c}) = &apos;Ultrasound&apos;, ({!$Record.Modality__c}) = &apos;C-Arm&apos;), 390, 0))))),
+
+IF({!$Record.Initial_Purchasing_Opportunity__r.Zone_2__c}, IF(({!$Record.Modality__c}) = &apos;X-Ray&apos;, 3250, IF(OR(({!$Record.Modality__c}) = &apos;Gamma Camera&apos;, ({!$Record.Modality__c}) = &apos;Fluoroscopy&apos;, ({!$Record.Modality__c}) = &apos;CT&apos;), 6500, IF(OR(({!$Record.Modality__c}) = &apos;Bone Density&apos;, ({!$Record.Modality__c}) = &apos;Dental&apos;, ({!$Record.Modality__c}) = &apos;Mammography&apos;), 2340, IF(OR(({!$Record.Modality__c}) = &apos;CV&apos;, ({!$Record.Modality__c}) = &apos;PET&apos;), 7800, IF(OR(({!$Record.Modality__c}) = &apos;Portable&apos;, ({!$Record.Modality__c}) = &apos;Ultrasound&apos;, ({!$Record.Modality__c}) = &apos;C-Arm&apos;), 520, 0))))),
+
+IF({!$Record.Initial_Purchasing_Opportunity__r.Zone_3__c}, IF(({!$Record.Modality__c}) = &apos;X-Ray&apos;, 3900, IF(OR(({!$Record.Modality__c}) = &apos;Gamma Camera&apos;, ({!$Record.Modality__c}) = &apos;Fluoroscopy&apos;, ({!$Record.Modality__c}) = &apos;CT&apos;), 7800, IF(OR(({!$Record.Modality__c}) = &apos;Bone Density&apos;, ({!$Record.Modality__c}) = &apos;Dental&apos;, ({!$Record.Modality__c}) = &apos;Mammography&apos;), 3120, IF(OR(({!$Record.Modality__c}) = &apos;CV&apos;, ({!$Record.Modality__c}) = &apos;PET&apos;), 9100, IF(OR(({!$Record.Modality__c}) = &apos;Portable&apos;, ({!$Record.Modality__c}) = &apos;Ultrasound&apos;, ({!$Record.Modality__c}) = &apos;C-Arm&apos;), 650, 0))))),
+
+IF({!$Record.Initial_Purchasing_Opportunity__r.Zone_4__c}, IF(({!$Record.Modality__c}) = &apos;X-Ray&apos;, 5200, IF(OR(({!$Record.Modality__c}) = &apos;Gamma Camera&apos;, ({!$Record.Modality__c}) = &apos;Fluoroscopy&apos;, ({!$Record.Modality__c}) = &apos;CT&apos;), 9600, IF(OR(({!$Record.Modality__c}) = &apos;Bone Density&apos;, ({!$Record.Modality__c}) = &apos;Dental&apos;, ({!$Record.Modality__c}) = &apos;Mammography&apos;), 4836, IF(OR(({!$Record.Modality__c}) = &apos;CV&apos;, ({!$Record.Modality__c}) = &apos;PET&apos;), 11440, IF(OR(({!$Record.Modality__c}) = &apos;Portable&apos;, ({!$Record.Modality__c}) = &apos;Ultrasound&apos;, ({!$Record.Modality__c}) = &apos;C-Arm&apos;), 910, 0))))),
+
+0)))) +
+
+IF({!$Record.Initial_Purchasing_Opportunity__r.Out_of_Hours__c}, IF(({!$Record.Modality__c}) = &apos;X-Ray&apos;, 1300, IF(OR(({!$Record.Modality__c}) = &apos;Gamma Camera&apos;, ({!$Record.Modality__c}) = &apos;Fluoroscopy&apos;, ({!$Record.Modality__c}) = &apos;CT&apos;), 2600, IF(OR(({!$Record.Modality__c}) = &apos;Bone Density&apos;, ({!$Record.Modality__c}) = &apos;Dental&apos;, ({!$Record.Modality__c}) = &apos;Mammography&apos;), 780, IF(OR(({!$Record.Modality__c}) = &apos;CV&apos;, ({!$Record.Modality__c}) = &apos;PET&apos;), 1300, IF(OR(({!$Record.Modality__c}) = &apos;Portable&apos;, ({!$Record.Modality__c}) = &apos;Ultrasound&apos;, ({!$Record.Modality__c}) = &apos;C-Arm&apos;), 260, 0))))), 0)) * 0.93</expression>
+        <scale>2</scale>
+    </formulas>
+    <formulas>
+        <name>RemovalCostFormulaGBP</name>
+        <dataType>Currency</dataType>
+        <expression>IF({!$Record.Initial_Purchasing_Opportunity__r.Zone_1__c}, IF(({!$Record.Modality__c}) = &apos;X-Ray&apos;, 2000, IF(OR(({!$Record.Modality__c}) = &apos;Gamma Camera&apos;, ({!$Record.Modality__c}) = &apos;Fluoroscopy&apos;, ({!$Record.Modality__c}) = &apos;CT&apos;), 1500, IF(OR(({!$Record.Modality__c}) = &apos;Bone Density&apos;, ({!$Record.Modality__c}) = &apos;Dental&apos;, ({!$Record.Modality__c}) = &apos;Mammography&apos;), 1500, IF(OR(({!$Record.Modality__c}) = &apos;CV&apos;, ({!$Record.Modality__c}) = &apos;PET&apos;), 5000, IF(OR(({!$Record.Modality__c}) = &apos;Portable&apos;, ({!$Record.Modality__c}) = &apos;Ultrasound&apos;, ({!$Record.Modality__c}) = &apos;C-Arm&apos;), 300, 0))))),
+
+IF({!$Record.Initial_Purchasing_Opportunity__r.Zone_2__c}, IF(({!$Record.Modality__c}) = &apos;X-Ray&apos;, 2500, IF(OR(({!$Record.Modality__c}) = &apos;Gamma Camera&apos;, ({!$Record.Modality__c}) = &apos;Fluoroscopy&apos;, ({!$Record.Modality__c}) = &apos;CT&apos;), 5000, IF(OR(({!$Record.Modality__c}) = &apos;Bone Density&apos;, ({!$Record.Modality__c}) = &apos;Dental&apos;, ({!$Record.Modality__c}) = &apos;Mammography&apos;), 1800, IF(OR(({!$Record.Modality__c}) = &apos;CV&apos;, ({!$Record.Modality__c}) = &apos;PET&apos;), 6000, IF(OR(({!$Record.Modality__c}) = &apos;Portable&apos;, ({!$Record.Modality__c}) = &apos;Ultrasound&apos;, ({!$Record.Modality__c}) = &apos;C-Arm&apos;), 400, 0))))),
+
+IF({!$Record.Initial_Purchasing_Opportunity__r.Zone_3__c}, IF(({!$Record.Modality__c}) = &apos;X-Ray&apos;, 3000, IF(OR(({!$Record.Modality__c}) = &apos;Gamma Camera&apos;, ({!$Record.Modality__c}) = &apos;Fluoroscopy&apos;, ({!$Record.Modality__c}) = &apos;CT&apos;), 6000, IF(OR(({!$Record.Modality__c}) = &apos;Bone Density&apos;, ({!$Record.Modality__c}) = &apos;Dental&apos;, ({!$Record.Modality__c}) = &apos;Mammography&apos;), 2400, IF(OR(({!$Record.Modality__c}) = &apos;CV&apos;, ({!$Record.Modality__c}) = &apos;PET&apos;), 7000, IF(OR(({!$Record.Modality__c}) = &apos;Portable&apos;, ({!$Record.Modality__c}) = &apos;Ultrasound&apos;, ({!$Record.Modality__c}) = &apos;C-Arm&apos;), 500, 0))))),
+
+IF({!$Record.Initial_Purchasing_Opportunity__r.Zone_4__c}, IF(({!$Record.Modality__c}) = &apos;X-Ray&apos;, 4500, IF(OR(({!$Record.Modality__c}) = &apos;Gamma Camera&apos;, ({!$Record.Modality__c}) = &apos;Fluoroscopy&apos;, ({!$Record.Modality__c}) = &apos;CT&apos;), 8000, IF(OR(({!$Record.Modality__c}) = &apos;Bone Density&apos;, ({!$Record.Modality__c}) = &apos;Dental&apos;, ({!$Record.Modality__c}) = &apos;Mammography&apos;), 3500, IF(OR(({!$Record.Modality__c}) = &apos;CV&apos;, ({!$Record.Modality__c}) = &apos;PET&apos;), 10000, IF(OR(({!$Record.Modality__c}) = &apos;Portable&apos;, ({!$Record.Modality__c}) = &apos;Ultrasound&apos;, ({!$Record.Modality__c}) = &apos;C-Arm&apos;), 750, 0))))),
+
+0)))) +
+
+IF({!$Record.Initial_Purchasing_Opportunity__r.Out_of_Hours__c}, IF(({!$Record.Modality__c}) = &apos;X-Ray&apos;, 1000, IF(OR(({!$Record.Modality__c}) = &apos;Gamma Camera&apos;, ({!$Record.Modality__c}) = &apos;Fluoroscopy&apos;, ({!$Record.Modality__c}) = &apos;CT&apos;), 2100, IF(OR(({!$Record.Modality__c}) = &apos;Bone Density&apos;, ({!$Record.Modality__c}) = &apos;Dental&apos;, ({!$Record.Modality__c}) = &apos;Mammography&apos;), 600, IF(OR(({!$Record.Modality__c}) = &apos;CV&apos;, ({!$Record.Modality__c}) = &apos;PET&apos;), 1000, IF(OR(({!$Record.Modality__c}) = &apos;Portable&apos;, ({!$Record.Modality__c}) = &apos;Ultrasound&apos;, ({!$Record.Modality__c}) = &apos;C-Arm&apos;), 200, 0))))), 0)</expression>
+        <scale>2</scale>
+    </formulas>
+    <formulas>
+        <name>RemovalCostFormulaUSD</name>
+        <dataType>Currency</dataType>
+        <expression>IF({!$Record.Initial_Purchasing_Opportunity__r.Zone_1__c}, IF(({!$Record.Modality__c}) = &apos;X-Ray&apos;, 2600, IF(OR(({!$Record.Modality__c}) = &apos;Gamma Camera&apos;, ({!$Record.Modality__c}) = &apos;Fluoroscopy&apos;, ({!$Record.Modality__c}) = &apos;CT&apos;), 5200, IF(OR(({!$Record.Modality__c}) = &apos;Bone Density&apos;, ({!$Record.Modality__c}) = &apos;Dental&apos;, ({!$Record.Modality__c}) = &apos;Mammography&apos;), 1950, IF(OR(({!$Record.Modality__c}) = &apos;CV&apos;, ({!$Record.Modality__c}) = &apos;PET&apos;), 6500, IF(OR(({!$Record.Modality__c}) = &apos;Portable&apos;, ({!$Record.Modality__c}) = &apos;Ultrasound&apos;, ({!$Record.Modality__c}) = &apos;C-Arm&apos;), 390, 0))))),
+
+IF({!$Record.Initial_Purchasing_Opportunity__r.Zone_2__c}, IF(({!$Record.Modality__c}) = &apos;X-Ray&apos;, 3250, IF(OR(({!$Record.Modality__c}) = &apos;Gamma Camera&apos;, ({!$Record.Modality__c}) = &apos;Fluoroscopy&apos;, ({!$Record.Modality__c}) = &apos;CT&apos;), 6500, IF(OR(({!$Record.Modality__c}) = &apos;Bone Density&apos;, ({!$Record.Modality__c}) = &apos;Dental&apos;, ({!$Record.Modality__c}) = &apos;Mammography&apos;), 2340, IF(OR(({!$Record.Modality__c}) = &apos;CV&apos;, ({!$Record.Modality__c}) = &apos;PET&apos;), 7800, IF(OR(({!$Record.Modality__c}) = &apos;Portable&apos;, ({!$Record.Modality__c}) = &apos;Ultrasound&apos;, ({!$Record.Modality__c}) = &apos;C-Arm&apos;), 520, 0))))),
+
+IF({!$Record.Initial_Purchasing_Opportunity__r.Zone_3__c}, IF(({!$Record.Modality__c}) = &apos;X-Ray&apos;, 3900, IF(OR(({!$Record.Modality__c}) = &apos;Gamma Camera&apos;, ({!$Record.Modality__c}) = &apos;Fluoroscopy&apos;, ({!$Record.Modality__c}) = &apos;CT&apos;), 7800, IF(OR(({!$Record.Modality__c}) = &apos;Bone Density&apos;, ({!$Record.Modality__c}) = &apos;Dental&apos;, ({!$Record.Modality__c}) = &apos;Mammography&apos;), 3120, IF(OR(({!$Record.Modality__c}) = &apos;CV&apos;, ({!$Record.Modality__c}) = &apos;PET&apos;), 9100, IF(OR(({!$Record.Modality__c}) = &apos;Portable&apos;, ({!$Record.Modality__c}) = &apos;Ultrasound&apos;, ({!$Record.Modality__c}) = &apos;C-Arm&apos;), 650, 0))))),
+
+IF({!$Record.Initial_Purchasing_Opportunity__r.Zone_4__c}, IF(({!$Record.Modality__c}) = &apos;X-Ray&apos;, 5200, IF(OR(({!$Record.Modality__c}) = &apos;Gamma Camera&apos;, ({!$Record.Modality__c}) = &apos;Fluoroscopy&apos;, ({!$Record.Modality__c}) = &apos;CT&apos;), 9600, IF(OR(({!$Record.Modality__c}) = &apos;Bone Density&apos;, ({!$Record.Modality__c}) = &apos;Dental&apos;, ({!$Record.Modality__c}) = &apos;Mammography&apos;), 4836, IF(OR(({!$Record.Modality__c}) = &apos;CV&apos;, ({!$Record.Modality__c}) = &apos;PET&apos;), 11440, IF(OR(({!$Record.Modality__c}) = &apos;Portable&apos;, ({!$Record.Modality__c}) = &apos;Ultrasound&apos;, ({!$Record.Modality__c}) = &apos;C-Arm&apos;), 910, 0))))),
+
+0)))) +
+
+IF({!$Record.Initial_Purchasing_Opportunity__r.Out_of_Hours__c}, IF(({!$Record.Modality__c}) = &apos;X-Ray&apos;, 1300, IF(OR(({!$Record.Modality__c}) = &apos;Gamma Camera&apos;, ({!$Record.Modality__c}) = &apos;Fluoroscopy&apos;, ({!$Record.Modality__c}) = &apos;CT&apos;), 2600, IF(OR(({!$Record.Modality__c}) = &apos;Bone Density&apos;, ({!$Record.Modality__c}) = &apos;Dental&apos;, ({!$Record.Modality__c}) = &apos;Mammography&apos;), 780, IF(OR(({!$Record.Modality__c}) = &apos;CV&apos;, ({!$Record.Modality__c}) = &apos;PET&apos;), 1300, IF(OR(({!$Record.Modality__c}) = &apos;Portable&apos;, ({!$Record.Modality__c}) = &apos;Ultrasound&apos;, ({!$Record.Modality__c}) = &apos;C-Arm&apos;), 260, 0))))), 0)</expression>
+        <scale>2</scale>
+    </formulas>
+    <formulas>
+        <name>RoadCratingCostGBP</name>
+        <dataType>Currency</dataType>
+        <expression>IF({!$Record.Modality__c} = &quot;MRI&quot;, 1000, 
+IF({!$Record.Modality__c} = &quot;CT&quot;, 500,
+IF({!$Record.Modality__c} = &quot;X-Ray&quot;, 300,
+IF({!$Record.Modality__c} = &quot;Portable&quot;, 200,
+IF({!$Record.Modality__c} = &quot;Mammography&quot;, 300,
+IF({!$Record.Modality__c} = &quot;C-Arm&quot;, 300,
+250)
+)))))</expression>
+        <scale>2</scale>
+    </formulas>
+    <formulas>
+        <name>ShippingUSFormulaEUR</name>
+        <dataType>Currency</dataType>
+        <expression>IF({!$Record.Modality__c} = &quot;MRI&quot;, 13503.60, 
+IF({!$Record.Modality__c} = &quot;CT&quot;, 6751.80,
+IF({!$Record.Modality__c} = &quot;X-Ray&quot;, 3375.90,
+IF({!$Record.Modality__c} = &quot;Portable&quot;, 2250.60,
+IF({!$Record.Modality__c} = &quot;Mammography&quot;, 2250.60,
+IF({!$Record.Modality__c} = &quot;C-Arm&quot;, 562.65,
+2250.60)
+)))))</expression>
+        <scale>2</scale>
+    </formulas>
+    <formulas>
+        <name>ShippingUSFormulaGBP</name>
+        <dataType>Currency</dataType>
+        <expression>IF({!$Record.Modality__c} = &quot;MRI&quot;, 12000, 
+IF({!$Record.Modality__c} = &quot;CT&quot;, 6000,
+IF({!$Record.Modality__c} = &quot;X-Ray&quot;, 3000,
+IF({!$Record.Modality__c} = &quot;Portable&quot;, 2000,
+IF({!$Record.Modality__c} = &quot;Mammography&quot;, 2000,
+IF({!$Record.Modality__c} = &quot;C-Arm&quot;, 500,
+2000)
+)))))</expression>
+        <scale>2</scale>
+    </formulas>
+    <formulas>
+        <name>ShippingUSFormulaUSD</name>
+        <dataType>Currency</dataType>
+        <expression>IF({!$Record.Modality__c} = &quot;MRI&quot;, 14520, 
+IF({!$Record.Modality__c} = &quot;CT&quot;, 7260,
+IF({!$Record.Modality__c} = &quot;X-Ray&quot;, 3400,
+IF({!$Record.Modality__c} = &quot;Portable&quot;, 2400,
+IF({!$Record.Modality__c} = &quot;Mammography&quot;, 2400,
+IF({!$Record.Modality__c} = &quot;C-Arm&quot;, 2400,
+2500)
+)))))</expression>
+        <scale>2</scale>
+    </formulas>
+    <formulas>
+        <name>USRoadCratingCostFormulaUSD</name>
+        <dataType>Currency</dataType>
+        <expression>IF({!$Record.Modality__c} = &quot;MRI&quot;, 1200,
+IF({!$Record.Modality__c} = &quot;CT&quot;, 605,
+IF({!$Record.Modality__c} = &quot;X-Ray&quot;, 365,
+IF({!$Record.Modality__c} = &quot;Portable&quot;, 245,
+IF({!$Record.Modality__c} = &quot;Mammography&quot;, 363,
+IF({!$Record.Modality__c} = &quot;C-Arm&quot;, 363,
+300)
+)))))</expression>
+        <scale>2</scale>
+    </formulas>
+    <interviewLabel>Project Flow to Calculate Removal/Shipping Costs {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Project Flow to Calculate Removal/Shipping Costs</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <recordUpdates>
+        <name>Copy_1_of_UpdateWithShippingCost0</name>
+        <label>UpdateWithShippingCost0</label>
+        <locationX>1634</locationX>
+        <locationY>1487</locationY>
+        <inputAssignments>
+            <field>Estimated_Shipping_Cost__c</field>
+            <value>
+                <elementReference>ShippingCostVariable</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>Copy_1_of_UpdateWithShippingCostEUR</name>
+        <label>UpdateWithShippingCostEUR</label>
+        <locationX>1370</locationX>
+        <locationY>1487</locationY>
+        <inputAssignments>
+            <field>Estimated_Shipping_Cost__c</field>
+            <value>
+                <elementReference>ShippingCostVariable</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>Copy_1_of_UpdateWithShippingCostGBP</name>
+        <label>UpdateWithShippingCostGBP</label>
+        <locationX>1106</locationX>
+        <locationY>1487</locationY>
+        <inputAssignments>
+            <field>Estimated_Shipping_Cost__c</field>
+            <value>
+                <elementReference>ShippingCostVariable</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>Copy_3_of_UpdateRemovalCost0</name>
+        <label>UpdateRemovalCost0</label>
+        <locationX>1931</locationX>
+        <locationY>575</locationY>
+        <connector>
+            <targetReference>Final_Asset_Added</targetReference>
+        </connector>
+        <inputAssignments>
+            <field>Estimated_Removal_Cost__c</field>
+            <value>
+                <numberValue>0.0</numberValue>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>UpdateRemovalCostEUR</name>
+        <label>UpdateRemovalCostEUR</label>
+        <locationX>1667</locationX>
+        <locationY>695</locationY>
+        <connector>
+            <targetReference>Final_Asset_Added</targetReference>
+        </connector>
+        <inputAssignments>
+            <field>Estimated_Removal_Cost__c</field>
+            <value>
+                <elementReference>RemovalCost</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>UpdateRemovalCostGBP</name>
+        <label>UpdateRemovalCostGBP</label>
+        <locationX>1403</locationX>
+        <locationY>695</locationY>
+        <connector>
+            <targetReference>Final_Asset_Added</targetReference>
+        </connector>
+        <inputAssignments>
+            <field>Estimated_Removal_Cost__c</field>
+            <value>
+                <elementReference>RemovalCost</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>UpdateRemovalCostUSD</name>
+        <label>UpdateRemovalCostUSD</label>
+        <locationX>1139</locationX>
+        <locationY>695</locationY>
+        <connector>
+            <targetReference>Final_Asset_Added</targetReference>
+        </connector>
+        <inputAssignments>
+            <field>Estimated_Removal_Cost__c</field>
+            <value>
+                <elementReference>RemovalCost</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>UpdateWithShippingCost</name>
+        <label>UpdateWithShippingCost</label>
+        <locationX>50</locationX>
+        <locationY>1607</locationY>
+        <inputAssignments>
+            <field>Estimated_Shipping_Cost__c</field>
+            <value>
+                <elementReference>ShippingCostVariable</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>UpdateWithShippingCost0</name>
+        <label>UpdateWithShippingCost0</label>
+        <locationX>842</locationX>
+        <locationY>1487</locationY>
+        <inputAssignments>
+            <field>Estimated_Shipping_Cost__c</field>
+            <value>
+                <elementReference>ShippingCostVariable</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>UpdateWithShippingCostEUR</name>
+        <label>UpdateWithShippingCostEUR</label>
+        <locationX>578</locationX>
+        <locationY>1607</locationY>
+        <inputAssignments>
+            <field>Estimated_Shipping_Cost__c</field>
+            <value>
+                <elementReference>ShippingCostVariable</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>UpdateWithShippingCostGBP</name>
+        <label>UpdateWithShippingCostGBP</label>
+        <locationX>314</locationX>
+        <locationY>1607</locationY>
+        <inputAssignments>
+            <field>Estimated_Shipping_Cost__c</field>
+            <value>
+                <elementReference>ShippingCostVariable</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>UpdateWithShippingCostRoadUSUSD</name>
+        <label>UpdateWithShippingCostRoadUSUSD</label>
+        <locationX>1898</locationX>
+        <locationY>1367</locationY>
+        <inputAssignments>
+            <field>Estimated_Shipping_Cost__c</field>
+            <value>
+                <elementReference>ShippingCostVariable</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>UpdateWithUSShippingCost0</name>
+        <label>UpdateWithUSShippingCost0</label>
+        <locationX>2162</locationX>
+        <locationY>1367</locationY>
+        <inputAssignments>
+            <field>Estimated_Shipping_Cost__c</field>
+            <value>
+                <elementReference>ShippingCostVariable</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <start>
+        <locationX>1739</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Estimated_Shipping_Cost_is_Null</targetReference>
+        </connector>
+        <object>Project__c</object>
+        <recordTriggerType>CreateAndUpdate</recordTriggerType>
+        <triggerType>RecordAfterSave</triggerType>
+    </start>
+    <status>Obsolete</status>
+    <variables>
+        <name>RemovalCost</name>
+        <dataType>Currency</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>false</isOutput>
+        <scale>2</scale>
+    </variables>
+    <variables>
+        <name>ShippingCostVariable</name>
+        <dataType>Currency</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>false</isOutput>
+        <scale>2</scale>
+    </variables>
+</Flow>

@@ -1,0 +1,24 @@
+<template>
+  <template if:true={isLoading}>
+    <lightning-spinner alternative-text="Loading" size="small"></lightning-spinner>
+  </template>
+
+  <template if:true={loadError}>
+    <div class="slds-notify slds-notify_alert slds-alert_error">
+      <h2>{loadError}</h2>
+    </div>
+  </template>
+
+  <template if:false={isLoading}>
+    <c-record-table-base
+      title={title}
+      records-json={effectiveRecordsJson}
+      columns-json={columnsJson}
+      required-fields-csv={requiredFieldsCsv}
+      required-rules-json={requiredRulesJson}
+      required-only-when-selected={requiredOnlyWhenSelectedStr}
+      max-row-selection={maxRowSelection}
+      ontablechange={handleTableChange}>
+    </c-record-table-base>
+  </template>
+</template>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Previous_Print_Vendor__c</fullName>
+    <description>To track previous vendor if FW wins the business</description>
+    <inlineHelpText>If Flywire wins business, list the previous print vendor.</inlineHelpText>
+    <label>Previous Print Vendor</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetName>Print_Vendors</valueSetName>
+    </valueSet>
+</CustomField>

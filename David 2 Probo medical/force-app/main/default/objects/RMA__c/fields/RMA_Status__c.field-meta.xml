@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>RMA_Status__c</fullName>
+    <externalId>false</externalId>
+    <formula>IF( RMA_Type__c = &apos;Customer Repair Evaluation&apos;, IF(ISBLANK( Date_RMA_Item_Received__c), &apos;Item not yet received&apos;, IF(ISBLANK( Date_Repair_Evaluation_Sent__c ), &apos;Item received, waiting for eval to be sent&apos;, IF(ISBLANK( Date_Repair_Approved__c ), &apos;Evaluation sent, waiting for approval&apos;, IF(ISBLANK( Date_shipped__c ), &apos;Repairs approved, waiting for probe to ship&apos;, &apos;Repaired probe has shipped&apos;)))), &apos;&apos;)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>RMA Status</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

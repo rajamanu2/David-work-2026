@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Acct_Oppty_Created_Campaign_Type__c</fullName>
+    <description>For marketing attribution, summarizes Account Opportunity Created Campaign type by campaign naming convention.</description>
+    <externalId>false</externalId>
+    <formula>IF(BEGINS(Opportunity_Campaign_Touch__c,&quot;Website&quot;), &quot;Website&quot;,
+IF(BEGINS(Opportunity_Campaign_Touch__c,&quot;Webinar&quot;), &quot;Webinar&quot;,
+IF(BEGINS(Opportunity_Campaign_Touch__c,&quot;Virtual&quot;), &quot;Virtual Event&quot;,
+IF(BEGINS(Opportunity_Campaign_Touch__c,&quot;TS&quot;), &quot;Tradeshow&quot;,
+IF(BEGINS(Opportunity_Campaign_Touch__c,&quot;Tradeshow&quot;), &quot;Tradeshow&quot;,
+IF(BEGINS(Opportunity_Campaign_Touch__c,&quot;Partner&quot;), &quot;Partner&quot;,
+IF(BEGINS(Opportunity_Campaign_Touch__c,&quot;Form&quot;), &quot;Form&quot;,
+IF(BEGINS(Opportunity_Campaign_Touch__c,&quot;Event&quot;), &quot;Event&quot;,
+IF(BEGINS(Opportunity_Campaign_Touch__c,&quot;Email&quot;), &quot;Email&quot;,
+IF(BEGINS(Opportunity_Campaign_Touch__c,&quot;Content&quot;), &quot;Content&quot;,
+IF(BEGINS(Opportunity_Campaign_Touch__c,&quot;AD_&quot;), &quot;Online Advertising&quot;,
+IF(BEGINS(x1st_Touch_Campaign__c,&quot;Flywire Forward&quot;), &quot;Flywire Forward&quot;,
+
+&quot;Other&quot;))))))))))))</formula>
+    <inlineHelpText>For marketing attribution, summarizes Account Opportunity Created Campaign type by campaign naming convention.</inlineHelpText>
+    <label>Oppty Created Campaign Type</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>Notify Account Owner KYC Status</description>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <name>KYC Approved Notification</name>
+    <style>none</style>
+    <subject>KYC for {!Account.Name} was {!Account.KYC_Status__c}</subject>
+    <textOnly>Account, &quot;{!Account.Name}&quot;, has been {!Account.KYC_Status__c}. For more details reach out to Compliance.</textOnly>
+    <type>custom</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

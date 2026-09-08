@@ -1,0 +1,298 @@
+{"kind":"deck","id":"pr/5hzp7x","name":"Deck"}
+{"kind":"layout","layoutId":"99683d09-2ca7-488d-aa56-1d5a01dd4f2d","name":"Master","type":"master"}
+{"kind":"layout","layoutId":"b38e49e8-56a6-499e-855d-e0f4f62f47a8","name":"Title Slide","type":"title"}
+{"kind":"slide","id":"sl/tm46dn","slide":1,"title":"Probo Medical","textShapes":6}
+{"kind":"textbox","id":"sh/natsj2x8","slide":1,"text":"Probo Medical","textPreview":"Probo Medical","textChars":13,"textLines":1,"bbox":[72,56,380,34]}
+{"kind":"textbox","id":"sh/ob2ts7yt","slide":1,"text":"Permission Set Refactor Plan","textPreview":"Permission Set Refactor Plan","textChars":28,"textLines":1,"bbox":[72,168,760,130]}
+{"kind":"textbox","id":"sh/9cbalcfe","slide":1,"text":"A practical path to understand current user access, identify over-access, and redesign Salesforce Permission Sets into a controlled model.","textPreview":"A practical path to understand current user access, identify over-access, and redesign Salesforce Permission Sets into a controlled model.","textChars":138,"textLines":1,"bbox":[76,328,720,92]}
+{"kind":"shape","id":"sh/el0rmdgr","slide":1,"bbox":[880,150,240,240]}
+{"kind":"textbox","id":"sh/zm9sfixc","slide":1,"text":"User","textPreview":"User","textChars":4,"textLines":1,"bbox":[946,214,120,36]}
+{"kind":"textbox","id":"sh/0nitonyh","slide":1,"text":"Permission\nSets","textPreview":"Permission | Sets","textChars":15,"textLines":2,"bbox":[927,260,158,70]}
+{"kind":"shape","id":"sh/1orahsf2","slide":1,"bbox":[72,474,660,3]}
+{"kind":"textbox","id":"sh/yh4byhwv","slide":1,"text":"Prepared for David Okolo | August 2026","textPreview":"Prepared for David Okolo | August 2026","textChars":38,"textLines":1,"bbox":[72,508,560,28]}
+{"kind":"notes","id":"nt/tm46dn","slide":1,"text":"Open by framing this as an access cleanup and governance discussion, not a blame discussion.\nThe data shows current direct Permission Set assignment patterns and where to focus refactoring first.\n\n[Sources]\nProboMedical Salesforce PermissionSetAssignment export generated during this workspace session.\nUpdated workbook: outputs/book_v2_direct_permission_sets/Book v2 - with Direct Permission Sets.xlsx."}
+{"kind":"slide","id":"sl/w7euz4","slide":2,"title":"PERMISSION SET REFACTOR","textShapes":13}
+{"kind":"textbox","id":"sh/wfelcfad","slide":2,"text":"PERMISSION SET REFACTOR","textPreview":"PERMISSION SET REFACTOR","textChars":23,"textLines":1,"bbox":[72,26,420,22]}
+{"kind":"textbox","id":"sh/be5k3at8","slide":2,"text":"The access model is visible now, but it is too direct-assignment heavy","textPreview":"The access model is visible now, but it is too direct-assignment heavy","textChars":70,"textLines":1,"bbox":[72,54,970,88]}
+{"kind":"shape","id":"sh/adw3a5cn","slide":2,"bbox":[72,152,1136,1]}
+{"kind":"textbox","id":"sh/9cn210b2","slide":2,"text":"Probo Medical | Salesforce Access Review","textPreview":"Probo Medical | Salesforce Access Review","textChars":40,"textLines":1,"bbox":[72,680,460,18]}
+{"kind":"textbox","id":"sh/obe18vuh","slide":2,"text":"The workbook gives a traceable current-state view: who the user is, which Permission Sets they have, and which Permission Sets carry elevated access. The refactor goal is to turn that evidence into cleaner role-based access.","textPreview":"The workbook gives a traceable current-state view: who the user is, which Permission Sets they have, and which Permission Sets carry elev...","textChars":224,"textLines":1,"bbox":[82,166,960,72]}
+{"kind":"shape","id":"sh/nalkzatw","slide":2,"bbox":[92,280,230,116]}
+{"kind":"textbox","id":"sh/m9cj65cb","slide":2,"text":"7,221","textPreview":"7,221","textChars":5,"textLines":1,"bbox":[116,298,182,42]}
+{"kind":"textbox","id":"sh/1832x0bq","slide":2,"text":"direct Permission Set assignments","textPreview":"direct Permission Set assignments","textChars":33,"textLines":1,"bbox":[116,344,182,40]}
+{"kind":"shape","id":"sh/07u14vul","slide":2,"bbox":[346,280,230,116]}
+{"kind":"textbox","id":"sh/yp8nqdkj","slide":2,"text":"423","textPreview":"423","textChars":3,"textLines":1,"bbox":[370,298,182,42]}
+{"kind":"textbox","id":"sh/zq1oji14","slide":2,"text":"users with direct assignments","textPreview":"users with direct assignments","textChars":29,"textLines":1,"bbox":[370,344,182,40]}
+{"kind":"shape","id":"sh/0ra5sn29","slide":2,"bbox":[600,280,230,116]}
+{"kind":"textbox","id":"sh/lsj6lsju","slide":2,"text":"306","textPreview":"306","textChars":3,"textLines":1,"bbox":[624,298,182,42]}
+{"kind":"textbox","id":"sh/q18nmdk7","slide":2,"text":"unique direct Permission Sets","textPreview":"unique direct Permission Sets","textChars":29,"textLines":1,"bbox":[624,344,182,40]}
+{"kind":"shape","id":"sh/b2hofi1s","slide":2,"bbox":[854,280,250,116]}
+{"kind":"textbox","id":"sh/c3q5on2d","slide":2,"text":"46","textPreview":"46","textChars":2,"textLines":1,"bbox":[878,298,202,42]}
+{"kind":"textbox","id":"sh/doz6h8jy","slide":2,"text":"users with high-risk direct access","textPreview":"users with high-risk direct access","textChars":34,"textLines":1,"bbox":[878,344,202,40]}
+{"kind":"textbox","id":"sh/2xonitkb","slide":2,"text":"Executive takeaway: the refactor should start with access concentration and high-risk Permission Sets, then move common bundles into a managed target model.","textPreview":"Executive takeaway: the refactor should start with access concentration and high-risk Permission Sets, then move common bundles into a ma...","textChars":156,"textLines":1,"bbox":[114,470,960,64]}
+{"kind":"notes","id":"nt/w7euz4","slide":2,"text":"Use this slide as the headline: the organization now has measurable access evidence.\nHigh-risk direct access means a direct Permission Set assignment grants Modify All Data, View All Data, or similarly elevated access in the export.\n\n[Sources]\nProboMedical Salesforce PermissionSetAssignment export generated during this workspace session.\nUpdated workbook: outputs/book_v2_direct_permission_sets/Book v2 - with Direct Permission Sets.xlsx."}
+{"kind":"slide","id":"sl/xqlnt1","slide":3,"title":"PERMISSION SET REFACTOR","textShapes":13}
+{"kind":"textbox","id":"sh/cfm1of65","slide":3,"text":"PERMISSION SET REFACTOR","textPreview":"PERMISSION SET REFACTOR","textChars":23,"textLines":1,"bbox":[72,26,420,22]}
+{"kind":"textbox","id":"sh/red0vapk","slide":3,"text":"Use the Excel file as a three-sheet evidence chain","textPreview":"Use the Excel file as a three-sheet evidence chain","textChars":50,"textLines":1,"bbox":[72,54,970,88]}
+{"kind":"shape","id":"sh/qdkjm5oz","slide":3,"bbox":[72,152,1136,1]}
+{"kind":"textbox","id":"sh/pcbit07e","slide":3,"text":"Probo Medical | Salesforce Access Review","textPreview":"Probo Medical | Salesforce Access Review","textChars":40,"textLines":1,"bbox":[72,680,460,18]}
+{"kind":"shape","id":"sh/4b21kv6t","slide":3,"bbox":[104,210,290,170]}
+{"kind":"shape","id":"sh/3at0rqp8","slide":3,"bbox":[484,210,290,170]}
+{"kind":"shape","id":"sh/i9kjilo3","slide":3,"bbox":[864,210,290,170]}
+{"kind":"shape","id":"sh/h8bip07i","slide":3,"bbox":[394,295,90,0]}
+{"kind":"shape","id":"sh/g721gv6x","slide":3,"bbox":[774,295,90,0]}
+{"kind":"textbox","id":"sh/298jul0b","slide":3,"text":"Sheet 1","textPreview":"Sheet 1","textChars":7,"textLines":1,"bbox":[128,234,242,26]}
+{"kind":"textbox","id":"sh/nahk3qhw","slide":3,"text":"Users / Summary","textPreview":"Users / Summary","textChars":15,"textLines":1,"bbox":[128,266,242,32]}
+{"kind":"textbox","id":"sh/obalwvih","slide":3,"text":"One row per user; profile, role, manager, title, company, direct Permission Set list and count.","textPreview":"One row per user; profile, role, manager, title, company, direct Permission Set list and count.","textChars":95,"textLines":1,"bbox":[128,310,242,58]}
+{"kind":"textbox","id":"sh/pcj2p0z2","slide":3,"text":"Sheet 2","textPreview":"Sheet 2","textChars":7,"textLines":1,"bbox":[508,234,242,26]}
+{"kind":"textbox","id":"sh/el8jql0f","slide":3,"text":"Direct Permission Sets","textPreview":"Direct Permission Sets","textChars":22,"textLines":1,"bbox":[508,266,242,32]}
+{"kind":"textbox","id":"sh/f6hkzqh0","slide":3,"text":"One row per direct assignment; the proof behind the summary counts.","textPreview":"One row per direct assignment; the proof behind the summary counts.","textChars":67,"textLines":1,"bbox":[508,310,242,58]}
+{"kind":"textbox","id":"sh/07q1svi5","slide":3,"text":"Sheet 3","textPreview":"Sheet 3","textChars":7,"textLines":1,"bbox":[888,234,242,26]}
+{"kind":"textbox","id":"sh/18z21gzq","slide":3,"text":"Permission Set Details","textPreview":"Permission Set Details","textChars":22,"textLines":1,"bbox":[888,266,242,32]}
+{"kind":"textbox","id":"sh/qhojm103","slide":3,"text":"Permission flags and object/field access; used to explain what each assignment actually grants.","textPreview":"Permission flags and object/field access; used to explain what each assignment actually grants.","textChars":95,"textLines":1,"bbox":[888,310,242,58]}
+{"kind":"textbox","id":"sh/rixkv6ho","slide":3,"text":"Boss explanation: this creates traceability from User -> Assigned Permission Set -> Actual Permissions.","textPreview":"Boss explanation: this creates traceability from User -> Assigned Permission Set -> Actual Permissions.","textChars":103,"textLines":1,"bbox":[170,476,900,44]}
+{"kind":"notes","id":"nt/xqlnt1","slide":3,"text":"Explain the sheets one by one. Sheet 1 is the executive lookup. Sheet 2 is the assignment proof. Sheet 3 is the control detail used to understand what each Permission Set grants.\n\n[Sources]\nProboMedical Salesforce PermissionSetAssignment export generated during this workspace session.\nUpdated workbook: outputs/book_v2_direct_permission_sets/Book v2 - with Direct Permission Sets.xlsx."}
+{"kind":"slide","id":"sl/q8uoz3","slide":4,"title":"PERMISSION SET REFACTOR","textShapes":22}
+{"kind":"textbox","id":"sh/k7mx0fad","slide":4,"text":"PERMISSION SET REFACTOR","textPreview":"PERMISSION SET REFACTOR","textChars":23,"textLines":1,"bbox":[72,26,420,22]}
+{"kind":"textbox","id":"sh/j6dw7ats","slide":4,"text":"Direct Permission Sets reveal the first cleanup candidates","textPreview":"Direct Permission Sets reveal the first cleanup candidates","textChars":58,"textLines":1,"bbox":[72,54,970,88]}
+{"kind":"shape","id":"sh/y54fyps7","slide":4,"bbox":[72,152,1136,1]}
+{"kind":"textbox","id":"sh/twfyd4bu","slide":4,"text":"Probo Medical | Salesforce Access Review","textPreview":"Probo Medical | Salesforce Access Review","textChars":40,"textLines":1,"bbox":[72,680,460,18]}
+{"kind":"textbox","id":"sh/8b6x4za9","slide":4,"text":"Richard Gerler  (Sales Manager)","textPreview":"Richard Gerler  (Sales Manager)","textChars":31,"textLines":1,"bbox":[90,185,310,22]}
+{"kind":"shape","id":"sh/7axgbuto","slide":4,"bbox":[420,189,360,12]}
+{"kind":"shape","id":"sh/694f2psj","slide":4,"bbox":[420,189,360,12]}
+{"kind":"textbox","id":"sh/h0fyh4b6","slide":4,"text":"81","textPreview":"81","textChars":2,"textLines":1,"bbox":[796,183,70,22]}
+{"kind":"textbox","id":"sh/gz6x8zal","slide":4,"text":"Kris Nelson  (Sales Manager)","textPreview":"Kris Nelson  (Sales Manager)","textChars":28,"textLines":1,"bbox":[90,231,310,22]}
+{"kind":"shape","id":"sh/uhk3ah8v","slide":4,"bbox":[420,235,360,12]}
+{"kind":"shape","id":"sh/vid4jmpg","slide":4,"bbox":[420,235,351,12]}
+{"kind":"textbox","id":"sh/wjmlc7q1","slide":4,"text":"79","textPreview":"79","textChars":2,"textLines":1,"bbox":[796,229,70,22]}
+{"kind":"textbox","id":"sh/hkvmlc7m","slide":4,"text":"April Lebo  (Sales Manager)","textPreview":"April Lebo  (Sales Manager)","textChars":27,"textLines":1,"bbox":[90,277,310,22]}
+{"kind":"shape","id":"sh/il43eh87","slide":4,"bbox":[420,281,360,12]}
+{"kind":"shape","id":"sh/jmd4nmps","slide":4,"bbox":[420,281,329,12]}
+{"kind":"textbox","id":"sh/4nmlgrqx","slide":4,"text":"74","textPreview":"74","textChars":2,"textLines":1,"bbox":[796,275,70,22]}
+{"kind":"textbox","id":"sh/5ovmpw7i","slide":4,"text":"Amber Hironimus  (Sales Manager)","textPreview":"Amber Hironimus  (Sales Manager)","textChars":32,"textLines":1,"bbox":[90,323,310,22]}
+{"kind":"shape","id":"sh/yp032x8n","slide":4,"bbox":[420,327,360,12]}
+{"kind":"shape","id":"sh/zqtkb298","slide":4,"bbox":[420,327,262,12]}
+{"kind":"textbox","id":"sh/nup03yp0","slide":4,"text":"59","textPreview":"59","textChars":2,"textLines":1,"bbox":[796,321,70,22]}
+{"kind":"textbox","id":"sh/2tgjatof","slide":4,"text":"Ashley Madson  (System Administrator)","textPreview":"Ashley Madson  (System Administrator)","textChars":37,"textLines":1,"bbox":[90,369,310,22]}
+{"kind":"shape","id":"sh/pw7i5o76","slide":4,"bbox":[420,373,360,12]}
+{"kind":"shape","id":"sh/ovy1c36l","slide":4,"bbox":[420,373,262,12]}
+{"kind":"textbox","id":"sh/f650zep4","slide":4,"text":"59","textPreview":"59","textChars":2,"textLines":1,"bbox":[796,367,70,22]}
+{"kind":"textbox","id":"sh/e5wz69oj","slide":4,"text":"David Barnett  (Purchasing Manager)","textPreview":"David Barnett  (Purchasing Manager)","textChars":35,"textLines":1,"bbox":[90,415,310,22]}
+{"kind":"shape","id":"sh/1s7i1o7u","slide":4,"bbox":[420,419,360,12]}
+{"kind":"shape","id":"sh/07y18j6p","slide":4,"bbox":[420,419,262,12]}
+{"kind":"textbox","id":"sh/z290bi58","slide":4,"text":"59","textPreview":"59","textChars":2,"textLines":1,"bbox":[796,413,70,22]}
+{"kind":"textbox","id":"sh/y10jidon","slide":4,"text":"Dustin Newton  (Sales Manager)","textPreview":"Dustin Newton  (Sales Manager)","textChars":30,"textLines":1,"bbox":[90,461,310,22]}
+{"kind":"shape","id":"sh/g7axcfm5","slide":4,"bbox":[420,465,360,12]}
+{"kind":"shape","id":"sh/h83y50nq","slide":4,"bbox":[420,465,262,12]}
+{"kind":"textbox","id":"sh/u5sfa54z","slide":4,"text":"59","textPreview":"59","textChars":2,"textLines":1,"bbox":[796,459,70,22]}
+{"kind":"textbox","id":"sh/v61g3a5k","slide":4,"text":"Dominick Vena  (QC Manager)","textPreview":"Dominick Vena  (QC Manager)","textChars":27,"textLines":1,"bbox":[90,507,310,22]}
+{"kind":"shape","id":"sh/4buxgfmh","slide":4,"bbox":[420,511,360,12]}
+{"kind":"shape","id":"sh/5c3y9knm","slide":4,"bbox":[420,511,258,12]}
+{"kind":"textbox","id":"sh/i9cfe54b","slide":4,"text":"58","textPreview":"58","textChars":2,"textLines":1,"bbox":[796,505,70,22]}
+{"kind":"shape","id":"sh/3alg7a5w","slide":4,"bbox":[835,188,260,250]}
+{"kind":"textbox","id":"sh/szexkzmd","slide":4,"text":"What this means","textPreview":"What this means","textChars":15,"textLines":1,"bbox":[862,216,210,32]}
+{"kind":"textbox","id":"sh/d0nyd43y","slide":4,"text":"Users with 50+ direct Permission Sets are hard to explain, hard to audit, and likely include historical one-off access.","textPreview":"Users with 50+ direct Permission Sets are hard to explain, hard to audit, and likely include historical one-off access.","textChars":119,"textLines":1,"bbox":[862,268,204,116]}
+{"kind":"textbox","id":"sh/dwv6dgn2","slide":4,"text":"Start review threshold: 20+ direct Permission Sets.","textPreview":"Start review threshold: 20+ direct Permission Sets.","textChars":51,"textLines":1,"bbox":[862,398,204,42]}
+{"kind":"notes","id":"nt/q8uoz3","slide":4,"text":"This is the access concentration story. The top users have a large number of direct Permission Sets, which makes their access difficult to reason about.\n\n[Sources]\nProboMedical Salesforce PermissionSetAssignment export generated during this workspace session.\nUpdated workbook: outputs/book_v2_direct_permission_sets/Book v2 - with Direct Permission Sets.xlsx."}
+{"kind":"slide","id":"sl/brhmuq","slide":5,"title":"PERMISSION SET REFACTOR","textShapes":26}
+{"kind":"textbox","id":"sh/pcf6pova","slide":5,"text":"PERMISSION SET REFACTOR","textPreview":"PERMISSION SET REFACTOR","textChars":23,"textLines":1,"bbox":[72,26,420,22]}
+{"kind":"textbox","id":"sh/2947etwj","slide":5,"text":"High-risk access is concentrated enough to review quickly","textPreview":"High-risk access is concentrated enough to review quickly","textChars":57,"textLines":1,"bbox":[72,54,970,88]}
+{"kind":"shape","id":"sh/3adonyd4","slide":5,"bbox":[72,152,1136,1]}
+{"kind":"textbox","id":"sh/gnmpcjed","slide":5,"text":"Probo Medical | Salesforce Access Review","textPreview":"Probo Medical | Salesforce Access Review","textChars":40,"textLines":1,"bbox":[72,680,460,18]}
+{"kind":"shape","id":"sh/1ov6lovy","slide":5,"bbox":[110,194,240,116]}
+{"kind":"textbox","id":"sh/el47a9wn","slide":5,"text":"18","textPreview":"18","textChars":2,"textLines":1,"bbox":[134,212,192,42]}
+{"kind":"textbox","id":"sh/fmdojeds","slide":5,"text":"users with Super User","textPreview":"users with Super User","textChars":21,"textLines":1,"bbox":[134,258,192,40]}
+{"kind":"shape","id":"sh/sj2p8zeh","slide":5,"bbox":[380,194,240,116]}
+{"kind":"textbox","id":"sh/tkb6h4v2","slide":5,"text":"7","textPreview":"7","textChars":1,"textLines":1,"bbox":[404,212,192,42]}
+{"kind":"textbox","id":"sh/5w7y1cvi","slide":5,"text":"users with Waive MFA","textPreview":"users with Waive MFA","textChars":20,"textLines":1,"bbox":[404,258,192,40]}
+{"kind":"shape","id":"sh/4vyxs7ex","slide":5,"bbox":[650,194,270,116]}
+{"kind":"textbox","id":"sh/3u5gz2dc","slide":5,"text":"56","textPreview":"56","textChars":2,"textLines":1,"bbox":[674,212,222,42]}
+{"kind":"textbox","id":"sh/itwfqhwr","slide":5,"text":"high-risk direct assignments","textPreview":"high-risk direct assignments","textChars":28,"textLines":1,"bbox":[674,258,222,40]}
+{"kind":"shape","id":"sh/hsnyxcv6","slide":5,"bbox":[950,194,210,116]}
+{"kind":"textbox","id":"sh/grexo7e1","slide":5,"text":"46","textPreview":"46","textChars":2,"textLines":1,"bbox":[974,212,162,42]}
+{"kind":"textbox","id":"sh/v65gv2dg","slide":5,"text":"high-risk users","textPreview":"high-risk users","textChars":15,"textLines":1,"bbox":[974,258,162,40]}
+{"kind":"textbox","id":"sh/u5wfmxwv","slide":5,"text":"Super User","textPreview":"Super User","textChars":10,"textLines":1,"bbox":[124,386,310,22]}
+{"kind":"shape","id":"sh/t4nytsva","slide":5,"bbox":[454,390,300,12]}
+{"kind":"shape","id":"sh/83uxknep","slide":5,"bbox":[454,390,300,12]}
+{"kind":"textbox","id":"sh/kjipwrqx","slide":5,"text":"18","textPreview":"18","textChars":2,"textLines":1,"bbox":[770,384,70,22]}
+{"kind":"textbox","id":"sh/lkr6pw7i","slide":5,"text":"Reports and Dashboards with View All Data","textPreview":"Reports and Dashboards with View All Data","textChars":41,"textLines":1,"bbox":[124,420,310,22]}
+{"kind":"shape","id":"sh/yx07uh8r","slide":5,"bbox":[454,424,300,12]}
+{"kind":"shape","id":"sh/ji9onmpc","slide":5,"bbox":[454,424,283,12]}
+{"kind":"textbox","id":"sh/wvips7ql","slide":5,"text":"17","textPreview":"17","textChars":2,"textLines":1,"bbox":[770,418,70,22]}
+{"kind":"textbox","id":"sh/xwr6lc76","slide":5,"text":"UK Admin Permission Set","textPreview":"UK Admin Permission Set","textChars":23,"textLines":1,"bbox":[124,454,310,22]}
+{"kind":"shape","id":"sh/atg7qh8v","slide":5,"bbox":[454,458,300,12]}
+{"kind":"shape","id":"sh/bupojmp0","slide":5,"bbox":[454,458,133,12]}
+{"kind":"textbox","id":"sh/gr2p4bq5","slide":5,"text":"8","textPreview":"8","textChars":1,"textLines":1,"bbox":[770,452,70,22]}
+{"kind":"textbox","id":"sh/hsbqxg7q","slide":5,"text":"Waive MFA","textPreview":"Waive MFA","textChars":9,"textLines":1,"bbox":[124,488,310,22]}
+{"kind":"shape","id":"sh/rmxs3a9s","slide":5,"bbox":[454,492,300,12]}
+{"kind":"shape","id":"sh/qloru5s7","slide":5,"bbox":[454,492,117,12]}
+{"kind":"textbox","id":"sh/d8fa5kry","slide":5,"text":"7","textPreview":"7","textChars":1,"textLines":1,"bbox":[770,486,70,22]}
+{"kind":"textbox","id":"sh/s769wfad","slide":5,"text":"Default lead creator","textPreview":"Default lead creator","textChars":20,"textLines":1,"bbox":[124,522,310,22]}
+{"kind":"shape","id":"sh/faxsru9o","slide":5,"bbox":[454,526,300,12]}
+{"kind":"shape","id":"sh/e9obyps3","slide":5,"bbox":[454,526,67,12]}
+{"kind":"textbox","id":"sh/1cfatkru","slide":5,"text":"4","textPreview":"4","textChars":1,"textLines":1,"bbox":[770,520,70,22]}
+{"kind":"textbox","id":"sh/0b6t0fa9","slide":5,"text":"Modify All - Products","textPreview":"Modify All - Products","textChars":21,"textLines":1,"bbox":[124,556,310,22]}
+{"kind":"shape","id":"sh/vedsvq9k","slide":5,"bbox":[454,560,300,12]}
+{"kind":"shape","id":"sh/udkrmlsz","slide":5,"bbox":[454,560,67,12]}
+{"kind":"textbox","id":"sh/mxor2l0v","slide":5,"text":"4","textPreview":"4","textChars":1,"textLines":1,"bbox":[770,554,70,22]}
+{"kind":"textbox","id":"sh/7yxsbqhg","slide":5,"text":"Veeam Data Cloud backup and restore user SFDC","textPreview":"Veeam Data Cloud backup and restore user SFDC","textChars":45,"textLines":1,"bbox":[124,590,310,22]}
+{"kind":"shape","id":"sh/8zqt4vi1","slide":5,"bbox":[454,594,300,12]}
+{"kind":"shape","id":"sh/90zad0zm","slide":5,"bbox":[454,594,50,12]}
+{"kind":"textbox","id":"sh/u18b650r","slide":5,"text":"3","textPreview":"3","textChars":1,"textLines":1,"bbox":[770,588,70,22]}
+{"kind":"textbox","id":"sh/v2hsfahc","slide":5,"text":"Priority: prove who truly needs these access paths, remove stale exceptions, and convert repeatable needs into governed bundles.","textPreview":"Priority: prove who truly needs these access paths, remove stale exceptions, and convert repeatable needs into governed bundles.","textChars":128,"textLines":1,"bbox":[850,392,300,126]}
+{"kind":"notes","id":"nt/brhmuq","slide":5,"text":"High-risk review can begin immediately because the number of users is manageable compared with the full assignment set.\nWaive MFA deserves special attention because it intersects with the current Salesforce access/MFA issue.\n\n[Sources]\nProboMedical Salesforce PermissionSetAssignment export generated during this workspace session.\nUpdated workbook: outputs/book_v2_direct_permission_sets/Book v2 - with Direct Permission Sets.xlsx."}
+{"kind":"slide","id":"sl/bs82g3","slide":6,"title":"PERMISSION SET REFACTOR","textShapes":21}
+{"kind":"textbox","id":"sh/3ylgn2lc","slide":6,"text":"PERMISSION SET REFACTOR","textPreview":"PERMISSION SET REFACTOR","textChars":23,"textLines":1,"bbox":[72,26,420,22]}
+{"kind":"textbox","id":"sh/4zuhg7mx","slide":6,"text":"Common Permission Sets should become governed access bundles","textPreview":"Common Permission Sets should become governed access bundles","textChars":60,"textLines":1,"bbox":[72,54,970,88]}
+{"kind":"shape","id":"sh/503ypc3i","slide":6,"bbox":[72,152,1136,1]}
+{"kind":"textbox","id":"sh/q1czihkn","slide":6,"text":"Probo Medical | Salesforce Access Review","textPreview":"Probo Medical | Salesforce Access Review","textChars":40,"textLines":1,"bbox":[72,680,460,18]}
+{"kind":"textbox","id":"sh/r2lgrml8","slide":6,"text":"Add Product Page","textPreview":"Add Product Page","textChars":16,"textLines":1,"bbox":[118,185,310,22]}
+{"kind":"shape","id":"sh/c3ehkr2t","slide":6,"bbox":[448,189,340,12]}
+{"kind":"shape","id":"sh/donitw3e","slide":6,"bbox":[448,189,340,12]}
+{"kind":"textbox","id":"sh/65szmx4j","slide":6,"text":"262","textPreview":"262","textChars":3,"textLines":1,"bbox":[804,183,70,22]}
+{"kind":"textbox","id":"sh/761gfil4","slide":6,"text":"Pandadoc Object Permissions","textPreview":"Pandadoc Object Permissions","textChars":27,"textLines":1,"bbox":[118,227,310,22]}
+{"kind":"shape","id":"sh/f2l07qts","slide":6,"bbox":[448,231,340,12]}
+{"kind":"shape","id":"sh/e1szelc7","slide":6,"bbox":[448,231,331,12]}
+{"kind":"textbox","id":"sh/143i90bi","slide":6,"text":"255","textPreview":"255","textChars":3,"textLines":1,"bbox":[804,225,70,22]}
+{"kind":"textbox","id":"sh/g3uhgvax","slide":6,"text":"PandaDoc Access","textPreview":"PandaDoc Access","textChars":15,"textLines":1,"bbox":[118,269,310,22]}
+{"kind":"shape","id":"sh/re1g36tg","slide":6,"bbox":[448,273,340,12]}
+{"kind":"shape","id":"sh/6dsza1cv","slide":6,"bbox":[448,273,240,12]}
+{"kind":"textbox","id":"sh/tgji5gbm","slide":6,"text":"185","textPreview":"185","textChars":3,"textLines":1,"bbox":[804,267,70,22]}
+{"kind":"textbox","id":"sh/sfahcbu1","slide":6,"text":"Add Asset Page","textPreview":"Add Asset Page","textChars":14,"textLines":1,"bbox":[118,311,310,22]}
+{"kind":"shape","id":"sh/ja1gz6tk","slide":6,"bbox":[448,315,340,12]}
+{"kind":"shape","id":"sh/i98z61cz","slide":6,"bbox":[448,315,239,12]}
+{"kind":"textbox","id":"sh/m58zi1wr","slide":6,"text":"184","textPreview":"184","textChars":3,"textLines":1,"bbox":[804,309,70,22]}
+{"kind":"textbox","id":"sh/76h0r6dc","slide":6,"text":"Loaner Assets Object","textPreview":"Loaner Assets Object","textChars":20,"textLines":1,"bbox":[118,353,310,22]}
+{"kind":"shape","id":"sh/87q1kbex","slide":6,"bbox":[448,357,340,12]}
+{"kind":"shape","id":"sh/98zitwvi","slide":6,"bbox":[448,357,166,12]}
+{"kind":"textbox","id":"sh/u98jm1wn","slide":6,"text":"128","textPreview":"128","textChars":3,"textLines":1,"bbox":[804,351,70,22]}
+{"kind":"textbox","id":"sh/vah0v6d8","slide":6,"text":"Loaner Object","textPreview":"Loaner Object","textChars":13,"textLines":1,"bbox":[118,395,310,22]}
+{"kind":"shape","id":"sh/wba1obet","slide":6,"bbox":[448,399,340,12]}
+{"kind":"shape","id":"sh/hcjixgve","slide":6,"bbox":[448,399,164,12]}
+{"kind":"textbox","id":"sh/idsjqlwz","slide":6,"text":"126","textPreview":"126","textChars":3,"textLines":1,"bbox":[804,393,70,22]}
+{"kind":"textbox","id":"sh/je10zqdk","slide":6,"text":"SWO/HWO","textPreview":"SWO/HWO","textChars":7,"textLines":1,"bbox":[118,437,310,22]}
+{"kind":"shape","id":"sh/d4nu54jy","slide":6,"bbox":[448,441,340,12]}
+{"kind":"shape","id":"sh/sjetcz2d","slide":6,"bbox":[448,441,164,12]}
+{"kind":"textbox","id":"sh/ri5c3e1s","slide":6,"text":"126","textPreview":"126","textChars":3,"textLines":1,"bbox":[804,435,70,22]}
+{"kind":"textbox","id":"sh/qhwba9k7","slide":6,"text":"All Record Types","textPreview":"All Record Types","textChars":16,"textLines":1,"bbox":[118,479,310,22]}
+{"kind":"shape","id":"sh/187u9oju","slide":6,"bbox":[448,483,340,12]}
+{"kind":"shape","id":"sh/07ydgj29","slide":6,"bbox":[448,483,152,12]}
+{"kind":"textbox","id":"sh/f65c7e14","slide":6,"text":"117","textPreview":"117","textChars":3,"textLines":1,"bbox":[804,477,70,22]}
+{"kind":"textbox","id":"sh/e5wbe9kj","slide":6,"text":"Large-repeat Permission Sets are good candidates for Permission Set Groups or persona bundles because many users need the same access pattern.","textPreview":"Large-repeat Permission Sets are good candidates for Permission Set Groups or persona bundles because many users need the same access pat...","textChars":142,"textLines":1,"bbox":[895,206,245,150]}
+{"kind":"textbox","id":"sh/pc7udoj6","slide":6,"text":"Refactor rule: if a Permission Set is assigned broadly and always travels with the same neighboring sets, bundle it by job function instead of assigning it one-by-one.","textPreview":"Refactor rule: if a Permission Set is assigned broadly and always travels with the same neighboring sets, bundle it by job function inste...","textChars":167,"textLines":1,"bbox":[895,392,255,126]}
+{"kind":"notes","id":"nt/bs82g3","slide":6,"text":"This slide shifts from risk to opportunity. Broadly used Permission Sets may be legitimate, but the assignment model should be governed.\n\n[Sources]\nProboMedical Salesforce PermissionSetAssignment export generated during this workspace session.\nUpdated workbook: outputs/book_v2_direct_permission_sets/Book v2 - with Direct Permission Sets.xlsx."}
+{"kind":"slide","id":"sl/18yx8p","slide":7,"title":"PERMISSION SET REFACTOR","textShapes":10}
+{"kind":"textbox","id":"sh/e9gnulo3","slide":7,"text":"PERMISSION SET REFACTOR","textPreview":"PERMISSION SET REFACTOR","textChars":23,"textLines":1,"bbox":[72,26,420,22]}
+{"kind":"textbox","id":"sh/1crmp0nu","slide":7,"text":"The current pattern mixes baseline access, job access, and exceptions","textPreview":"The current pattern mixes baseline access, job access, and exceptions","textChars":69,"textLines":1,"bbox":[72,54,970,88]}
+{"kind":"shape","id":"sh/0bi5wvm9","slide":7,"bbox":[72,152,1136,1]}
+{"kind":"textbox","id":"sh/ne94rq5k","slide":7,"text":"Probo Medical | Salesforce Access Review","textPreview":"Probo Medical | Salesforce Access Review","textChars":40,"textLines":1,"bbox":[72,680,460,18]}
+{"kind":"shape","id":"sh/md0nyl4f","slide":7,"bbox":[114,206,300,230]}
+{"kind":"textbox","id":"sh/9gr6t0nq","slide":7,"text":"Baseline","textPreview":"Baseline","textChars":8,"textLines":1,"bbox":[142,236,244,34]}
+{"kind":"textbox","id":"sh/ofi50vm5","slide":7,"text":"Profile and license provide the minimum access a user needs to enter Salesforce.","textPreview":"Profile and license provide the minimum access a user needs to enter Salesforce.","textChars":80,"textLines":1,"bbox":[142,294,240,102]}
+{"kind":"shape","id":"sh/bitova5w","slide":7,"bbox":[479,206,300,230]}
+{"kind":"textbox","id":"sh/ah0n254b","slide":7,"text":"Job access","textPreview":"Job access","textChars":10,"textLines":1,"bbox":[507,236,244,34]}
+{"kind":"textbox","id":"sh/wje5sryl","slide":7,"text":"Permission Sets were added directly as the business needed more capability.","textPreview":"Permission Sets were added directly as the business needed more capability.","textChars":75,"textLines":1,"bbox":[507,294,240,102]}
+{"kind":"shape","id":"sh/hkn61wf6","slide":7,"bbox":[844,206,300,230]}
+{"kind":"textbox","id":"sh/uhwnqhgf","slide":7,"text":"Exceptions","textPreview":"Exceptions","textChars":10,"textLines":1,"bbox":[872,236,244,34]}
+{"kind":"textbox","id":"sh/vi5ozmx0","slide":7,"text":"Super User, View All, Modify All, Waive MFA, and admin-like rights sit beside normal access.","textPreview":"Super User, View All, Modify All, Waive MFA, and admin-like rights sit beside normal access.","textChars":92,"textLines":1,"bbox":[872,294,240,102]}
+{"kind":"textbox","id":"sh/4nepwbyh","slide":7,"text":"Refactor objective: separate these layers so access can be approved, explained, and removed cleanly.","textPreview":"Refactor objective: separate these layers so access can be approved, explained, and removed cleanly.","textChars":100,"textLines":1,"bbox":[160,500,860,44]}
+{"kind":"notes","id":"nt/18yx8p","slide":7,"text":"Explain that direct assignment is not automatically wrong. The problem is when normal access, job access, and risky exceptions are all managed the same way.\n\n[Sources]\nProboMedical Salesforce PermissionSetAssignment export generated during this workspace session.\nUpdated workbook: outputs/book_v2_direct_permission_sets/Book v2 - with Direct Permission Sets.xlsx."}
+{"kind":"slide","id":"sl/4zh80i","slide":8,"title":"PERMISSION SET REFACTOR","textShapes":12}
+{"kind":"textbox","id":"sh/9kfix0ru","slide":8,"text":"PERMISSION SET REFACTOR","textPreview":"PERMISSION SET REFACTOR","textChars":23,"textLines":1,"bbox":[72,26,420,22]}
+{"kind":"textbox","id":"sh/mh4zmls3","slide":8,"text":"Target model: make access explainable","textPreview":"Target model: make access explainable","textChars":37,"textLines":1,"bbox":[72,54,970,88]}
+{"kind":"shape","id":"sh/nid0vq9o","slide":8,"bbox":[72,152,1136,1]}
+{"kind":"textbox","id":"sh/w76hsfa5","slide":8,"text":"Probo Medical | Salesforce Access Review","textPreview":"Probo Medical | Salesforce Access Review","textChars":40,"textLines":1,"bbox":[72,680,460,18]}
+{"kind":"shape","id":"sh/x8fi1krq","slide":8,"bbox":[100,252,170,78]}
+{"kind":"shape","id":"sh/alozq5sf","slide":8,"bbox":[345,170,210,78]}
+{"kind":"shape","id":"sh/v6x0za9k","slide":8,"bbox":[620,156,250,92]}
+{"kind":"shape","id":"sh/kbqhwfah","slide":8,"bbox":[620,334,250,92]}
+{"kind":"shape","id":"sh/5czi5kr2","slide":8,"bbox":[940,170,230,112]}
+{"kind":"shape","id":"sh/dkzu5kjm","slide":8,"bbox":[270,209,75,82]}
+{"kind":"shape","id":"sh/cjqtwfi1","slide":8,"bbox":[555,202,65,7]}
+{"kind":"shape","id":"sh/bixc3a1g","slide":8,"bbox":[270,291,350,89]}
+{"kind":"shape","id":"sh/qhobu5kv","slide":8,"bbox":[870,202,70,24]}
+{"kind":"textbox","id":"sh/lozu9kji","slide":8,"text":"User","textPreview":"User","textChars":4,"textLines":1,"bbox":[124,276,122,28]}
+{"kind":"textbox","id":"sh/0nqt0fix","slide":8,"text":"Profile","textPreview":"Profile","textChars":7,"textLines":1,"bbox":[377,195,150,28]}
+{"kind":"textbox","id":"sh/zmhc7a1s","slide":8,"text":"Permission Set\nGroup","textPreview":"Permission Set | Group","textChars":20,"textLines":2,"bbox":[645,174,200,52]}
+{"kind":"textbox","id":"sh/yl8byp07","slide":8,"text":"Job bundle","textPreview":"Job bundle","textChars":10,"textLines":1,"bbox":[656,224,178,22]}
+{"kind":"textbox","id":"sh/1sfax0je","slide":8,"text":"Add-on\nPermission Set","textPreview":"Add-on | Permission Set","textChars":21,"textLines":2,"bbox":[648,350,196,56]}
+{"kind":"textbox","id":"sh/gr6tov2t","slide":8,"text":"Small, named need","textPreview":"Small, named need","textChars":17,"textLines":1,"bbox":[668,404,150,20]}
+{"kind":"textbox","id":"sh/s7al0ze1","slide":8,"text":"Exception\nAccess","textPreview":"Exception | Access","textChars":16,"textLines":2,"bbox":[968,188,175,56]}
+{"kind":"textbox","id":"sh/t8j2tkvm","slide":8,"text":"Time-bound approval + owner + review date","textPreview":"Time-bound approval + owner + review date","textChars":41,"textLines":1,"bbox":[970,244,168,34]}
+{"kind":"textbox","id":"sh/6ls3ypwv","slide":8,"text":"Class-style rule: users inherit baseline access, receive job bundles, and only get exceptions through a controlled process.","textPreview":"Class-style rule: users inherit baseline access, receive job bundles, and only get exceptions through a controlled process.","textChars":123,"textLines":1,"bbox":[154,500,920,48]}
+{"kind":"notes","id":"nt/4zh80i","slide":8,"text":"This is the target-state class diagram. Keep it simple: profile is baseline, Permission Set Groups are job bundles, direct add-ons are limited, exceptions are controlled.\n\n[Sources]\nProboMedical Salesforce PermissionSetAssignment export generated during this workspace session.\nUpdated workbook: outputs/book_v2_direct_permission_sets/Book v2 - with Direct Permission Sets.xlsx."}
+{"kind":"slide","id":"sl/ywojjg","slide":9,"title":"PERMISSION SET REFACTOR","textShapes":11}
+{"kind":"textbox","id":"sh/sjuhkb2h","slide":9,"text":"PERMISSION SET REFACTOR","textPreview":"PERMISSION SET REFACTOR","textChars":23,"textLines":1,"bbox":[72,26,420,22]}
+{"kind":"textbox","id":"sh/7ilgb6lw","slide":9,"text":"Refactor in four controlled workstreams","textPreview":"Refactor in four controlled workstreams","textChars":39,"textLines":1,"bbox":[72,54,970,88]}
+{"kind":"shape","id":"sh/6hczi1kb","slide":9,"bbox":[72,152,1136,1]}
+{"kind":"textbox","id":"sh/5g3y9w36","slide":9,"text":"Probo Medical | Salesforce Access Review","textPreview":"Probo Medical | Salesforce Access Review","textChars":40,"textLines":1,"bbox":[72,680,460,18]}
+{"kind":"shape","id":"sh/kfuhgb2l","slide":9,"bbox":[120,190,440,128]}
+{"kind":"textbox","id":"sh/jelg76l0","slide":9,"text":"1. Inventory","textPreview":"1. Inventory","textChars":12,"textLines":1,"bbox":[148,214,220,30]}
+{"kind":"textbox","id":"sh/idsze1kf","slide":9,"text":"Freeze the evidence baseline and identify high-count, high-risk, and stale assignments.","textPreview":"Freeze the evidence baseline and identify high-count, high-risk, and stale assignments.","textChars":87,"textLines":1,"bbox":[148,256,370,44]}
+{"kind":"shape","id":"sh/pcnil03a","slide":9,"bbox":[640,190,440,128]}
+{"kind":"textbox","id":"sh/4behsv2p","slide":9,"text":"2. Design","textPreview":"2. Design","textChars":9,"textLines":1,"bbox":[668,214,220,30]}
+{"kind":"textbox","id":"sh/e10zi98b","slide":9,"text":"Create role bundles by job function and separate add-ons from exceptions.","textPreview":"Create role bundles by job function and separate add-ons from exceptions.","textChars":73,"textLines":1,"bbox":[668,256,370,44]}
+{"kind":"shape","id":"sh/z29gbe9w","slide":9,"bbox":[120,380,440,128]}
+{"kind":"textbox","id":"sh/03ihkjqh","slide":9,"text":"3. Migrate","textPreview":"3. Migrate","textChars":10,"textLines":1,"bbox":[148,404,220,30]}
+{"kind":"textbox","id":"sh/14rydor2","slide":9,"text":"Pilot with one business group, compare before/after access, then expand.","textPreview":"Pilot with one business group, compare before/after access, then expand.","textChars":72,"textLines":1,"bbox":[148,446,370,44]}
+{"kind":"shape","id":"sh/qx0fe98f","slide":9,"bbox":[640,380,440,128]}
+{"kind":"textbox","id":"sh/ry9g7e90","slide":9,"text":"4. Govern","textPreview":"4. Govern","textChars":9,"textLines":1,"bbox":[668,404,220,30]}
+{"kind":"textbox","id":"sh/czixgjql","slide":9,"text":"Add owners, approvals, review cadence, and removal rules for exceptions.","textPreview":"Add owners, approvals, review cadence, and removal rules for exceptions.","textChars":72,"textLines":1,"bbox":[668,446,370,44]}
+{"kind":"notes","id":"nt/ywojjg","slide":9,"text":"Recommend sequencing: do not migrate everyone at once. Start with evidence and high-risk review, then pilot a group.\n\n[Sources]\nProboMedical Salesforce PermissionSetAssignment export generated during this workspace session.\nUpdated workbook: outputs/book_v2_direct_permission_sets/Book v2 - with Direct Permission Sets.xlsx."}
+{"kind":"slide","id":"sl/b1cbvs","slide":10,"title":"PERMISSION SET REFACTOR","textShapes":13}
+{"kind":"textbox","id":"sh/jqtgnih8","slide":10,"text":"PERMISSION SET REFACTOR","textPreview":"PERMISSION SET REFACTOR","textChars":23,"textLines":1,"bbox":[72,26,420,22]}
+{"kind":"textbox","id":"sh/kr2hg3yt","slide":10,"text":"Refactor rules keep the cleanup from becoming another one-off cycle","textPreview":"Refactor rules keep the cleanup from becoming another one-off cycle","textChars":67,"textLines":1,"bbox":[72,54,970,88]}
+{"kind":"shape","id":"sh/lsbyp8ze","slide":10,"bbox":[72,152,1136,1]}
+{"kind":"textbox","id":"sh/al0fatgr","slide":10,"text":"Probo Medical | Salesforce Access Review","textPreview":"Probo Medical | Salesforce Access Review","textChars":40,"textLines":1,"bbox":[72,680,460,18]}
+{"kind":"textbox","id":"sh/bm9gjyhc","slide":10,"text":"Threshold review","textPreview":"Threshold review","textChars":16,"textLines":1,"bbox":[120,170,260,28]}
+{"kind":"textbox","id":"sh/wnihc3yx","slide":10,"text":"Any user with 20+ direct Permission Sets requires business-owner review.","textPreview":"Any user with 20+ direct Permission Sets requires business-owner review.","textChars":72,"textLines":1,"bbox":[410,170,650,36]}
+{"kind":"shape","id":"sh/xoryl8zi","slide":10,"bbox":[120,218,940,1]}
+{"kind":"textbox","id":"sh/uh4zmxgv","slide":10,"text":"Critical access","textPreview":"Critical access","textChars":15,"textLines":1,"bbox":[120,246,260,28]}
+{"kind":"textbox","id":"sh/fidgf2xg","slide":10,"text":"Super User, Waive MFA, Modify All Data, and View All Data require named approval.","textPreview":"Super User, Waive MFA, Modify All Data, and View All Data require named approval.","textChars":81,"textLines":1,"bbox":[410,246,650,36]}
+{"kind":"shape","id":"sh/ju5gruxs","slide":10,"bbox":[120,294,940,1]}
+{"kind":"textbox","id":"sh/itczipw7","slide":10,"text":"Bundle first","textPreview":"Bundle first","textChars":12,"textLines":1,"bbox":[120,322,260,28]}
+{"kind":"textbox","id":"sh/5wnyt4fi","slide":10,"text":"Common access patterns move into Permission Set Groups by job function.","textPreview":"Common access patterns move into Permission Set Groups by job function.","textChars":71,"textLines":1,"bbox":[410,322,650,36]}
+{"kind":"shape","id":"sh/kvehkzex","slide":10,"bbox":[120,370,940,1]}
+{"kind":"textbox","id":"sh/7y5gvexo","slide":10,"text":"Exception expiry","textPreview":"Exception expiry","textChars":16,"textLines":1,"bbox":[120,398,260,28]}
+{"kind":"textbox","id":"sh/6xwzm9w3","slide":10,"text":"Exception access must have owner, reason, and review date.","textPreview":"Exception access must have owner, reason, and review date.","textChars":58,"textLines":1,"bbox":[410,398,650,36]}
+{"kind":"shape","id":"sh/t0nyx4fu","slide":10,"bbox":[120,446,940,1]}
+{"kind":"textbox","id":"sh/szehoje9","slide":10,"text":"Naming standard","textPreview":"Naming standard","textChars":15,"textLines":1,"bbox":[120,474,260,28]}
+{"kind":"textbox","id":"sh/f2pgzex0","slide":10,"text":"Permission Sets should identify function, scope, and risk level.","textPreview":"Permission Sets should identify function, scope, and risk level.","textChars":64,"textLines":1,"bbox":[410,474,650,36]}
+{"kind":"shape","id":"sh/u1gzq9wf","slide":10,"bbox":[120,522,940,1]}
+{"kind":"notes","id":"nt/b1cbvs","slide":10,"text":"This slide gives the boss decision criteria. These rules can become the access governance policy.\n\n[Sources]\nProboMedical Salesforce PermissionSetAssignment export generated during this workspace session.\nUpdated workbook: outputs/book_v2_direct_permission_sets/Book v2 - with Direct Permission Sets.xlsx."}
+{"kind":"slide","id":"sl/10dmp2","slide":11,"title":"PERMISSION SET REFACTOR","textShapes":13}
+{"kind":"textbox","id":"sh/y9cfi1cr","slide":11,"text":"PERMISSION SET REFACTOR","textPreview":"PERMISSION SET REFACTOR","textChars":23,"textLines":1,"bbox":[72,26,420,22]}
+{"kind":"textbox","id":"sh/lw3ydwvi","slide":11,"text":"A phased plan reduces risk while access is being cleaned up","textPreview":"A phased plan reduces risk while access is being cleaned up","textChars":59,"textLines":1,"bbox":[72,54,970,88]}
+{"kind":"shape","id":"sh/kbuxkrux","slide":11,"bbox":[72,152,1136,1]}
+{"kind":"textbox","id":"sh/7y5gf6do","slide":11,"text":"Probo Medical | Salesforce Access Review","textPreview":"Probo Medical | Salesforce Access Review","textChars":40,"textLines":1,"bbox":[72,680,460,18]}
+{"kind":"shape","id":"sh/mxcfm1c3","slide":11,"bbox":[112,210,300,235]}
+{"kind":"textbox","id":"sh/90nyhgve","slide":11,"text":"0-30 days","textPreview":"0-30 days","textChars":9,"textLines":1,"bbox":[138,236,220,26]}
+{"kind":"textbox","id":"sh/8zexobu9","slide":11,"text":"Stabilize","textPreview":"Stabilize","textChars":9,"textLines":1,"bbox":[138,276,220,34]}
+{"kind":"textbox","id":"sh/v25gjqdk","slide":11,"text":"Validate workbook, review Super User/Waive MFA, identify top 20 high-count users.","textPreview":"Validate workbook, review Super User/Waive MFA, identify top 20 high-count users.","textChars":81,"textLines":1,"bbox":[138,330,240,82]}
+{"kind":"shape","id":"sh/u1wfqlcz","slide":11,"bbox":[466,210,300,235]}
+{"kind":"textbox","id":"sh/sfa14b29","slide":11,"text":"31-60 days","textPreview":"31-60 days","textChars":10,"textLines":1,"bbox":[492,236,220,26]}
+{"kind":"textbox","id":"sh/tgjixwje","slide":11,"text":"Design","textPreview":"Design","textChars":6,"textLines":1,"bbox":[492,276,220,34]}
+{"kind":"textbox","id":"sh/6dsz21k3","slide":11,"text":"Build persona bundles for Sales, QC, Shipping, FSL, Purchasing, and admin groups.","textPreview":"Build persona bundles for Sales, QC, Shipping, FSL, Purchasing, and admin groups.","textChars":81,"textLines":1,"bbox":[492,330,240,82]}
+{"kind":"shape","id":"sh/7e10v61o","slide":11,"bbox":[820,210,300,235]}
+{"kind":"textbox","id":"sh/gja18b25","slide":11,"text":"61-90 days","textPreview":"61-90 days","textChars":10,"textLines":1,"bbox":[846,236,220,26]}
+{"kind":"textbox","id":"sh/hkji1gjq","slide":11,"text":"Migrate","textPreview":"Migrate","textChars":7,"textLines":1,"bbox":[846,276,220,34]}
+{"kind":"textbox","id":"sh/uhsj61kz","slide":11,"text":"Pilot, compare before/after, remove duplicate direct assignments, document approvals.","textPreview":"Pilot, compare before/after, remove duplicate direct assignments, document approvals.","textChars":85,"textLines":1,"bbox":[846,330,240,82]}
+{"kind":"textbox","id":"sh/fi10z61k","slide":11,"text":"Success measure: fewer direct assignments per user, fewer unmanaged high-risk exceptions, and a repeatable approval path.","textPreview":"Success measure: fewer direct assignments per user, fewer unmanaged high-risk exceptions, and a repeatable approval path.","textChars":121,"textLines":1,"bbox":[152,512,900,46]}
+{"kind":"notes","id":"nt/10dmp2","slide":11,"text":"Use this as the implementation path. The first month is not about perfection; it is about control and prioritization.\n\n[Sources]\nProboMedical Salesforce PermissionSetAssignment export generated during this workspace session.\nUpdated workbook: outputs/book_v2_direct_permission_sets/Book v2 - with Direct Permission Sets.xlsx."}
+{"kind":"slide","id":"sl/zdvp2c","slide":12,"title":"PERMISSION SET REFACTOR","textShapes":11}
+{"kind":"textbox","id":"sh/nulknelw","slide":12,"text":"PERMISSION SET REFACTOR","textPreview":"PERMISSION SET REFACTOR","textChars":23,"textLines":1,"bbox":[72,26,420,22]}
+{"kind":"textbox","id":"sh/8vulgjmh","slide":12,"text":"David can ask for approval on a focused access refactor","textPreview":"David can ask for approval on a focused access refactor","textChars":55,"textLines":1,"bbox":[72,54,970,88]}
+{"kind":"shape","id":"sh/9w32p432","slide":12,"bbox":[72,152,1136,1]}
+{"kind":"textbox","id":"sh/axw3i94n","slide":12,"text":"Probo Medical | Salesforce Access Review","textPreview":"Probo Medical | Salesforce Access Review","textChars":40,"textLines":1,"bbox":[72,680,460,18]}
+{"kind":"textbox","id":"sh/vy5krel8","slide":12,"text":"Recommended decision","textPreview":"Recommended decision","textChars":20,"textLines":1,"bbox":[112,178,300,30]}
+{"kind":"textbox","id":"sh/wzelkjmt","slide":12,"text":"Approve a controlled Permission Set refactor beginning with high-risk users and the highest-count direct assignments.","textPreview":"Approve a controlled Permission Set refactor beginning with high-risk users and the highest-count direct assignments.","textChars":117,"textLines":1,"bbox":[112,224,760,68]}
+{"kind":"shape","id":"sh/x0n2to3e","slide":12,"bbox":[136,340,28,28]}
+{"kind":"textbox","id":"sh/q1sj6p4j","slide":12,"text":"1","textPreview":"1","textChars":1,"textLines":1,"bbox":[143,344,14,18]}
+{"kind":"textbox","id":"sh/b21kfulo","slide":12,"text":"Name business owners for Sales, QC, Shipping, FSL, Purchasing, and Admin access.","textPreview":"Name business owners for Sales, QC, Shipping, FSL, Purchasing, and Admin access.","textChars":80,"textLines":1,"bbox":[190,335,780,42]}
+{"kind":"shape","id":"sh/7qpgfm54","slide":12,"bbox":[136,412,28,28]}
+{"kind":"textbox","id":"sh/mpwf6hoj","slide":12,"text":"2","textPreview":"2","textChars":1,"textLines":1,"bbox":[143,416,14,18]}
+{"kind":"textbox","id":"sh/9s7yhwna","slide":12,"text":"Approve review of Super User, Waive MFA, Modify All Data, and View All Data assignments.","textPreview":"Approve review of Super User, Waive MFA, Modify All Data, and View All Data assignments.","textChars":88,"textLines":1,"bbox":[190,407,780,42]}
+{"kind":"shape","id":"sh/8ryx8r6p","slide":12,"bbox":[136,484,28,28]}
+{"kind":"textbox","id":"sh/z25gb258","slide":12,"text":"3","textPreview":"3","textChars":1,"textLines":1,"bbox":[143,488,14,18]}
+{"kind":"textbox","id":"sh/y1wf2xon","slide":12,"text":"Allow a pilot migration from direct assignments into governed job bundles.","textPreview":"Allow a pilot migration from direct assignments into governed job bundles.","textChars":74,"textLines":1,"bbox":[190,479,780,42]}
+{"kind":"notes","id":"nt/zdvp2c","slide":12,"text":"Close with a clear ask. David should ask for approval to begin the focused refactor and business-owner review.\n\n[Sources]\nProboMedical Salesforce PermissionSetAssignment export generated during this workspace session.\nUpdated workbook: outputs/book_v2_direct_permission_sets/Book v2 - with Direct Permission Sets.xlsx."}

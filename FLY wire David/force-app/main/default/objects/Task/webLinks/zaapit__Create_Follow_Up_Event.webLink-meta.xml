@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WebLink xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>zaapit__Create_Follow_Up_Event</fullName>
+    <availability>online</availability>
+    <description>Create Follow-Up Event &amp; copy description!</description>
+    <displayType>button</displayType>
+    <encodingKey>UTF-8</encodingKey>
+    <hasMenubar>false</hasMenubar>
+    <hasScrollbars>true</hasScrollbars>
+    <hasToolbar>false</hasToolbar>
+    <height>600</height>
+    <isResizable>true</isResizable>
+    <linkType>url</linkType>
+    <masterLabel>Create Follow-Up Event</masterLabel>
+    <openType>newWindow</openType>
+    <position>none</position>
+    <protected>false</protected>
+    <showsLocation>false</showsLocation>
+    <showsStatus>false</showsStatus>
+    <url>/00U/e?who_id={!Task.Who}&amp;what_id={!Task.What}&amp;evt5={!JSINHTMLENCODE((Task.Subject))}&amp;evt6={!SUBSTITUTE(JSINHTMLENCODE(Task.Description),&apos;\n&apos;,&apos; &apos;)}&amp;retURL=/{!Task.Id}</url>
+</WebLink>

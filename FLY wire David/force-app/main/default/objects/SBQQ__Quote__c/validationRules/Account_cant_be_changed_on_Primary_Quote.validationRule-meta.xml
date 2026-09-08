@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Account_cant_be_changed_on_Primary_Quote</fullName>
+    <active>true</active>
+    <description>Account cannot be changed on a Primary Quote</description>
+    <errorConditionFormula>OR(
+				AND(
+ISCHANGED(SBQQ__Account__c),
+SBQQ__Primary__c=true),
+    AND(
+								OR(
+SBQQ__Account__c &lt;&gt; SBQQ__Opportunity2__r.Ship_To_Account__c,
+Ship_To_Account__c &lt;&gt; SBQQ__Opportunity2__r.Ship_To_Account__c),
+ISCHANGED(SBQQ__Primary__c)))</errorConditionFormula>
+    <errorDisplayField>SBQQ__Account__c</errorDisplayField>
+    <errorMessage>You cannot update the Account on a Primary Quote. Uncheck &quot;Primary&quot; on this Quote, update the Account on the Opportunity and click New Quote to create a new primary Quote record</errorMessage>
+</ValidationRule>

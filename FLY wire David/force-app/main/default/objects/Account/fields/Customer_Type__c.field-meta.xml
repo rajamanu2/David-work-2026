@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Customer_Type__c</fullName>
+    <description>Created to identify a certain cohort of clients that are defined as “microenterprise&quot;. SAL-2793</description>
+    <inlineHelpText>Please indicate the type of customer as defined by the Payment Services Directive
+-Small Charity: A small charity is one with an annual income of less than £1 million. 
+-Micro-enterprise: An enterprise whose annual turnover and/or balance sheet total does not exceed €2 million (or sterling equivalent) and employs fewer than 10 people
+-Entity: A legal entity that is not a Small Charity or Micro-enterprise</inlineHelpText>
+    <label>Customer Type</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Small Charity</fullName>
+                <default>false</default>
+                <label>Small Charity</label>
+            </value>
+            <value>
+                <fullName>Micro-enterprise</fullName>
+                <default>false</default>
+                <label>Micro-enterprise</label>
+            </value>
+            <value>
+                <fullName>Entity</fullName>
+                <default>false</default>
+                <label>Entity</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

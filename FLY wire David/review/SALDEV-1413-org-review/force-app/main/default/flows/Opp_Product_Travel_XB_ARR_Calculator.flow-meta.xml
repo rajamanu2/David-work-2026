@@ -1,0 +1,2117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>58.0</apiVersion>
+    <areMetricsLoggedToDataCloud>false</areMetricsLoggedToDataCloud>
+    <decisions>
+        <name>Account_Region</name>
+        <label>Account Region</label>
+        <locationX>5462</locationX>
+        <locationY>755</locationY>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>EMEA_Accom_LUX</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Ship_To_Account__r.Account_Region__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>EMEA</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Account_Industry__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Accommodations</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Account_Sub_Industry__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Luxury Accommodations</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>EMEA_Lux_CCY</targetReference>
+            </connector>
+            <label>EMEA Accom LUX</label>
+        </rules>
+        <rules>
+            <name>EMEA_Accom_Other</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Ship_To_Account__r.Account_Region__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>EMEA</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Account_Industry__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Accommodations</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Account_Sub_Industry__c</leftValueReference>
+                <operator>NotEqualTo</operator>
+                <rightValue>
+                    <stringValue>Luxury Accommodations</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>EMEA_Accom_CCY</targetReference>
+            </connector>
+            <label>EMEA Accom Other</label>
+        </rules>
+        <rules>
+            <name>EMEA_DMC_Operator_Travel</name>
+            <conditionLogic>1 AND (2 OR 3 OR 4)</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Ship_To_Account__r.Account_Region__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>EMEA</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Account_Industry__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>DMC</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Account_Industry__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Travel Operator</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Account_Industry__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Travel</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>EMEA_DMC_Op_Travel_CCY</targetReference>
+            </connector>
+            <label>EMEA DMC, Operator, Travel</label>
+        </rules>
+        <rules>
+            <name>LATAM_DMC_Acc_Travel</name>
+            <conditionLogic>1 AND (2 OR 3 OR 4)</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Ship_To_Account__r.Account_Region__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>LATAM</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Account_Industry__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>DMC</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Account_Industry__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Accommodations</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Account_Industry__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Travel</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>LATAM_DMC_Accom_Travel_CCY</targetReference>
+            </connector>
+            <label>LATAM DMC, Acc, Travel</label>
+        </rules>
+        <rules>
+            <name>LATAM_Travel_Op</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Ship_To_Account__r.Account_Region__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>LATAM</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Account_Industry__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Travel Operator</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>LATAM_Travel_Op_CCY</targetReference>
+            </connector>
+            <label>LATAM Travel Op</label>
+        </rules>
+        <rules>
+            <name>NAMER_DMC</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Ship_To_Account__r.Account_Region__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>NAMER</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Account_Industry__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>DMC</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>NAMER_DMC_CCY</targetReference>
+            </connector>
+            <label>NAMER DMC</label>
+        </rules>
+        <rules>
+            <name>NAMER_Acc_Oper_Travel</name>
+            <conditionLogic>1 AND (2 OR 3 OR 4)</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Ship_To_Account__r.Account_Region__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>NAMER</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Account_Industry__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Accommodations</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Account_Industry__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Travel Operator</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Account_Industry__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Travel</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>NAMER_Accom_Op_Travel_CCY</targetReference>
+            </connector>
+            <label>NAMER Acc, Oper, Travel</label>
+        </rules>
+        <rules>
+            <name>APAC_DMC</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Ship_To_Account__r.Account_Region__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>APAC</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Account_Industry__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>DMC</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>APAC_DMC_CCY</targetReference>
+            </connector>
+            <label>APAC DMC</label>
+        </rules>
+        <rules>
+            <name>APAC_Accommodation</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Ship_To_Account__r.Account_Region__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>APAC</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Account_Industry__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Accommodations</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>APAC_Accom_CCY</targetReference>
+            </connector>
+            <label>APAC Accommodation</label>
+        </rules>
+        <rules>
+            <name>APAC_Travel_Op_Travel</name>
+            <conditionLogic>1 AND (2 OR 3)</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Ship_To_Account__r.Account_Region__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>APAC</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Account_Industry__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Travel</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Account_Industry__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Travel Operator</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>APAC_Op_Travel_CCY</targetReference>
+            </connector>
+            <label>APAC Travel Op, Travel</label>
+        </rules>
+        <rules>
+            <name>APAC_EMEA_LATAM_NAMER_Hospitality</name>
+            <conditionLogic>1 AND (2 OR 3 OR 4 OR 5)</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Account_Industry__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Hospitality</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Ship_To_Account__r.Account_Region__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>APAC</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Ship_To_Account__r.Account_Region__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>EMEA</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Ship_To_Account__r.Account_Region__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>LATAM</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Ship_To_Account__r.Account_Region__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>NAMER</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Hospitality_APAC_EMEA_LATAM_NAMER_Travel_Same_Currency</targetReference>
+            </connector>
+            <label>APAC, EMEA, LATAM, NAMER: Hospitality</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>FX_Account_Region</name>
+        <label>FX Account Region</label>
+        <locationX>2294</locationX>
+        <locationY>755</locationY>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>FX_EMEA_Accom_LUX</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Ship_To_Account__r.Account_Region__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>EMEA</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Account_Industry__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Accommodations</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Account_Sub_Industry__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Luxury Accommodations</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>EMEA_Lux_FX</targetReference>
+            </connector>
+            <label>FX EMEA Accom LUX</label>
+        </rules>
+        <rules>
+            <name>FX_EMEA_Accom_Other</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Ship_To_Account__r.Account_Region__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>EMEA</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Account_Industry__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Accommodations</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Account_Sub_Industry__c</leftValueReference>
+                <operator>NotEqualTo</operator>
+                <rightValue>
+                    <stringValue>Luxury Accommodations</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>EMEA_Accom_FX</targetReference>
+            </connector>
+            <label>FX EMEA Accom Other</label>
+        </rules>
+        <rules>
+            <name>FX_EMEA_DMC_Operator_Travel</name>
+            <conditionLogic>1 AND (2 OR 3 OR 4)</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Ship_To_Account__r.Account_Region__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>EMEA</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Account_Industry__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>DMC</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Account_Industry__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Travel Operator</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Account_Industry__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Travel</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>EMEA_DMC_Op_Travel_FX</targetReference>
+            </connector>
+            <label>FX EMEA DMC, Operator, Travel</label>
+        </rules>
+        <rules>
+            <name>FX_LATAM_DMC_Acc_Travel</name>
+            <conditionLogic>1 AND (2 OR 3 OR 4)</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Ship_To_Account__r.Account_Region__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>LATAM</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Account_Industry__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>DMC</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Account_Industry__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Accommodations</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Account_Industry__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Travel</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>LATAM_DMC_Accom_Travel_FX</targetReference>
+            </connector>
+            <label>FX LATAM DMC, Acc, Travel</label>
+        </rules>
+        <rules>
+            <name>FX_LATAM_Travel_Op</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Ship_To_Account__r.Account_Region__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>LATAM</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Account_Industry__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Travel Operator</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>LATAM_Travel_Op_FX</targetReference>
+            </connector>
+            <label>FX LATAM Travel Op</label>
+        </rules>
+        <rules>
+            <name>FX_NAMER_DMC</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Ship_To_Account__r.Account_Region__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>NAMER</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Account_Industry__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>DMC</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>NAMER_DMC_FX</targetReference>
+            </connector>
+            <label>FX NAMER DMC</label>
+        </rules>
+        <rules>
+            <name>FX_NAMER_Acc_Oper_Travel</name>
+            <conditionLogic>1 AND (2 OR 3 OR 4)</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Ship_To_Account__r.Account_Region__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>NAMER</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Account_Industry__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Accommodations</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Account_Industry__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Travel Operator</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Account_Industry__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Travel</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>NAMER_Accom_Op_Travel_FX</targetReference>
+            </connector>
+            <label>FX NAMER Acc, Oper, Travel</label>
+        </rules>
+        <rules>
+            <name>FX_APAC_DMC</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Ship_To_Account__r.Account_Region__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>APAC</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Account_Industry__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>DMC</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>APAC_DMC_FX</targetReference>
+            </connector>
+            <label>FX APAC DMC</label>
+        </rules>
+        <rules>
+            <name>FX_APAC_Accommodation</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Ship_To_Account__r.Account_Region__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>APAC</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Account_Industry__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Accommodations</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>APAC_Accom_FX</targetReference>
+            </connector>
+            <label>FX APAC Accommodation</label>
+        </rules>
+        <rules>
+            <name>FX_APAC_Travel_Op_Travel</name>
+            <conditionLogic>1 AND (2 OR 3)</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Ship_To_Account__r.Account_Region__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>APAC</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Account_Industry__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Travel</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Account_Industry__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Travel Operator</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>APAC_Op_Travel_FX</targetReference>
+            </connector>
+            <label>FX APAC Travel Op, Travel</label>
+        </rules>
+        <rules>
+            <name>FX_EMEA_NAMER_LATAM_APAC_Hospitality</name>
+            <conditionLogic>1 AND (2 OR 3 OR 4 OR 5)</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Account_Industry__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Hospitality</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Ship_To_Account__r.Account_Region__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>EMEA</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Ship_To_Account__r.Account_Region__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>NAMER</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Ship_To_Account__r.Account_Region__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>LATAM</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Ship_To_Account__r.Account_Region__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>APAC</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Hospitality_APAC_EMEA_LATAM_NAMER_Travel_FX</targetReference>
+            </connector>
+            <label>FX EMEA, NAMER, LATAM, APAC: Hospitality</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>FXvsSameCurrency</name>
+        <label>FXvsSameCurrency</label>
+        <locationX>4736</locationX>
+        <locationY>647</locationY>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>FX</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.SBQQ__QuoteLine__r.Transaction_Type__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>FX</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.SBQQ__QuoteLine__r.Usage_Type__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Percent</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>FX_Account_Region</targetReference>
+            </connector>
+            <label>FX</label>
+        </rules>
+        <rules>
+            <name>SameCurrency</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.SBQQ__QuoteLine__r.Transaction_Type__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Same Currency</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.SBQQ__QuoteLine__r.Usage_Type__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Percent</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Account_Region</targetReference>
+            </connector>
+            <label>SameCurrency</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Opp_meets_criteria</name>
+        <label>Opp meets criteria?</label>
+        <locationX>5726</locationX>
+        <locationY>323</locationY>
+        <defaultConnectorLabel>Exit Flow</defaultConnectorLabel>
+        <rules>
+            <name>Yes</name>
+            <conditionLogic>1 AND 2</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Opportunity.IsClosed</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Opportunity.RecordType.DeveloperName</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Travel</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Quote_Line_Type</targetReference>
+            </connector>
+            <label>Yes</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Quote_Line_Type</name>
+        <label>Quote Line Type</label>
+        <locationX>3746</locationX>
+        <locationY>431</locationY>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Renewal</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Quote_Line_Type__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Renewal</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Get_Original_Opportunity_Product_Renewal</targetReference>
+            </connector>
+            <label>Renewal</label>
+        </rules>
+        <rules>
+            <name>Cancellation</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Quote_Line_Type__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Cancellation</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Get_Original_Opportunity_Product_Cancellation</targetReference>
+            </connector>
+            <label>Cancellation</label>
+        </rules>
+        <rules>
+            <name>Amendment</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Quote_Line_Type__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Amendment</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Amendment_No_ARR</targetReference>
+            </connector>
+            <label>Amendment</label>
+        </rules>
+        <rules>
+            <name>Calculate_ARR</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.SBQQ__QuoteLine__r.Est_Annual_MM__c</leftValueReference>
+                <operator>GreaterThan</operator>
+                <rightValue>
+                    <numberValue>5.0</numberValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Quote_Line_Type__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>New</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Get_Current_FX_rate</targetReference>
+            </connector>
+            <label>Calculate ARR</label>
+        </rules>
+    </decisions>
+    <description>Created for SALDEV-1175, Updated with SALDEV-1271
+
+SALDEV - 1413: Quote line field NS_Usage_Rate__c replaced with Avg_Quoted_Rate__c fro stepped up pricing.</description>
+    <environments>Default</environments>
+    <formulas>
+        <name>Cancelled_ARR</name>
+        <dataType>Number</dataType>
+        <expression>{!Get_Original_Opportunity_Product_Cancellation.Opp_Product_ARR__c} * (-1)</expression>
+        <scale>2</scale>
+    </formulas>
+    <formulas>
+        <name>IsAPAC_Accommodation</name>
+        <dataType>Boolean</dataType>
+        <expression>AND(
+{!$Record.Opportunity.RecordTypeId} = &quot;0125w000000i6GqAAI&quot;,
+OR(
+   ISPICKVAL({!$Record.Opportunity.Type}, &quot;New Business&quot;), 
+   ISPICKVAL({!$Record.Opportunity.Type}, &quot;Existing Business&quot;)
+   ),
+{!$Record.Opportunity.IsClosed} = False,
+{!$Record.Do_not_Auto_Calculate_Price__c} =False,
+{!$Record.Ship_To_Account__r.Account_Region__c}  = &quot;APAC&quot;,
+{!$Record.Account_Industry__c} = &quot;Accommodations&quot;)</expression>
+    </formulas>
+    <formulas>
+        <name>IsAPAC_DMC</name>
+        <dataType>Boolean</dataType>
+        <expression>AND(
+{!$Record.Opportunity.RecordTypeId} = &quot;0125w000000i6GqAAI&quot;,
+OR(
+   ISPICKVAL({!$Record.Opportunity.Type}, &quot;New Business&quot;), 
+   ISPICKVAL({!$Record.Opportunity.Type}, &quot;Existing Business&quot;)
+   ),
+{!$Record.Opportunity.IsClosed} = False,
+{!$Record.Do_not_Auto_Calculate_Price__c} =False,
+{!$Record.Ship_To_Account__r.Account_Region__c}  = &quot;APAC&quot;,
+{!$Record.Account_Industry__c} = &quot;DMC&quot;
+)</expression>
+    </formulas>
+    <formulas>
+        <name>IsAPAC_Travel_Op_Travel</name>
+        <dataType>Boolean</dataType>
+        <expression>AND(
+{!$Record.Opportunity.RecordTypeId} = &quot;0125w000000i6GqAAI&quot;,
+OR(
+   ISPICKVAL({!$Record.Opportunity.Type}, &quot;New Business&quot;), 
+   ISPICKVAL({!$Record.Opportunity.Type}, &quot;Existing Business&quot;)
+   ),
+{!$Record.Opportunity.IsClosed} = False,
+{!$Record.Do_not_Auto_Calculate_Price__c} =False,
+{!$Record.Ship_To_Account__r.Account_Region__c}  = &quot;APAC&quot;,
+OR(
+{!$Record.Account_Industry__c} = &quot;Travel Operator&quot;,
+{!$Record.Account_Industry__c} = &quot;Travel&quot;
+)
+)</expression>
+    </formulas>
+    <formulas>
+        <name>IsEMEAaccommodationOther</name>
+        <dataType>Boolean</dataType>
+        <expression>AND(
+{!$Record.Opportunity.RecordTypeId} = &quot;0125w000000i6GqAAI&quot;,
+OR(
+   ISPICKVAL({!$Record.Opportunity.Type}, &quot;New Business&quot;), 
+   ISPICKVAL({!$Record.Opportunity.Type}, &quot;Existing Business&quot;)
+   ),
+{!$Record.Opportunity.IsClosed} = False,
+{!$Record.Do_not_Auto_Calculate_Price__c} =False,
+{!$Record.Ship_To_Account__r.Account_Region__c}  = &quot;EMEA&quot;,
+{!$Record.Account_Industry__c} = &quot;Accommodations&quot;,
+OR(
+{!$Record.Account_Sub_Industry__c} = &quot;Professional Accommodations&quot;,
+{!$Record.Account_Sub_Industry__c} = &quot;Student Accommodations&quot;,
+{!$Record.Account_Sub_Industry__c} = &quot;Short Term Accommodations&quot;,
+{!$Record.Account_Sub_Industry__c} = &quot;Temporary Accommodations&quot;,
+{!$Record.Account_Sub_Industry__c} = &quot;Other&quot;
+)
+)</expression>
+    </formulas>
+    <formulas>
+        <name>IsEMEAaccomodationLUX</name>
+        <dataType>Boolean</dataType>
+        <expression>AND(
+{!$Record.Opportunity.RecordTypeId} = &quot;0125w000000i6GqAAI&quot;,
+OR(
+   ISPICKVAL({!$Record.Opportunity.Type}, &quot;New Business&quot;), 
+   ISPICKVAL({!$Record.Opportunity.Type}, &quot;Existing Business&quot;)
+   ),
+{!$Record.Opportunity.IsClosed} = False,
+{!$Record.Do_not_Auto_Calculate_Price__c} =False,
+{!$Record.Ship_To_Account__r.Account_Region__c}  = &quot;EMEA&quot;,
+{!$Record.Account_Industry__c} = &quot;Accommodations&quot;,
+{!$Record.Account_Sub_Industry__c} = &quot;Luxury Accommodations&quot;
+)</expression>
+    </formulas>
+    <formulas>
+        <name>IsEMEADMCOperatorTravel</name>
+        <dataType>Boolean</dataType>
+        <expression>AND(
+{!$Record.Opportunity.RecordTypeId} = &quot;0125w000000i6GqAAI&quot;,
+OR(
+   ISPICKVAL({!$Record.Opportunity.Type}, &quot;New Business&quot;), 
+   ISPICKVAL({!$Record.Opportunity.Type}, &quot;Existing Business&quot;)
+   ),
+{!$Record.Opportunity.IsClosed} = False,
+{!$Record.Do_not_Auto_Calculate_Price__c} =False,
+{!$Record.Ship_To_Account__r.Account_Region__c}  = &quot;EMEA&quot;,
+OR(
+{!$Record.Account_Industry__c} = &quot;DMC&quot;,
+{!$Record.Account_Industry__c} = &quot;Travel Operator&quot;,
+{!$Record.Account_Industry__c} = &quot;Travel&quot;
+)
+)</expression>
+    </formulas>
+    <formulas>
+        <name>IsLATAM_DMC_Accomodations_Travel</name>
+        <dataType>Boolean</dataType>
+        <expression>AND(
+{!$Record.Opportunity.RecordTypeId} = &quot;0125w000000i6GqAAI&quot;,
+OR(
+   ISPICKVAL({!$Record.Opportunity.Type}, &quot;New Business&quot;), 
+   ISPICKVAL({!$Record.Opportunity.Type}, &quot;Existing Business&quot;)
+   ),
+{!$Record.Opportunity.IsClosed} = False,
+{!$Record.Do_not_Auto_Calculate_Price__c} =False,
+{!$Record.Ship_To_Account__r.Account_Region__c}  = &quot;LATAM&quot;,
+OR(
+{!$Record.Account_Industry__c} = &quot;Accommodations&quot;,
+{!$Record.Account_Industry__c} = &quot;DMC&quot;,
+{!$Record.Account_Industry__c} = &quot;Travel&quot;
+)
+)</expression>
+    </formulas>
+    <formulas>
+        <name>IsLATAM_TravelOp</name>
+        <dataType>Boolean</dataType>
+        <expression>AND(
+{!$Record.Opportunity.RecordTypeId} = &quot;0125w000000i6GqAAI&quot;,
+OR(
+   ISPICKVAL({!$Record.Opportunity.Type}, &quot;New Business&quot;), 
+   ISPICKVAL({!$Record.Opportunity.Type}, &quot;Existing Business&quot;)
+   ),
+{!$Record.Opportunity.IsClosed} = False,
+{!$Record.Do_not_Auto_Calculate_Price__c} =False,
+{!$Record.Ship_To_Account__r.Account_Region__c}  = &quot;LATAM&quot;,
+{!$Record.Account_Industry__c} = &quot;Travel Operator&quot;
+)</expression>
+    </formulas>
+    <formulas>
+        <name>IsNAMER_Acc_Oper_Travel</name>
+        <dataType>Boolean</dataType>
+        <expression>AND(
+{!$Record.Opportunity.RecordTypeId} = &quot;0125w000000i6GqAAI&quot;,
+OR(
+   ISPICKVAL({!$Record.Opportunity.Type}, &quot;New Business&quot;), 
+   ISPICKVAL({!$Record.Opportunity.Type}, &quot;Existing Business&quot;)
+   ),
+{!$Record.Opportunity.IsClosed} = False,
+{!$Record.Do_not_Auto_Calculate_Price__c} =False,
+{!$Record.Ship_To_Account__r.Account_Region__c}  = &quot;NAMER&quot;,
+OR(
+{!$Record.Account_Industry__c} = &quot;Accommodations&quot;,
+{!$Record.Account_Industry__c} = &quot;Travel Operator&quot;,
+{!$Record.Account_Industry__c} = &quot;Travel&quot;
+)
+)</expression>
+    </formulas>
+    <formulas>
+        <name>IsNAMER_DMC</name>
+        <dataType>Boolean</dataType>
+        <expression>AND(
+{!$Record.Opportunity.RecordTypeId} = &quot;0125w000000i6GqAAI&quot;,
+OR(
+   ISPICKVAL({!$Record.Opportunity.Type}, &quot;New Business&quot;), 
+   ISPICKVAL({!$Record.Opportunity.Type}, &quot;Existing Business&quot;)
+   ),
+{!$Record.Opportunity.IsClosed} = False,
+{!$Record.Do_not_Auto_Calculate_Price__c} =False,
+{!$Record.Ship_To_Account__r.Account_Region__c}  = &quot;NAMER&quot;,
+{!$Record.Account_Industry__c} = &quot;DMC&quot;
+)</expression>
+    </formulas>
+    <formulas>
+        <name>RC_APAC_Acc_CCY</name>
+        <dataType>String</dataType>
+        <expression>&quot;Travel APAC FX Usage Rate % *  70% Utilization * MM $&quot; + TEXT({!$Record.SBQQ__QuoteLine__r.Est_Annual_MM__c}) + &quot;*&quot; + TEXT({!$Record.SBQQ__QuoteLine__r.Avg_Quoted_Rate__c}) + &quot;*&quot; + &quot;.7&quot;  + &quot; / FX &quot; + TEXT(ConversionRate) + 
+&quot; Calculated: &quot;+ 
+TEXT( NOW() - 0.1666)</expression>
+    </formulas>
+    <formulas>
+        <name>RC_APAC_Acc_FX</name>
+        <dataType>String</dataType>
+        <expression>&quot;Travel APAC FX 4%*  70% Utilization * MM $&quot; + TEXT({!$Record.SBQQ__QuoteLine__r.Est_Annual_MM__c}) + &quot; / FX &quot; + TEXT(ConversionRate) + 
+&quot; Calculated: &quot;+ 
+TEXT( NOW() - 0.1666)</expression>
+    </formulas>
+    <formulas>
+        <name>RC_APAC_DMC_CCY</name>
+        <dataType>String</dataType>
+        <expression>&quot;Travel APAC FX Usage Rate % *  90% Utilization * MM $&quot; + TEXT({!$Record.SBQQ__QuoteLine__r.Est_Annual_MM__c}) + &quot;*&quot; + TEXT({!$Record.SBQQ__QuoteLine__r.Avg_Quoted_Rate__c}) + &quot;*&quot; + &quot;.9&quot; + &quot; / FX &quot; + TEXT(ConversionRate) + 
+&quot; Calculated: &quot;+ 
+TEXT( NOW() - 0.1666)</expression>
+    </formulas>
+    <formulas>
+        <name>RC_APAC_DMC_FX</name>
+        <dataType>String</dataType>
+        <expression>&quot;Travel APAC FX 4%*  90% Utilization * MM $&quot; + TEXT({!$Record.SBQQ__QuoteLine__r.Est_Annual_MM__c}) + &quot; / FX &quot; + TEXT(ConversionRate) + 
+&quot; Calculated: &quot;+ 
+TEXT( NOW() - 0.1666)</expression>
+    </formulas>
+    <formulas>
+        <name>RC_APAC_Travel_Op_CCY</name>
+        <dataType>String</dataType>
+        <expression>&quot;Travel APAC FX Usage Rate % * 80% Utilization * MM $&quot; + TEXT({!$Record.SBQQ__QuoteLine__r.Est_Annual_MM__c}) + &quot;*&quot; + TEXT({!$Record.SBQQ__QuoteLine__r.Avg_Quoted_Rate__c}) + &quot;*&quot; + &quot;.8&quot; + &quot; / FX &quot; + TEXT(ConversionRate) + 
+&quot; Calculated: &quot;+ 
+TEXT( NOW() - 0.1666)</expression>
+    </formulas>
+    <formulas>
+        <name>RC_APAC_Travel_Op_FX</name>
+        <dataType>String</dataType>
+        <expression>&quot;Travel APAC FX 4% * 80% Utilization * MM $&quot; + TEXT({!$Record.SBQQ__QuoteLine__r.Est_Annual_MM__c}) + &quot; / FX &quot; + TEXT(ConversionRate) + 
+&quot; Calculated: &quot;+ 
+TEXT( NOW() - 0.1666)</expression>
+    </formulas>
+    <formulas>
+        <name>RC_EMEA_CCY_Acc</name>
+        <dataType>String</dataType>
+        <expression>&quot;EMEA FX Accomm Usage Rate % * 100% Utilization * MM $&quot; + TEXT({!$Record.SBQQ__QuoteLine__r.Est_Annual_MM__c}) + &quot;*&quot; + TEXT({!$Record.SBQQ__QuoteLine__r.Avg_Quoted_Rate__c}) + &quot;*&quot; + &quot;1&quot;+ &quot; / FX &quot; + TEXT(ConversionRate) + 
+&quot; Calculated: &quot;+ 
+TEXT( NOW() - 0.1666)</expression>
+    </formulas>
+    <formulas>
+        <name>RC_EMEA_CCY_DMC_Op_Travel</name>
+        <dataType>String</dataType>
+        <expression>&quot;Travel EMEA FX Usage Rate % * MM $&quot; + TEXT({!$Record.SBQQ__QuoteLine__r.Est_Annual_MM__c}) + &quot;*&quot; + TEXT({!$Record.SBQQ__QuoteLine__r.Avg_Quoted_Rate__c}) + &quot; / FX &quot; + TEXT(ConversionRate) + 
+&quot; Calculated: &quot;+ 
+TEXT( NOW() - 0.1666)</expression>
+    </formulas>
+    <formulas>
+        <name>RC_EMEA_CCY_Lux</name>
+        <dataType>String</dataType>
+        <expression>&quot;EMEA FX LUX Accommodations Usage Rate % * 80% Utilization * MM $&quot; + TEXT({!$Record.SBQQ__QuoteLine__r.Est_Annual_MM__c}) + &quot;*&quot; + TEXT({!$Record.SBQQ__QuoteLine__r.Avg_Quoted_Rate__c}) + &quot;*&quot; + &quot;.8&quot; + &quot; / FX &quot; + TEXT(ConversionRate) + 
+&quot; Calculated: &quot;+ 
+TEXT( NOW() - 0.1666)</expression>
+    </formulas>
+    <formulas>
+        <name>RC_EMEA_FX_Acc</name>
+        <dataType>String</dataType>
+        <expression>&quot;EMEA FX Accomm 4% * 100% Utilization * MM $&quot; + TEXT({!$Record.SBQQ__QuoteLine__r.Est_Annual_MM__c}) + &quot; / FX &quot; + TEXT(ConversionRate) + 
+&quot; Calculated: &quot;+ 
+TEXT( NOW() - 0.1666)</expression>
+    </formulas>
+    <formulas>
+        <name>RC_EMEA_FX_DMC_Op_Travel</name>
+        <dataType>String</dataType>
+        <expression>&quot;Travel EMEA FX 4% * MM $&quot; + TEXT({!$Record.SBQQ__QuoteLine__r.Est_Annual_MM__c}) + &quot; / FX &quot; + TEXT(ConversionRate) + 
+&quot; Calculated: &quot;+ 
+TEXT( NOW() - 0.1666)</expression>
+    </formulas>
+    <formulas>
+        <name>RC_EMEA_FX_Lux</name>
+        <dataType>String</dataType>
+        <expression>&quot;EMEA FX LUX Accommodations 4% * 80% Utilization * MM $&quot; + TEXT({!$Record.SBQQ__QuoteLine__r.Est_Annual_MM__c}) + &quot; / FX &quot; + TEXT(ConversionRate) + 
+&quot; Calculated: &quot;+ 
+TEXT( NOW() - 0.1666)</expression>
+    </formulas>
+    <formulas>
+        <name>RC_Hospitality_CCY</name>
+        <dataType>String</dataType>
+        <expression>&quot;Travel&quot; + &quot;&quot; + {!$Record.Ship_To_Account__r.Account_Region__c} + &quot;&quot; + &quot;FX Usage Rate % *  100% Utilization * MM $&quot; + TEXT({!$Record.SBQQ__QuoteLine__r.Est_Annual_MM__c}) + &quot;*&quot; + TEXT({!$Record.SBQQ__QuoteLine__r.Avg_Quoted_Rate__c}) + &quot;*&quot; + &quot;1&quot;  + &quot; / FX &quot; + TEXT(ConversionRate) + 
+&quot; Calculated: &quot;+ 
+TEXT( NOW() - 0.1666)</expression>
+    </formulas>
+    <formulas>
+        <name>RC_Hospitality_FX</name>
+        <dataType>String</dataType>
+        <expression>&quot;Travel&quot; + &quot; &quot; + {!$Record.Ship_To_Account__r.Account_Region__c} + &quot; &quot; + &quot;FX 4%*  100% Utilization * MM $&quot; + TEXT({!$Record.SBQQ__QuoteLine__r.Est_Annual_MM__c}) + &quot; / FX &quot; + TEXT(ConversionRate) + 
+&quot; Calculated: &quot;+ 
+TEXT( NOW() - 0.1666)</expression>
+    </formulas>
+    <formulas>
+        <name>RC_LATAM_CCY_DMC_Acc_Travel</name>
+        <dataType>String</dataType>
+        <expression>&quot;Travel LATAM FX Usage Rate % * 40% Utilization * MM $&quot; + TEXT({!$Record.SBQQ__QuoteLine__r.Est_Annual_MM__c}) + &quot;*&quot; + TEXT({!$Record.SBQQ__QuoteLine__r.Avg_Quoted_Rate__c}) + &quot;*&quot; + &quot;.4&quot; + &quot; / FX &quot; + TEXT(ConversionRate) + 
+&quot; Calculated: &quot;+ 
+TEXT( NOW() - 0.1666)</expression>
+    </formulas>
+    <formulas>
+        <name>RC_LATAM_FX_DMC_Acc_Travel</name>
+        <dataType>String</dataType>
+        <expression>&quot;Travel LATAM FX 4% * 40% Utilization * MM $&quot; + TEXT({!$Record.SBQQ__QuoteLine__r.Est_Annual_MM__c}) + &quot; / FX &quot; + TEXT(ConversionRate) + 
+&quot; Calculated: &quot;+ 
+TEXT( NOW() - 0.1666)</expression>
+    </formulas>
+    <formulas>
+        <name>RC_LATAM_TravelOp_CCY</name>
+        <dataType>String</dataType>
+        <expression>&quot;Travel LATAM FX Usage Rate %* 50% Utilization * MM $&quot; + TEXT({!$Record.SBQQ__QuoteLine__r.Est_Annual_MM__c}) + &quot;*&quot; + TEXT({!$Record.SBQQ__QuoteLine__r.Avg_Quoted_Rate__c}) + &quot;*&quot; + &quot;.5&quot; + &quot; / FX &quot; + TEXT(ConversionRate) +  &quot; Calculated: &quot;+ TEXT( NOW() - 0.1666)</expression>
+    </formulas>
+    <formulas>
+        <name>RC_LATAM_TravelOp_FX</name>
+        <dataType>String</dataType>
+        <expression>&quot;Travel LATAM FX 4%* 50% Utilization * MM $&quot; + TEXT({!$Record.SBQQ__QuoteLine__r.Est_Annual_MM__c}) + &quot; / FX &quot; + TEXT(ConversionRate) +  &quot; Calculated: &quot;+ TEXT( NOW() - 0.1666)</expression>
+    </formulas>
+    <formulas>
+        <name>RC_NAMER_Acc_Op_Travel_CCY</name>
+        <dataType>String</dataType>
+        <expression>&quot;Travel NAMER FX Usage Rate % * MM $&quot; + TEXT({!$Record.SBQQ__QuoteLine__r.Est_Annual_MM__c}) + &quot;*&quot; + TEXT({!$Record.SBQQ__QuoteLine__r.Avg_Quoted_Rate__c}) + &quot; / FX &quot; + TEXT(ConversionRate) + 
+&quot; Calculated: &quot;+ 
+TEXT( NOW() - 0.1666)</expression>
+    </formulas>
+    <formulas>
+        <name>RC_NAMER_Acc_Op_Travel_FX</name>
+        <dataType>String</dataType>
+        <expression>&quot;Travel NAMER FX 4% * MM $&quot; + TEXT({!$Record.SBQQ__QuoteLine__r.Est_Annual_MM__c}) + &quot; / FX &quot; + TEXT(ConversionRate) + 
+&quot; Calculated: &quot;+ 
+TEXT( NOW() - 0.1666)</expression>
+    </formulas>
+    <formulas>
+        <name>RC_NAMER_DMC_CCY</name>
+        <dataType>String</dataType>
+        <expression>&quot;Travel Namer FX DMC Usage Rate % * 100% Utilization * MM $&quot; + TEXT({!$Record.SBQQ__QuoteLine__r.Est_Annual_MM__c}) + &quot;*&quot; + TEXT({!$Record.SBQQ__QuoteLine__r.Avg_Quoted_Rate__c}) + &quot;*&quot; + &quot;1&quot; + &quot; / FX &quot; + TEXT(ConversionRate) + 
+&quot; Calculated: &quot;+ 
+TEXT( NOW() - 0.1666)</expression>
+    </formulas>
+    <formulas>
+        <name>RC_NAMER_DMC_FX</name>
+        <dataType>String</dataType>
+        <expression>&quot;Travel Namer FX DMC 4% * 100% Utilization * MM $&quot; + TEXT({!$Record.SBQQ__QuoteLine__r.Est_Annual_MM__c}) + &quot; / FX &quot; + TEXT(ConversionRate) + 
+&quot; Calculated: &quot;+ 
+TEXT( NOW() - 0.1666)</expression>
+    </formulas>
+    <formulas>
+        <name>UP_APAC_Acc_CCY</name>
+        <dataType>Currency</dataType>
+        <expression>{!$Record.SBQQ__QuoteLine__r.Est_Annual_MM__c} * {!$Record.SBQQ__QuoteLine__r.Avg_Quoted_Rate__c} * 0.7 / {!ConversionRate}</expression>
+        <scale>18</scale>
+    </formulas>
+    <formulas>
+        <name>UP_APAC_Acc_FX</name>
+        <dataType>Currency</dataType>
+        <expression>{!$Record.SBQQ__QuoteLine__r.Est_Annual_MM__c} / ConversionRate * 0.04 * 0.7</expression>
+        <scale>2</scale>
+    </formulas>
+    <formulas>
+        <name>UP_APAC_DMC_CCY</name>
+        <dataType>Currency</dataType>
+        <expression>{!$Record.SBQQ__QuoteLine__r.Est_Annual_MM__c} * {!$Record.SBQQ__QuoteLine__r.Avg_Quoted_Rate__c} * 0.9 / {!ConversionRate}</expression>
+        <scale>18</scale>
+    </formulas>
+    <formulas>
+        <name>UP_APAC_DMC_FX</name>
+        <dataType>Currency</dataType>
+        <expression>{!$Record.SBQQ__QuoteLine__r.Est_Annual_MM__c} / ConversionRate * 0.04 * 0.9</expression>
+        <scale>2</scale>
+    </formulas>
+    <formulas>
+        <name>UP_APAC_Travel_Op_CCY</name>
+        <dataType>Currency</dataType>
+        <expression>{!$Record.SBQQ__QuoteLine__r.Est_Annual_MM__c} * {!$Record.SBQQ__QuoteLine__r.Avg_Quoted_Rate__c} * 0.8 / {!ConversionRate}</expression>
+        <scale>18</scale>
+    </formulas>
+    <formulas>
+        <name>UP_APAC_Travel_Op_FX</name>
+        <dataType>Currency</dataType>
+        <expression>{!$Record.SBQQ__QuoteLine__r.Est_Annual_MM__c} / ConversionRate * 0.04 * 0.8</expression>
+        <scale>2</scale>
+    </formulas>
+    <formulas>
+        <name>UP_EMEA_CCY_Acc</name>
+        <dataType>Currency</dataType>
+        <expression>{!$Record.SBQQ__QuoteLine__r.Est_Annual_MM__c} * {!$Record.SBQQ__QuoteLine__r.Avg_Quoted_Rate__c} * 1 / {!ConversionRate}</expression>
+        <scale>18</scale>
+    </formulas>
+    <formulas>
+        <name>UP_EMEA_CCY_DMC_Op_Travel</name>
+        <dataType>Currency</dataType>
+        <expression>{!$Record.SBQQ__QuoteLine__r.Est_Annual_MM__c} * {!$Record.SBQQ__QuoteLine__r.Avg_Quoted_Rate__c} / {!ConversionRate}</expression>
+        <scale>18</scale>
+    </formulas>
+    <formulas>
+        <name>UP_EMEA_CCY_Lux</name>
+        <dataType>Currency</dataType>
+        <expression>{!$Record.SBQQ__QuoteLine__r.Est_Annual_MM__c} * {!$Record.SBQQ__QuoteLine__r.Avg_Quoted_Rate__c} * 0.8 / {!ConversionRate}</expression>
+        <scale>18</scale>
+    </formulas>
+    <formulas>
+        <name>UP_EMEA_FX_Acc</name>
+        <dataType>Currency</dataType>
+        <expression>{!$Record.SBQQ__QuoteLine__r.Est_Annual_MM__c} / ConversionRate * 0.04 * 1</expression>
+        <scale>2</scale>
+    </formulas>
+    <formulas>
+        <name>UP_EMEA_FX_DMC_Op_Travel</name>
+        <dataType>Currency</dataType>
+        <expression>{!$Record.SBQQ__QuoteLine__r.Est_Annual_MM__c} / ConversionRate * 0.04</expression>
+        <scale>2</scale>
+    </formulas>
+    <formulas>
+        <name>UP_EMEA_FX_Lux</name>
+        <dataType>Currency</dataType>
+        <expression>{!$Record.SBQQ__QuoteLine__r.Est_Annual_MM__c} / ConversionRate * 0.04 * 0.8</expression>
+        <scale>2</scale>
+    </formulas>
+    <formulas>
+        <name>UP_Hospitality_CCY</name>
+        <dataType>Currency</dataType>
+        <expression>{!$Record.SBQQ__QuoteLine__r.Est_Annual_MM__c} * {!$Record.SBQQ__QuoteLine__r.Avg_Quoted_Rate__c} * 1 / {!ConversionRate}</expression>
+        <scale>2</scale>
+    </formulas>
+    <formulas>
+        <name>UP_Hospitality_FX</name>
+        <dataType>Currency</dataType>
+        <expression>{!$Record.SBQQ__QuoteLine__r.Est_Annual_MM__c} * 0.04 * 1 / {!ConversionRate}</expression>
+        <scale>2</scale>
+    </formulas>
+    <formulas>
+        <name>UP_LATAM_CCY_DMC_Acc_Travel</name>
+        <dataType>Currency</dataType>
+        <expression>{!$Record.SBQQ__QuoteLine__r.Est_Annual_MM__c} * {!$Record.SBQQ__QuoteLine__r.Avg_Quoted_Rate__c} * 0.4 / {!ConversionRate}</expression>
+        <scale>18</scale>
+    </formulas>
+    <formulas>
+        <name>UP_LATAM_FX_DMC_Acc_Travel</name>
+        <dataType>Currency</dataType>
+        <expression>{!$Record.SBQQ__QuoteLine__r.Est_Annual_MM__c} / ConversionRate * 0.04 * 0.4</expression>
+        <scale>2</scale>
+    </formulas>
+    <formulas>
+        <name>UP_LATAM_TravelOp_CCY</name>
+        <dataType>Currency</dataType>
+        <expression>{!$Record.SBQQ__QuoteLine__r.Est_Annual_MM__c} * {!$Record.SBQQ__QuoteLine__r.Avg_Quoted_Rate__c} * 0.5 / {!ConversionRate}</expression>
+        <scale>18</scale>
+    </formulas>
+    <formulas>
+        <name>UP_LATAM_TravelOp_FX</name>
+        <dataType>Currency</dataType>
+        <expression>{!$Record.SBQQ__QuoteLine__r.Est_Annual_MM__c} / ConversionRate * 0.04 * 0.5</expression>
+        <scale>2</scale>
+    </formulas>
+    <formulas>
+        <name>UP_NAMER_Acc_Op_Travel_CCY</name>
+        <dataType>Currency</dataType>
+        <expression>{!$Record.SBQQ__QuoteLine__r.Est_Annual_MM__c} * {!$Record.SBQQ__QuoteLine__r.Avg_Quoted_Rate__c} / {!ConversionRate}</expression>
+        <scale>18</scale>
+    </formulas>
+    <formulas>
+        <name>UP_NAMER_Acc_Op_Travel_FX</name>
+        <dataType>Currency</dataType>
+        <expression>{!$Record.SBQQ__QuoteLine__r.Est_Annual_MM__c} / ConversionRate * 0.04</expression>
+        <scale>2</scale>
+    </formulas>
+    <formulas>
+        <name>UP_NAMER_DMC_CCY</name>
+        <dataType>Currency</dataType>
+        <expression>{!$Record.SBQQ__QuoteLine__r.Est_Annual_MM__c} * {!$Record.SBQQ__QuoteLine__r.Avg_Quoted_Rate__c} * 1 / {!ConversionRate}</expression>
+        <scale>18</scale>
+    </formulas>
+    <formulas>
+        <name>UP_NAMER_DMC_FX</name>
+        <dataType>Currency</dataType>
+        <expression>{!$Record.SBQQ__QuoteLine__r.Est_Annual_MM__c} / ConversionRate * 0.04 * 1</expression>
+        <scale>2</scale>
+    </formulas>
+    <interviewLabel>(Opp Product) Travel XB ARR Calculator {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>(Opp Product) Travel XB ARR Calculator</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <recordLookups>
+        <description>Gets the dated exchange rate value for the current currency and period</description>
+        <name>Get_Current_FX_rate</name>
+        <label>Get Current FX rate</label>
+        <locationX>4736</locationX>
+        <locationY>539</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>FXvsSameCurrency</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>IsoCode</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>$Record.Opportunity.CurrencyIsoCode</elementReference>
+            </value>
+        </filters>
+        <filters>
+            <field>StartDate</field>
+            <operator>LessThanOrEqualTo</operator>
+            <value>
+                <elementReference>$Flow.CurrentDateTime</elementReference>
+            </value>
+        </filters>
+        <filters>
+            <field>NextStartDate</field>
+            <operator>GreaterThan</operator>
+            <value>
+                <elementReference>$Flow.CurrentDateTime</elementReference>
+            </value>
+        </filters>
+        <object>DatedConversionRate</object>
+        <outputAssignments>
+            <assignToReference>ConversionRate</assignToReference>
+            <field>ConversionRate</field>
+        </outputAssignments>
+    </recordLookups>
+    <recordLookups>
+        <name>Get_Original_Opportunity_Product_Cancellation</name>
+        <label>Get Original Opportunity Product</label>
+        <locationX>314</locationX>
+        <locationY>539</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Cancellation_No_ARR</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Opportunity_Line_Id__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>$Record.Opportunity_Line_Id__c</elementReference>
+            </value>
+        </filters>
+        <filters>
+            <field>Id</field>
+            <operator>NotEqualTo</operator>
+            <value>
+                <elementReference>$Record.Id</elementReference>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>OpportunityLineItem</object>
+        <sortField>CreatedDate</sortField>
+        <sortOrder>Desc</sortOrder>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordLookups>
+        <name>Get_Original_Opportunity_Product_Renewal</name>
+        <label>Get Original Opportunity Product</label>
+        <locationX>50</locationX>
+        <locationY>539</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Renewals_ARR_is_set_manually</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Opportunity_Line_Id__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>$Record.Opportunity_Line_Id__c</elementReference>
+            </value>
+        </filters>
+        <filters>
+            <field>Id</field>
+            <operator>NotEqualTo</operator>
+            <value>
+                <elementReference>$Record.Id</elementReference>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>OpportunityLineItem</object>
+        <sortField>CreatedDate</sortField>
+        <sortOrder>Desc</sortOrder>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordUpdates>
+        <name>Amendment_No_ARR</name>
+        <label>Amendment - No ARR</label>
+        <locationX>578</locationX>
+        <locationY>539</locationY>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Quote_Line_Type__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>Amendment</stringValue>
+            </value>
+        </filters>
+        <inputAssignments>
+            <field>Opp_Product_ARR__c</field>
+            <value>
+                <numberValue>0.0</numberValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Revenue_Calculated__c</field>
+            <value>
+                <stringValue>Amendment: No modifications were made to this line</stringValue>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>APAC_Accom_CCY</name>
+        <label>APAC Accom CCY</label>
+        <locationX>6122</locationX>
+        <locationY>863</locationY>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>ProductCode</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>FWXB1000</stringValue>
+            </value>
+        </filters>
+        <inputAssignments>
+            <field>Opp_Product_ARR__c</field>
+            <value>
+                <elementReference>UP_APAC_Acc_CCY</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Revenue_Calculated__c</field>
+            <value>
+                <elementReference>RC_APAC_Acc_CCY</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>APAC_Accom_FX</name>
+        <label>APAC Accom FX</label>
+        <locationX>2954</locationX>
+        <locationY>863</locationY>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>ProductCode</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>FWXB1000</stringValue>
+            </value>
+        </filters>
+        <inputAssignments>
+            <field>Opp_Product_ARR__c</field>
+            <value>
+                <elementReference>UP_APAC_Acc_FX</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Revenue_Calculated__c</field>
+            <value>
+                <elementReference>RC_APAC_Acc_FX</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>APAC_DMC_CCY</name>
+        <label>APAC DMC CCY</label>
+        <locationX>5858</locationX>
+        <locationY>863</locationY>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>ProductCode</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>FWXB1000</stringValue>
+            </value>
+        </filters>
+        <inputAssignments>
+            <field>Opp_Product_ARR__c</field>
+            <value>
+                <elementReference>UP_APAC_DMC_CCY</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Revenue_Calculated__c</field>
+            <value>
+                <elementReference>RC_APAC_DMC_CCY</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>APAC_DMC_FX</name>
+        <label>APAC DMC FX</label>
+        <locationX>2690</locationX>
+        <locationY>863</locationY>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>ProductCode</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>FWXB1000</stringValue>
+            </value>
+        </filters>
+        <inputAssignments>
+            <field>Opp_Product_ARR__c</field>
+            <value>
+                <elementReference>UP_APAC_DMC_FX</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Revenue_Calculated__c</field>
+            <value>
+                <elementReference>RC_APAC_DMC_FX</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>APAC_Op_Travel_CCY</name>
+        <label>APAC Op Travel CCY</label>
+        <locationX>6386</locationX>
+        <locationY>863</locationY>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>ProductCode</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>FWXB1000</stringValue>
+            </value>
+        </filters>
+        <inputAssignments>
+            <field>Opp_Product_ARR__c</field>
+            <value>
+                <elementReference>UP_APAC_Travel_Op_CCY</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Revenue_Calculated__c</field>
+            <value>
+                <elementReference>RC_APAC_Travel_Op_CCY</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>APAC_Op_Travel_FX</name>
+        <label>APAC Op Travel FX</label>
+        <locationX>3218</locationX>
+        <locationY>863</locationY>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>ProductCode</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>FWXB1000</stringValue>
+            </value>
+        </filters>
+        <inputAssignments>
+            <field>Opp_Product_ARR__c</field>
+            <value>
+                <elementReference>UP_APAC_Travel_Op_FX</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Revenue_Calculated__c</field>
+            <value>
+                <elementReference>RC_APAC_Travel_Op_FX</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>Cancellation_No_ARR</name>
+        <label>Cancellation - No ARR</label>
+        <locationX>314</locationX>
+        <locationY>647</locationY>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Quote_Line_Type__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>Cancellation</stringValue>
+            </value>
+        </filters>
+        <inputAssignments>
+            <field>Opp_Product_ARR__c</field>
+            <value>
+                <elementReference>Cancelled_ARR</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Revenue_Calculated__c</field>
+            <value>
+                <stringValue>Line cancelled</stringValue>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>EMEA_Accom_CCY</name>
+        <label>EMEA Accom CCY</label>
+        <locationX>4274</locationX>
+        <locationY>863</locationY>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>ProductCode</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>FWXB1000</stringValue>
+            </value>
+        </filters>
+        <inputAssignments>
+            <field>Opp_Product_ARR__c</field>
+            <value>
+                <elementReference>UP_EMEA_CCY_Acc</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Revenue_Calculated__c</field>
+            <value>
+                <elementReference>RC_EMEA_CCY_Acc</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>EMEA_Accom_FX</name>
+        <label>EMEA Accom FX</label>
+        <locationX>1106</locationX>
+        <locationY>863</locationY>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>ProductCode</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>FWXB1000</stringValue>
+            </value>
+        </filters>
+        <inputAssignments>
+            <field>Opp_Product_ARR__c</field>
+            <value>
+                <elementReference>UP_EMEA_FX_Acc</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Revenue_Calculated__c</field>
+            <value>
+                <elementReference>RC_EMEA_FX_Acc</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>EMEA_DMC_Op_Travel_CCY</name>
+        <label>EMEA DMC Op Travel CCY</label>
+        <locationX>4538</locationX>
+        <locationY>863</locationY>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>ProductCode</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>FWXB1000</stringValue>
+            </value>
+        </filters>
+        <inputAssignments>
+            <field>Opp_Product_ARR__c</field>
+            <value>
+                <elementReference>UP_EMEA_CCY_DMC_Op_Travel</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Revenue_Calculated__c</field>
+            <value>
+                <elementReference>RC_EMEA_CCY_DMC_Op_Travel</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>EMEA_DMC_Op_Travel_FX</name>
+        <label>EMEA DMC Op Travel FX</label>
+        <locationX>1370</locationX>
+        <locationY>863</locationY>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>ProductCode</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>FWXB1000</stringValue>
+            </value>
+        </filters>
+        <inputAssignments>
+            <field>Opp_Product_ARR__c</field>
+            <value>
+                <elementReference>UP_EMEA_FX_DMC_Op_Travel</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Revenue_Calculated__c</field>
+            <value>
+                <elementReference>RC_EMEA_FX_DMC_Op_Travel</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>EMEA_Lux_CCY</name>
+        <label>EMEA Lux CCY</label>
+        <locationX>4010</locationX>
+        <locationY>863</locationY>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>ProductCode</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>FWXB1000</stringValue>
+            </value>
+        </filters>
+        <inputAssignments>
+            <field>Opp_Product_ARR__c</field>
+            <value>
+                <elementReference>UP_EMEA_CCY_Lux</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Revenue_Calculated__c</field>
+            <value>
+                <elementReference>RC_EMEA_CCY_Lux</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>EMEA_Lux_FX</name>
+        <label>EMEA Lux FX</label>
+        <locationX>842</locationX>
+        <locationY>863</locationY>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>ProductCode</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>FWXB1000</stringValue>
+            </value>
+        </filters>
+        <inputAssignments>
+            <field>Opp_Product_ARR__c</field>
+            <value>
+                <elementReference>UP_EMEA_FX_Lux</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Revenue_Calculated__c</field>
+            <value>
+                <elementReference>RC_EMEA_FX_Lux</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <description>Calculates for Account Industry: Hospitality for all Account Regions</description>
+        <name>Hospitality_APAC_EMEA_LATAM_NAMER_Travel_FX</name>
+        <label>Hospitality: APAC, EMEA, LATAM, NAMER Travel FX</label>
+        <locationX>3482</locationX>
+        <locationY>863</locationY>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>ProductCode</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>FWXB1000</stringValue>
+            </value>
+        </filters>
+        <inputAssignments>
+            <field>Opp_Product_ARR__c</field>
+            <value>
+                <elementReference>UP_Hospitality_FX</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Revenue_Calculated__c</field>
+            <value>
+                <elementReference>RC_Hospitality_FX</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>Hospitality_APAC_EMEA_LATAM_NAMER_Travel_Same_Currency</name>
+        <label>Hospitality: APAC, EMEA, LATAM, NAMER Travel Same Currency</label>
+        <locationX>6650</locationX>
+        <locationY>863</locationY>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>ProductCode</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>FWXB1000</stringValue>
+            </value>
+        </filters>
+        <inputAssignments>
+            <field>Opp_Product_ARR__c</field>
+            <value>
+                <elementReference>UP_Hospitality_CCY</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Revenue_Calculated__c</field>
+            <value>
+                <elementReference>RC_Hospitality_CCY</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>LATAM_DMC_Accom_Travel_CCY</name>
+        <label>LATAM DMC Accom Travel CCY</label>
+        <locationX>4802</locationX>
+        <locationY>863</locationY>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>ProductCode</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>FWXB1000</stringValue>
+            </value>
+        </filters>
+        <inputAssignments>
+            <field>Opp_Product_ARR__c</field>
+            <value>
+                <elementReference>UP_LATAM_CCY_DMC_Acc_Travel</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Revenue_Calculated__c</field>
+            <value>
+                <elementReference>RC_LATAM_CCY_DMC_Acc_Travel</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>LATAM_DMC_Accom_Travel_FX</name>
+        <label>LATAM DMC Accom Travel FX</label>
+        <locationX>1634</locationX>
+        <locationY>863</locationY>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>ProductCode</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>FWXB1000</stringValue>
+            </value>
+        </filters>
+        <inputAssignments>
+            <field>Opp_Product_ARR__c</field>
+            <value>
+                <elementReference>UP_LATAM_FX_DMC_Acc_Travel</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Revenue_Calculated__c</field>
+            <value>
+                <elementReference>RC_LATAM_FX_DMC_Acc_Travel</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>LATAM_Travel_Op_CCY</name>
+        <label>LATAM Travel Op CCY</label>
+        <locationX>5066</locationX>
+        <locationY>863</locationY>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>ProductCode</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>FWXB1000</stringValue>
+            </value>
+        </filters>
+        <inputAssignments>
+            <field>Opp_Product_ARR__c</field>
+            <value>
+                <elementReference>UP_LATAM_TravelOp_CCY</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Revenue_Calculated__c</field>
+            <value>
+                <elementReference>RC_LATAM_TravelOp_CCY</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>LATAM_Travel_Op_FX</name>
+        <label>LATAM Travel Op FX</label>
+        <locationX>1898</locationX>
+        <locationY>863</locationY>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>ProductCode</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>FWXB1000</stringValue>
+            </value>
+        </filters>
+        <inputAssignments>
+            <field>Opp_Product_ARR__c</field>
+            <value>
+                <elementReference>UP_LATAM_TravelOp_FX</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Revenue_Calculated__c</field>
+            <value>
+                <elementReference>RC_LATAM_TravelOp_FX</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>NAMER_Accom_Op_Travel_CCY</name>
+        <label>NAMER Accom Op Travel CCY</label>
+        <locationX>5594</locationX>
+        <locationY>863</locationY>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>ProductCode</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>FWXB1000</stringValue>
+            </value>
+        </filters>
+        <inputAssignments>
+            <field>Opp_Product_ARR__c</field>
+            <value>
+                <elementReference>UP_NAMER_Acc_Op_Travel_CCY</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Revenue_Calculated__c</field>
+            <value>
+                <elementReference>RC_NAMER_Acc_Op_Travel_CCY</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>NAMER_Accom_Op_Travel_FX</name>
+        <label>NAMER Accom Op Travel FX</label>
+        <locationX>2426</locationX>
+        <locationY>863</locationY>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>ProductCode</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>FWXB1000</stringValue>
+            </value>
+        </filters>
+        <inputAssignments>
+            <field>Opp_Product_ARR__c</field>
+            <value>
+                <elementReference>UP_NAMER_Acc_Op_Travel_FX</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Revenue_Calculated__c</field>
+            <value>
+                <elementReference>RC_NAMER_Acc_Op_Travel_FX</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>NAMER_DMC_CCY</name>
+        <label>NAMER DMC CCY</label>
+        <locationX>5330</locationX>
+        <locationY>863</locationY>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>ProductCode</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>FWXB1000</stringValue>
+            </value>
+        </filters>
+        <inputAssignments>
+            <field>Opp_Product_ARR__c</field>
+            <value>
+                <elementReference>UP_NAMER_DMC_CCY</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Revenue_Calculated__c</field>
+            <value>
+                <elementReference>RC_NAMER_DMC_CCY</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>NAMER_DMC_FX</name>
+        <label>NAMER DMC FX</label>
+        <locationX>2162</locationX>
+        <locationY>863</locationY>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>ProductCode</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>FWXB1000</stringValue>
+            </value>
+        </filters>
+        <inputAssignments>
+            <field>Opp_Product_ARR__c</field>
+            <value>
+                <elementReference>UP_NAMER_DMC_FX</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Revenue_Calculated__c</field>
+            <value>
+                <elementReference>RC_NAMER_DMC_FX</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <description>Reps should get the last 12 months ARR number and manually update the Opp Product ARR</description>
+        <name>Renewals_ARR_is_set_manually</name>
+        <label>Renewals ARR is set manually</label>
+        <locationX>50</locationX>
+        <locationY>647</locationY>
+        <inputAssignments>
+            <field>Baseline_ARR__c</field>
+            <value>
+                <elementReference>Get_Original_Opportunity_Product_Renewal.Opp_Product_ARR__c</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Do_not_Auto_Calculate_Price__c</field>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Opp_Product_ARR__c</field>
+            <value>
+                <numberValue>0.0</numberValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Revenue_Calculated__c</field>
+            <value>
+                <stringValue>For Renewals, please enter the ARR manually</stringValue>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <start>
+        <locationX>5600</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Opp_meets_criteria</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>ProductCode</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>FWXB1000</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>Do_not_Auto_Calculate_Price__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <booleanValue>false</booleanValue>
+            </value>
+        </filters>
+        <object>OpportunityLineItem</object>
+        <recordTriggerType>CreateAndUpdate</recordTriggerType>
+        <triggerType>RecordAfterSave</triggerType>
+    </start>
+    <status>Active</status>
+    <variables>
+        <name>ConversionRate</name>
+        <dataType>Number</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+        <scale>6</scale>
+    </variables>
+</Flow>

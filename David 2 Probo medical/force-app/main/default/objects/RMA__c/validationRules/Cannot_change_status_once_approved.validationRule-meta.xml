@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Cannot_change_status_once_approved</fullName>
+    <active>true</active>
+    <errorConditionFormula>OR(
+AND(
+OR(
+ISCHANGED( Warranty_Claim_Status__c ), 
+ISCHANGED( Warranty_Claim_Action__c ),
+ISCHANGED( Restock_Fee_Percentage_Override__c)
+), 
+TEXT(Warranty_Claim_Approved__c ) = &apos;APPROVED&apos;
+), 
+AND(
+ISCHANGED(Return_from_Sale_Action__c), 
+TEXT(Return_from_Sale_Approval__c) = &apos;APPROVED&apos;
+), 
+AND(
+ISCHANGED(Loaner_Action__c), 
+TEXT(Loaner_Action_Approved__c) = &apos;APPROVED&apos;
+), 
+AND(
+ISCHANGED(Rental_Action__c), 
+TEXT(Rental_Return_Action_Approved__c) = &apos;APPROVED&apos;
+)
+)</errorConditionFormula>
+    <errorMessage>You cannot change the action or status once it has been approved.</errorMessage>
+</ValidationRule>

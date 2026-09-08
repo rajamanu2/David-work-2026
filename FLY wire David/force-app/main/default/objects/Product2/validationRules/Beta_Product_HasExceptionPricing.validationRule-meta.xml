@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Beta_Product_HasExceptionPricing</fullName>
+    <active>true</active>
+    <description>Used to ensure  If the Product Type = Beta that Exception Pricing is checked.</description>
+    <errorConditionFormula>AND (
+ISPICKVAL(Status__c, &apos;Beta&apos;),
+Exception_Pricing__c  = False
+)</errorConditionFormula>
+    <errorDisplayField>Exception_Pricing__c</errorDisplayField>
+    <errorMessage>Beta products should always have Exception Pricing.</errorMessage>
+</ValidationRule>

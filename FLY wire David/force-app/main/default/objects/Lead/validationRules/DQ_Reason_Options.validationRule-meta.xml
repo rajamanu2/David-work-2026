@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>DQ_Reason_Options</fullName>
+    <active>true</active>
+    <description>Only allows users to change DQ Reasons to Account Not Qualified, Competitor, Country, No Response, Payer, Account Too Small, or Trash.
+– Updated to include &apos;Marked Inactive&apos; for Lead object only. SAL-3183
+– Updated with Bad Email Address SAL-3511</description>
+    <errorConditionFormula>AND(
+$Profile.Name &lt;&gt; &apos;System Administrator&apos;,
+$Profile.Name &lt;&gt; &apos;B - Marketo Integration&apos;,
+$User.User_LongID__c &lt;&gt; &apos;005f2000009yztxAAA&apos;,
+$User.User_LongID__c &lt;&gt; &apos;0058W00000AFZm6QAH&apos;,
+NOT(ISNEW()),
+ISCHANGED(Lead_Disqualified_Reason__c),
+NOT(ISBLANK(TEXT(Lead_Disqualified_Reason__c))),
+TEXT(Lead_Disqualified_Reason__c)&lt;&gt;&quot;Account Not Qualified&quot;,
+TEXT(Lead_Disqualified_Reason__c)&lt;&gt;&quot;Bad Email Address&quot;,
+TEXT(Lead_Disqualified_Reason__c)&lt;&gt;&quot;Competitor&quot;,
+TEXT(Lead_Disqualified_Reason__c)&lt;&gt;&quot;Country&quot;,
+TEXT(Lead_Disqualified_Reason__c)&lt;&gt;&quot;No Response&quot;,
+TEXT(Lead_Disqualified_Reason__c)&lt;&gt;&quot;Too Small&quot;,
+TEXT(Lead_Disqualified_Reason__c)&lt;&gt;&quot;Trash&quot;,
+TEXT(Lead_Disqualified_Reason__c)&lt;&gt;&quot;Payer&quot;,
+TEXT(Lead_Disqualified_Reason__c)&lt;&gt;&quot;Marked Inactive&quot;
+)
+&amp;&amp; Lead_Val_Bypass__c = False</errorConditionFormula>
+    <errorDisplayField>Lead_Disqualified_Reason__c</errorDisplayField>
+    <errorMessage>You can only update the Disqualification Reason to Account Not Qualified, Account Too Small, Bad Email Address, Competitor, Country, No Response, Trash, Payer, or Marked Inactive.</errorMessage>
+</ValidationRule>

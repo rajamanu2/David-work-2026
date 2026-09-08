@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Vertical_Booking_BDR_Leads</fullName>
+    <columns>LEAD.COMPANY</columns>
+    <columns>FULL_NAME</columns>
+    <columns>LEAD.EMAIL</columns>
+    <columns>BDR_Owner__c</columns>
+    <columns>LEAD.COUNTRY_CODE</columns>
+    <columns>LEAD.CREATED_DATE</columns>
+    <columns>CORE.USERS.ALIAS</columns>
+    <columns>Lead_Person_Status__c</columns>
+    <columns>LEAD.LAST_ACTIVITY</columns>
+    <columns>Lead_Membership_Association__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Integration_Partner__c</field>
+        <operation>equals</operation>
+        <value>Vertical Booking</value>
+    </filters>
+    <filters>
+        <field>BDR_Owner__c</field>
+        <operation>equals</operation>
+        <value>Charlie Dreher</value>
+    </filters>
+    <label>Vertical Booking BDR Leads</label>
+    <sharedTo>
+        <group>All_Travel</group>
+    </sharedTo>
+</ListView>

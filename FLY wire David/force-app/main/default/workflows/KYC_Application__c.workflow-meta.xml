@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Workflow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <alerts>
+        <fullName>Email_Credit_Risk_Team_Application_Completed</fullName>
+        <ccEmails>creditrisk@flywire.com</ccEmails>
+        <description>Email Credit Risk Team Application Completed</description>
+        <protected>false</protected>
+        <senderType>CurrentUser</senderType>
+        <template>unfiled$public/KYC_Completed_Credit_Risk_Team</template>
+    </alerts>
+    <alerts>
+        <fullName>Email_KYC_Team_Application_Completed</fullName>
+        <ccEmails>kyc@flywire.com</ccEmails>
+        <description>Email KYC Team Application Completed</description>
+        <protected>false</protected>
+        <recipients>
+            <type>accountOwner</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>unfiled$public/KYC_Completed_KYC_Team</template>
+    </alerts>
+</Workflow>

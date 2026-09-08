@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>53.0</apiVersion>
+    <areMetricsLoggedToDataCloud>false</areMetricsLoggedToDataCloud>
+    <assignments>
+        <description>Assigns the Price Rule Ids to the vTable variable.</description>
+        <name>AssignPriceActions</name>
+        <label>Assign Price Actions</label>
+        <locationX>1192</locationX>
+        <locationY>399</locationY>
+        <assignmentItems>
+            <assignToReference>vTable</assignToReference>
+            <operator>Add</operator>
+            <value>
+                <elementReference>LoopPriceAction.SBQQ__Field__c</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>vTable</assignToReference>
+            <operator>Add</operator>
+            <value>
+                <stringValue> (</stringValue>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>vTable</assignToReference>
+            <operator>Add</operator>
+            <value>
+                <elementReference>LoopPriceAction.SBQQ__TargetObject__c</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>vTable</assignToReference>
+            <operator>Add</operator>
+            <value>
+                <stringValue>), </stringValue>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>LoopPriceAction</targetReference>
+        </connector>
+    </assignments>
+    <description>Flow to update Price Rule Target Fields on Price Action delete</description>
+    <environments>Default</environments>
+    <interviewLabel>AQS Price Rule Target Fields {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>AQS Price Rule Target Fields on Delete</label>
+    <loops>
+        <name>LoopPriceAction</name>
+        <label>Loop Price Action</label>
+        <locationX>1190</locationX>
+        <locationY>206</locationY>
+        <collectionReference>GetPriceActionTargetFields</collectionReference>
+        <iterationOrder>Asc</iterationOrder>
+        <nextValueConnector>
+            <targetReference>AssignPriceActions</targetReference>
+        </nextValueConnector>
+        <noMoreValuesConnector>
+            <targetReference>UpdatePriceRule</targetReference>
+        </noMoreValuesConnector>
+    </loops>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>FREE_FORM_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <recordLookups>
+        <name>GetPriceActionTargetFields</name>
+        <label>Get Price Action Target Fields</label>
+        <locationX>1066</locationX>
+        <locationY>204</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>LoopPriceAction</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>SBQQ__Rule__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>$Record.SBQQ__Rule__r.Id</elementReference>
+            </value>
+        </filters>
+        <filters>
+            <field>Id</field>
+            <operator>NotEqualTo</operator>
+            <value>
+                <elementReference>$Record.Id</elementReference>
+            </value>
+        </filters>
+        <getFirstRecordOnly>false</getFirstRecordOnly>
+        <object>SBQQ__PriceAction__c</object>
+        <queriedFields>Id</queriedFields>
+        <queriedFields>SBQQ__Field__c</queriedFields>
+        <queriedFields>SBQQ__TargetObject__c</queriedFields>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordUpdates>
+        <description>This will update the Price Rule record that is associated to the Price Action being deleted.</description>
+        <name>UpdatePriceRule</name>
+        <label>Update Price Rule</label>
+        <locationX>1373</locationX>
+        <locationY>201</locationY>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>$Record.SBQQ__Rule__r.Id</elementReference>
+            </value>
+        </filters>
+        <inputAssignments>
+            <field>AQS_Price_Rule_Target_Fields__c</field>
+            <value>
+                <elementReference>vTable</elementReference>
+            </value>
+        </inputAssignments>
+        <object>SBQQ__PriceRule__c</object>
+    </recordUpdates>
+    <start>
+        <locationX>508</locationX>
+        <locationY>117</locationY>
+        <connector>
+            <targetReference>GetPriceActionTargetFields</targetReference>
+        </connector>
+        <object>SBQQ__PriceAction__c</object>
+        <recordTriggerType>Delete</recordTriggerType>
+        <triggerType>RecordBeforeDelete</triggerType>
+    </start>
+    <status>Active</status>
+    <variables>
+        <description>Collection of strings depending on the Price action Target Object and Field</description>
+        <name>vTable</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>true</isOutput>
+    </variables>
+</Flow>

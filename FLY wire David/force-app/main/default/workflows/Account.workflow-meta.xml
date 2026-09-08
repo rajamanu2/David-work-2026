@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Workflow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <alerts>
+        <fullName>Email_Owner_KYC_Approved</fullName>
+        <description>Email Owner KYC Approved</description>
+        <protected>false</protected>
+        <recipients>
+            <type>owner</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>unfiled$public/KYC_Approved_Notification</template>
+    </alerts>
+    <alerts>
+        <fullName>Email_Owner_Legal_Credit_Risk_KYC_Rejected</fullName>
+        <description>Email Owner, Legal, Credit Risk KYC Rejected</description>
+        <protected>false</protected>
+        <recipients>
+            <type>owner</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>unfiled$public/KYC_Rejected_Notification</template>
+    </alerts>
+    <alerts>
+        <fullName>Notifying_the_Renewal_Opp_Creation</fullName>
+        <description>SALDEV-934 Notify the Account Owner and RM that a renewal opportunity has been created</description>
+        <protected>false</protected>
+        <recipients>
+            <type>owner</type>
+        </recipients>
+        <recipients>
+            <field>Relationship_Manager__c</field>
+            <type>userLookup</type>
+        </recipients>
+        <senderType>DefaultWorkflowUser</senderType>
+        <template>unfiled$public/Renewal_Opportunity_Created</template>
+    </alerts>
+    <alerts>
+        <fullName>SALDEV_934_Notify_the_Agents_Account_Owner_and_RM_on_Contract_Near_to_Expiry</fullName>
+        <description>SALDEV-934 Notify the Agents Account Owner and RM on Contract Near to Expiry</description>
+        <protected>false</protected>
+        <recipients>
+            <type>owner</type>
+        </recipients>
+        <recipients>
+            <field>Relationship_Manager__c</field>
+            <type>userLookup</type>
+        </recipients>
+        <senderType>DefaultWorkflowUser</senderType>
+        <template>unfiled$public/Notification_For_Agents</template>
+    </alerts>
+    <outboundMessages>
+        <fullName>Account_NetSuite_Update</fullName>
+        <apiVersion>63.0</apiVersion>
+        <description>Send account info to NetSuite</description>
+        <endpointUrl>https://webhooks.workato.com/webhooks/notify/salesforce?sobject=AccountChangeEvent&amp;org_id=00DhG0000000jOXEAO&amp;name=netsuite-customer-update</endpointUrl>
+        <fields>BillingCity</fields>
+        <fields>BillingCountry</fields>
+        <fields>BillingCountryCode</fields>
+        <fields>BillingGeocodeAccuracy</fields>
+        <fields>BillingLatitude</fields>
+        <fields>BillingLongitude</fields>
+        <fields>BillingPostalCode</fields>
+        <fields>BillingState</fields>
+        <fields>BillingStateCode</fields>
+        <fields>BillingStreet</fields>
+        <fields>Client_Legal_Entity_Name__c</fields>
+        <fields>Id</fields>
+        <fields>Is_RM_Changed__c</fields>
+        <fields>Netsuite_ID__c</fields>
+        <fields>Relationship_Manager__c</fields>
+        <includeSessionId>false</includeSessionId>
+        <integrationUser>workato-devs@flywire.com</integrationUser>
+        <name>Account NetSuite Update</name>
+        <protected>false</protected>
+        <useDeadLetterQueue>false</useDeadLetterQueue>
+    </outboundMessages>
+    <rules>
+        <fullName>KYC Notification</fullName>
+        <actions>
+            <name>Email_Owner_KYC_Approved</name>
+            <type>Alert</type>
+        </actions>
+        <active>false</active>
+        <description>Email owner KYC Approved</description>
+        <formula>ISPICKVAL(KYC_Status__c, &quot;Approved&quot;)</formula>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+    <rules>
+        <fullName>zaapit__Call  - Account %28Exmaple by ZaapIT%29</fullName>
+        <active>false</active>
+        <description>Call Account - by ZaapIT</description>
+        <formula>false</formula>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+    <rules>
+        <fullName>zaapit__Call %28Exmaple by ZaapIT%29</fullName>
+        <active>false</active>
+        <description>Call Account Example by ZaapIT (don&apos;t activated - an example)</description>
+        <formula>false</formula>
+        <triggerType>onCreateOnly</triggerType>
+    </rules>
+    <rules>
+        <fullName>zaapit__Email - Account %28Exmaple by ZaapIT%29</fullName>
+        <actions>
+            <name>zaapit__Email</name>
+            <type>Task</type>
+        </actions>
+        <active>false</active>
+        <description>Email Account - by ZaapIT</description>
+        <formula>false</formula>
+        <triggerType>onCreateOnly</triggerType>
+    </rules>
+    <rules>
+        <fullName>zaapit__Send Letter  - Account %28Exmaple by ZaapIT%29</fullName>
+        <actions>
+            <name>zaapit__SendLetterAccount</name>
+            <type>Task</type>
+        </actions>
+        <active>false</active>
+        <description>Send Letter Account - by ZaapIT</description>
+        <formula>false</formula>
+        <triggerType>onCreateOnly</triggerType>
+    </rules>
+    <rules>
+        <fullName>zaapit__Send Quote - Account %28Exmaple by ZaapIT%29</fullName>
+        <actions>
+            <name>zaapit__SendQuoteAccount</name>
+            <type>Task</type>
+        </actions>
+        <active>false</active>
+        <description>Send Quote Account - by ZaapIT</description>
+        <formula>false</formula>
+        <triggerType>onCreateOnly</triggerType>
+    </rules>
+    <tasks>
+        <fullName>zaapit__Call</fullName>
+        <assignedToType>owner</assignedToType>
+        <dueDateOffset>1</dueDateOffset>
+        <notifyAssignee>true</notifyAssignee>
+        <priority>Normal</priority>
+        <protected>false</protected>
+        <status>Not Started</status>
+        <subject>Call</subject>
+    </tasks>
+    <tasks>
+        <fullName>zaapit__Email</fullName>
+        <assignedToType>owner</assignedToType>
+        <dueDateOffset>1</dueDateOffset>
+        <notifyAssignee>true</notifyAssignee>
+        <priority>Normal</priority>
+        <protected>false</protected>
+        <status>Not Started</status>
+        <subject>Email</subject>
+    </tasks>
+    <tasks>
+        <fullName>zaapit__SendLetterAccount</fullName>
+        <assignedToType>owner</assignedToType>
+        <dueDateOffset>1</dueDateOffset>
+        <notifyAssignee>true</notifyAssignee>
+        <priority>Normal</priority>
+        <protected>false</protected>
+        <status>Not Started</status>
+        <subject>Send Letter</subject>
+    </tasks>
+    <tasks>
+        <fullName>zaapit__SendQuoteAccount</fullName>
+        <assignedToType>owner</assignedToType>
+        <dueDateOffset>1</dueDateOffset>
+        <notifyAssignee>true</notifyAssignee>
+        <priority>Normal</priority>
+        <protected>false</protected>
+        <status>Not Started</status>
+        <subject>Send Quote</subject>
+    </tasks>
+</Workflow>

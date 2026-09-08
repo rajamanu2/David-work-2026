@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>ITB_Berlin_2024</fullName>
+    <columns>LEAD.COMPANY</columns>
+    <columns>FULL_NAME</columns>
+    <columns>LEAD.EMAIL</columns>
+    <columns>LEAD.COUNTRY</columns>
+    <columns>LEAD.STATUS</columns>
+    <columns>LEAD.CREATED_DATE</columns>
+    <columns>CORE.USERS.ALIAS</columns>
+    <columns>LEAD.LAST_ACTIVITY</columns>
+    <columns>Account__c</columns>
+    <columns>BDR_Owner__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>BDR_Owner__c</field>
+        <operation>equals</operation>
+        <value>Charlie Dreher,Mubz Rahman,Chloe Engle,Leah Prigmore,Sophie Brockbank</value>
+    </filters>
+    <label>ITB Berlin 2025</label>
+    <sharedTo>
+        <group>All_Travel</group>
+    </sharedTo>
+</ListView>

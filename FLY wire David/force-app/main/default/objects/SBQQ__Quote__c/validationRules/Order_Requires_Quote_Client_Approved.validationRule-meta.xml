@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Order_Requires_Quote_Client_Approved</fullName>
+    <active>true</active>
+    <description>Created from JIRA ticket: BOPI-231.
+BOPI-526 Fixed.  Was set to trigger when status equals approved, see the original formula:
+AND( SBQQ__Ordered__c == True , (ISPICKVAL(SBQQ__Status__c ,&quot;Client Approved&quot;)))
+BOPI-581 ByPass added to skip validations</description>
+    <errorConditionFormula>AND(
+    SBQQ__Ordered__c == True,
+    NOT(ISPICKVAL(SBQQ__Status__c ,&quot;Client_Approved&quot;)),
+    NOT(ISPICKVAL(SBQQ__Opportunity2__r.Type, &quot;Auto Renewal&quot;))
+)
+&amp;&amp; Quote_Val_Bypass__c = false</errorConditionFormula>
+    <errorDisplayField>SBQQ__Ordered__c</errorDisplayField>
+    <errorMessage>The quote status must be &apos;Client Approved&apos; before ordering</errorMessage>
+</ValidationRule>

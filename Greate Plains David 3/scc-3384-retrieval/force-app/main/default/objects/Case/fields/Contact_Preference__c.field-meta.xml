@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Contact_Preference__c</fullName>
+    <description>SCC-3386: How the subscriber prefers to be contacted about this Trouble Ticket. Surfaced to the field technician so contact is attempted the way the customer expects.</description>
+    <inlineHelpText>SCC-3386: Select how the subscriber wants to be contacted about this ticket.</inlineHelpText>
+    <label>Contact Preference</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Call Before Arrival</fullName>
+                <default>false</default>
+                <label>Call Before Arrival</label>
+            </value>
+            <value>
+                <fullName>Text Before Arrival</fullName>
+                <default>false</default>
+                <label>Text Before Arrival</label>
+            </value>
+            <value>
+                <fullName>Home Phone</fullName>
+                <default>false</default>
+                <label>Home Phone</label>
+            </value>
+            <value>
+                <fullName>Mobile Phone</fullName>
+                <default>false</default>
+                <label>Mobile Phone</label>
+            </value>
+            <value>
+                <fullName>Work Phone</fullName>
+                <default>false</default>
+                <label>Work Phone</label>
+            </value>
+            <value>
+                <fullName>Text Message</fullName>
+                <default>false</default>
+                <label>Text Message</label>
+            </value>
+            <value>
+                <fullName>Email</fullName>
+                <default>false</default>
+                <label>Email</label>
+            </value>
+            <value>
+                <fullName>No Contact - Proceed to Site</fullName>
+                <default>false</default>
+                <label>No Contact - Proceed to Site</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

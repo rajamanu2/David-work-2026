@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <help>
+        <!-- Please indicate the type of customer as defined by the Payment Services Directive
+-Small Charity: A small charity is one with an annual income of less than £1 million. 
+-Micro-enterprise: An enterprise whose annual turnover and/or balance sheet total does not exceed €2 million (or sterling equivalent) and employs fewer than 10 people
+-Entity: A legal entity that is not a Small Charity or Micro-enterprise -->
+    </help>
+    <label><!-- Customer Type --></label>
+    <name>Customer_Type__c</name>
+    <picklistValues>
+        <masterLabel>Entity</masterLabel>
+        <translation><!-- Entity --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Micro-enterprise</masterLabel>
+        <translation><!-- Micro-enterprise --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Small Charity</masterLabel>
+        <translation><!-- Small Charity --></translation>
+    </picklistValues>
+</CustomFieldTranslation>

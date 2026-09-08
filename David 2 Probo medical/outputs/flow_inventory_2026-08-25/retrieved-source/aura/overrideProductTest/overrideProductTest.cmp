@@ -1,0 +1,31 @@
+<aura:component controller="ProductTest" implements="lightning:isUrlAddressable,flexipage:availableForAllPageTypes">
+    <aura:attribute name="recordId" type="String"/>
+    <aura:attribute name="asset2Id" type="String" />
+    <aura:handler name="init" value="{!this}" action="{!c.onPageReferenceChange}"/>
+    <aura:handler name="change" value="{!v.pageReference}" action="{!c.onPageReferenceChange}"/>
+    
+    <!-- aura:attribute type="sObject[]" name="testList"/ -->
+    <!-- aura:attribute name="mycolumns" type="List"/ -->
+    <!-- aura:handler name="init" value="{!this}" action="{!c.getTests}"/ -->
+    
+    <!-- div class="slds-card_boundary">
+        <lightning:card>
+            <aura:set attribute="title">
+                <lightning:icon iconName="custom:custom16" size="small"/>&nbsp;&nbsp;
+                <lightning:formattedUrl class="header-title" value="{!'/lightning/r/ProductItem__c/' + v.recordId + '/related/ProductTest__r/view'}" label="{!'ProductTest (' + v.testList.length + ')'}" />
+            </aura:set>
+            <aura:set attribute="actions">
+                <lightning:button label="New" title="New" onclick="{! c.newTest }"/>
+            </aura:set>
+            <lightning:datatable data="{! v.testList }"
+                                 columns="{! v.mycolumns }"
+                                 keyField="id"
+                                 hideCheckboxColumn="true"/>
+            
+            <div class="slds-m-vertical_x-small">
+                <p class="slds-align_absolute-center"><lightning:formattedUrl value="{!'/lightning/r/ProductItem__c/' + v.recordId + '/related/ProductTest__r/view'}" label="View All" /></p>
+            </div>
+        </lightning:card>
+    </div -->
+    
+</aura:component>

@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Inactive_Reason__c</fullName>
+    <label>Inactive/Disqualified Reason</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>true</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <controllingField>Account_Status__c</controllingField>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Bad Record Creation</fullName>
+                <default>false</default>
+                <label>Bad Record Creation</label>
+            </value>
+            <value>
+                <fullName>Client Terminated Contract</fullName>
+                <default>false</default>
+                <label>Client Terminated Contract</label>
+            </value>
+            <value>
+                <fullName>Closed/ Out of Business</fullName>
+                <default>false</default>
+                <label>Closed/ Out of Business</label>
+            </value>
+            <value>
+                <fullName>Flywire cannot settle in client jurisdictions</fullName>
+                <default>false</default>
+                <label>Flywire cannot settle in client jurisdictions</label>
+            </value>
+            <value>
+                <fullName>Flywire did not have Licensing</fullName>
+                <default>false</default>
+                <label>Flywire did not have Licensing</label>
+            </value>
+            <value>
+                <fullName>Flywire Terminated Contract</fullName>
+                <default>false</default>
+                <label>Flywire Terminated Contract</label>
+            </value>
+            <value>
+                <fullName>FW ERP Integration did not meet requirements</fullName>
+                <default>false</default>
+                <label>FW ERP Integration did not meet requirements</label>
+            </value>
+            <value>
+                <fullName>Local ACH payouts required</fullName>
+                <default>false</default>
+                <label>Local ACH payouts required</label>
+            </value>
+            <value>
+                <fullName>Local acquiring required</fullName>
+                <default>false</default>
+                <label>Local acquiring required</label>
+            </value>
+            <value>
+                <fullName>Merger</fullName>
+                <default>false</default>
+                <label>Merger</label>
+            </value>
+            <value>
+                <fullName>Never a Client</fullName>
+                <default>false</default>
+                <label>Never a Client</label>
+            </value>
+            <value>
+                <fullName>Not a Fit</fullName>
+                <default>false</default>
+                <label>Not A Fit</label>
+            </value>
+            <value>
+                <fullName>Not the right timing</fullName>
+                <default>false</default>
+                <label>Not the right timing</label>
+            </value>
+            <value>
+                <fullName>Online Bank Transfer</fullName>
+                <default>false</default>
+                <label>Online Bank Transfer</label>
+            </value>
+            <value>
+                <fullName>Out of Business</fullName>
+                <default>false</default>
+                <label>Out of Business</label>
+            </value>
+            <value>
+                <fullName>Payables API</fullName>
+                <default>false</default>
+                <label>Payables API</label>
+            </value>
+            <value>
+                <fullName>Receivables API - Client wants to own checkout UI</fullName>
+                <default>false</default>
+                <label>Receivables API - Client wants to own checkout UI</label>
+            </value>
+            <value>
+                <fullName>Signed but Never ActivatedUsed Product</fullName>
+                <default>false</default>
+                <label>Signed but Never Activated/Used Product</label>
+            </value>
+            <value>
+                <fullName>Too Small</fullName>
+                <default>false</default>
+                <label>Too Small</label>
+            </value>
+            <value>
+                <fullName>Virtual Bank Accounts in Client Name</fullName>
+                <default>false</default>
+                <label>Virtual Bank Accounts in Client Name</label>
+            </value>
+            <value>
+                <fullName>Wallet</fullName>
+                <default>false</default>
+                <label>Wallet</label>
+            </value>
+        </valueSetDefinition>
+        <valueSettings>
+            <controllingFieldValue>Disqualified</controllingFieldValue>
+            <valueName>Bad Record Creation</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Disqualified</controllingFieldValue>
+            <valueName>Flywire cannot settle in client jurisdictions</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Disqualified</controllingFieldValue>
+            <valueName>Flywire did not have Licensing</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Disqualified</controllingFieldValue>
+            <valueName>FW ERP Integration did not meet requirements</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Disqualified</controllingFieldValue>
+            <valueName>Local ACH payouts required</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Disqualified</controllingFieldValue>
+            <valueName>Local acquiring required</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Disqualified</controllingFieldValue>
+            <valueName>Not a Fit</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Disqualified</controllingFieldValue>
+            <valueName>Not the right timing</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Disqualified</controllingFieldValue>
+            <valueName>Online Bank Transfer</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Disqualified</controllingFieldValue>
+            <controllingFieldValue>Deactivated</controllingFieldValue>
+            <valueName>Out of Business</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Disqualified</controllingFieldValue>
+            <valueName>Payables API</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Disqualified</controllingFieldValue>
+            <valueName>Receivables API - Client wants to own checkout UI</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Disqualified</controllingFieldValue>
+            <valueName>Too Small</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Disqualified</controllingFieldValue>
+            <valueName>Virtual Bank Accounts in Client Name</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Disqualified</controllingFieldValue>
+            <valueName>Wallet</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Deactivated</controllingFieldValue>
+            <valueName>Client Terminated Contract</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Deactivated</controllingFieldValue>
+            <valueName>Flywire Terminated Contract</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Deactivated</controllingFieldValue>
+            <valueName>Merger</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Deactivated</controllingFieldValue>
+            <valueName>Never a Client</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Deactivated</controllingFieldValue>
+            <valueName>Signed but Never ActivatedUsed Product</valueName>
+        </valueSettings>
+    </valueSet>
+</CustomField>

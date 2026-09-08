@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>59.0</apiVersion>
+    <areMetricsLoggedToDataCloud>false</areMetricsLoggedToDataCloud>
+    <description>Updates the Contact owner to the account owner based on vertical specific logic. SAL-3207</description>
+    <environments>Default</environments>
+    <interviewLabel>(CONTACT) Update Owner to Account Owner {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>(CONTACT) Update Owner to Account Owner</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <recordUpdates>
+        <name>Update_Owner</name>
+        <label>Update Owner</label>
+        <locationX>176</locationX>
+        <locationY>287</locationY>
+        <inputAssignments>
+            <field>Contact_Automation_Bypass_DateTime__c</field>
+            <value>
+                <elementReference>$Flow.CurrentDateTime</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>OwnerId</field>
+            <value>
+                <elementReference>$Record.Account.Owner.Id</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <start>
+        <locationX>50</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Update_Owner</targetReference>
+        </connector>
+        <filterFormula>ISCHANGED({!$Record.Owner.Id})=FALSE
+&amp;&amp; 
+{!$Record.Owner.Id} &lt;&gt; {!$Record.Account.OwnerId}
+&amp;&amp; 
+{!$Record.Overwrite_Acc_Owner__c}=FALSE
+&amp;&amp; 
+(
+{!$Record.Account.RecordType.Name}=&apos;B2B&apos; 
+||
+{!$Record.Account.RecordType.Name}=&apos;Travel&apos; 
+|| 
+(
+{!$Record.Account.RecordType.Name}=&apos;EDU&apos; &amp;&amp; {!$Record.Account.Account_Region__c}=&apos;NAMER&apos;
+)
+)</filterFormula>
+        <object>Contact</object>
+        <recordTriggerType>Update</recordTriggerType>
+        <triggerType>RecordBeforeSave</triggerType>
+    </start>
+    <status>InvalidDraft</status>
+</Flow>

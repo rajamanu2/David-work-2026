@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Int_Partner_w_Qual_Integration</fullName>
+    <active>true</active>
+    <description>If Qualifying integration is filled in, Int Partner can not be blank.
+Updated per SAL-2584
+BOPI-600 updated to prevent auto renewals from stopping</description>
+    <errorConditionFormula>AND(
+    $Profile.Name &lt;&gt; &quot;System Administrator&quot;,
+    $Profile.Name &lt;&gt; &quot;B - Looker&quot;,
+    $User.Alias &lt;&gt; &quot;Workato&quot;,
+    OR(
+        NOT(ISPICKVAL(Qualifying_Integration__c , &quot;&quot;))
+    ),
+    OR(
+        NOT(ISPICKVAL(Qualifying_Integration__c , &quot;Non Partner - Custom Integration&quot;))
+    ), 
+    ISBLANK(Integration_Partner__c),
+    (DateValue(CreatedDate) &gt; Date(2023, 08, 01)),
+    NOT(ISPICKVAL(Type, &quot;Auto Renewal&quot;))
+)
+&amp;&amp; Opp_Val_Bypass__c = false</errorConditionFormula>
+    <errorDisplayField>Integration_Partner__c</errorDisplayField>
+    <errorMessage>If there is a Qualifying Integration you must fill in the Integration Partner field.</errorMessage>
+</ValidationRule>

@@ -1,0 +1,38 @@
+@startuml
+skinparam backgroundColor white
+skinparam shadowing false
+skinparam activityBackgroundColor #F6F7F8
+skinparam activityBorderColor #222222
+skinparam activityDiamondBackgroundColor #D0EDFA
+skinparam activityDiamondBorderColor #3D8DFF
+skinparam ArrowColor #3D8DFF
+
+start
+:Capture or match customer;
+:Resolve golden account and legal entity;
+:Create opportunity and select selling entity;
+:Configure products from governed catalogue;
+:Apply price book, tier, ramp and term rules;
+:Calculate ARR, MRR, one-time revenue and TCV;
+:Validate completeness and commercial policy;
+if (Approval required?) then (yes)
+  :Create approval plan with reasons;
+  :Resolve approvers by persona;
+  :Lock commercial values;
+  :Collect ordered or parallel decisions;
+  if (Approved?) then (yes)
+    :Unlock for controlled progression;
+  else (no)
+    :Return with decision and correction guidance;
+    stop
+  endif
+else (no)
+endif
+:Generate customer-facing proposal;
+:Capture acceptance and signature;
+:Create governed contract and contract lines;
+:Publish order and billing events through integration layer;
+:Reconcile downstream acknowledgements and financial actuals;
+:Expose customer, pipeline, contract and revenue reporting;
+stop
+@enduml

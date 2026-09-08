@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Shipping_Account_Preference_Control</fullName>
+    <active>true</active>
+    <errorConditionFormula>ISCHANGED(Shipping_Account_to_Bill__c)
+&amp;&amp;
+ISPICKVAL( Shipping_Account_to_Bill__c, &quot;Customer&apos;s Fedex&quot;)
+&amp;&amp;
+ISBLANK(Customer_Fedex_Account_Number__c)</errorConditionFormula>
+    <errorDisplayField>Shipping_Account_to_Bill__c</errorDisplayField>
+    <errorMessage>Can&apos;t be Customer&apos;s Fedex Account if the customer does not have Fedex Account Number listed</errorMessage>
+</ValidationRule>

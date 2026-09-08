@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GlobalValueSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customValue>
+        <fullName>Amount</fullName>
+        <default>false</default>
+        <label>Amount</label>
+    </customValue>
+    <customValue>
+        <fullName>Percent</fullName>
+        <default>false</default>
+        <label>Percent</label>
+    </customValue>
+    <customValue>
+        <fullName>N/A</fullName>
+        <default>false</default>
+        <label>N/A</label>
+    </customValue>
+    <customValue>
+        <fullName>Both</fullName>
+        <default>false</default>
+        <label>Both</label>
+    </customValue>
+    <customValue>
+        <fullName>Amount/Percent</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Amount/Percent</label>
+    </customValue>
+    <description>Created for BOPI-188 Sent to NS and used in price rule calculations. For usage-rated products, select either Amount or Percent to reflect pricing. XB and DOM only must be Both. Fixed price products must be N/A</description>
+    <masterLabel>Usage Type</masterLabel>
+    <sorted>false</sorted>
+</GlobalValueSet>

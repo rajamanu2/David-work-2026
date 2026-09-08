@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>RMA_s_Not_Received_Tamarac</fullName>
+    <booleanFilter>1 AND (2 OR 3 OR 4)</booleanFilter>
+    <columns>NAME</columns>
+    <columns>Account_Name__c</columns>
+    <columns>Opportunity_Name__c</columns>
+    <columns>Repair_Probe_SN__c</columns>
+    <columns>RMA_Tracking__c</columns>
+    <columns>ProductItem__c</columns>
+    <columns>CREATED_DATE</columns>
+    <columns>CREATEDBY_USER</columns>
+    <columns>Opportunity_Owner__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>ProductItem__c</field>
+        <operation>equals</operation>
+    </filters>
+    <filters>
+        <field>Opp_Record_Type__c</field>
+        <operation>contains</operation>
+        <value>Endoscopy</value>
+    </filters>
+    <filters>
+        <field>Shipping_FROM_Location__c</field>
+        <operation>contains</operation>
+        <value>Tamarac</value>
+    </filters>
+    <filters>
+        <field>Shipping_TO_Location__c</field>
+        <operation>contains</operation>
+        <value>Tamarac</value>
+    </filters>
+    <label>RMA&apos;s Not Received - Tamarac</label>
+</ListView>

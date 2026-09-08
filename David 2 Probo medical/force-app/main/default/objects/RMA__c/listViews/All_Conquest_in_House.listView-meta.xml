@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>All_Conquest_in_House</fullName>
+    <booleanFilter>1 AND (2 or 3) AND 4 AND 5</booleanFilter>
+    <columns>NAME</columns>
+    <columns>Date_RMA_Item_Received__c</columns>
+    <columns>ProductItem__c</columns>
+    <columns>Date_shipped__c</columns>
+    <columns>Opportunity_Name__c</columns>
+    <columns>RMA_Item_Serial_Number__c</columns>
+    <columns>The_Date_Last_Test_Completed__c</columns>
+    <columns>The_Date_Repair_Completed__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Account_Name__c</field>
+        <operation>contains</operation>
+        <value>Conquest</value>
+    </filters>
+    <filters>
+        <field>RMA_Type__c</field>
+        <operation>contains</operation>
+        <value>Warranty Repair</value>
+    </filters>
+    <filters>
+        <field>RMA_Type__c</field>
+        <operation>contains</operation>
+        <value>Customer Repair</value>
+    </filters>
+    <filters>
+        <field>Date_shipped__c</field>
+        <operation>equals</operation>
+    </filters>
+    <filters>
+        <field>Repair_turned_to_Exchange__c</field>
+        <operation>equals</operation>
+        <value>0</value>
+    </filters>
+    <label>All Conquest in House</label>
+    <sharedTo>
+        <allInternalUsers></allInternalUsers>
+    </sharedTo>
+</ListView>

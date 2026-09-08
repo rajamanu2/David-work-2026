@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Related_Outage__c</fullName>
+    <deleteConstraint>SetNull</deleteConstraint>
+    <description>SCC-3386: Links this Trouble Ticket to the Incident record tracking the outage, when applicable. A direct lookup is used rather than a junction so the outage detail can be surfaced on the Work Order through cross-object formulas for the Field Service mobile app.</description>
+    <inlineHelpText>SCC-3386: If this ticket is caused by a known outage, select the Incident tracking it so the field technician sees the outage detail.</inlineHelpText>
+    <label>Related Outage</label>
+    <referenceTo>Incident</referenceTo>
+    <relationshipLabel>Trouble Tickets</relationshipLabel>
+    <relationshipName>Trouble_Tickets</relationshipName>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Lookup</type>
+</CustomField>

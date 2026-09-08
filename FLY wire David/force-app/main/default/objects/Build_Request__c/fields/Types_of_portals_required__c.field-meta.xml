@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Types_of_portals_required__c</fullName>
+    <description>BOPI-492: Type of portal setup</description>
+    <inlineHelpText>Type of portal setup</inlineHelpText>
+    <label>Types of portals required</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Cross Border</fullName>
+                <default>false</default>
+                <label>Cross Border</label>
+            </value>
+            <value>
+                <fullName>Same Currency (Domestic Payments, NOT CRS)</fullName>
+                <default>false</default>
+                <label>Same Currency (Domestic Payments, NOT CRS)</label>
+            </value>
+            <value>
+                <fullName>Both</fullName>
+                <default>false</default>
+                <label>Both</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

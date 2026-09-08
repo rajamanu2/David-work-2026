@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Account_Industry_Cant_BeTravel</fullName>
+    <active>true</active>
+    <description>For Travel. When Probability is &gt;=0.30 the Account Industry should be updated to *Travel Operator”, “DMC” or “Accommodations” at the Account record.
+SAL-1497
+BOPI-600 updated to prevent auto renewals from stopping</description>
+    <errorConditionFormula>AND(
+    $Profile.Name &lt;&gt; &apos;System Administrator&apos;,
+    $Profile.Name &lt;&gt; &quot;B - Looker&quot;,
+    $User.Alias &lt;&gt; &quot;Workato&quot;,
+    RecordType.Name = &apos;Travel&apos;,
+    Probability &gt;=0.30,
+    IsClosed = false,
+    OR(
+        NOT(ISPICKVAL(Account.Account_Industry__c, &apos;Accommodations&apos;))),
+    OR(
+        NOT(ISPICKVAL(Account.Account_Industry__c, &apos;DMC&apos;))),
+				OR(
+								NOT(ISPICKVAL(Account.Account_Industry__c, &apos;Hospitality&apos;))),
+    OR(
+        NOT(ISPICKVAL(Account.Account_Industry__c, &apos;Travel Operator&apos;))
+    ),
+    NOT(ISPICKVAL(Type, &quot;Auto Renewal&quot;))
+)
+&amp;&amp; Opp_Val_Bypass__c = false</errorConditionFormula>
+    <errorMessage>Please go to the Account record and update the Account Industry to “Accommodations”, *DMC*, &quot;Hospitality&quot; or &quot;Travel Operator”</errorMessage>
+</ValidationRule>

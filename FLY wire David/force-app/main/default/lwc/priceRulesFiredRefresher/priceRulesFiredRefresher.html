@@ -1,0 +1,15 @@
+<template>
+    <lightning-card title="Refresh Price Rules Fired Function" icon-name="custom:custom63">
+        <lightning-card>
+            <div class="slds-text-body_regular">
+                Use this button if you have changed any of the Evaluation Orders for the Price Rules, or have moved them to another org, to refresh the stamped data.
+            </div>
+        </lightning-card>
+        <div class="slds-m-around_medium">
+            <p class="slds-m-bottom_small">
+                <lightning-button label="REFRESH" onclick={refreshPriceRulesFired}></lightning-button>
+            </p>
+        </div>
+        Last Refreshed @: {getOriginalLastRunDate}
+    </lightning-card>
+</template>

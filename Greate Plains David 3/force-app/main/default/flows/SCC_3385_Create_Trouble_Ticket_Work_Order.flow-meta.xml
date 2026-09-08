@@ -1,0 +1,608 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>66.0</apiVersion>
+    <areMetricsLoggedToDataCloud>false</areMetricsLoggedToDataCloud>
+    <decisions>
+        <description>SCC-3385: Allows creation only when the action is launched from a Trouble Ticket.</description>
+        <name>Is_Trouble_Ticket</name>
+        <label>Is Trouble Ticket</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <defaultConnector>
+            <targetReference>Invalid_Case_Screen</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Not a Trouble Ticket</defaultConnectorLabel>
+        <rules>
+            <name>Valid_Trouble_Ticket</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>Get_Trouble_Ticket.Id</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>Get_Trouble_Ticket.RecordTypeId</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <elementReference>Get_Trouble_Ticket_Record_Type.Id</elementReference>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Get_Customer_Account</targetReference>
+            </connector>
+            <label>Valid Trouble Ticket</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <description>SCC-3385: Stops a second Work Order from being created for the same Case.</description>
+        <name>Work_Order_Already_Exists</name>
+        <label>Work Order Already Exists</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <defaultConnector>
+            <targetReference>Create_Work_Order_Screen</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>No Existing Work Order</defaultConnectorLabel>
+        <rules>
+            <name>Existing_Work_Order_Found</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>Get_Existing_Work_Order.Id</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Duplicate_Work_Order_Screen</targetReference>
+            </connector>
+            <label>Existing Work Order Found</label>
+        </rules>
+    </decisions>
+    <description>SCC-3385: Creates a Work Order from a Trouble Ticket, maps required Case details, prevents duplicates, and logs the creation in Case activity history.</description>
+    <dynamicChoiceSets>
+        <description>SCC-3385: Presents all current Work Type records so the mapping follows org configuration.</description>
+        <name>Current_Work_Types</name>
+        <dataType>String</dataType>
+        <displayField>Name</displayField>
+        <object>WorkType</object>
+        <sortField>Name</sortField>
+        <sortOrder>Asc</sortOrder>
+        <valueField>Id</valueField>
+    </dynamicChoiceSets>
+    <environments>Default</environments>
+    <formulas>
+        <description>SCC-3385: Records creation details in the Case activity history.</description>
+        <name>Activity_Description</name>
+        <dataType>String</dataType>
+        <expression>&quot;Work Order &quot; &amp; {!Get_Created_Work_Order.WorkOrderNumber} &amp;
+&quot; was created from this Trouble Ticket with Work Type &quot; &amp;
+{!Get_Created_Work_Order.WorkType.Name} &amp; &quot;.&quot;</expression>
+    </formulas>
+    <formulas>
+        <description>SCC-3385: Labels the completed activity with the created Work Order number.</description>
+        <name>Activity_Subject</name>
+        <dataType>String</dataType>
+        <expression>&quot;Work Order &quot; &amp; {!Get_Created_Work_Order.WorkOrderNumber} &amp; &quot; Created&quot;</expression>
+    </formulas>
+    <formulas>
+        <description>SCC-3385: Maps the Trouble Ticket Med value to the Work Order Medium value.</description>
+        <name>Mapped_Work_Order_Priority</name>
+        <dataType>String</dataType>
+        <expression>IF(
+    TEXT({!Get_Trouble_Ticket.Priority__c}) = &quot;Med&quot;,
+    &quot;Medium&quot;,
+    IF(
+        NOT(ISBLANK(TEXT({!Get_Trouble_Ticket.Priority__c}))),
+        TEXT({!Get_Trouble_Ticket.Priority__c}),
+        TEXT({!Get_Trouble_Ticket.Priority})
+    )
+)</expression>
+    </formulas>
+    <formulas>
+        <description>SCC-3385: Gives the created Work Order a traceable Trouble Ticket subject.</description>
+        <name>Work_Order_Subject</name>
+        <dataType>String</dataType>
+        <expression>&quot;Trouble Ticket &quot; &amp; {!Get_Trouble_Ticket.CaseNumber} &amp;
+IF(
+    ISBLANK({!Get_Trouble_Ticket.Subject}),
+    &quot;&quot;,
+    &quot;: &quot; &amp; {!Get_Trouble_Ticket.Subject}
+)</expression>
+    </formulas>
+    <interviewLabel>SCC-3385 Create Trouble Ticket Work Order {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Create Work Order</label>
+    <processType>Flow</processType>
+    <recordCreates>
+        <description>SCC-3385: Creates the Work Order with inherited Case values and agent instructions.</description>
+        <name>Create_Work_Order</name>
+        <label>Create Work Order</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <assignRecordIdToReference>createdWorkOrderId</assignRecordIdToReference>
+        <connector>
+            <targetReference>Get_Created_Work_Order</targetReference>
+        </connector>
+        <faultConnector>
+            <targetReference>Error_Screen</targetReference>
+        </faultConnector>
+        <inputAssignments>
+            <field>AccountId</field>
+            <value>
+                <elementReference>Get_Trouble_Ticket.AccountId</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>CaseId</field>
+            <value>
+                <elementReference>recordId</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>City</field>
+            <value>
+                <elementReference>Get_Trouble_Ticket.Service_Address__City__s</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Country</field>
+            <value>
+                <elementReference>Get_Trouble_Ticket.Service_Address__CountryCode__s</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Description</field>
+            <value>
+                <elementReference>Get_Trouble_Ticket.Description</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Internal_Comments__c</field>
+            <value>
+                <elementReference>Get_Trouble_Ticket.Comments</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Order__c</field>
+            <value>
+                <elementReference>Get_Trouble_Ticket.Order__c</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>PostalCode</field>
+            <value>
+                <elementReference>Get_Trouble_Ticket.Service_Address__PostalCode__s</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Priority</field>
+            <value>
+                <elementReference>Mapped_Work_Order_Priority</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Service_Type__c</field>
+            <value>
+                <elementReference>Get_Trouble_Ticket.Service_Type__c</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Source_Case_Id__c</field>
+            <value>
+                <elementReference>recordId</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>State</field>
+            <value>
+                <elementReference>Get_Trouble_Ticket.Service_Address__StateCode__s</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Street</field>
+            <value>
+                <elementReference>Get_Trouble_Ticket.Service_Address__Street__s</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Subject</field>
+            <value>
+                <elementReference>Work_Order_Subject</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Subscriber_Report__c</field>
+            <value>
+                <elementReference>Get_Trouble_Ticket.Subscriber_Report__c</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>WorkTypeId</field>
+            <value>
+                <elementReference>Selected_Work_Type</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Work_Instructions__c</field>
+            <value>
+                <elementReference>Work_Instructions</elementReference>
+            </value>
+        </inputAssignments>
+        <object>WorkOrder</object>
+    </recordCreates>
+    <recordCreates>
+        <description>SCC-3385: Adds a completed Task to the Case activity history after successful creation.</description>
+        <name>Log_Creation_In_Case_Activity</name>
+        <label>Log Creation in Case Activity</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Success_Screen</targetReference>
+        </connector>
+        <faultConnector>
+            <targetReference>Error_Screen</targetReference>
+        </faultConnector>
+        <inputAssignments>
+            <field>Description</field>
+            <value>
+                <elementReference>Activity_Description</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Priority</field>
+            <value>
+                <stringValue>Normal</stringValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Status</field>
+            <value>
+                <stringValue>Completed</stringValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Subject</field>
+            <value>
+                <elementReference>Activity_Subject</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>WhatId</field>
+            <value>
+                <elementReference>recordId</elementReference>
+            </value>
+        </inputAssignments>
+        <object>Task</object>
+    </recordCreates>
+    <recordLookups>
+        <description>SCC-3385: Retrieves the generated number and selected Work Type for confirmation and logging.</description>
+        <name>Get_Created_Work_Order</name>
+        <label>Get Created Work Order</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Log_Creation_In_Case_Activity</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>createdWorkOrderId</elementReference>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>WorkOrder</object>
+        <queriedFields>Id</queriedFields>
+        <queriedFields>WorkOrderNumber</queriedFields>
+        <queriedFields>WorkTypeId</queriedFields>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordLookups>
+        <description>SCC-3385: Retrieves the customer Account name for confirmation on the creation screen.</description>
+        <name>Get_Customer_Account</name>
+        <label>Get Customer Account</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Get_Existing_Work_Order</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>Get_Trouble_Ticket.AccountId</elementReference>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>Account</object>
+        <queriedFields>Id</queriedFields>
+        <queriedFields>Name</queriedFields>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordLookups>
+        <description>SCC-3385: Checks the standard Case relationship before showing the creation form.</description>
+        <name>Get_Existing_Work_Order</name>
+        <label>Get Existing Work Order</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Work_Order_Already_Exists</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>CaseId</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>recordId</elementReference>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>WorkOrder</object>
+        <queriedFields>Id</queriedFields>
+        <queriedFields>WorkOrderNumber</queriedFields>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordLookups>
+        <description>SCC-3385: Retrieves all Case values required by the new Work Order.</description>
+        <name>Get_Trouble_Ticket</name>
+        <label>Get Trouble Ticket</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Is_Trouble_Ticket</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>recordId</elementReference>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>Case</object>
+        <queriedFields>AccountId</queriedFields>
+        <queriedFields>CaseNumber</queriedFields>
+        <queriedFields>Comments</queriedFields>
+        <queriedFields>Description</queriedFields>
+        <queriedFields>Id</queriedFields>
+        <queriedFields>Order__c</queriedFields>
+        <queriedFields>Priority</queriedFields>
+        <queriedFields>Priority__c</queriedFields>
+        <queriedFields>RecordTypeId</queriedFields>
+        <queriedFields>Service_Address__City__s</queriedFields>
+        <queriedFields>Service_Address__CountryCode__s</queriedFields>
+        <queriedFields>Service_Address__PostalCode__s</queriedFields>
+        <queriedFields>Service_Address__StateCode__s</queriedFields>
+        <queriedFields>Service_Address__Street__s</queriedFields>
+        <queriedFields>Service_Type__c</queriedFields>
+        <queriedFields>Subject</queriedFields>
+        <queriedFields>Subscriber_Report__c</queriedFields>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordLookups>
+        <description>SCC-3385: Resolves the Trouble Ticket record type without hard-coding an org-specific ID.</description>
+        <name>Get_Trouble_Ticket_Record_Type</name>
+        <label>Get Trouble Ticket Record Type</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Get_Trouble_Ticket</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>DeveloperName</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>Trouble_Ticket</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>SobjectType</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>Case</stringValue>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>RecordType</object>
+        <queriedFields>Id</queriedFields>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <runInMode>SystemModeWithSharing</runInMode>
+    <screens>
+        <description>SCC-3385: Shows inherited details and captures required Work Type and work instructions.</description>
+        <name>Create_Work_Order_Screen</name>
+        <label>Create Work Order</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <allowBack>false</allowBack>
+        <allowFinish>true</allowFinish>
+        <allowPause>false</allowPause>
+        <connector>
+            <targetReference>Create_Work_Order</targetReference>
+        </connector>
+        <fields>
+            <name>Inherited_Case_Details</name>
+            <fieldText>&lt;p&gt;&lt;strong&gt;Trouble Ticket:&lt;/strong&gt; {!Get_Trouble_Ticket.CaseNumber}&lt;/p&gt;&lt;p&gt;&lt;strong&gt;Account:&lt;/strong&gt; {!Get_Customer_Account.Name}&lt;/p&gt;&lt;p&gt;&lt;strong&gt;Service Type:&lt;/strong&gt; {!Get_Trouble_Ticket.Service_Type__c}&lt;/p&gt;&lt;p&gt;&lt;strong&gt;Subscriber Report:&lt;/strong&gt; {!Get_Trouble_Ticket.Subscriber_Report__c}&lt;/p&gt;&lt;p&gt;&lt;strong&gt;Priority:&lt;/strong&gt; {!Mapped_Work_Order_Priority}&lt;/p&gt;</fieldText>
+            <fieldType>DisplayText</fieldType>
+            <styleProperties>
+                <verticalAlignment>
+                    <stringValue>top</stringValue>
+                </verticalAlignment>
+                <width>
+                    <stringValue>12</stringValue>
+                </width>
+            </styleProperties>
+        </fields>
+        <fields>
+            <name>Selected_Work_Type</name>
+            <choiceReferences>Current_Work_Types</choiceReferences>
+            <dataType>String</dataType>
+            <fieldText>Work Type</fieldText>
+            <fieldType>DropdownBox</fieldType>
+            <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+            <isRequired>true</isRequired>
+            <styleProperties>
+                <verticalAlignment>
+                    <stringValue>top</stringValue>
+                </verticalAlignment>
+                <width>
+                    <stringValue>12</stringValue>
+                </width>
+            </styleProperties>
+        </fields>
+        <fields>
+            <name>Work_Instructions</name>
+            <fieldText>Work Instructions</fieldText>
+            <fieldType>LargeTextArea</fieldType>
+            <helpText>SCC-3385: Enter the specific instructions the field team needs to complete this Work Order.</helpText>
+            <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+            <isRequired>true</isRequired>
+            <styleProperties>
+                <verticalAlignment>
+                    <stringValue>top</stringValue>
+                </verticalAlignment>
+                <width>
+                    <stringValue>12</stringValue>
+                </width>
+            </styleProperties>
+        </fields>
+        <nextOrFinishButtonLabel>Create Work Order</nextOrFinishButtonLabel>
+        <showFooter>true</showFooter>
+        <showHeader>false</showHeader>
+    </screens>
+    <screens>
+        <description>SCC-3385: Explains duplicate prevention and links to the existing Work Order.</description>
+        <name>Duplicate_Work_Order_Screen</name>
+        <label>Work Order Already Exists</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <allowBack>false</allowBack>
+        <allowFinish>true</allowFinish>
+        <allowPause>false</allowPause>
+        <fields>
+            <name>Duplicate_Message</name>
+            <fieldText>&lt;p&gt;&lt;strong&gt;A Work Order already exists for this Trouble Ticket.&lt;/strong&gt;&lt;/p&gt;&lt;p&gt;&lt;a href=&quot;/{!Get_Existing_Work_Order.Id}&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer&quot;&gt;Open Work Order {!Get_Existing_Work_Order.WorkOrderNumber}&lt;/a&gt;&lt;/p&gt;</fieldText>
+            <fieldType>DisplayText</fieldType>
+            <styleProperties>
+                <verticalAlignment>
+                    <stringValue>top</stringValue>
+                </verticalAlignment>
+                <width>
+                    <stringValue>12</stringValue>
+                </width>
+            </styleProperties>
+        </fields>
+        <showFooter>true</showFooter>
+        <showHeader>false</showHeader>
+    </screens>
+    <screens>
+        <description>SCC-3385: Shows the platform fault so support can diagnose a failed creation.</description>
+        <name>Error_Screen</name>
+        <label>Unable to Create Work Order</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <allowBack>false</allowBack>
+        <allowFinish>true</allowFinish>
+        <allowPause>false</allowPause>
+        <fields>
+            <name>Error_Message</name>
+            <fieldText>&lt;p&gt;&lt;strong&gt;The Work Order could not be created.&lt;/strong&gt;&lt;/p&gt;&lt;p&gt;{!$Flow.FaultMessage}&lt;/p&gt;</fieldText>
+            <fieldType>DisplayText</fieldType>
+            <styleProperties>
+                <verticalAlignment>
+                    <stringValue>top</stringValue>
+                </verticalAlignment>
+                <width>
+                    <stringValue>12</stringValue>
+                </width>
+            </styleProperties>
+        </fields>
+        <showFooter>true</showFooter>
+        <showHeader>false</showHeader>
+    </screens>
+    <screens>
+        <description>SCC-3385: Prevents the flow from being used outside a Trouble Ticket Case.</description>
+        <name>Invalid_Case_Screen</name>
+        <label>Unsupported Case</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <allowBack>false</allowBack>
+        <allowFinish>true</allowFinish>
+        <allowPause>false</allowPause>
+        <fields>
+            <name>Invalid_Case_Message</name>
+            <fieldText>&lt;p&gt;&lt;strong&gt;Work Orders can be created with this action only from Trouble Ticket Cases.&lt;/strong&gt;&lt;/p&gt;</fieldText>
+            <fieldType>DisplayText</fieldType>
+            <styleProperties>
+                <verticalAlignment>
+                    <stringValue>top</stringValue>
+                </verticalAlignment>
+                <width>
+                    <stringValue>12</stringValue>
+                </width>
+            </styleProperties>
+        </fields>
+        <showFooter>true</showFooter>
+        <showHeader>false</showHeader>
+    </screens>
+    <screens>
+        <description>SCC-3385: Confirms creation and provides a direct Work Order link.</description>
+        <name>Success_Screen</name>
+        <label>Work Order Created</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <allowBack>false</allowBack>
+        <allowFinish>true</allowFinish>
+        <allowPause>false</allowPause>
+        <fields>
+            <name>Success_Message</name>
+            <fieldText>&lt;p&gt;&lt;strong&gt;Work Order {!Get_Created_Work_Order.WorkOrderNumber} was created successfully.&lt;/strong&gt;&lt;/p&gt;&lt;p&gt;&lt;a href=&quot;/{!createdWorkOrderId}&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer&quot;&gt;Open Work Order&lt;/a&gt;&lt;/p&gt;</fieldText>
+            <fieldType>DisplayText</fieldType>
+            <styleProperties>
+                <verticalAlignment>
+                    <stringValue>top</stringValue>
+                </verticalAlignment>
+                <width>
+                    <stringValue>12</stringValue>
+                </width>
+            </styleProperties>
+        </fields>
+        <showFooter>true</showFooter>
+        <showHeader>false</showHeader>
+    </screens>
+    <start>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Get_Trouble_Ticket_Record_Type</targetReference>
+        </connector>
+    </start>
+    <status>Active</status>
+    <variables>
+        <description>SCC-3385: Stores the new Work Order ID for logging and navigation.</description>
+        <name>createdWorkOrderId</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <description>SCC-3385: Receives the originating Case ID from the record action.</description>
+        <name>recordId</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+</Flow>

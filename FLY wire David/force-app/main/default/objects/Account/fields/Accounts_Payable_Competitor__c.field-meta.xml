@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Accounts_Payable_Competitor__c</fullName>
+    <description>Name of the provider being used for international AP, ie Agent commissions &amp; supplier payments. SAL-2642</description>
+    <inlineHelpText>Name of the provider being used for international AP, ie Agent commissions &amp; supplier payments</inlineHelpText>
+    <label>Accounts Payable Competitor</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Bank of Scotland</fullName>
+                <default>false</default>
+                <label>Bank of Scotland</label>
+            </value>
+            <value>
+                <fullName>Barclays</fullName>
+                <default>false</default>
+                <label>Barclays</label>
+            </value>
+            <value>
+                <fullName>Convera</fullName>
+                <default>false</default>
+                <label>Convera</label>
+            </value>
+            <value>
+                <fullName>Corpay</fullName>
+                <default>false</default>
+                <label>Corpay</label>
+            </value>
+            <value>
+                <fullName>HSBC</fullName>
+                <default>false</default>
+                <label>HSBC</label>
+            </value>
+            <value>
+                <fullName>Lloyds</fullName>
+                <default>false</default>
+                <label>Lloyds</label>
+            </value>
+            <value>
+                <fullName>Other</fullName>
+                <default>false</default>
+                <label>Other</label>
+            </value>
+            <value>
+                <fullName>Santander</fullName>
+                <default>false</default>
+                <label>Santander</label>
+            </value>
+            <value>
+                <fullName>Transfermate</fullName>
+                <default>false</default>
+                <label>Transfermate</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

@@ -1,0 +1,134 @@
+<template>
+    <lightning-card title={cardLabel} icon-name="standard:contact">
+
+        <lightning-combobox label="Filter" options={contactFilters} value={status} onchange={handleSelection}  class="slds-m-bottom_small">
+        </lightning-combobox>
+        
+
+        
+        <div class="slds-m-around_medium">
+            <template if:true={contactsToDisplay}>
+                <template for:each={contactsToDisplay} for:item="contact">
+                    <!-- <div key={contact.fields.Id.value}>  -->
+                        <lightning-tile key={contact.fields.Id.value}> 
+                            <div class="tableRowGroup">
+                                <div class="slds-list--horizontal forceListRecordItem">
+                                <p class="slds-item--label slds-truncate recordCell"> 
+                                    <a data-id={contact.fields.Id.value} onclick={viewRecord}>{contact.fields.Name.value} </a> 
+                                </p>
+                                <div class="slds-item--detail slds-truncate recordCell">
+                                   
+                                </div>
+                                </div>
+                            </div>
+                            <div class="tableRowGroup">
+                                <div class="slds-list--horizontal forceListRecordItem">
+                                <p class="slds-item--label slds-truncate recordCell"> Title</p>
+                                <div class="slds-item--detail slds-truncate recordCell">
+                                    {contact.fields.Title.value} 
+                                </div>
+                                </div>
+                            </div>
+                            <div class="tableRowGroup">
+                                <div class="slds-list--horizontal forceListRecordItem">
+                                <p class="slds-item--label slds-truncate recordCell">Phone</p>
+                                <div class="slds-item--detail slds-truncate recordCell">
+                                    {contact.fields.Phone.value}
+                                </div>
+                                </div>
+                            </div>
+                                    
+                            <div class="tableRowGroup">
+                                <div class="slds-list--horizontal forceListRecordItem">
+                                <p class="slds-item--label slds-truncate recordCell"> Email</p>
+                                <div class="slds-item--detail slds-truncate recordCell">
+                                    {contact.fields.Email.value}
+                                </div>
+                                </div>
+                            </div>
+                            <div class="tableRowGroup">
+                                <div class="slds-list--horizontal forceListRecordItem">
+                                <p class="slds-item--label slds-truncate recordCell"> Main Point Person</p>
+                                <div class="slds-item--detail slds-truncate recordCell">
+                                    <lightning-input type="checkbox" checked={contact.fields.Main_Point_Person__c.value} disabled="true"></lightning-input>
+                                </div>
+                                </div>
+                            </div>
+
+                            <div class="tableRowGroup">
+                                <div class="slds-list--horizontal forceListRecordItem">
+                                <p class="slds-item--label slds-truncate recordCell"> Billing Contact</p>
+                                <div class="slds-item--detail slds-truncate recordCell">
+                                    <lightning-input type="checkbox" checked={contact.fields.Billing_Contact__c.value} disabled="true"></lightning-input>
+                                </div>
+                                </div>
+                            </div>
+
+                            <div class="tableRowGroup">
+                                <div class="slds-list--horizontal forceListRecordItem">
+                                <p class="slds-item--label slds-truncate recordCell"> Chargeback Contact</p>
+                                <div class="slds-item--detail slds-truncate recordCell">
+                                    <lightning-input type="checkbox" checked={contact.fields.Chargeback_Contact__c.value} disabled="true"></lightning-input>
+                                </div>
+                                </div>
+                            </div>
+                            <!--
+                            <div class="tableRowGroup">
+                                <div class="slds-list--horizontal forceListRecordItem">
+                                <p class="slds-item--label slds-truncate recordCell"> Dashboard Access</p>
+                                <div class="slds-item--detail slds-truncate recordCell">
+                                    <lightning-input type="checkbox" checked={contact.fields.Dashboard_Access__c.value} disabled="true"></lightning-input>
+                                </div>
+                                </div>
+                            </div> -->
+
+                            <div class="tableRowGroup">
+                                <div class="slds-list--horizontal forceListRecordItem">
+                                <p class="slds-item--label slds-truncate recordCell"> Influencer</p>
+                                <div class="slds-item--detail slds-truncate recordCell">
+                                    <lightning-input type="checkbox" checked={contact.fields.Influencer__c.value} disabled="true"></lightning-input>
+                                </div>
+                                </div>
+                            </div>
+                            
+
+                            <div class="tableRowGroup">
+                                <div class="slds-list--horizontal forceListRecordItem">
+                                <p class="slds-item--label slds-truncate recordCell"> Refund Contact</p>
+                                <div class="slds-item--detail slds-truncate recordCell">
+                                    <lightning-input type="checkbox" checked={contact.fields.Refund_Contact__c.value} disabled="true"></lightning-input>
+                                </div>
+                                </div>
+                            </div>
+
+                            <!--1319 Checkbox Flywire Reference is displayed only for healthcare accounts-->
+                            <template if:true={isHealthcareAccount}>
+                                <div class="tableRowGroup">
+                                    <div class="slds-list--horizontal forceListRecordItem">
+                                    <p class="slds-item--label slds-truncate recordCell"> Flywire Reference</p>
+                                    <div class="slds-item--detail slds-truncate recordCell">
+                                        <lightning-input type="checkbox" checked={contact.fields.Flywire_Reference__c.value} disabled="true"></lightning-input>
+                                    </div>
+                                    </div>
+                                </div>
+                            </template>
+                            
+
+                            <dl class="slds-dl_horizontal">
+                            </dl>
+
+                        <Br/>
+                        </lightning-tile>
+                        
+                    <!-- </div> -->
+                    
+                </template>
+            </template>
+            <template if:true={error}>
+                <div class="slds-text-color_error">
+                    An error occurred while loading contacts
+                </div>
+            </template>
+        </div>
+    </lightning-card>
+</template>

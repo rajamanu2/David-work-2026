@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>New_Bank_Setup__c</fullName>
+    <description>BOPI-492: Does a new bank account need to be set up? Ensure the client has provided the bank information to you</description>
+    <inlineHelpText>We will capture the details of this in the supplementary form using in the next steps to raise this work to implementation</inlineHelpText>
+    <label>New Bank Setup?</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetName>YesNo</valueSetName>
+    </valueSet>
+</CustomField>

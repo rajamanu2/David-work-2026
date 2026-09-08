@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Active_Account_Requirements</fullName>
+    <active>false</active>
+    <description>Require Industry, Sub Industry, Status Date and Address if Status is Active.</description>
+    <errorConditionFormula>AND( 
+$Profile.Name &lt;&gt; &quot;System Administrator&quot;,
+ISPICKVAL( Account_Status__c , &quot;Active (Product Live)&quot;),
+OR(
+RecordType.DeveloperName = &quot;Education&quot;,
+RecordType.DeveloperName = &quot;Healthcare&quot;,
+RecordType.DeveloperName = &quot;Commercial&quot;, 
+RecordType.DeveloperName = &quot;Travel&quot;, 
+RecordType.DeveloperName = &quot;B2B&quot;, 
+
+OR( 
+ISBLANK(ShippingCountry), 
+ISBLANK(ShippingStreet),
+ISPICKVAL ( Account_Industry__c , &quot;&quot;),
+ISPICKVAL (  Account_Sub_Industry__c  , &quot;&quot;)
+) 
+)
+)</errorConditionFormula>
+    <errorDisplayField>Account_Status__c</errorDisplayField>
+    <errorMessage>Following fields are required to set Account to Active:
+Industry, Sub Industry, Status Date and Shipping Address.</errorMessage>
+</ValidationRule>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Only_RevOps_can_edit_Travel_RM</fullName>
+    <active>true</active>
+    <description>Only SysAdmin, Carmen, Babita and Alex Gardner can change/edit relationship manager field on Travel accounts. SAL-4047
+SAL-4613: Added Henry Kessker</description>
+    <errorConditionFormula>AND(
+$Profile.Name &lt;&gt; &apos;System Administrator&apos;,
+$User.User_LongID__c &lt;&gt; &apos;0058W00000ErGiZQAV&apos;, /*carmen*/
+$User.User_LongID__c &lt;&gt; &apos;0058W00000EVTGWQA5&apos;, /*babita*/
+$User.User_LongID__c &lt;&gt; &apos;005f2000009yzvoAAA&apos;,/*alex*/
+$User.User_LongID__c &lt;&gt; &apos;0058W00000GK9zwQAD&apos;,/*henry*/
+RecordType.Name = &apos;Travel&apos;,
+AND(
+ISPICKVAL( Account_Status__c , &quot;Active (Product Live)&quot;),
+ISCHANGED(Relationship_Manager__c),
+NOT( ISBLANK( PRIORVALUE(Relationship_Manager__c)))))
+&amp;&amp; Acc_Val_Bypass__c = false</errorConditionFormula>
+    <errorDisplayField>Relationship_Manager__c</errorDisplayField>
+    <errorMessage>Please contact your manager to request a change of Relationship Manager for this account.</errorMessage>
+</ValidationRule>

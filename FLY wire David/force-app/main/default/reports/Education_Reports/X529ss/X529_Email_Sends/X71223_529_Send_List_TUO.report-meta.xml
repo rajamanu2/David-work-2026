@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>FIRST_NAME</field>
+    </columns>
+    <columns>
+        <field>LAST_NAME</field>
+    </columns>
+    <columns>
+        <field>TITLE</field>
+    </columns>
+    <columns>
+        <field>EMAIL</field>
+    </columns>
+    <columns>
+        <field>URL</field>
+    </columns>
+    <columns>
+        <field>OWNER_FULL_NAME</field>
+    </columns>
+    <currency>USD</currency>
+    <filter>
+        <booleanFilter>1 OR 2 OR 3 OR 4</booleanFilter>
+        <criteriaItems>
+            <column>ACCOUNT.NAME</column>
+            <columnToColumn>false</columnToColumn>
+            <isUnlocked>true</isUnlocked>
+            <operator>equals</operator>
+            <value>Academy of Art University,American National University - Salem,VA,Arizona Christian University,Arkansas State University - Main Campus,Asbury Theological Seminary,Augustana College,Azusa Pacific University,Ball State University,Bay Path University,Bellevue University,Berkeley College - New York,Bethel College - KS,Blue Mountain College,Boise State University,Boston Architectural College,Boston Conservatory,Brigham Young University,Bryn Mawr College,Bucks County Community College,California Polytechnic State University - San Luis Obispo,California State University - Bakersfield,California State University - Los Angeles,California State University - San Bernardino,California State University - San Marcos,Calvin Theological Seminary,Castleton University,Christian Brothers University,Clackamas Community College,Clarks Summit University,Cleveland State University,College of the Canyons,Cooper Union,DePaul University,Duquesne University,Eastern Florida State College,Eastern Kentucky University,Elon University,Felician University,Florida Atlantic University</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>ACCOUNT.NAME</column>
+            <columnToColumn>false</columnToColumn>
+            <isUnlocked>true</isUnlocked>
+            <operator>equals</operator>
+            <value>Florida State College at Jacksonville,Foothill - DeAnza Community College District,Fuller Theological Seminary,Graduate Theological Union,Grove City College,Guilford Technical Community College,Hamilton College,James Madison University,Kansas City Kansas Community College,Loyola University Chicago,Manchester University,Marquette University,Massachusetts College of Pharmacy &amp; Health Sciences,Mass General Brigham (FKA Partners HealthCare),Midwestern Baptist Theological Seminary,Millersville University,Minerva Schools,Missouri State University,Montreat College,Mount Holyoke College,Mt. Hood Community College,Murray State University,Newman University,Niagara University,Northeastern Illinois University,Northern Illinois University (NIU),Northwestern University,Pentecostal Theological Seminary,Pepperdine University,Pittsburg State University,Point Park University,Pratt Munson College of Art and Design,Ringling College of Art and Design,Rollins College,Salve Regina University,San Mateo County Community College District,Santa Barbara City College,Santa Clara University,Sarah Lawrence College,School of the Art Institute of Chicago,Southeastern Baptist Theological Seminary,Southeastern University,Southeast Missouri State University</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>ACCOUNT.NAME</column>
+            <columnToColumn>false</columnToColumn>
+            <isUnlocked>true</isUnlocked>
+            <operator>equals</operator>
+            <value>Southern Illinois University - Carbondale,Southern Illinois University - Edwardsville,South Orange County Community College District,St. Cloud State University,St. John&apos;s College of Annapolis,St. John&apos;s College - Santa Fe Campus,Suffolk University,SUNY Alfred State College,SUNY Broome Community College,SUNY Cayuga Community College,SUNY Genesee Community College,SUNY Jamestown Community College,SUNY New Paltz,SUNY University at Albany,The American Academy of Dramatic Arts,The King&apos;s University,The University of South Alabama,Touro College,University of California - Santa Cruz,University of Central Arkansas,University of Louisiana - Lafayette,University of Maine - Fort Kent,University of Maine System,University of Maryland - Eastern Shore,University of Memphis,University of Michigan - Flint,University of Southern Indiana,University of Texas Permian Basin,University of Wisconsin - Eau Claire,University of Wisconsin - Madison,Valencia College,Vanderbilt University,Victory College,Wake Forest University,Walsh College Accountancy and Business Administration,Washington State University,Wayne State University,West Liberty University,Whatcom Community College,Whittier College,William &amp; Mary,Young Harris College</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>ACCOUNT.NAME</column>
+            <columnToColumn>false</columnToColumn>
+            <isUnlocked>true</isUnlocked>
+            <operator>startsWith</operator>
+            <value>American National University - Salem</value>
+        </criteriaItems>
+    </filter>
+    <format>Summary</format>
+    <groupingsDown>
+        <dateGranularity>Day</dateGranularity>
+        <field>ACCOUNT.NAME</field>
+        <sortOrder>Asc</sortOrder>
+    </groupingsDown>
+    <name>7.12.23 529 Send List</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>ContactList</reportType>
+    <scope>organization</scope>
+    <showDetails>false</showDetails>
+    <showGrandTotal>true</showGrandTotal>
+    <showSubTotals>true</showSubTotals>
+    <timeFrameFilter>
+        <dateColumn>CREATED_DATE</dateColumn>
+        <interval>INTERVAL_CUSTOM</interval>
+    </timeFrameFilter>
+</Report>

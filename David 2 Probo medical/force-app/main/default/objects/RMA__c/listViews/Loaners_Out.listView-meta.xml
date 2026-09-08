@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Loaners_Out</fullName>
+    <columns>NAME</columns>
+    <columns>RMA_Item_Serial_Number__c</columns>
+    <columns>Opportunity__c</columns>
+    <columns>Probe_Model__c</columns>
+    <columns>Date_shipped__c</columns>
+    <columns>Repair_Probe_SN__c</columns>
+    <columns>Date_Repaired_Probe_Shipped__c</columns>
+    <columns>Contact_Name__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>RECORDTYPE</field>
+        <operation>equals</operation>
+        <value>RMA__c.Loaner_Return</value>
+    </filters>
+    <filters>
+        <field>Date_RMA_Item_Received__c</field>
+        <operation>equals</operation>
+    </filters>
+    <filters>
+        <field>Loaner_changed_to_sale__c</field>
+        <operation>equals</operation>
+        <value>0</value>
+    </filters>
+    <filters>
+        <field>Account_Name_for_customer_portal__c</field>
+        <operation>notEqual</operation>
+    </filters>
+    <filters>
+        <field>Probe_Never_Sent_In__c</field>
+        <operation>equals</operation>
+        <value>0</value>
+    </filters>
+    <label>Loaners Out</label>
+</ListView>

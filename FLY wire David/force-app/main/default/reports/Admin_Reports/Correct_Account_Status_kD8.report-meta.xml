@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>Account$Name</field>
+    </columns>
+    <columns>
+        <field>Account$Account_Status__c</field>
+    </columns>
+    <columns>
+        <field>Account$Account_Status_Date__c</field>
+    </columns>
+    <columns>
+        <field>Account$Date_First_Opp_Won__c</field>
+    </columns>
+    <columns>
+        <field>Account$Date_First_Product_Live__c</field>
+    </columns>
+    <columns>
+        <field>Account$AccountLongID__c</field>
+    </columns>
+    <currency>USD</currency>
+    <description>Align Account Status with current info. i.e. Won opps not live should be Client Signed. Also, fix status dates.</description>
+    <filter>
+        <criteriaItems>
+            <column>Account$Won_Opportunity_Count__c</column>
+            <columnToColumn>false</columnToColumn>
+            <isUnlocked>true</isUnlocked>
+            <operator>greaterThan</operator>
+            <value>0</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Account$RecordType</column>
+            <columnToColumn>false</columnToColumn>
+            <isUnlocked>true</isUnlocked>
+            <operator>equals</operator>
+            <value>Account.Education</value>
+        </criteriaItems>
+    </filter>
+    <format>Tabular</format>
+    <name>Correct Account Status</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>Account_C__c</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <showGrandTotal>true</showGrandTotal>
+    <showSubTotals>true</showSubTotals>
+    <sortColumn>Account$Date_First_Product_Live__c</sortColumn>
+    <sortOrder>Asc</sortOrder>
+    <timeFrameFilter>
+        <dateColumn>Account$Account_Status_Date__c</dateColumn>
+        <interval>INTERVAL_CUSTOM</interval>
+    </timeFrameFilter>
+</Report>

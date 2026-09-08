@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Utilization__c</fullName>
+    <description>SAL-2143 Used for B2B ARR Automation for Cross Border - Commercial
+Select the % Expected for Year 1 Utilization.</description>
+    <inlineHelpText>Select the % Expected for Year 1 Utilization.</inlineHelpText>
+    <label>% Utilization</label>
+    <required>false</required>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>20%</fullName>
+                <default>true</default>
+                <label>20%</label>
+            </value>
+            <value>
+                <fullName>40%</fullName>
+                <default>false</default>
+                <label>40%</label>
+            </value>
+            <value>
+                <fullName>60%</fullName>
+                <default>false</default>
+                <label>60%</label>
+            </value>
+            <value>
+                <fullName>80%</fullName>
+                <default>false</default>
+                <label>80%</label>
+            </value>
+            <value>
+                <fullName>100%</fullName>
+                <default>false</default>
+                <label>100%</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

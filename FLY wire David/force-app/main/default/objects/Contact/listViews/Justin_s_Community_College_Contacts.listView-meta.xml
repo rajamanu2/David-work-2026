@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Justin_s_Community_College_Contacts</fullName>
+    <columns>PARENT.NAME</columns>
+    <columns>ACCOUNT.NAME</columns>
+    <columns>FULL_NAME</columns>
+    <columns>CONTACT.PHONE1</columns>
+    <columns>CONTACT.EMAIL</columns>
+    <columns>CONTACT.TITLE</columns>
+    <columns>CONTACT.LAST_UPDATE</columns>
+    <columns>CONTACT.LAST_ACTIVITY</columns>
+    <columns>CONTACT.ADDRESS2_STATE</columns>
+    <columns>BDR_Owner__c</columns>
+    <columns>CONTACT.PHONE3</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>CONTACT.ADDRESS2_STATE</field>
+        <operation>equals</operation>
+        <value>LA,AR,MO,IL,MI,WI,IA,MN,ND,SD,NE,KS,OK,TX,MT,WY,CO,NM,AZ,UT,ID,NV,OR,WA,CA,AK,HI</value>
+    </filters>
+    <label>Justin&apos;s Community College Contacts</label>
+</ListView>

@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>53.0</apiVersion>
+    <areMetricsLoggedToDataCloud>false</areMetricsLoggedToDataCloud>
+    <assignments>
+        <description>Assigns the Price Rule Ids to the vTable variable.</description>
+        <name>AssignPriceActions</name>
+        <label>Assign Price Actions</label>
+        <locationX>896</locationX>
+        <locationY>485</locationY>
+        <assignmentItems>
+            <assignToReference>vTable</assignToReference>
+            <operator>Add</operator>
+            <value>
+                <elementReference>LoopPriceAction.SBQQ__Field__c</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>vTable</assignToReference>
+            <operator>Add</operator>
+            <value>
+                <stringValue> (</stringValue>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>vTable</assignToReference>
+            <operator>Add</operator>
+            <value>
+                <elementReference>LoopPriceAction.SBQQ__TargetObject__c</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>vTable</assignToReference>
+            <operator>Add</operator>
+            <value>
+                <stringValue>), </stringValue>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>LoopPriceAction</targetReference>
+        </connector>
+    </assignments>
+    <description>Flow to update Price Rule Target Fields on Price Action create/update</description>
+    <environments>Default</environments>
+    <interviewLabel>AQS Price Rule Target Fields {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>AQS Price Rule Target Fields V2</label>
+    <loops>
+        <description>Loops through the Price Action Record Collection</description>
+        <name>LoopPriceAction</name>
+        <label>Loop Price Action</label>
+        <locationX>898</locationX>
+        <locationY>293</locationY>
+        <collectionReference>socPriceActions</collectionReference>
+        <iterationOrder>Asc</iterationOrder>
+        <nextValueConnector>
+            <targetReference>AssignPriceActions</targetReference>
+        </nextValueConnector>
+        <noMoreValuesConnector>
+            <targetReference>UpdatePriceRule</targetReference>
+        </noMoreValuesConnector>
+    </loops>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>FREE_FORM_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <recordLookups>
+        <name>GetPriceActionTargetFields</name>
+        <label>Get Price Action Target Fields</label>
+        <locationX>693</locationX>
+        <locationY>295</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>LoopPriceAction</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>SBQQ__Rule__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>$Record.SBQQ__Rule__r.Id</elementReference>
+            </value>
+        </filters>
+        <object>SBQQ__PriceAction__c</object>
+        <outputReference>socPriceActions</outputReference>
+        <queriedFields>Id</queriedFields>
+        <queriedFields>SBQQ__Field__c</queriedFields>
+        <queriedFields>SBQQ__TargetObject__c</queriedFields>
+    </recordLookups>
+    <recordUpdates>
+        <description>Updates the Product Rule when the Id is equal to the Price Rule that filtered the flow.</description>
+        <name>UpdatePriceRule</name>
+        <label>Update Price Rule</label>
+        <locationX>1159</locationX>
+        <locationY>296</locationY>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>$Record.SBQQ__Rule__r.Id</elementReference>
+            </value>
+        </filters>
+        <inputAssignments>
+            <field>AQS_Price_Rule_Target_Fields__c</field>
+            <value>
+                <elementReference>vTable</elementReference>
+            </value>
+        </inputAssignments>
+        <object>SBQQ__PriceRule__c</object>
+    </recordUpdates>
+    <start>
+        <locationX>194</locationX>
+        <locationY>190</locationY>
+        <connector>
+            <targetReference>GetPriceActionTargetFields</targetReference>
+        </connector>
+        <object>SBQQ__PriceAction__c</object>
+        <recordTriggerType>CreateAndUpdate</recordTriggerType>
+        <triggerType>RecordAfterSave</triggerType>
+    </start>
+    <status>Active</status>
+    <variables>
+        <description>Record Collection Variable for the Price actions.  This record Collection will go through the Loop, &quot;Loop Price Action&quot;.</description>
+        <name>socPriceActions</name>
+        <dataType>SObject</dataType>
+        <isCollection>true</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+        <objectType>SBQQ__PriceAction__c</objectType>
+    </variables>
+    <variables>
+        <description>Collection of strings depending on the Price action Target Object and Field</description>
+        <name>vTable</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>true</isOutput>
+    </variables>
+</Flow>

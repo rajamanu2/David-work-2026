@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>OppLineItemID__c</fullName>
+    <description>Admin field -Copy of the Opportunity Line Item (Product on Opp) ID for use in reports, exports, uploads, etc</description>
+    <externalId>false</externalId>
+    <formula>casesafeid(Id)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <inlineHelpText>Admin field -Copy of the Opportunity Line Item (Product on Opp) ID for use in reports, exports, uploads, etc</inlineHelpText>
+    <label>OppLineItemID</label>
+    <required>false</required>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

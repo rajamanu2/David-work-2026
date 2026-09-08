@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Old_Leads</fullName>
+    <columns>LEAD.COMPANY</columns>
+    <columns>FULL_NAME</columns>
+    <columns>LEAD.EMAIL</columns>
+    <columns>Lead_Person_Status__c</columns>
+    <columns>BDR_Owner__c</columns>
+    <columns>CORE.USERS.ALIAS</columns>
+    <columns>LEAD.PHONE</columns>
+    <columns>LEAD.COUNTRY_CODE</columns>
+    <columns>Last_Non_MKTG_Activity__c</columns>
+    <columns>LEAD.CREATED_DATE</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Lead_Person_Status__c</field>
+        <operation>equals</operation>
+        <value>Unverified,Engaged,MQL (Marketing Qualified Lead),Nurture,SQL (Sales Qualified Lead)</value>
+    </filters>
+    <filters>
+        <field>LEAD.PHONE</field>
+        <operation>notEqual</operation>
+    </filters>
+    <filters>
+        <field>Lead_Industry__c</field>
+        <operation>equals</operation>
+        <value>Accommodations,DMC,Travel,Travel Operator</value>
+    </filters>
+    <filters>
+        <field>Last_Non_MKTG_Activity__c</field>
+        <operation>lessOrEqual</operation>
+        <value>3/1/2024 12:00 AM</value>
+    </filters>
+    <filters>
+        <field>CORE.USERS.FIRST_NAME</field>
+        <operation>equals</operation>
+        <value>Hal</value>
+    </filters>
+    <label>Stale Leads - Cold Calls</label>
+    <sharedTo>
+        <group>All_Travel</group>
+    </sharedTo>
+</ListView>

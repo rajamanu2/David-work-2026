@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>My_Marketing_Engaged_Prospects</fullName>
+    <booleanFilter>1 OR 2</booleanFilter>
+    <columns>Engagement_Status__c</columns>
+    <columns>ACCOUNT.NAME</columns>
+    <columns>FULL_NAME</columns>
+    <columns>CONTACT.TITLE</columns>
+    <columns>CONTACT.PHONE1</columns>
+    <columns>CONTACT.EMAIL</columns>
+    <columns>CORE.USERS.ALIAS</columns>
+    <filterScope>Mine</filterScope>
+    <filters>
+        <field>Engagement_Status__c</field>
+        <operation>equals</operation>
+        <value>Cool,Warm,Hot</value>
+    </filters>
+    <filters>
+        <field>Score__c</field>
+        <operation>greaterThan</operation>
+        <value>1</value>
+    </filters>
+    <label>My Marketing Engaged Prospects</label>
+    <sharedTo>
+        <group>All_HC</group>
+    </sharedTo>
+</ListView>

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Alt_Payment_Method__c</fullName>
+    <description>Denote when an Institution uses Alternative payment methods. Created to capture HigerEd Points clients. -Tom Metcalf</description>
+    <inlineHelpText>Denote when an Institution uses one of these alternative payment methods.</inlineHelpText>
+    <label>Alt Payment Method</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>MultiselectPicklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Agents</fullName>
+                <default>false</default>
+                <label>Agents</label>
+            </value>
+            <value>
+                <fullName>Cash</fullName>
+                <default>false</default>
+                <label>Cash</label>
+            </value>
+            <value>
+                <fullName>HigherEdPoints.com</fullName>
+                <default>false</default>
+                <label>HigherEdPoints.com</label>
+            </value>
+            <value>
+                <fullName>Paypal</fullName>
+                <default>false</default>
+                <label>Paypal</label>
+            </value>
+            <value>
+                <fullName>Plastiq</fullName>
+                <default>false</default>
+                <label>Plastiq</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+    <visibleLines>4</visibleLines>
+</CustomField>

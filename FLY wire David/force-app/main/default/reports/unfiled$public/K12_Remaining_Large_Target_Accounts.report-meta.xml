@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>USERS.NAME</field>
+    </columns>
+    <columns>
+        <field>ACCOUNT.NAME</field>
+    </columns>
+    <columns>
+        <field>Account.Account_Sub_Industry__c</field>
+    </columns>
+    <columns>
+        <aggregateTypes>Sum</aggregateTypes>
+        <field>Account.Undergrad_Enrollment__c</field>
+    </columns>
+    <columns>
+        <aggregateTypes>Sum</aggregateTypes>
+        <field>Account.No_International_Payers_At_Account__c</field>
+    </columns>
+    <currency>USD</currency>
+    <filter>
+        <criteriaItems>
+            <column>ACCOUNT.NAME</column>
+            <columnToColumn>false</columnToColumn>
+            <isUnlocked>true</isUnlocked>
+            <operator>equals</operator>
+            <value>,Dulwich College London,Whitgift School,ACS Cobham International School,St Paul&apos;s School,Abingdon School,Eton College (UK),Berkhamsted School,Hurstpierpoint College,Sevenoaks School,Warwick School,St Peter&apos;s School York,Bedford School,Lincoln Minster School,Trent College and The Elms,Queen Ethelburga&apos;s Collegiate,Headington School - Oxford,Ipswich School,Kirkham Grammar School,Kimbolton School,Bellevue Education,Wolsey Hall Oxford,EC English Language UK,Sprachcaffe Languages PLUS,Ashford School,Cranleigh School,Oakham School,Ardingly College,Wellington College,Chigwell School,Seaford College,Charterhouse,City of London Freemen&apos;s School,Christ&apos;s Hospital School,Dauntsey&apos;s School,The Cheltenham Ladies&apos; College,Gresham&apos;s School</value>
+        </criteriaItems>
+    </filter>
+    <format>Tabular</format>
+    <name>K12 Remaining Large/Target Accounts</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>AccountList</reportType>
+    <scope>user</scope>
+    <showDetails>true</showDetails>
+    <showGrandTotal>true</showGrandTotal>
+    <showSubTotals>true</showSubTotals>
+    <timeFrameFilter>
+        <dateColumn>CREATED_DATE</dateColumn>
+        <interval>INTERVAL_CUSTOM</interval>
+    </timeFrameFilter>
+</Report>

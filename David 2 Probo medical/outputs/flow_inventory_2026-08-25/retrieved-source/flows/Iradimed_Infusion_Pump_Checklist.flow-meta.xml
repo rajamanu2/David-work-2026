@@ -1,0 +1,2100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <areMetricsLoggedToDataCloud>false</areMetricsLoggedToDataCloud>
+    <assignments>
+        <name>Assign_ChecklistOutput1</name>
+        <label>Assign ChecklistOutput1</label>
+        <locationX>176</locationX>
+        <locationY>350</locationY>
+        <assignmentItems>
+            <assignToReference>InputChecklistOutput1</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>ChecklistOutputPart1</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Round_1_Update_Service_Appointment</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Assign_ChecklistOutput2</name>
+        <label>Assign ChecklistOutput2</label>
+        <locationX>176</locationX>
+        <locationY>674</locationY>
+        <assignmentItems>
+            <assignToReference>InputChecklistOutput2</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>ChecklistOutputPart2</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Round_2_Update_Service_Appointment</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Assign_ChecklistOutput3</name>
+        <label>Assign ChecklistOutput3</label>
+        <locationX>176</locationX>
+        <locationY>998</locationY>
+        <assignmentItems>
+            <assignToReference>InputChecklistOutput3</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>ChecklistOutputPart3</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Round_3_Update_Service_Appointment</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Assign_ChecklistOutput4</name>
+        <label>Assign ChecklistOutput4</label>
+        <locationX>176</locationX>
+        <locationY>1322</locationY>
+        <assignmentItems>
+            <assignToReference>InputChecklistOutput4</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>ChecklistOutputPart4</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Assign_Final_Output</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Assign_Final_Output</name>
+        <label>Assign Final Output</label>
+        <locationX>176</locationX>
+        <locationY>1430</locationY>
+        <assignmentItems>
+            <assignToReference>ChecklistOutput</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Fullchecklistoutput</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Copy_1_of_DisplayChecklistOutput</targetReference>
+        </connector>
+    </assignments>
+    <choices>
+        <name>Fail_with_Comments</name>
+        <choiceText>F - with comments</choiceText>
+        <dataType>String</dataType>
+        <value>
+            <stringValue>F - with comments</stringValue>
+        </value>
+    </choices>
+    <choices>
+        <name>Fail_with_Readings</name>
+        <choiceText>F - with readings</choiceText>
+        <dataType>String</dataType>
+        <value>
+            <stringValue>F - with readings</stringValue>
+        </value>
+    </choices>
+    <choices>
+        <name>Greater_Than_0_2_Fail</name>
+        <choiceText>Greater than 0.2 = F - with comments</choiceText>
+        <dataType>String</dataType>
+        <value>
+            <stringValue>Greater than 0.2 = F - with comments</stringValue>
+        </value>
+    </choices>
+    <choices>
+        <name>Less_Than_0_2_Pass</name>
+        <choiceText>Less than 0.2 = P - with comments</choiceText>
+        <dataType>String</dataType>
+        <value>
+            <stringValue>Less than 0.2 = P - with comments</stringValue>
+        </value>
+    </choices>
+    <choices>
+        <name>No</name>
+        <choiceText>No</choiceText>
+        <dataType>String</dataType>
+        <value>
+            <stringValue>No</stringValue>
+        </value>
+    </choices>
+    <choices>
+        <name>No_with_Comments</name>
+        <choiceText>No - with comments</choiceText>
+        <dataType>String</dataType>
+        <value>
+            <stringValue>No - with comments</stringValue>
+        </value>
+    </choices>
+    <choices>
+        <name>Not_Applicable</name>
+        <choiceText>N/A</choiceText>
+        <dataType>String</dataType>
+        <value>
+            <stringValue>N/A</stringValue>
+        </value>
+    </choices>
+    <choices>
+        <name>Pass</name>
+        <choiceText>P</choiceText>
+        <dataType>String</dataType>
+        <value>
+            <stringValue>P</stringValue>
+        </value>
+    </choices>
+    <choices>
+        <name>Pass_with_Comments</name>
+        <choiceText>P - with comments</choiceText>
+        <dataType>String</dataType>
+        <value>
+            <stringValue>P - with comments</stringValue>
+        </value>
+    </choices>
+    <choices>
+        <name>Pass_with_Readings</name>
+        <choiceText>P - with readings</choiceText>
+        <dataType>String</dataType>
+        <value>
+            <stringValue>P - with readings</stringValue>
+        </value>
+    </choices>
+    <choices>
+        <name>Percentage_0_10</name>
+        <choiceText>0-10% - with comments</choiceText>
+        <dataType>String</dataType>
+        <value>
+            <stringValue>0-10% - with comments</stringValue>
+        </value>
+    </choices>
+    <choices>
+        <name>Percentage_11_20</name>
+        <choiceText>11-20% - with comments</choiceText>
+        <dataType>String</dataType>
+        <value>
+            <stringValue>11-20% - with comments</stringValue>
+        </value>
+    </choices>
+    <choices>
+        <name>Percentage_Over_20</name>
+        <choiceText>Greater than 20% - with comments</choiceText>
+        <dataType>String</dataType>
+        <value>
+            <stringValue>Greater than 20% - with comments</stringValue>
+        </value>
+    </choices>
+    <choices>
+        <name>TBC_Fail</name>
+        <choiceText>TBC = F - with comments</choiceText>
+        <dataType>String</dataType>
+        <value>
+            <stringValue>TBC = F - with comments</stringValue>
+        </value>
+    </choices>
+    <choices>
+        <name>TBC_Pass</name>
+        <choiceText>TBC = P - with comments</choiceText>
+        <dataType>String</dataType>
+        <value>
+            <stringValue>TBC = P - with comments</stringValue>
+        </value>
+    </choices>
+    <choices>
+        <name>Yes</name>
+        <choiceText>Yes</choiceText>
+        <dataType>String</dataType>
+        <value>
+            <stringValue>Yes</stringValue>
+        </value>
+    </choices>
+    <choices>
+        <name>Yes_with_Comments</name>
+        <choiceText>Yes - with comments</choiceText>
+        <dataType>String</dataType>
+        <value>
+            <stringValue>Yes - with comments</stringValue>
+        </value>
+    </choices>
+    <description>04/03/2025 (BW) - Updating to utilize newer functionality</description>
+    <environments>Default</environments>
+    <formulas>
+        <name>ChecklistOutputPart1</name>
+        <dataType>String</dataType>
+        <expression>&quot;&lt;b&gt;&lt;u&gt;General Checks&lt;/u&gt;&lt;/b&gt;&quot; + &quot;&lt;br/&gt;&quot; +
+&quot;&lt;b&gt;Visual Inspection General: &quot; + {!Visual_Inspection_General} + &quot;&lt;/b&gt;&lt;br/&gt;&quot; +
+&quot;Visual Inspection General Comments (If Applicable): &quot; + {!Visual_Inspection_Comments} + &quot;&lt;br/&gt;&quot; +
+&quot;&lt;b&gt;Current Software Version: &quot; + {!Current_Software_Version} + &quot;&lt;/b&gt;&lt;br/&gt;&quot; +
+&quot;Current Software Version Comments (If Applicable): &quot; + {!Current_Software_Version_Comments} + &quot;&lt;br/&gt;&quot; +
+&quot;&lt;b&gt;Software Version to be Installed: &quot; + {!Software_Version_to_be_installed} + &quot;&lt;/b&gt;&lt;br/&gt;&quot; +
+&quot;Software Version to be Installed Comments (If Applicable): &quot; + {!Software_Version_to_be_installed_Comments} + &quot;&lt;br/&gt;&quot; +
+&quot;&lt;b&gt;Detector Drop Sensors: &quot; + {!Detector_Drop_Sensors} + &quot;&lt;/b&gt;&lt;br/&gt;&quot; +
+&quot;Detector Drop Sensors Comments (If Applicable): &quot; + {!Detector_Drop_Sensors_Comments} + &quot;&lt;br/&gt;&lt;br/&gt;&quot;</expression>
+    </formulas>
+    <formulas>
+        <name>ChecklistOutputPart2</name>
+        <dataType>String</dataType>
+        <expression>&quot;&lt;b&gt;&lt;u&gt;Software Update Completed&lt;/u&gt;&lt;/b&gt;&quot; + &quot;&lt;br/&gt;&quot; +
+&quot;&lt;b&gt;X3860: &quot; + {!X3860} + &quot;&lt;/b&gt;&lt;br/&gt;&quot; +
+&quot;X3860 Comments (If Applicable): &quot; + {!X3860_Comments} + &quot;&lt;br/&gt;&quot; +
+&quot;&lt;b&gt;X3861: &quot; + {!X3861} + &quot;&lt;/b&gt;&lt;br/&gt;&quot; +
+&quot;X3861 Comments (If Applicable): &quot; + {!X3861_Comments} + &quot;&lt;br/&gt;&quot; +
+&quot;&lt;b&gt;X3865: &quot; + {!X3865} + &quot;&lt;/b&gt;&lt;br/&gt;&quot; +
+&quot;X3865 Comments (If Applicable): &quot; + {!X3865_Comments} + &quot;&lt;br/&gt;&lt;br/&gt;&quot;</expression>
+    </formulas>
+    <formulas>
+        <name>ChecklistOutputPart3</name>
+        <dataType>String</dataType>
+        <expression>&quot;&lt;b&gt;&lt;u&gt;Functional Inspection&lt;/u&gt;&lt;/b&gt;&quot; + &quot;&lt;br/&gt;&quot; +
+&quot;&lt;b&gt;Mechanical and Physical Checks: &quot; + {!Mechanical_and_Physical_Checks} + &quot;&lt;/b&gt;&lt;br/&gt;&quot; +
+&quot;Mechanical and Physical Checks Comments (If Applicable): &quot; + {!Mechanical_and_Physical_Checks_Comments} + &quot;&lt;br/&gt;&quot; +
+&quot;&lt;b&gt;Antenna Connector: &quot; + {!Antenna_Connector} + &quot;&lt;/b&gt;&lt;br/&gt;&quot; +
+&quot;Antenna Connector Comments (If Applicable): &quot; + {!Antenna_Connector_Comments} + &quot;&lt;br/&gt;&quot; +
+&quot;&lt;b&gt;Pressure Sensors: &quot; + {!Pressure_Sensors} + &quot;&lt;/b&gt;&lt;br/&gt;&quot; +
+&quot;Pressure Sensors Comments (If Applicable): &quot; + {!Pressure_Sensors_Comments} + &quot;&lt;br/&gt;&quot; +
+&quot;&lt;b&gt;X3860 Service Mode Verifications: &quot; + {!X3860_Service_Mode_Verifications} + &quot;&lt;/b&gt;&lt;br/&gt;&quot; +
+&quot;X3860 Service Mode Verifications Comments (If Applicable): &quot; + {!X3860_Service_Mode_Verifications_Comments} + &quot;&lt;br/&gt;&quot; +
+&quot;&lt;b&gt;X3860 Channel A Delay: &quot; + {!X3860CHANNELADELAY} + &quot;&lt;/b&gt;&lt;br/&gt;&quot; +
+&quot;&lt;b&gt;X3860 Channel A Comp: &quot; + {!X3860_Channel_A_Comp} + &quot;&lt;/b&gt;&lt;br/&gt;&quot; +
+&quot;&lt;b&gt;X3860 Normal Operating Mode Verification: &quot; + {!X3860_Normal_Operating_Mode_Verification} + &quot;&lt;/b&gt;&lt;br/&gt;&quot; +
+&quot;X3860 Normal Operating Mode Verification Comments (If Applicable): &quot; + {!X3860_Normal_Operating_Mode_Verification_Comments} + &quot;&lt;br/&gt;&quot; +
+&quot;&lt;b&gt;X3860 Flow Tests: &quot; + {!X3860_Flow_Tests} + &quot;&lt;/b&gt;&lt;br/&gt;&quot; +
+&quot;X3860 Flow Tests Comments (If Applicable): &quot; + {!X3860_Flow_Tests_Comments} + &quot;&lt;br/&gt;&quot; +
+&quot;&lt;b&gt;X3861 Service Mode Verifications: &quot; + {!X3861_Service_Mode_Verifications} + &quot;&lt;/b&gt;&lt;br/&gt;&quot; +
+&quot;X3861 Service Mode Verifications Comments (If Applicable): &quot; + {!X3861_Service_Mode_Verifications_Comments} + &quot;&lt;br/&gt;&quot; +
+&quot;&lt;b&gt;BF Outputs: &quot; + {!BF_Outputs} + &quot;&lt;/b&gt;&lt;br/&gt;&quot; +
+&quot;BF Outputs Comments (If Applicable): &quot; + {!BF_Outputs_Comments} + &quot;&lt;br/&gt;&quot; +
+&quot;&lt;b&gt;X3860 Channel B Delay: &quot; + {!X3860CHANNELBDELAY} + &quot;&lt;/b&gt;&lt;br/&gt;&quot; +
+&quot;&lt;b&gt;X3860 Channel B Comp: &quot; + {!X3860_Channel_B_Comp} + &quot;&lt;/b&gt;&lt;br/&gt;&quot; +
+&quot;&lt;b&gt;X3861 Normal Operating Mode Verification: &quot; + {!X3861_Normal_Operating_Mode_Verification} + &quot;&lt;/b&gt;&lt;br/&gt;&quot; +
+&quot;X3861 Normal Operating Mode Verification Comments (If Applicable): &quot; + {!X3861_Normal_Operating_Mode_Verification_Comments} + &quot;&lt;br/&gt;&quot; +
+&quot;&lt;b&gt;X3861 Flow Tests: &quot; + {!X3861_Flow_Tests} + &quot;&lt;/b&gt;&lt;br/&gt;&quot; +
+&quot;X3861 Flow Tests Comments (If Applicable): &quot; + {!X3861_Flow_Tests_Comments} + &quot;&lt;br/&gt;&quot; +
+&quot;&lt;b&gt;X3865 Remote Radio Verification: &quot; + {!X3865_Remote_Radio_Verification} + &quot;&lt;/b&gt;&lt;br/&gt;&quot; +
+&quot;X3865 Remote Radio Verification Comments (If Applicable): &quot; + {!X3865_Remote_Radio_Verification_Comments} + &quot;&lt;br/&gt;&quot; +
+&quot;&lt;b&gt;Battery Pack Inspection: &quot; + {!Battery_Pack_Inspection} + &quot;&lt;/b&gt;&lt;br/&gt;&quot; +
+&quot;Battery Pack Inspection Comments (If Applicable): &quot; + {!Battery_Pack_Inspection_Comments} + &quot;&lt;br/&gt;&lt;br/&gt;&quot;</expression>
+    </formulas>
+    <formulas>
+        <name>ChecklistOutputPart4</name>
+        <dataType>String</dataType>
+        <expression>&quot;&lt;b&gt;&lt;u&gt;Final Works&lt;/u&gt;&lt;/b&gt;&quot; + &quot;&lt;br/&gt;&quot; +
+&quot;&lt;b&gt;Covers Secured: &quot; + {!Covers_Secured} + &quot;&lt;/b&gt;&lt;br/&gt;&quot; +
+&quot;Covers Secured Comments (If Applicable): &quot; + {!Covers_Secured_Comments} + &quot;&lt;br/&gt;&quot; +
+&quot;&lt;b&gt;Final Clean: &quot; + {!Final_Clean} + &quot;&lt;/b&gt;&lt;br/&gt;&quot; +
+&quot;Final Clean Comments (If Applicable): &quot; + {!Final_Clean_Comments} + &quot;&lt;br/&gt;&quot; +
+&quot;&lt;b&gt;Final Functional Checks: &quot; + {!Final_Functional_Checks} + &quot;&lt;/b&gt;&lt;br/&gt;&quot; +
+&quot;Final Functional Checks Comments (If Applicable): &quot; + {!Final_Functional_Checks_Comments} + &quot;&lt;br/&gt;&quot; +
+&quot;&lt;b&gt;Final Visual Checks: &quot; + {!Final_Visual_Checks} + &quot;&lt;/b&gt;&lt;br/&gt;&quot; +
+&quot;Final Visual Checks Comments (If Applicable): &quot; + {!Final_Visual_Checks_Comments} + &quot;&lt;br/&gt;&lt;br/&gt;&quot;</expression>
+    </formulas>
+    <formulas>
+        <name>formAntennaConnectorCommentsDefault</name>
+        <dataType>String</dataType>
+        <expression>LEFT(
+  RIGHT({!OutputFormatFetched}, LEN({!OutputFormatFetched}) - FIND(&quot;Antenna Connector Comments (If Applicable):&quot;, {!OutputFormatFetched}) - LEN(&quot;Antenna Connector Comments (If Applicable):&quot;)),
+  FIND(&quot;&lt;&quot;, RIGHT({!OutputFormatFetched}, LEN({!OutputFormatFetched}) - FIND(&quot;Antenna Connector Comments (If Applicable):&quot;, {!OutputFormatFetched}) - LEN(&quot;Antenna Connector Comments (If Applicable):&quot;))) - 1
+)</expression>
+    </formulas>
+    <formulas>
+        <name>formAntennaConnectorDefault</name>
+        <dataType>String</dataType>
+        <expression>LEFT(
+  RIGHT({!OutputFormatFetched}, LEN({!OutputFormatFetched}) - FIND(&quot;Antenna Connector:&quot;, {!OutputFormatFetched}) - LEN(&quot;Antenna Connector:&quot;)),
+  FIND(&quot;&lt;&quot;, RIGHT({!OutputFormatFetched}, LEN({!OutputFormatFetched}) - FIND(&quot;Antenna Connector:&quot;, {!OutputFormatFetched}) - LEN(&quot;Antenna Connector:&quot;))) - 1
+)</expression>
+    </formulas>
+    <formulas>
+        <name>formBatteryPackInspectionCommentsDefault</name>
+        <dataType>String</dataType>
+        <expression>LEFT(
+  RIGHT({!OutputFormatFetched}, LEN({!OutputFormatFetched}) - FIND(&quot;Battery Pack Inspection Comments (If Applicable):&quot;, {!OutputFormatFetched}) - LEN(&quot;Battery Pack Inspection Comments (If Applicable):&quot;)),
+  FIND(&quot;&lt;&quot;, RIGHT({!OutputFormatFetched}, LEN({!OutputFormatFetched}) - FIND(&quot;Battery Pack Inspection Comments (If Applicable):&quot;, {!OutputFormatFetched}) - LEN(&quot;Battery Pack Inspection Comments (If Applicable):&quot;))) - 1
+)</expression>
+    </formulas>
+    <formulas>
+        <name>formBatteryPackInspectionDefault</name>
+        <dataType>String</dataType>
+        <expression>LEFT(
+  RIGHT({!OutputFormatFetched}, LEN({!OutputFormatFetched}) - FIND(&quot;Battery Pack Inspection:&quot;, {!OutputFormatFetched}) - LEN(&quot;Battery Pack Inspection:&quot;)),
+  FIND(&quot;&lt;&quot;, RIGHT({!OutputFormatFetched}, LEN({!OutputFormatFetched}) - FIND(&quot;Battery Pack Inspection:&quot;, {!OutputFormatFetched}) - LEN(&quot;Battery Pack Inspection:&quot;))) - 1
+)</expression>
+    </formulas>
+    <formulas>
+        <name>formBFOutputsCommentsDefault</name>
+        <dataType>String</dataType>
+        <expression>LEFT(
+  RIGHT({!OutputFormatFetched}, LEN({!OutputFormatFetched}) - FIND(&quot;BF Outputs Comments (If Applicable):&quot;, {!OutputFormatFetched}) - LEN(&quot;BF Outputs Comments (If Applicable):&quot;)),
+  FIND(&quot;&lt;&quot;, RIGHT({!OutputFormatFetched}, LEN({!OutputFormatFetched}) - FIND(&quot;BF Outputs Comments (If Applicable):&quot;, {!OutputFormatFetched}) - LEN(&quot;BF Outputs Comments (If Applicable):&quot;))) - 1
+)</expression>
+    </formulas>
+    <formulas>
+        <name>formBFOutputsDefault</name>
+        <dataType>String</dataType>
+        <expression>LEFT(
+  RIGHT({!OutputFormatFetched}, LEN({!OutputFormatFetched}) - FIND(&quot;BF Outputs:&quot;, {!OutputFormatFetched}) - LEN(&quot;BF Outputs:&quot;)),
+  FIND(&quot;&lt;&quot;, RIGHT({!OutputFormatFetched}, LEN({!OutputFormatFetched}) - FIND(&quot;BF Outputs:&quot;, {!OutputFormatFetched}) - LEN(&quot;BF Outputs:&quot;))) - 1
+)</expression>
+    </formulas>
+    <formulas>
+        <name>formCoversSecuredCommentsDefault</name>
+        <dataType>String</dataType>
+        <expression>LEFT(
+  RIGHT({!OutputFormatFetched}, LEN({!OutputFormatFetched}) - FIND(&quot;Covers Secured Comments (If Applicable):&quot;, {!OutputFormatFetched}) - LEN(&quot;Covers Secured Comments (If Applicable):&quot;)),
+  FIND(&quot;&lt;&quot;, RIGHT({!OutputFormatFetched}, LEN({!OutputFormatFetched}) - FIND(&quot;Covers Secured Comments (If Applicable):&quot;, {!OutputFormatFetched}) - LEN(&quot;Covers Secured Comments (If Applicable):&quot;))) - 1
+)</expression>
+    </formulas>
+    <formulas>
+        <name>formCoversSecuredDefault</name>
+        <dataType>String</dataType>
+        <expression>LEFT(
+  RIGHT({!OutputFormatFetched}, LEN({!OutputFormatFetched}) - FIND(&quot;Covers Secured:&quot;, {!OutputFormatFetched}) - LEN(&quot;Covers Secured:&quot;)),
+  FIND(&quot;&lt;&quot;, RIGHT({!OutputFormatFetched}, LEN({!OutputFormatFetched}) - FIND(&quot;Covers Secured:&quot;, {!OutputFormatFetched}) - LEN(&quot;Covers Secured:&quot;))) - 1
+)</expression>
+    </formulas>
+    <formulas>
+        <name>formCurrentSoftwareVersionCommentsDefault</name>
+        <dataType>String</dataType>
+        <expression>LEFT(
+  RIGHT({!OutputFormatFetched}, LEN({!OutputFormatFetched}) - FIND(&quot;Current Software Version Comments (If Applicable):&quot;, {!OutputFormatFetched}) - LEN(&quot;Current Software Version Comments (If Applicable):&quot;)),
+  FIND(&quot;&lt;&quot;, RIGHT({!OutputFormatFetched}, LEN({!OutputFormatFetched}) - FIND(&quot;Current Software Version Comments (If Applicable):&quot;, {!OutputFormatFetched}) - LEN(&quot;Current Software Version Comments (If Applicable):&quot;))) - 1
+)</expression>
+    </formulas>
+    <formulas>
+        <name>formCurrentSoftwareVersionDefault</name>
+        <dataType>String</dataType>
+        <expression>LEFT(
+    RIGHT({!OutputFormatFetched}, LEN({!OutputFormatFetched}) - FIND(&quot;Current Software Version:&quot;, {!OutputFormatFetched}) - LEN(&quot;Current Software Version:&quot;)),
+    FIND(&quot;&lt;/b&gt;&quot;, RIGHT({!OutputFormatFetched}, LEN({!OutputFormatFetched}) - FIND(&quot;Current Software Version:&quot;, {!OutputFormatFetched}) - LEN(&quot;Current Software Version:&quot;))) - 1
+)</expression>
+    </formulas>
+    <formulas>
+        <name>formDetectorDropSensorsCommentsDefault</name>
+        <dataType>String</dataType>
+        <expression>LEFT(
+    RIGHT({!OutputFormatFetched}, LEN({!OutputFormatFetched}) - FIND(&quot;Detector Drop Sensors Comments (If Applicable):&quot;, {!OutputFormatFetched}) - LEN(&quot;Detector Drop Sensors Comments (If Applicable):&quot;)),
+    FIND(&quot;&lt;&quot;, RIGHT({!OutputFormatFetched}, LEN({!OutputFormatFetched}) - FIND(&quot;Detector Drop Sensors Comments (If Applicable):&quot;, {!OutputFormatFetched}) - LEN(&quot;Detector Drop Sensors Comments (If Applicable):&quot;))) - 1
+)</expression>
+    </formulas>
+    <formulas>
+        <name>formDetectorDropSensorsDefault</name>
+        <dataType>String</dataType>
+        <expression>LEFT(
+    RIGHT({!OutputFormatFetched}, LEN({!OutputFormatFetched}) - FIND(&quot;Detector Drop Sensors:&quot;, {!OutputFormatFetched}) - LEN(&quot;Detector Drop Sensors:&quot;)),
+    FIND(&quot;&lt;/b&gt;&quot;, RIGHT({!OutputFormatFetched}, LEN({!OutputFormatFetched}) - FIND(&quot;Detector Drop Sensors:&quot;, {!OutputFormatFetched}) - LEN(&quot;Detector Drop Sensors:&quot;))) - 1
+)</expression>
+    </formulas>
+    <formulas>
+        <name>formFinalCleanCommentsDefault</name>
+        <dataType>String</dataType>
+        <expression>LEFT(
+  RIGHT({!OutputFormatFetched}, LEN({!OutputFormatFetched}) - FIND(&quot;Final Clean Comments (If Applicable):&quot;, {!OutputFormatFetched}) - LEN(&quot;Final Clean Comments (If Applicable):&quot;)),
+  FIND(&quot;&lt;&quot;, RIGHT({!OutputFormatFetched}, LEN({!OutputFormatFetched}) - FIND(&quot;Final Clean Comments (If Applicable):&quot;, {!OutputFormatFetched}) - LEN(&quot;Final Clean Comments (If Applicable):&quot;))) - 1
+)</expression>
+    </formulas>
+    <formulas>
+        <name>formFinalCleanDefault</name>
+        <dataType>String</dataType>
+        <expression>LEFT(
+  RIGHT({!OutputFormatFetched}, LEN({!OutputFormatFetched}) - FIND(&quot;Final Clean:&quot;, {!OutputFormatFetched}) - LEN(&quot;Final Clean:&quot;)),
+  FIND(&quot;&lt;&quot;, RIGHT({!OutputFormatFetched}, LEN({!OutputFormatFetched}) - FIND(&quot;Final Clean:&quot;, {!OutputFormatFetched}) - LEN(&quot;Final Clean:&quot;))) - 1
+)</expression>
+    </formulas>
+    <formulas>
+        <name>formFinalFunctionalChecksCommentsDefault</name>
+        <dataType>String</dataType>
+        <expression>LEFT(
+  RIGHT({!OutputFormatFetched}, LEN({!OutputFormatFetched}) - FIND(&quot;Final Functional Checks Comments (If Applicable):&quot;, {!OutputFormatFetched}) - LEN(&quot;Final Functional Checks Comments (If Applicable):&quot;)),
+  FIND(&quot;&lt;&quot;, RIGHT({!OutputFormatFetched}, LEN({!OutputFormatFetched}) - FIND(&quot;Final Functional Checks Comments (If Applicable):&quot;, {!OutputFormatFetched}) - LEN(&quot;Final Functional Checks Comments (If Applicable):&quot;))) - 1
+)</expression>
+    </formulas>
+    <formulas>
+        <name>formFinalFunctionalChecksDefault</name>
+        <dataType>String</dataType>
+        <expression>LEFT(
+  RIGHT({!OutputFormatFetched}, LEN({!OutputFormatFetched}) - FIND(&quot;Final Functional Checks:&quot;, {!OutputFormatFetched}) - LEN(&quot;Final Functional Checks:&quot;)),
+  FIND(&quot;&lt;&quot;, RIGHT({!OutputFormatFetched}, LEN({!OutputFormatFetched}) - FIND(&quot;Final Functional Checks:&quot;, {!OutputFormatFetched}) - LEN(&quot;Final Functional Checks:&quot;))) - 1
+)</expression>
+    </formulas>
+    <formulas>
+        <name>formFinalVisualChecksCommentsDefault</name>
+        <dataType>String</dataType>
+        <expression>LEFT(
+  RIGHT({!OutputFormatFetched}, LEN({!OutputFormatFetched}) - FIND(&quot;Final Visual Checks Comments (If Applicable):&quot;, {!OutputFormatFetched}) - LEN(&quot;Final Visual Checks Comments (If Applicable):&quot;)),
+  FIND(&quot;&lt;&quot;, RIGHT({!OutputFormatFetched}, LEN({!OutputFormatFetched}) - FIND(&quot;Final Visual Checks Comments (If Applicable):&quot;, {!OutputFormatFetched}) - LEN(&quot;Final Visual Checks Comments (If Applicable):&quot;))) - 1
+)</expression>
+    </formulas>
+    <formulas>
+        <name>formFinalVisualChecksDefault</name>
+        <dataType>String</dataType>
+        <expression>LEFT(
+  RIGHT({!OutputFormatFetched}, LEN({!OutputFormatFetched}) - FIND(&quot;Final Visual Checks:&quot;, {!OutputFormatFetched}) - LEN(&quot;Final Visual Checks:&quot;)),
+  FIND(&quot;&lt;&quot;, RIGHT({!OutputFormatFetched}, LEN({!OutputFormatFetched}) - FIND(&quot;Final Visual Checks:&quot;, {!OutputFormatFetched}) - LEN(&quot;Final Visual Checks:&quot;))) - 1
+)</expression>
+    </formulas>
+    <formulas>
+        <name>formMechanicalAndPhysicalChecksCommentsDefault</name>
+        <dataType>String</dataType>
+        <expression>LEFT(
+  RIGHT({!OutputFormatFetched}, LEN({!OutputFormatFetched}) - FIND(&quot;Mechanical and Physical Checks Comments (If Applicable):&quot;, {!OutputFormatFetched}) - LEN(&quot;Mechanical and Physical Checks Comments (If Applicable):&quot;)),
+  FIND(&quot;&lt;&quot;, RIGHT({!OutputFormatFetched}, LEN({!OutputFormatFetched}) - FIND(&quot;Mechanical and Physical Checks Comments (If Applicable):&quot;, {!OutputFormatFetched}) - LEN(&quot;Mechanical and Physical Checks Comments (If Applicable):&quot;))) - 1
+)</expression>
+    </formulas>
+    <formulas>
+        <name>formMechanicalAndPhysicalChecksDefault</name>
+        <dataType>String</dataType>
+        <expression>LEFT(
+  RIGHT({!OutputFormatFetched}, LEN({!OutputFormatFetched}) - FIND(&quot;Mechanical and Physical Checks:&quot;, {!OutputFormatFetched}) - LEN(&quot;Mechanical and Physical Checks:&quot;)),
+  FIND(&quot;&lt;&quot;, RIGHT({!OutputFormatFetched}, LEN({!OutputFormatFetched}) - FIND(&quot;Mechanical and Physical Checks:&quot;, {!OutputFormatFetched}) - LEN(&quot;Mechanical and Physical Checks:&quot;))) - 1
+)</expression>
+    </formulas>
+    <formulas>
+        <name>formPressureSensorsCommentsDefault</name>
+        <dataType>String</dataType>
+        <expression>LEFT(
+  RIGHT({!OutputFormatFetched}, LEN({!OutputFormatFetched}) - FIND(&quot;Pressure Sensors Comments (If Applicable):&quot;, {!OutputFormatFetched}) - LEN(&quot;Pressure Sensors Comments (If Applicable):&quot;)),
+  FIND(&quot;&lt;&quot;, RIGHT({!OutputFormatFetched}, LEN({!OutputFormatFetched}) - FIND(&quot;Pressure Sensors Comments (If Applicable):&quot;, {!OutputFormatFetched}) - LEN(&quot;Pressure Sensors Comments (If Applicable):&quot;))) - 1
+)</expression>
+    </formulas>
+    <formulas>
+        <name>formPressureSensorsDefault</name>
+        <dataType>String</dataType>
+        <expression>LEFT(
+  RIGHT({!OutputFormatFetched}, LEN({!OutputFormatFetched}) - FIND(&quot;Pressure Sensors:&quot;, {!OutputFormatFetched}) - LEN(&quot;Pressure Sensors:&quot;)),
+  FIND(&quot;&lt;&quot;, RIGHT({!OutputFormatFetched}, LEN({!OutputFormatFetched}) - FIND(&quot;Pressure Sensors:&quot;, {!OutputFormatFetched}) - LEN(&quot;Pressure Sensors:&quot;))) - 1
+)</expression>
+    </formulas>
+    <formulas>
+        <name>formSoftwareVersionToBeInstalledCommentsDefault</name>
+        <dataType>String</dataType>
+        <expression>LEFT(
+  RIGHT({!OutputFormatFetched}, LEN({!OutputFormatFetched}) - FIND(&quot;Software Version to be Installed Comments (If Applicable):&quot;, {!OutputFormatFetched}) - LEN(&quot;Software Version to be Installed Comments (If Applicable):&quot;)),
+  FIND(&quot;&lt;&quot;, RIGHT({!OutputFormatFetched}, LEN({!OutputFormatFetched}) - FIND(&quot;Software Version to be Installed Comments (If Applicable):&quot;, {!OutputFormatFetched}) - LEN(&quot;Software Version to be Installed Comments (If Applicable):&quot;))) - 1
+)</expression>
+    </formulas>
+    <formulas>
+        <name>formSoftwareVersionToBeInstalledDefault</name>
+        <dataType>String</dataType>
+        <expression>LEFT(
+    RIGHT({!OutputFormatFetched}, LEN({!OutputFormatFetched}) - FIND(&quot;Software Version to be Installed:&quot;, {!OutputFormatFetched}) - LEN(&quot;Software Version to be Installed:&quot;)),
+    FIND(&quot;&lt;/b&gt;&quot;, RIGHT({!OutputFormatFetched}, LEN({!OutputFormatFetched}) - FIND(&quot;Software Version to be Installed:&quot;, {!OutputFormatFetched}) - LEN(&quot;Software Version to be Installed:&quot;))) - 1
+)</expression>
+    </formulas>
+    <formulas>
+        <name>formVisualInspectionGeneralCommentsDefault</name>
+        <dataType>String</dataType>
+        <expression>LEFT(
+    RIGHT({!OutputFormatFetched}, LEN({!OutputFormatFetched}) - FIND(&quot;Visual Inspection General Comments (If Applicable):&quot;, {!OutputFormatFetched}) - LEN(&quot;Visual Inspection General Comments (If Applicable):&quot;)),
+    FIND(&quot;&lt;&quot;, RIGHT({!OutputFormatFetched}, LEN({!OutputFormatFetched}) - FIND(&quot;Visual Inspection General Comments (If Applicable):&quot;, {!OutputFormatFetched}) - LEN(&quot;Visual Inspection General Comments (If Applicable):&quot;))) - 1
+)</expression>
+    </formulas>
+    <formulas>
+        <name>formVisualInspectionGeneralDefault</name>
+        <dataType>String</dataType>
+        <expression>LEFT(
+    RIGHT({!OutputFormatFetched}, LEN({!OutputFormatFetched}) - FIND(&quot;Visual Inspection General:&quot;, {!OutputFormatFetched}) - LEN(&quot;Visual Inspection General:&quot;)),
+    FIND(&quot;&lt;/b&gt;&quot;, RIGHT({!OutputFormatFetched}, LEN({!OutputFormatFetched}) - FIND(&quot;Visual Inspection General:&quot;, {!OutputFormatFetched}) - LEN(&quot;Visual Inspection General:&quot;))) - 1
+)</expression>
+    </formulas>
+    <formulas>
+        <name>formX3860ChannelACompDefault</name>
+        <dataType>String</dataType>
+        <expression>LEFT(
+  RIGHT({!OutputFormatFetched}, LEN({!OutputFormatFetched}) - FIND(&quot;X3860 Channel A Comp:&quot;, {!OutputFormatFetched}) - LEN(&quot;X3860 Channel A Comp:&quot;)),
+  FIND(&quot;&lt;&quot;, RIGHT({!OutputFormatFetched}, LEN({!OutputFormatFetched}) - FIND(&quot;X3860 Channel A Comp:&quot;, {!OutputFormatFetched}) - LEN(&quot;X3860 Channel A Comp:&quot;))) - 1
+)</expression>
+    </formulas>
+    <formulas>
+        <name>formX3860ChannelADelayDefault</name>
+        <dataType>Number</dataType>
+        <expression>VALUE(
+  LEFT(
+    RIGHT({!OutputFormatFetched}, LEN({!OutputFormatFetched}) - FIND(&quot;X3860 Channel A Delay:&quot;, {!OutputFormatFetched}) - LEN(&quot;X3860 Channel A Delay:&quot;)),
+    FIND(&quot;&lt;&quot;, RIGHT({!OutputFormatFetched}, LEN({!OutputFormatFetched}) - FIND(&quot;X3860 Channel A Delay:&quot;, {!OutputFormatFetched}) - LEN(&quot;X3860 Channel A Delay:&quot;))) - 1
+  )
+)</expression>
+        <scale>2</scale>
+    </formulas>
+    <formulas>
+        <name>formX3860ChannelBCompDefault</name>
+        <dataType>String</dataType>
+        <expression>LEFT(
+  RIGHT({!OutputFormatFetched}, LEN({!OutputFormatFetched}) - FIND(&quot;X3860 Channel B Comp:&quot;, {!OutputFormatFetched}) - LEN(&quot;X3860 Channel B Comp:&quot;)),
+  FIND(&quot;&lt;&quot;, RIGHT({!OutputFormatFetched}, LEN({!OutputFormatFetched}) - FIND(&quot;X3860 Channel B Comp:&quot;, {!OutputFormatFetched}) - LEN(&quot;X3860 Channel B Comp:&quot;))) - 1
+)</expression>
+    </formulas>
+    <formulas>
+        <name>formX3860ChannelBDelayDefault</name>
+        <dataType>Number</dataType>
+        <expression>VALUE(
+  LEFT(
+    RIGHT({!OutputFormatFetched}, LEN({!OutputFormatFetched}) - FIND(&quot;X3860 Channel B Delay:&quot;, {!OutputFormatFetched}) - LEN(&quot;X3860 Channel B Delay:&quot;)),
+    FIND(&quot;&lt;&quot;, RIGHT({!OutputFormatFetched}, LEN({!OutputFormatFetched}) - FIND(&quot;X3860 Channel B Delay:&quot;, {!OutputFormatFetched}) - LEN(&quot;X3860 Channel B Delay:&quot;))) - 1
+  )
+)</expression>
+        <scale>2</scale>
+    </formulas>
+    <formulas>
+        <name>formX3860CommentsDefault</name>
+        <dataType>String</dataType>
+        <expression>
+LEFT(
+  RIGHT({!OutputFormatFetched}, LEN({!OutputFormatFetched}) - FIND(&quot;X3860 Comments (If Applicable):&quot;, {!OutputFormatFetched}) - LEN(&quot;X3860 Comments (If Applicable):&quot;)),
+  FIND(&quot;&lt;&quot;, RIGHT({!OutputFormatFetched}, LEN({!OutputFormatFetched}) - FIND(&quot;X3860 Comments (If Applicable):&quot;, {!OutputFormatFetched}) - LEN(&quot;X3860 Comments (If Applicable):&quot;))) - 1
+)</expression>
+    </formulas>
+    <formulas>
+        <name>formX3860Default</name>
+        <dataType>String</dataType>
+        <expression>LEFT(
+  RIGHT({!OutputFormatFetched}, LEN({!OutputFormatFetched}) - FIND(&quot;X3860:&quot;, {!OutputFormatFetched}) - LEN(&quot;X3860:&quot;)),
+  FIND(&quot;&lt;&quot;, RIGHT({!OutputFormatFetched}, LEN({!OutputFormatFetched}) - FIND(&quot;X3860:&quot;, {!OutputFormatFetched}) - LEN(&quot;X3860:&quot;))) - 1
+)</expression>
+    </formulas>
+    <formulas>
+        <name>formX3860FlowTestsCommentsDefault</name>
+        <dataType>String</dataType>
+        <expression>LEFT(
+  RIGHT({!OutputFormatFetched}, LEN({!OutputFormatFetched}) - FIND(&quot;X3860 Flow Tests Comments (If Applicable):&quot;, {!OutputFormatFetched}) - LEN(&quot;X3860 Flow Tests Comments (If Applicable):&quot;)),
+  FIND(&quot;&lt;&quot;, RIGHT({!OutputFormatFetched}, LEN({!OutputFormatFetched}) - FIND(&quot;X3860 Flow Tests Comments (If Applicable):&quot;, {!OutputFormatFetched}) - LEN(&quot;X3860 Flow Tests Comments (If Applicable):&quot;))) - 1
+)</expression>
+    </formulas>
+    <formulas>
+        <name>formX3860FlowTestsDefault</name>
+        <dataType>String</dataType>
+        <expression>LEFT(
+  RIGHT({!OutputFormatFetched}, LEN({!OutputFormatFetched}) - FIND(&quot;X3860 Flow Tests:&quot;, {!OutputFormatFetched}) - LEN(&quot;X3860 Flow Tests:&quot;)),
+  FIND(&quot;&lt;&quot;, RIGHT({!OutputFormatFetched}, LEN({!OutputFormatFetched}) - FIND(&quot;X3860 Flow Tests:&quot;, {!OutputFormatFetched}) - LEN(&quot;X3860 Flow Tests:&quot;))) - 1
+)</expression>
+    </formulas>
+    <formulas>
+        <name>formX3860NormalOperatingModeVerificationCommentsDefault</name>
+        <dataType>String</dataType>
+        <expression>LEFT(
+  RIGHT({!OutputFormatFetched}, LEN({!OutputFormatFetched}) - FIND(&quot;X3860 Normal Operating Mode Verification Comments (If Applicable):&quot;, {!OutputFormatFetched}) - LEN(&quot;X3860 Normal Operating Mode Verification Comments (If Applicable):&quot;)),
+  FIND(&quot;&lt;&quot;, RIGHT({!OutputFormatFetched}, LEN({!OutputFormatFetched}) - FIND(&quot;X3860 Normal Operating Mode Verification Comments (If Applicable):&quot;, {!OutputFormatFetched}) - LEN(&quot;X3860 Normal Operating Mode Verification Comments (If Applicable):&quot;))) - 1
+)</expression>
+    </formulas>
+    <formulas>
+        <name>formX3860NormalOperatingModeVerificationDefault</name>
+        <dataType>String</dataType>
+        <expression>LEFT(
+  RIGHT({!OutputFormatFetched}, LEN({!OutputFormatFetched}) - FIND(&quot;X3860 Normal Operating Mode Verification:&quot;, {!OutputFormatFetched}) - LEN(&quot;X3860 Normal Operating Mode Verification:&quot;)),
+  FIND(&quot;&lt;&quot;, RIGHT({!OutputFormatFetched}, LEN({!OutputFormatFetched}) - FIND(&quot;X3860 Normal Operating Mode Verification:&quot;, {!OutputFormatFetched}) - LEN(&quot;X3860 Normal Operating Mode Verification:&quot;))) - 1
+)</expression>
+    </formulas>
+    <formulas>
+        <name>formX3860ServiceModeVerificationsCommentsDefault</name>
+        <dataType>String</dataType>
+        <expression>LEFT(
+  RIGHT({!OutputFormatFetched}, LEN({!OutputFormatFetched}) - FIND(&quot;X3860 Service Mode Verifications Comments (If Applicable):&quot;, {!OutputFormatFetched}) - LEN(&quot;X3860 Service Mode Verifications Comments (If Applicable):&quot;)),
+  FIND(&quot;&lt;&quot;, RIGHT({!OutputFormatFetched}, LEN({!OutputFormatFetched}) - FIND(&quot;X3860 Service Mode Verifications Comments (If Applicable):&quot;, {!OutputFormatFetched}) - LEN(&quot;X3860 Service Mode Verifications Comments (If Applicable):&quot;))) - 1
+)</expression>
+    </formulas>
+    <formulas>
+        <name>formX3860ServiceModeVerificationsDefault</name>
+        <dataType>String</dataType>
+        <expression>LEFT(
+  RIGHT({!OutputFormatFetched}, LEN({!OutputFormatFetched}) - FIND(&quot;X3860 Service Mode Verifications:&quot;, {!OutputFormatFetched}) - LEN(&quot;X3860 Service Mode Verifications:&quot;)),
+  FIND(&quot;&lt;&quot;, RIGHT({!OutputFormatFetched}, LEN({!OutputFormatFetched}) - FIND(&quot;X3860 Service Mode Verifications:&quot;, {!OutputFormatFetched}) - LEN(&quot;X3860 Service Mode Verifications:&quot;))) - 1
+)</expression>
+    </formulas>
+    <formulas>
+        <name>formX3861CommentsDefault</name>
+        <dataType>String</dataType>
+        <expression>LEFT(
+  RIGHT({!OutputFormatFetched}, LEN({!OutputFormatFetched}) - FIND(&quot;X3861 Comments (If Applicable):&quot;, {!OutputFormatFetched}) - LEN(&quot;X3861 Comments (If Applicable):&quot;)),
+  FIND(&quot;&lt;&quot;, RIGHT({!OutputFormatFetched}, LEN({!OutputFormatFetched}) - FIND(&quot;X3861 Comments (If Applicable):&quot;, {!OutputFormatFetched}) - LEN(&quot;X3861 Comments (If Applicable):&quot;))) - 1
+)</expression>
+    </formulas>
+    <formulas>
+        <name>formX3861Default</name>
+        <dataType>String</dataType>
+        <expression>LEFT(
+  RIGHT({!OutputFormatFetched}, LEN({!OutputFormatFetched}) - FIND(&quot;X3861:&quot;, {!OutputFormatFetched}) - LEN(&quot;X3861:&quot;)),
+  FIND(&quot;&lt;&quot;, RIGHT({!OutputFormatFetched}, LEN({!OutputFormatFetched}) - FIND(&quot;X3861:&quot;, {!OutputFormatFetched}) - LEN(&quot;X3861:&quot;))) - 1
+)</expression>
+    </formulas>
+    <formulas>
+        <name>formX3861FlowTestsCommentsDefault</name>
+        <dataType>String</dataType>
+        <expression>LEFT(
+  RIGHT({!OutputFormatFetched}, LEN({!OutputFormatFetched}) - FIND(&quot;X3861 Flow Tests Comments (If Applicable):&quot;, {!OutputFormatFetched}) - LEN(&quot;X3861 Flow Tests Comments (If Applicable):&quot;)),
+  FIND(&quot;&lt;&quot;, RIGHT({!OutputFormatFetched}, LEN({!OutputFormatFetched}) - FIND(&quot;X3861 Flow Tests Comments (If Applicable):&quot;, {!OutputFormatFetched}) - LEN(&quot;X3861 Flow Tests Comments (If Applicable):&quot;))) - 1
+)</expression>
+    </formulas>
+    <formulas>
+        <name>formX3861FlowTestsDefault</name>
+        <dataType>String</dataType>
+        <expression>LEFT(
+  RIGHT({!OutputFormatFetched}, LEN({!OutputFormatFetched}) - FIND(&quot;X3861 Flow Tests:&quot;, {!OutputFormatFetched}) - LEN(&quot;X3861 Flow Tests:&quot;)),
+  FIND(&quot;&lt;&quot;, RIGHT({!OutputFormatFetched}, LEN({!OutputFormatFetched}) - FIND(&quot;X3861 Flow Tests:&quot;, {!OutputFormatFetched}) - LEN(&quot;X3861 Flow Tests:&quot;))) - 1
+)</expression>
+    </formulas>
+    <formulas>
+        <name>formX3861NormalOperatingModeVerificationCommentsDefault</name>
+        <dataType>String</dataType>
+        <expression>LEFT(
+  RIGHT({!OutputFormatFetched}, LEN({!OutputFormatFetched}) - FIND(&quot;X3861 Normal Operating Mode Verification Comments (If Applicable):&quot;, {!OutputFormatFetched}) - LEN(&quot;X3861 Normal Operating Mode Verification Comments (If Applicable):&quot;)),
+  FIND(&quot;&lt;&quot;, RIGHT({!OutputFormatFetched}, LEN({!OutputFormatFetched}) - FIND(&quot;X3861 Normal Operating Mode Verification Comments (If Applicable):&quot;, {!OutputFormatFetched}) - LEN(&quot;X3861 Normal Operating Mode Verification Comments (If Applicable):&quot;))) - 1
+)</expression>
+    </formulas>
+    <formulas>
+        <name>formX3861NormalOperatingModeVerificationDefault</name>
+        <dataType>String</dataType>
+        <expression>LEFT(
+  RIGHT({!OutputFormatFetched}, LEN({!OutputFormatFetched}) - FIND(&quot;X3861 Normal Operating Mode Verification:&quot;, {!OutputFormatFetched}) - LEN(&quot;X3861 Normal Operating Mode Verification:&quot;)),
+  FIND(&quot;&lt;&quot;, RIGHT({!OutputFormatFetched}, LEN({!OutputFormatFetched}) - FIND(&quot;X3861 Normal Operating Mode Verification:&quot;, {!OutputFormatFetched}) - LEN(&quot;X3861 Normal Operating Mode Verification:&quot;))) - 1
+)</expression>
+    </formulas>
+    <formulas>
+        <name>formX3861ServiceModeVerificationsCommentsDefault</name>
+        <dataType>String</dataType>
+        <expression>LEFT(
+  RIGHT({!OutputFormatFetched}, LEN({!OutputFormatFetched}) - FIND(&quot;X3861 Service Mode Verifications Comments (If Applicable):&quot;, {!OutputFormatFetched}) - LEN(&quot;X3861 Service Mode Verifications Comments (If Applicable):&quot;)),
+  FIND(&quot;&lt;&quot;, RIGHT({!OutputFormatFetched}, LEN({!OutputFormatFetched}) - FIND(&quot;X3861 Service Mode Verifications Comments (If Applicable):&quot;, {!OutputFormatFetched}) - LEN(&quot;X3861 Service Mode Verifications Comments (If Applicable):&quot;))) - 1
+)</expression>
+    </formulas>
+    <formulas>
+        <name>formX3861ServiceModeVerificationsDefault</name>
+        <dataType>String</dataType>
+        <expression>LEFT(
+  RIGHT({!OutputFormatFetched}, LEN({!OutputFormatFetched}) - FIND(&quot;X3861 Service Mode Verifications:&quot;, {!OutputFormatFetched}) - LEN(&quot;X3861 Service Mode Verifications:&quot;)),
+  FIND(&quot;&lt;&quot;, RIGHT({!OutputFormatFetched}, LEN({!OutputFormatFetched}) - FIND(&quot;X3861 Service Mode Verifications:&quot;, {!OutputFormatFetched}) - LEN(&quot;X3861 Service Mode Verifications:&quot;))) - 1
+)</expression>
+    </formulas>
+    <formulas>
+        <name>formX3865CommentsDefault</name>
+        <dataType>String</dataType>
+        <expression>LEFT(
+  RIGHT({!OutputFormatFetched}, LEN({!OutputFormatFetched}) - FIND(&quot;X3865 Comments (If Applicable):&quot;, {!OutputFormatFetched}) - LEN(&quot;X3865 Comments (If Applicable):&quot;)),
+  FIND(&quot;&lt;&quot;, RIGHT({!OutputFormatFetched}, LEN({!OutputFormatFetched}) - FIND(&quot;X3865 Comments (If Applicable):&quot;, {!OutputFormatFetched}) - LEN(&quot;X3865 Comments (If Applicable):&quot;))) - 1
+)</expression>
+    </formulas>
+    <formulas>
+        <name>formX3865Default</name>
+        <dataType>String</dataType>
+        <expression>LEFT(
+  RIGHT({!OutputFormatFetched}, LEN({!OutputFormatFetched}) - FIND(&quot;X3865:&quot;, {!OutputFormatFetched}) - LEN(&quot;X3865:&quot;)),
+  FIND(&quot;&lt;&quot;, RIGHT({!OutputFormatFetched}, LEN({!OutputFormatFetched}) - FIND(&quot;X3865:&quot;, {!OutputFormatFetched}) - LEN(&quot;X3865:&quot;))) - 1
+)</expression>
+    </formulas>
+    <formulas>
+        <name>formX3865RemoteRadioVerificationCommentsDefault</name>
+        <dataType>String</dataType>
+        <expression>LEFT(
+  RIGHT({!OutputFormatFetched}, LEN({!OutputFormatFetched}) - FIND(&quot;X3865 Remote Radio Verification Comments (If Applicable):&quot;, {!OutputFormatFetched}) - LEN(&quot;X3865 Remote Radio Verification Comments (If Applicable):&quot;)),
+  FIND(&quot;&lt;&quot;, RIGHT({!OutputFormatFetched}, LEN({!OutputFormatFetched}) - FIND(&quot;X3865 Remote Radio Verification Comments (If Applicable):&quot;, {!OutputFormatFetched}) - LEN(&quot;X3865 Remote Radio Verification Comments (If Applicable):&quot;))) - 1
+)</expression>
+    </formulas>
+    <formulas>
+        <name>formX3865RemoteRadioVerificationDefault</name>
+        <dataType>String</dataType>
+        <expression>LEFT(
+  RIGHT({!OutputFormatFetched}, LEN({!OutputFormatFetched}) - FIND(&quot;X3865 Remote Radio Verification:&quot;, {!OutputFormatFetched}) - LEN(&quot;X3865 Remote Radio Verification:&quot;)),
+  FIND(&quot;&lt;&quot;, RIGHT({!OutputFormatFetched}, LEN({!OutputFormatFetched}) - FIND(&quot;X3865 Remote Radio Verification:&quot;, {!OutputFormatFetched}) - LEN(&quot;X3865 Remote Radio Verification:&quot;))) - 1
+)</expression>
+    </formulas>
+    <formulas>
+        <name>Fullchecklistoutput</name>
+        <dataType>String</dataType>
+        <expression>{!ChecklistOutputPart1} + {!ChecklistOutputPart2} + {!ChecklistOutputPart3} + {!ChecklistOutputPart4}</expression>
+    </formulas>
+    <interviewLabel>Iradimed Infusion Pump Checklist {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Iradimed Infusion Pump Checklist</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>FieldServiceMobile</processType>
+    <recordLookups>
+        <name>get_service_appointment</name>
+        <label>get service appointment</label>
+        <locationX>176</locationX>
+        <locationY>134</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Work_Step_Completion</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>ServiceAppointmentId</elementReference>
+            </value>
+        </filters>
+        <object>ServiceAppointment</object>
+        <outputAssignments>
+            <assignToReference>InputChecklistOutput1</assignToReference>
+            <field>Checklist_Output_Formatted_1__c</field>
+        </outputAssignments>
+        <outputAssignments>
+            <assignToReference>InputChecklistOutput2</assignToReference>
+            <field>Checklist_Output_Formatted_2__c</field>
+        </outputAssignments>
+        <outputAssignments>
+            <assignToReference>InputChecklistOutput3</assignToReference>
+            <field>Checklist_Output_Formatted_3__c</field>
+        </outputAssignments>
+        <outputAssignments>
+            <assignToReference>InputChecklistOutput4</assignToReference>
+            <field>Checklist_Output_Formatted_4__c</field>
+        </outputAssignments>
+        <outputAssignments>
+            <assignToReference>InputChecklistOutput5</assignToReference>
+            <field>Checklist_Output_Formatted_5__c</field>
+        </outputAssignments>
+        <outputAssignments>
+            <assignToReference>InputChecklistOutput6</assignToReference>
+            <field>Checklist_Output_Formatted_6__c</field>
+        </outputAssignments>
+        <outputAssignments>
+            <assignToReference>OutputFormatFetched</assignToReference>
+            <field>Checklist_Output_Formatted__c</field>
+        </outputAssignments>
+    </recordLookups>
+    <recordUpdates>
+        <name>Round_1_Update_Service_Appointment</name>
+        <label>Round 1 Update Service Appointment</label>
+        <locationX>176</locationX>
+        <locationY>458</locationY>
+        <connector>
+            <targetReference>Software_Update_Completed</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>ServiceAppointmentId</elementReference>
+            </value>
+        </filters>
+        <inputAssignments>
+            <field>Checklist_Output_Formatted_1__c</field>
+            <value>
+                <elementReference>ChecklistOutputPart1</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Checklist_Output_Formatted__c</field>
+            <value>
+                <elementReference>varTextTemplateFinal</elementReference>
+            </value>
+        </inputAssignments>
+        <object>ServiceAppointment</object>
+    </recordUpdates>
+    <recordUpdates>
+        <name>Round_2_Update_Service_Appointment</name>
+        <label>Round 2 Update Service Appointment</label>
+        <locationX>176</locationX>
+        <locationY>782</locationY>
+        <connector>
+            <targetReference>Functional_Inspection</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>ServiceAppointmentId</elementReference>
+            </value>
+        </filters>
+        <inputAssignments>
+            <field>Checklist_Output_Formatted_2__c</field>
+            <value>
+                <elementReference>ChecklistOutputPart2</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Checklist_Output_Formatted__c</field>
+            <value>
+                <elementReference>varTextTemplateFinal</elementReference>
+            </value>
+        </inputAssignments>
+        <object>ServiceAppointment</object>
+    </recordUpdates>
+    <recordUpdates>
+        <name>Round_3_Update_Service_Appointment</name>
+        <label>Round 3 Update Service Appointment</label>
+        <locationX>176</locationX>
+        <locationY>1106</locationY>
+        <connector>
+            <targetReference>Final_Works</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>ServiceAppointmentId</elementReference>
+            </value>
+        </filters>
+        <inputAssignments>
+            <field>Checklist_Output_Formatted_3__c</field>
+            <value>
+                <elementReference>ChecklistOutputPart3</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Checklist_Output_Formatted__c</field>
+            <value>
+                <elementReference>varTextTemplateFinal</elementReference>
+            </value>
+        </inputAssignments>
+        <object>ServiceAppointment</object>
+    </recordUpdates>
+    <recordUpdates>
+        <name>Update_Service_Appointment</name>
+        <label>Update Service Appointment</label>
+        <locationX>176</locationX>
+        <locationY>1646</locationY>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>ServiceAppointmentId</elementReference>
+            </value>
+        </filters>
+        <inputAssignments>
+            <field>Checklist_Output_Formatted_4__c</field>
+            <value>
+                <elementReference>ChecklistOutputPart4</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Checklist_Output_Formatted__c</field>
+            <value>
+                <elementReference>varTextTemplateFinal</elementReference>
+            </value>
+        </inputAssignments>
+        <object>ServiceAppointment</object>
+    </recordUpdates>
+    <screens>
+        <name>Copy_1_of_DisplayChecklistOutput</name>
+        <label>Display Checklist Output</label>
+        <locationX>176</locationX>
+        <locationY>1538</locationY>
+        <allowBack>true</allowBack>
+        <allowFinish>false</allowFinish>
+        <allowPause>true</allowPause>
+        <connector>
+            <targetReference>Update_Service_Appointment</targetReference>
+        </connector>
+        <fields>
+            <name>Copy_1_of_DisplayChecklistOutputText</name>
+            <fieldText>&lt;p&gt;{!varTextTemplateFinal}&lt;/p&gt;</fieldText>
+            <fieldType>DisplayText</fieldType>
+            <styleProperties>
+                <verticalAlignment>
+                    <stringValue>top</stringValue>
+                </verticalAlignment>
+                <width>
+                    <stringValue>12</stringValue>
+                </width>
+            </styleProperties>
+        </fields>
+        <showFooter>true</showFooter>
+        <showHeader>true</showHeader>
+    </screens>
+    <screens>
+        <name>Final_Works</name>
+        <label>Final Works</label>
+        <locationX>176</locationX>
+        <locationY>1214</locationY>
+        <allowBack>true</allowBack>
+        <allowFinish>false</allowFinish>
+        <allowPause>true</allowPause>
+        <connector>
+            <targetReference>Assign_ChecklistOutput4</targetReference>
+        </connector>
+        <fields>
+            <name>Covers_Secured</name>
+            <choiceReferences>Yes</choiceReferences>
+            <choiceReferences>Yes_with_Comments</choiceReferences>
+            <choiceReferences>No_with_Comments</choiceReferences>
+            <dataType>String</dataType>
+            <defaultValue>
+                <elementReference>formCoversSecuredDefault</elementReference>
+            </defaultValue>
+            <fieldText>Covers Secured</fieldText>
+            <fieldType>DropdownBox</fieldType>
+            <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+            <isRequired>true</isRequired>
+            <styleProperties>
+                <verticalAlignment>
+                    <stringValue>top</stringValue>
+                </verticalAlignment>
+                <width>
+                    <stringValue>12</stringValue>
+                </width>
+            </styleProperties>
+        </fields>
+        <fields>
+            <name>Covers_Secured_Comments</name>
+            <defaultValue>
+                <stringValue>{!formCoversSecuredCommentsDefault}</stringValue>
+            </defaultValue>
+            <fieldText>Covers Secured Comments</fieldText>
+            <fieldType>LargeTextArea</fieldType>
+            <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+            <isRequired>false</isRequired>
+            <styleProperties>
+                <verticalAlignment>
+                    <stringValue>top</stringValue>
+                </verticalAlignment>
+                <width>
+                    <stringValue>12</stringValue>
+                </width>
+            </styleProperties>
+        </fields>
+        <fields>
+            <name>Final_Clean</name>
+            <choiceReferences>Yes</choiceReferences>
+            <choiceReferences>Yes_with_Comments</choiceReferences>
+            <choiceReferences>No_with_Comments</choiceReferences>
+            <dataType>String</dataType>
+            <defaultValue>
+                <elementReference>formFinalCleanDefault</elementReference>
+            </defaultValue>
+            <fieldText>Final Clean</fieldText>
+            <fieldType>DropdownBox</fieldType>
+            <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+            <isRequired>true</isRequired>
+            <styleProperties>
+                <verticalAlignment>
+                    <stringValue>top</stringValue>
+                </verticalAlignment>
+                <width>
+                    <stringValue>12</stringValue>
+                </width>
+            </styleProperties>
+        </fields>
+        <fields>
+            <name>Final_Clean_Comments</name>
+            <defaultValue>
+                <stringValue>{!formFinalCleanCommentsDefault}</stringValue>
+            </defaultValue>
+            <fieldText>Final Clean Comments</fieldText>
+            <fieldType>LargeTextArea</fieldType>
+            <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+            <isRequired>false</isRequired>
+            <styleProperties>
+                <verticalAlignment>
+                    <stringValue>top</stringValue>
+                </verticalAlignment>
+                <width>
+                    <stringValue>12</stringValue>
+                </width>
+            </styleProperties>
+        </fields>
+        <fields>
+            <name>Final_Functional_Checks</name>
+            <choiceReferences>Yes</choiceReferences>
+            <choiceReferences>Yes_with_Comments</choiceReferences>
+            <choiceReferences>No_with_Comments</choiceReferences>
+            <dataType>String</dataType>
+            <defaultValue>
+                <elementReference>formFinalFunctionalChecksDefault</elementReference>
+            </defaultValue>
+            <fieldText>Final Functional Checks</fieldText>
+            <fieldType>DropdownBox</fieldType>
+            <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+            <isRequired>true</isRequired>
+            <styleProperties>
+                <verticalAlignment>
+                    <stringValue>top</stringValue>
+                </verticalAlignment>
+                <width>
+                    <stringValue>12</stringValue>
+                </width>
+            </styleProperties>
+        </fields>
+        <fields>
+            <name>Final_Functional_Checks_Comments</name>
+            <defaultValue>
+                <stringValue>{!formFinalFunctionalChecksCommentsDefault}</stringValue>
+            </defaultValue>
+            <fieldText>Final Functional Checks Comments</fieldText>
+            <fieldType>LargeTextArea</fieldType>
+            <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+            <isRequired>false</isRequired>
+            <styleProperties>
+                <verticalAlignment>
+                    <stringValue>top</stringValue>
+                </verticalAlignment>
+                <width>
+                    <stringValue>12</stringValue>
+                </width>
+            </styleProperties>
+        </fields>
+        <fields>
+            <name>Final_Visual_Checks</name>
+            <choiceReferences>Yes</choiceReferences>
+            <choiceReferences>Yes_with_Comments</choiceReferences>
+            <choiceReferences>No_with_Comments</choiceReferences>
+            <dataType>String</dataType>
+            <defaultValue>
+                <elementReference>formFinalVisualChecksDefault</elementReference>
+            </defaultValue>
+            <fieldText>Final Visual Checks</fieldText>
+            <fieldType>DropdownBox</fieldType>
+            <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+            <isRequired>true</isRequired>
+            <styleProperties>
+                <verticalAlignment>
+                    <stringValue>top</stringValue>
+                </verticalAlignment>
+                <width>
+                    <stringValue>12</stringValue>
+                </width>
+            </styleProperties>
+        </fields>
+        <fields>
+            <name>Final_Visual_Checks_Comments</name>
+            <defaultValue>
+                <stringValue>{!formFinalVisualChecksCommentsDefault}</stringValue>
+            </defaultValue>
+            <fieldText>Final Visual Checks Comments</fieldText>
+            <fieldType>LargeTextArea</fieldType>
+            <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+            <isRequired>false</isRequired>
+            <styleProperties>
+                <verticalAlignment>
+                    <stringValue>top</stringValue>
+                </verticalAlignment>
+                <width>
+                    <stringValue>12</stringValue>
+                </width>
+            </styleProperties>
+        </fields>
+        <showFooter>true</showFooter>
+        <showHeader>true</showHeader>
+    </screens>
+    <screens>
+        <name>Functional_Inspection</name>
+        <label>Functional Inspection</label>
+        <locationX>176</locationX>
+        <locationY>890</locationY>
+        <allowBack>true</allowBack>
+        <allowFinish>false</allowFinish>
+        <allowPause>true</allowPause>
+        <connector>
+            <targetReference>Assign_ChecklistOutput3</targetReference>
+        </connector>
+        <fields>
+            <name>Mechanical_and_Physical_Checks</name>
+            <choiceReferences>Pass</choiceReferences>
+            <choiceReferences>Fail_with_Comments</choiceReferences>
+            <choiceReferences>Pass_with_Comments</choiceReferences>
+            <choiceReferences>Not_Applicable</choiceReferences>
+            <dataType>String</dataType>
+            <defaultValue>
+                <elementReference>formMechanicalAndPhysicalChecksDefault</elementReference>
+            </defaultValue>
+            <fieldText>Mechanical and Physical Checks</fieldText>
+            <fieldType>DropdownBox</fieldType>
+            <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+            <isRequired>true</isRequired>
+            <styleProperties>
+                <verticalAlignment>
+                    <stringValue>top</stringValue>
+                </verticalAlignment>
+                <width>
+                    <stringValue>12</stringValue>
+                </width>
+            </styleProperties>
+        </fields>
+        <fields>
+            <name>Mechanical_and_Physical_Checks_Comments</name>
+            <defaultValue>
+                <stringValue>{!formMechanicalAndPhysicalChecksCommentsDefault}</stringValue>
+            </defaultValue>
+            <fieldText>Mechanical and Physical Checks Comments</fieldText>
+            <fieldType>LargeTextArea</fieldType>
+            <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+            <isRequired>false</isRequired>
+            <styleProperties>
+                <verticalAlignment>
+                    <stringValue>top</stringValue>
+                </verticalAlignment>
+                <width>
+                    <stringValue>12</stringValue>
+                </width>
+            </styleProperties>
+        </fields>
+        <fields>
+            <name>Antenna_Connector</name>
+            <choiceReferences>Pass</choiceReferences>
+            <choiceReferences>Fail_with_Comments</choiceReferences>
+            <choiceReferences>Pass_with_Comments</choiceReferences>
+            <choiceReferences>Not_Applicable</choiceReferences>
+            <dataType>String</dataType>
+            <defaultValue>
+                <elementReference>formAntennaConnectorDefault</elementReference>
+            </defaultValue>
+            <fieldText>Antenna Connector</fieldText>
+            <fieldType>DropdownBox</fieldType>
+            <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+            <isRequired>true</isRequired>
+            <styleProperties>
+                <verticalAlignment>
+                    <stringValue>top</stringValue>
+                </verticalAlignment>
+                <width>
+                    <stringValue>12</stringValue>
+                </width>
+            </styleProperties>
+        </fields>
+        <fields>
+            <name>Antenna_Connector_Comments</name>
+            <defaultValue>
+                <stringValue>{!formAntennaConnectorCommentsDefault}</stringValue>
+            </defaultValue>
+            <fieldText>Antenna Connector Comments</fieldText>
+            <fieldType>LargeTextArea</fieldType>
+            <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+            <isRequired>false</isRequired>
+            <styleProperties>
+                <verticalAlignment>
+                    <stringValue>top</stringValue>
+                </verticalAlignment>
+                <width>
+                    <stringValue>12</stringValue>
+                </width>
+            </styleProperties>
+        </fields>
+        <fields>
+            <name>Pressure_Sensors</name>
+            <choiceReferences>Pass</choiceReferences>
+            <choiceReferences>Fail_with_Comments</choiceReferences>
+            <choiceReferences>Pass_with_Comments</choiceReferences>
+            <choiceReferences>Not_Applicable</choiceReferences>
+            <dataType>String</dataType>
+            <defaultValue>
+                <elementReference>formPressureSensorsDefault</elementReference>
+            </defaultValue>
+            <fieldText>Pressure Sensors</fieldText>
+            <fieldType>DropdownBox</fieldType>
+            <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+            <isRequired>true</isRequired>
+            <styleProperties>
+                <verticalAlignment>
+                    <stringValue>top</stringValue>
+                </verticalAlignment>
+                <width>
+                    <stringValue>12</stringValue>
+                </width>
+            </styleProperties>
+        </fields>
+        <fields>
+            <name>Pressure_Sensors_Comments</name>
+            <defaultValue>
+                <stringValue>{!formPressureSensorsCommentsDefault}</stringValue>
+            </defaultValue>
+            <fieldText>Pressure Sensors Comments</fieldText>
+            <fieldType>LargeTextArea</fieldType>
+            <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+            <isRequired>false</isRequired>
+            <styleProperties>
+                <verticalAlignment>
+                    <stringValue>top</stringValue>
+                </verticalAlignment>
+                <width>
+                    <stringValue>12</stringValue>
+                </width>
+            </styleProperties>
+        </fields>
+        <fields>
+            <name>X3860_Service_Mode_Verifications</name>
+            <choiceReferences>Pass</choiceReferences>
+            <choiceReferences>Fail_with_Comments</choiceReferences>
+            <choiceReferences>Pass_with_Comments</choiceReferences>
+            <choiceReferences>Not_Applicable</choiceReferences>
+            <dataType>String</dataType>
+            <defaultValue>
+                <elementReference>formX3860ServiceModeVerificationsDefault</elementReference>
+            </defaultValue>
+            <fieldText>3860+ Service Mode Verifications</fieldText>
+            <fieldType>DropdownBox</fieldType>
+            <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+            <isRequired>true</isRequired>
+            <styleProperties>
+                <verticalAlignment>
+                    <stringValue>top</stringValue>
+                </verticalAlignment>
+                <width>
+                    <stringValue>12</stringValue>
+                </width>
+            </styleProperties>
+        </fields>
+        <fields>
+            <name>X3860_Service_Mode_Verifications_Comments</name>
+            <defaultValue>
+                <stringValue>{!formX3860ServiceModeVerificationsCommentsDefault}</stringValue>
+            </defaultValue>
+            <fieldText>3860+ Service Mode Verifications Comments</fieldText>
+            <fieldType>LargeTextArea</fieldType>
+            <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+            <isRequired>false</isRequired>
+            <styleProperties>
+                <verticalAlignment>
+                    <stringValue>top</stringValue>
+                </verticalAlignment>
+                <width>
+                    <stringValue>12</stringValue>
+                </width>
+            </styleProperties>
+        </fields>
+        <fields>
+            <name>X3860_Channel_A_Delay</name>
+            <dataType>Number</dataType>
+            <defaultValue>
+                <elementReference>formX3860ChannelADelayDefault</elementReference>
+            </defaultValue>
+            <fieldText>3860+ (Channel A) Delay:</fieldText>
+            <fieldType>InputField</fieldType>
+            <helpText>&lt;p&gt;3 digit number&lt;/p&gt;</helpText>
+            <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+            <isRequired>false</isRequired>
+            <scale>0</scale>
+            <styleProperties>
+                <verticalAlignment>
+                    <stringValue>top</stringValue>
+                </verticalAlignment>
+                <width>
+                    <stringValue>12</stringValue>
+                </width>
+            </styleProperties>
+        </fields>
+        <fields>
+            <name>X3860_Channel_A_Comp</name>
+            <dataType>String</dataType>
+            <defaultValue>
+                <elementReference>formX3860ChannelACompDefault</elementReference>
+            </defaultValue>
+            <fieldText>3860+ (Channel A) Comp:</fieldText>
+            <fieldType>InputField</fieldType>
+            <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+            <isRequired>false</isRequired>
+            <styleProperties>
+                <verticalAlignment>
+                    <stringValue>top</stringValue>
+                </verticalAlignment>
+                <width>
+                    <stringValue>12</stringValue>
+                </width>
+            </styleProperties>
+        </fields>
+        <fields>
+            <name>X3860_Normal_Operating_Mode_Verification</name>
+            <choiceReferences>Pass</choiceReferences>
+            <choiceReferences>Fail_with_Comments</choiceReferences>
+            <choiceReferences>Pass_with_Comments</choiceReferences>
+            <choiceReferences>Not_Applicable</choiceReferences>
+            <dataType>String</dataType>
+            <defaultValue>
+                <elementReference>formX3860NormalOperatingModeVerificationDefault</elementReference>
+            </defaultValue>
+            <fieldText>3860+ Normal Operating Mode Verification</fieldText>
+            <fieldType>DropdownBox</fieldType>
+            <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+            <isRequired>true</isRequired>
+            <styleProperties>
+                <verticalAlignment>
+                    <stringValue>top</stringValue>
+                </verticalAlignment>
+                <width>
+                    <stringValue>12</stringValue>
+                </width>
+            </styleProperties>
+        </fields>
+        <fields>
+            <name>X3860_Normal_Operating_Mode_Verification_Comments</name>
+            <defaultValue>
+                <stringValue>{!formX3860NormalOperatingModeVerificationCommentsDefault}</stringValue>
+            </defaultValue>
+            <fieldText>3860+ Normal Operating Mode Verification Comments</fieldText>
+            <fieldType>LargeTextArea</fieldType>
+            <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+            <isRequired>false</isRequired>
+            <styleProperties>
+                <verticalAlignment>
+                    <stringValue>top</stringValue>
+                </verticalAlignment>
+                <width>
+                    <stringValue>12</stringValue>
+                </width>
+            </styleProperties>
+        </fields>
+        <fields>
+            <name>X3860_Flow_Tests</name>
+            <choiceReferences>Pass</choiceReferences>
+            <choiceReferences>Fail_with_Comments</choiceReferences>
+            <choiceReferences>Pass_with_Comments</choiceReferences>
+            <dataType>String</dataType>
+            <defaultValue>
+                <elementReference>formX3860FlowTestsDefault</elementReference>
+            </defaultValue>
+            <fieldText>3860+ Flow Tests</fieldText>
+            <fieldType>DropdownBox</fieldType>
+            <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+            <isRequired>true</isRequired>
+            <styleProperties>
+                <verticalAlignment>
+                    <stringValue>top</stringValue>
+                </verticalAlignment>
+                <width>
+                    <stringValue>12</stringValue>
+                </width>
+            </styleProperties>
+        </fields>
+        <fields>
+            <name>X3860_Flow_Tests_Comments</name>
+            <defaultValue>
+                <stringValue>{!formX3860FlowTestsCommentsDefault}</stringValue>
+            </defaultValue>
+            <fieldText>3860+ Flow Tests Comments</fieldText>
+            <fieldType>LargeTextArea</fieldType>
+            <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+            <isRequired>false</isRequired>
+            <styleProperties>
+                <verticalAlignment>
+                    <stringValue>top</stringValue>
+                </verticalAlignment>
+                <width>
+                    <stringValue>12</stringValue>
+                </width>
+            </styleProperties>
+        </fields>
+        <fields>
+            <name>X3861_Service_Mode_Verifications</name>
+            <choiceReferences>Pass</choiceReferences>
+            <choiceReferences>Fail_with_Comments</choiceReferences>
+            <choiceReferences>Pass_with_Comments</choiceReferences>
+            <dataType>String</dataType>
+            <defaultValue>
+                <elementReference>formX3861ServiceModeVerificationsDefault</elementReference>
+            </defaultValue>
+            <fieldText>3861 Service Mode Verifications</fieldText>
+            <fieldType>DropdownBox</fieldType>
+            <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+            <isRequired>true</isRequired>
+            <styleProperties>
+                <verticalAlignment>
+                    <stringValue>top</stringValue>
+                </verticalAlignment>
+                <width>
+                    <stringValue>12</stringValue>
+                </width>
+            </styleProperties>
+        </fields>
+        <fields>
+            <name>X3861_Service_Mode_Verifications_Comments</name>
+            <defaultValue>
+                <stringValue>{!formX3861ServiceModeVerificationsCommentsDefault}</stringValue>
+            </defaultValue>
+            <fieldText>3861 Service Mode Verifications Comments</fieldText>
+            <fieldType>LargeTextArea</fieldType>
+            <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+            <isRequired>false</isRequired>
+            <styleProperties>
+                <verticalAlignment>
+                    <stringValue>top</stringValue>
+                </verticalAlignment>
+                <width>
+                    <stringValue>12</stringValue>
+                </width>
+            </styleProperties>
+        </fields>
+        <fields>
+            <name>BF_Outputs</name>
+            <choiceReferences>Pass</choiceReferences>
+            <choiceReferences>Fail_with_Comments</choiceReferences>
+            <choiceReferences>Pass_with_Comments</choiceReferences>
+            <dataType>String</dataType>
+            <defaultValue>
+                <elementReference>formBFOutputsDefault</elementReference>
+            </defaultValue>
+            <fieldText>BF Outputs</fieldText>
+            <fieldType>DropdownBox</fieldType>
+            <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+            <isRequired>true</isRequired>
+            <styleProperties>
+                <verticalAlignment>
+                    <stringValue>top</stringValue>
+                </verticalAlignment>
+                <width>
+                    <stringValue>12</stringValue>
+                </width>
+            </styleProperties>
+        </fields>
+        <fields>
+            <name>BF_Outputs_Comments</name>
+            <defaultValue>
+                <stringValue>{!formBFOutputsCommentsDefault}</stringValue>
+            </defaultValue>
+            <fieldText>BF Outputs Comments</fieldText>
+            <fieldType>LargeTextArea</fieldType>
+            <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+            <isRequired>false</isRequired>
+            <styleProperties>
+                <verticalAlignment>
+                    <stringValue>top</stringValue>
+                </verticalAlignment>
+                <width>
+                    <stringValue>12</stringValue>
+                </width>
+            </styleProperties>
+        </fields>
+        <fields>
+            <name>X3860_Channel_B_Delay</name>
+            <dataType>Number</dataType>
+            <defaultValue>
+                <elementReference>formX3860ChannelBDelayDefault</elementReference>
+            </defaultValue>
+            <fieldText>3860+ (Channel B) Delay:</fieldText>
+            <fieldType>InputField</fieldType>
+            <helpText>&lt;p&gt;3 digit number&lt;/p&gt;</helpText>
+            <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+            <isRequired>false</isRequired>
+            <scale>0</scale>
+            <styleProperties>
+                <verticalAlignment>
+                    <stringValue>top</stringValue>
+                </verticalAlignment>
+                <width>
+                    <stringValue>12</stringValue>
+                </width>
+            </styleProperties>
+        </fields>
+        <fields>
+            <name>X3860_Channel_B_Comp</name>
+            <dataType>String</dataType>
+            <defaultValue>
+                <elementReference>formX3860ChannelBCompDefault</elementReference>
+            </defaultValue>
+            <fieldText>3860+ (Channel B) Comp:</fieldText>
+            <fieldType>InputField</fieldType>
+            <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+            <isRequired>false</isRequired>
+            <styleProperties>
+                <verticalAlignment>
+                    <stringValue>top</stringValue>
+                </verticalAlignment>
+                <width>
+                    <stringValue>12</stringValue>
+                </width>
+            </styleProperties>
+        </fields>
+        <fields>
+            <name>X3861_Normal_Operating_Mode_Verification</name>
+            <choiceReferences>Pass</choiceReferences>
+            <choiceReferences>Fail_with_Comments</choiceReferences>
+            <choiceReferences>Pass_with_Comments</choiceReferences>
+            <choiceReferences>Not_Applicable</choiceReferences>
+            <dataType>String</dataType>
+            <defaultValue>
+                <elementReference>formX3861NormalOperatingModeVerificationDefault</elementReference>
+            </defaultValue>
+            <fieldText>3861 Normal Operating Mode Verification</fieldText>
+            <fieldType>DropdownBox</fieldType>
+            <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+            <isRequired>true</isRequired>
+            <styleProperties>
+                <verticalAlignment>
+                    <stringValue>top</stringValue>
+                </verticalAlignment>
+                <width>
+                    <stringValue>12</stringValue>
+                </width>
+            </styleProperties>
+        </fields>
+        <fields>
+            <name>X3861_Normal_Operating_Mode_Verification_Comments</name>
+            <defaultValue>
+                <stringValue>{!formX3861NormalOperatingModeVerificationCommentsDefault}</stringValue>
+            </defaultValue>
+            <fieldText>3861 Normal Operating Mode Verification Comments</fieldText>
+            <fieldType>LargeTextArea</fieldType>
+            <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+            <isRequired>false</isRequired>
+            <styleProperties>
+                <verticalAlignment>
+                    <stringValue>top</stringValue>
+                </verticalAlignment>
+                <width>
+                    <stringValue>12</stringValue>
+                </width>
+            </styleProperties>
+        </fields>
+        <fields>
+            <name>X3861_Flow_Tests</name>
+            <choiceReferences>Pass</choiceReferences>
+            <choiceReferences>Fail_with_Comments</choiceReferences>
+            <choiceReferences>Pass_with_Comments</choiceReferences>
+            <choiceReferences>Not_Applicable</choiceReferences>
+            <dataType>String</dataType>
+            <defaultValue>
+                <elementReference>formX3861FlowTestsDefault</elementReference>
+            </defaultValue>
+            <fieldText>3861 Flow Tests</fieldText>
+            <fieldType>DropdownBox</fieldType>
+            <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+            <isRequired>true</isRequired>
+            <styleProperties>
+                <verticalAlignment>
+                    <stringValue>top</stringValue>
+                </verticalAlignment>
+                <width>
+                    <stringValue>12</stringValue>
+                </width>
+            </styleProperties>
+        </fields>
+        <fields>
+            <name>X3861_Flow_Tests_Comments</name>
+            <defaultValue>
+                <stringValue>{!formX3861FlowTestsCommentsDefault}</stringValue>
+            </defaultValue>
+            <fieldText>3861 Flow Tests Comments</fieldText>
+            <fieldType>LargeTextArea</fieldType>
+            <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+            <isRequired>false</isRequired>
+            <styleProperties>
+                <verticalAlignment>
+                    <stringValue>top</stringValue>
+                </verticalAlignment>
+                <width>
+                    <stringValue>12</stringValue>
+                </width>
+            </styleProperties>
+        </fields>
+        <fields>
+            <name>X3865_Remote_Radio_Verification</name>
+            <choiceReferences>Pass</choiceReferences>
+            <choiceReferences>Fail_with_Comments</choiceReferences>
+            <choiceReferences>Pass_with_Comments</choiceReferences>
+            <choiceReferences>Not_Applicable</choiceReferences>
+            <dataType>String</dataType>
+            <defaultValue>
+                <elementReference>formX3865RemoteRadioVerificationDefault</elementReference>
+            </defaultValue>
+            <fieldText>3865 Remote Radio Verification</fieldText>
+            <fieldType>DropdownBox</fieldType>
+            <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+            <isRequired>true</isRequired>
+            <styleProperties>
+                <verticalAlignment>
+                    <stringValue>top</stringValue>
+                </verticalAlignment>
+                <width>
+                    <stringValue>12</stringValue>
+                </width>
+            </styleProperties>
+        </fields>
+        <fields>
+            <name>X3865_Remote_Radio_Verification_Comments</name>
+            <defaultValue>
+                <stringValue>{!formX3865RemoteRadioVerificationCommentsDefault}</stringValue>
+            </defaultValue>
+            <fieldText>3865 Remote Radio Verification Comments</fieldText>
+            <fieldType>LargeTextArea</fieldType>
+            <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+            <isRequired>false</isRequired>
+            <styleProperties>
+                <verticalAlignment>
+                    <stringValue>top</stringValue>
+                </verticalAlignment>
+                <width>
+                    <stringValue>12</stringValue>
+                </width>
+            </styleProperties>
+        </fields>
+        <fields>
+            <name>Battery_Pack_Inspection</name>
+            <choiceReferences>Pass</choiceReferences>
+            <choiceReferences>Fail_with_Comments</choiceReferences>
+            <choiceReferences>Pass_with_Comments</choiceReferences>
+            <choiceReferences>Not_Applicable</choiceReferences>
+            <dataType>String</dataType>
+            <defaultValue>
+                <elementReference>formBatteryPackInspectionDefault</elementReference>
+            </defaultValue>
+            <fieldText>Battery Pack Inspection</fieldText>
+            <fieldType>DropdownBox</fieldType>
+            <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+            <isRequired>true</isRequired>
+            <styleProperties>
+                <verticalAlignment>
+                    <stringValue>top</stringValue>
+                </verticalAlignment>
+                <width>
+                    <stringValue>12</stringValue>
+                </width>
+            </styleProperties>
+        </fields>
+        <fields>
+            <name>Battery_Pack_Inspection_Comments</name>
+            <defaultValue>
+                <stringValue>{!formBatteryPackInspectionCommentsDefault}</stringValue>
+            </defaultValue>
+            <fieldText>Battery Pack Inspection Comments</fieldText>
+            <fieldType>LargeTextArea</fieldType>
+            <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+            <isRequired>false</isRequired>
+            <styleProperties>
+                <verticalAlignment>
+                    <stringValue>top</stringValue>
+                </verticalAlignment>
+                <width>
+                    <stringValue>12</stringValue>
+                </width>
+            </styleProperties>
+        </fields>
+        <showFooter>true</showFooter>
+        <showHeader>true</showHeader>
+    </screens>
+    <screens>
+        <name>Software_Update_Completed</name>
+        <label>Software Update Completed</label>
+        <locationX>176</locationX>
+        <locationY>566</locationY>
+        <allowBack>true</allowBack>
+        <allowFinish>false</allowFinish>
+        <allowPause>true</allowPause>
+        <connector>
+            <targetReference>Assign_ChecklistOutput2</targetReference>
+        </connector>
+        <fields>
+            <name>X3860</name>
+            <choiceReferences>Yes</choiceReferences>
+            <choiceReferences>Yes_with_Comments</choiceReferences>
+            <choiceReferences>No_with_Comments</choiceReferences>
+            <dataType>String</dataType>
+            <defaultValue>
+                <elementReference>formX3860Default</elementReference>
+            </defaultValue>
+            <fieldText>3860+</fieldText>
+            <fieldType>DropdownBox</fieldType>
+            <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+            <isRequired>true</isRequired>
+            <styleProperties>
+                <verticalAlignment>
+                    <stringValue>top</stringValue>
+                </verticalAlignment>
+                <width>
+                    <stringValue>12</stringValue>
+                </width>
+            </styleProperties>
+        </fields>
+        <fields>
+            <name>X3860_Comments</name>
+            <defaultValue>
+                <stringValue>{!formX3860CommentsDefault}</stringValue>
+            </defaultValue>
+            <fieldText>3860+ Comments</fieldText>
+            <fieldType>LargeTextArea</fieldType>
+            <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+            <isRequired>false</isRequired>
+            <styleProperties>
+                <verticalAlignment>
+                    <stringValue>top</stringValue>
+                </verticalAlignment>
+                <width>
+                    <stringValue>12</stringValue>
+                </width>
+            </styleProperties>
+        </fields>
+        <fields>
+            <name>X3861</name>
+            <choiceReferences>Yes</choiceReferences>
+            <choiceReferences>Yes_with_Comments</choiceReferences>
+            <choiceReferences>No_with_Comments</choiceReferences>
+            <dataType>String</dataType>
+            <defaultValue>
+                <elementReference>formX3861Default</elementReference>
+            </defaultValue>
+            <fieldText>3861</fieldText>
+            <fieldType>DropdownBox</fieldType>
+            <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+            <isRequired>true</isRequired>
+            <styleProperties>
+                <verticalAlignment>
+                    <stringValue>top</stringValue>
+                </verticalAlignment>
+                <width>
+                    <stringValue>12</stringValue>
+                </width>
+            </styleProperties>
+        </fields>
+        <fields>
+            <name>X3861_Comments</name>
+            <defaultValue>
+                <stringValue>{!formX3861CommentsDefault}</stringValue>
+            </defaultValue>
+            <fieldText>3861 Comments</fieldText>
+            <fieldType>LargeTextArea</fieldType>
+            <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+            <isRequired>false</isRequired>
+            <styleProperties>
+                <verticalAlignment>
+                    <stringValue>top</stringValue>
+                </verticalAlignment>
+                <width>
+                    <stringValue>12</stringValue>
+                </width>
+            </styleProperties>
+        </fields>
+        <fields>
+            <name>X3865</name>
+            <choiceReferences>Yes</choiceReferences>
+            <choiceReferences>Yes_with_Comments</choiceReferences>
+            <choiceReferences>No_with_Comments</choiceReferences>
+            <dataType>String</dataType>
+            <defaultValue>
+                <elementReference>formX3865Default</elementReference>
+            </defaultValue>
+            <fieldText>3865</fieldText>
+            <fieldType>DropdownBox</fieldType>
+            <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+            <isRequired>true</isRequired>
+            <styleProperties>
+                <verticalAlignment>
+                    <stringValue>top</stringValue>
+                </verticalAlignment>
+                <width>
+                    <stringValue>12</stringValue>
+                </width>
+            </styleProperties>
+        </fields>
+        <fields>
+            <name>X3865_Comments</name>
+            <defaultValue>
+                <stringValue>{!formX3865CommentsDefault}</stringValue>
+            </defaultValue>
+            <fieldText>3865 Comments</fieldText>
+            <fieldType>LargeTextArea</fieldType>
+            <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+            <isRequired>false</isRequired>
+            <styleProperties>
+                <verticalAlignment>
+                    <stringValue>top</stringValue>
+                </verticalAlignment>
+                <width>
+                    <stringValue>12</stringValue>
+                </width>
+            </styleProperties>
+        </fields>
+        <showFooter>true</showFooter>
+        <showHeader>true</showHeader>
+    </screens>
+    <screens>
+        <name>Work_Step_Completion</name>
+        <label>General Checks</label>
+        <locationX>176</locationX>
+        <locationY>242</locationY>
+        <allowBack>true</allowBack>
+        <allowFinish>false</allowFinish>
+        <allowPause>true</allowPause>
+        <connector>
+            <targetReference>Assign_ChecklistOutput1</targetReference>
+        </connector>
+        <fields>
+            <name>GeneralChecks</name>
+            <fieldText>&lt;p&gt;General Checks&lt;/p&gt;</fieldText>
+            <fieldType>DisplayText</fieldType>
+            <styleProperties>
+                <verticalAlignment>
+                    <stringValue>top</stringValue>
+                </verticalAlignment>
+                <width>
+                    <stringValue>12</stringValue>
+                </width>
+            </styleProperties>
+        </fields>
+        <fields>
+            <name>Visual_Inspection_General</name>
+            <choiceReferences>Pass</choiceReferences>
+            <choiceReferences>Fail_with_Comments</choiceReferences>
+            <choiceReferences>Pass_with_Comments</choiceReferences>
+            <dataType>String</dataType>
+            <defaultValue>
+                <elementReference>formVisualInspectionGeneralDefault</elementReference>
+            </defaultValue>
+            <fieldText>Visual Inspection</fieldText>
+            <fieldType>DropdownBox</fieldType>
+            <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+            <isRequired>true</isRequired>
+            <styleProperties>
+                <verticalAlignment>
+                    <stringValue>top</stringValue>
+                </verticalAlignment>
+                <width>
+                    <stringValue>12</stringValue>
+                </width>
+            </styleProperties>
+        </fields>
+        <fields>
+            <name>Visual_Inspection_Comments</name>
+            <defaultValue>
+                <stringValue>{!formVisualInspectionGeneralCommentsDefault}</stringValue>
+            </defaultValue>
+            <fieldText>Visual Inspection Comments</fieldText>
+            <fieldType>LargeTextArea</fieldType>
+            <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+            <isRequired>false</isRequired>
+            <styleProperties>
+                <verticalAlignment>
+                    <stringValue>top</stringValue>
+                </verticalAlignment>
+                <width>
+                    <stringValue>12</stringValue>
+                </width>
+            </styleProperties>
+        </fields>
+        <fields>
+            <name>Current_Software_Version</name>
+            <choiceReferences>Pass</choiceReferences>
+            <choiceReferences>Fail_with_Comments</choiceReferences>
+            <choiceReferences>Pass_with_Comments</choiceReferences>
+            <dataType>String</dataType>
+            <defaultValue>
+                <elementReference>formCurrentSoftwareVersionDefault</elementReference>
+            </defaultValue>
+            <fieldText>Current Software Version</fieldText>
+            <fieldType>DropdownBox</fieldType>
+            <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+            <isRequired>true</isRequired>
+            <styleProperties>
+                <verticalAlignment>
+                    <stringValue>top</stringValue>
+                </verticalAlignment>
+                <width>
+                    <stringValue>12</stringValue>
+                </width>
+            </styleProperties>
+        </fields>
+        <fields>
+            <name>Current_Software_Version_Comments</name>
+            <defaultValue>
+                <stringValue>{!formCurrentSoftwareVersionCommentsDefault}</stringValue>
+            </defaultValue>
+            <fieldText>Current Software Version Comments</fieldText>
+            <fieldType>LargeTextArea</fieldType>
+            <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+            <isRequired>false</isRequired>
+            <styleProperties>
+                <verticalAlignment>
+                    <stringValue>top</stringValue>
+                </verticalAlignment>
+                <width>
+                    <stringValue>12</stringValue>
+                </width>
+            </styleProperties>
+        </fields>
+        <fields>
+            <name>Software_Version_to_be_installed</name>
+            <choiceReferences>Pass</choiceReferences>
+            <choiceReferences>Fail_with_Comments</choiceReferences>
+            <choiceReferences>Pass_with_Comments</choiceReferences>
+            <choiceReferences>Not_Applicable</choiceReferences>
+            <dataType>String</dataType>
+            <defaultValue>
+                <elementReference>formSoftwareVersionToBeInstalledDefault</elementReference>
+            </defaultValue>
+            <fieldText>Software Version to be installed:</fieldText>
+            <fieldType>DropdownBox</fieldType>
+            <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+            <isRequired>true</isRequired>
+            <styleProperties>
+                <verticalAlignment>
+                    <stringValue>top</stringValue>
+                </verticalAlignment>
+                <width>
+                    <stringValue>12</stringValue>
+                </width>
+            </styleProperties>
+        </fields>
+        <fields>
+            <name>Software_Version_to_be_installed_Comments</name>
+            <defaultValue>
+                <stringValue>{!formSoftwareVersionToBeInstalledCommentsDefault}</stringValue>
+            </defaultValue>
+            <fieldText>Software Version to be installed: Comments</fieldText>
+            <fieldType>LargeTextArea</fieldType>
+            <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+            <isRequired>false</isRequired>
+            <styleProperties>
+                <verticalAlignment>
+                    <stringValue>top</stringValue>
+                </verticalAlignment>
+                <width>
+                    <stringValue>12</stringValue>
+                </width>
+            </styleProperties>
+        </fields>
+        <fields>
+            <name>Detector_Drop_Sensors</name>
+            <choiceReferences>Pass</choiceReferences>
+            <choiceReferences>Fail_with_Comments</choiceReferences>
+            <choiceReferences>Pass_with_Comments</choiceReferences>
+            <choiceReferences>Not_Applicable</choiceReferences>
+            <dataType>String</dataType>
+            <defaultValue>
+                <elementReference>formDetectorDropSensorsDefault</elementReference>
+            </defaultValue>
+            <fieldText>Detector Drop Sensors</fieldText>
+            <fieldType>DropdownBox</fieldType>
+            <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+            <isRequired>true</isRequired>
+            <styleProperties>
+                <verticalAlignment>
+                    <stringValue>top</stringValue>
+                </verticalAlignment>
+                <width>
+                    <stringValue>12</stringValue>
+                </width>
+            </styleProperties>
+        </fields>
+        <fields>
+            <name>Detector_Drop_Sensors_Comments</name>
+            <defaultValue>
+                <stringValue>{!formDetectorDropSensorsCommentsDefault}</stringValue>
+            </defaultValue>
+            <fieldText>Detector Drop Sensors Comments</fieldText>
+            <fieldType>LargeTextArea</fieldType>
+            <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+            <isRequired>false</isRequired>
+            <styleProperties>
+                <verticalAlignment>
+                    <stringValue>top</stringValue>
+                </verticalAlignment>
+                <width>
+                    <stringValue>12</stringValue>
+                </width>
+            </styleProperties>
+        </fields>
+        <showFooter>true</showFooter>
+        <showHeader>true</showHeader>
+    </screens>
+    <start>
+        <locationX>50</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>get_service_appointment</targetReference>
+        </connector>
+    </start>
+    <status>Active</status>
+    <textTemplates>
+        <name>varTextTemplateFinal</name>
+        <isViewedAsPlainText>false</isViewedAsPlainText>
+        <text>&lt;p&gt;{!InputChecklistOutput1}&lt;/p&gt;&lt;p&gt;{!InputChecklistOutput2}&lt;/p&gt;&lt;p&gt;{!InputChecklistOutput3}&lt;/p&gt;&lt;p&gt;{!InputChecklistOutput4}&lt;/p&gt;</text>
+    </textTemplates>
+    <textTemplates>
+        <name>X3860CHANNELADELAY</name>
+        <isViewedAsPlainText>true</isViewedAsPlainText>
+        <text>{!X3860_Channel_A_Delay}</text>
+    </textTemplates>
+    <textTemplates>
+        <name>X3860CHANNELBDELAY</name>
+        <isViewedAsPlainText>true</isViewedAsPlainText>
+        <text>{!X3860_Channel_B_Delay}</text>
+    </textTemplates>
+    <variables>
+        <name>ChecklistOutput</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>true</isOutput>
+    </variables>
+    <variables>
+        <name>InputChecklistOutput1</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <name>InputChecklistOutput2</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <name>InputChecklistOutput3</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <name>InputChecklistOutput4</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <name>InputChecklistOutput5</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <name>InputChecklistOutput6</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <name>OutputFormatFetched</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <name>ServiceAppointmentId</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <name>Target_Work_Order</name>
+        <dataType>SObject</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+        <objectType>WorkOrder</objectType>
+    </variables>
+    <variables>
+        <name>varBlankSpace</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+        <value>
+            <stringValue> </stringValue>
+        </value>
+    </variables>
+</Flow>

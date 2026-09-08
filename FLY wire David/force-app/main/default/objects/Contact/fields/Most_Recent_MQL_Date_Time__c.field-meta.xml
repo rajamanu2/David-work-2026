@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Most_Recent_MQL_Date_Time__c</fullName>
+    <description>Field populated via flow automation each time the person is moved to MQL (Marketing Qualified Lead) Person Status. SAL-4910.</description>
+    <inlineHelpText>This is the date and time the person most recently MQL&apos;d. The primary difference between this field and the existing MQL Date Time field is that the MQL Date Time is the first time the person MQL&apos;d vs this field which is the most recent time the person MQL&apos;d.</inlineHelpText>
+    <label>Most Recent MQL Date Time</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>DateTime</type>
+</CustomField>

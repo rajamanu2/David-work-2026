@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>B2B_PYMNT_Fields_Verbal_Rqrd</fullName>
+    <active>true</active>
+    <description>Require select Payment Flow Fields on  B2B Opp to move to Verbal 80%. SAL-3141
+BOPI-526 updated to ignore Workato user
+BOPI-600 updated to prevent auto renewals from stopping</description>
+    <errorConditionFormula>AND(
+    $Profile.Name &lt;&gt; &quot;System Administrator&quot;,
+    $Profile.Name &lt;&gt; &quot;B - Looker&quot;,
+    $User.Alias &lt;&gt; &quot;Workato&quot;,
+    IsClosed = False,
+    RecordType.Name = &quot;B2B&quot;,
+    DATEVALUE(CreatedDate) &gt;= DATEVALUE(&quot;2023-12-18&quot;),
+    Probability &gt;=0.80,
+    OR(
+        ISBLANK( Account.Annual_PYMT_Volume__c ),
+        ISBLANK( Account.No_Annual_PYMT__c ),
+        ISBLANK( Average_PYMNT_size__c ),
+        ISBLANK( Total_Addressable_ARR__c ),
+        ISBLANK( Total_Addressable_ARR_w_FW_Capabilities__c ),
+        ISBLANK( Year_1_ARR_Projection__c )
+    ),
+    NOT(ISPICKVAL(Type, &quot;Renewal&quot;)),
+    NOT(ISPICKVAL(Type, &quot;Auto Renewal&quot;))
+)
+&amp;&amp; Opp_Val_Bypass__c = false</errorConditionFormula>
+    <errorMessage>The following Fields are required:
+On Account: 
+&apos;Annual PYMT Volume&apos; , 
+&apos;No. Annual PYMT&apos; , 
+On Opp: 
+&apos;Average PYMNT Size&apos; ,  
+&apos;Total Addressable ARR&apos; ,  
+&apos;Total Addressable ARR w/ FW Capabilities&apos; ,  
+&apos;Year 1 ARR Projection&apos;</errorMessage>
+</ValidationRule>

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>You_cannot_check_in_a_loaner_turned_sale</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND(Loaner_changed_to_sale__c = true,  NOT(ISNULL(Date_RMA_Item_Received__c)))</errorConditionFormula>
+    <errorMessage>You cannot check in a loaner turned to sale.</errorMessage>
+</ValidationRule>

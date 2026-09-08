@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Lead_Source_Options</fullName>
+    <active>true</active>
+    <description>SAL-4862. Validation rule that limits the Lead Source options for users, except admin and Marketo
+SAL-5415: Users added Cecilia, Sarah C and Barbara Dumbili</description>
+    <errorConditionFormula>AND(
+$Profile.Name &lt;&gt; &apos;System Administrator&apos;,
+$Profile.Name &lt;&gt; &apos;B - Marketo Integration&apos;,
+$User.User_LongID__c &lt;&gt; &apos;005f2000009yztxAAA&apos;,
+$User.User_LongID__c &lt;&gt; &apos;0058W00000AFZm6QAH&apos;,
+$User.User_LongID__c &lt;&gt; &apos;0058W00000BV7osQAD&apos;,
+$User.User_LongID__c &lt;&gt; &apos;0058W00000EqchWQAR&apos;,
+$User.User_LongID__c &lt;&gt; &apos;0058W00000GLcR3QAL&apos;,
+OR(
+ISNEW(),
+ISCHANGED(LeadSource)),
+NOT(ISBLANK(TEXT(LeadSource))),
+TEXT(LeadSource)&lt;&gt;&quot;Partner&quot;,
+TEXT(LeadSource)&lt;&gt;&quot;Referral&quot;,
+TEXT(LeadSource)&lt;&gt;&quot;Sourcing&quot;,
+TEXT(LeadSource)&lt;&gt;&quot;Sourcing - LinkedIn&quot;,
+TEXT(LeadSource)&lt;&gt;&quot;Zoominfo&quot;
+)
+&amp;&amp; Lead_Val_Bypass__c = False</errorConditionFormula>
+    <errorDisplayField>LeadSource</errorDisplayField>
+    <errorMessage>You can only update the Lead Source to Partner, Referral, Sourcing, Sourcing - LinkedIn or Zoominfo</errorMessage>
+</ValidationRule>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Amended_Quote_Requires_Changes</fullName>
+    <active>true</active>
+    <description>Makes it so that an Amendment Quote type cannot be submitted for approval without changes being made.</description>
+    <errorConditionFormula>AND(
+				ISNEW(),
+				ISPICKVAL(AQS_Quote__r.SBQQ__Type__c , &apos;Amendment&apos;), 
+ AQS_Quote__r.Number_of_Non_Amendment_Quote_Lines__c  = 0)</errorConditionFormula>
+    <errorMessage>It looks like you have not made any changes to the current contracted products. Please return to the quote line editor to add or cancel products.</errorMessage>
+</ValidationRule>

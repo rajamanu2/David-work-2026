@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Referred_by_Partner__c</fullName>
+    <deleteConstraint>Restrict</deleteConstraint>
+    <description>Used to link the partner account in SFDC to the lead for commissions, finance team etc.</description>
+    <inlineHelpText>Used to link the partner account in SFDC to the lead for commissions, finance team etc.</inlineHelpText>
+    <label>Referred by Partner</label>
+    <referenceTo>Account</referenceTo>
+    <relationshipLabel>Leads</relationshipLabel>
+    <relationshipName>Leads</relationshipName>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Lookup</type>
+</CustomField>

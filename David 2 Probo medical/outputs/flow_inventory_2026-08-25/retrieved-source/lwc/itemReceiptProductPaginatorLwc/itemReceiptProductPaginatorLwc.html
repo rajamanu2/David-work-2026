@@ -1,0 +1,53 @@
+<template>
+    <lightning-layout>
+        <!--<lightning-layout-item>
+            <lightning-button label="Previous" icon-name="utility:chevronleft" onclick={previousHandler}></lightning-button>
+        </lightning-layout-item>-->
+        <lightning-layout-item flexibility="grow">
+            <lightning-card title={pageTitle} icon-name="standard:productrepair">
+                <div class="slds-grid slds-wrap" style="margin-left:20%">
+                        <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2 slds-large-size_1-of-2">
+                               <template if:true={hasIRProductSwapData}>
+                                    <div class="slds-form-element slds-form-element_readonly">
+                                        <label class="slds-form-element__label" for="text-input-product-name">Product Name</label>
+                                        <div class="slds-form-element__control">
+                                            <div class="slds-form-element__static"><lightning-formatted-text value='{currentPRLIRecord.Product_Name__c}' label='{productname}' id="text-input-product-name2" ></lightning-formatted-text></div>
+                                        </div>
+                                    </div>
+                                    <div class="slds-form-element slds-form-element_readonly">
+                                        <label class="slds-form-element__label" for="text-input-lot-number">Lot No</label>
+                                        <div class="slds-form-element__control">
+                                            <div class="slds-form-element__static"><lightning-formatted-text value='{currentPRLIRecord.Lot_Number__c}' label='{lotnumber}' id="text-input-lot-number" ></lightning-formatted-text></div>
+                                        </div>
+                                    </div>
+                               </template>
+                               <template if:true={hasPRLISwapData}>
+                                    <div class="slds-form-element slds-form-element_readonly">
+                                        <label class="slds-form-element__label" for="text-input-name">Product Name</label>
+                                        <div class="slds-form-element__control">
+                                            <div class="slds-form-element__static"><lightning-formatted-text value='{currentPRLIRecord.IR_Product_Name__c}' label='{name}' id="text-input-product-name" ></lightning-formatted-text></div>
+                                        </div>
+                                    </div>
+                                    <div class="slds-form-element slds-form-element_readonly">
+                                        <label class="slds-form-element__label" for="text-input-lot-no">Lot Number</label>
+                                        <div class="slds-form-element__control">
+                                            <div class="slds-form-element__static"><lightning-formatted-text value='{currentPRLIRecord.Lot_Number__c}' label='{lotno}' id="text-input-lot-no" ></lightning-formatted-text></div>
+                                        </div>
+                                    </div>
+                                    <div class="slds-form-element slds-form-element_readonly">
+                                        <label class="slds-form-element__label" for="text-input-quantity">Quantity</label>
+                                        <div class="slds-form-element__control">
+                                            <div class="slds-form-element__static"><lightning-formatted-number value='{currentPRLIRecord.Quantity__c}' label='{quantity}' id="text-input-quantity" ></lightning-formatted-number></div>
+                                        </div>
+                                    </div>
+                                    
+                              </template>
+                        </div>
+                </div>
+            </lightning-card>
+        </lightning-layout-item>
+        <!--<lightning-layout-item>
+            <lightning-button label="Next" icon-name="utility:chevronright" icon-position="right" onclick={nextHandler}></lightning-button>
+        </lightning-layout-item>-->
+    </lightning-layout> 
+</template>

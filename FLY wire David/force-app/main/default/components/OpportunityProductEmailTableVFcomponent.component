@@ -1,0 +1,42 @@
+<apex:component controller="OpportunityProductEmailController" access="global">
+    <apex:attribute name="oppId" type="Id" description="Opportunity Id" assignTo="{!opportunityId}" />
+    <apex:attribute name="templateContext" type="String" description="Email Template Context" assignTo="{!templateName}" />
+    
+    <!-- IF ERROR: Display graceful error message -->
+    <apex:outputPanel rendered="{!hasError}">
+        <p style="color: red; font-family: Arial, sans-serif;">
+            {!errorMessage}
+        </p>
+    </apex:outputPanel>
+
+    <!-- IF SUCCESS: Display the data tables -->
+    <apex:outputPanel rendered="{!NOT(hasError)}">
+        <apex:repeat value="{!groupedProducts}" var="group">
+            
+            <p style="margin-top: 15px; margin-bottom: 5px; font-family: Arial, sans-serif;">
+                <strong>{!group.productCode}</strong>
+            </p>
+            
+            <table style="width:100%; border-collapse:collapse; border: 1px solid #dddddd; font-family: Arial, sans-serif; margin-bottom: 15px;">
+                <tr style="background-color: #f2f2f2;">
+                    <apex:repeat value="{!columns}" var="col">
+                        <th style="padding: 8px; border: 1px solid #dddddd; text-align: left;">
+                            {!col.header}
+                        </th>
+                    </apex:repeat>
+                </tr>
+                
+                <apex:repeat value="{!group.rows}" var="row">
+                    <tr>
+                        <apex:repeat value="{!row.cellValues}" var="cell">
+                            <td style="padding: 8px; border: 1px solid #dddddd;">
+                                {!cell}
+                            </td>
+                        </apex:repeat>
+                    </tr>
+                </apex:repeat>
+            </table>
+            
+        </apex:repeat>
+    </apex:outputPanel>
+</apex:component>

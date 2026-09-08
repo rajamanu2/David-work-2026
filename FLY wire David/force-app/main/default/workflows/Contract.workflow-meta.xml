@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Workflow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <alerts>
+        <fullName>SALDEV_934_Notify_the_Agents_Opportunity_Owner_on_Contract_Near_to_Expiry_from_C</fullName>
+        <description>SALDEV-934 Notify the Agents Opportunity Owner on Contract Near to Expiry from Contract</description>
+        <protected>false</protected>
+        <recipients>
+            <type>accountOwner</type>
+        </recipients>
+        <recipients>
+            <field>SBQQ__RenewalOwner__c</field>
+            <type>userLookup</type>
+        </recipients>
+        <senderType>DefaultWorkflowUser</senderType>
+        <template>unfiled$public/Notification_For_Agents</template>
+    </alerts>
+</Workflow>

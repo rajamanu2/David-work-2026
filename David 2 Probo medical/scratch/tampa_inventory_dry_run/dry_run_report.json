@@ -1,0 +1,1924 @@
+{
+  "generatedAt": "2026-08-19T18:45:54.628Z",
+  "mode": "read-only dry run; no Salesforce records changed",
+  "targetOrg": {
+    "alias": "ProboMedical",
+    "orgId": "00DU0000000LaKoMAK",
+    "name": "Probo Medical",
+    "isSandbox": false,
+    "username": "dokolo@probomedical.com"
+  },
+  "source": {
+    "workbook": "Copy of TampaInventory_Dataloader_08172026_BN.xlsx",
+    "sheet": "Sheet1",
+    "workbookRows": 1798,
+    "requestedDate": "2026-08-17"
+  },
+  "object": "ProductItem__c",
+  "fieldMappings": [
+    {
+      "source": "location",
+      "api": "Location__c",
+      "label": "Location"
+    },
+    {
+      "source": "subLocation",
+      "api": "Sub_Location__c",
+      "label": "Sub Location"
+    },
+    {
+      "source": "currentLocation",
+      "api": "Current_Location__c",
+      "label": "Current Location"
+    },
+    {
+      "source": "inventoryCountDate",
+      "api": "Inventory_Count_Date__c",
+      "label": "Inventory Count Date"
+    },
+    {
+      "source": "stockCheckedDate",
+      "api": "Stock_Checked__c",
+      "label": "Stock Checked"
+    }
+  ],
+  "identityChecks": {
+    "queriedRows": 1798,
+    "foundIds": 1798,
+    "missingIds": [],
+    "assetMismatches": []
+  },
+  "comparison": {
+    "totalRowsNeedingChange": 1798,
+    "totalRowsAlreadyMatching": 0,
+    "fieldChangeCounts": {
+      "Location__c": 215,
+      "Sub_Location__c": 1530,
+      "Current_Location__c": 704,
+      "Inventory_Count_Date__c": 1798,
+      "Stock_Checked__c": 1798
+    },
+    "fieldSameCounts": {
+      "Location__c": 1583,
+      "Sub_Location__c": 268,
+      "Current_Location__c": 1094,
+      "Inventory_Count_Date__c": 0,
+      "Stock_Checked__c": 0
+    },
+    "changePatternCounts": [
+      [
+        "Inventory_Count_Date__c+Stock_Checked__c+Sub_Location__c",
+        1047
+      ],
+      [
+        "Current_Location__c+Inventory_Count_Date__c+Stock_Checked__c+Sub_Location__c",
+        292
+      ],
+      [
+        "Current_Location__c+Inventory_Count_Date__c+Stock_Checked__c",
+        199
+      ],
+      [
+        "Current_Location__c+Inventory_Count_Date__c+Location__c+Stock_Checked__c+Sub_Location__c",
+        191
+      ],
+      [
+        "Inventory_Count_Date__c+Stock_Checked__c",
+        45
+      ],
+      [
+        "Current_Location__c+Inventory_Count_Date__c+Location__c+Stock_Checked__c",
+        22
+      ],
+      [
+        "Inventory_Count_Date__c+Location__c+Stock_Checked__c",
+        2
+      ]
+    ],
+    "currentSubLocationValueCounts": [
+      [
+        "Tampa, FL",
+        1173
+      ],
+      [
+        "(blank)",
+        268
+      ],
+      [
+        "Final Tested - Pending FG",
+        95
+      ],
+      [
+        "WIP01/SYSTEMS",
+        35
+      ],
+      [
+        "RENTAL",
+        34
+      ],
+      [
+        "FG01/SYSTEMS",
+        28
+      ],
+      [
+        "SHIPPING",
+        19
+      ],
+      [
+        "Check-In",
+        16
+      ],
+      [
+        "WIP/GCHADWICK",
+        16
+      ],
+      [
+        "Barb Demo Room",
+        15
+      ],
+      [
+        "WIP Portable Rack 1",
+        11
+      ],
+      [
+        "SOLD PENDING SHIPMENT",
+        10
+      ],
+      [
+        "WIP/KWHYBREW",
+        9
+      ],
+      [
+        "Trophon Depot Repair",
+        9
+      ],
+      [
+        "WIP/EBALLARD",
+        5
+      ],
+      [
+        "Harvest",
+        5
+      ],
+      [
+        "FG/PRB/04F1",
+        4
+      ],
+      [
+        "WIP Portable Rack 2",
+        3
+      ],
+      [
+        "FG10F1A",
+        3
+      ],
+      [
+        "COIL/A1",
+        3
+      ],
+      [
+        "FG/PRB/03F1",
+        3
+      ],
+      [
+        "REFURB",
+        3
+      ],
+      [
+        "WIP/Trophon",
+        2
+      ],
+      [
+        "FG/PRB/04F2",
+        2
+      ],
+      [
+        "WIP/JRODRIGUEZ",
+        2
+      ],
+      [
+        "FG02E2A",
+        1
+      ],
+      [
+        "WIP07A3B",
+        1
+      ],
+      [
+        "FG/PRB/01C2",
+        1
+      ],
+      [
+        "FG/PRB/02A1",
+        1
+      ],
+      [
+        "FG01C2A",
+        1
+      ],
+      [
+        "FG/PRB/02E1",
+        1
+      ],
+      [
+        "FG04D3A",
+        1
+      ],
+      [
+        "Missing",
+        1
+      ],
+      [
+        "FG/PRB/01E2",
+        1
+      ],
+      [
+        "COIL/D3",
+        1
+      ],
+      [
+        "COIL/F4",
+        1
+      ],
+      [
+        "WIP/DPALYZAYIA",
+        1
+      ],
+      [
+        "FG05B3A",
+        1
+      ],
+      [
+        "FG10E1A",
+        1
+      ],
+      [
+        "FG01E1A",
+        1
+      ],
+      [
+        "FG09D1A",
+        1
+      ],
+      [
+        "Harvest Rack 3",
+        1
+      ],
+      [
+        "FG/PRB/03A2",
+        1
+      ],
+      [
+        "FG/PRB/01E1",
+        1
+      ],
+      [
+        "WIP/EVELASQUEZ",
+        1
+      ],
+      [
+        "WIP02A3B",
+        1
+      ],
+      [
+        "FG/PRB/04E1",
+        1
+      ],
+      [
+        "FG/PRB/01B1",
+        1
+      ],
+      [
+        "FG/PRB/03E1",
+        1
+      ],
+      [
+        "FG/PRB/01A1",
+        1
+      ]
+    ],
+    "locationMismatchCurrentValueCounts": [
+      [
+        "Tampa",
+        189
+      ],
+      [
+        "Shipping",
+        11
+      ],
+      [
+        "Jeffersonville, IN",
+        6
+      ],
+      [
+        "Customer Loan / Demo",
+        3
+      ],
+      [
+        "On Rental",
+        3
+      ],
+      [
+        "QA-Testing",
+        2
+      ],
+      [
+        "Material Transfer",
+        1
+      ]
+    ],
+    "currentLocationMismatchCategoryCounts": [
+      [
+        "blank_to_value",
+        367
+      ],
+      [
+        "other_change",
+        238
+      ],
+      [
+        "reorder_FG_TPA_to_TPA_FG",
+        99
+      ]
+    ],
+    "currentInventoryDateCounts": [
+      [
+        "2026-04-10",
+        933
+      ],
+      [
+        "(blank)",
+        329
+      ],
+      [
+        "2026-08-05",
+        206
+      ],
+      [
+        "2025-12-11",
+        62
+      ],
+      [
+        "2025-12-10",
+        51
+      ],
+      [
+        "2026-06-19",
+        31
+      ],
+      [
+        "2026-07-15",
+        25
+      ],
+      [
+        "2026-07-22",
+        21
+      ],
+      [
+        "2026-05-14",
+        19
+      ],
+      [
+        "2026-04-21",
+        13
+      ],
+      [
+        "2026-04-30",
+        12
+      ],
+      [
+        "2025-12-12",
+        11
+      ],
+      [
+        "2026-04-15",
+        10
+      ],
+      [
+        "2026-04-22",
+        9
+      ],
+      [
+        "2026-05-07",
+        8
+      ],
+      [
+        "2026-08-14",
+        8
+      ],
+      [
+        "2024-12-26",
+        7
+      ],
+      [
+        "2024-12-02",
+        6
+      ],
+      [
+        "2026-08-01",
+        5
+      ],
+      [
+        "2026-06-04",
+        3
+      ],
+      [
+        "2026-04-16",
+        3
+      ],
+      [
+        "2026-07-20",
+        2
+      ],
+      [
+        "2024-01-01",
+        2
+      ],
+      [
+        "2025-01-07",
+        2
+      ],
+      [
+        "2023-08-02",
+        2
+      ],
+      [
+        "2026-05-05",
+        2
+      ],
+      [
+        "2024-05-08",
+        2
+      ],
+      [
+        "2026-07-14",
+        2
+      ],
+      [
+        "2024-08-08",
+        1
+      ],
+      [
+        "2024-12-19",
+        1
+      ],
+      [
+        "2022-04-01",
+        1
+      ],
+      [
+        "2026-01-20",
+        1
+      ],
+      [
+        "2024-12-27",
+        1
+      ],
+      [
+        "2025-06-25",
+        1
+      ],
+      [
+        "2026-07-28",
+        1
+      ],
+      [
+        "2026-06-17",
+        1
+      ],
+      [
+        "2025-09-08",
+        1
+      ],
+      [
+        "2023-06-01",
+        1
+      ],
+      [
+        "2026-02-09",
+        1
+      ],
+      [
+        "2026-01-29",
+        1
+      ]
+    ],
+    "currentStockDateCounts": [
+      [
+        "(blank)",
+        1790
+      ],
+      [
+        "2024-08-06",
+        2
+      ],
+      [
+        "2025-12-18",
+        2
+      ],
+      [
+        "2025-02-24",
+        1
+      ],
+      [
+        "2026-07-28",
+        1
+      ],
+      [
+        "2026-05-26",
+        1
+      ],
+      [
+        "2023-03-03",
+        1
+      ]
+    ],
+    "newerInventoryDates": [],
+    "newerStockDates": [],
+    "recordFreshness": {
+      "modifiedOnOrAfter20260818": 40,
+      "latestLastModifiedDate": "2026-08-19T18:28:02.000+0000",
+      "examples": [
+        {
+          "id": "a06Ro00000fNU2bIAG",
+          "asset": "534663",
+          "lastModifiedDate": "2026-08-18T22:36:06.000+0000"
+        },
+        {
+          "id": "a06Ro00000cndn7IAA",
+          "asset": "523863",
+          "lastModifiedDate": "2026-08-19T15:01:15.000+0000"
+        },
+        {
+          "id": "a06Ro00000Vn2hxIAB",
+          "asset": "469859",
+          "lastModifiedDate": "2026-08-19T17:02:56.000+0000"
+        },
+        {
+          "id": "a06Ro00000hnsJRIAY",
+          "asset": "544121",
+          "lastModifiedDate": "2026-08-18T15:28:03.000+0000"
+        },
+        {
+          "id": "a06Ro00000f8uINIAY",
+          "asset": "533880",
+          "lastModifiedDate": "2026-08-18T15:28:09.000+0000"
+        },
+        {
+          "id": "a065b00000gAh9NAAS",
+          "asset": "229887",
+          "lastModifiedDate": "2026-08-19T14:57:08.000+0000"
+        },
+        {
+          "id": "a06Ro00000arFQnIAM",
+          "asset": "515971",
+          "lastModifiedDate": "2026-08-19T14:50:37.000+0000"
+        },
+        {
+          "id": "a06Ro00000K4qNuIAJ",
+          "asset": "406503",
+          "lastModifiedDate": "2026-08-18T20:46:04.000+0000"
+        },
+        {
+          "id": "a06Ro00000fNTRWIA4",
+          "asset": "534664",
+          "lastModifiedDate": "2026-08-18T22:36:06.000+0000"
+        },
+        {
+          "id": "a06Ro00000fvBNJIA2",
+          "asset": "537056",
+          "lastModifiedDate": "2026-08-19T12:25:48.000+0000"
+        },
+        {
+          "id": "a06Ro00000YHnYbIAL",
+          "asset": "483068",
+          "lastModifiedDate": "2026-08-18T18:50:02.000+0000"
+        },
+        {
+          "id": "a06Ro00000TJadNIAT",
+          "asset": "457418",
+          "lastModifiedDate": "2026-08-19T14:25:27.000+0000"
+        },
+        {
+          "id": "a065b00000blO2NAAU",
+          "asset": "136778",
+          "lastModifiedDate": "2026-08-18T19:18:21.000+0000"
+        },
+        {
+          "id": "a06Ro00000Cu8LnIAJ",
+          "asset": "358362",
+          "lastModifiedDate": "2026-08-19T17:36:09.000+0000"
+        },
+        {
+          "id": "a06Ro00000hpNkzIAE",
+          "asset": "544268",
+          "lastModifiedDate": "2026-08-18T18:32:15.000+0000"
+        },
+        {
+          "id": "a06Ro00000hgMUnIAM",
+          "asset": "543309",
+          "lastModifiedDate": "2026-08-19T12:26:59.000+0000"
+        },
+        {
+          "id": "a06Ro00000i6NNBIA2",
+          "asset": "545520",
+          "lastModifiedDate": "2026-08-18T14:42:45.000+0000"
+        },
+        {
+          "id": "a06Ro00000i6RQnIAM",
+          "asset": "545538",
+          "lastModifiedDate": "2026-08-19T17:27:42.000+0000"
+        },
+        {
+          "id": "a06Ro00000DbaMnIAJ",
+          "asset": "363506",
+          "lastModifiedDate": "2026-08-18T11:53:12.000+0000"
+        },
+        {
+          "id": "a06Ro00000bYnaTIAS",
+          "asset": "518918",
+          "lastModifiedDate": "2026-08-18T11:03:57.000+0000"
+        },
+        {
+          "id": "a06Ro00000hvnPrIAI",
+          "asset": "544991",
+          "lastModifiedDate": "2026-08-18T14:42:45.000+0000"
+        },
+        {
+          "id": "a06Ro00000hng6zIAA",
+          "asset": "544079",
+          "lastModifiedDate": "2026-08-18T15:28:03.000+0000"
+        },
+        {
+          "id": "a065b00000k0UznAAE",
+          "asset": "258488",
+          "lastModifiedDate": "2026-08-18T19:34:47.000+0000"
+        },
+        {
+          "id": "a06Ro00000gwnL7IAI",
+          "asset": "540630",
+          "lastModifiedDate": "2026-08-19T18:28:02.000+0000"
+        },
+        {
+          "id": "a06Ro00000XNvAfIAL",
+          "asset": "479372",
+          "lastModifiedDate": "2026-08-18T15:55:09.000+0000"
+        },
+        {
+          "id": "a06Ro00000L1iNuIAJ",
+          "asset": "411922",
+          "lastModifiedDate": "2026-08-18T16:01:04.000+0000"
+        },
+        {
+          "id": "a06Ro00000KVCNxIAP",
+          "asset": "409477",
+          "lastModifiedDate": "2026-08-19T12:44:19.000+0000"
+        },
+        {
+          "id": "a06Ro00000dqnZGIAY",
+          "asset": "528471",
+          "lastModifiedDate": "2026-08-19T16:34:39.000+0000"
+        },
+        {
+          "id": "a06Ro00000XBgvNIAT",
+          "asset": "478300",
+          "lastModifiedDate": "2026-08-18T13:58:05.000+0000"
+        },
+        {
+          "id": "a06Ro00000ihnljIAA",
+          "asset": "548298",
+          "lastModifiedDate": "2026-08-18T17:09:33.000+0000"
+        }
+      ]
+    },
+    "exceptionScope": {
+      "currentNonTampaCount": 26,
+      "currentNonTampaExamples": [
+        {
+          "id": "a06Ro00000fNU2bIAG",
+          "asset": "534663",
+          "currentLocation": "Shipping",
+          "workbookLocation": "Tampa, FL",
+          "lastModifiedDate": "2026-08-18T22:36:06.000+0000"
+        },
+        {
+          "id": "a06Ro00000cndn7IAA",
+          "asset": "523863",
+          "currentLocation": "Customer Loan / Demo",
+          "workbookLocation": "Tampa, FL",
+          "lastModifiedDate": "2026-08-19T15:01:15.000+0000"
+        },
+        {
+          "id": "a065b00000gAh9NAAS",
+          "asset": "229887",
+          "currentLocation": "Customer Loan / Demo",
+          "workbookLocation": "Tampa, FL",
+          "lastModifiedDate": "2026-08-19T14:57:08.000+0000"
+        },
+        {
+          "id": "a06Ro00000YzUnBIAV",
+          "asset": "508095",
+          "currentLocation": "Jeffersonville, IN",
+          "workbookLocation": "Tampa, FL",
+          "lastModifiedDate": "2026-06-19T18:11:33.000+0000"
+        },
+        {
+          "id": "a06Ro00000fNTRWIA4",
+          "asset": "534664",
+          "currentLocation": "Shipping",
+          "workbookLocation": "Tampa, FL",
+          "lastModifiedDate": "2026-08-18T22:36:06.000+0000"
+        },
+        {
+          "id": "a06Ro00000TJadNIAT",
+          "asset": "457418",
+          "currentLocation": "Jeffersonville, IN",
+          "workbookLocation": "Tampa, FL",
+          "lastModifiedDate": "2026-08-19T14:25:27.000+0000"
+        },
+        {
+          "id": "a065b00000blO2NAAU",
+          "asset": "136778",
+          "currentLocation": "On Rental",
+          "workbookLocation": "Tampa, FL",
+          "lastModifiedDate": "2026-08-18T19:18:21.000+0000"
+        },
+        {
+          "id": "a06Ro00000Cu8LnIAJ",
+          "asset": "358362",
+          "currentLocation": "Shipping",
+          "workbookLocation": "Tampa, FL",
+          "lastModifiedDate": "2026-08-19T17:36:09.000+0000"
+        },
+        {
+          "id": "a06Ro00000hpNkzIAE",
+          "asset": "544268",
+          "currentLocation": "Shipping",
+          "workbookLocation": "Tampa, FL",
+          "lastModifiedDate": "2026-08-18T18:32:15.000+0000"
+        },
+        {
+          "id": "a065b00000gQsAnAAK",
+          "asset": "209828",
+          "currentLocation": "On Rental",
+          "workbookLocation": "Tampa, FL",
+          "lastModifiedDate": "2026-08-11T13:38:34.000+0000"
+        },
+        {
+          "id": "a06Ro00000i6RQnIAM",
+          "asset": "545538",
+          "currentLocation": "Shipping",
+          "workbookLocation": "Tampa, FL",
+          "lastModifiedDate": "2026-08-19T17:27:42.000+0000"
+        },
+        {
+          "id": "a06Ro00000Yn5xSIAR",
+          "asset": "485339",
+          "currentLocation": "Customer Loan / Demo",
+          "workbookLocation": "Tampa, FL",
+          "lastModifiedDate": "2026-06-19T18:07:37.000+0000"
+        },
+        {
+          "id": "a06Ro00000NJrzTIAT",
+          "asset": "425593",
+          "currentLocation": "Jeffersonville, IN",
+          "workbookLocation": "Tampa, FL",
+          "lastModifiedDate": "2026-08-12T15:42:04.000+0000"
+        },
+        {
+          "id": "a06Ro00000YnbSfIAJ",
+          "asset": "485346",
+          "currentLocation": "Jeffersonville, IN",
+          "workbookLocation": "Tampa, FL",
+          "lastModifiedDate": "2026-06-19T18:07:39.000+0000"
+        },
+        {
+          "id": "a06Ro00000g74EnIAI",
+          "asset": "537726",
+          "currentLocation": "Shipping",
+          "workbookLocation": "Tampa, FL",
+          "lastModifiedDate": "2026-07-30T14:45:54.000+0000"
+        },
+        {
+          "id": "a06Ro00000hnlHxIAI",
+          "asset": "544100",
+          "currentLocation": "Material Transfer",
+          "workbookLocation": "Tampa, FL",
+          "lastModifiedDate": "2026-07-22T20:45:00.000+0000"
+        },
+        {
+          "id": "a06Ro00000YnhbJIAR",
+          "asset": "485350",
+          "currentLocation": "Jeffersonville, IN",
+          "workbookLocation": "Tampa, FL",
+          "lastModifiedDate": "2026-06-19T18:07:39.000+0000"
+        },
+        {
+          "id": "a06Ro00000hrNiUIAU",
+          "asset": "544404",
+          "currentLocation": "Shipping",
+          "workbookLocation": "Tampa, FL",
+          "lastModifiedDate": "2026-08-17T15:17:01.000+0000"
+        },
+        {
+          "id": "a06Ro00000gwnL7IAI",
+          "asset": "540630",
+          "currentLocation": "Shipping",
+          "workbookLocation": "Tampa, FL",
+          "lastModifiedDate": "2026-08-19T18:28:02.000+0000"
+        },
+        {
+          "id": "a06Ro00000Yq2N9IAJ",
+          "asset": "485556",
+          "currentLocation": "Jeffersonville, IN",
+          "workbookLocation": "Tampa, FL",
+          "lastModifiedDate": "2026-06-19T18:07:44.000+0000"
+        },
+        {
+          "id": "a06Ro00000XNvAfIAL",
+          "asset": "479372",
+          "currentLocation": "Shipping",
+          "workbookLocation": "Tampa, FL",
+          "lastModifiedDate": "2026-08-18T15:55:09.000+0000"
+        },
+        {
+          "id": "a06Ro00000f9N7RIAU",
+          "asset": "533874",
+          "currentLocation": "Shipping",
+          "workbookLocation": "Tampa, FL",
+          "lastModifiedDate": "2026-08-18T20:45:02.000+0000"
+        },
+        {
+          "id": "a06Ro00000hTnatIAC",
+          "asset": "542644",
+          "currentLocation": "QA-Testing",
+          "workbookLocation": "Tampa, FL",
+          "lastModifiedDate": "2026-07-22T13:38:28.000+0000"
+        },
+        {
+          "id": "a06Ro00000gQENJIA4",
+          "asset": "538989",
+          "currentLocation": "QA-Testing",
+          "workbookLocation": "Tampa, FL",
+          "lastModifiedDate": "2026-07-08T21:16:08.000+0000"
+        },
+        {
+          "id": "a06Ro00000g74bNIAQ",
+          "asset": "537729",
+          "currentLocation": "Shipping",
+          "workbookLocation": "Tampa, FL",
+          "lastModifiedDate": "2026-07-30T14:45:51.000+0000"
+        },
+        {
+          "id": "a06Ro00000ejWCnIAM",
+          "asset": "532070",
+          "currentLocation": "On Rental",
+          "workbookLocation": "Tampa, FL",
+          "lastModifiedDate": "2026-06-30T15:22:00.000+0000"
+        }
+      ],
+      "recentAndNonTampaCount": 12,
+      "recentOrNonTampaUniqueCount": 54,
+      "standardRowsAfterExceptionReview": 1744
+    },
+    "locationMismatchExamples": [
+      {
+        "id": "a06Ro00000PTfNyIAL",
+        "asset": "437401",
+        "from": "Tampa",
+        "to": "Tampa, FL"
+      },
+      {
+        "id": "a06Ro00000ZWqKNIA1",
+        "asset": "510434",
+        "from": "Tampa",
+        "to": "Tampa, FL"
+      },
+      {
+        "id": "a06Ro00000fNU2bIAG",
+        "asset": "534663",
+        "from": "Shipping",
+        "to": "Tampa, FL"
+      },
+      {
+        "id": "a06Ro00000NtNd5IAF",
+        "asset": "429000",
+        "from": "Tampa",
+        "to": "Tampa, FL"
+      },
+      {
+        "id": "a06Ro00000dBZnCIAW",
+        "asset": "525866",
+        "from": "Tampa",
+        "to": "Tampa, FL"
+      },
+      {
+        "id": "a06Ro00000cndn7IAA",
+        "asset": "523863",
+        "from": "Customer Loan / Demo",
+        "to": "Tampa, FL"
+      },
+      {
+        "id": "a06Ro00000KpnWGIAZ",
+        "asset": "411109",
+        "from": "Tampa",
+        "to": "Tampa, FL"
+      },
+      {
+        "id": "a065b00000k0KNFAA2",
+        "asset": "254353",
+        "from": "Tampa",
+        "to": "Tampa, FL"
+      },
+      {
+        "id": "a065b00000cpNGvAAM",
+        "asset": "161112",
+        "from": "Tampa",
+        "to": "Tampa, FL"
+      },
+      {
+        "id": "a065b00000cnU6QAAU",
+        "asset": "152610",
+        "from": "Tampa",
+        "to": "Tampa, FL"
+      },
+      {
+        "id": "a065b00000gAY1nAAG",
+        "asset": "227825",
+        "from": "Tampa",
+        "to": "Tampa, FL"
+      },
+      {
+        "id": "a06Ro00000afwBNIAY",
+        "asset": "515137",
+        "from": "Tampa",
+        "to": "Tampa, FL"
+      },
+      {
+        "id": "a06Ro00000NxUCvIAN",
+        "asset": "429341",
+        "from": "Tampa",
+        "to": "Tampa, FL"
+      },
+      {
+        "id": "a065b00000jq1YNAAY",
+        "asset": "244095",
+        "from": "Tampa",
+        "to": "Tampa, FL"
+      },
+      {
+        "id": "a06Ro00000N7XjdIAF",
+        "asset": "424634",
+        "from": "Tampa",
+        "to": "Tampa, FL"
+      },
+      {
+        "id": "a06Ro00000ZXJ9NIAX",
+        "asset": "510433",
+        "from": "Tampa",
+        "to": "Tampa, FL"
+      },
+      {
+        "id": "a06Ro00000SNSujIAH",
+        "asset": "452472",
+        "from": "Tampa",
+        "to": "Tampa, FL"
+      },
+      {
+        "id": "a06Ro00000NxU85IAF",
+        "asset": "429340",
+        "from": "Tampa",
+        "to": "Tampa, FL"
+      },
+      {
+        "id": "a06Ro00000NUOqrIAH",
+        "asset": "426581",
+        "from": "Tampa",
+        "to": "Tampa, FL"
+      },
+      {
+        "id": "a06Ro000009Lh4nIAC",
+        "asset": "292516",
+        "from": "Tampa",
+        "to": "Tampa, FL"
+      }
+    ],
+    "currentLocationMismatchExamples": [
+      {
+        "id": "a06Ro00000gwnzRIAQ",
+        "asset": "540632",
+        "from": "FG | TPA | 125 | G5",
+        "to": "TPA | FG | 125 | G5"
+      },
+      {
+        "id": "a06Ro00000fsQynIAE",
+        "asset": "536785",
+        "from": "FG | TPA | 120 | K3",
+        "to": "TPA | FG | 120 | K3"
+      },
+      {
+        "id": "a06Ro00000fOnrBIAS",
+        "asset": "534767",
+        "from": null,
+        "to": "TPA | FG | 125 | E4"
+      },
+      {
+        "id": "a06Ro00000i6MxNIAU",
+        "asset": "545514",
+        "from": null,
+        "to": "TPA | FG | 120 | G4"
+      },
+      {
+        "id": "a06Ro00000hnUXGIA2",
+        "asset": "544060",
+        "from": null,
+        "to": "TPA | FG | 115 | G3"
+      },
+      {
+        "id": "a06Ro00000hsMNlIAM",
+        "asset": "544672",
+        "from": null,
+        "to": "TPA | FG | 110 | B3"
+      },
+      {
+        "id": "a06Ro00000PTfNyIAL",
+        "asset": "437401",
+        "from": "FG | TPA | 105 | H2",
+        "to": "TPA | FG | 105 | H2"
+      },
+      {
+        "id": "a06Ro00000fNVptIAG",
+        "asset": "534674",
+        "from": null,
+        "to": "TPA | FG | 105 | G4"
+      },
+      {
+        "id": "a06Ro00000I4MqnIAF",
+        "asset": "394359",
+        "from": "FG | TPA | 110 | C4",
+        "to": "TPA | FG | 110 | C4"
+      },
+      {
+        "id": "a06Ro00000hn9fhIAA",
+        "asset": "544003",
+        "from": null,
+        "to": "TPA | FG | 110 | B2"
+      },
+      {
+        "id": "a06Ro00000ZWqKNIA1",
+        "asset": "510434",
+        "from": null,
+        "to": "TPA | FG | 105 | G4"
+      },
+      {
+        "id": "a06Ro00000fNU2bIAG",
+        "asset": "534663",
+        "from": "Shipping",
+        "to": "TPA | FG | 105 | F4"
+      },
+      {
+        "id": "a06Ro00000gW8dNIAS",
+        "asset": "539147",
+        "from": "FG | TPA | 100 | E2",
+        "to": "TPA | FG | 100 | E2"
+      },
+      {
+        "id": "a06Ro00000j2GTNIA2",
+        "asset": "549778",
+        "from": null,
+        "to": "TPA | FG | 100 | E4"
+      },
+      {
+        "id": "a06Ro00000hPPDnIAO",
+        "asset": "542306",
+        "from": "FG | TPA | 100 | H1",
+        "to": "TPA | FG | 100 | H1"
+      },
+      {
+        "id": "a06Ro00000h6HNDIA2",
+        "asset": "541419",
+        "from": null,
+        "to": "TPA | FG | 125 | D1"
+      },
+      {
+        "id": "a06Ro00000NtNd5IAF",
+        "asset": "429000",
+        "from": null,
+        "to": "TPA | FG | 130 | C3"
+      },
+      {
+        "id": "a06Ro00000iqNaIIAU",
+        "asset": "548739",
+        "from": null,
+        "to": "TPA | FG | 120 | K5"
+      },
+      {
+        "id": "a065b00000gSL2nAAG",
+        "asset": "235335",
+        "from": "TPA | FG | 135B1",
+        "to": "TPA | FG | 135 | B1"
+      },
+      {
+        "id": "a06Ro00000hHnhuIAC",
+        "asset": "541809",
+        "from": "FG | TPA | 130 | K4",
+        "to": "TPA | FG | 130 | K4"
+      }
+    ],
+    "changedRowExamples": [
+      {
+        "sourceRow": 2,
+        "id": "a065b00000cnEknAAE",
+        "asset": "151913",
+        "changes": [
+          {
+            "field": "Sub_Location__c",
+            "label": "Sub Location",
+            "from": "Tampa, FL",
+            "to": null
+          },
+          {
+            "field": "Inventory_Count_Date__c",
+            "label": "Inventory Count Date",
+            "from": "2026-04-10",
+            "to": "2026-08-17"
+          },
+          {
+            "field": "Stock_Checked__c",
+            "label": "Stock Checked",
+            "from": null,
+            "to": "2026-08-17"
+          }
+        ],
+        "lastModifiedDate": "2026-06-19T15:29:17.000+0000"
+      },
+      {
+        "sourceRow": 3,
+        "id": "a065b00000bnuG1AAI",
+        "asset": "145808",
+        "changes": [
+          {
+            "field": "Sub_Location__c",
+            "label": "Sub Location",
+            "from": "Tampa, FL",
+            "to": null
+          },
+          {
+            "field": "Inventory_Count_Date__c",
+            "label": "Inventory Count Date",
+            "from": "2026-04-10",
+            "to": "2026-08-17"
+          },
+          {
+            "field": "Stock_Checked__c",
+            "label": "Stock Checked",
+            "from": null,
+            "to": "2026-08-17"
+          }
+        ],
+        "lastModifiedDate": "2026-06-19T15:26:50.000+0000"
+      },
+      {
+        "sourceRow": 4,
+        "id": "a065b00000bnr5cAAA",
+        "asset": "145716",
+        "changes": [
+          {
+            "field": "Sub_Location__c",
+            "label": "Sub Location",
+            "from": "Tampa, FL",
+            "to": null
+          },
+          {
+            "field": "Inventory_Count_Date__c",
+            "label": "Inventory Count Date",
+            "from": "2026-04-10",
+            "to": "2026-08-17"
+          },
+          {
+            "field": "Stock_Checked__c",
+            "label": "Stock Checked",
+            "from": null,
+            "to": "2026-08-17"
+          }
+        ],
+        "lastModifiedDate": "2026-06-19T15:26:48.000+0000"
+      },
+      {
+        "sourceRow": 5,
+        "id": "a06Ro00000PnZJBIA3",
+        "asset": "438946",
+        "changes": [
+          {
+            "field": "Sub_Location__c",
+            "label": "Sub Location",
+            "from": "Tampa, FL",
+            "to": null
+          },
+          {
+            "field": "Inventory_Count_Date__c",
+            "label": "Inventory Count Date",
+            "from": "2026-04-10",
+            "to": "2026-08-17"
+          },
+          {
+            "field": "Stock_Checked__c",
+            "label": "Stock Checked",
+            "from": null,
+            "to": "2026-08-17"
+          }
+        ],
+        "lastModifiedDate": "2026-06-19T17:48:52.000+0000"
+      },
+      {
+        "sourceRow": 6,
+        "id": "a065b00000k0CKNAA2",
+        "asset": "251849",
+        "changes": [
+          {
+            "field": "Sub_Location__c",
+            "label": "Sub Location",
+            "from": "Tampa, FL",
+            "to": null
+          },
+          {
+            "field": "Inventory_Count_Date__c",
+            "label": "Inventory Count Date",
+            "from": "2026-04-10",
+            "to": "2026-08-17"
+          },
+          {
+            "field": "Stock_Checked__c",
+            "label": "Stock Checked",
+            "from": null,
+            "to": "2026-08-17"
+          }
+        ],
+        "lastModifiedDate": "2026-06-19T16:10:38.000+0000"
+      },
+      {
+        "sourceRow": 7,
+        "id": "a064O00001UbNOHQA3",
+        "asset": "108306",
+        "changes": [
+          {
+            "field": "Sub_Location__c",
+            "label": "Sub Location",
+            "from": "Tampa, FL",
+            "to": null
+          },
+          {
+            "field": "Inventory_Count_Date__c",
+            "label": "Inventory Count Date",
+            "from": "2026-04-10",
+            "to": "2026-08-17"
+          },
+          {
+            "field": "Stock_Checked__c",
+            "label": "Stock Checked",
+            "from": null,
+            "to": "2026-08-17"
+          }
+        ],
+        "lastModifiedDate": "2026-06-19T15:14:13.000+0000"
+      },
+      {
+        "sourceRow": 8,
+        "id": "a06Ro00000gwnzRIAQ",
+        "asset": "540632",
+        "changes": [
+          {
+            "field": "Current_Location__c",
+            "label": "Current Location",
+            "from": "FG | TPA | 125 | G5",
+            "to": "TPA | FG | 125 | G5"
+          },
+          {
+            "field": "Inventory_Count_Date__c",
+            "label": "Inventory Count Date",
+            "from": "2026-07-20",
+            "to": "2026-08-17"
+          },
+          {
+            "field": "Stock_Checked__c",
+            "label": "Stock Checked",
+            "from": null,
+            "to": "2026-08-17"
+          }
+        ],
+        "lastModifiedDate": "2026-07-23T19:27:24.000+0000"
+      },
+      {
+        "sourceRow": 9,
+        "id": "a065b00000bnC8oAAE",
+        "asset": "142792",
+        "changes": [
+          {
+            "field": "Sub_Location__c",
+            "label": "Sub Location",
+            "from": "Tampa, FL",
+            "to": null
+          },
+          {
+            "field": "Inventory_Count_Date__c",
+            "label": "Inventory Count Date",
+            "from": "2026-04-10",
+            "to": "2026-08-17"
+          },
+          {
+            "field": "Stock_Checked__c",
+            "label": "Stock Checked",
+            "from": null,
+            "to": "2026-08-17"
+          }
+        ],
+        "lastModifiedDate": "2026-06-19T15:25:38.000+0000"
+      },
+      {
+        "sourceRow": 10,
+        "id": "a064O00001Ulnl4QAB",
+        "asset": "126652",
+        "changes": [
+          {
+            "field": "Sub_Location__c",
+            "label": "Sub Location",
+            "from": "Tampa, FL",
+            "to": null
+          },
+          {
+            "field": "Inventory_Count_Date__c",
+            "label": "Inventory Count Date",
+            "from": "2026-04-10",
+            "to": "2026-08-17"
+          },
+          {
+            "field": "Stock_Checked__c",
+            "label": "Stock Checked",
+            "from": null,
+            "to": "2026-08-17"
+          }
+        ],
+        "lastModifiedDate": "2026-06-19T15:18:59.000+0000"
+      },
+      {
+        "sourceRow": 11,
+        "id": "a06Ro00000fsQynIAE",
+        "asset": "536785",
+        "changes": [
+          {
+            "field": "Sub_Location__c",
+            "label": "Sub Location",
+            "from": "Final Tested - Pending FG",
+            "to": null
+          },
+          {
+            "field": "Current_Location__c",
+            "label": "Current Location",
+            "from": "FG | TPA | 120 | K3",
+            "to": "TPA | FG | 120 | K3"
+          },
+          {
+            "field": "Inventory_Count_Date__c",
+            "label": "Inventory Count Date",
+            "from": "2026-07-15",
+            "to": "2026-08-17"
+          },
+          {
+            "field": "Stock_Checked__c",
+            "label": "Stock Checked",
+            "from": null,
+            "to": "2026-08-17"
+          }
+        ],
+        "lastModifiedDate": "2026-07-15T14:54:59.000+0000"
+      },
+      {
+        "sourceRow": 12,
+        "id": "a06Ro00000fOnrBIAS",
+        "asset": "534767",
+        "changes": [
+          {
+            "field": "Sub_Location__c",
+            "label": "Sub Location",
+            "from": "Final Tested - Pending FG",
+            "to": null
+          },
+          {
+            "field": "Current_Location__c",
+            "label": "Current Location",
+            "from": null,
+            "to": "TPA | FG | 125 | E4"
+          },
+          {
+            "field": "Inventory_Count_Date__c",
+            "label": "Inventory Count Date",
+            "from": null,
+            "to": "2026-08-17"
+          },
+          {
+            "field": "Stock_Checked__c",
+            "label": "Stock Checked",
+            "from": null,
+            "to": "2026-08-17"
+          }
+        ],
+        "lastModifiedDate": "2026-07-06T15:57:21.000+0000"
+      },
+      {
+        "sourceRow": 13,
+        "id": "a06Ro000007N1x6IAC",
+        "asset": "275455",
+        "changes": [
+          {
+            "field": "Sub_Location__c",
+            "label": "Sub Location",
+            "from": "Tampa, FL",
+            "to": null
+          },
+          {
+            "field": "Inventory_Count_Date__c",
+            "label": "Inventory Count Date",
+            "from": "2026-04-10",
+            "to": "2026-08-17"
+          },
+          {
+            "field": "Stock_Checked__c",
+            "label": "Stock Checked",
+            "from": null,
+            "to": "2026-08-17"
+          }
+        ],
+        "lastModifiedDate": "2026-06-19T16:20:21.000+0000"
+      },
+      {
+        "sourceRow": 14,
+        "id": "a064O00001UbNPtQAN",
+        "asset": "108321",
+        "changes": [
+          {
+            "field": "Sub_Location__c",
+            "label": "Sub Location",
+            "from": "Tampa, FL",
+            "to": null
+          },
+          {
+            "field": "Inventory_Count_Date__c",
+            "label": "Inventory Count Date",
+            "from": "2026-04-10",
+            "to": "2026-08-17"
+          },
+          {
+            "field": "Stock_Checked__c",
+            "label": "Stock Checked",
+            "from": null,
+            "to": "2026-08-17"
+          }
+        ],
+        "lastModifiedDate": "2026-06-19T15:14:13.000+0000"
+      },
+      {
+        "sourceRow": 15,
+        "id": "a065b00000bna53AAA",
+        "asset": "144421",
+        "changes": [
+          {
+            "field": "Sub_Location__c",
+            "label": "Sub Location",
+            "from": "Tampa, FL",
+            "to": null
+          },
+          {
+            "field": "Inventory_Count_Date__c",
+            "label": "Inventory Count Date",
+            "from": "2026-04-10",
+            "to": "2026-08-17"
+          },
+          {
+            "field": "Stock_Checked__c",
+            "label": "Stock Checked",
+            "from": null,
+            "to": "2026-08-17"
+          }
+        ],
+        "lastModifiedDate": "2026-06-19T15:26:16.000+0000"
+      },
+      {
+        "sourceRow": 16,
+        "id": "a065b00000bnjGxAAI",
+        "asset": "145113",
+        "changes": [
+          {
+            "field": "Sub_Location__c",
+            "label": "Sub Location",
+            "from": "Tampa, FL",
+            "to": null
+          },
+          {
+            "field": "Inventory_Count_Date__c",
+            "label": "Inventory Count Date",
+            "from": "2026-04-10",
+            "to": "2026-08-17"
+          },
+          {
+            "field": "Stock_Checked__c",
+            "label": "Stock Checked",
+            "from": null,
+            "to": "2026-08-17"
+          }
+        ],
+        "lastModifiedDate": "2026-06-19T15:26:33.000+0000"
+      },
+      {
+        "sourceRow": 17,
+        "id": "a06Ro00000i6MxNIAU",
+        "asset": "545514",
+        "changes": [
+          {
+            "field": "Current_Location__c",
+            "label": "Current Location",
+            "from": null,
+            "to": "TPA | FG | 120 | G4"
+          },
+          {
+            "field": "Inventory_Count_Date__c",
+            "label": "Inventory Count Date",
+            "from": null,
+            "to": "2026-08-17"
+          },
+          {
+            "field": "Stock_Checked__c",
+            "label": "Stock Checked",
+            "from": null,
+            "to": "2026-08-17"
+          }
+        ],
+        "lastModifiedDate": "2026-07-29T19:14:28.000+0000"
+      },
+      {
+        "sourceRow": 18,
+        "id": "a065b00000gSNs4AAG",
+        "asset": "235913",
+        "changes": [
+          {
+            "field": "Sub_Location__c",
+            "label": "Sub Location",
+            "from": "Tampa, FL",
+            "to": null
+          },
+          {
+            "field": "Inventory_Count_Date__c",
+            "label": "Inventory Count Date",
+            "from": "2026-04-10",
+            "to": "2026-08-17"
+          },
+          {
+            "field": "Stock_Checked__c",
+            "label": "Stock Checked",
+            "from": null,
+            "to": "2026-08-17"
+          }
+        ],
+        "lastModifiedDate": "2026-06-19T16:03:58.000+0000"
+      },
+      {
+        "sourceRow": 19,
+        "id": "a065b00000gSNCvAAO",
+        "asset": "235759",
+        "changes": [
+          {
+            "field": "Sub_Location__c",
+            "label": "Sub Location",
+            "from": "Tampa, FL",
+            "to": null
+          },
+          {
+            "field": "Inventory_Count_Date__c",
+            "label": "Inventory Count Date",
+            "from": "2026-04-10",
+            "to": "2026-08-17"
+          },
+          {
+            "field": "Stock_Checked__c",
+            "label": "Stock Checked",
+            "from": null,
+            "to": "2026-08-17"
+          }
+        ],
+        "lastModifiedDate": "2026-06-19T16:03:54.000+0000"
+      },
+      {
+        "sourceRow": 20,
+        "id": "a065b00000conoUAAQ",
+        "asset": "155754",
+        "changes": [
+          {
+            "field": "Sub_Location__c",
+            "label": "Sub Location",
+            "from": "Tampa, FL",
+            "to": null
+          },
+          {
+            "field": "Inventory_Count_Date__c",
+            "label": "Inventory Count Date",
+            "from": "2026-04-10",
+            "to": "2026-08-17"
+          },
+          {
+            "field": "Stock_Checked__c",
+            "label": "Stock Checked",
+            "from": null,
+            "to": "2026-08-17"
+          }
+        ],
+        "lastModifiedDate": "2026-06-19T15:30:49.000+0000"
+      },
+      {
+        "sourceRow": 21,
+        "id": "a06Ro00000dPV3nIAG",
+        "asset": "526480",
+        "changes": [
+          {
+            "field": "Sub_Location__c",
+            "label": "Sub Location",
+            "from": "Tampa, FL",
+            "to": null
+          },
+          {
+            "field": "Inventory_Count_Date__c",
+            "label": "Inventory Count Date",
+            "from": "2026-05-07",
+            "to": "2026-08-17"
+          },
+          {
+            "field": "Stock_Checked__c",
+            "label": "Stock Checked",
+            "from": null,
+            "to": "2026-08-17"
+          }
+        ],
+        "lastModifiedDate": "2026-06-19T18:19:08.000+0000"
+      },
+      {
+        "sourceRow": 22,
+        "id": "a065b00000gRNnHAAW",
+        "asset": "214018",
+        "changes": [
+          {
+            "field": "Sub_Location__c",
+            "label": "Sub Location",
+            "from": "Tampa, FL",
+            "to": null
+          },
+          {
+            "field": "Inventory_Count_Date__c",
+            "label": "Inventory Count Date",
+            "from": "2026-04-10",
+            "to": "2026-08-17"
+          },
+          {
+            "field": "Stock_Checked__c",
+            "label": "Stock Checked",
+            "from": null,
+            "to": "2026-08-17"
+          }
+        ],
+        "lastModifiedDate": "2026-06-19T16:01:33.000+0000"
+      },
+      {
+        "sourceRow": 23,
+        "id": "a065b00000bnCK6AAM",
+        "asset": "142820",
+        "changes": [
+          {
+            "field": "Sub_Location__c",
+            "label": "Sub Location",
+            "from": "Tampa, FL",
+            "to": null
+          },
+          {
+            "field": "Inventory_Count_Date__c",
+            "label": "Inventory Count Date",
+            "from": "2026-04-10",
+            "to": "2026-08-17"
+          },
+          {
+            "field": "Stock_Checked__c",
+            "label": "Stock Checked",
+            "from": null,
+            "to": "2026-08-17"
+          }
+        ],
+        "lastModifiedDate": "2026-06-19T15:25:38.000+0000"
+      },
+      {
+        "sourceRow": 24,
+        "id": "a065b00000bnUCuAAM",
+        "asset": "144074",
+        "changes": [
+          {
+            "field": "Sub_Location__c",
+            "label": "Sub Location",
+            "from": "Tampa, FL",
+            "to": null
+          },
+          {
+            "field": "Inventory_Count_Date__c",
+            "label": "Inventory Count Date",
+            "from": "2026-04-10",
+            "to": "2026-08-17"
+          },
+          {
+            "field": "Stock_Checked__c",
+            "label": "Stock Checked",
+            "from": null,
+            "to": "2026-08-17"
+          }
+        ],
+        "lastModifiedDate": "2026-06-19T15:26:09.000+0000"
+      },
+      {
+        "sourceRow": 25,
+        "id": "a065b00000conDFAAY",
+        "asset": "155727",
+        "changes": [
+          {
+            "field": "Sub_Location__c",
+            "label": "Sub Location",
+            "from": "Tampa, FL",
+            "to": null
+          },
+          {
+            "field": "Inventory_Count_Date__c",
+            "label": "Inventory Count Date",
+            "from": "2026-04-10",
+            "to": "2026-08-17"
+          },
+          {
+            "field": "Stock_Checked__c",
+            "label": "Stock Checked",
+            "from": null,
+            "to": "2026-08-17"
+          }
+        ],
+        "lastModifiedDate": "2026-06-19T15:30:49.000+0000"
+      },
+      {
+        "sourceRow": 26,
+        "id": "a06Ro00000EUNwpIAH",
+        "asset": "369700",
+        "changes": [
+          {
+            "field": "Sub_Location__c",
+            "label": "Sub Location",
+            "from": "Tampa, FL",
+            "to": null
+          },
+          {
+            "field": "Inventory_Count_Date__c",
+            "label": "Inventory Count Date",
+            "from": "2026-04-10",
+            "to": "2026-08-17"
+          },
+          {
+            "field": "Stock_Checked__c",
+            "label": "Stock Checked",
+            "from": null,
+            "to": "2026-08-17"
+          }
+        ],
+        "lastModifiedDate": "2026-06-19T17:20:15.000+0000"
+      },
+      {
+        "sourceRow": 27,
+        "id": "a06Ro00000hnUXGIA2",
+        "asset": "544060",
+        "changes": [
+          {
+            "field": "Current_Location__c",
+            "label": "Current Location",
+            "from": null,
+            "to": "TPA | FG | 115 | G3"
+          },
+          {
+            "field": "Inventory_Count_Date__c",
+            "label": "Inventory Count Date",
+            "from": null,
+            "to": "2026-08-17"
+          },
+          {
+            "field": "Stock_Checked__c",
+            "label": "Stock Checked",
+            "from": null,
+            "to": "2026-08-17"
+          }
+        ],
+        "lastModifiedDate": "2026-07-22T14:22:31.000+0000"
+      },
+      {
+        "sourceRow": 28,
+        "id": "a06Ro00000JnvlRIAR",
+        "asset": "404957",
+        "changes": [
+          {
+            "field": "Sub_Location__c",
+            "label": "Sub Location",
+            "from": "Tampa, FL",
+            "to": null
+          },
+          {
+            "field": "Inventory_Count_Date__c",
+            "label": "Inventory Count Date",
+            "from": "2026-04-10",
+            "to": "2026-08-17"
+          },
+          {
+            "field": "Stock_Checked__c",
+            "label": "Stock Checked",
+            "from": null,
+            "to": "2026-08-17"
+          }
+        ],
+        "lastModifiedDate": "2026-08-11T17:42:39.000+0000"
+      },
+      {
+        "sourceRow": 29,
+        "id": "a06Ro00000LqDbNIAV",
+        "asset": "417251",
+        "changes": [
+          {
+            "field": "Sub_Location__c",
+            "label": "Sub Location",
+            "from": "Tampa, FL",
+            "to": null
+          },
+          {
+            "field": "Inventory_Count_Date__c",
+            "label": "Inventory Count Date",
+            "from": "2026-04-10",
+            "to": "2026-08-17"
+          },
+          {
+            "field": "Stock_Checked__c",
+            "label": "Stock Checked",
+            "from": null,
+            "to": "2026-08-17"
+          }
+        ],
+        "lastModifiedDate": "2026-06-19T17:39:53.000+0000"
+      },
+      {
+        "sourceRow": 30,
+        "id": "a065b00000bnVvuAAE",
+        "asset": "144131",
+        "changes": [
+          {
+            "field": "Sub_Location__c",
+            "label": "Sub Location",
+            "from": "Tampa, FL",
+            "to": null
+          },
+          {
+            "field": "Inventory_Count_Date__c",
+            "label": "Inventory Count Date",
+            "from": "2026-04-10",
+            "to": "2026-08-17"
+          },
+          {
+            "field": "Stock_Checked__c",
+            "label": "Stock Checked",
+            "from": null,
+            "to": "2026-08-17"
+          }
+        ],
+        "lastModifiedDate": "2026-06-19T15:26:10.000+0000"
+      },
+      {
+        "sourceRow": 31,
+        "id": "a064O00001UlNinQAF",
+        "asset": "122802",
+        "changes": [
+          {
+            "field": "Sub_Location__c",
+            "label": "Sub Location",
+            "from": "Tampa, FL",
+            "to": null
+          },
+          {
+            "field": "Inventory_Count_Date__c",
+            "label": "Inventory Count Date",
+            "from": "2026-04-10",
+            "to": "2026-08-17"
+          },
+          {
+            "field": "Stock_Checked__c",
+            "label": "Stock Checked",
+            "from": null,
+            "to": "2026-08-17"
+          }
+        ],
+        "lastModifiedDate": "2026-06-19T15:17:30.000+0000"
+      }
+    ],
+    "noChangeRowExamples": []
+  }
+}

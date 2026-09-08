@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>BOPI-580 Renewal Opportunity Notification</description>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <name>Renewal Opportunity Created</name>
+    <style>none</style>
+    <subject>You have a new Renewal Opportunity</subject>
+    <textOnly>Hello, {!Opportunity.OwnerFirstName}.
+
+A new renewal opportunity has been created and assigned to you. Please review the details to plan your next steps.
+
+Click here to go to the opportunity.
+
+Thank you for your attention.</textOnly>
+    <type>custom</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

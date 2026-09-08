@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>MTTR__c</fullName>
+    <externalId>false</externalId>
+    <formula>IF(
+    ISBLANK(MTTR_Minutes__c),
+    &quot;&quot;,
+    TEXT(FLOOR(MTTR_Minutes__c / 60))
+    &amp;
+    &quot; Hours &quot;
+    &amp;
+    TEXT(ROUND(MOD(MTTR_Minutes__c, 60), 0))
+    &amp;
+    &quot; Minutes&quot;
+)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>MTTR</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

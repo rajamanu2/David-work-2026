@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>AQS_Number_of_Term_Conditions__c</fullName>
+    <description>Number of Conditions configured on a Quote Term</description>
+    <inlineHelpText>Number of Conditions configured on a Quote Term</inlineHelpText>
+    <label>Number of Term Conditions</label>
+    <summaryForeignKey>SBQQ__TermCondition__c.SBQQ__QuoteTerm__c</summaryForeignKey>
+    <summaryOperation>count</summaryOperation>
+    <trackTrending>false</trackTrending>
+    <type>Summary</type>
+</CustomField>

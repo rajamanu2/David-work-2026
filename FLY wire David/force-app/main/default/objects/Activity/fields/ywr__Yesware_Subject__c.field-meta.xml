@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>ywr__Yesware_Subject__c</fullName>
+    <deprecated>false</deprecated>
+    <externalId>false</externalId>
+    <formula>IF ( BEGINS(Subject, &quot;Presentation Viewed in Message:&quot;), SUBSTITUTE( Subject, &quot;Presentation Viewed in Message:&quot;, &quot;&quot;), 
+IF ( BEGINS(Subject, &quot;Bounce Received:&quot;), SUBSTITUTE( Subject, &quot;Bounce Received:&quot;, &quot;&quot;), 
+IF ( BEGINS(Subject, &quot;YW Call:&quot;), SUBSTITUTE( Subject, &quot;YW Call:&quot;, &quot;&quot;), 
+IF ( BEGINS(Subject, &quot;Message Sent: RE:&quot;), SUBSTITUTE( Subject, &quot;Message Sent: RE:&quot;, &quot;&quot;), 
+IF ( BEGINS(Subject, &quot;Reply: RE:&quot;), SUBSTITUTE( Subject, &quot;Reply: RE:&quot;, &quot;&quot;), 
+IF ( BEGINS(Subject, &quot;Message Opened: RE:&quot;), SUBSTITUTE( Subject, &quot;Message Opened: RE:&quot;, &quot;&quot;), 
+IF ( BEGINS(Subject, &quot;Link Clicked in Message: RE:&quot;), SUBSTITUTE( Subject, &quot;Link Clicked in Message: RE:&quot;, &quot;&quot;), 
+IF ( BEGINS(Subject, &quot;Attachment Opened in Message: RE:&quot;), SUBSTITUTE( Subject, &quot;Attachment Opened in Message: RE:&quot;, &quot;&quot;), 
+IF ( BEGINS(Subject, &quot;Message Sent: Fwd:&quot;), SUBSTITUTE( Subject, &quot;Message Sent: Fwd:&quot;, &quot;&quot;), 
+IF ( BEGINS(Subject, &quot;Reply: Fwd:&quot;), SUBSTITUTE( Subject, &quot;Reply: Fwd:&quot;, &quot;&quot;), 
+IF ( BEGINS(Subject, &quot;Message Opened: Fwd:&quot;), SUBSTITUTE( Subject, &quot;Message Opened: Fwd:&quot;, &quot;&quot;), 
+IF ( BEGINS(Subject, &quot;Link Clicked in Message: Fwd:&quot;), SUBSTITUTE( Subject, &quot;Link Clicked in Message: Fwd:&quot;, &quot;&quot;), 
+IF ( BEGINS(Subject, &quot;Attachment Opened in Message: Fwd:&quot;), SUBSTITUTE( Subject, &quot;Attachment Opened in Message: Fwd:&quot;, &quot;&quot;), 
+IF ( BEGINS(Subject, &quot;Message Sent: FWD:&quot;), SUBSTITUTE( Subject, &quot;Message Sent: FWD:&quot;, &quot;&quot;), 
+IF ( BEGINS(Subject, &quot;Reply: FWD:&quot;), SUBSTITUTE( Subject, &quot;Reply: FWD:&quot;, &quot;&quot;), 
+IF ( BEGINS(Subject, &quot;Message Opened: FWD:&quot;), SUBSTITUTE( Subject, &quot;Message Opened: FWD:&quot;, &quot;&quot;), 
+IF ( BEGINS(Subject, &quot;Link Clicked in Message: FWD:&quot;), SUBSTITUTE( Subject, &quot;Link Clicked in Message: FWD:&quot;, &quot;&quot;), 
+IF ( BEGINS(Subject, &quot;Attachment Opened in Message: FWD:&quot;), SUBSTITUTE( Subject, &quot;Attachment Opened in Message: FWD:&quot;, &quot;&quot;), 
+IF ( BEGINS(Subject, &quot;Message Sent: Re:&quot;), SUBSTITUTE( Subject, &quot;Message Sent: Re:&quot;, &quot;&quot;), 
+IF ( BEGINS(Subject, &quot;Reply: Re:&quot;), SUBSTITUTE( Subject, &quot;Reply: Re:&quot;, &quot;&quot;), 
+IF ( BEGINS(Subject, &quot;Message Opened: Re:&quot;), SUBSTITUTE( Subject, &quot;Message Opened: Re:&quot;, &quot;&quot;), 
+IF ( BEGINS(Subject, &quot;Link Clicked in Message: Re:&quot;), SUBSTITUTE( Subject, &quot;Link Clicked in Message: Re:&quot;, &quot;&quot;), 
+IF ( BEGINS(Subject, &quot;Attachment Opened in Message: Re:&quot;), SUBSTITUTE( Subject, &quot;Attachment Opened in Message: Re:&quot;, &quot;&quot;), 
+IF ( BEGINS(Subject, &quot;Message Sent:&quot;), SUBSTITUTE( Subject, &quot;Message Sent:&quot;, &quot;&quot;), 
+IF ( BEGINS(Subject, &quot;Reply:&quot;), SUBSTITUTE( Subject, &quot;Reply:&quot;, &quot;&quot;), 
+IF ( BEGINS(Subject, &quot;Message Opened:&quot;), SUBSTITUTE( Subject, &quot;Message Opened:&quot;, &quot;&quot;), 
+IF ( BEGINS(Subject, &quot;Link Clicked in Message:&quot;), SUBSTITUTE( Subject, &quot;Link Clicked in Message:&quot;, &quot;&quot;), 
+IF ( BEGINS(Subject, &quot;Attachment Opened in Message:&quot;), SUBSTITUTE( Subject, &quot;Attachment Opened in Message:&quot;, &quot;&quot;), Subject))))))))))))))))))))))))))))</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Yesware Subject</label>
+    <required>false</required>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

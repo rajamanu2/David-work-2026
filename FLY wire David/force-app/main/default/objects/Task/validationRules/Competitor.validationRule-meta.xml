@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Competitor</fullName>
+    <active>true</active>
+    <description>If Type is Competitor Tracking require Wire Processor</description>
+    <errorConditionFormula>AND (
+ ISPICKVAL(Type, &quot;Competition Tracking&quot;),
+ ISBLANK(TEXT( Task_Wire_Processor__c ) ) 
+)</errorConditionFormula>
+    <errorDisplayField>Task_Wire_Processor__c</errorDisplayField>
+    <errorMessage>If Type Competitor Tracking you must add Wire Processor.</errorMessage>
+</ValidationRule>

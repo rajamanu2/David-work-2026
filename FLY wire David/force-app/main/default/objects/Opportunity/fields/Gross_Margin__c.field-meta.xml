@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Gross_Margin__c</fullName>
+    <description>Formula field based on Rollup Fields filled in by Flow, created for SAL-2364 Commissions related</description>
+    <formula>( Rollup_Portal_Margin_Revenue__c -  Rollup_Portal_Margin_Cost__c )/ Rollup_Portal_Margin_Revenue__c</formula>
+    <inlineHelpText>Gross Margin % based on Gross Revenue data related to this Opportunity.</inlineHelpText>
+    <label>Gross Margin %</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>2</scale>
+    <trackHistory>false</trackHistory>
+    <type>Percent</type>
+</CustomField>

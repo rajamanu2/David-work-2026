@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <buckets>
+        <bucketType>text</bucketType>
+        <developerName>BucketField_48860861</developerName>
+        <masterLabel>LinkedIn vs Website</masterLabel>
+        <nullTreatment>n</nullTreatment>
+        <sourceColumnName>Lead.x1st_Touch_Campaign__c</sourceColumnName>
+        <useOther>false</useOther>
+        <values>
+            <sourceValues>
+                <sourceValue>AD_Travel_LI_PaymentAssessment</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>AD_Travel_LI_DemoRequest</sourceValue>
+            </sourceValues>
+            <value>LinkedIn</value>
+        </values>
+        <values>
+            <sourceValues>
+                <sourceValue>Website_Demo Request_Integration_Checkout</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>Website_Contact Us_Sales</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>Website_Demo Request_Travel Operators</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>Website_Demo Request_Travel</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>Website_Demo Page_Generic</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>Website_Payments Assessment_Travel</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>Website_Demo Request_Travel_Invoicing Solutions</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>Website_Demo Request_Travel_Accommodations</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>Website_Demo Request_Travel_DMC</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>Website_Demo Request_Header Button</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>Website_Demo Request_Travel_Invoicing Solution</sourceValue>
+            </sourceValues>
+            <value>Website</value>
+        </values>
+    </buckets>
+    <chart>
+        <backgroundColor1>#FFFFFF</backgroundColor1>
+        <backgroundColor2>#FFFFFF</backgroundColor2>
+        <backgroundFadeDir>Diagonal</backgroundFadeDir>
+        <chartSummaries>
+            <axisBinding>y</axisBinding>
+            <column>RowCount</column>
+        </chartSummaries>
+        <chartType>HorizontalBarStacked</chartType>
+        <enableHoverLabels>false</enableHoverLabels>
+        <expandOthers>true</expandOthers>
+        <groupingColumn>CREATED_DATE</groupingColumn>
+        <legendPosition>Right</legendPosition>
+        <location>CHART_BOTTOM</location>
+        <secondaryGroupingColumn>BucketField_48860861</secondaryGroupingColumn>
+        <showAxisLabels>false</showAxisLabels>
+        <showPercentage>false</showPercentage>
+        <showTotal>false</showTotal>
+        <showValues>false</showValues>
+        <size>Medium</size>
+        <summaryAxisRange>Auto</summaryAxisRange>
+        <textColor>#000000</textColor>
+        <textSize>12</textSize>
+        <titleColor>#000000</titleColor>
+        <titleSize>18</titleSize>
+    </chart>
+    <columns>
+        <field>FIRST_NAME</field>
+    </columns>
+    <columns>
+        <field>LAST_NAME</field>
+    </columns>
+    <columns>
+        <field>TITLE</field>
+    </columns>
+    <columns>
+        <field>COMPANY</field>
+    </columns>
+    <columns>
+        <field>EMAIL</field>
+    </columns>
+    <columns>
+        <field>LEAD_SOURCE</field>
+    </columns>
+    <columns>
+        <field>OWNER</field>
+    </columns>
+    <columns>
+        <field>Lead.x1st_Touch_Campaign__c</field>
+    </columns>
+    <currency>USD</currency>
+    <filter>
+        <criteriaItems>
+            <column>Lead.Lead_Industry__c</column>
+            <columnToColumn>false</columnToColumn>
+            <isUnlocked>true</isUnlocked>
+            <operator>equals</operator>
+            <value>Accommodations,DMC,Travel,Travel Operator</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Lead.x1st_Touch_Campaign__c</column>
+            <columnToColumn>false</columnToColumn>
+            <isUnlocked>true</isUnlocked>
+            <operator>contains</operator>
+            <value>Demo,Assessment</value>
+        </criteriaItems>
+    </filter>
+    <format>Summary</format>
+    <groupingsDown>
+        <dateGranularity>Month</dateGranularity>
+        <field>CREATED_DATE</field>
+        <sortOrder>Asc</sortOrder>
+    </groupingsDown>
+    <groupingsDown>
+        <dateGranularity>Day</dateGranularity>
+        <field>BucketField_48860861</field>
+        <sortOrder>Asc</sortOrder>
+    </groupingsDown>
+    <groupingsDown>
+        <dateGranularity>Day</dateGranularity>
+        <field>STATUS</field>
+        <sortOrder>Asc</sortOrder>
+    </groupingsDown>
+    <name>Travel Inbound Leads by month</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>LeadList</reportType>
+    <scope>org</scope>
+    <showDetails>true</showDetails>
+    <showGrandTotal>true</showGrandTotal>
+    <showSubTotals>true</showSubTotals>
+    <timeFrameFilter>
+        <dateColumn>CREATED_DATE</dateColumn>
+        <interval>INTERVAL_PREVCURFY</interval>
+    </timeFrameFilter>
+</Report>

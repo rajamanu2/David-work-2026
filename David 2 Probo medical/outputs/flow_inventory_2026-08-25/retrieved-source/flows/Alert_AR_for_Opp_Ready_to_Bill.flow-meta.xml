@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionCalls>
+        <name>Alert_AR_Ready_to_Bill</name>
+        <label>Alert AR - Ready to Bill</label>
+        <locationX>50</locationX>
+        <locationY>539</locationY>
+        <actionName>emailSimple</actionName>
+        <actionType>emailSimple</actionType>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
+        <inputParameters>
+            <name>emailAddresses</name>
+            <value>
+                <stringValue>ar@probomedical.com, brandon@delegate.team</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>emailSubject</name>
+            <value>
+                <elementReference>subjectLineReadytoBill</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>emailBody</name>
+            <value>
+                <elementReference>emailBodyReadytoBill</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>sendRichBody</name>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </inputParameters>
+        <nameSegment>emailSimple</nameSegment>
+        <offset>0</offset>
+    </actionCalls>
+    <actionCalls>
+        <name>Alert_ASG_Invoice_Sent</name>
+        <label>Alert ASG - Invoice Sent</label>
+        <locationX>314</locationX>
+        <locationY>431</locationY>
+        <actionName>emailSimple</actionName>
+        <actionType>emailSimple</actionType>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
+        <inputParameters>
+            <name>emailAddresses</name>
+            <value>
+                <stringValue>asg-projects@probomedical.com, brandon@delegate.team</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>emailSubject</name>
+            <value>
+                <elementReference>subjectLineInvoiceSent</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>emailBody</name>
+            <value>
+                <elementReference>emailBodyInvoiceSent</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>sendRichBody</name>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </inputParameters>
+        <nameSegment>emailSimple</nameSegment>
+        <offset>0</offset>
+    </actionCalls>
+    <apiVersion>61.0</apiVersion>
+    <areMetricsLoggedToDataCloud>false</areMetricsLoggedToDataCloud>
+    <decisions>
+        <name>Invoice_sent_or_Ready_to_Bill</name>
+        <label>Invoice sent or Ready to Bill</label>
+        <locationX>314</locationX>
+        <locationY>323</locationY>
+        <defaultConnectorLabel>Default</defaultConnectorLabel>
+        <rules>
+            <name>Ready_to_Bill</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Billing_Status__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Ready to bill</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Update_Ship_Date_to_Today</targetReference>
+            </connector>
+            <label>Ready to Bill</label>
+        </rules>
+        <rules>
+            <name>Invoice_Sent</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Billing_Status__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Invoice sent</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Alert_ASG_Invoice_Sent</targetReference>
+            </connector>
+            <label>Invoice Sent</label>
+        </rules>
+    </decisions>
+    <description>12/2/25: for training record type only - update ship date automatically when status changed to &quot;ready to bill&quot;. no items actually get shipped, but this way the opportunity is following standard protocol. NB</description>
+    <environments>Default</environments>
+    <interviewLabel>Alert AR for Opp Ready to Bill {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Alert AR and ASG for Opp Billing Status Change</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <recordUpdates>
+        <name>Update_Ship_Date_to_Today</name>
+        <label>Update Ship Date to Today</label>
+        <locationX>50</locationX>
+        <locationY>431</locationY>
+        <connector>
+            <targetReference>Alert_AR_Ready_to_Bill</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Opp_Record_Type__c</field>
+            <operator>Contains</operator>
+            <value>
+                <stringValue>Training</stringValue>
+            </value>
+        </filters>
+        <inputAssignments>
+            <field>Ship_Date__c</field>
+            <value>
+                <elementReference>$Flow.CurrentDate</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <start>
+        <locationX>188</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Invoice_sent_or_Ready_to_Bill</targetReference>
+        </connector>
+        <filterLogic>or</filterLogic>
+        <filters>
+            <field>Billing_Status__c</field>
+            <operator>IsChanged</operator>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </filters>
+        <object>Opportunity</object>
+        <recordTriggerType>Update</recordTriggerType>
+        <triggerType>RecordAfterSave</triggerType>
+    </start>
+    <status>Draft</status>
+    <textTemplates>
+        <name>emailBodyInvoiceSent</name>
+        <isViewedAsPlainText>false</isViewedAsPlainText>
+        <text>&lt;p&gt;The following opportunity has been marked as invoice sent:&lt;/p&gt;&lt;p&gt;Opportunity: {!$Record.Name}&lt;/p&gt;&lt;p&gt;Account: {!$Record.Account.Name}&lt;/p&gt;&lt;p&gt;Total Invoice Amount: ${!$Record.Total_Storage_Invoice_Amount__c}&lt;/p&gt;&lt;p&gt;Next Invoice Date: {!$Record.Next_Invoice_Date__c}&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;Link to Opp: https://probomedical.lightning.force.com/lightning/r/Opportunity/{!$Record.Id}/view&lt;/p&gt;</text>
+    </textTemplates>
+    <textTemplates>
+        <name>emailBodyReadytoBill</name>
+        <isViewedAsPlainText>false</isViewedAsPlainText>
+        <text>&lt;p&gt;The following opportunity has been marked as ready to bill:&lt;/p&gt;&lt;p&gt;Opportunity: {!$Record.Name}&lt;/p&gt;&lt;p&gt;Account: {!$Record.Account.Name}&lt;/p&gt;&lt;p&gt;Total Invoice Amount: ${!$Record.Total_Storage_Invoice_Amount__c}&lt;/p&gt;&lt;p&gt;Next Invoice Date: {!$Record.Next_Invoice_Date__c}&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;Link to Opp: https://probomedical.lightning.force.com/lightning/r/Opportunity/{!$Record.Id}/view&lt;/p&gt;</text>
+    </textTemplates>
+    <textTemplates>
+        <name>subjectLineInvoiceSent</name>
+        <isViewedAsPlainText>true</isViewedAsPlainText>
+        <text>Equipment Storage Rental Opp Invoice Sent - {!$Record.Name}</text>
+    </textTemplates>
+    <textTemplates>
+        <name>subjectLineReadytoBill</name>
+        <isViewedAsPlainText>true</isViewedAsPlainText>
+        <text>Equipment Storage Rental Opp Ready to Bill - {!$Record.Name}</text>
+    </textTemplates>
+    <variables>
+        <name>recordId</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+</Flow>

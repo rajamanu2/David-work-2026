@@ -1,0 +1,90 @@
+<template>
+    <div class="wrap">
+
+        <!-- ================= CAPTURE PHASE ================= -->
+        <template lwc:if={isCapture}>
+
+            <!-- Preliminary toggle: skips signatures AND the required-field check. -->
+            <lightning-input
+                type="checkbox"
+                label="Preliminary Service Report (no signatures; required fields not verified)"
+                checked={preliminary}
+                onchange={handlePreliminaryChange}
+                class="prelim-toggle">
+            </lightning-input>
+
+            <!-- Running the required-field gate -->
+            <template lwc:if={isCheckingFields}>
+                <div class="center">
+                    <lightning-spinner alternative-text="Checking required fields" size="small"></lightning-spinner>
+                    <p class="note">Checking required fields&hellip;</p>
+                </div>
+            </template>
+
+            <!-- Required fields missing: name them, block the pads -->
+            <template lwc:if={showMissingFields}>
+                <div class="slds-box slds-theme_error slds-m-bottom_small">
+                    <p><strong>Complete these fields on the Work Order before signing:</strong></p>
+                    <ul class="slds-list_dotted slds-m-top_x-small">
+                        <template for:each={missingFields} for:item="f">
+                            <li key={f}>{f}</li>
+                        </template>
+                    </ul>
+                    <p class="slds-m-top_x-small">Close this window, complete the fields on the Work Order, then reopen to capture signatures.</p>
+                </div>
+            </template>
+
+            <!-- Preliminary mode note -->
+            <template lwc:if={showPreliminaryNote}>
+                <div class="slds-box slds-theme_warning slds-m-bottom_small">
+                    This will generate a <strong>Preliminary</strong> report with no signatures and without verifying required fields.
+                </div>
+            </template>
+
+            <!-- Signature pads only appear once required fields pass (and not preliminary).
+                 default-name pre-fills the engineer with their Service Resource name; it
+                 is safe to arrive late and never overwrites anything typed by hand. -->
+            <template lwc:if={showSignaturePads}>
+                <c-signature-pad
+                    label="Engineer"
+                    data-signer="engineer"
+                    default-name={engineerDefaultName}>
+                </c-signature-pad>
+                <c-signature-pad
+                    label="Customer"
+                    data-signer="customer">
+                </c-signature-pad>
+            </template>
+
+            <div class="btn-row">
+                <lightning-button label="Cancel" onclick={handleCancel}></lightning-button>
+                <lightning-button
+                    variant="brand"
+                    label={saveLabel}
+                    onclick={handleSave}
+                    disabled={saveDisabled}>
+                </lightning-button>
+            </div>
+        </template>
+
+        <!-- ================= WORKING PHASE ================= -->
+        <template lwc:if={isWorking}>
+            <div class="center">
+                <lightning-spinner alternative-text="Working" size="medium"></lightning-spinner>
+                <p class="note">{workingMessage}</p>
+            </div>
+        </template>
+
+        <!-- ================= DONE PHASE ================= -->
+        <template lwc:if={isDone}>
+            <div class="center">
+                <lightning-icon icon-name="action:approval" size="small"></lightning-icon>
+                <p class="done-msg">{doneMessage}</p>
+                <div class="btn-row center-btns">
+                    <lightning-button variant="brand" label="Done" onclick={handleClose}></lightning-button>
+                </div>
+            </div>
+        </template>
+
+    </div>
+</template>

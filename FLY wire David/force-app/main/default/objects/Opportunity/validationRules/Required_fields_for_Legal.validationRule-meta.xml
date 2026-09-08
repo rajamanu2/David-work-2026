@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Required_fields_for_Legal</fullName>
+    <active>true</active>
+    <description>Primary Quote Status must be Client Approved to change to Legal Stage
+Created from JIRA ticket: BOPI-289
+Updated to add the rest of contract related fields BOPI-528
+Updated to require legal fields from the quote BOPI-529
+BOPI-594 Updated to add ByPass</description>
+    <errorConditionFormula>AND(
+    $Profile.Name &lt;&gt; &quot;System Administrator&quot;,
+    $Profile.Name &lt;&gt; &quot;B - Looker&quot;,
+    $User.Alias &lt;&gt; &quot;Workato&quot;,
+    Probability &gt; 0.80,
+    OR(
+        Pricebook2.Name = &quot;CPQ&quot;,
+        ISBLANK(Pricebook2Id)
+    ),
+    OR(
+        RecordType.DeveloperName = &quot;Education&quot;,
+        RecordType.DeveloperName = &quot;Travel&quot;,
+        RecordType.DeveloperName = &quot;B2B&quot;,
+        RecordType.DeveloperName = &quot;Healthcare&quot;
+    ),
+    OR(
+        ISBLANK(SBQQ__PrimaryQuote__c),
+        NOT(ISPICKVAL(SBQQ__PrimaryQuote__r.SBQQ__Status__c, &quot;Client_Approved&quot;)),
+        ISBLANK(TEXT(SBQQ__PrimaryQuote__r.Exclusivity__c )),
+        ISBLANK(TEXT(SBQQ__PrimaryQuote__r.Termination__c)),
+        ISBLANK(TEXT(SBQQ__PrimaryQuote__r.Publicity__c)),
+        ISBLANK(TEXT(SBQQ__PrimaryQuote__r.Flywire_Entity__c)),
+        ISBLANK(TEXT(SBQQ__PrimaryQuote__r.SBQQ__PaymentTerms__c)),
+        AND(
+            ISPICKVAL(SBQQ__PrimaryQuote__r.PO_Required__c, &quot;Yes&quot;),
+            ISBLANK(SBQQ__PrimaryQuote__r.PO__c)
+        )
+    ),
+    NOT(ISPICKVAL(Type, &quot;Auto Renewal&quot;))
+)</errorConditionFormula>
+    <errorDisplayField>SBQQ__PrimaryQuote__c</errorDisplayField>
+    <errorMessage>Make sure that the Contract Information fields are completed on your primary quote and that your quote is approved.</errorMessage>
+</ValidationRule>

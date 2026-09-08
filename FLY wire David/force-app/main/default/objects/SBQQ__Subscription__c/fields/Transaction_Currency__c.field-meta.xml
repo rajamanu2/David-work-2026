@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Transaction_Currency__c</fullName>
+    <description>Used to twin value from Currency field on Quote Line to Subscription</description>
+    <inlineHelpText>Used to twin value from Currency field on Quote Line to Subscription</inlineHelpText>
+    <label>Transaction Currency</label>
+    <required>false</required>
+    <trackHistory>true</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetName>Transaction_Currencies</valueSetName>
+    </valueSet>
+</CustomField>

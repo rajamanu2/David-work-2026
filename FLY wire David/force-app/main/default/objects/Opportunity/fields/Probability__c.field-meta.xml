@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Probability__c</fullName>
+    <description>Adds a prefix number to the probability. Used to order probability (stage) when using Einstein Analytics</description>
+    <externalId>false</externalId>
+    <formula>CASE( StageName ,
+&quot;Prospecting&quot;, &quot;1- 10%&quot;,
+&quot;Meeting Held - Interested&quot;, &quot;2- 30%&quot;,
+&quot;RFP Submitted&quot;, &quot;3- 35%&quot;,
+&quot;Building Support From Stakeholders&quot;, &quot;4- 60%&quot;,
+&quot;Verbal Selection&quot;, &quot;5- 80%&quot;,
+&quot;Legal&quot;, &quot;6- 95%&quot;,
+&quot;Closed Won&quot;, &quot;7- 100%&quot;,
+NULL)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <inlineHelpText>Adds a prefix number to the probability. Used to order probability (stage) when using Einstein Analytics</inlineHelpText>
+    <label>OBS % Probability</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Unrolled_Attribute_Combo_Key__c</fullName>
+    <description>Created for BOPI-515</description>
+    <externalId>false</externalId>
+    <formula>TEXT(Product_Code__c) &amp; TEXT(Transaction_Type__c) &amp; TEXT(Payment_Method__c) &amp; TEXT(CC_Country__c) &amp; TEXT(Non_Local_Currency__c) &amp; TEXT(Surcharging__c)</formula>
+    <label>Unrolled Attribute Combo Key</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

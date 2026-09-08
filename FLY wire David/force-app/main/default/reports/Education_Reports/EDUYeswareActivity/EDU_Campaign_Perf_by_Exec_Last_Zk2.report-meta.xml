@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <aggregates>
+        <calculatedFormula>Activity.ywr__Yesware_Sent__c:SUM+Activity.ywr__Yesware_TotalCall__c:SUM</calculatedFormula>
+        <datatype>number</datatype>
+        <developerName>FORMULA1</developerName>
+        <isActive>true</isActive>
+        <isCrossBlock>false</isCrossBlock>
+        <masterLabel># Touches</masterLabel>
+        <scale>0</scale>
+    </aggregates>
+    <aggregates>
+        <calculatedFormula>IF(
+Activity.ywr__Yesware_Sent__c:SUM+Activity.ywr__Yesware_TotalCall__c:SUM&lt;&gt;0, 
+(Activity.ywr__Yesware_Reply__c:SUM+Activity.ywr__Yesware_ConnectCall__c:SUM)*100
+/
+(Activity.ywr__Yesware_Sent__c:SUM+Activity.ywr__Yesware_TotalCall__c:SUM), 
+0)</calculatedFormula>
+        <datatype>number</datatype>
+        <developerName>FORMULA2</developerName>
+        <isActive>true</isActive>
+        <isCrossBlock>false</isCrossBlock>
+        <masterLabel>Connect %</masterLabel>
+        <scale>1</scale>
+    </aggregates>
+    <aggregates>
+        <calculatedFormula>IF(Activity.ywr__Yesware_Sent__c:SUM = 0, 0,
+IF(
+
+IF( 
+ (Activity.ywr__Yesware_Link_Click__c:SUM*100)/Activity.ywr__Yesware_Sent__c:SUM &gt; 100, 100,
+IF(
+ Activity.ywr__Yesware_Sent__c:SUM&lt;&gt;0,
+ (Activity.ywr__Yesware_Link_Click__c:SUM*100)/Activity.ywr__Yesware_Sent__c:SUM,
+ 0
+))
+
+&lt;
+
+(Activity.ywr__Yesware_Link_Click__c:SUM*100/Activity.ywr__Yesware_Sent__c:SUM),
+
+IF( 
+ (Activity.ywr__Yesware_Link_Click__c:SUM*100)/Activity.ywr__Yesware_Sent__c:SUM &gt; 100, 100,
+IF(
+ Activity.ywr__Yesware_Sent__c:SUM&lt;&gt;0,
+ (Activity.ywr__Yesware_Link_Click__c:SUM*100)/Activity.ywr__Yesware_Sent__c:SUM,
+ 0
+)),
+
+IF( (Activity.ywr__Yesware_Link_Click__c:SUM*100/Activity.ywr__Yesware_Sent__c:SUM) &gt; 100, 100, (Activity.ywr__Yesware_Link_Click__c:SUM*100/Activity.ywr__Yesware_Sent__c:SUM)
+)))</calculatedFormula>
+        <datatype>number</datatype>
+        <developerName>FORMULA3</developerName>
+        <isActive>true</isActive>
+        <isCrossBlock>false</isCrossBlock>
+        <masterLabel>Click %</masterLabel>
+        <scale>1</scale>
+    </aggregates>
+    <aggregates>
+        <calculatedFormula>IF(Activity.ywr__Yesware_Sent__c:SUM = 0, 0,
+IF(
+
+IF( 
+ (Activity.ywr__Yesware_Open__c:SUM*100)/Activity.ywr__Yesware_Sent__c:SUM &gt; 100, 100,
+IF(
+ Activity.ywr__Yesware_Sent__c:SUM&lt;&gt;0,
+ (Activity.ywr__Yesware_Open__c:SUM*100)/Activity.ywr__Yesware_Sent__c:SUM,
+ 0
+))
+
+&lt;
+
+(Activity.ywr__Yesware_Reply__c:SUM*100/Activity.ywr__Yesware_Sent__c:SUM),
+
+IF( 
+ (Activity.ywr__Yesware_Open__c:SUM*100)/Activity.ywr__Yesware_Sent__c:SUM &gt; 100, 100,
+IF(
+ Activity.ywr__Yesware_Sent__c:SUM&lt;&gt;0,
+ (Activity.ywr__Yesware_Open__c:SUM*100)/Activity.ywr__Yesware_Sent__c:SUM,
+ 0
+)),
+
+IF( (Activity.ywr__Yesware_Reply__c:SUM*100/Activity.ywr__Yesware_Sent__c:SUM) &gt; 100, 100, (Activity.ywr__Yesware_Reply__c:SUM*100/Activity.ywr__Yesware_Sent__c:SUM)
+)))</calculatedFormula>
+        <datatype>number</datatype>
+        <developerName>FORMULA4</developerName>
+        <isActive>true</isActive>
+        <isCrossBlock>false</isCrossBlock>
+        <masterLabel>Reply%</masterLabel>
+        <scale>1</scale>
+    </aggregates>
+    <aggregates>
+        <calculatedFormula>IF(
+ Activity.ywr__Yesware_Sent__c:SUM=0, 0,
+ IF( 
+(Activity.ywr__Yesware_Open__c:SUM*100)/Activity.ywr__Yesware_Sent__c:SUM &gt; 100, 100,
+ (Activity.ywr__Yesware_Open__c:SUM*100)/Activity.ywr__Yesware_Sent__c:SUM
+))</calculatedFormula>
+        <datatype>number</datatype>
+        <developerName>FORMULA5</developerName>
+        <isActive>true</isActive>
+        <isCrossBlock>false</isCrossBlock>
+        <masterLabel>Open %</masterLabel>
+        <scale>1</scale>
+    </aggregates>
+    <chart>
+        <backgroundColor1>#FFFFFF</backgroundColor1>
+        <backgroundColor2>#FFFFFF</backgroundColor2>
+        <backgroundFadeDir>Diagonal</backgroundFadeDir>
+        <chartSummaries>
+            <axisBinding>y</axisBinding>
+            <column>FORMULA1</column>
+        </chartSummaries>
+        <chartType>HorizontalBar</chartType>
+        <enableHoverLabels>false</enableHoverLabels>
+        <expandOthers>true</expandOthers>
+        <groupingColumn>ASSIGNED</groupingColumn>
+        <location>CHART_BOTTOM</location>
+        <showAxisLabels>false</showAxisLabels>
+        <showPercentage>false</showPercentage>
+        <showTotal>false</showTotal>
+        <showValues>false</showValues>
+        <size>Medium</size>
+        <summaryAxisRange>Auto</summaryAxisRange>
+        <textColor>#000000</textColor>
+        <textSize>12</textSize>
+        <titleColor>#000000</titleColor>
+        <titleSize>18</titleSize>
+    </chart>
+    <columns>
+        <field>SUBJECT</field>
+    </columns>
+    <currency>USD</currency>
+    <filter>
+        <criteriaItems>
+            <column>Activity.ywr__YeswareIsCampaign__c</column>
+            <columnToColumn>false</columnToColumn>
+            <isUnlocked>false</isUnlocked>
+            <operator>equals</operator>
+            <value>1</value>
+        </criteriaItems>
+    </filter>
+    <format>Summary</format>
+    <groupingsDown>
+        <dateGranularity>Day</dateGranularity>
+        <field>ASSIGNED</field>
+        <sortOrder>Asc</sortOrder>
+    </groupingsDown>
+    <groupingsDown>
+        <dateGranularity>Day</dateGranularity>
+        <field>Activity.ywr__YeswareCampaignName__c</field>
+        <sortOrder>Asc</sortOrder>
+    </groupingsDown>
+    <name>EDU Campaign Perf. by Exec | Last</name>
+    <params>
+        <name>closed</name>
+        <value>closed</value>
+    </params>
+    <params>
+        <name>type</name>
+        <value>t</value>
+    </params>
+    <params>
+        <name>co</name>
+        <value>0</value>
+    </params>
+    <reportType>Activity</reportType>
+    <roleHierarchyFilter>AE_Edu</roleHierarchyFilter>
+    <scope>team</scope>
+    <showDetails>false</showDetails>
+    <showGrandTotal>true</showGrandTotal>
+    <showSubTotals>false</showSubTotals>
+    <timeFrameFilter>
+        <dateColumn>CREATED_DATE</dateColumn>
+        <interval>INTERVAL_LAST90</interval>
+    </timeFrameFilter>
+</Report>

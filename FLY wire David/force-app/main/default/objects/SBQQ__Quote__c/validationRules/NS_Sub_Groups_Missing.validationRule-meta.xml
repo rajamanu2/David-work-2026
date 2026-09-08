@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>NS_Sub_Groups_Missing</fullName>
+    <active>true</active>
+    <description>Created for SALDEV-1073. Used to keep Amendment/Renewal Quotes from being saved if there is no NS Sub Groups combined value on the original contract.</description>
+    <errorConditionFormula>OR(
+AND(
+ISBLANK(SBQQ__Opportunity2__r.SBQQ__AmendedContract__r.NS_Sub_Groups_Combined__c),
+ISPICKVAL(SBQQ__Type__c, &quot;Amendment&quot;),
+ISPICKVAL(SBQQ__Status__c, &quot;Client_Approved&quot;)),
+AND(
+NOT(ISPICKVAL(SBQQ__Opportunity2__r.Type, &quot;Auto Renewal&quot;)),
+ISBLANK( SBQQ__Opportunity2__r.SBQQ__RenewedContract__r.NS_Sub_Groups_Combined__c),
+ISPICKVAL(SBQQ__Type__c, &quot;Renewal&quot;),
+ISPICKVAL(SBQQ__Status__c, &quot;Client_Approved&quot;)))</errorConditionFormula>
+    <errorMessage>This Quote is missing a req System Field &quot;NS Sub Groups&quot;, please submit a Jira ticket with this error to your Salesforce Admin to resolve.</errorMessage>
+</ValidationRule>

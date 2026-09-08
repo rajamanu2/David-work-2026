@@ -1,0 +1,21 @@
+<template>
+    <div>
+        <template if:true={existingRecordsDataAvailable}>
+            <lightning-layout>
+                <lightning-formatted-text>Please select the line item(s).</lightning-formatted-text>
+            </lightning-layout>
+            <lightning-datatable
+                data={existingRecordsData}
+                columns={existingRecordsColumns}
+                onrowselection={handleSelectedLineItems}
+                key-field="Id">
+            </lightning-datatable> 
+            <div class="slds-grid  slds-wrap" style="display: flex; margin-top: 4%">
+                    <div class="slds-col slds-size_1-of-2 slds-medium-size_1-of-1 slds-large-size_1-of-1" style="text-align: center">
+                        <lightning-button variant="brand" label="Next" title="Next" name="next"  onclick='{handleNext}' class="slds-m-left_x-small"></lightning-button>
+                        <lightning-button variant="brand" label="Cancel" title="Cancel" name="cancel"  onclick={handleCancel} class="slds-m-left_x-small"></lightning-button>
+                    </div>
+            </div> 
+       </template>
+    </div>      
+</template>

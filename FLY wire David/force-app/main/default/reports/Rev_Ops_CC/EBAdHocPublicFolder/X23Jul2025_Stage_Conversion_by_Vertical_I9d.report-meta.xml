@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <buckets>
+        <bucketType>picklist</bucketType>
+        <developerName>BucketField_77323557</developerName>
+        <masterLabel>Bucket: From Stage</masterLabel>
+        <nullTreatment>n</nullTreatment>
+        <sourceColumnName>FROM_OPPORTUNITY_STAGE_NAME</sourceColumnName>
+        <useOther>false</useOther>
+        <values>
+            <sourceValues>
+                <sourceValue>Legal</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>Verbal Selection</sourceValue>
+            </sourceValues>
+            <value>3. Late Stage</value>
+        </values>
+        <values>
+            <sourceValues>
+                <sourceValue>Active RFP</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>Demo/Building Support</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>Discovery/Qualifying</sourceValue>
+            </sourceValues>
+            <value>1. Early Stage</value>
+        </values>
+        <values>
+            <sourceValues>
+                <sourceValue>Proposal/Negotiating</sourceValue>
+            </sourceValues>
+            <value>2. Mid Stage</value>
+        </values>
+    </buckets>
+    <buckets>
+        <bucketType>picklist</bucketType>
+        <developerName>BucketField_82424331</developerName>
+        <masterLabel>Bucket: To Stage</masterLabel>
+        <nullTreatment>n</nullTreatment>
+        <sourceColumnName>STAGE_NAME</sourceColumnName>
+        <useOther>false</useOther>
+        <values>
+            <sourceValues>
+                <sourceValue>Discovery/Qualifying</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>Demo/Building Support</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>Active RFP</sourceValue>
+            </sourceValues>
+            <value>1. Early Stage</value>
+        </values>
+        <values>
+            <sourceValues>
+                <sourceValue>Proposal/Negotiating</sourceValue>
+            </sourceValues>
+            <value>2. Mid Stage</value>
+        </values>
+        <values>
+            <sourceValues>
+                <sourceValue>Legal</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>Verbal Selection</sourceValue>
+            </sourceValues>
+            <value>3. Late Stage</value>
+        </values>
+    </buckets>
+    <columns>
+        <field>STAGE_DURATION</field>
+    </columns>
+    <columns>
+        <field>OPPORTUNITY.NAME</field>
+    </columns>
+    <columns>
+        <field>OWNER_NAME</field>
+    </columns>
+    <columns>
+        <aggregateTypes>Sum</aggregateTypes>
+        <field>Opportunity.Unique_Opportunity__c</field>
+    </columns>
+    <currency>USD</currency>
+    <filter>
+        <booleanFilter>1 AND 2 AND 3 AND 4 AND 5 AND 6 AND 7 AND 8 AND (9 OR (10 AND 11))</booleanFilter>
+        <criteriaItems>
+            <column>STAGE_CHANGE</column>
+            <columnToColumn>false</columnToColumn>
+            <isUnlocked>true</isUnlocked>
+            <operator>equals</operator>
+            <value>1</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>FROM_OPPORTUNITY_STAGE_NAME</column>
+            <columnToColumn>false</columnToColumn>
+            <isUnlocked>true</isUnlocked>
+            <operator>equals</operator>
+            <value>Discovery/Qualifying,Demo/Building Support,Active RFP,Proposal/Negotiating,Verbal Selection,Legal,Closed Won</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>STAGE_NAME</column>
+            <columnToColumn>false</columnToColumn>
+            <isUnlocked>true</isUnlocked>
+            <operator>notEqual</operator>
+            <value>Closed Lost</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>LAST_STAGE_CHANGE_DATE</column>
+            <columnToColumn>false</columnToColumn>
+            <isUnlocked>true</isUnlocked>
+            <operator>equals</operator>
+            <value>LAST_N_DAYS:30</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>ACCOUNT.NAME</column>
+            <columnToColumn>false</columnToColumn>
+            <isUnlocked>true</isUnlocked>
+            <operator>notContain</operator>
+            <value>FW test,Flywire</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>OPPORTUNITY.NAME</column>
+            <columnToColumn>false</columnToColumn>
+            <isUnlocked>true</isUnlocked>
+            <operator>notContain</operator>
+            <value>test,Flywire University,Data Cleanup,Delete,Duplicate,Dupe,Renewal</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>OWNER_EMAIL</column>
+            <columnToColumn>false</columnToColumn>
+            <isUnlocked>true</isUnlocked>
+            <operator>notEqual</operator>
+            <value>ada@flywire.com,allison.campbell@flywire.com,julie.ko@flywire.com,laura.luna@flywire.com,jarki.melendez@flywire.com</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>TYPE</column>
+            <columnToColumn>false</columnToColumn>
+            <isUnlocked>true</isUnlocked>
+            <operator>equals</operator>
+            <value>New Business,Existing Business,Renewal + Upsell</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>RECORDTYPE</column>
+            <columnToColumn>false</columnToColumn>
+            <isUnlocked>true</isUnlocked>
+            <operator>equals</operator>
+            <value>Opportunity.B2B,Opportunity.Education,Opportunity.Healthcare</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>RECORDTYPE</column>
+            <columnToColumn>false</columnToColumn>
+            <isUnlocked>true</isUnlocked>
+            <operator>equals</operator>
+            <value>Opportunity.Travel</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>OPPORTUNITY.NAME</column>
+            <columnToColumn>false</columnToColumn>
+            <isUnlocked>true</isUnlocked>
+            <operator>notContain</operator>
+            <value>Amend</value>
+        </criteriaItems>
+    </filter>
+    <format>Matrix</format>
+    <groupingsAcross>
+        <dateGranularity>Day</dateGranularity>
+        <field>BucketField_82424331</field>
+        <sortOrder>Asc</sortOrder>
+    </groupingsAcross>
+    <groupingsDown>
+        <dateGranularity>Day</dateGranularity>
+        <field>RECORDTYPE</field>
+        <sortOrder>Asc</sortOrder>
+    </groupingsDown>
+    <groupingsDown>
+        <dateGranularity>Day</dateGranularity>
+        <field>BucketField_77323557</field>
+        <sortOrder>Asc</sortOrder>
+    </groupingsDown>
+    <name>23Jul2025 Stage Conversion by Vertical</name>
+    <params>
+        <name>include</name>
+        <value>all</value>
+    </params>
+    <params>
+        <name>co</name>
+        <value>0</value>
+    </params>
+    <reportType>OpportunityHistory</reportType>
+    <scope>all</scope>
+    <showDetails>true</showDetails>
+    <showGrandTotal>true</showGrandTotal>
+    <showSubTotals>true</showSubTotals>
+    <timeFrameFilter>
+        <dateColumn>OPP_CLOSE_DATE</dateColumn>
+        <interval>INTERVAL_CURRENT</interval>
+    </timeFrameFilter>
+</Report>

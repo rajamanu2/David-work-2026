@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>ContractURLtoDrive</fullName>
+    <active>true</active>
+    <description>Require Contract URL and verify URL in Drive. Created from JIRA ticket: BOPI-338. 
+Ada 9-15-24 Updted Error message and description only.
+BOPI-526 Updated to ignore system users and non CPQ opps.</description>
+    <errorConditionFormula>AND(
+    $Profile.Name &lt;&gt; &quot;B - Looker&quot;,
+    $User.Alias &lt;&gt; &quot;Workato&quot;,
+    Pricebook2.Name = &apos;CPQ&apos;,
+    NOT(ISBLANK(Contract_URL__c)),
+    LOWER(LEFT(Contract_URL__c,24)) &lt;&gt; &quot;https://drive.google.com&quot;
+)</errorConditionFormula>
+    <errorDisplayField>Contract_URL__c</errorDisplayField>
+    <errorMessage>The Contract linked should be the final countersigned version in the &quot;Legal -Contracts&quot; folder in Drive. Be sure to enter the correct URL.</errorMessage>
+</ValidationRule>

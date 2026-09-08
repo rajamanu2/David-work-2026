@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SharingRules xmlns="http://soap.sforce.com/2006/04/metadata">
+    <sharingCriteriaRules>
+        <fullName>All_Edu</fullName>
+        <accessLevel>Edit</accessLevel>
+        <description>Edu can convert if Industry Edu</description>
+        <label>All Edu</label>
+        <sharedTo>
+            <roleAndSubordinatesInternal>AE_Edu</roleAndSubordinatesInternal>
+        </sharedTo>
+        <criteriaItems>
+            <field>Industry</field>
+            <operation>equals</operation>
+            <value>Education</value>
+        </criteriaItems>
+        <includeRecordsOwnedByAll>false</includeRecordsOwnedByAll>
+    </sharingCriteriaRules>
+    <sharingOwnerRules>
+        <fullName>All_Leads_Open</fullName>
+        <accessLevel>Edit</accessLevel>
+        <label>All Leads Open</label>
+        <sharedTo>
+            <roleAndSubordinatesInternal>Support_Services</roleAndSubordinatesInternal>
+        </sharedTo>
+        <sharedFrom>
+            <roleAndSubordinatesInternal>Support_Services</roleAndSubordinatesInternal>
+        </sharedFrom>
+    </sharingOwnerRules>
+    <sharingOwnerRules>
+        <fullName>Lead_Reassignment</fullName>
+        <accessLevel>Edit</accessLevel>
+        <description>Allow those working on Leads to reassign regardless of owner</description>
+        <label>Lead Reassignment</label>
+        <sharedTo>
+            <group>Lead_Managers</group>
+        </sharedTo>
+        <sharedFrom>
+            <allInternalUsers></allInternalUsers>
+        </sharedFrom>
+    </sharingOwnerRules>
+    <sharingOwnerRules>
+        <fullName>Support</fullName>
+        <accessLevel>Edit</accessLevel>
+        <description>Allow all leads to be managed by others.</description>
+        <label>Support</label>
+        <sharedTo>
+            <group>Support</group>
+        </sharedTo>
+        <sharedFrom>
+            <group>Support</group>
+        </sharedFrom>
+    </sharingOwnerRules>
+</SharingRules>

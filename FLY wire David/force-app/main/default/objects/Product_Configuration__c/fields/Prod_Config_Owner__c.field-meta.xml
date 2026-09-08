@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Prod_Config_Owner__c</fullName>
+    <description>Relationship Manager for related Account</description>
+    <externalId>false</externalId>
+    <formula>IF( NOT(ISBLANK( Account__r.Relationship_Manager__c)) , Account__r.Relationship_Manager__r.Flow_Full_Name__c,
+
+IF( NOT(ISBLANK( Account__r.Relationship_Associate__c)) ,Account__r.Relationship_Associate__r.Flow_Full_Name__c,
+
+IF( NOT(ISBLANK( Account__r.CS_Specialist__c)), Account__r.CS_Specialist__r.Flow_Full_Name__c, Account__r.Relationship_Manager__r.Flow_Full_Name__c )))</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <inlineHelpText>Auto populated Owner from Account Record Relationship Manager field.</inlineHelpText>
+    <label>Prod Config Owner</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

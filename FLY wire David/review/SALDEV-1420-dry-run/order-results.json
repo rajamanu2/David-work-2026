@@ -1,0 +1,135 @@
+{
+  "scope": "Synthetic local comparison; not Apex or live UAT",
+  "cases": [
+    {
+      "scenario": "All ramped, different terms",
+      "expected": [
+        "G1",
+        "G2",
+        "G3"
+      ],
+      "rule_simulation": [
+        "G1",
+        "G2",
+        "G3"
+      ],
+      "local_name_sort": [
+        "G1",
+        "G2",
+        "G3"
+      ],
+      "obsolete_term_sort": [
+        "G3",
+        "G1",
+        "G2"
+      ]
+    },
+    {
+      "scenario": "Three non-ramped",
+      "expected": [
+        "G1",
+        "G2",
+        "G3"
+      ],
+      "rule_simulation": [
+        "G1",
+        "G2",
+        "G3"
+      ],
+      "local_name_sort": [
+        "G1",
+        "G2",
+        "G3"
+      ],
+      "obsolete_term_sort": [
+        "G1",
+        "G2",
+        "G3"
+      ]
+    },
+    {
+      "scenario": "One non-ramped, two ramped",
+      "expected": [
+        "G1",
+        "G2",
+        "G3"
+      ],
+      "rule_simulation": [
+        "G1",
+        "G2",
+        "G3"
+      ],
+      "local_name_sort": [
+        "G1",
+        "G2",
+        "G3"
+      ],
+      "obsolete_term_sort": [
+        "G1",
+        "G3",
+        "G2"
+      ]
+    },
+    {
+      "scenario": "72 month mixed terms",
+      "expected": [
+        "G4",
+        "G1",
+        "G2",
+        "G3"
+      ],
+      "rule_simulation": [
+        "G4",
+        "G1",
+        "G2",
+        "G3"
+      ],
+      "local_name_sort": [
+        "G1",
+        "G2",
+        "G3",
+        "G4"
+      ],
+      "obsolete_term_sort": [
+        "G4",
+        "G3",
+        "G1",
+        "G2"
+      ]
+    },
+    {
+      "scenario": "Two non-ramped, two ramped",
+      "expected": [
+        "G3",
+        "G4",
+        "G1",
+        "G2"
+      ],
+      "rule_simulation": [
+        "G3",
+        "G4",
+        "G1",
+        "G2"
+      ],
+      "local_name_sort": [
+        "G1",
+        "G2",
+        "G3",
+        "G4"
+      ],
+      "obsolete_term_sort": [
+        "G3",
+        "G4",
+        "G2",
+        "G1"
+      ]
+    },
+    {
+      "scenario": "No groups",
+      "expected": [],
+      "rule_simulation": [],
+      "local_name_sort": [],
+      "obsolete_term_sort": []
+    }
+  ]
+}

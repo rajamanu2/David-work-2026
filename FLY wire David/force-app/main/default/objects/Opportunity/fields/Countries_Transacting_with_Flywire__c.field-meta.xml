@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Countries_Transacting_with_Flywire__c</fullName>
+    <description>B2B Field to help with ARR and Payment Flow Analysis. SAL-3169</description>
+    <inlineHelpText>Select all the countries the Client will be transacting in across Flwyire</inlineHelpText>
+    <label>Countries Transacting with Flywire</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>MultiselectPicklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetName>Country</valueSetName>
+    </valueSet>
+    <visibleLines>6</visibleLines>
+</CustomField>

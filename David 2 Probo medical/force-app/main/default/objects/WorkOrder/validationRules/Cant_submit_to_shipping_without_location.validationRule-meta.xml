@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Cant_submit_to_shipping_without_location</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND( Submit_to_Shipping__c, ISBLANK(TEXT( Shipping_FROM_Location__c )), OR(DATEVALUE(CreatedDate) &gt; DATE(2021,12,07), ISNEW()))</errorConditionFormula>
+    <errorMessage>You cannot submit to shipping without shipping from location.</errorMessage>
+</ValidationRule>

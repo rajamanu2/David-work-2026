@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Fill_out_customer_expectation</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND(RecordType.Name = &quot;RFS/Warranty Claim&quot;,  ISBLANK(TEXT(Customer_Expectation__c)))</errorConditionFormula>
+    <errorMessage>You must fill out the customer expectation field.</errorMessage>
+</ValidationRule>

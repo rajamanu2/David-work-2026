@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>SSO_Version__c</fullName>
+    <description>SSO Version</description>
+    <inlineHelpText>SSO Version</inlineHelpText>
+    <label>SSO Version</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>SAML2</fullName>
+                <default>false</default>
+                <label>SAML2</label>
+            </value>
+            <value>
+                <fullName>SHA512</fullName>
+                <default>false</default>
+                <label>SHA512</label>
+            </value>
+            <value>
+                <fullName>CAS</fullName>
+                <default>false</default>
+                <label>CAS</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

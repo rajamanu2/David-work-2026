@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Com_Accounts</fullName>
+    <columns>ACCOUNT.NAME</columns>
+    <columns>Account_Sub_Industry__c</columns>
+    <columns>Account_Status__c</columns>
+    <columns>ACCOUNT.ADDRESS1_STATE</columns>
+    <columns>CORE.USERS.ALIAS</columns>
+    <columns>ACCOUNT.LAST_ACTIVITY</columns>
+    <columns>ACCOUNT.ADDRESS2_COUNTRY_CODE</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>ACCOUNT.RECORDTYPE</field>
+        <operation>equals</operation>
+        <value>Account.Travel</value>
+    </filters>
+    <filters>
+        <field>Account_Industry__c</field>
+        <operation>equals</operation>
+        <value>Accommodations,DMC,Other,Travel,Travel Operator</value>
+    </filters>
+    <label>Travel Accounts</label>
+</ListView>

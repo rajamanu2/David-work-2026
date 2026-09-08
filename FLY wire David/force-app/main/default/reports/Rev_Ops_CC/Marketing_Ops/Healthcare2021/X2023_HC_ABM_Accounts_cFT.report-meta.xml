@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>ACCOUNT.NAME</field>
+    </columns>
+    <columns>
+        <field>ADDRESS1_STATE</field>
+    </columns>
+    <columns>
+        <field>Account.AccountLongID__c</field>
+    </columns>
+    <columns>
+        <field>Account.Account_Category__c</field>
+    </columns>
+    <columns>
+        <field>ACCOUNT_ID</field>
+    </columns>
+    <currency>USD</currency>
+    <filter>
+        <booleanFilter>1 OR 2 OR 3 OR 4 OR ((5 AND 6) OR (7 AND 8))</booleanFilter>
+        <criteriaItems>
+            <column>ACCOUNT.NAME</column>
+            <columnToColumn>false</columnToColumn>
+            <isUnlocked>true</isUnlocked>
+            <operator>equals</operator>
+            <value>Adventist HealthCare (MD),AHMC Healthcare,Albany Medical Center Health System,Antelope Valley Hospital (FKA Antelope Valley Hospital Medical Center),AtlantiCare,Baptist Health (Jacksonville FL),Baptist Health (Louisville KY),Baptist Health South Florida,BayCare Health System,Baystate Health,Beacon Health (Memorial Hospital &amp; Health System),Billings Clinic Health System,Broward Health,Butler Health System,Cape Cod Hospital,Capital Health,Care New England,Catholic Health Services of Long Island,Childrens Hospital Colorado System,Childrens Hospital of Los Angeles,CHOC Childrens,CHRISTUS Health,Citrus Valley Health Partners,Cleveland Clinic Health System,Commonwealth Health,Community Health Network,CoxHealth,Crozer-Keystone Health System,Doctors Hospital at Renaissance,El Paso County Hospital District,Emory Healthcare,Encompass Health fka HealthSouth,Essentia Health,Excela Health,Fairfield Medical Center,Franciscan Alliance,Geisinger Health System,Genesis Health System</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>ACCOUNT.NAME</column>
+            <columnToColumn>false</columnToColumn>
+            <isUnlocked>true</isUnlocked>
+            <operator>equals</operator>
+            <value>Gillette Childrens Specialty Health,Great Lakes Health System of Western New York,Hawaii Health Systems Corp (HHSC),Hendrick Health,Henry Ford Health (FKA Henry Ford Health System),Holland Community Hospital,Huntsville Hospital System,Indiana University Health (AKA IU Health),Jackson Health System (FL),Jefferson Health System,Jennie Edmundson Hospital,Johns Hopkins Health System (AKA Johns Hopkins Medicine),Kaiser Permanente,Kaleida Health,KPC Group (AKA KPC Healthcare),Lawrence Memorial Hospital (AKA LMH Health),Lee Health (AKA Lee Memorial Health System),Legacy Health,Los Angeles County Health Agency (FKA Los Angeles County Department of Health Services),M Health Fairview (FKA Fairview Health Services),Maimonides,Main Line Health,MaineHealth,Marshfield Medical Center - Eau Claire,McLaren Health Care Corporation,Medical University of South Carolina Health System (AKA MUSC Health),MedStar Health,Memorial Healthcare System (FL),Moffitt Cancer Center,Mount Sinai Health System (FKA Mount Sinai Medical Center),Navicent Health (FKA Central Georgia Health System),Nebraska Methodist Health System,Nebraska Methodist Hospital,NewYork-Presbyterian Healthcare System,North Mississippi Medical Center System,Northbay Healthcare,Northside Hospital System</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>ACCOUNT.NAME</column>
+            <columnToColumn>false</columnToColumn>
+            <isUnlocked>true</isUnlocked>
+            <operator>equals</operator>
+            <value>Northwell Health (AKA North Shore Long Island Jewish Health System),Norton Healthcare,NYU Langone Health (FKA NYU Langone Medical Center),Ohio State University Wexner Medical Center (AKA Ohio State University Health System),OHSU Partners,Oklahoma Heart Hospital,Parkland Health and Hospital System,Parkview Health,PeaceHealth,Penn State Hershey Health System,PIH Health,Pipeline Health,Pomona Valley Hospital Medical Center,Premier Health (FKA: Premier Health Partners),Prisma Health (FKA SC Health Company),Prospect Medical Holdings Inc.,Regional West Health Services,Regional West Medical Center,RWJBarnabas Health,Saint Francis Health System,San Antonio Regional Hospital,Sanford Health,Sarah Bush Lincoln Health Center,SCP Health,Scripps Health,Seattle Childrens Hospital,Sentara Healthcare,Shannon Health,Shawnee Mission Medical Center,Silver Cross Hospital,Southcoast Health System,Southwest General Health Center,Southwest Healthcare System,SSM Health Care,St Charles Health System,St John Health System (FKA Marian Health System),St Josephs Healthcare System,Stanford Medicine,Stony Brook Medicine (AKA Stony Brook University Hospital System),The University of Vermont Health Network (FKA Fletcher Allen Partners),Tallahassee Memorial Healthcare</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>ACCOUNT.NAME</column>
+            <columnToColumn>false</columnToColumn>
+            <isUnlocked>true</isUnlocked>
+            <operator>equals</operator>
+            <value>Tampa General Hospital,Team Health,The University of Kansas Health System,The University of Vermont Health Network (FKA Fletcher Allen Partners),UCHealth (AKA University of Colorado Health),UMass Memorial Health Care,UNC Health (FKA UNC Health Care),Union Hospital Health Group,Universal Health Services,University Medical Center (UMC) of Southern Nevada,University of Florida Health (FKA Shands Healthcare),University of Illinois Hospital &amp; Health Sciences System (AKA UI Health),University of Maryland Medical System,University of Miami Health System (AKA UHealth),University Of Michigan Health System,University of Missouri Health Care (AKA MU Health Care),University of New Mexico Health System,University of Tennessee Medical Center,University of Texas System,University of Utah Health Care,University of Washington (UW) Medicine,University Of Wisconsin Health (UW Health),VCU Health System,Ventura County Health Care Agency,WellStar Health System,WVU Medicine (AKA West Virginia University Health System),Tahoe Forest Health System (Tahoe Forest Hospital District)</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>ACCOUNT.NAME</column>
+            <columnToColumn>false</columnToColumn>
+            <isUnlocked>true</isUnlocked>
+            <operator>equals</operator>
+            <value>Memorial Medical Center</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>ADDRESS2_STATE</column>
+            <columnToColumn>false</columnToColumn>
+            <isUnlocked>true</isUnlocked>
+            <operator>equals</operator>
+            <value>IL,Illinois</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>ACCOUNT.NAME</column>
+            <columnToColumn>false</columnToColumn>
+            <isUnlocked>true</isUnlocked>
+            <operator>equals</operator>
+            <value>Trinity Hospital</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>ADDRESS2_STATE</column>
+            <columnToColumn>false</columnToColumn>
+            <isUnlocked>true</isUnlocked>
+            <operator>equals</operator>
+            <value>ND,North Dakota</value>
+        </criteriaItems>
+    </filter>
+    <format>Tabular</format>
+    <name>2023 HC ABM Accounts</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>AccountList</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <showGrandTotal>true</showGrandTotal>
+    <showSubTotals>true</showSubTotals>
+    <sortColumn>Account.Account_Category__c</sortColumn>
+    <sortOrder>Asc</sortOrder>
+    <timeFrameFilter>
+        <dateColumn>CREATED_DATE</dateColumn>
+        <interval>INTERVAL_CUSTOM</interval>
+    </timeFrameFilter>
+</Report>

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Non_Standard_Terms_cannot_exceed_300</fullName>
+    <active>true</active>
+    <description>Non-Standard Terms field cannot exceed 300 characters due to limitations within NS. Created for SALDEV-1083.</description>
+    <errorConditionFormula>LEN(Non_Standard_Terms__c) &gt; 300</errorConditionFormula>
+    <errorMessage>The Non-Standard Terms you are trying to enter exceeds 300 characters. Please enter a value no greater than 300 characters.</errorMessage>
+</ValidationRule>

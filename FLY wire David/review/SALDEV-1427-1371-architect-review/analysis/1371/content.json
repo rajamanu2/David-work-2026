@@ -1,0 +1,352 @@
+{
+  "source": "C:\\Users\\LIKKI\\Downloads\\SALDEV-1371.docx",
+  "sha256": "e24cf235ce9763198c600b8081b6267012ef59ba583c014160593a3bd2f9a971",
+  "sections": 1,
+  "paragraphs": [
+    {
+      "index": 0,
+      "style": "normal",
+      "text": "SALDEV-1371"
+    },
+    {
+      "index": 1,
+      "style": "Heading 2",
+      "text": "Cloning QL should not clone ARR field values (QCP Cloning Custom Script)"
+    },
+    {
+      "index": 4,
+      "style": "Heading 3",
+      "text": "Details"
+    },
+    {
+      "index": 5,
+      "style": "normal",
+      "text": "Type:"
+    },
+    {
+      "index": 6,
+      "style": "normal",
+      "text": " Story"
+    },
+    {
+      "index": 7,
+      "style": "normal",
+      "text": "Resolution:"
+    },
+    {
+      "index": 8,
+      "style": "normal",
+      "text": "Duplicate"
+    },
+    {
+      "index": 9,
+      "style": "normal",
+      "text": "Priority:"
+    },
+    {
+      "index": 10,
+      "style": "normal",
+      "text": " High"
+    },
+    {
+      "index": 11,
+      "style": "normal",
+      "text": "Fix Version/s:"
+    },
+    {
+      "index": 12,
+      "style": "normal",
+      "text": "vStep-up Pricing"
+    },
+    {
+      "index": 13,
+      "style": "normal",
+      "text": "Affects Version/s:"
+    },
+    {
+      "index": 14,
+      "style": "normal",
+      "text": "None"
+    },
+    {
+      "index": 15,
+      "style": "normal",
+      "text": "Labels:"
+    },
+    {
+      "index": 16,
+      "style": "normal",
+      "text": "PreGroomed"
+    },
+    {
+      "index": 17,
+      "style": "normal",
+      "text": " ReadyToBuild"
+    },
+    {
+      "index": 18,
+      "style": "normal",
+      "text": " RevOps"
+    },
+    {
+      "index": 19,
+      "style": "normal",
+      "text": "Epic Link:"
+    },
+    {
+      "index": 20,
+      "style": "normal",
+      "text": "[EPIC] StepUp - ARR Updates"
+    },
+    {
+      "index": 21,
+      "style": "normal",
+      "text": "Sprint:"
+    },
+    {
+      "index": 22,
+      "style": "normal",
+      "text": "Sprint 20: 8/24 - 9/4"
+    },
+    {
+      "index": 23,
+      "style": "normal",
+      "text": "Story Points:"
+    },
+    {
+      "index": 24,
+      "style": "normal",
+      "text": "3"
+    },
+    {
+      "index": 25,
+      "style": "normal",
+      "text": "User Story:"
+    },
+    {
+      "index": 26,
+      "style": "normal",
+      "text": "I want to be able to clone products in quote without inflating ARR values so I can build quotes faster while still having ARR correct."
+    },
+    {
+      "index": 27,
+      "style": "normal",
+      "text": "Requirement Detail:"
+    },
+    {
+      "index": 28,
+      "style": "normal",
+      "text": "When a quote line is cloned, either for price change or other purposes, the fields that calculate ARR should not be cloned as well. This is currently leading to erroneous data, as discovered on SALDEV-1351:"
+    },
+    {
+      "index": 30,
+      "style": "normal",
+      "text": "1. When a user clones a quote line, CPQ duplicates all database values (including Est_Annual_MM__c) onto the new line.\n 2. The existing JavaScript QCP script was correctly configured to hide the field visibility on subsequent lines inside the Quote Line Editor drawer interface. However, hiding a field in the UI does not clear its underlying data value.\n3. Because the cloned value (1,500,000 / 120,000,000) remained active in the database row upon saving, the background record-triggered Flow (APAC Op Travel CCY) ran its evaluation formula, causing unexpected ARR calculation on lines where the field appeared visually blank.\n4. Contrast with \"Add Products\": Clicking \"Add Products\" generates a completely fresh line with no inherited values, explaining why the issue never occurred when adding items from scratch.\n\nUpdate the custom script - is it CloneHandler only or QCP?"
+    },
+    {
+      "index": 31,
+      "style": "normal",
+      "text": "Design Detail:"
+    },
+    {
+      "index": 32,
+      "style": "normal",
+      "text": "Below are the ARR field values that are getting copied and hidden in the QLE drawer:"
+    },
+    {
+      "index": 34,
+      "style": "normal",
+      "text": "Est Annual MM\nEstimated Volume\nAnnual # of Domestic Transactions\nAnnual Total Domestic Volume\nAnnual # Surcharge Transactions\nAnnual Total Surcharge Volume\n% Utilization\n\nUpdate these field to null on cloning in the Custom script CloneHandler."
+    },
+    {
+      "index": 35,
+      "style": "normal",
+      "text": "Implementation Detail:"
+    },
+    {
+      "index": 36,
+      "style": "normal",
+      "text": "Updated QCP : QCP_HideFieldInQLE and"
+    },
+    {
+      "index": 37,
+      "style": "normal",
+      "text": "Updated: QLE_CloneLineHandler"
+    },
+    {
+      "index": 38,
+      "style": "normal",
+      "text": "This is been handled along with SALDEV-1427"
+    },
+    {
+      "index": 39,
+      "style": "normal",
+      "text": "Acceptance Criteria:"
+    },
+    {
+      "index": 40,
+      "style": "normal",
+      "text": "When a quote line is cloned, the values entered for any of the ARR fields noted above are not copied to the cloned lines. This must be checked outside the QLE on the Quote Line records, since those fields are hidden on the cloned lines per requirements."
+    },
+    {
+      "index": 43,
+      "style": "Heading 3",
+      "text": "Description"
+    },
+    {
+      "index": 44,
+      "style": "normal",
+      "text": "None"
+    },
+    {
+      "index": 45,
+      "style": "Heading 3",
+      "text": "Attachments"
+    },
+    {
+      "index": 47,
+      "style": "normal",
+      "text": "Options"
+    },
+    {
+      "index": 48,
+      "style": "normal",
+      "text": "Drop files to attach, or browse."
+    },
+    {
+      "index": 49,
+      "style": "Heading 3",
+      "text": "Issue Links"
+    },
+    {
+      "index": 50,
+      "style": "normal",
+      "text": "is related by"
+    },
+    {
+      "index": 51,
+      "style": "normal",
+      "text": " SALDEV-1427 Update QCP cloning logic for copying lines and fields in stepped up pricing"
+    },
+    {
+      "index": 53,
+      "style": "normal",
+      "text": "In Progress"
+    },
+    {
+      "index": 54,
+      "style": "normal",
+      "text": "Delete this link"
+    },
+    {
+      "index": 55,
+      "style": "normal",
+      "text": "split from"
+    },
+    {
+      "index": 56,
+      "style": "normal",
+      "text": " SALDEV-1351 [Investigate] Troubleshoot Bug: ARR Calculating on Multiple Quote Lines for the Same Product"
+    },
+    {
+      "index": 58,
+      "style": "normal",
+      "text": "Closed"
+    },
+    {
+      "index": 59,
+      "style": "normal",
+      "text": "Delete this link"
+    },
+    {
+      "index": 60,
+      "style": "normal",
+      "text": "Add Link"
+    },
+    {
+      "index": 61,
+      "style": "Heading 3",
+      "text": "Activity"
+    },
+    {
+      "index": 62,
+      "style": "normal",
+      "text": "All"
+    },
+    {
+      "index": 63,
+      "style": "normal",
+      "text": "Comments"
+    },
+    {
+      "index": 64,
+      "style": "normal",
+      "text": "Work Log"
+    },
+    {
+      "index": 65,
+      "style": "normal",
+      "text": "History"
+    },
+    {
+      "index": 66,
+      "style": "normal",
+      "text": "Activity"
+    },
+    {
+      "index": 67,
+      "style": "normal",
+      "text": "Timepiece"
+    },
+    {
+      "index": 68,
+      "style": "normal",
+      "text": "Transitions"
+    },
+    {
+      "index": 69,
+      "style": "normal",
+      "text": "Oldest first"
+    },
+    {
+      "index": 70,
+      "style": "normal",
+      "text": "You can now pin up to five comments to highlight important information. Pinned comments will appear above all other comments, so they're easy to find."
+    },
+    {
+      "index": 71,
+      "style": "normal",
+      "text": "Got itLearn more about pinned comments"
+    },
+    {
+      "index": 72,
+      "style": "Heading 3",
+      "text": " Collapse comment: Meg Vogler added a comment - 19/Aug/26 4:24 PM"
+    },
+    {
+      "index": 74,
+      "style": "normal",
+      "text": "Meg Vogler added a comment - 19/Aug/26 4:24 PM"
+    },
+    {
+      "index": 75,
+      "style": "normal",
+      "text": "This requirement will be evaluated alongside the work being done for stepped up pricing"
+    },
+    {
+      "index": 76,
+      "style": "normal",
+      "text": "EditDeletePin"
+    }
+  ],
+  "tables": [],
+  "inline_shapes": 7,
+  "package_media": [
+    {
+      "part": "word/media/image1.png",
+      "file": "C:\\Users\\LIKKI\\Documents\\ChatGPT\\david\\review\\SALDEV-1427-1371-architect-review\\analysis\\1371\\media\\image1.png",
+      "bytes": 70,
+      "sha256": "18d840af2c50eff9a5241d4b50833a596e6b71af0cee87cf2b3435345f2f7aba"
+    }
+  ]
+}

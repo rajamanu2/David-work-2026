@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Edu_CompetitorName_90</fullName>
+    <active>false</active>
+    <description>For EDU, when opportunity is at Verbal Selection, a Competitor needs to be entered.
+SAL-1959</description>
+    <errorConditionFormula>AND(
+$Profile.Name &lt;&gt; &quot;System Administrator&quot;,
+$Profile.Name &lt;&gt; &quot;B - Looker&quot;,
+IsClosed = False,
+RecordType.Name = &apos;Education&apos;,
+Probability &gt;=0.90,
+ISBLANK ( Competitor_Name__c )
+)
+&amp;&amp; Opp_Val_Bypass__c = false</errorConditionFormula>
+    <errorDisplayField>Competitor_Name__c</errorDisplayField>
+    <errorMessage>Indicate which competitor(s) we will be taking some or all of the business from if we win. If we lose, this field will indicate the school&apos;s selected competitor.</errorMessage>
+</ValidationRule>

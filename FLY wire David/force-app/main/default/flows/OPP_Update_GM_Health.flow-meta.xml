@@ -1,0 +1,599 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>58.0</apiVersion>
+    <areMetricsLoggedToDataCloud>false</areMetricsLoggedToDataCloud>
+    <decisions>
+        <name>Account_Industry</name>
+        <label>Account Industry?</label>
+        <locationX>1634</locationX>
+        <locationY>323</locationY>
+        <defaultConnector>
+            <targetReference>Set_Gross_Margin</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>DMC</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Account_Industry__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>DMC</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>DMC_Set_Gross_Margin</targetReference>
+            </connector>
+            <label>DMC</label>
+        </rules>
+        <rules>
+            <name>Accomodation</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Account_Industry__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Accommodations</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Accommodation_Set_Gross_Margin</targetReference>
+            </connector>
+            <label>Accomodation</label>
+        </rules>
+        <rules>
+            <name>Operator</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Account_Industry__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Travel Operator</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Operator_Set_Gross_Margin</targetReference>
+            </connector>
+            <label>Operator</label>
+        </rules>
+        <rules>
+            <name>Education</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Account_Industry__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Education</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>GM_Region</targetReference>
+            </connector>
+            <label>Education</label>
+        </rules>
+        <rules>
+            <name>Business</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Account_Industry__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Business</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Business_Set_Gross_Margin</targetReference>
+            </connector>
+            <label>Business</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>GM_Region</name>
+        <label>GM Region?</label>
+        <locationX>1766</locationX>
+        <locationY>431</locationY>
+        <defaultConnector>
+            <targetReference>Education_Set_Gross_Margin</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>US</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Account.GM_Region__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>US</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>US_Edu_Set_Gross_Margin</targetReference>
+            </connector>
+            <label>US</label>
+        </rules>
+        <rules>
+            <name>Canada</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Account.GM_Region__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Canada</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Canada_Edu_Set_Gross_Margin</targetReference>
+            </connector>
+            <label>Canada</label>
+        </rules>
+        <rules>
+            <name>UK</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Account.GM_Region__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>UK</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>UK_Edu_Set_Gross_Margin</targetReference>
+            </connector>
+            <label>UK</label>
+        </rules>
+        <rules>
+            <name>EMEA</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Account.GM_Region__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>EMEA</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>EMEA_Edu_Set_Gross_Margin</targetReference>
+            </connector>
+            <label>EMEA</label>
+        </rules>
+        <rules>
+            <name>LATAM</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Account.GM_Region__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>LATAM</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Latam_Edu_Set_Gross_Margin</targetReference>
+            </connector>
+            <label>LATAM</label>
+        </rules>
+        <rules>
+            <name>AUSNZ</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Account.GM_Region__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>AUSNZ</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>AUSNZ_Edu_Set_Gross_Margin</targetReference>
+            </connector>
+            <label>AUSNZ</label>
+        </rules>
+        <rules>
+            <name>APAC</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Account.GM_Region__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>APAC</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>APACA_Edu_Set_Gross_Margin</targetReference>
+            </connector>
+            <label>APAC</label>
+        </rules>
+    </decisions>
+    <description>Updates Opp GM Health field. 
+-Add &quot;%&quot; format to default records. SAL-3215</description>
+    <environments>Default</environments>
+    <formulas>
+        <name>GMMarginColorAccomdationFor</name>
+        <dataType>String</dataType>
+        <expression>CASE(1,
+If({!MarginFormula} &lt; 15 , 1, 0 ), &apos;🔴 &apos;  &amp; TEXT({!MarginFormula})  &amp; &apos;%&apos;,
+If(({!MarginFormula} &lt;= 45 &amp;&amp;{!MarginFormula} &gt;= 15), 1, 0 ),  &apos;🟡 &apos;  &amp; TEXT({!MarginFormula})  &amp; &apos;%&apos; ,
+If(({!MarginFormula} &gt; 45), 1, 0 ), &apos;🟢 &apos;  &amp; TEXT({!MarginFormula})  &amp; &apos;%&apos;,
+&quot;0%&quot;)</expression>
+    </formulas>
+    <formulas>
+        <name>GMMarginColorBusinessFor</name>
+        <dataType>String</dataType>
+        <expression>CASE(1,
+If({!MarginFormula} &lt; 20 , 1, 0 ), &apos;🔴 &apos;  &amp; TEXT({!MarginFormula})  &amp; &apos;%&apos;,
+If(({!MarginFormula} &lt;= 50 &amp;&amp;{!MarginFormula} &gt;= 20), 1, 0 ),  &apos;🟡 &apos;  &amp; TEXT({!MarginFormula})  &amp; &apos;%&apos; ,
+If(({!MarginFormula} &gt; 50), 1, 0 ), &apos;🟢 &apos;  &amp; TEXT({!MarginFormula})  &amp; &apos;%&apos;,
+&quot;0%&quot;)</expression>
+    </formulas>
+    <formulas>
+        <name>GMMarginColorDMCFor</name>
+        <dataType>String</dataType>
+        <expression>CASE(1,
+If({!MarginFormula} &lt; 15 , 1, 0 ), &apos;🔴 &apos;  &amp; TEXT({!MarginFormula})  &amp; &apos;%&apos;,
+If(({!MarginFormula} &lt;= 33 &amp;&amp;{!MarginFormula} &gt;= 15 ), 1, 0 ),  &apos;🟡 &apos;  &amp; TEXT({!MarginFormula})  &amp; &apos;%&apos; ,
+If(({!MarginFormula} &gt; 33), 1, 0 ), &apos;🟢 &apos;  &amp; TEXT({!MarginFormula})  &amp; &apos;%&apos;,
+&quot;0%&quot;)</expression>
+    </formulas>
+    <formulas>
+        <name>GMMarginColorOperatorFor</name>
+        <dataType>String</dataType>
+        <expression>CASE(1,
+If({!MarginFormula} &lt; 15 , 1, 0 ), &apos;🔴 &apos;  &amp; TEXT({!MarginFormula})  &amp; &apos;%&apos;,
+If(({!MarginFormula} &lt;= 35 &amp;&amp;{!MarginFormula} &gt;= 15 ), 1, 0 ),  &apos;🟡 &apos;  &amp; TEXT({!MarginFormula})  &amp; &apos;%&apos; ,
+If(({!MarginFormula} &gt; 35), 1, 0 ), &apos;🟢 &apos;  &amp; TEXT({!MarginFormula})  &amp; &apos;%&apos;,
+&quot;0%&quot;)</expression>
+    </formulas>
+    <formulas>
+        <description>Add &quot;%&quot; for any remaining records.</description>
+        <name>GMMarginDefault</name>
+        <dataType>String</dataType>
+        <expression>TEXT({!MarginFormula})  &amp; &apos;%&apos;</expression>
+    </formulas>
+    <formulas>
+        <name>GMMarginEduApacFor</name>
+        <dataType>String</dataType>
+        <expression>CASE(1,
+If({!MarginFormula} &lt; 50 , 1, 0 ), &apos;🔴 &apos;  &amp; TEXT({!MarginFormula})  &amp; &apos;%&apos;,
+If(({!MarginFormula} &lt;= 77 &amp;&amp;{!MarginFormula} &gt;= 50 ), 1, 0 ),  &apos;🟡 &apos;  &amp; TEXT({!MarginFormula})  &amp; &apos;%&apos; ,
+If(({!MarginFormula} &gt; 77), 1, 0 ), &apos;🟢 &apos;  &amp; TEXT({!MarginFormula})  &amp; &apos;%&apos;,
+&quot;0%&quot;)</expression>
+    </formulas>
+    <formulas>
+        <name>GmMarginEduAusnzFor</name>
+        <dataType>String</dataType>
+        <expression>CASE(1,
+If({!MarginFormula} &lt; 55 , 1, 0 ), &apos;🔴 &apos;  &amp; TEXT({!MarginFormula})  &amp; &apos;%&apos;,
+If(({!MarginFormula} &lt;= 83 &amp;&amp;{!MarginFormula} &gt;= 55 ), 1, 0 ),  &apos;🟡 &apos;  &amp; TEXT({!MarginFormula})  &amp; &apos;%&apos; ,
+If(({!MarginFormula} &gt; 83), 1, 0 ), &apos;🟢 &apos;  &amp; TEXT({!MarginFormula})  &amp; &apos;%&apos;,
+&quot;0%&quot;)</expression>
+    </formulas>
+    <formulas>
+        <name>GMMarginEduCAFor</name>
+        <dataType>String</dataType>
+        <expression>CASE(1,
+If({!MarginFormula} &lt; 50 , 1, 0 ), &apos;🔴 &apos;  &amp; TEXT({!MarginFormula})  &amp; &apos;%&apos;,
+If(({!MarginFormula} &lt;= 88 &amp;&amp;{!MarginFormula} &gt;= 50 ), 1, 0 ),  &apos;🟡 &apos;  &amp; TEXT({!MarginFormula})  &amp; &apos;%&apos; ,
+If(({!MarginFormula} &gt; 88), 1, 0 ), &apos;🟢 &apos;  &amp; TEXT({!MarginFormula})  &amp; &apos;%&apos;,
+&quot;0%&quot;)</expression>
+    </formulas>
+    <formulas>
+        <name>GMMarginEduEmeaFor</name>
+        <dataType>String</dataType>
+        <expression>CASE(1,
+If({!MarginFormula} &lt; 40 , 1, 0 ), &apos;🔴 &apos;  &amp; TEXT({!MarginFormula})  &amp; &apos;%&apos;,
+If(({!MarginFormula} &lt;= 71 &amp;&amp;{!MarginFormula} &gt;= 40 ), 1, 0 ),  &apos;🟡 &apos;  &amp; TEXT({!MarginFormula})  &amp; &apos;%&apos; ,
+If(({!MarginFormula} &gt; 71), 1, 0 ), &apos;🟢 &apos;  &amp; TEXT({!MarginFormula})  &amp; &apos;%&apos;,
+&quot;0%&quot;)</expression>
+    </formulas>
+    <formulas>
+        <name>GMMarginEduLatamFor</name>
+        <dataType>String</dataType>
+        <expression>CASE(1,
+If({!MarginFormula} &lt; 15 , 1, 0 ), &apos;🔴 &apos;  &amp; TEXT({!MarginFormula})  &amp; &apos;%&apos;,
+If(({!MarginFormula} &lt;= 45 &amp;&amp;{!MarginFormula} &gt;= 15 ), 1, 0 ),  &apos;🟡 &apos;  &amp; TEXT({!MarginFormula})  &amp; &apos;%&apos; ,
+If(({!MarginFormula} &gt; 45), 1, 0 ), &apos;🟢 &apos;  &amp; TEXT({!MarginFormula})  &amp; &apos;%&apos;,
+&quot;0%&quot;)</expression>
+    </formulas>
+    <formulas>
+        <name>GMMarginEDUUkFor</name>
+        <dataType>String</dataType>
+        <expression>CASE(1,
+If({!MarginFormula} &lt; 40 , 1, 0 ), &apos;🔴 &apos;  &amp; TEXT({!MarginFormula})  &amp; &apos;%&apos;,
+If(({!MarginFormula} &lt;= 75 &amp;&amp;{!MarginFormula} &gt;= 40  ), 1, 0 ),  &apos;🟡 &apos;  &amp; TEXT({!MarginFormula})  &amp; &apos;%&apos; ,
+If(({!MarginFormula} &gt; 75), 1, 0 ), &apos;🟢 &apos;  &amp; TEXT({!MarginFormula})  &amp; &apos;%&apos;,
+&quot;0%&quot;)</expression>
+    </formulas>
+    <formulas>
+        <name>GMMarginEduUSFor</name>
+        <dataType>String</dataType>
+        <expression>CASE(1,
+If({!MarginFormula} &lt; 50 , 1, 0 ), &apos;🔴 &apos;  &amp; TEXT({!MarginFormula})  &amp; &apos;%&apos;,
+If(({!MarginFormula} &lt;= 83 &amp;&amp;{!MarginFormula} &gt;= 50 ), 1, 0 ),  &apos;🟡 &apos;  &amp; TEXT({!MarginFormula})  &amp; &apos;%&apos; ,
+If(({!MarginFormula} &gt; 83), 1, 0 ), &apos;🟢 &apos;  &amp; TEXT({!MarginFormula})  &amp; &apos;%&apos;,
+&quot;0%&quot;)</expression>
+    </formulas>
+    <formulas>
+        <name>MarginFormula</name>
+        <dataType>Number</dataType>
+        <expression>{!$Record.Gross_Margin__c}</expression>
+        <scale>0</scale>
+    </formulas>
+    <interviewLabel>(OPP) Update GM Health {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>(OPP) Update GM Health</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <recordUpdates>
+        <name>Accommodation_Set_Gross_Margin</name>
+        <label>Accommodation  Set Gross Margin</label>
+        <locationX>314</locationX>
+        <locationY>431</locationY>
+        <inputAssignments>
+            <field>Opp_Bypass_DateTime__c</field>
+            <value>
+                <elementReference>$Flow.CurrentDateTime</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Opp_GM_Health__c</field>
+            <value>
+                <elementReference>GMMarginColorAccomdationFor</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>APACA_Edu_Set_Gross_Margin</name>
+        <label>APACA Edu Set Gross Margin</label>
+        <locationX>2426</locationX>
+        <locationY>539</locationY>
+        <inputAssignments>
+            <field>Opp_Bypass_DateTime__c</field>
+            <value>
+                <elementReference>$Flow.CurrentDateTime</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Opp_GM_Health__c</field>
+            <value>
+                <elementReference>GMMarginEduApacFor</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>AUSNZ_Edu_Set_Gross_Margin</name>
+        <label>AUSNZ Edu Set Gross Margin</label>
+        <locationX>2162</locationX>
+        <locationY>539</locationY>
+        <inputAssignments>
+            <field>Opp_Bypass_DateTime__c</field>
+            <value>
+                <elementReference>$Flow.CurrentDateTime</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Opp_GM_Health__c</field>
+            <value>
+                <elementReference>GmMarginEduAusnzFor</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>Business_Set_Gross_Margin</name>
+        <label>Business Set Gross Margin</label>
+        <locationX>2954</locationX>
+        <locationY>431</locationY>
+        <inputAssignments>
+            <field>Opp_Bypass_DateTime__c</field>
+            <value>
+                <elementReference>$Flow.CurrentDateTime</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Opp_GM_Health__c</field>
+            <value>
+                <elementReference>GMMarginColorBusinessFor</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>Canada_Edu_Set_Gross_Margin</name>
+        <label>Canada Edu Set Gross Margin</label>
+        <locationX>1106</locationX>
+        <locationY>539</locationY>
+        <inputAssignments>
+            <field>Opp_Bypass_DateTime__c</field>
+            <value>
+                <elementReference>$Flow.CurrentDateTime</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Opp_GM_Health__c</field>
+            <value>
+                <elementReference>GMMarginEduCAFor</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>DMC_Set_Gross_Margin</name>
+        <label>DMC Set Gross Margin</label>
+        <locationX>50</locationX>
+        <locationY>431</locationY>
+        <inputAssignments>
+            <field>Opp_Bypass_DateTime__c</field>
+            <value>
+                <elementReference>$Flow.CurrentDateTime</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Opp_GM_Health__c</field>
+            <value>
+                <elementReference>GMMarginColorDMCFor</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>Education_Set_Gross_Margin</name>
+        <label>Education Set Gross Margin</label>
+        <locationX>2690</locationX>
+        <locationY>539</locationY>
+        <inputAssignments>
+            <field>Opp_Bypass_DateTime__c</field>
+            <value>
+                <elementReference>$Flow.CurrentDateTime</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Opp_GM_Health__c</field>
+            <value>
+                <elementReference>GMMarginEduUSFor</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>EMEA_Edu_Set_Gross_Margin</name>
+        <label>EMEA Edu Set Gross Margin</label>
+        <locationX>1634</locationX>
+        <locationY>539</locationY>
+        <inputAssignments>
+            <field>Opp_Bypass_DateTime__c</field>
+            <value>
+                <elementReference>$Flow.CurrentDateTime</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Opp_GM_Health__c</field>
+            <value>
+                <elementReference>GMMarginEduEmeaFor</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>Latam_Edu_Set_Gross_Margin</name>
+        <label>Latam Edu Set Gross Margin</label>
+        <locationX>1898</locationX>
+        <locationY>539</locationY>
+        <inputAssignments>
+            <field>Opp_Bypass_DateTime__c</field>
+            <value>
+                <elementReference>$Flow.CurrentDateTime</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Opp_GM_Health__c</field>
+            <value>
+                <elementReference>GMMarginEduLatamFor</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>Operator_Set_Gross_Margin</name>
+        <label>Operator Set Gross Margin</label>
+        <locationX>578</locationX>
+        <locationY>431</locationY>
+        <inputAssignments>
+            <field>Opp_Bypass_DateTime__c</field>
+            <value>
+                <elementReference>$Flow.CurrentDateTime</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Opp_GM_Health__c</field>
+            <value>
+                <elementReference>GMMarginColorOperatorFor</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>Set_Gross_Margin</name>
+        <label>Set Gross Margin</label>
+        <locationX>3218</locationX>
+        <locationY>431</locationY>
+        <inputAssignments>
+            <field>Opp_Bypass_DateTime__c</field>
+            <value>
+                <elementReference>$Flow.CurrentDateTime</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Opp_GM_Health__c</field>
+            <value>
+                <elementReference>GMMarginDefault</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>UK_Edu_Set_Gross_Margin</name>
+        <label>UK Edu Set Gross Margin</label>
+        <locationX>1370</locationX>
+        <locationY>539</locationY>
+        <inputAssignments>
+            <field>Opp_Bypass_DateTime__c</field>
+            <value>
+                <elementReference>$Flow.CurrentDateTime</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Opp_GM_Health__c</field>
+            <value>
+                <elementReference>GMMarginEDUUkFor</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>US_Edu_Set_Gross_Margin</name>
+        <label>US Edu Set Gross Margin</label>
+        <locationX>842</locationX>
+        <locationY>539</locationY>
+        <inputAssignments>
+            <field>Opp_Bypass_DateTime__c</field>
+            <value>
+                <elementReference>$Flow.CurrentDateTime</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Opp_GM_Health__c</field>
+            <value>
+                <elementReference>GMMarginEduUSFor</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <start>
+        <locationX>1508</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Account_Industry</targetReference>
+        </connector>
+        <object>Opportunity</object>
+        <recordTriggerType>CreateAndUpdate</recordTriggerType>
+        <triggerType>RecordAfterSave</triggerType>
+    </start>
+    <status>Active</status>
+    <triggerOrder>305</triggerOrder>
+</Flow>

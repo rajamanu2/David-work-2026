@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Shipping_Account_to_Bill__c</fullName>
+    <defaultValue>&quot;Probo Medical&quot;</defaultValue>
+    <inlineHelpText>Defaults to account preference, this controls what account is billed when shipping generates a shipping label</inlineHelpText>
+    <label>Shipping Account to Bill</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetName>Default_Shipping_Account</valueSetName>
+    </valueSet>
+</CustomField>

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<FlowTest xmlns="http://soap.sforce.com/2006/04/metadata">
+    <flowApiName>Credit_Risk_Notification</flowApiName>
+    <label>Test CR Email</label>
+    <testPoints>
+        <elementApiName>Start</elementApiName>
+        <isUseMockOutput>false</isUseMockOutput>
+        <parameters>
+            <leftValueReference>$Record</leftValueReference>
+            <type>InputTriggeringRecordInitial</type>
+            <value>
+                <sobjectValue>{&quot;Account__c&quot;:&quot;001f200001snJHLAA2&quot;,&quot;Avg_PMNT_Size_Approved__c&quot;:80000000,&quot;Credit_Risk_Status__c&quot;:&quot;Pending&quot;,&quot;Date_Approved__c&quot;:&quot;2022-04-29&quot;,&quot;Date_Received__c&quot;:&quot;2022-04-27&quot;,&quot;Larg_PMNT_Size_Approved__c&quot;:44444,&quot;MM_on_ACH_Direct_Debit_Approved__c&quot;:&quot;200&quot;,&quot;MM_on_Cards_Approved__c&quot;:230000,&quot;Mgmt_Shadowed__c&quot;:false,&quot;Next_Review_Date__c&quot;:&quot;2023-04-27&quot;,&quot;OwnerId&quot;:&quot;0055w00000F3frrAAB&quot;,&quot;Peak_Months__c&quot;:&quot;January;February;March&quot;,&quot;Peak_Risk_Exposure__c&quot;:56666,&quot;Review_Type__c&quot;:&quot;CBA&quot;,&quot;Risk_Exposure_NDX__c&quot;:230000,&quot;Shadowed_ByOn__c&quot;:&quot;Cleared By: Ada Cirillo 2023-03-22&quot;,&quot;Status_By__c&quot;:&quot;005f2000009Cb6yAAC&quot;,&quot;WADD__c&quot;:45}</sobjectValue>
+            </value>
+        </parameters>
+        <parameters>
+            <leftValueReference>$Record</leftValueReference>
+            <type>InputTriggeringRecordUpdated</type>
+            <value>
+                <sobjectValue>{&quot;Account__c&quot;:&quot;001f200001snJHLAA2&quot;,&quot;Avg_PMNT_Size_Approved__c&quot;:80000000,&quot;Credit_Risk_Status__c&quot;:&quot;Declined&quot;,&quot;Date_Approved__c&quot;:&quot;2022-04-29&quot;,&quot;Date_Received__c&quot;:&quot;2022-04-27&quot;,&quot;Larg_PMNT_Size_Approved__c&quot;:44444,&quot;MM_on_ACH_Direct_Debit_Approved__c&quot;:&quot;200&quot;,&quot;MM_on_Cards_Approved__c&quot;:230000,&quot;Mgmt_Shadowed__c&quot;:false,&quot;Next_Review_Date__c&quot;:&quot;2023-04-27&quot;,&quot;OwnerId&quot;:&quot;0055w00000F3frrAAB&quot;,&quot;Peak_Months__c&quot;:&quot;January;February;March&quot;,&quot;Peak_Risk_Exposure__c&quot;:56666,&quot;Review_Type__c&quot;:&quot;CBA&quot;,&quot;Risk_Exposure_NDX__c&quot;:230000,&quot;Shadowed_ByOn__c&quot;:&quot;Cleared By: Ada Cirillo 2023-03-22&quot;,&quot;Status_By__c&quot;:&quot;005f2000009Cb6yAAC&quot;,&quot;WADD__c&quot;:45}</sobjectValue>
+            </value>
+        </parameters>
+    </testPoints>
+    <testPoints>
+        <assertions>
+            <conditions>
+                <leftValueReference>Email_Acc_Owner_CR_status</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+        </assertions>
+        <elementApiName>Finish</elementApiName>
+        <isUseMockOutput>false</isUseMockOutput>
+    </testPoints>
+    <testType>WithAssertion</testType>
+</FlowTest>

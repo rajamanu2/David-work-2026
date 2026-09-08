@@ -1,0 +1,67 @@
+<template>
+    <div>
+        <template if:true={existingOLIDataAvailable}>
+            <!-- <lightning-datatable
+                data={existingOLIData}
+                columns={existingOLIColumns}
+                onrowselection={handleSelectedLineItems}
+                key-field="Id">
+            </lightning-datatable> -->
+            <div  class="slds-grid slds-wrap" style="overflow: visible;">
+                <table class="slds-table slds-table_cell-buffer slds-table_bordered">
+                        <thead>  
+                            <tr class="slds-line-height_reset">
+                                <th class="" scope="col">
+                                        <div class="slds-truncate" title="Selected">&nbsp;</div>
+                                </th>
+                                <th class="" scope="col">
+                                        <div class="slds-truncate" title="Product Name">Product Name</div>
+                                </th>
+                                <th class="" scope="col">
+                                        <div class="slds-truncate" title="Check In Type">Check In Type</div>
+                                </th>
+                                <th class="" scope="col">
+                                        <div class="slds-truncate" title="Asset No">Asset No</div>
+                                </th>
+                                <template if:true={displayWarrantyTerm}>
+                                    <th class="" scope="col" >
+                                            <div class="slds-truncate" title="Warranty Term">Warranty Term</div>
+                                    </th>
+                               </template>
+                            </tr>  
+                        </thead>
+                        <tbody>
+                                <template for:each={existingOLIData} for:item='oli'>
+                                        <tr class="slds-hint-parent" key={oli.Id}>
+                                                        <td data-label="Checkbox" class="slds-text-align_center" style="width: 3.25rem;">
+                                                            <div class="slds-truncate" key={oli.Id}><lightning-input type="checkbox" onchange={handleSelectedLineItems} data-value={oli.Id}></lightning-input></div>
+                                                        </td>
+                                                        
+                                                        <td data-label="Product Name" style="min-width: 150px; max-width: none">
+                                                            <div class="slds-truncate" key={oli.Id}><lightning-formatted-text value='{oli.Product_Name__c}'></lightning-formatted-text></div>
+                                                        </td>
+                                                        <td data-label="Check In Type" style="min-width: 120px; max-width: none">
+                                                            <div class="slds-truncate" key={oli.Id}><lightning-formatted-text value='{oli.Check_In_Type__c}'></lightning-formatted-text></div>     
+                                                        </td>
+                                                        <td data-label="Asset No" style="min-width: 120px; max-width: none">
+                                                            <div class="slds-truncate" key={oli.Id}><lightning-formatted-text value='{oli.Asset_No__c}'></lightning-formatted-text></div>
+                                                        </td>
+                                                        <template if:true={displayWarrantyTerm}>
+                                                            <td data-label="Warranty Term" style="min-width: 150px; max-width: none">
+                                                                <div class="slds-truncate" key={oli.Id} style="overflow: inherit; position: static !important;"><lightning-combobox value='{oli.ProductItem__r.Warranty_Term__c}' placeholder="-None-" options={fieldOptions.warrantyTermOptions} variant="label-hidden" onchange={handleWarrantyTermChange} data-value={oli.Id} ></lightning-combobox></div>
+                                                            </td> 
+                                                        </template>
+                                        </tr> 
+                                </template>
+                        </tbody>  
+                </table> 
+            </div>
+            <div class="slds-grid  slds-wrap" style="display: flex; margin-top: 4%">
+                    <div class="slds-col slds-size_1-of-2 slds-medium-size_1-of-1 slds-large-size_1-of-1" style="text-align: center">
+                        <lightning-button variant="brand" label="Next" title="Next" name="next"  onclick='{handleNext}' class="slds-var-m-left_x-small"></lightning-button>
+                        <lightning-button variant="brand" label="Cancel" title="Cancel" name="cancel"  onclick={handleCancel} class="slds-var-m-left_x-small"></lightning-button>
+                    </div>
+            </div> 
+       </template>
+    </div>      
+</template>

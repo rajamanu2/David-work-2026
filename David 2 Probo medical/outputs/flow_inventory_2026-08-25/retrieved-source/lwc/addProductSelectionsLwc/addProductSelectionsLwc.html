@@ -1,0 +1,75 @@
+<template>
+    <lightning-layout-item size=12>
+        <div>
+            <template if:true={selections.showModal}>
+                <c-oli-modal-lwc oncontinuedeselection={handleNewOLIDeselection}  onclosemodal={handleModalClose}> </c-oli-modal-lwc>   
+            </template>
+        </div>
+        <div class="slds-table--header-fixed_container" style="height:300px; width: 1800px;">      
+            <div class="slds-scrollable_y" style="height:100%;">
+                <template if:true={newOLIDataAvailable}>
+                <table class="slds-table slds-table_cell-buffer slds-table_bordered slds-table_fixed-layout th" style="empty-cells: show; width: 100%;">
+                    <thead>  
+                        <tr>
+                            <th class="" scope="col" title="Deselect"><div class="slds-truncate slds-cell-fixed" title="Item Deselection">&nbsp;</div></th>
+                            <th class="" scope="col" ><div class="slds-truncate slds-cell-fixed" title="Asset Number">Asset No</div></th>
+                            <th class="" scope="col" title="Link to Image"><div class="slds-truncate slds-cell-fixed" title="Link to Image">Image</div></th>
+                            <template if:true={showPriceColumn}>
+                                <th class="" scope="col" title="price__c"><div class="slds-truncate slds-cell-fixed" title="Price">Price</div></th>
+                            </template>
+                            <template if:true={showCostColumn}>
+                                <th class="" scope="col" title="cost__c"><div class="slds-truncate slds-cell-fixed" title="Cost">Cost</div></th>
+                            </template>
+                            <th class="" scope="col" title="Core Exchange"><div class="slds-truncate slds-cell-fixed" title="Core Exchange">Core Exchange</div></th>
+                            <th class="" scope="col" title="functional_rating__c"><div class="slds-truncate slds-cell-fixed" title="FuncRate">FuncRate</div></th>
+                            <th class="" scope="col" title="cosmetic_rating__c"> <div class="slds-truncate slds-cell-fixed" title="CosRate">CosRate</div></th>
+                            <th class="" scope="col"><div class="slds-truncate slds-cell-fixed" title="Product Name">Name</div></th>
+                            <th class="" scope="col"><div class="slds-truncate slds-cell-fixed" title="Compatible System">Compatible System</div></th>
+                        </tr>  
+                    </thead>
+                    <tbody>
+                        <template for:each={newOLIEditedData} for:item='item'>
+                                <tr class="slds-hint-parent" key={item.id}>
+                                    <td>
+                                        <lightning-button variant="destructive" label="Deselect" title="Deselect" value={item.id} onclick={handleModalOpen} class="slds-var-m-left_x-small"></lightning-button>
+                                    </td>
+                                    <td data-label="Asset Number" style="min-width: 80px; max-width: none" class="slds-text-align_left">
+                                        <div class="slds-truncate" key={item.id}><lightning-formatted-text value='{item.data.Name}'></lightning-formatted-text></div>
+                                    </td>
+                                    <td data-label="Link to Image" style="min-width: 50px; max-width: 70px;" class="slds-text-align_left">
+                                        <div class="slds-truncate" key={item.id}><lightning-formatted-url value='{item.data.Image__c}' label="View" target="_blank"></lightning-formatted-url></div>
+                                    </td>
+                                    <template if:true={showPriceColumn}>
+                                        <td data-label="Price" style="min-width: 100px; max-width: 120px;" class="slds-text-align_left" title="price__c">
+                                                <div class="slds-truncate" key={item.id}><lightning-input type="number" value='{item.price}' format-style="currency" currency-code="USD" data-key={item.id} onchange={handlePriceChange}></lightning-input></div>
+                                        </td> 
+                                    </template>
+                                    <template if:true={showCostColumn}>
+                                        <td data-label="Cost" style="min-width: 100px; max-width: 120px;" class="slds-text-align_left" title="cost__c">
+                                                <div class="slds-truncate" key={item.id}><lightning-input type="number" value='{item.cost}' format-style="currency" currency-code="USD" data-key={item.id} onchange={handleCostChange}></lightning-input></div>
+                                        </td> 
+                                    </template>
+                                    <td data-label="Core Exchange" style="min-width: 80px; max-width: none" class="slds-text-align_left">
+                                        <div class="slds-truncate" key={item.id}><lightning-input type="checkbox" value={item.exchange} data-key={item.id} onchange={handleExchangeChange}></lightning-input></div>
+                                    </td>
+                                    <td data-label="FuncRate" style="min-width: 120px; max-width: none" class="slds-text-align_left" title="functional_rating__c">
+                                        <div class="slds-truncate" key={item.id}><lightning-formatted-text value='{item.data.Functional_Rating__c}'></lightning-formatted-text></div>
+                                    </td> 
+                                    <td data-label="CosRate" style="min-width: 120px; max-width: none" class="slds-text-align_left" title="cosmetic_rating__c">
+                                        <div class="slds-truncate" key={item.id}><lightning-formatted-text value='{item.data.Cosmetic_Rating__c}'></lightning-formatted-text></div>
+                                    </td> 
+                                    <td data-label="Product Name">
+                                        <div class="slds-truncate" key={item.id}><lightning-formatted-text value='{item.data.Product_Name__r.Name}'></lightning-formatted-text></div>
+                                    </td>
+                                    <td data-label="Compatible System">
+                                        <div class="slds-truncate" key={item.id}><lightning-formatted-text value='{item.data.Compatible_System__c}'></lightning-formatted-text></div>
+                                    </td>   
+                                </tr>    
+                        </template>
+                    </tbody>  
+                </table>
+                </template>
+            </div>
+        </div>
+    </lightning-layout-item>
+</template>

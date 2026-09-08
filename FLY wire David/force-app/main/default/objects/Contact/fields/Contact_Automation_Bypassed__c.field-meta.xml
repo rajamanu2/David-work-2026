@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Contact_Automation_Bypassed__c</fullName>
+    <description>Checkbox used for flow automation bypass of validation rules.</description>
+    <formula>Contact_Automation_Bypass_DateTime__c  &gt; NOW() - 0.00005787037 /*Five Seconds*/</formula>
+    <inlineHelpText>Checkbox used for flow automation bypass of validation rules.</inlineHelpText>
+    <label>Automation Bypassed</label>
+    <trackHistory>false</trackHistory>
+    <type>Checkbox</type>
+</CustomField>

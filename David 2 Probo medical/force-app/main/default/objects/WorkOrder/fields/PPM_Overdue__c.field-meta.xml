@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>PPM_Overdue__c</fullName>
+    <formula>OR(
+
+/* Case 1: Not completed and month has passed */
+
+AND(
+    ISBLANK(Service_Completed_Date__c),
+    DATE(
+        YEAR(TODAY()),
+        MONTH(TODAY()),
+        1
+    ) &gt;
+    DATE(
+        YEAR(Next_Service_Date__c),
+        MONTH(Next_Service_Date__c),
+        1
+    )
+),
+
+/* Case 2: Completed but in a later month */
+
+AND(
+    NOT(ISBLANK(Service_Completed_Date__c)),
+    DATE(
+        YEAR(DATEVALUE(Service_Completed_Date__c)),
+        MONTH(DATEVALUE(Service_Completed_Date__c)),
+        1
+    ) &gt;
+    DATE(
+        YEAR(Next_Service_Date__c),
+        MONTH(Next_Service_Date__c),
+        1
+    )
+)
+
+)</formula>
+    <label>PPM Overdue</label>
+    <trackHistory>false</trackHistory>
+    <type>Checkbox</type>
+</CustomField>

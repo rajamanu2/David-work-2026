@@ -1,0 +1,1682 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Primary_Resolution__c</fullName>
+    <label>Primary Resolution</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <controllingField>Subscriber_Report__c</controllingField>
+        <restricted>true</restricted>
+        <valueSetName>Case_Resolution</valueSetName>
+        <valueSettings>
+            <controllingFieldValue>Kandy App Update</controllingFieldValue>
+            <controllingFieldValue>Damage Claim</controllingFieldValue>
+            <controllingFieldValue>Outage</controllingFieldValue>
+            <controllingFieldValue>Cut Cable</controllingFieldValue>
+            <controllingFieldValue>Poor Picture Quality</controllingFieldValue>
+            <controllingFieldValue>Audio Problems</controllingFieldValue>
+            <controllingFieldValue>Equipment Failure</controllingFieldValue>
+            <controllingFieldValue>Drop Or Wiring</controllingFieldValue>
+            <controllingFieldValue>All Pods Not Connecting</controllingFieldValue>
+            <controllingFieldValue>Plume - One Pod Not Connecting</controllingFieldValue>
+            <controllingFieldValue>Plume Device Not Connecting</controllingFieldValue>
+            <controllingFieldValue>Referred To Billing</controllingFieldValue>
+            <controllingFieldValue>Password Reset</controllingFieldValue>
+            <controllingFieldValue>Email Settings Or Set Up</controllingFieldValue>
+            <controllingFieldValue>Elite WiFi Trbl</controllingFieldValue>
+            <controllingFieldValue>Gigacenter - Not Working</controllingFieldValue>
+            <controllingFieldValue>Gigacenter - Slow Speeds</controllingFieldValue>
+            <controllingFieldValue>Circuit Running Errors</controllingFieldValue>
+            <controllingFieldValue>Can&apos;t Loop NIU</controllingFieldValue>
+            <controllingFieldValue>Latency/Jitter</controllingFieldValue>
+            <controllingFieldValue>Circuit Down</controllingFieldValue>
+            <controllingFieldValue>Slow Speeds</controllingFieldValue>
+            <controllingFieldValue>Can&apos;t Connect</controllingFieldValue>
+            <controllingFieldValue>Webpage Will Not Load</controllingFieldValue>
+            <controllingFieldValue>No Light On Modem</controllingFieldValue>
+            <controllingFieldValue>E-Mail Trouble</controllingFieldValue>
+            <controllingFieldValue>Missing Channels</controllingFieldValue>
+            <controllingFieldValue>STB Trouble</controllingFieldValue>
+            <controllingFieldValue>All Services Out</controllingFieldValue>
+            <controllingFieldValue>Remote Control Trouble</controllingFieldValue>
+            <controllingFieldValue>Non-Pay/Perm Disc</controllingFieldValue>
+            <controllingFieldValue>Locate</controllingFieldValue>
+            <controllingFieldValue>Plume - Slow/Intermittent</controllingFieldValue>
+            <controllingFieldValue>All Plume Related Sub Reports</controllingFieldValue>
+            <controllingFieldValue>WiFi - Modem</controllingFieldValue>
+            <controllingFieldValue>Analog Channels Out of Service</controllingFieldValue>
+            <controllingFieldValue>WiFi - Rukus</controllingFieldValue>
+            <controllingFieldValue>Channel Buffering</controllingFieldValue>
+            <controllingFieldValue>WiFi - Ubiquiti</controllingFieldValue>
+            <controllingFieldValue>Channel Buffering - GPC iTV</controllingFieldValue>
+            <controllingFieldValue>Jack/Ext Issues</controllingFieldValue>
+            <controllingFieldValue>Channels Out</controllingFieldValue>
+            <controllingFieldValue>Camera Trouble</controllingFieldValue>
+            <controllingFieldValue>Communication Trouble</controllingFieldValue>
+            <controllingFieldValue>Failed To Test</controllingFieldValue>
+            <controllingFieldValue>Keypad Problem</controllingFieldValue>
+            <controllingFieldValue>Channels Out - GPC iTV</controllingFieldValue>
+            <controllingFieldValue>Fixed Wireless Trbl</controllingFieldValue>
+            <controllingFieldValue>GPC Declared Outage</controllingFieldValue>
+            <controllingFieldValue>GPC iTV Declared Outage</controllingFieldValue>
+            <controllingFieldValue>LSS Trouble</controllingFieldValue>
+            <controllingFieldValue>GPC iTV Username/Password</controllingFieldValue>
+            <controllingFieldValue>NBR Trouble</controllingFieldValue>
+            <controllingFieldValue>Hosted-Features</controllingFieldValue>
+            <controllingFieldValue>Sensor Problem</controllingFieldValue>
+            <controllingFieldValue>Network Connection - GPC iTV</controllingFieldValue>
+            <controllingFieldValue>Total Connect</controllingFieldValue>
+            <controllingFieldValue>Not Connecting To ITV - GPC iTV</controllingFieldValue>
+            <controllingFieldValue>Cross Talk</controllingFieldValue>
+            <controllingFieldValue>Other &amp; Misc - Int</controllingFieldValue>
+            <controllingFieldValue>Cut Cable Or Drop</controllingFieldValue>
+            <controllingFieldValue>Other &amp; Misc - TV</controllingFieldValue>
+            <controllingFieldValue>Migration</controllingFieldValue>
+            <controllingFieldValue>No Dial Tone</controllingFieldValue>
+            <controllingFieldValue>Noisy Phone</controllingFieldValue>
+            <controllingFieldValue>Trouble Receiving Calls</controllingFieldValue>
+            <controllingFieldValue>Other &amp; Misc - Voice</controllingFieldValue>
+            <controllingFieldValue>Referred to NOC/UC</controllingFieldValue>
+            <controllingFieldValue>Trouble Making Calls</controllingFieldValue>
+            <controllingFieldValue>Features Not Working</controllingFieldValue>
+            <controllingFieldValue>PRI</controllingFieldValue>
+            <controllingFieldValue>Unified</controllingFieldValue>
+            <valueName>Cleared Without Repair</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Kandy App Update</controllingFieldValue>
+            <controllingFieldValue>Damage Claim</controllingFieldValue>
+            <controllingFieldValue>Outage</controllingFieldValue>
+            <controllingFieldValue>Cut Cable</controllingFieldValue>
+            <controllingFieldValue>Poor Picture Quality</controllingFieldValue>
+            <controllingFieldValue>Audio Problems</controllingFieldValue>
+            <controllingFieldValue>Equipment Failure</controllingFieldValue>
+            <controllingFieldValue>Drop Or Wiring</controllingFieldValue>
+            <controllingFieldValue>All Pods Not Connecting</controllingFieldValue>
+            <controllingFieldValue>Plume - One Pod Not Connecting</controllingFieldValue>
+            <controllingFieldValue>Plume Device Not Connecting</controllingFieldValue>
+            <controllingFieldValue>Referred To Billing</controllingFieldValue>
+            <controllingFieldValue>Password Reset</controllingFieldValue>
+            <controllingFieldValue>Email Settings Or Set Up</controllingFieldValue>
+            <controllingFieldValue>Elite WiFi Trbl</controllingFieldValue>
+            <controllingFieldValue>Gigacenter - Not Working</controllingFieldValue>
+            <controllingFieldValue>Gigacenter - Slow Speeds</controllingFieldValue>
+            <controllingFieldValue>Circuit Running Errors</controllingFieldValue>
+            <controllingFieldValue>Can&apos;t Loop NIU</controllingFieldValue>
+            <controllingFieldValue>Latency/Jitter</controllingFieldValue>
+            <controllingFieldValue>Circuit Down</controllingFieldValue>
+            <controllingFieldValue>Slow Speeds</controllingFieldValue>
+            <controllingFieldValue>Can&apos;t Connect</controllingFieldValue>
+            <controllingFieldValue>Webpage Will Not Load</controllingFieldValue>
+            <controllingFieldValue>No Light On Modem</controllingFieldValue>
+            <controllingFieldValue>E-Mail Trouble</controllingFieldValue>
+            <controllingFieldValue>Missing Channels</controllingFieldValue>
+            <controllingFieldValue>STB Trouble</controllingFieldValue>
+            <controllingFieldValue>All Services Out</controllingFieldValue>
+            <controllingFieldValue>Remote Control Trouble</controllingFieldValue>
+            <controllingFieldValue>Non-Pay/Perm Disc</controllingFieldValue>
+            <controllingFieldValue>Locate</controllingFieldValue>
+            <controllingFieldValue>Plume - Slow/Intermittent</controllingFieldValue>
+            <controllingFieldValue>All Plume Related Sub Reports</controllingFieldValue>
+            <controllingFieldValue>WiFi - Modem</controllingFieldValue>
+            <controllingFieldValue>Analog Channels Out of Service</controllingFieldValue>
+            <controllingFieldValue>WiFi - Rukus</controllingFieldValue>
+            <controllingFieldValue>Channel Buffering</controllingFieldValue>
+            <controllingFieldValue>WiFi - Ubiquiti</controllingFieldValue>
+            <controllingFieldValue>Channel Buffering - GPC iTV</controllingFieldValue>
+            <controllingFieldValue>Jack/Ext Issues</controllingFieldValue>
+            <controllingFieldValue>Channels Out</controllingFieldValue>
+            <controllingFieldValue>Camera Trouble</controllingFieldValue>
+            <controllingFieldValue>Communication Trouble</controllingFieldValue>
+            <controllingFieldValue>Failed To Test</controllingFieldValue>
+            <controllingFieldValue>Keypad Problem</controllingFieldValue>
+            <controllingFieldValue>Channels Out - GPC iTV</controllingFieldValue>
+            <controllingFieldValue>Fixed Wireless Trbl</controllingFieldValue>
+            <controllingFieldValue>GPC Declared Outage</controllingFieldValue>
+            <controllingFieldValue>GPC iTV Declared Outage</controllingFieldValue>
+            <controllingFieldValue>LSS Trouble</controllingFieldValue>
+            <controllingFieldValue>GPC iTV Username/Password</controllingFieldValue>
+            <controllingFieldValue>NBR Trouble</controllingFieldValue>
+            <controllingFieldValue>Hosted-Features</controllingFieldValue>
+            <controllingFieldValue>Sensor Problem</controllingFieldValue>
+            <controllingFieldValue>Network Connection - GPC iTV</controllingFieldValue>
+            <controllingFieldValue>Total Connect</controllingFieldValue>
+            <controllingFieldValue>Not Connecting To ITV - GPC iTV</controllingFieldValue>
+            <controllingFieldValue>Cross Talk</controllingFieldValue>
+            <controllingFieldValue>Other &amp; Misc - Int</controllingFieldValue>
+            <controllingFieldValue>Cut Cable Or Drop</controllingFieldValue>
+            <controllingFieldValue>Other &amp; Misc - TV</controllingFieldValue>
+            <controllingFieldValue>Migration</controllingFieldValue>
+            <controllingFieldValue>No Dial Tone</controllingFieldValue>
+            <controllingFieldValue>Noisy Phone</controllingFieldValue>
+            <controllingFieldValue>Trouble Receiving Calls</controllingFieldValue>
+            <controllingFieldValue>Other &amp; Misc - Voice</controllingFieldValue>
+            <controllingFieldValue>Referred to NOC/UC</controllingFieldValue>
+            <controllingFieldValue>Trouble Making Calls</controllingFieldValue>
+            <controllingFieldValue>Features Not Working</controllingFieldValue>
+            <controllingFieldValue>PRI</controllingFieldValue>
+            <controllingFieldValue>Unified</controllingFieldValue>
+            <valueName>Assigned To Correct Acct</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Kandy App Update</controllingFieldValue>
+            <controllingFieldValue>Damage Claim</controllingFieldValue>
+            <controllingFieldValue>Outage</controllingFieldValue>
+            <controllingFieldValue>Cut Cable</controllingFieldValue>
+            <controllingFieldValue>Poor Picture Quality</controllingFieldValue>
+            <controllingFieldValue>Audio Problems</controllingFieldValue>
+            <controllingFieldValue>Equipment Failure</controllingFieldValue>
+            <controllingFieldValue>Drop Or Wiring</controllingFieldValue>
+            <controllingFieldValue>All Pods Not Connecting</controllingFieldValue>
+            <controllingFieldValue>Plume - One Pod Not Connecting</controllingFieldValue>
+            <controllingFieldValue>Plume Device Not Connecting</controllingFieldValue>
+            <controllingFieldValue>Referred To Billing</controllingFieldValue>
+            <controllingFieldValue>Password Reset</controllingFieldValue>
+            <controllingFieldValue>Email Settings Or Set Up</controllingFieldValue>
+            <controllingFieldValue>Elite WiFi Trbl</controllingFieldValue>
+            <controllingFieldValue>Gigacenter - Not Working</controllingFieldValue>
+            <controllingFieldValue>Gigacenter - Slow Speeds</controllingFieldValue>
+            <controllingFieldValue>Circuit Running Errors</controllingFieldValue>
+            <controllingFieldValue>Can&apos;t Loop NIU</controllingFieldValue>
+            <controllingFieldValue>Latency/Jitter</controllingFieldValue>
+            <controllingFieldValue>Circuit Down</controllingFieldValue>
+            <controllingFieldValue>Slow Speeds</controllingFieldValue>
+            <controllingFieldValue>Can&apos;t Connect</controllingFieldValue>
+            <controllingFieldValue>Webpage Will Not Load</controllingFieldValue>
+            <controllingFieldValue>No Light On Modem</controllingFieldValue>
+            <controllingFieldValue>E-Mail Trouble</controllingFieldValue>
+            <controllingFieldValue>Missing Channels</controllingFieldValue>
+            <controllingFieldValue>STB Trouble</controllingFieldValue>
+            <controllingFieldValue>All Services Out</controllingFieldValue>
+            <controllingFieldValue>Remote Control Trouble</controllingFieldValue>
+            <controllingFieldValue>Non-Pay/Perm Disc</controllingFieldValue>
+            <controllingFieldValue>Locate</controllingFieldValue>
+            <controllingFieldValue>Plume - Slow/Intermittent</controllingFieldValue>
+            <controllingFieldValue>All Plume Related Sub Reports</controllingFieldValue>
+            <controllingFieldValue>WiFi - Modem</controllingFieldValue>
+            <controllingFieldValue>Analog Channels Out of Service</controllingFieldValue>
+            <controllingFieldValue>WiFi - Rukus</controllingFieldValue>
+            <controllingFieldValue>Channel Buffering</controllingFieldValue>
+            <controllingFieldValue>WiFi - Ubiquiti</controllingFieldValue>
+            <controllingFieldValue>Channel Buffering - GPC iTV</controllingFieldValue>
+            <controllingFieldValue>Jack/Ext Issues</controllingFieldValue>
+            <controllingFieldValue>Channels Out</controllingFieldValue>
+            <controllingFieldValue>Camera Trouble</controllingFieldValue>
+            <controllingFieldValue>Communication Trouble</controllingFieldValue>
+            <controllingFieldValue>Failed To Test</controllingFieldValue>
+            <controllingFieldValue>Keypad Problem</controllingFieldValue>
+            <controllingFieldValue>Channels Out - GPC iTV</controllingFieldValue>
+            <controllingFieldValue>Fixed Wireless Trbl</controllingFieldValue>
+            <controllingFieldValue>GPC Declared Outage</controllingFieldValue>
+            <controllingFieldValue>GPC iTV Declared Outage</controllingFieldValue>
+            <controllingFieldValue>LSS Trouble</controllingFieldValue>
+            <controllingFieldValue>GPC iTV Username/Password</controllingFieldValue>
+            <controllingFieldValue>NBR Trouble</controllingFieldValue>
+            <controllingFieldValue>Hosted-Features</controllingFieldValue>
+            <controllingFieldValue>Sensor Problem</controllingFieldValue>
+            <controllingFieldValue>Network Connection - GPC iTV</controllingFieldValue>
+            <controllingFieldValue>Total Connect</controllingFieldValue>
+            <controllingFieldValue>Not Connecting To ITV - GPC iTV</controllingFieldValue>
+            <controllingFieldValue>Cross Talk</controllingFieldValue>
+            <controllingFieldValue>Other &amp; Misc - Int</controllingFieldValue>
+            <controllingFieldValue>Cut Cable Or Drop</controllingFieldValue>
+            <controllingFieldValue>Other &amp; Misc - TV</controllingFieldValue>
+            <controllingFieldValue>Migration</controllingFieldValue>
+            <controllingFieldValue>No Dial Tone</controllingFieldValue>
+            <controllingFieldValue>Noisy Phone</controllingFieldValue>
+            <controllingFieldValue>Trouble Receiving Calls</controllingFieldValue>
+            <controllingFieldValue>Other &amp; Misc - Voice</controllingFieldValue>
+            <controllingFieldValue>Referred to NOC/UC</controllingFieldValue>
+            <controllingFieldValue>Trouble Making Calls</controllingFieldValue>
+            <controllingFieldValue>Features Not Working</controllingFieldValue>
+            <controllingFieldValue>PRI</controllingFieldValue>
+            <controllingFieldValue>Unified</controllingFieldValue>
+            <valueName>Built Missing Service</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Kandy App Update</controllingFieldValue>
+            <controllingFieldValue>Damage Claim</controllingFieldValue>
+            <controllingFieldValue>Outage</controllingFieldValue>
+            <controllingFieldValue>Cut Cable</controllingFieldValue>
+            <controllingFieldValue>Poor Picture Quality</controllingFieldValue>
+            <controllingFieldValue>Audio Problems</controllingFieldValue>
+            <controllingFieldValue>Equipment Failure</controllingFieldValue>
+            <controllingFieldValue>Drop Or Wiring</controllingFieldValue>
+            <controllingFieldValue>All Pods Not Connecting</controllingFieldValue>
+            <controllingFieldValue>Plume - One Pod Not Connecting</controllingFieldValue>
+            <controllingFieldValue>Plume Device Not Connecting</controllingFieldValue>
+            <controllingFieldValue>Referred To Billing</controllingFieldValue>
+            <controllingFieldValue>Password Reset</controllingFieldValue>
+            <controllingFieldValue>Email Settings Or Set Up</controllingFieldValue>
+            <controllingFieldValue>Elite WiFi Trbl</controllingFieldValue>
+            <controllingFieldValue>Gigacenter - Not Working</controllingFieldValue>
+            <controllingFieldValue>Gigacenter - Slow Speeds</controllingFieldValue>
+            <controllingFieldValue>Circuit Running Errors</controllingFieldValue>
+            <controllingFieldValue>Can&apos;t Loop NIU</controllingFieldValue>
+            <controllingFieldValue>Latency/Jitter</controllingFieldValue>
+            <controllingFieldValue>Circuit Down</controllingFieldValue>
+            <controllingFieldValue>Slow Speeds</controllingFieldValue>
+            <controllingFieldValue>Can&apos;t Connect</controllingFieldValue>
+            <controllingFieldValue>Webpage Will Not Load</controllingFieldValue>
+            <controllingFieldValue>No Light On Modem</controllingFieldValue>
+            <controllingFieldValue>E-Mail Trouble</controllingFieldValue>
+            <controllingFieldValue>Missing Channels</controllingFieldValue>
+            <controllingFieldValue>STB Trouble</controllingFieldValue>
+            <controllingFieldValue>All Services Out</controllingFieldValue>
+            <controllingFieldValue>Remote Control Trouble</controllingFieldValue>
+            <controllingFieldValue>Non-Pay/Perm Disc</controllingFieldValue>
+            <controllingFieldValue>Locate</controllingFieldValue>
+            <controllingFieldValue>Plume - Slow/Intermittent</controllingFieldValue>
+            <controllingFieldValue>All Plume Related Sub Reports</controllingFieldValue>
+            <controllingFieldValue>WiFi - Modem</controllingFieldValue>
+            <controllingFieldValue>Analog Channels Out of Service</controllingFieldValue>
+            <controllingFieldValue>WiFi - Rukus</controllingFieldValue>
+            <controllingFieldValue>Channel Buffering</controllingFieldValue>
+            <controllingFieldValue>WiFi - Ubiquiti</controllingFieldValue>
+            <controllingFieldValue>Channel Buffering - GPC iTV</controllingFieldValue>
+            <controllingFieldValue>Jack/Ext Issues</controllingFieldValue>
+            <controllingFieldValue>Channels Out</controllingFieldValue>
+            <controllingFieldValue>Camera Trouble</controllingFieldValue>
+            <controllingFieldValue>Communication Trouble</controllingFieldValue>
+            <controllingFieldValue>Failed To Test</controllingFieldValue>
+            <controllingFieldValue>Keypad Problem</controllingFieldValue>
+            <controllingFieldValue>Channels Out - GPC iTV</controllingFieldValue>
+            <controllingFieldValue>Fixed Wireless Trbl</controllingFieldValue>
+            <controllingFieldValue>GPC Declared Outage</controllingFieldValue>
+            <controllingFieldValue>GPC iTV Declared Outage</controllingFieldValue>
+            <controllingFieldValue>LSS Trouble</controllingFieldValue>
+            <controllingFieldValue>GPC iTV Username/Password</controllingFieldValue>
+            <controllingFieldValue>NBR Trouble</controllingFieldValue>
+            <controllingFieldValue>Hosted-Features</controllingFieldValue>
+            <controllingFieldValue>Sensor Problem</controllingFieldValue>
+            <controllingFieldValue>Network Connection - GPC iTV</controllingFieldValue>
+            <controllingFieldValue>Total Connect</controllingFieldValue>
+            <controllingFieldValue>Not Connecting To ITV - GPC iTV</controllingFieldValue>
+            <controllingFieldValue>Cross Talk</controllingFieldValue>
+            <controllingFieldValue>Other &amp; Misc - Int</controllingFieldValue>
+            <controllingFieldValue>Cut Cable Or Drop</controllingFieldValue>
+            <controllingFieldValue>Other &amp; Misc - TV</controllingFieldValue>
+            <controllingFieldValue>Migration</controllingFieldValue>
+            <controllingFieldValue>No Dial Tone</controllingFieldValue>
+            <controllingFieldValue>Noisy Phone</controllingFieldValue>
+            <controllingFieldValue>Trouble Receiving Calls</controllingFieldValue>
+            <controllingFieldValue>Other &amp; Misc - Voice</controllingFieldValue>
+            <controllingFieldValue>Referred to NOC/UC</controllingFieldValue>
+            <controllingFieldValue>Trouble Making Calls</controllingFieldValue>
+            <controllingFieldValue>Features Not Working</controllingFieldValue>
+            <controllingFieldValue>PRI</controllingFieldValue>
+            <controllingFieldValue>Unified</controllingFieldValue>
+            <valueName>Corrected Plant Records</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Kandy App Update</controllingFieldValue>
+            <controllingFieldValue>Damage Claim</controllingFieldValue>
+            <controllingFieldValue>Outage</controllingFieldValue>
+            <controllingFieldValue>Cut Cable</controllingFieldValue>
+            <controllingFieldValue>Poor Picture Quality</controllingFieldValue>
+            <controllingFieldValue>Audio Problems</controllingFieldValue>
+            <controllingFieldValue>Equipment Failure</controllingFieldValue>
+            <controllingFieldValue>Drop Or Wiring</controllingFieldValue>
+            <controllingFieldValue>All Pods Not Connecting</controllingFieldValue>
+            <controllingFieldValue>Plume - One Pod Not Connecting</controllingFieldValue>
+            <controllingFieldValue>Plume Device Not Connecting</controllingFieldValue>
+            <controllingFieldValue>Referred To Billing</controllingFieldValue>
+            <controllingFieldValue>Password Reset</controllingFieldValue>
+            <controllingFieldValue>Email Settings Or Set Up</controllingFieldValue>
+            <controllingFieldValue>Elite WiFi Trbl</controllingFieldValue>
+            <controllingFieldValue>Gigacenter - Not Working</controllingFieldValue>
+            <controllingFieldValue>Gigacenter - Slow Speeds</controllingFieldValue>
+            <controllingFieldValue>Circuit Running Errors</controllingFieldValue>
+            <controllingFieldValue>Can&apos;t Loop NIU</controllingFieldValue>
+            <controllingFieldValue>Latency/Jitter</controllingFieldValue>
+            <controllingFieldValue>Circuit Down</controllingFieldValue>
+            <controllingFieldValue>Slow Speeds</controllingFieldValue>
+            <controllingFieldValue>Can&apos;t Connect</controllingFieldValue>
+            <controllingFieldValue>Webpage Will Not Load</controllingFieldValue>
+            <controllingFieldValue>No Light On Modem</controllingFieldValue>
+            <controllingFieldValue>E-Mail Trouble</controllingFieldValue>
+            <controllingFieldValue>Missing Channels</controllingFieldValue>
+            <controllingFieldValue>STB Trouble</controllingFieldValue>
+            <controllingFieldValue>All Services Out</controllingFieldValue>
+            <controllingFieldValue>Remote Control Trouble</controllingFieldValue>
+            <controllingFieldValue>Non-Pay/Perm Disc</controllingFieldValue>
+            <controllingFieldValue>Locate</controllingFieldValue>
+            <controllingFieldValue>Plume - Slow/Intermittent</controllingFieldValue>
+            <controllingFieldValue>All Plume Related Sub Reports</controllingFieldValue>
+            <controllingFieldValue>WiFi - Modem</controllingFieldValue>
+            <controllingFieldValue>Analog Channels Out of Service</controllingFieldValue>
+            <controllingFieldValue>WiFi - Rukus</controllingFieldValue>
+            <controllingFieldValue>Channel Buffering</controllingFieldValue>
+            <controllingFieldValue>WiFi - Ubiquiti</controllingFieldValue>
+            <controllingFieldValue>Channel Buffering - GPC iTV</controllingFieldValue>
+            <controllingFieldValue>Jack/Ext Issues</controllingFieldValue>
+            <controllingFieldValue>Channels Out</controllingFieldValue>
+            <controllingFieldValue>Camera Trouble</controllingFieldValue>
+            <controllingFieldValue>Communication Trouble</controllingFieldValue>
+            <controllingFieldValue>Failed To Test</controllingFieldValue>
+            <controllingFieldValue>Keypad Problem</controllingFieldValue>
+            <controllingFieldValue>Channels Out - GPC iTV</controllingFieldValue>
+            <controllingFieldValue>Fixed Wireless Trbl</controllingFieldValue>
+            <controllingFieldValue>GPC Declared Outage</controllingFieldValue>
+            <controllingFieldValue>GPC iTV Declared Outage</controllingFieldValue>
+            <controllingFieldValue>LSS Trouble</controllingFieldValue>
+            <controllingFieldValue>GPC iTV Username/Password</controllingFieldValue>
+            <controllingFieldValue>NBR Trouble</controllingFieldValue>
+            <controllingFieldValue>Hosted-Features</controllingFieldValue>
+            <controllingFieldValue>Sensor Problem</controllingFieldValue>
+            <controllingFieldValue>Network Connection - GPC iTV</controllingFieldValue>
+            <controllingFieldValue>Total Connect</controllingFieldValue>
+            <controllingFieldValue>Not Connecting To ITV - GPC iTV</controllingFieldValue>
+            <controllingFieldValue>Cross Talk</controllingFieldValue>
+            <controllingFieldValue>Other &amp; Misc - Int</controllingFieldValue>
+            <controllingFieldValue>Cut Cable Or Drop</controllingFieldValue>
+            <controllingFieldValue>Other &amp; Misc - TV</controllingFieldValue>
+            <controllingFieldValue>Migration</controllingFieldValue>
+            <controllingFieldValue>No Dial Tone</controllingFieldValue>
+            <controllingFieldValue>Noisy Phone</controllingFieldValue>
+            <controllingFieldValue>Trouble Receiving Calls</controllingFieldValue>
+            <controllingFieldValue>Other &amp; Misc - Voice</controllingFieldValue>
+            <controllingFieldValue>Referred to NOC/UC</controllingFieldValue>
+            <controllingFieldValue>Trouble Making Calls</controllingFieldValue>
+            <controllingFieldValue>Features Not Working</controllingFieldValue>
+            <controllingFieldValue>PRI</controllingFieldValue>
+            <controllingFieldValue>Unified</controllingFieldValue>
+            <valueName>Corrected Service Type</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Kandy App Update</controllingFieldValue>
+            <controllingFieldValue>Damage Claim</controllingFieldValue>
+            <controllingFieldValue>Outage</controllingFieldValue>
+            <controllingFieldValue>Cut Cable</controllingFieldValue>
+            <controllingFieldValue>Poor Picture Quality</controllingFieldValue>
+            <controllingFieldValue>Audio Problems</controllingFieldValue>
+            <controllingFieldValue>Equipment Failure</controllingFieldValue>
+            <controllingFieldValue>Drop Or Wiring</controllingFieldValue>
+            <controllingFieldValue>All Pods Not Connecting</controllingFieldValue>
+            <controllingFieldValue>Plume - One Pod Not Connecting</controllingFieldValue>
+            <controllingFieldValue>Plume Device Not Connecting</controllingFieldValue>
+            <controllingFieldValue>Referred To Billing</controllingFieldValue>
+            <controllingFieldValue>Password Reset</controllingFieldValue>
+            <controllingFieldValue>Email Settings Or Set Up</controllingFieldValue>
+            <controllingFieldValue>Elite WiFi Trbl</controllingFieldValue>
+            <controllingFieldValue>Gigacenter - Not Working</controllingFieldValue>
+            <controllingFieldValue>Gigacenter - Slow Speeds</controllingFieldValue>
+            <controllingFieldValue>Circuit Running Errors</controllingFieldValue>
+            <controllingFieldValue>Can&apos;t Loop NIU</controllingFieldValue>
+            <controllingFieldValue>Latency/Jitter</controllingFieldValue>
+            <controllingFieldValue>Circuit Down</controllingFieldValue>
+            <controllingFieldValue>Slow Speeds</controllingFieldValue>
+            <controllingFieldValue>Can&apos;t Connect</controllingFieldValue>
+            <controllingFieldValue>Webpage Will Not Load</controllingFieldValue>
+            <controllingFieldValue>No Light On Modem</controllingFieldValue>
+            <controllingFieldValue>E-Mail Trouble</controllingFieldValue>
+            <controllingFieldValue>Missing Channels</controllingFieldValue>
+            <controllingFieldValue>STB Trouble</controllingFieldValue>
+            <controllingFieldValue>All Services Out</controllingFieldValue>
+            <controllingFieldValue>Remote Control Trouble</controllingFieldValue>
+            <controllingFieldValue>Non-Pay/Perm Disc</controllingFieldValue>
+            <controllingFieldValue>Locate</controllingFieldValue>
+            <controllingFieldValue>Plume - Slow/Intermittent</controllingFieldValue>
+            <controllingFieldValue>All Plume Related Sub Reports</controllingFieldValue>
+            <controllingFieldValue>WiFi - Modem</controllingFieldValue>
+            <controllingFieldValue>Analog Channels Out of Service</controllingFieldValue>
+            <controllingFieldValue>WiFi - Rukus</controllingFieldValue>
+            <controllingFieldValue>Channel Buffering</controllingFieldValue>
+            <controllingFieldValue>WiFi - Ubiquiti</controllingFieldValue>
+            <controllingFieldValue>Channel Buffering - GPC iTV</controllingFieldValue>
+            <controllingFieldValue>Jack/Ext Issues</controllingFieldValue>
+            <controllingFieldValue>Channels Out</controllingFieldValue>
+            <controllingFieldValue>Camera Trouble</controllingFieldValue>
+            <controllingFieldValue>Communication Trouble</controllingFieldValue>
+            <controllingFieldValue>Failed To Test</controllingFieldValue>
+            <controllingFieldValue>Keypad Problem</controllingFieldValue>
+            <controllingFieldValue>Channels Out - GPC iTV</controllingFieldValue>
+            <controllingFieldValue>Fixed Wireless Trbl</controllingFieldValue>
+            <controllingFieldValue>GPC Declared Outage</controllingFieldValue>
+            <controllingFieldValue>GPC iTV Declared Outage</controllingFieldValue>
+            <controllingFieldValue>LSS Trouble</controllingFieldValue>
+            <controllingFieldValue>GPC iTV Username/Password</controllingFieldValue>
+            <controllingFieldValue>NBR Trouble</controllingFieldValue>
+            <controllingFieldValue>Hosted-Features</controllingFieldValue>
+            <controllingFieldValue>Sensor Problem</controllingFieldValue>
+            <controllingFieldValue>Network Connection - GPC iTV</controllingFieldValue>
+            <controllingFieldValue>Total Connect</controllingFieldValue>
+            <controllingFieldValue>Not Connecting To ITV - GPC iTV</controllingFieldValue>
+            <controllingFieldValue>Cross Talk</controllingFieldValue>
+            <controllingFieldValue>Other &amp; Misc - Int</controllingFieldValue>
+            <controllingFieldValue>Cut Cable Or Drop</controllingFieldValue>
+            <controllingFieldValue>Other &amp; Misc - TV</controllingFieldValue>
+            <controllingFieldValue>Migration</controllingFieldValue>
+            <controllingFieldValue>No Dial Tone</controllingFieldValue>
+            <controllingFieldValue>Noisy Phone</controllingFieldValue>
+            <controllingFieldValue>Trouble Receiving Calls</controllingFieldValue>
+            <controllingFieldValue>Other &amp; Misc - Voice</controllingFieldValue>
+            <controllingFieldValue>Referred to NOC/UC</controllingFieldValue>
+            <controllingFieldValue>Trouble Making Calls</controllingFieldValue>
+            <controllingFieldValue>Features Not Working</controllingFieldValue>
+            <controllingFieldValue>PRI</controllingFieldValue>
+            <controllingFieldValue>Unified</controllingFieldValue>
+            <valueName>Corrected VLAN/EVC</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Kandy App Update</controllingFieldValue>
+            <controllingFieldValue>Damage Claim</controllingFieldValue>
+            <controllingFieldValue>Outage</controllingFieldValue>
+            <controllingFieldValue>Cut Cable</controllingFieldValue>
+            <controllingFieldValue>Poor Picture Quality</controllingFieldValue>
+            <controllingFieldValue>Audio Problems</controllingFieldValue>
+            <controllingFieldValue>Equipment Failure</controllingFieldValue>
+            <controllingFieldValue>Drop Or Wiring</controllingFieldValue>
+            <controllingFieldValue>All Pods Not Connecting</controllingFieldValue>
+            <controllingFieldValue>Plume - One Pod Not Connecting</controllingFieldValue>
+            <controllingFieldValue>Plume Device Not Connecting</controllingFieldValue>
+            <controllingFieldValue>Referred To Billing</controllingFieldValue>
+            <controllingFieldValue>Password Reset</controllingFieldValue>
+            <controllingFieldValue>Email Settings Or Set Up</controllingFieldValue>
+            <controllingFieldValue>Elite WiFi Trbl</controllingFieldValue>
+            <controllingFieldValue>Gigacenter - Not Working</controllingFieldValue>
+            <controllingFieldValue>Gigacenter - Slow Speeds</controllingFieldValue>
+            <controllingFieldValue>Circuit Running Errors</controllingFieldValue>
+            <controllingFieldValue>Can&apos;t Loop NIU</controllingFieldValue>
+            <controllingFieldValue>Latency/Jitter</controllingFieldValue>
+            <controllingFieldValue>Circuit Down</controllingFieldValue>
+            <controllingFieldValue>Slow Speeds</controllingFieldValue>
+            <controllingFieldValue>Can&apos;t Connect</controllingFieldValue>
+            <controllingFieldValue>Webpage Will Not Load</controllingFieldValue>
+            <controllingFieldValue>No Light On Modem</controllingFieldValue>
+            <controllingFieldValue>E-Mail Trouble</controllingFieldValue>
+            <controllingFieldValue>Missing Channels</controllingFieldValue>
+            <controllingFieldValue>STB Trouble</controllingFieldValue>
+            <controllingFieldValue>All Services Out</controllingFieldValue>
+            <controllingFieldValue>Remote Control Trouble</controllingFieldValue>
+            <controllingFieldValue>Non-Pay/Perm Disc</controllingFieldValue>
+            <controllingFieldValue>Locate</controllingFieldValue>
+            <controllingFieldValue>Plume - Slow/Intermittent</controllingFieldValue>
+            <controllingFieldValue>All Plume Related Sub Reports</controllingFieldValue>
+            <controllingFieldValue>WiFi - Modem</controllingFieldValue>
+            <controllingFieldValue>Analog Channels Out of Service</controllingFieldValue>
+            <controllingFieldValue>WiFi - Rukus</controllingFieldValue>
+            <controllingFieldValue>Channel Buffering</controllingFieldValue>
+            <controllingFieldValue>WiFi - Ubiquiti</controllingFieldValue>
+            <controllingFieldValue>Channel Buffering - GPC iTV</controllingFieldValue>
+            <controllingFieldValue>Jack/Ext Issues</controllingFieldValue>
+            <controllingFieldValue>Channels Out</controllingFieldValue>
+            <controllingFieldValue>Camera Trouble</controllingFieldValue>
+            <controllingFieldValue>Communication Trouble</controllingFieldValue>
+            <controllingFieldValue>Failed To Test</controllingFieldValue>
+            <controllingFieldValue>Keypad Problem</controllingFieldValue>
+            <controllingFieldValue>Channels Out - GPC iTV</controllingFieldValue>
+            <controllingFieldValue>Fixed Wireless Trbl</controllingFieldValue>
+            <controllingFieldValue>GPC Declared Outage</controllingFieldValue>
+            <controllingFieldValue>GPC iTV Declared Outage</controllingFieldValue>
+            <controllingFieldValue>LSS Trouble</controllingFieldValue>
+            <controllingFieldValue>GPC iTV Username/Password</controllingFieldValue>
+            <controllingFieldValue>NBR Trouble</controllingFieldValue>
+            <controllingFieldValue>Hosted-Features</controllingFieldValue>
+            <controllingFieldValue>Sensor Problem</controllingFieldValue>
+            <controllingFieldValue>Network Connection - GPC iTV</controllingFieldValue>
+            <controllingFieldValue>Total Connect</controllingFieldValue>
+            <controllingFieldValue>Not Connecting To ITV - GPC iTV</controllingFieldValue>
+            <controllingFieldValue>Cross Talk</controllingFieldValue>
+            <controllingFieldValue>Other &amp; Misc - Int</controllingFieldValue>
+            <controllingFieldValue>Cut Cable Or Drop</controllingFieldValue>
+            <controllingFieldValue>Other &amp; Misc - TV</controllingFieldValue>
+            <controllingFieldValue>Migration</controllingFieldValue>
+            <controllingFieldValue>No Dial Tone</controllingFieldValue>
+            <controllingFieldValue>Noisy Phone</controllingFieldValue>
+            <controllingFieldValue>Trouble Receiving Calls</controllingFieldValue>
+            <controllingFieldValue>Other &amp; Misc - Voice</controllingFieldValue>
+            <controllingFieldValue>Referred to NOC/UC</controllingFieldValue>
+            <controllingFieldValue>Trouble Making Calls</controllingFieldValue>
+            <controllingFieldValue>Features Not Working</controllingFieldValue>
+            <controllingFieldValue>PRI</controllingFieldValue>
+            <controllingFieldValue>Unified</controllingFieldValue>
+            <valueName>Cust Caused - No Chg</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Kandy App Update</controllingFieldValue>
+            <controllingFieldValue>Damage Claim</controllingFieldValue>
+            <controllingFieldValue>Outage</controllingFieldValue>
+            <controllingFieldValue>Cut Cable</controllingFieldValue>
+            <controllingFieldValue>Poor Picture Quality</controllingFieldValue>
+            <controllingFieldValue>Audio Problems</controllingFieldValue>
+            <controllingFieldValue>Equipment Failure</controllingFieldValue>
+            <controllingFieldValue>Drop Or Wiring</controllingFieldValue>
+            <controllingFieldValue>All Pods Not Connecting</controllingFieldValue>
+            <controllingFieldValue>Plume - One Pod Not Connecting</controllingFieldValue>
+            <controllingFieldValue>Plume Device Not Connecting</controllingFieldValue>
+            <controllingFieldValue>Referred To Billing</controllingFieldValue>
+            <controllingFieldValue>Password Reset</controllingFieldValue>
+            <controllingFieldValue>Email Settings Or Set Up</controllingFieldValue>
+            <controllingFieldValue>Elite WiFi Trbl</controllingFieldValue>
+            <controllingFieldValue>Gigacenter - Not Working</controllingFieldValue>
+            <controllingFieldValue>Gigacenter - Slow Speeds</controllingFieldValue>
+            <controllingFieldValue>Circuit Running Errors</controllingFieldValue>
+            <controllingFieldValue>Can&apos;t Loop NIU</controllingFieldValue>
+            <controllingFieldValue>Latency/Jitter</controllingFieldValue>
+            <controllingFieldValue>Circuit Down</controllingFieldValue>
+            <controllingFieldValue>Slow Speeds</controllingFieldValue>
+            <controllingFieldValue>Can&apos;t Connect</controllingFieldValue>
+            <controllingFieldValue>Webpage Will Not Load</controllingFieldValue>
+            <controllingFieldValue>No Light On Modem</controllingFieldValue>
+            <controllingFieldValue>E-Mail Trouble</controllingFieldValue>
+            <controllingFieldValue>Missing Channels</controllingFieldValue>
+            <controllingFieldValue>STB Trouble</controllingFieldValue>
+            <controllingFieldValue>All Services Out</controllingFieldValue>
+            <controllingFieldValue>Remote Control Trouble</controllingFieldValue>
+            <controllingFieldValue>Non-Pay/Perm Disc</controllingFieldValue>
+            <controllingFieldValue>Locate</controllingFieldValue>
+            <controllingFieldValue>Plume - Slow/Intermittent</controllingFieldValue>
+            <controllingFieldValue>All Plume Related Sub Reports</controllingFieldValue>
+            <controllingFieldValue>WiFi - Modem</controllingFieldValue>
+            <controllingFieldValue>Analog Channels Out of Service</controllingFieldValue>
+            <controllingFieldValue>WiFi - Rukus</controllingFieldValue>
+            <controllingFieldValue>Channel Buffering</controllingFieldValue>
+            <controllingFieldValue>WiFi - Ubiquiti</controllingFieldValue>
+            <controllingFieldValue>Channel Buffering - GPC iTV</controllingFieldValue>
+            <controllingFieldValue>Jack/Ext Issues</controllingFieldValue>
+            <controllingFieldValue>Channels Out</controllingFieldValue>
+            <controllingFieldValue>Camera Trouble</controllingFieldValue>
+            <controllingFieldValue>Communication Trouble</controllingFieldValue>
+            <controllingFieldValue>Failed To Test</controllingFieldValue>
+            <controllingFieldValue>Keypad Problem</controllingFieldValue>
+            <controllingFieldValue>Channels Out - GPC iTV</controllingFieldValue>
+            <controllingFieldValue>Fixed Wireless Trbl</controllingFieldValue>
+            <controllingFieldValue>GPC Declared Outage</controllingFieldValue>
+            <controllingFieldValue>GPC iTV Declared Outage</controllingFieldValue>
+            <controllingFieldValue>LSS Trouble</controllingFieldValue>
+            <controllingFieldValue>GPC iTV Username/Password</controllingFieldValue>
+            <controllingFieldValue>NBR Trouble</controllingFieldValue>
+            <controllingFieldValue>Hosted-Features</controllingFieldValue>
+            <controllingFieldValue>Sensor Problem</controllingFieldValue>
+            <controllingFieldValue>Network Connection - GPC iTV</controllingFieldValue>
+            <controllingFieldValue>Total Connect</controllingFieldValue>
+            <controllingFieldValue>Not Connecting To ITV - GPC iTV</controllingFieldValue>
+            <controllingFieldValue>Cross Talk</controllingFieldValue>
+            <controllingFieldValue>Other &amp; Misc - Int</controllingFieldValue>
+            <controllingFieldValue>Cut Cable Or Drop</controllingFieldValue>
+            <controllingFieldValue>Other &amp; Misc - TV</controllingFieldValue>
+            <controllingFieldValue>Migration</controllingFieldValue>
+            <controllingFieldValue>No Dial Tone</controllingFieldValue>
+            <controllingFieldValue>Noisy Phone</controllingFieldValue>
+            <controllingFieldValue>Trouble Receiving Calls</controllingFieldValue>
+            <controllingFieldValue>Other &amp; Misc - Voice</controllingFieldValue>
+            <controllingFieldValue>Referred to NOC/UC</controllingFieldValue>
+            <controllingFieldValue>Trouble Making Calls</controllingFieldValue>
+            <controllingFieldValue>Features Not Working</controllingFieldValue>
+            <controllingFieldValue>PRI</controllingFieldValue>
+            <controllingFieldValue>Unified</controllingFieldValue>
+            <valueName>Cust Caused - Trip Chg</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Kandy App Update</controllingFieldValue>
+            <controllingFieldValue>Damage Claim</controllingFieldValue>
+            <controllingFieldValue>Outage</controllingFieldValue>
+            <controllingFieldValue>Cut Cable</controllingFieldValue>
+            <controllingFieldValue>Poor Picture Quality</controllingFieldValue>
+            <controllingFieldValue>Audio Problems</controllingFieldValue>
+            <controllingFieldValue>Equipment Failure</controllingFieldValue>
+            <controllingFieldValue>Drop Or Wiring</controllingFieldValue>
+            <controllingFieldValue>All Pods Not Connecting</controllingFieldValue>
+            <controllingFieldValue>Plume - One Pod Not Connecting</controllingFieldValue>
+            <controllingFieldValue>Plume Device Not Connecting</controllingFieldValue>
+            <controllingFieldValue>Referred To Billing</controllingFieldValue>
+            <controllingFieldValue>Password Reset</controllingFieldValue>
+            <controllingFieldValue>Email Settings Or Set Up</controllingFieldValue>
+            <controllingFieldValue>Elite WiFi Trbl</controllingFieldValue>
+            <controllingFieldValue>Gigacenter - Not Working</controllingFieldValue>
+            <controllingFieldValue>Gigacenter - Slow Speeds</controllingFieldValue>
+            <controllingFieldValue>Circuit Running Errors</controllingFieldValue>
+            <controllingFieldValue>Can&apos;t Loop NIU</controllingFieldValue>
+            <controllingFieldValue>Latency/Jitter</controllingFieldValue>
+            <controllingFieldValue>Circuit Down</controllingFieldValue>
+            <controllingFieldValue>Slow Speeds</controllingFieldValue>
+            <controllingFieldValue>Can&apos;t Connect</controllingFieldValue>
+            <controllingFieldValue>Webpage Will Not Load</controllingFieldValue>
+            <controllingFieldValue>No Light On Modem</controllingFieldValue>
+            <controllingFieldValue>E-Mail Trouble</controllingFieldValue>
+            <controllingFieldValue>Missing Channels</controllingFieldValue>
+            <controllingFieldValue>STB Trouble</controllingFieldValue>
+            <controllingFieldValue>All Services Out</controllingFieldValue>
+            <controllingFieldValue>Remote Control Trouble</controllingFieldValue>
+            <controllingFieldValue>Non-Pay/Perm Disc</controllingFieldValue>
+            <controllingFieldValue>Locate</controllingFieldValue>
+            <controllingFieldValue>Plume - Slow/Intermittent</controllingFieldValue>
+            <controllingFieldValue>All Plume Related Sub Reports</controllingFieldValue>
+            <controllingFieldValue>WiFi - Modem</controllingFieldValue>
+            <controllingFieldValue>Analog Channels Out of Service</controllingFieldValue>
+            <controllingFieldValue>WiFi - Rukus</controllingFieldValue>
+            <controllingFieldValue>Channel Buffering</controllingFieldValue>
+            <controllingFieldValue>WiFi - Ubiquiti</controllingFieldValue>
+            <controllingFieldValue>Channel Buffering - GPC iTV</controllingFieldValue>
+            <controllingFieldValue>Jack/Ext Issues</controllingFieldValue>
+            <controllingFieldValue>Channels Out</controllingFieldValue>
+            <controllingFieldValue>Camera Trouble</controllingFieldValue>
+            <controllingFieldValue>Communication Trouble</controllingFieldValue>
+            <controllingFieldValue>Failed To Test</controllingFieldValue>
+            <controllingFieldValue>Keypad Problem</controllingFieldValue>
+            <controllingFieldValue>Channels Out - GPC iTV</controllingFieldValue>
+            <controllingFieldValue>Fixed Wireless Trbl</controllingFieldValue>
+            <controllingFieldValue>GPC Declared Outage</controllingFieldValue>
+            <controllingFieldValue>GPC iTV Declared Outage</controllingFieldValue>
+            <controllingFieldValue>LSS Trouble</controllingFieldValue>
+            <controllingFieldValue>GPC iTV Username/Password</controllingFieldValue>
+            <controllingFieldValue>NBR Trouble</controllingFieldValue>
+            <controllingFieldValue>Hosted-Features</controllingFieldValue>
+            <controllingFieldValue>Sensor Problem</controllingFieldValue>
+            <controllingFieldValue>Network Connection - GPC iTV</controllingFieldValue>
+            <controllingFieldValue>Total Connect</controllingFieldValue>
+            <controllingFieldValue>Not Connecting To ITV - GPC iTV</controllingFieldValue>
+            <controllingFieldValue>Cross Talk</controllingFieldValue>
+            <controllingFieldValue>Other &amp; Misc - Int</controllingFieldValue>
+            <controllingFieldValue>Cut Cable Or Drop</controllingFieldValue>
+            <controllingFieldValue>Other &amp; Misc - TV</controllingFieldValue>
+            <controllingFieldValue>Migration</controllingFieldValue>
+            <controllingFieldValue>No Dial Tone</controllingFieldValue>
+            <controllingFieldValue>Noisy Phone</controllingFieldValue>
+            <controllingFieldValue>Trouble Receiving Calls</controllingFieldValue>
+            <controllingFieldValue>Other &amp; Misc - Voice</controllingFieldValue>
+            <controllingFieldValue>Referred to NOC/UC</controllingFieldValue>
+            <controllingFieldValue>Trouble Making Calls</controllingFieldValue>
+            <controllingFieldValue>Features Not Working</controllingFieldValue>
+            <controllingFieldValue>PRI</controllingFieldValue>
+            <controllingFieldValue>Unified</controllingFieldValue>
+            <valueName>Customer Canceled Ticket</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Kandy App Update</controllingFieldValue>
+            <controllingFieldValue>Damage Claim</controllingFieldValue>
+            <controllingFieldValue>Outage</controllingFieldValue>
+            <controllingFieldValue>Cut Cable</controllingFieldValue>
+            <controllingFieldValue>Poor Picture Quality</controllingFieldValue>
+            <controllingFieldValue>Audio Problems</controllingFieldValue>
+            <controllingFieldValue>Equipment Failure</controllingFieldValue>
+            <controllingFieldValue>Drop Or Wiring</controllingFieldValue>
+            <controllingFieldValue>All Pods Not Connecting</controllingFieldValue>
+            <controllingFieldValue>Plume - One Pod Not Connecting</controllingFieldValue>
+            <controllingFieldValue>Plume Device Not Connecting</controllingFieldValue>
+            <controllingFieldValue>Referred To Billing</controllingFieldValue>
+            <controllingFieldValue>Password Reset</controllingFieldValue>
+            <controllingFieldValue>Email Settings Or Set Up</controllingFieldValue>
+            <controllingFieldValue>Elite WiFi Trbl</controllingFieldValue>
+            <controllingFieldValue>Gigacenter - Not Working</controllingFieldValue>
+            <controllingFieldValue>Gigacenter - Slow Speeds</controllingFieldValue>
+            <controllingFieldValue>Circuit Running Errors</controllingFieldValue>
+            <controllingFieldValue>Can&apos;t Loop NIU</controllingFieldValue>
+            <controllingFieldValue>Latency/Jitter</controllingFieldValue>
+            <controllingFieldValue>Circuit Down</controllingFieldValue>
+            <controllingFieldValue>Slow Speeds</controllingFieldValue>
+            <controllingFieldValue>Can&apos;t Connect</controllingFieldValue>
+            <controllingFieldValue>Webpage Will Not Load</controllingFieldValue>
+            <controllingFieldValue>No Light On Modem</controllingFieldValue>
+            <controllingFieldValue>E-Mail Trouble</controllingFieldValue>
+            <controllingFieldValue>Missing Channels</controllingFieldValue>
+            <controllingFieldValue>STB Trouble</controllingFieldValue>
+            <controllingFieldValue>All Services Out</controllingFieldValue>
+            <controllingFieldValue>Remote Control Trouble</controllingFieldValue>
+            <controllingFieldValue>Non-Pay/Perm Disc</controllingFieldValue>
+            <controllingFieldValue>Locate</controllingFieldValue>
+            <controllingFieldValue>Plume - Slow/Intermittent</controllingFieldValue>
+            <controllingFieldValue>All Plume Related Sub Reports</controllingFieldValue>
+            <controllingFieldValue>WiFi - Modem</controllingFieldValue>
+            <controllingFieldValue>Analog Channels Out of Service</controllingFieldValue>
+            <controllingFieldValue>WiFi - Rukus</controllingFieldValue>
+            <controllingFieldValue>Channel Buffering</controllingFieldValue>
+            <controllingFieldValue>WiFi - Ubiquiti</controllingFieldValue>
+            <controllingFieldValue>Channel Buffering - GPC iTV</controllingFieldValue>
+            <controllingFieldValue>Jack/Ext Issues</controllingFieldValue>
+            <controllingFieldValue>Channels Out</controllingFieldValue>
+            <controllingFieldValue>Camera Trouble</controllingFieldValue>
+            <controllingFieldValue>Communication Trouble</controllingFieldValue>
+            <controllingFieldValue>Failed To Test</controllingFieldValue>
+            <controllingFieldValue>Keypad Problem</controllingFieldValue>
+            <controllingFieldValue>Channels Out - GPC iTV</controllingFieldValue>
+            <controllingFieldValue>Fixed Wireless Trbl</controllingFieldValue>
+            <controllingFieldValue>GPC Declared Outage</controllingFieldValue>
+            <controllingFieldValue>GPC iTV Declared Outage</controllingFieldValue>
+            <controllingFieldValue>LSS Trouble</controllingFieldValue>
+            <controllingFieldValue>GPC iTV Username/Password</controllingFieldValue>
+            <controllingFieldValue>NBR Trouble</controllingFieldValue>
+            <controllingFieldValue>Hosted-Features</controllingFieldValue>
+            <controllingFieldValue>Sensor Problem</controllingFieldValue>
+            <controllingFieldValue>Network Connection - GPC iTV</controllingFieldValue>
+            <controllingFieldValue>Total Connect</controllingFieldValue>
+            <controllingFieldValue>Not Connecting To ITV - GPC iTV</controllingFieldValue>
+            <controllingFieldValue>Cross Talk</controllingFieldValue>
+            <controllingFieldValue>Other &amp; Misc - Int</controllingFieldValue>
+            <controllingFieldValue>Cut Cable Or Drop</controllingFieldValue>
+            <controllingFieldValue>Other &amp; Misc - TV</controllingFieldValue>
+            <controllingFieldValue>Migration</controllingFieldValue>
+            <controllingFieldValue>No Dial Tone</controllingFieldValue>
+            <controllingFieldValue>Noisy Phone</controllingFieldValue>
+            <controllingFieldValue>Trouble Receiving Calls</controllingFieldValue>
+            <controllingFieldValue>Other &amp; Misc - Voice</controllingFieldValue>
+            <controllingFieldValue>Referred to NOC/UC</controllingFieldValue>
+            <controllingFieldValue>Trouble Making Calls</controllingFieldValue>
+            <controllingFieldValue>Features Not Working</controllingFieldValue>
+            <controllingFieldValue>PRI</controllingFieldValue>
+            <controllingFieldValue>Unified</controllingFieldValue>
+            <valueName>Customer Education</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Kandy App Update</controllingFieldValue>
+            <controllingFieldValue>Damage Claim</controllingFieldValue>
+            <controllingFieldValue>Outage</controllingFieldValue>
+            <controllingFieldValue>Cut Cable</controllingFieldValue>
+            <controllingFieldValue>Poor Picture Quality</controllingFieldValue>
+            <controllingFieldValue>Audio Problems</controllingFieldValue>
+            <controllingFieldValue>Equipment Failure</controllingFieldValue>
+            <controllingFieldValue>Drop Or Wiring</controllingFieldValue>
+            <controllingFieldValue>All Pods Not Connecting</controllingFieldValue>
+            <controllingFieldValue>Plume - One Pod Not Connecting</controllingFieldValue>
+            <controllingFieldValue>Plume Device Not Connecting</controllingFieldValue>
+            <controllingFieldValue>Referred To Billing</controllingFieldValue>
+            <controllingFieldValue>Password Reset</controllingFieldValue>
+            <controllingFieldValue>Email Settings Or Set Up</controllingFieldValue>
+            <controllingFieldValue>Elite WiFi Trbl</controllingFieldValue>
+            <controllingFieldValue>Gigacenter - Not Working</controllingFieldValue>
+            <controllingFieldValue>Gigacenter - Slow Speeds</controllingFieldValue>
+            <controllingFieldValue>Circuit Running Errors</controllingFieldValue>
+            <controllingFieldValue>Can&apos;t Loop NIU</controllingFieldValue>
+            <controllingFieldValue>Latency/Jitter</controllingFieldValue>
+            <controllingFieldValue>Circuit Down</controllingFieldValue>
+            <controllingFieldValue>Slow Speeds</controllingFieldValue>
+            <controllingFieldValue>Can&apos;t Connect</controllingFieldValue>
+            <controllingFieldValue>Webpage Will Not Load</controllingFieldValue>
+            <controllingFieldValue>No Light On Modem</controllingFieldValue>
+            <controllingFieldValue>E-Mail Trouble</controllingFieldValue>
+            <controllingFieldValue>Missing Channels</controllingFieldValue>
+            <controllingFieldValue>STB Trouble</controllingFieldValue>
+            <controllingFieldValue>All Services Out</controllingFieldValue>
+            <controllingFieldValue>Remote Control Trouble</controllingFieldValue>
+            <controllingFieldValue>Non-Pay/Perm Disc</controllingFieldValue>
+            <controllingFieldValue>Locate</controllingFieldValue>
+            <controllingFieldValue>Plume - Slow/Intermittent</controllingFieldValue>
+            <controllingFieldValue>All Plume Related Sub Reports</controllingFieldValue>
+            <controllingFieldValue>WiFi - Modem</controllingFieldValue>
+            <controllingFieldValue>Analog Channels Out of Service</controllingFieldValue>
+            <controllingFieldValue>WiFi - Rukus</controllingFieldValue>
+            <controllingFieldValue>Channel Buffering</controllingFieldValue>
+            <controllingFieldValue>WiFi - Ubiquiti</controllingFieldValue>
+            <controllingFieldValue>Channel Buffering - GPC iTV</controllingFieldValue>
+            <controllingFieldValue>Jack/Ext Issues</controllingFieldValue>
+            <controllingFieldValue>Channels Out</controllingFieldValue>
+            <controllingFieldValue>Camera Trouble</controllingFieldValue>
+            <controllingFieldValue>Communication Trouble</controllingFieldValue>
+            <controllingFieldValue>Failed To Test</controllingFieldValue>
+            <controllingFieldValue>Keypad Problem</controllingFieldValue>
+            <controllingFieldValue>Channels Out - GPC iTV</controllingFieldValue>
+            <controllingFieldValue>Fixed Wireless Trbl</controllingFieldValue>
+            <controllingFieldValue>GPC Declared Outage</controllingFieldValue>
+            <controllingFieldValue>GPC iTV Declared Outage</controllingFieldValue>
+            <controllingFieldValue>LSS Trouble</controllingFieldValue>
+            <controllingFieldValue>GPC iTV Username/Password</controllingFieldValue>
+            <controllingFieldValue>NBR Trouble</controllingFieldValue>
+            <controllingFieldValue>Hosted-Features</controllingFieldValue>
+            <controllingFieldValue>Sensor Problem</controllingFieldValue>
+            <controllingFieldValue>Network Connection - GPC iTV</controllingFieldValue>
+            <controllingFieldValue>Total Connect</controllingFieldValue>
+            <controllingFieldValue>Not Connecting To ITV - GPC iTV</controllingFieldValue>
+            <controllingFieldValue>Cross Talk</controllingFieldValue>
+            <controllingFieldValue>Other &amp; Misc - Int</controllingFieldValue>
+            <controllingFieldValue>Cut Cable Or Drop</controllingFieldValue>
+            <controllingFieldValue>Other &amp; Misc - TV</controllingFieldValue>
+            <controllingFieldValue>Migration</controllingFieldValue>
+            <controllingFieldValue>No Dial Tone</controllingFieldValue>
+            <controllingFieldValue>Noisy Phone</controllingFieldValue>
+            <controllingFieldValue>Trouble Receiving Calls</controllingFieldValue>
+            <controllingFieldValue>Other &amp; Misc - Voice</controllingFieldValue>
+            <controllingFieldValue>Referred to NOC/UC</controllingFieldValue>
+            <controllingFieldValue>Trouble Making Calls</controllingFieldValue>
+            <controllingFieldValue>Features Not Working</controllingFieldValue>
+            <controllingFieldValue>PRI</controllingFieldValue>
+            <controllingFieldValue>Unified</controllingFieldValue>
+            <valueName>Duplicate Ticket</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Kandy App Update</controllingFieldValue>
+            <controllingFieldValue>Damage Claim</controllingFieldValue>
+            <controllingFieldValue>Outage</controllingFieldValue>
+            <controllingFieldValue>Cut Cable</controllingFieldValue>
+            <controllingFieldValue>Poor Picture Quality</controllingFieldValue>
+            <controllingFieldValue>Audio Problems</controllingFieldValue>
+            <controllingFieldValue>Equipment Failure</controllingFieldValue>
+            <controllingFieldValue>Drop Or Wiring</controllingFieldValue>
+            <controllingFieldValue>All Pods Not Connecting</controllingFieldValue>
+            <controllingFieldValue>Plume - One Pod Not Connecting</controllingFieldValue>
+            <controllingFieldValue>Plume Device Not Connecting</controllingFieldValue>
+            <controllingFieldValue>Referred To Billing</controllingFieldValue>
+            <controllingFieldValue>Password Reset</controllingFieldValue>
+            <controllingFieldValue>Email Settings Or Set Up</controllingFieldValue>
+            <controllingFieldValue>Elite WiFi Trbl</controllingFieldValue>
+            <controllingFieldValue>Gigacenter - Not Working</controllingFieldValue>
+            <controllingFieldValue>Gigacenter - Slow Speeds</controllingFieldValue>
+            <controllingFieldValue>Circuit Running Errors</controllingFieldValue>
+            <controllingFieldValue>Can&apos;t Loop NIU</controllingFieldValue>
+            <controllingFieldValue>Latency/Jitter</controllingFieldValue>
+            <controllingFieldValue>Circuit Down</controllingFieldValue>
+            <controllingFieldValue>Slow Speeds</controllingFieldValue>
+            <controllingFieldValue>Can&apos;t Connect</controllingFieldValue>
+            <controllingFieldValue>Webpage Will Not Load</controllingFieldValue>
+            <controllingFieldValue>No Light On Modem</controllingFieldValue>
+            <controllingFieldValue>E-Mail Trouble</controllingFieldValue>
+            <controllingFieldValue>Missing Channels</controllingFieldValue>
+            <controllingFieldValue>STB Trouble</controllingFieldValue>
+            <controllingFieldValue>All Services Out</controllingFieldValue>
+            <controllingFieldValue>Remote Control Trouble</controllingFieldValue>
+            <controllingFieldValue>Non-Pay/Perm Disc</controllingFieldValue>
+            <controllingFieldValue>Locate</controllingFieldValue>
+            <controllingFieldValue>Plume - Slow/Intermittent</controllingFieldValue>
+            <controllingFieldValue>All Plume Related Sub Reports</controllingFieldValue>
+            <controllingFieldValue>WiFi - Modem</controllingFieldValue>
+            <controllingFieldValue>Analog Channels Out of Service</controllingFieldValue>
+            <controllingFieldValue>WiFi - Rukus</controllingFieldValue>
+            <controllingFieldValue>Channel Buffering</controllingFieldValue>
+            <controllingFieldValue>WiFi - Ubiquiti</controllingFieldValue>
+            <controllingFieldValue>Channel Buffering - GPC iTV</controllingFieldValue>
+            <controllingFieldValue>Jack/Ext Issues</controllingFieldValue>
+            <controllingFieldValue>Channels Out</controllingFieldValue>
+            <controllingFieldValue>Camera Trouble</controllingFieldValue>
+            <controllingFieldValue>Communication Trouble</controllingFieldValue>
+            <controllingFieldValue>Failed To Test</controllingFieldValue>
+            <controllingFieldValue>Keypad Problem</controllingFieldValue>
+            <controllingFieldValue>Channels Out - GPC iTV</controllingFieldValue>
+            <controllingFieldValue>Fixed Wireless Trbl</controllingFieldValue>
+            <controllingFieldValue>GPC Declared Outage</controllingFieldValue>
+            <controllingFieldValue>GPC iTV Declared Outage</controllingFieldValue>
+            <controllingFieldValue>LSS Trouble</controllingFieldValue>
+            <controllingFieldValue>GPC iTV Username/Password</controllingFieldValue>
+            <controllingFieldValue>NBR Trouble</controllingFieldValue>
+            <controllingFieldValue>Hosted-Features</controllingFieldValue>
+            <controllingFieldValue>Sensor Problem</controllingFieldValue>
+            <controllingFieldValue>Network Connection - GPC iTV</controllingFieldValue>
+            <controllingFieldValue>Total Connect</controllingFieldValue>
+            <controllingFieldValue>Not Connecting To ITV - GPC iTV</controllingFieldValue>
+            <controllingFieldValue>Cross Talk</controllingFieldValue>
+            <controllingFieldValue>Other &amp; Misc - Int</controllingFieldValue>
+            <controllingFieldValue>Cut Cable Or Drop</controllingFieldValue>
+            <controllingFieldValue>Other &amp; Misc - TV</controllingFieldValue>
+            <controllingFieldValue>Migration</controllingFieldValue>
+            <controllingFieldValue>No Dial Tone</controllingFieldValue>
+            <controllingFieldValue>Noisy Phone</controllingFieldValue>
+            <controllingFieldValue>Trouble Receiving Calls</controllingFieldValue>
+            <controllingFieldValue>Other &amp; Misc - Voice</controllingFieldValue>
+            <controllingFieldValue>Referred to NOC/UC</controllingFieldValue>
+            <controllingFieldValue>Trouble Making Calls</controllingFieldValue>
+            <controllingFieldValue>Features Not Working</controllingFieldValue>
+            <controllingFieldValue>PRI</controllingFieldValue>
+            <controllingFieldValue>Unified</controllingFieldValue>
+            <valueName>Hardware Reset</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Kandy App Update</controllingFieldValue>
+            <controllingFieldValue>Damage Claim</controllingFieldValue>
+            <controllingFieldValue>Outage</controllingFieldValue>
+            <controllingFieldValue>Cut Cable</controllingFieldValue>
+            <controllingFieldValue>Poor Picture Quality</controllingFieldValue>
+            <controllingFieldValue>Audio Problems</controllingFieldValue>
+            <controllingFieldValue>Equipment Failure</controllingFieldValue>
+            <controllingFieldValue>Drop Or Wiring</controllingFieldValue>
+            <controllingFieldValue>All Pods Not Connecting</controllingFieldValue>
+            <controllingFieldValue>Plume - One Pod Not Connecting</controllingFieldValue>
+            <controllingFieldValue>Plume Device Not Connecting</controllingFieldValue>
+            <controllingFieldValue>Referred To Billing</controllingFieldValue>
+            <controllingFieldValue>Password Reset</controllingFieldValue>
+            <controllingFieldValue>Email Settings Or Set Up</controllingFieldValue>
+            <controllingFieldValue>Elite WiFi Trbl</controllingFieldValue>
+            <controllingFieldValue>Gigacenter - Not Working</controllingFieldValue>
+            <controllingFieldValue>Gigacenter - Slow Speeds</controllingFieldValue>
+            <controllingFieldValue>Circuit Running Errors</controllingFieldValue>
+            <controllingFieldValue>Can&apos;t Loop NIU</controllingFieldValue>
+            <controllingFieldValue>Latency/Jitter</controllingFieldValue>
+            <controllingFieldValue>Circuit Down</controllingFieldValue>
+            <controllingFieldValue>Slow Speeds</controllingFieldValue>
+            <controllingFieldValue>Can&apos;t Connect</controllingFieldValue>
+            <controllingFieldValue>Webpage Will Not Load</controllingFieldValue>
+            <controllingFieldValue>No Light On Modem</controllingFieldValue>
+            <controllingFieldValue>E-Mail Trouble</controllingFieldValue>
+            <controllingFieldValue>Missing Channels</controllingFieldValue>
+            <controllingFieldValue>STB Trouble</controllingFieldValue>
+            <controllingFieldValue>All Services Out</controllingFieldValue>
+            <controllingFieldValue>Remote Control Trouble</controllingFieldValue>
+            <controllingFieldValue>Non-Pay/Perm Disc</controllingFieldValue>
+            <controllingFieldValue>Locate</controllingFieldValue>
+            <controllingFieldValue>Plume - Slow/Intermittent</controllingFieldValue>
+            <controllingFieldValue>All Plume Related Sub Reports</controllingFieldValue>
+            <controllingFieldValue>WiFi - Modem</controllingFieldValue>
+            <controllingFieldValue>Analog Channels Out of Service</controllingFieldValue>
+            <controllingFieldValue>WiFi - Rukus</controllingFieldValue>
+            <controllingFieldValue>Channel Buffering</controllingFieldValue>
+            <controllingFieldValue>WiFi - Ubiquiti</controllingFieldValue>
+            <controllingFieldValue>Channel Buffering - GPC iTV</controllingFieldValue>
+            <controllingFieldValue>Jack/Ext Issues</controllingFieldValue>
+            <controllingFieldValue>Channels Out</controllingFieldValue>
+            <controllingFieldValue>Camera Trouble</controllingFieldValue>
+            <controllingFieldValue>Communication Trouble</controllingFieldValue>
+            <controllingFieldValue>Failed To Test</controllingFieldValue>
+            <controllingFieldValue>Keypad Problem</controllingFieldValue>
+            <controllingFieldValue>Channels Out - GPC iTV</controllingFieldValue>
+            <controllingFieldValue>Fixed Wireless Trbl</controllingFieldValue>
+            <controllingFieldValue>GPC Declared Outage</controllingFieldValue>
+            <controllingFieldValue>GPC iTV Declared Outage</controllingFieldValue>
+            <controllingFieldValue>LSS Trouble</controllingFieldValue>
+            <controllingFieldValue>GPC iTV Username/Password</controllingFieldValue>
+            <controllingFieldValue>NBR Trouble</controllingFieldValue>
+            <controllingFieldValue>Hosted-Features</controllingFieldValue>
+            <controllingFieldValue>Sensor Problem</controllingFieldValue>
+            <controllingFieldValue>Network Connection - GPC iTV</controllingFieldValue>
+            <controllingFieldValue>Total Connect</controllingFieldValue>
+            <controllingFieldValue>Not Connecting To ITV - GPC iTV</controllingFieldValue>
+            <controllingFieldValue>Cross Talk</controllingFieldValue>
+            <controllingFieldValue>Other &amp; Misc - Int</controllingFieldValue>
+            <controllingFieldValue>Cut Cable Or Drop</controllingFieldValue>
+            <controllingFieldValue>Other &amp; Misc - TV</controllingFieldValue>
+            <controllingFieldValue>Migration</controllingFieldValue>
+            <controllingFieldValue>No Dial Tone</controllingFieldValue>
+            <controllingFieldValue>Noisy Phone</controllingFieldValue>
+            <controllingFieldValue>Trouble Receiving Calls</controllingFieldValue>
+            <controllingFieldValue>Other &amp; Misc - Voice</controllingFieldValue>
+            <controllingFieldValue>Referred to NOC/UC</controllingFieldValue>
+            <controllingFieldValue>Trouble Making Calls</controllingFieldValue>
+            <controllingFieldValue>Features Not Working</controllingFieldValue>
+            <controllingFieldValue>PRI</controllingFieldValue>
+            <controllingFieldValue>Unified</controllingFieldValue>
+            <valueName>No Trouble Found</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Kandy App Update</controllingFieldValue>
+            <controllingFieldValue>Damage Claim</controllingFieldValue>
+            <controllingFieldValue>Outage</controllingFieldValue>
+            <controllingFieldValue>Cut Cable</controllingFieldValue>
+            <controllingFieldValue>Poor Picture Quality</controllingFieldValue>
+            <controllingFieldValue>Audio Problems</controllingFieldValue>
+            <controllingFieldValue>Equipment Failure</controllingFieldValue>
+            <controllingFieldValue>Drop Or Wiring</controllingFieldValue>
+            <controllingFieldValue>All Pods Not Connecting</controllingFieldValue>
+            <controllingFieldValue>Plume - One Pod Not Connecting</controllingFieldValue>
+            <controllingFieldValue>Plume Device Not Connecting</controllingFieldValue>
+            <controllingFieldValue>Referred To Billing</controllingFieldValue>
+            <controllingFieldValue>Password Reset</controllingFieldValue>
+            <controllingFieldValue>Email Settings Or Set Up</controllingFieldValue>
+            <controllingFieldValue>Elite WiFi Trbl</controllingFieldValue>
+            <controllingFieldValue>Gigacenter - Not Working</controllingFieldValue>
+            <controllingFieldValue>Gigacenter - Slow Speeds</controllingFieldValue>
+            <controllingFieldValue>Circuit Running Errors</controllingFieldValue>
+            <controllingFieldValue>Can&apos;t Loop NIU</controllingFieldValue>
+            <controllingFieldValue>Latency/Jitter</controllingFieldValue>
+            <controllingFieldValue>Circuit Down</controllingFieldValue>
+            <controllingFieldValue>Slow Speeds</controllingFieldValue>
+            <controllingFieldValue>Can&apos;t Connect</controllingFieldValue>
+            <controllingFieldValue>Webpage Will Not Load</controllingFieldValue>
+            <controllingFieldValue>No Light On Modem</controllingFieldValue>
+            <controllingFieldValue>E-Mail Trouble</controllingFieldValue>
+            <controllingFieldValue>Missing Channels</controllingFieldValue>
+            <controllingFieldValue>STB Trouble</controllingFieldValue>
+            <controllingFieldValue>All Services Out</controllingFieldValue>
+            <controllingFieldValue>Remote Control Trouble</controllingFieldValue>
+            <controllingFieldValue>Non-Pay/Perm Disc</controllingFieldValue>
+            <controllingFieldValue>Locate</controllingFieldValue>
+            <controllingFieldValue>Plume - Slow/Intermittent</controllingFieldValue>
+            <controllingFieldValue>All Plume Related Sub Reports</controllingFieldValue>
+            <controllingFieldValue>WiFi - Modem</controllingFieldValue>
+            <controllingFieldValue>Analog Channels Out of Service</controllingFieldValue>
+            <controllingFieldValue>WiFi - Rukus</controllingFieldValue>
+            <controllingFieldValue>Channel Buffering</controllingFieldValue>
+            <controllingFieldValue>WiFi - Ubiquiti</controllingFieldValue>
+            <controllingFieldValue>Channel Buffering - GPC iTV</controllingFieldValue>
+            <controllingFieldValue>Jack/Ext Issues</controllingFieldValue>
+            <controllingFieldValue>Channels Out</controllingFieldValue>
+            <controllingFieldValue>Camera Trouble</controllingFieldValue>
+            <controllingFieldValue>Communication Trouble</controllingFieldValue>
+            <controllingFieldValue>Failed To Test</controllingFieldValue>
+            <controllingFieldValue>Keypad Problem</controllingFieldValue>
+            <controllingFieldValue>Channels Out - GPC iTV</controllingFieldValue>
+            <controllingFieldValue>Fixed Wireless Trbl</controllingFieldValue>
+            <controllingFieldValue>GPC Declared Outage</controllingFieldValue>
+            <controllingFieldValue>GPC iTV Declared Outage</controllingFieldValue>
+            <controllingFieldValue>LSS Trouble</controllingFieldValue>
+            <controllingFieldValue>GPC iTV Username/Password</controllingFieldValue>
+            <controllingFieldValue>NBR Trouble</controllingFieldValue>
+            <controllingFieldValue>Hosted-Features</controllingFieldValue>
+            <controllingFieldValue>Sensor Problem</controllingFieldValue>
+            <controllingFieldValue>Network Connection - GPC iTV</controllingFieldValue>
+            <controllingFieldValue>Total Connect</controllingFieldValue>
+            <controllingFieldValue>Not Connecting To ITV - GPC iTV</controllingFieldValue>
+            <controllingFieldValue>Cross Talk</controllingFieldValue>
+            <controllingFieldValue>Other &amp; Misc - Int</controllingFieldValue>
+            <controllingFieldValue>Cut Cable Or Drop</controllingFieldValue>
+            <controllingFieldValue>Other &amp; Misc - TV</controllingFieldValue>
+            <controllingFieldValue>Migration</controllingFieldValue>
+            <controllingFieldValue>No Dial Tone</controllingFieldValue>
+            <controllingFieldValue>Noisy Phone</controllingFieldValue>
+            <controllingFieldValue>Trouble Receiving Calls</controllingFieldValue>
+            <controllingFieldValue>Other &amp; Misc - Voice</controllingFieldValue>
+            <controllingFieldValue>Referred to NOC/UC</controllingFieldValue>
+            <controllingFieldValue>Trouble Making Calls</controllingFieldValue>
+            <controllingFieldValue>Features Not Working</controllingFieldValue>
+            <controllingFieldValue>PRI</controllingFieldValue>
+            <controllingFieldValue>Unified</controllingFieldValue>
+            <valueName>Referred To Billing/CRC</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Kandy App Update</controllingFieldValue>
+            <controllingFieldValue>Damage Claim</controllingFieldValue>
+            <controllingFieldValue>Outage</controllingFieldValue>
+            <controllingFieldValue>Cut Cable</controllingFieldValue>
+            <controllingFieldValue>Poor Picture Quality</controllingFieldValue>
+            <controllingFieldValue>Audio Problems</controllingFieldValue>
+            <controllingFieldValue>Equipment Failure</controllingFieldValue>
+            <controllingFieldValue>Drop Or Wiring</controllingFieldValue>
+            <controllingFieldValue>All Pods Not Connecting</controllingFieldValue>
+            <controllingFieldValue>Plume - One Pod Not Connecting</controllingFieldValue>
+            <controllingFieldValue>Plume Device Not Connecting</controllingFieldValue>
+            <controllingFieldValue>Referred To Billing</controllingFieldValue>
+            <controllingFieldValue>Password Reset</controllingFieldValue>
+            <controllingFieldValue>Email Settings Or Set Up</controllingFieldValue>
+            <controllingFieldValue>Elite WiFi Trbl</controllingFieldValue>
+            <controllingFieldValue>Gigacenter - Not Working</controllingFieldValue>
+            <controllingFieldValue>Gigacenter - Slow Speeds</controllingFieldValue>
+            <controllingFieldValue>Circuit Running Errors</controllingFieldValue>
+            <controllingFieldValue>Can&apos;t Loop NIU</controllingFieldValue>
+            <controllingFieldValue>Latency/Jitter</controllingFieldValue>
+            <controllingFieldValue>Circuit Down</controllingFieldValue>
+            <controllingFieldValue>Slow Speeds</controllingFieldValue>
+            <controllingFieldValue>Can&apos;t Connect</controllingFieldValue>
+            <controllingFieldValue>Webpage Will Not Load</controllingFieldValue>
+            <controllingFieldValue>No Light On Modem</controllingFieldValue>
+            <controllingFieldValue>E-Mail Trouble</controllingFieldValue>
+            <controllingFieldValue>Missing Channels</controllingFieldValue>
+            <controllingFieldValue>STB Trouble</controllingFieldValue>
+            <controllingFieldValue>All Services Out</controllingFieldValue>
+            <controllingFieldValue>Remote Control Trouble</controllingFieldValue>
+            <controllingFieldValue>Non-Pay/Perm Disc</controllingFieldValue>
+            <controllingFieldValue>Locate</controllingFieldValue>
+            <controllingFieldValue>Plume - Slow/Intermittent</controllingFieldValue>
+            <controllingFieldValue>All Plume Related Sub Reports</controllingFieldValue>
+            <controllingFieldValue>WiFi - Modem</controllingFieldValue>
+            <controllingFieldValue>Analog Channels Out of Service</controllingFieldValue>
+            <controllingFieldValue>WiFi - Rukus</controllingFieldValue>
+            <controllingFieldValue>Channel Buffering</controllingFieldValue>
+            <controllingFieldValue>WiFi - Ubiquiti</controllingFieldValue>
+            <controllingFieldValue>Channel Buffering - GPC iTV</controllingFieldValue>
+            <controllingFieldValue>Jack/Ext Issues</controllingFieldValue>
+            <controllingFieldValue>Channels Out</controllingFieldValue>
+            <controllingFieldValue>Camera Trouble</controllingFieldValue>
+            <controllingFieldValue>Communication Trouble</controllingFieldValue>
+            <controllingFieldValue>Failed To Test</controllingFieldValue>
+            <controllingFieldValue>Keypad Problem</controllingFieldValue>
+            <controllingFieldValue>Channels Out - GPC iTV</controllingFieldValue>
+            <controllingFieldValue>Fixed Wireless Trbl</controllingFieldValue>
+            <controllingFieldValue>GPC Declared Outage</controllingFieldValue>
+            <controllingFieldValue>GPC iTV Declared Outage</controllingFieldValue>
+            <controllingFieldValue>LSS Trouble</controllingFieldValue>
+            <controllingFieldValue>GPC iTV Username/Password</controllingFieldValue>
+            <controllingFieldValue>NBR Trouble</controllingFieldValue>
+            <controllingFieldValue>Hosted-Features</controllingFieldValue>
+            <controllingFieldValue>Sensor Problem</controllingFieldValue>
+            <controllingFieldValue>Network Connection - GPC iTV</controllingFieldValue>
+            <controllingFieldValue>Total Connect</controllingFieldValue>
+            <controllingFieldValue>Not Connecting To ITV - GPC iTV</controllingFieldValue>
+            <controllingFieldValue>Cross Talk</controllingFieldValue>
+            <controllingFieldValue>Other &amp; Misc - Int</controllingFieldValue>
+            <controllingFieldValue>Cut Cable Or Drop</controllingFieldValue>
+            <controllingFieldValue>Other &amp; Misc - TV</controllingFieldValue>
+            <controllingFieldValue>Migration</controllingFieldValue>
+            <controllingFieldValue>No Dial Tone</controllingFieldValue>
+            <controllingFieldValue>Noisy Phone</controllingFieldValue>
+            <controllingFieldValue>Trouble Receiving Calls</controllingFieldValue>
+            <controllingFieldValue>Other &amp; Misc - Voice</controllingFieldValue>
+            <controllingFieldValue>Referred to NOC/UC</controllingFieldValue>
+            <controllingFieldValue>Trouble Making Calls</controllingFieldValue>
+            <controllingFieldValue>Features Not Working</controllingFieldValue>
+            <controllingFieldValue>PRI</controllingFieldValue>
+            <controllingFieldValue>Unified</controllingFieldValue>
+            <valueName>Unable To Reach Customer</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Kandy App Update</controllingFieldValue>
+            <controllingFieldValue>Damage Claim</controllingFieldValue>
+            <controllingFieldValue>Outage</controllingFieldValue>
+            <controllingFieldValue>Cut Cable</controllingFieldValue>
+            <controllingFieldValue>Poor Picture Quality</controllingFieldValue>
+            <controllingFieldValue>Audio Problems</controllingFieldValue>
+            <controllingFieldValue>Equipment Failure</controllingFieldValue>
+            <controllingFieldValue>Drop Or Wiring</controllingFieldValue>
+            <controllingFieldValue>All Pods Not Connecting</controllingFieldValue>
+            <controllingFieldValue>Plume - One Pod Not Connecting</controllingFieldValue>
+            <controllingFieldValue>Plume Device Not Connecting</controllingFieldValue>
+            <controllingFieldValue>Referred To Billing</controllingFieldValue>
+            <controllingFieldValue>Password Reset</controllingFieldValue>
+            <controllingFieldValue>Email Settings Or Set Up</controllingFieldValue>
+            <controllingFieldValue>Elite WiFi Trbl</controllingFieldValue>
+            <controllingFieldValue>Gigacenter - Not Working</controllingFieldValue>
+            <controllingFieldValue>Gigacenter - Slow Speeds</controllingFieldValue>
+            <controllingFieldValue>Circuit Running Errors</controllingFieldValue>
+            <controllingFieldValue>Can&apos;t Loop NIU</controllingFieldValue>
+            <controllingFieldValue>Latency/Jitter</controllingFieldValue>
+            <controllingFieldValue>Circuit Down</controllingFieldValue>
+            <controllingFieldValue>Slow Speeds</controllingFieldValue>
+            <controllingFieldValue>Can&apos;t Connect</controllingFieldValue>
+            <controllingFieldValue>Webpage Will Not Load</controllingFieldValue>
+            <controllingFieldValue>No Light On Modem</controllingFieldValue>
+            <controllingFieldValue>E-Mail Trouble</controllingFieldValue>
+            <controllingFieldValue>Missing Channels</controllingFieldValue>
+            <controllingFieldValue>STB Trouble</controllingFieldValue>
+            <controllingFieldValue>All Services Out</controllingFieldValue>
+            <controllingFieldValue>Remote Control Trouble</controllingFieldValue>
+            <controllingFieldValue>Non-Pay/Perm Disc</controllingFieldValue>
+            <controllingFieldValue>Locate</controllingFieldValue>
+            <controllingFieldValue>Plume - Slow/Intermittent</controllingFieldValue>
+            <controllingFieldValue>All Plume Related Sub Reports</controllingFieldValue>
+            <controllingFieldValue>WiFi - Modem</controllingFieldValue>
+            <controllingFieldValue>Analog Channels Out of Service</controllingFieldValue>
+            <controllingFieldValue>WiFi - Rukus</controllingFieldValue>
+            <controllingFieldValue>Channel Buffering</controllingFieldValue>
+            <controllingFieldValue>WiFi - Ubiquiti</controllingFieldValue>
+            <controllingFieldValue>Channel Buffering - GPC iTV</controllingFieldValue>
+            <controllingFieldValue>Jack/Ext Issues</controllingFieldValue>
+            <controllingFieldValue>Channels Out</controllingFieldValue>
+            <controllingFieldValue>Camera Trouble</controllingFieldValue>
+            <controllingFieldValue>Communication Trouble</controllingFieldValue>
+            <controllingFieldValue>Failed To Test</controllingFieldValue>
+            <controllingFieldValue>Keypad Problem</controllingFieldValue>
+            <controllingFieldValue>Channels Out - GPC iTV</controllingFieldValue>
+            <controllingFieldValue>Fixed Wireless Trbl</controllingFieldValue>
+            <controllingFieldValue>GPC Declared Outage</controllingFieldValue>
+            <controllingFieldValue>GPC iTV Declared Outage</controllingFieldValue>
+            <controllingFieldValue>LSS Trouble</controllingFieldValue>
+            <controllingFieldValue>GPC iTV Username/Password</controllingFieldValue>
+            <controllingFieldValue>NBR Trouble</controllingFieldValue>
+            <controllingFieldValue>Hosted-Features</controllingFieldValue>
+            <controllingFieldValue>Sensor Problem</controllingFieldValue>
+            <controllingFieldValue>Network Connection - GPC iTV</controllingFieldValue>
+            <controllingFieldValue>Total Connect</controllingFieldValue>
+            <controllingFieldValue>Not Connecting To ITV - GPC iTV</controllingFieldValue>
+            <controllingFieldValue>Cross Talk</controllingFieldValue>
+            <controllingFieldValue>Other &amp; Misc - Int</controllingFieldValue>
+            <controllingFieldValue>Cut Cable Or Drop</controllingFieldValue>
+            <controllingFieldValue>Other &amp; Misc - TV</controllingFieldValue>
+            <controllingFieldValue>Migration</controllingFieldValue>
+            <controllingFieldValue>No Dial Tone</controllingFieldValue>
+            <controllingFieldValue>Noisy Phone</controllingFieldValue>
+            <controllingFieldValue>Trouble Receiving Calls</controllingFieldValue>
+            <controllingFieldValue>Other &amp; Misc - Voice</controllingFieldValue>
+            <controllingFieldValue>Referred to NOC/UC</controllingFieldValue>
+            <controllingFieldValue>Trouble Making Calls</controllingFieldValue>
+            <controllingFieldValue>Features Not Working</controllingFieldValue>
+            <controllingFieldValue>PRI</controllingFieldValue>
+            <controllingFieldValue>Unified</controllingFieldValue>
+            <valueName>Username/Password Reset</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Damage Claim</controllingFieldValue>
+            <valueName>Clear - No Trip</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Damage Claim</controllingFieldValue>
+            <controllingFieldValue>Slow Speeds</controllingFieldValue>
+            <controllingFieldValue>Can&apos;t Connect</controllingFieldValue>
+            <controllingFieldValue>No Light On Modem</controllingFieldValue>
+            <controllingFieldValue>All Services Out</controllingFieldValue>
+            <controllingFieldValue>Fixed Wireless Trbl</controllingFieldValue>
+            <valueName>Equipment Outage Repaired</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Damage Claim</controllingFieldValue>
+            <controllingFieldValue>Cut Cable</controllingFieldValue>
+            <controllingFieldValue>Cut Cable Or Drop</controllingFieldValue>
+            <valueName>Line Is Other Carriers</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Damage Claim</controllingFieldValue>
+            <controllingFieldValue>Outage</controllingFieldValue>
+            <controllingFieldValue>Elite WiFi Trbl</controllingFieldValue>
+            <controllingFieldValue>Slow Speeds</controllingFieldValue>
+            <controllingFieldValue>Can&apos;t Connect</controllingFieldValue>
+            <controllingFieldValue>No Light On Modem</controllingFieldValue>
+            <controllingFieldValue>E-Mail Trouble</controllingFieldValue>
+            <controllingFieldValue>All Services Out</controllingFieldValue>
+            <controllingFieldValue>Channel Buffering</controllingFieldValue>
+            <controllingFieldValue>Not Connecting To ITV - GPC iTV</controllingFieldValue>
+            <controllingFieldValue>Other &amp; Misc - Int</controllingFieldValue>
+            <controllingFieldValue>Other &amp; Misc - Voice</controllingFieldValue>
+            <valueName>Maintenance Completed</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Damage Claim</controllingFieldValue>
+            <controllingFieldValue>Outage</controllingFieldValue>
+            <controllingFieldValue>Equipment Failure</controllingFieldValue>
+            <controllingFieldValue>Elite WiFi Trbl</controllingFieldValue>
+            <controllingFieldValue>Circuit Down</controllingFieldValue>
+            <controllingFieldValue>Slow Speeds</controllingFieldValue>
+            <controllingFieldValue>Can&apos;t Connect</controllingFieldValue>
+            <controllingFieldValue>No Light On Modem</controllingFieldValue>
+            <controllingFieldValue>All Services Out</controllingFieldValue>
+            <controllingFieldValue>Camera Trouble</controllingFieldValue>
+            <controllingFieldValue>Communication Trouble</controllingFieldValue>
+            <controllingFieldValue>Sensor Problem</controllingFieldValue>
+            <controllingFieldValue>Other &amp; Misc - Int</controllingFieldValue>
+            <controllingFieldValue>Cut Cable Or Drop</controllingFieldValue>
+            <controllingFieldValue>Other &amp; Misc - TV</controllingFieldValue>
+            <controllingFieldValue>No Dial Tone</controllingFieldValue>
+            <controllingFieldValue>Noisy Phone</controllingFieldValue>
+            <controllingFieldValue>Features Not Working</controllingFieldValue>
+            <valueName>Ped Replaced/Repaired</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Damage Claim</controllingFieldValue>
+            <valueName>Reimbursed Customer</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Damage Claim</controllingFieldValue>
+            <valueName>Repaired Yard/Landscaping</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Outage</controllingFieldValue>
+            <controllingFieldValue>Cut Cable</controllingFieldValue>
+            <controllingFieldValue>Equipment Failure</controllingFieldValue>
+            <controllingFieldValue>Elite WiFi Trbl</controllingFieldValue>
+            <controllingFieldValue>Circuit Down</controllingFieldValue>
+            <controllingFieldValue>Slow Speeds</controllingFieldValue>
+            <controllingFieldValue>Can&apos;t Connect</controllingFieldValue>
+            <controllingFieldValue>No Light On Modem</controllingFieldValue>
+            <controllingFieldValue>E-Mail Trouble</controllingFieldValue>
+            <controllingFieldValue>All Services Out</controllingFieldValue>
+            <controllingFieldValue>Channels Out</controllingFieldValue>
+            <controllingFieldValue>Fixed Wireless Trbl</controllingFieldValue>
+            <controllingFieldValue>GPC Declared Outage</controllingFieldValue>
+            <controllingFieldValue>No Dial Tone</controllingFieldValue>
+            <controllingFieldValue>Trouble Receiving Calls</controllingFieldValue>
+            <controllingFieldValue>Other &amp; Misc - Voice</controllingFieldValue>
+            <controllingFieldValue>Trouble Making Calls</controllingFieldValue>
+            <valueName>Outage Resolved</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Outage</controllingFieldValue>
+            <controllingFieldValue>Cut Cable</controllingFieldValue>
+            <controllingFieldValue>Equipment Failure</controllingFieldValue>
+            <controllingFieldValue>Drop Or Wiring</controllingFieldValue>
+            <controllingFieldValue>Elite WiFi Trbl</controllingFieldValue>
+            <controllingFieldValue>Slow Speeds</controllingFieldValue>
+            <controllingFieldValue>Can&apos;t Connect</controllingFieldValue>
+            <controllingFieldValue>No Light On Modem</controllingFieldValue>
+            <controllingFieldValue>All Services Out</controllingFieldValue>
+            <controllingFieldValue>Communication Trouble</controllingFieldValue>
+            <controllingFieldValue>Network Connection - GPC iTV</controllingFieldValue>
+            <controllingFieldValue>Cross Talk</controllingFieldValue>
+            <controllingFieldValue>Other &amp; Misc - Int</controllingFieldValue>
+            <controllingFieldValue>Cut Cable Or Drop</controllingFieldValue>
+            <controllingFieldValue>No Dial Tone</controllingFieldValue>
+            <controllingFieldValue>Noisy Phone</controllingFieldValue>
+            <controllingFieldValue>Trouble Receiving Calls</controllingFieldValue>
+            <controllingFieldValue>Trouble Making Calls</controllingFieldValue>
+            <controllingFieldValue>Features Not Working</controllingFieldValue>
+            <valueName>Repaired Open/Ground/Short</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Outage</controllingFieldValue>
+            <controllingFieldValue>Equipment Failure</controllingFieldValue>
+            <controllingFieldValue>Elite WiFi Trbl</controllingFieldValue>
+            <controllingFieldValue>Can&apos;t Connect</controllingFieldValue>
+            <controllingFieldValue>No Light On Modem</controllingFieldValue>
+            <controllingFieldValue>All Services Out</controllingFieldValue>
+            <controllingFieldValue>Communication Trouble</controllingFieldValue>
+            <controllingFieldValue>Network Connection - GPC iTV</controllingFieldValue>
+            <controllingFieldValue>Other &amp; Misc - Int</controllingFieldValue>
+            <controllingFieldValue>No Dial Tone</controllingFieldValue>
+            <controllingFieldValue>Features Not Working</controllingFieldValue>
+            <valueName>Replaced ONT</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Outage</controllingFieldValue>
+            <controllingFieldValue>Equipment Failure</controllingFieldValue>
+            <controllingFieldValue>Elite WiFi Trbl</controllingFieldValue>
+            <controllingFieldValue>Circuit Down</controllingFieldValue>
+            <controllingFieldValue>Slow Speeds</controllingFieldValue>
+            <controllingFieldValue>Can&apos;t Connect</controllingFieldValue>
+            <controllingFieldValue>No Light On Modem</controllingFieldValue>
+            <controllingFieldValue>All Services Out</controllingFieldValue>
+            <controllingFieldValue>Camera Trouble</controllingFieldValue>
+            <controllingFieldValue>Communication Trouble</controllingFieldValue>
+            <controllingFieldValue>Sensor Problem</controllingFieldValue>
+            <controllingFieldValue>Other &amp; Misc - Int</controllingFieldValue>
+            <controllingFieldValue>Other &amp; Misc - TV</controllingFieldValue>
+            <controllingFieldValue>Features Not Working</controllingFieldValue>
+            <valueName>Replaced Power Supply</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Cut Cable</controllingFieldValue>
+            <controllingFieldValue>Equipment Failure</controllingFieldValue>
+            <controllingFieldValue>Elite WiFi Trbl</controllingFieldValue>
+            <controllingFieldValue>Circuit Down</controllingFieldValue>
+            <controllingFieldValue>Slow Speeds</controllingFieldValue>
+            <controllingFieldValue>Can&apos;t Connect</controllingFieldValue>
+            <controllingFieldValue>No Light On Modem</controllingFieldValue>
+            <controllingFieldValue>E-Mail Trouble</controllingFieldValue>
+            <controllingFieldValue>All Services Out</controllingFieldValue>
+            <controllingFieldValue>Channels Out</controllingFieldValue>
+            <controllingFieldValue>Fixed Wireless Trbl</controllingFieldValue>
+            <controllingFieldValue>GPC Declared Outage</controllingFieldValue>
+            <controllingFieldValue>No Dial Tone</controllingFieldValue>
+            <controllingFieldValue>Trouble Receiving Calls</controllingFieldValue>
+            <controllingFieldValue>Trouble Making Calls</controllingFieldValue>
+            <valueName>Cust Owned Equipment</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Cut Cable</controllingFieldValue>
+            <controllingFieldValue>Poor Picture Quality</controllingFieldValue>
+            <controllingFieldValue>Audio Problems</controllingFieldValue>
+            <controllingFieldValue>Equipment Failure</controllingFieldValue>
+            <controllingFieldValue>Drop Or Wiring</controllingFieldValue>
+            <controllingFieldValue>Missing Channels</controllingFieldValue>
+            <controllingFieldValue>STB Trouble</controllingFieldValue>
+            <controllingFieldValue>All Services Out</controllingFieldValue>
+            <controllingFieldValue>Remote Control Trouble</controllingFieldValue>
+            <controllingFieldValue>Channel Buffering</controllingFieldValue>
+            <controllingFieldValue>Channels Out</controllingFieldValue>
+            <controllingFieldValue>GPC iTV Declared Outage</controllingFieldValue>
+            <controllingFieldValue>GPC iTV Username/Password</controllingFieldValue>
+            <controllingFieldValue>Network Connection - GPC iTV</controllingFieldValue>
+            <controllingFieldValue>Not Connecting To ITV - GPC iTV</controllingFieldValue>
+            <controllingFieldValue>Other &amp; Misc - TV</controllingFieldValue>
+            <valueName>Mobi Outage</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Audio Problems</controllingFieldValue>
+            <controllingFieldValue>Equipment Failure</controllingFieldValue>
+            <controllingFieldValue>Elite WiFi Trbl</controllingFieldValue>
+            <controllingFieldValue>Circuit Down</controllingFieldValue>
+            <controllingFieldValue>Can&apos;t Connect</controllingFieldValue>
+            <controllingFieldValue>No Light On Modem</controllingFieldValue>
+            <controllingFieldValue>All Services Out</controllingFieldValue>
+            <controllingFieldValue>WiFi - Modem</controllingFieldValue>
+            <controllingFieldValue>Jack/Ext Issues</controllingFieldValue>
+            <controllingFieldValue>Camera Trouble</controllingFieldValue>
+            <controllingFieldValue>Communication Trouble</controllingFieldValue>
+            <controllingFieldValue>Keypad Problem</controllingFieldValue>
+            <controllingFieldValue>Fixed Wireless Trbl</controllingFieldValue>
+            <controllingFieldValue>Sensor Problem</controllingFieldValue>
+            <controllingFieldValue>Cross Talk</controllingFieldValue>
+            <controllingFieldValue>Other &amp; Misc - Int</controllingFieldValue>
+            <controllingFieldValue>Other &amp; Misc - TV</controllingFieldValue>
+            <controllingFieldValue>No Dial Tone</controllingFieldValue>
+            <controllingFieldValue>Trouble Receiving Calls</controllingFieldValue>
+            <controllingFieldValue>Trouble Making Calls</controllingFieldValue>
+            <controllingFieldValue>Features Not Working</controllingFieldValue>
+            <valueName>Inside Wiring Repaired</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Audio Problems</controllingFieldValue>
+            <controllingFieldValue>Equipment Failure</controllingFieldValue>
+            <controllingFieldValue>STB Trouble</controllingFieldValue>
+            <controllingFieldValue>All Services Out</controllingFieldValue>
+            <controllingFieldValue>Remote Control Trouble</controllingFieldValue>
+            <controllingFieldValue>Channels Out</controllingFieldValue>
+            <valueName>Replaced/Repaired STB</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Audio Problems</controllingFieldValue>
+            <controllingFieldValue>Equipment Failure</controllingFieldValue>
+            <controllingFieldValue>Circuit Running Errors</controllingFieldValue>
+            <controllingFieldValue>Can&apos;t Loop NIU</controllingFieldValue>
+            <controllingFieldValue>Latency/Jitter</controllingFieldValue>
+            <controllingFieldValue>Circuit Down</controllingFieldValue>
+            <controllingFieldValue>Can&apos;t Connect</controllingFieldValue>
+            <controllingFieldValue>Analog Channels Out of Service</controllingFieldValue>
+            <controllingFieldValue>Channel Buffering</controllingFieldValue>
+            <controllingFieldValue>Channels Out</controllingFieldValue>
+            <valueName>TAP (Trouble Analysis Proced)</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Audio Problems</controllingFieldValue>
+            <controllingFieldValue>Communication Trouble</controllingFieldValue>
+            <controllingFieldValue>Hosted-Features</controllingFieldValue>
+            <controllingFieldValue>No Dial Tone</controllingFieldValue>
+            <controllingFieldValue>Other &amp; Misc - Voice</controllingFieldValue>
+            <controllingFieldValue>Features Not Working</controllingFieldValue>
+            <controllingFieldValue>Unified</controllingFieldValue>
+            <valueName>User Info Modified</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Equipment Failure</controllingFieldValue>
+            <controllingFieldValue>Communication Trouble</controllingFieldValue>
+            <controllingFieldValue>Hosted-Features</controllingFieldValue>
+            <controllingFieldValue>No Dial Tone</controllingFieldValue>
+            <controllingFieldValue>Trouble Receiving Calls</controllingFieldValue>
+            <controllingFieldValue>Trouble Making Calls</controllingFieldValue>
+            <controllingFieldValue>Features Not Working</controllingFieldValue>
+            <controllingFieldValue>Unified</controllingFieldValue>
+            <valueName>Call Routing Change</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Equipment Failure</controllingFieldValue>
+            <controllingFieldValue>Slow Speeds</controllingFieldValue>
+            <controllingFieldValue>Can&apos;t Connect</controllingFieldValue>
+            <controllingFieldValue>No Light On Modem</controllingFieldValue>
+            <controllingFieldValue>All Services Out</controllingFieldValue>
+            <controllingFieldValue>All Plume Related Sub Reports</controllingFieldValue>
+            <controllingFieldValue>Other &amp; Misc - Int</controllingFieldValue>
+            <valueName>CGNAT Conv Issue Resolved</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Equipment Failure</controllingFieldValue>
+            <controllingFieldValue>All Pods Not Connecting</controllingFieldValue>
+            <controllingFieldValue>Elite WiFi Trbl</controllingFieldValue>
+            <controllingFieldValue>Slow Speeds</controllingFieldValue>
+            <controllingFieldValue>Can&apos;t Connect</controllingFieldValue>
+            <controllingFieldValue>All Services Out</controllingFieldValue>
+            <controllingFieldValue>Plume - Slow/Intermittent</controllingFieldValue>
+            <controllingFieldValue>WiFi - Modem</controllingFieldValue>
+            <controllingFieldValue>Channel Buffering</controllingFieldValue>
+            <controllingFieldValue>Channels Out</controllingFieldValue>
+            <controllingFieldValue>Other &amp; Misc - Int</controllingFieldValue>
+            <valueName>Device Reset/Firmware</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Equipment Failure</controllingFieldValue>
+            <controllingFieldValue>Drop Or Wiring</controllingFieldValue>
+            <controllingFieldValue>Slow Speeds</controllingFieldValue>
+            <controllingFieldValue>Can&apos;t Connect</controllingFieldValue>
+            <controllingFieldValue>No Light On Modem</controllingFieldValue>
+            <controllingFieldValue>All Services Out</controllingFieldValue>
+            <controllingFieldValue>Cross Talk</controllingFieldValue>
+            <controllingFieldValue>Other &amp; Misc - Int</controllingFieldValue>
+            <controllingFieldValue>Cut Cable Or Drop</controllingFieldValue>
+            <controllingFieldValue>No Dial Tone</controllingFieldValue>
+            <controllingFieldValue>Noisy Phone</controllingFieldValue>
+            <controllingFieldValue>Trouble Receiving Calls</controllingFieldValue>
+            <controllingFieldValue>Trouble Making Calls</controllingFieldValue>
+            <valueName>Repaired/Repalced Drop</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Equipment Failure</controllingFieldValue>
+            <controllingFieldValue>Remote Control Trouble</controllingFieldValue>
+            <controllingFieldValue>Camera Trouble</controllingFieldValue>
+            <controllingFieldValue>Communication Trouble</controllingFieldValue>
+            <controllingFieldValue>Keypad Problem</controllingFieldValue>
+            <controllingFieldValue>Sensor Problem</controllingFieldValue>
+            <valueName>Replaced Batteries</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Equipment Failure</controllingFieldValue>
+            <controllingFieldValue>Missing Channels</controllingFieldValue>
+            <controllingFieldValue>STB Trouble</controllingFieldValue>
+            <controllingFieldValue>Remote Control Trouble</controllingFieldValue>
+            <controllingFieldValue>Other &amp; Misc - TV</controllingFieldValue>
+            <valueName>Replaced Remote</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Equipment Failure</controllingFieldValue>
+            <controllingFieldValue>Camera Trouble</controllingFieldValue>
+            <controllingFieldValue>Communication Trouble</controllingFieldValue>
+            <controllingFieldValue>Keypad Problem</controllingFieldValue>
+            <controllingFieldValue>Sensor Problem</controllingFieldValue>
+            <valueName>Replaced/Repaired Sensor</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>All Pods Not Connecting</controllingFieldValue>
+            <controllingFieldValue>Plume - One Pod Not Connecting</controllingFieldValue>
+            <controllingFieldValue>Plume Device Not Connecting</controllingFieldValue>
+            <controllingFieldValue>Referred To Billing</controllingFieldValue>
+            <controllingFieldValue>Password Reset</controllingFieldValue>
+            <controllingFieldValue>Email Settings Or Set Up</controllingFieldValue>
+            <controllingFieldValue>Elite WiFi Trbl</controllingFieldValue>
+            <controllingFieldValue>Gigacenter - Not Working</controllingFieldValue>
+            <controllingFieldValue>Gigacenter - Slow Speeds</controllingFieldValue>
+            <controllingFieldValue>Slow Speeds</controllingFieldValue>
+            <controllingFieldValue>Can&apos;t Connect</controllingFieldValue>
+            <controllingFieldValue>Webpage Will Not Load</controllingFieldValue>
+            <controllingFieldValue>E-Mail Trouble</controllingFieldValue>
+            <controllingFieldValue>All Services Out</controllingFieldValue>
+            <controllingFieldValue>Non-Pay/Perm Disc</controllingFieldValue>
+            <controllingFieldValue>Plume - Slow/Intermittent</controllingFieldValue>
+            <controllingFieldValue>WiFi - Modem</controllingFieldValue>
+            <controllingFieldValue>WiFi - Rukus</controllingFieldValue>
+            <controllingFieldValue>WiFi - Ubiquiti</controllingFieldValue>
+            <controllingFieldValue>Other &amp; Misc - Int</controllingFieldValue>
+            <valueName>Cable Rehab Completed</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>All Pods Not Connecting</controllingFieldValue>
+            <controllingFieldValue>Plume - One Pod Not Connecting</controllingFieldValue>
+            <controllingFieldValue>Plume Device Not Connecting</controllingFieldValue>
+            <controllingFieldValue>Referred To Billing</controllingFieldValue>
+            <controllingFieldValue>Elite WiFi Trbl</controllingFieldValue>
+            <controllingFieldValue>Can&apos;t Connect</controllingFieldValue>
+            <controllingFieldValue>Missing Channels</controllingFieldValue>
+            <controllingFieldValue>All Services Out</controllingFieldValue>
+            <controllingFieldValue>Plume - Slow/Intermittent</controllingFieldValue>
+            <controllingFieldValue>WiFi - Modem</controllingFieldValue>
+            <controllingFieldValue>Fixed Wireless Trbl</controllingFieldValue>
+            <controllingFieldValue>Other &amp; Misc - Int</controllingFieldValue>
+            <controllingFieldValue>No Dial Tone</controllingFieldValue>
+            <controllingFieldValue>Features Not Working</controllingFieldValue>
+            <controllingFieldValue>Unified</controllingFieldValue>
+            <valueName>Configuration Error</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>All Pods Not Connecting</controllingFieldValue>
+            <controllingFieldValue>Plume - One Pod Not Connecting</controllingFieldValue>
+            <controllingFieldValue>Plume Device Not Connecting</controllingFieldValue>
+            <controllingFieldValue>Referred To Billing</controllingFieldValue>
+            <controllingFieldValue>Plume - Slow/Intermittent</controllingFieldValue>
+            <controllingFieldValue>WiFi - Modem</controllingFieldValue>
+            <valueName>Additional/New Pod Needed</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>All Pods Not Connecting</controllingFieldValue>
+            <controllingFieldValue>Can&apos;t Connect</controllingFieldValue>
+            <controllingFieldValue>All Services Out</controllingFieldValue>
+            <controllingFieldValue>WiFi - Modem</controllingFieldValue>
+            <valueName>Assigned Static IP/CGNAT</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Plume - One Pod Not Connecting</controllingFieldValue>
+            <controllingFieldValue>Plume Device Not Connecting</controllingFieldValue>
+            <controllingFieldValue>Elite WiFi Trbl</controllingFieldValue>
+            <controllingFieldValue>Circuit Down</controllingFieldValue>
+            <controllingFieldValue>Can&apos;t Connect</controllingFieldValue>
+            <controllingFieldValue>Plume - Slow/Intermittent</controllingFieldValue>
+            <valueName>Hardware Replacement</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Email Settings Or Set Up</controllingFieldValue>
+            <controllingFieldValue>E-Mail Trouble</controllingFieldValue>
+            <valueName>Email Retirement</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Email Settings Or Set Up</controllingFieldValue>
+            <controllingFieldValue>E-Mail Trouble</controllingFieldValue>
+            <valueName>Email Settings</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Elite WiFi Trbl</controllingFieldValue>
+            <controllingFieldValue>Slow Speeds</controllingFieldValue>
+            <controllingFieldValue>Can&apos;t Connect</controllingFieldValue>
+            <controllingFieldValue>No Light On Modem</controllingFieldValue>
+            <controllingFieldValue>All Services Out</controllingFieldValue>
+            <controllingFieldValue>Channel Buffering</controllingFieldValue>
+            <controllingFieldValue>Other &amp; Misc - Int</controllingFieldValue>
+            <controllingFieldValue>Other &amp; Misc - TV</controllingFieldValue>
+            <valueName>Rogue ONT</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Circuit Running Errors</controllingFieldValue>
+            <controllingFieldValue>Can&apos;t Loop NIU</controllingFieldValue>
+            <controllingFieldValue>Latency/Jitter</controllingFieldValue>
+            <controllingFieldValue>Circuit Down</controllingFieldValue>
+            <controllingFieldValue>Trouble Receiving Calls</controllingFieldValue>
+            <controllingFieldValue>Other &amp; Misc - Voice</controllingFieldValue>
+            <controllingFieldValue>Trouble Making Calls</controllingFieldValue>
+            <valueName>Other Carrier Resolution</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Slow Speeds</controllingFieldValue>
+            <controllingFieldValue>Can&apos;t Connect</controllingFieldValue>
+            <controllingFieldValue>All Services Out</controllingFieldValue>
+            <controllingFieldValue>Other &amp; Misc - Int</controllingFieldValue>
+            <valueName>Re Provisioned For Correct Speed</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Can&apos;t Connect</controllingFieldValue>
+            <controllingFieldValue>All Services Out</controllingFieldValue>
+            <valueName>Rebuilt ONT</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>STB Trouble</controllingFieldValue>
+            <controllingFieldValue>Channel Buffering</controllingFieldValue>
+            <controllingFieldValue>Channels Out</controllingFieldValue>
+            <valueName>Network Outage</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>All Services Out</controllingFieldValue>
+            <controllingFieldValue>Non-Pay/Perm Disc</controllingFieldValue>
+            <valueName>Reconnected/Provisioned</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Locate</controllingFieldValue>
+            <valueName>Clear - Trip</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Locate</controllingFieldValue>
+            <valueName>Locate Complete</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Channel Buffering</controllingFieldValue>
+            <controllingFieldValue>Channels Out</controllingFieldValue>
+            <controllingFieldValue>Network Connection - GPC iTV</controllingFieldValue>
+            <controllingFieldValue>Not Connecting To ITV - GPC iTV</controllingFieldValue>
+            <valueName>Mobi Programming</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Channel Buffering</controllingFieldValue>
+            <controllingFieldValue>Channels Out</controllingFieldValue>
+            <controllingFieldValue>Network Connection - GPC iTV</controllingFieldValue>
+            <controllingFieldValue>Not Connecting To ITV - GPC iTV</controllingFieldValue>
+            <valueName>Replaced Firestick</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Communication Trouble</controllingFieldValue>
+            <controllingFieldValue>Hosted-Features</controllingFieldValue>
+            <controllingFieldValue>Features Not Working</controllingFieldValue>
+            <controllingFieldValue>Unified</controllingFieldValue>
+            <valueName>Greeting Recording Chg/Modif</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Communication Trouble</controllingFieldValue>
+            <controllingFieldValue>Unified</controllingFieldValue>
+            <valueName>UC Corrected Provisioning</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Trouble Receiving Calls</controllingFieldValue>
+            <controllingFieldValue>Other &amp; Misc - Voice</controllingFieldValue>
+            <controllingFieldValue>Referred to NOC/UC</controllingFieldValue>
+            <controllingFieldValue>Trouble Making Calls</controllingFieldValue>
+            <controllingFieldValue>Features Not Working</controllingFieldValue>
+            <valueName>Term Toll / LCR</valueName>
+        </valueSettings>
+    </valueSet>
+</CustomField>

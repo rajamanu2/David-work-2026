@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>ywr__Yesware_ActivityType__c</fullName>
+    <deprecated>false</deprecated>
+    <externalId>false</externalId>
+    <formula>IF(BEGINS( Subject, &quot;Message Sent:&quot;), &quot;Sent&quot;,
+IF(BEGINS( Subject, &quot;Message Opened:&quot;), &quot;Open&quot;,
+IF(BEGINS( Subject,&quot;Reply:&quot;), &quot;Reply&quot;,
+IF(BEGINS( Subject,&quot;Link Clicked in Message:&quot;), &quot;Click&quot;,
+IF(BEGINS( Subject,&quot;Attachment Opened in Message:&quot;), &quot;Attachment&quot;,
+IF(BEGINS( Subject,&quot;Presentation Viewed in Message:&quot;), &quot;Presentation&quot;,
+IF(BEGINS( Subject,&quot;Message Sync:&quot;), &quot;Sync&quot;,
+IF(BEGINS( Subject,&quot;Call&quot;), &quot;Call&quot;,
+IF(BEGINS( Subject,&quot;YW Call:&quot;), &quot;YW Call&quot;,
+IF(BEGINS( Subject,&quot;YW Custom&quot;), &quot;YW Custom&quot;,
+
+IF(BEGINS( Subject, &quot;Bounce Received: Undeliverable:&quot;), &quot;Bounce&quot;,
+IF((Subject = &quot;Bounce Received: Delivery Status Notification (Failure)&quot;), &quot;Bounce&quot;,
+
+IF(Not(IsTask), &quot;Meeting&quot;,
+
+&quot;Other&quot;)))))))))))))</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Yesware Activity Type</label>
+    <required>false</required>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

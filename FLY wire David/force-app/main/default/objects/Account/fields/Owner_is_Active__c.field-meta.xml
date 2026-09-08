@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Owner_is_Active__c</fullName>
+    <description>Admin only to verify if account owner is active.</description>
+    <formula>Owner.IsActive = True</formula>
+    <inlineHelpText>Admin only to verify if account owner is active.</inlineHelpText>
+    <label>Owner is Active</label>
+    <trackHistory>false</trackHistory>
+    <type>Checkbox</type>
+</CustomField>

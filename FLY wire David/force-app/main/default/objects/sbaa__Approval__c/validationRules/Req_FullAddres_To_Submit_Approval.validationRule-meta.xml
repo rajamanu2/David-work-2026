@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Req_FullAddres_To_Submit_Approval</fullName>
+    <active>true</active>
+    <description>The Shipping and Billing address must be completed before submitting for approval
+
+BOPI-627 Moved from Quote to Approval Object
+BOPI-600 updated to prevent auto renewals from stopping</description>
+    <errorConditionFormula>AND(
+    ISNEW(),
+    NOT(ISBLANK(AQS_Quote__c)),
+    OR(
+        ISBLANK(AQS_Quote__r.SBQQ__Account__r.ShippingCity),
+        ISBLANK(AQS_Quote__r.SBQQ__Account__r.ShippingCountry),
+        ISBLANK(AQS_Quote__r.SBQQ__Account__r.ShippingPostalCode),
+        ISBLANK(AQS_Quote__r.SBQQ__Account__r.ShippingState),
+        ISBLANK(AQS_Quote__r.SBQQ__Account__r.ShippingStreet),
+        ISBLANK(AQS_Quote__r.SBQQ__Account__r.BillingCity),
+        ISBLANK(AQS_Quote__r.SBQQ__Account__r.BillingCountry),
+        ISBLANK(AQS_Quote__r.SBQQ__Account__r.BillingPostalCode),
+        ISBLANK(AQS_Quote__r.SBQQ__Account__r.BillingState),
+        ISBLANK(AQS_Quote__r.SBQQ__Account__r.BillingStreet)
+    )
+)</errorConditionFormula>
+    <errorMessage>Please complete the full Billing and Shipping Addresses on the Account record</errorMessage>
+</ValidationRule>

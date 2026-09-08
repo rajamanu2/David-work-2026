@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>65.0</apiVersion>
+    <areMetricsLoggedToDataCloud>false</areMetricsLoggedToDataCloud>
+    <decisions>
+        <name>IS_RMA_Failing_from_Missing_Account</name>
+        <label>IS RMA Failing from Missing Account?</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Missing_Account</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Intacct_RMA_Error_Message__c</leftValueReference>
+                <operator>Contains</operator>
+                <rightValue>
+                    <stringValue>has no associated Account</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Update_Asset_Related_to_RMA</targetReference>
+            </connector>
+            <label>Missing Account</label>
+        </rules>
+    </decisions>
+    <description>10/28/2025 (BW) - Resyncs the RMA if it&apos;s errored out</description>
+    <environments>Default</environments>
+    <interviewLabel>RMA - Re-sync RMA if Errored {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>RMA - Re-sync RMA if Errored</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <recordUpdates>
+        <name>Update_Asset_Related_to_RMA</name>
+        <label>Update Asset Related to RMA</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Update_RMA_to_Sync_Status</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>$Record.ProductItem__c</elementReference>
+            </value>
+        </filters>
+        <inputAssignments>
+            <field>Opportunity_Record_Type__c</field>
+            <value>
+                <elementReference>$Record.Opportunity__r.RecordType.Name</elementReference>
+            </value>
+        </inputAssignments>
+        <object>ProductItem__c</object>
+    </recordUpdates>
+    <recordUpdates>
+        <name>Update_RMA_to_Sync_Status</name>
+        <label>Update RMA to Sync Status</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <inputAssignments>
+            <field>Intacct_RMA_Sync_Status__c</field>
+            <value>
+                <stringValue>Sync</stringValue>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <start>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>IS_RMA_Failing_from_Missing_Account</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Intacct_RMA_Sync_Status__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>Error</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>Intacct_RMA_Timestamp__c</field>
+            <operator>GreaterThan</operator>
+            <value>
+                <dateTimeValue>2025-10-22T04:00:00.000Z</dateTimeValue>
+            </value>
+        </filters>
+        <object>RMA__c</object>
+        <schedule>
+            <frequency>Daily</frequency>
+            <startDate>2025-10-28</startDate>
+            <startTime>00:00:00.000Z</startTime>
+        </schedule>
+        <triggerType>Scheduled</triggerType>
+    </start>
+    <status>Active</status>
+</Flow>

@@ -1,0 +1,235 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>49.0</apiVersion>
+    <areMetricsLoggedToDataCloud>false</areMetricsLoggedToDataCloud>
+    <assignments>
+        <name>Assign_New_Lead_to_Queue</name>
+        <label>Assign New Lead to Queue</label>
+        <locationX>584</locationX>
+        <locationY>198</locationY>
+        <assignmentItems>
+            <assignToReference>NewLead.OwnerId</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Existing_Contact_Queue</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Update_New_Lead</targetReference>
+        </connector>
+    </assignments>
+    <constants>
+        <name>Existing_Contact_Queue</name>
+        <dataType>String</dataType>
+        <value>
+            <stringValue>00G4O0000049Wvu</stringValue>
+        </value>
+    </constants>
+    <decisions>
+        <description>Checks if a value was found for a contact with a dupe email</description>
+        <name>Does_Dupe_Email_Exist</name>
+        <label>Does Dupe Email Exist?</label>
+        <locationX>425</locationX>
+        <locationY>200</locationY>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Email_Exists</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>ContactEmailDupeID</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Assign_New_Lead_to_Queue</targetReference>
+            </connector>
+            <label>Email Exists</label>
+        </rules>
+        <rules>
+            <name>Email_Does_Not_Exist</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>ContactEmailDupeID</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Does_Lead_Have_Phone</targetReference>
+            </connector>
+            <label>Email Does Not Exist</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Does_Lead_have_Company_Name</name>
+        <label>Does Lead have Company Name?</label>
+        <locationX>231</locationX>
+        <locationY>410</locationY>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Has_Company_Name</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>NewLead.Company</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Launch_Account_Check</targetReference>
+            </connector>
+            <label>Has Company Name</label>
+        </rules>
+        <rules>
+            <name>No_Company_Name</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>NewLead.Company</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <label>No Company Name</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Does_Lead_Have_Phone</name>
+        <label>Does Lead Have Phone?</label>
+        <locationX>229</locationX>
+        <locationY>206</locationY>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Has_Phone</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>NewLead.Phone</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Launch_Phone_Check</targetReference>
+            </connector>
+            <label>Has Phone</label>
+        </rules>
+        <rules>
+            <name>No_Phone</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>NewLead.Phone</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Does_Lead_have_Company_Name</targetReference>
+            </connector>
+            <label>No Phone</label>
+        </rules>
+    </decisions>
+    <description>Checks a new lead against existing contacts via email value</description>
+    <interviewLabel>Lead - Check for existing contact - Email {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Lead - Check for existing contact - Email</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <recordLookups>
+        <name>Search_Contacts_for_Email</name>
+        <label>Search Contacts for Email</label>
+        <locationX>432</locationX>
+        <locationY>49</locationY>
+        <assignNullValuesIfNoRecordsFound>true</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Does_Dupe_Email_Exist</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Email</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>NewLead.Email</elementReference>
+            </value>
+        </filters>
+        <object>Contact</object>
+        <outputAssignments>
+            <assignToReference>ContactEmailDupeID</assignToReference>
+            <field>Id</field>
+        </outputAssignments>
+        <sortField>Id</sortField>
+        <sortOrder>Asc</sortOrder>
+    </recordLookups>
+    <recordUpdates>
+        <name>Update_New_Lead</name>
+        <label>Update New Lead</label>
+        <locationX>737</locationX>
+        <locationY>198</locationY>
+        <inputReference>NewLead</inputReference>
+    </recordUpdates>
+    <start>
+        <locationX>177</locationX>
+        <locationY>50</locationY>
+        <connector>
+            <targetReference>Search_Contacts_for_Email</targetReference>
+        </connector>
+    </start>
+    <status>Active</status>
+    <subflows>
+        <name>Launch_Account_Check</name>
+        <label>Launch Account Check</label>
+        <locationX>50</locationX>
+        <locationY>408</locationY>
+        <flowName>Lead_Check_for_existing_Account_Account_Name</flowName>
+        <inputAssignments>
+            <name>NewLead</name>
+            <value>
+                <elementReference>NewLead</elementReference>
+            </value>
+        </inputAssignments>
+    </subflows>
+    <subflows>
+        <name>Launch_Phone_Check</name>
+        <label>Launch Phone Check</label>
+        <locationX>50</locationX>
+        <locationY>212</locationY>
+        <flowName>Lead_Check_for_existing_contact_Phone</flowName>
+        <inputAssignments>
+            <name>NewLead</name>
+            <value>
+                <elementReference>NewLead</elementReference>
+            </value>
+        </inputAssignments>
+    </subflows>
+    <variables>
+        <name>ContactEmailDupeID</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <description>Holds the new lead passed in by process builder</description>
+        <name>NewLead</name>
+        <dataType>SObject</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>true</isOutput>
+        <objectType>Lead</objectType>
+    </variables>
+</Flow>

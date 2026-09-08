@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>57.0</apiVersion>
+    <areMetricsLoggedToDataCloud>false</areMetricsLoggedToDataCloud>
+    <decisions>
+        <description>Has the &quot;KYC Approved&quot; Checkbox been checked or cleared</description>
+        <name>KYC_Apprvd_Clear_or_Check</name>
+        <label>KYC Apprvd Clear or Check?</label>
+        <locationX>314</locationX>
+        <locationY>311</locationY>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>KYC_Aproved</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.KYC_Status__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Approved</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Who_When_Apprvd</targetReference>
+            </connector>
+            <label>KYC Approved</label>
+        </rules>
+        <rules>
+            <name>KYC_Rejcted</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.KYC_Status__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Rejected</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>KYC_Rejected</targetReference>
+            </connector>
+            <label>KYC Rejected</label>
+        </rules>
+    </decisions>
+    <description>Capture who changed &apos;KYC Status&apos; and when.</description>
+    <environments>Default</environments>
+    <formulas>
+        <description>Concatenate User Name and Today&apos;s Date</description>
+        <name>ApprovedUserDate</name>
+        <dataType>String</dataType>
+        <expression>&quot;Approved: &quot; &amp; {!$User.Flow_Full_Name__c} &amp; &quot; &quot; &amp; Text(TODAY())</expression>
+    </formulas>
+    <formulas>
+        <description>Concatenate User Name and Today&apos;s Date</description>
+        <name>RejectedUserDate</name>
+        <dataType>String</dataType>
+        <expression>&quot;Rejected: &quot; &amp; {!$User.Flow_Full_Name__c} &amp; &quot; &quot; &amp; Text(TODAY())</expression>
+    </formulas>
+    <interviewLabel>(ACC) KYC Audit {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>(ACC) KYC Audit</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <recordUpdates>
+        <description>Capture who / when the KYC Status is Rejected</description>
+        <name>KYC_Rejected</name>
+        <label>KYC Rejected</label>
+        <locationX>314</locationX>
+        <locationY>431</locationY>
+        <inputAssignments>
+            <field>KYC_By_On__c</field>
+            <value>
+                <elementReference>RejectedUserDate</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <description>Who clicked the KYC Approved Checkbox and when</description>
+        <name>Who_When_Apprvd</name>
+        <label>Who When Apprvd</label>
+        <locationX>50</locationX>
+        <locationY>431</locationY>
+        <inputAssignments>
+            <field>KYC_By_On__c</field>
+            <value>
+                <elementReference>ApprovedUserDate</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <start>
+        <locationX>188</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>KYC_Apprvd_Clear_or_Check</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>KYC_Status__c</field>
+            <operator>IsChanged</operator>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </filters>
+        <object>Account</object>
+        <recordTriggerType>Update</recordTriggerType>
+        <triggerType>RecordBeforeSave</triggerType>
+    </start>
+    <status>Obsolete</status>
+</Flow>

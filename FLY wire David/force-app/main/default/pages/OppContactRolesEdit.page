@@ -1,0 +1,89 @@
+<apex:page controller="OppContactRolesEditController"
+           lightningStylesheets="true"
+           showHeader="false"
+           sidebar="false"
+           docType="html-5.0"
+           standardStylesheets="false">
+
+    <apex:slds />
+
+    <apex:form id="frm">
+        <apex:pageMessages id="pmsgs"/>
+
+        <div class="slds-modal slds-fade-in-open" role="dialog" aria-modal="true">
+            <div class="slds-modal__container" style="max-width: 70rem; width: 92%;">
+                <header class="slds-modal__header">
+                    <h2 class="slds-text-heading_medium">{!title}</h2>
+                </header>
+
+                <div class="slds-modal__content slds-p-around_medium">
+                    <apex:outputPanel id="gridPanel">
+                        <table class="slds-table slds-table_cell-buffer slds-table_bordered">
+                            <thead>
+                                <tr>
+                                    <th scope="col"><div class="slds-truncate">Contact</div></th>
+                                    <th scope="col" style="width:7rem;"><div class="slds-truncate">Primary</div></th>
+                                    <th scope="col"><div class="slds-truncate">Role</div></th>
+                                    <th scope="col" style="width:6rem;"></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <apex:repeat value="{!rowWraps}" var="w">
+                                    <tr>
+                                        <td><apex:inputField value="{!w.r.ContactId}" /></td>
+
+                                        <!-- Primary is 2nd column -->
+                                        <td class="slds-text-align_center">
+                                            <apex:inputField value="{!w.r.IsPrimary}"
+                                                             styleClass="primaryCB"
+                                                             onclick="enforceSinglePrimary(this);" />
+                                        </td>
+
+                                        <td><apex:inputField value="{!w.r.Role}" /></td>
+
+                                        <td class="slds-text-align_right">
+                                            <apex:commandButton value="Remove"
+                                                action="{!removeRow}"
+                                                rerender="gridPanel,pmsgs"
+                                                styleClass="slds-button slds-button_neutral">
+                                                <apex:param value="{!w.idx}" assignTo="{!rowIndex}"/>
+                                            </apex:commandButton>
+                                        </td>
+                                    </tr>
+                                </apex:repeat>
+                            </tbody>
+                        </table>
+
+                        <div class="slds-m-top_medium">
+                            <apex:commandButton value="Add Row"
+                                                action="{!addRow}"
+                                                rerender="gridPanel,pmsgs"
+                                                styleClass="slds-button slds-button_neutral"/>
+                        </div>
+                    </apex:outputPanel>
+                </div>
+
+                <footer class="slds-modal__footer">
+                    <apex:commandButton value="Cancel"
+                                        action="{!cancel}"
+                                        immediate="true"
+                                        styleClass="slds-button slds-button_neutral"/>
+                    <apex:commandButton value="Save"
+                                        action="{!save}"
+                                        styleClass="slds-button slds-button_brand"/>
+                </footer>
+            </div>
+        </div>
+        <div class="slds-backdrop slds-backdrop_open"></div>
+
+        <script>
+            function enforceSinglePrimary(clicked) {
+                if (!clicked.checked) return;
+                var all = document.querySelectorAll('input.primaryCB, .primaryCB input');
+                for (var i = 0; i < all.length; i++) {
+                    if (all[i] !== clicked) all[i].checked = false;
+                }
+            }
+        </script>
+    </apex:form>
+</apex:page>

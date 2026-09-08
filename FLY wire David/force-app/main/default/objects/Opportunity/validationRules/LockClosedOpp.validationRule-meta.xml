@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>LockClosedOpp</fullName>
+    <active>true</active>
+    <description>Do not allow edits to Closed Opportunities to be modified except by Admin or Looker Integration which updates First Opp product Live  and Gross Margin.</description>
+    <errorConditionFormula>AND(
+$Profile.Name &lt;&gt; &quot;System Administrator&quot;,
+$Profile.Name &lt;&gt; &quot;A - RevOps&quot;,
+$Profile.Name &lt;&gt; &quot;B - Looker&quot;,
+$User.Alias &lt;&gt; &quot;Workato&quot;,
+NOT(ISBLANK (Date_100__c)),
+NOT(ISCHANGED(Date_100__c))
+)
+&amp;&amp; Opp_Val_Bypass__c = false</errorConditionFormula>
+    <errorMessage>You can not update a Closed Opportunity. If you need a correction made, please submit a Flywire Ticket via OKTA for your Salesforce Administrator and include the link to this Opportunity.</errorMessage>
+</ValidationRule>

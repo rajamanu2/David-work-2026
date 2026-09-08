@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>FK_$Product_Configuration__c.Code__c</field>
+    </columns>
+    <columns>
+        <field>Integration__c.Account__c</field>
+    </columns>
+    <columns>
+        <field>Integration__c.Integration_Type__c</field>
+    </columns>
+    <columns>
+        <field>Integration__c.Partner_Account__c</field>
+    </columns>
+    <currency>USD</currency>
+    <filter>
+        <criteriaItems>
+            <column>Integration__c.Integration_Type__c</column>
+            <columnToColumn>false</columnToColumn>
+            <isUnlocked>true</isUnlocked>
+            <operator>equals</operator>
+            <value>Intelligent Link,JSON,Partnerships,Undefined</value>
+        </criteriaItems>
+    </filter>
+    <format>Tabular</format>
+    <name>Integrations by Account</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>CustomEntity$Integration__c@Integration__c.Product_Configuration__c</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <showGrandTotal>true</showGrandTotal>
+    <showSubTotals>true</showSubTotals>
+    <timeFrameFilter>
+        <dateColumn>Integration__c.Actual_Go_live_Date__c</dateColumn>
+        <interval>INTERVAL_CUSTOM</interval>
+    </timeFrameFilter>
+</Report>

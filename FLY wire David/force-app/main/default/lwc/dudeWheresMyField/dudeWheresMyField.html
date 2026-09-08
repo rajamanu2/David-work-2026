@@ -1,0 +1,39 @@
+<template>
+    <div class="slds-m-around_medium">
+        <div class="slds-m-bottom_small">
+            <lightning-card title="Input the Field API You Wish To Track">
+            <lightning-input type="text"
+                value={fieldApi}
+                onchange={handleChange}>
+            </lightning-input>
+        </lightning-card>
+        </div>
+        <lightning-card title="Price Conditions">
+            <tab1><b>Field = </b>{searchAPI}</tab1>
+                <lightning-datatable 
+                    data={conditions} 
+                    columns={columns} 
+                    key-field="Id"
+                    hide-checkbox-column="true">
+            </lightning-datatable>
+        </lightning-card>
+        <lightning-card title="Lookup Queries">
+            <tab1><b>Tested Field = </b>{searchAPI}</tab1>
+            <lightning-datatable 
+                data={queries} 
+                columns={columns} 
+                key-field="Id"
+                hide-checkbox-column="true">
+        </lightning-datatable>
+    </lightning-card>
+    <lightning-card title="Price Actions">
+        <tab1><b>Target Field = </b>{searchAPI}</tab1>
+            <lightning-datatable 
+                data={actions} 
+                columns={columns} 
+                key-field="Id"
+                hide-checkbox-column="true">
+        </lightning-datatable>
+    </lightning-card>
+    </div>
+</template>

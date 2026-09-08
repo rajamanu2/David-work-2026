@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Location_of_Equipment__c</fullName>
+    <deleteConstraint>SetNull</deleteConstraint>
+    <description>02/10/2025 (BW) - This holds the location of the equipment (account) from the contract line item the work order is affiliated with.</description>
+    <label>Location of Equipment</label>
+    <referenceTo>Account</referenceTo>
+    <relationshipLabel>Service Appointments</relationshipLabel>
+    <relationshipName>Service_Appointments</relationshipName>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Lookup</type>
+</CustomField>

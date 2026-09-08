@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Agent_Won_requirements</fullName>
+    <active>true</active>
+    <description>Agents must have Agent Tier, Account Industry.
+BOPI-460 Updated to ignore CPQ opps and System users</description>
+    <errorConditionFormula>AND(
+$Profile.Name &lt;&gt; &apos;System Administrator&apos;,
+$Profile.Name &lt;&gt; &quot;B - Looker&quot;,
+$User.Alias &lt;&gt; &quot;Workato&quot;,
+RecordType.Name = &apos;Agents&apos;,
+Pricebook2.Name &lt;&gt; &apos;CPQ&apos;,
+Probability &gt; 0.90,
+OR(
+Account.Revenue_Share_Agreement__c = TRUE,
+Contract_Not_Required__c = False),
+OR
+(
+ISBLANK(TEXT(Account.Agent_Tier__c)),
+ISBLANK(TEXT(Account.Account_Industry__c)),
+ContractId = &quot;&quot;,
+ISBLANK(Contract.ActivatedDate),
+ISBLANK(TEXT(Contract.Flywire_Entity__c)),
+ISBLANK(Contract.StartDate),
+ISBLANK(Contract.EndDate)
+)
+)
+&amp;&amp; Opp_Val_Bypass__c = false</errorConditionFormula>
+    <errorMessage>Must Fill in: On Account - Agent Tier and Account Industry. On Contract - Flywire Entity, Start and End date. Contract must be activated. If Contract is not Required check *Contract Not Required*.</errorMessage>
+</ValidationRule>

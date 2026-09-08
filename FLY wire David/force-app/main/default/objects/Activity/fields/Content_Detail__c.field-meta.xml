@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Content_Detail__c</fullName>
+    <description>For CS to Select the product details covered in the session. Require if &quot;Content&quot; field = Product. SAL-2221
+Renamed as per SAL-2512</description>
+    <inlineHelpText>Select the product details covered in the session.</inlineHelpText>
+    <label>Training Detail</label>
+    <required>false</required>
+    <type>MultiselectPicklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>xB Payex</fullName>
+                <default>false</default>
+                <label>xB Payex</label>
+            </value>
+            <value>
+                <fullName>xB Dashboard</fullName>
+                <default>false</default>
+                <label>xB Dashboard</label>
+            </value>
+            <value>
+                <fullName>xB Refunds</fullName>
+                <default>false</default>
+                <label>xB Refunds</label>
+            </value>
+            <value>
+                <fullName>Integration</fullName>
+                <default>false</default>
+                <label>Integration</label>
+            </value>
+            <value>
+                <fullName>Training: WPM Extranet</fullName>
+                <default>false</default>
+                <label>WPM Extranet</label>
+            </value>
+            <value>
+                <fullName>Training: WPM RCP</fullName>
+                <default>false</default>
+                <label>WPM RCP</label>
+            </value>
+            <value>
+                <fullName>Training: WPM OS Foundation (PC)</fullName>
+                <default>false</default>
+                <label>WPM OS PC</label>
+            </value>
+            <value>
+                <fullName>Training: WPM OS Foundation (SC)</fullName>
+                <default>false</default>
+                <label>WPM OS SC</label>
+            </value>
+            <value>
+                <fullName>Training: WPM OS Foundation (CE)</fullName>
+                <default>false</default>
+                <label>WPM OS CE</label>
+            </value>
+            <value>
+                <fullName>CRS</fullName>
+                <default>false</default>
+                <label>CRS</label>
+            </value>
+            <value>
+                <fullName>Payables</fullName>
+                <default>false</default>
+                <label>Payables</label>
+            </value>
+            <value>
+                <fullName>Agents</fullName>
+                <default>false</default>
+                <label>Agents</label>
+            </value>
+            <value>
+                <fullName>Onboarding</fullName>
+                <default>false</default>
+                <label>Onboarding</label>
+            </value>
+            <value>
+                <fullName>China/India</fullName>
+                <default>false</default>
+                <label>China/India</label>
+            </value>
+            <value>
+                <fullName>Nigeria</fullName>
+                <default>false</default>
+                <label>Nigeria</label>
+            </value>
+            <value>
+                <fullName>RCP</fullName>
+                <default>false</default>
+                <label>RCP</label>
+            </value>
+            <value>
+                <fullName>Training: WPM OS Advanced (CE)</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Training: WPM OS Advanced (CE)</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+    <visibleLines>4</visibleLines>
+</CustomField>

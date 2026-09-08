@@ -1,0 +1,1093 @@
+<template>
+    <div class="sfs-card-header">
+        <div class="sfs-card-header-pills">
+            <div class="sfs-card-header-pills__row sfs-card-header-pills__row_primary">
+                <template if:true={appt.serviceAppointmentCount}>
+                    <div class="sfs-visit-pill">
+                        <select
+                            name="visitSelector"
+                            aria-label="Visit"
+                            data-work-order-id={appt.workOrderId}
+                            onchange={handleVisitSelectionChange}
+                            class="sfs-visit-pill__selector"
+                        >
+                            <template for:each={appt.visitOptions} for:item="visitOption">
+                                <option key={visitOption.value} value={visitOption.value} selected={visitOption.isSelected}>
+                                    {visitOption.label}
+                                </option>
+                            </template>
+                        </select>
+                        <template if:true={appt.selectedVisitDateLabel}>
+                            <span class="sfs-visit-pill__date">{appt.selectedVisitDateLabel}</span>
+                        </template>
+                    </div>
+                </template>
+            </div>
+            <div class="sfs-card-header-pills__row sfs-card-header-pills__row_secondary">
+                <template if:true={showWorkTypePillConditionally}>
+                    <template if:true={appt.showWorkTypePill}>
+                        <span class={appt.workTypeClass}>
+                            {appt.workTypeName}
+                        </span>
+                    </template>
+                </template>
+                <template if:false={showWorkTypePillConditionally}>
+                    <span class={appt.workTypeClass}>
+                        {appt.workTypeName}
+                    </span>
+                </template>
+
+                <template if:true={appt.showWorkOrderStatusPill}>
+                    <span class={appt.workOrderStatusPillClass}>
+                        {appt.workOrderStatusPillLabel}
+                    </span>
+                </template>
+
+                <template if:true={appt.opportunityRecordType}>
+                    <span class="sfs-opportunity-pill">
+                        {appt.opportunityRecordType}
+                    </span>
+                </template>
+
+                <!-- Make/Model pill removed per updated card layout -->
+            </div>
+        </div>
+
+        <lightning-button-menu
+            alternative-text="More actions"
+            icon-name="utility:rows"
+            onselect={handleMoreActionsSelect}
+            class="sfs-more-actions-menu sfs-card-header-more-actions"
+            menu-alignment="right"
+            data-woid={appt.workOrderId}
+            data-id={appt.appointmentId}
+        >
+            <lightning-menu-item
+                value="openInApp"
+                label="Open in app"
+            ></lightning-menu-item>
+            <lightning-menu-item
+                value="viewDeletedLineItems"
+                label="View Deleted Line Items"
+            ></lightning-menu-item>
+            <template if:true={appt.hasAppointment}>
+                <lightning-menu-item
+                    value="unassign"
+                    label="Unschedule"
+                ></lightning-menu-item>
+            </template>
+            <lightning-menu-item
+                value="requestTransfer"
+                label="Request transfer to new technician"
+            ></lightning-menu-item>
+            <lightning-menu-item
+                value="submitCustomRequest"
+                label="Submit Custom Request"
+            ></lightning-menu-item>
+            <lightning-menu-item
+                value="markWaitingForPo"
+                label="Mark Waiting for PO"
+            ></lightning-menu-item>
+            <template if:true={showReadyForCloseAction}>
+                <lightning-menu-item
+                    value="readyForClose"
+                    label="Ready for Close"
+                ></lightning-menu-item>
+            </template>
+            <lightning-menu-item
+                value="cancelWorkOrder"
+                label="Cancel work order"
+            ></lightning-menu-item>
+        </lightning-button-menu>
+    </div>
+
+    <div class="sfs-card-body">
+        <template if:true={appt.isContractPm}>
+            <template if:true={appointmentDetails}>
+                <div class="sfs-opportunity-meta">
+                    <span class="sfs-opportunity-meta__item">
+                        <span class="sfs-opportunity-meta__label">
+                            Service Appointment Details
+                        </span>
+                        <span class="sfs-opportunity-meta__value">
+                            {appointmentDetails}
+                        </span>
+                    </span>
+                </div>
+            </template>
+        </template>
+        <template if:false={appt.isContractPm}>
+            <template if:true={appt.showOpportunityMeta}>
+                <div class="sfs-opportunity-meta">
+                    <template if:true={appt.opportunityNumber}>
+                        <span class="sfs-opportunity-meta__item">
+                            <span class="sfs-opportunity-meta__label">
+                                Opp #
+                            </span>
+                            <span class="sfs-opportunity-meta__value">
+                                {appt.opportunityNumber}
+                            </span>
+                        </span>
+                    </template>
+                    <template if:true={appt.showOpportunityStage}>
+                        <span class="sfs-opportunity-meta__item">
+                            <span class="sfs-opportunity-meta__label">
+                                Stage
+                            </span>
+                            <span class={appt.opportunityStageClass}>
+                                {appt.opportunityStage}
+                            </span>
+                        </span>
+                    </template>
+                </div>
+            </template>
+        </template>
+            <div class="sfs-journey__compact-header">
+                <template if:true={appt.journey.isOnHold}>
+                    <span class="sfs-journey__badge sfs-journey__badge_hold">
+                        On Hold
+                    </span>
+                </template>
+            </div>
+            <template if:true={appt.isContractPm}>
+                <div class="sfs-journey__compact-status">
+                    <span class="sfs-journey__compact-current">
+                        Status: {appt.journey.statusLabel}
+                    </span>
+                </div>
+            </template>
+            <template if:false={appt.isContractPm}>
+                <div class="sfs-journey__progress-track">
+                    <span
+                        class="sfs-journey__progress-fill"
+                        style={appt.journey.progressStyle}
+                    ></span>
+                </div>
+                <div class="sfs-journey__progress-meta">
+                    <span class="sfs-journey__compact-current">
+                        Current: {appt.journey.currentLabel}
+                    </span>
+                    <span class="sfs-journey__compact-next">
+                        Next: {appt.journey.nextLabel}
+                    </span>
+                </div>
+            </template>
+                <template if:true={appt.probeSaleStatusDescription}>
+                    <p class="sfs-probe-sale-description">
+                        {appt.probeSaleStatusDescription}
+                    </p>
+                </template>
+                <template if:true={showBreakAfterDescription}><br/></template>
+        <!-- Subject opens the bottom sheet -->
+        <template if:true={appt.appointmentNumber}>
+            <div class="sfs-line sfs-sa-line">
+                <span class="sfs-label-WOLabel">SA #</span>
+                <span class="sfs-value-wonumber">{appt.appointmentNumber}</span>
+            </div>
+        </template>
+        <div class="sfs-line sfs-wo-line">
+            <span class="sfs-label-WOLabel">WO #</span>
+            <span class="sfs-value-wonumber">
+                <template if:true={appt.workOrderNumber}>
+                    {appt.workOrderNumber}
+                </template>
+                <template if:false={appt.workOrderNumber}>
+                    —
+                </template>
+            </span>
+        </div>
+
+        <div class="sfs-subject-account-box">
+            <div class="sfs-subject-row">
+                <span
+                    class="sfs-subject-btn sfs-subject-btn_static"
+                >
+                    {appointmentDetails}
+                </span>
+            </div>
+
+            <p class="sfs-account-name">
+                <span class="sfs-value sfs-value_account">
+                    <template if:true={appt.hasAccountDisplay}>
+                        {appt.accountDisplayName}
+                    </template>
+                    <template if:false={appt.hasAccountDisplay}>
+                        <template if:true={appt.showAccountEdit}>
+                            <button
+                                class="sfs-address-edit"
+                                type="button"
+                                data-id={appt.cardId}
+                                data-woid={appt.workOrderId}
+                                data-appointment-id={appt.appointmentId}
+                                onclick={handleOpenAccountModal}
+                            >
+                                <lightning-icon
+                                    icon-name="utility:edit"
+                                    size="x-small"
+                                    class="sfs-address-edit__icon"
+                                ></lightning-icon>
+                                <span>Add account</span>
+                            </button>
+                        </template>
+                        <template if:false={appt.showAccountEdit}>
+                            —
+                        </template>
+                    </template>
+                </span>
+            </p>
+
+            <template if:true={appt.makeModel}>
+                <p class="sfs-make-model-emphasis">
+                    <span class="sfs-label">Make / Model</span>
+                    <span class="sfs-value sfs-value_account">{appt.makeModel}</span>
+                </p>
+            </template>
+        </div>
+
+        <template if:true={showServiceSite}>
+            <p class="sfs-line">
+                <span class="sfs-label">Service Site</span>
+                <span class="sfs-value sfs-value_po">
+                    <span class={appt.serviceSiteValueClass}>{appt.serviceSiteDisplay}</span>
+                    <button
+                        type="button"
+                        class="sfs-address-edit sfs-address-edit_inline sfs-po-edit-button"
+                        data-woid={appt.workOrderId}
+                        onclick={handleServiceSiteNameEdit}
+                        aria-label="Edit service site name"
+                    >
+                        <lightning-icon
+                            icon-name="utility:edit"
+                            size="x-small"
+                            class="sfs-address-edit__icon"
+                        ></lightning-icon>
+                    </button>
+                </span>
+            </p>
+        </template>
+
+        <template if:true={appt.systemSerialNumber}>
+            <p class="sfs-line">
+                <span class="sfs-label">
+                    System Serial #
+                </span>
+                <span class="sfs-value">
+                    {appt.systemSerialNumber}
+                </span>
+            </p>
+        </template>
+
+        <template if:true={appt.lineItemSystem}>
+            <p class="sfs-line">
+                <span class="sfs-label">
+                    Line Item System
+                </span>
+                <span class="sfs-value">
+                    {appt.lineItemSystem}
+                </span>
+            </p>
+        </template>
+
+        <template if:true={appt.showPoNumberField}>
+            <p class="sfs-line sfs-line_po">
+                <span class="sfs-label">PO Number</span>
+                <span class="sfs-value sfs-value_po">
+                    <template if:true={appt.isEditingPoNumber}>
+                        <div class="sfs-po-edit">
+                            <lightning-input
+                                type="text"
+                                variant="label-hidden"
+                                value={appt.poNumberDraft}
+                                data-woid={appt.workOrderId}
+                                onchange={handlePoNumberDraftChange}
+                                onkeydown={handlePoNumberKeydown}
+                                class="sfs-po-input"
+                                placeholder="Enter PO number"
+                            ></lightning-input>
+                            <div class="sfs-po-actions">
+                                <button
+                                    type="button"
+                                    class="sfs-po-action"
+                                    data-woid={appt.workOrderId}
+                                    onclick={handlePoNumberSave}
+                                >
+                                    Save
+                                </button>
+                                <button
+                                    type="button"
+                                    class="sfs-po-action sfs-po-action_secondary"
+                                    data-woid={appt.workOrderId}
+                                    onclick={handlePoNumberCancel}
+                                >
+                                    Cancel
+                                </button>
+                            </div>
+                        </div>
+                    </template>
+                    <template if:false={appt.isEditingPoNumber}>
+                        <span class={appt.poNumberValueClass}>
+                            {appt.poNumberDisplay}
+                        </span>
+                        <template if:true={showReducedPoEditButton}>
+                            <button
+                                type="button"
+                                class="sfs-address-edit sfs-address-edit_inline sfs-po-edit-button"
+                                data-woid={appt.workOrderId}
+                                onclick={handlePoNumberEdit}
+                                aria-label="Edit PO number"
+                            >
+                                <lightning-icon
+                                    icon-name="utility:edit"
+                                    size="x-small"
+                                    class="sfs-address-edit__icon"
+                                ></lightning-icon>
+                            </button>
+                        </template>
+                        <template if:false={showReducedPoEditButton}>
+                            <button
+                                type="button"
+                                class="sfs-address-edit sfs-address-edit_inline sfs-po-edit"
+                                data-woid={appt.workOrderId}
+                                onclick={handlePoNumberEdit}
+                                aria-label="Edit PO number"
+                            >
+                                <lightning-icon
+                                    icon-name="utility:edit"
+                                    size="x-small"
+                                    class="sfs-address-edit__icon"
+                                ></lightning-icon>
+                                <span>{appt.poNumberEditLabel}</span>
+                            </button>
+                        </template>
+                    </template>
+                </span>
+            </p>
+        </template>
+
+        <template if:true={appt.showQuoteSentDate}>
+            <p class="sfs-line">
+                <span class="sfs-label">Sent to Customer</span>
+                <span class="sfs-value">{appt.quoteSentDateDisplay}</span>
+            </p>
+        </template>
+
+        <div class="sfs-card-actions">
+            <button
+                type="button"
+                class="sfs-info-button sfs-info-button_block"
+                data-id={appt.cardId}
+                onclick={handleListInfoClick}
+            >
+                See more info
+            </button>
+
+            <template if:true={appt.showQuoteActions}>
+                <div class="sfs-quote-bar">
+                    <template if:true={appt.quoteAttachmentUrl}>
+                        <button
+                            type="button"
+                            class="sfs-quote-download"
+                            data-id={appt.cardId}
+                            onclick={handleQuoteAttachmentClick}
+                        >
+                            <lightning-icon
+                                icon-name="utility:link"
+                                size="x-small"
+                                class="sfs-quote-download__icon"
+                            ></lightning-icon>
+                            <span class="sfs-quote-download__label">
+                                Go to files
+                            </span>
+                        </button>
+                    </template>
+
+                    <template if:true={appt.showMarkQuoteSentAction}>
+                        <lightning-button
+                            variant="brand"
+                            label="Mark Quote Sent"
+                            data-woid={appt.workOrderId}
+                            onclick={handleMarkQuoteSent}
+                            class="sfs-quote-action-button"
+                        ></lightning-button>
+                    </template>
+                    <template if:true={appt.showMarkRepairSentAction}>
+                        <lightning-button
+                            variant="brand"
+                            label="Mark Repair Sent"
+                            data-woid={appt.workOrderId}
+                            onclick={handleMarkRepairSent}
+                            class="sfs-quote-action-button"
+                        ></lightning-button>
+                    </template>
+                    <template if:true={appt.showMarkPoAttachedAction}>
+                        <lightning-button
+                            variant="brand"
+                            label="Mark Ready to Ship"
+                            data-woid={appt.workOrderId}
+                            onclick={handleMarkPoAttached}
+                            class={appt.markReadyToShipButtonClass}
+                        ></lightning-button>
+                    </template>
+                    <template if:true={appt.showCancelSaleAction}>
+                        <lightning-button
+                            variant="destructive"
+                            label="Cancel Sale"
+                            data-woid={appt.workOrderId}
+                            onclick={handleCancelSale}
+                            class="sfs-quote-action-button"
+                        ></lightning-button>
+                    </template>
+                </div>
+            </template>
+            <template if:true={appt.showRepairApprovalActions}>
+                <div class="sfs-repair-approval-actions">
+                    <template if:true={appt.showRepairApprovedAction}>
+                        <lightning-button
+                            variant="brand"
+                            label="Approve Repair"
+                            data-woid={appt.workOrderId}
+                            onclick={handleApproveRepair}
+                            class={appt.repairApprovedButtonClass}
+                        ></lightning-button>
+                    </template>
+                    <template if:true={appt.showExchangeApprovalAction}>
+                        <lightning-button
+                            variant="brand"
+                            label="Approve Exchange"
+                            data-woid={appt.workOrderId}
+                            onclick={handleApproveExchange}
+                            class={appt.exchangeApprovedButtonClass}
+                        ></lightning-button>
+                    </template>
+                    <lightning-button
+                        variant="destructive"
+                        label="Decline Repair"
+                        data-woid={appt.workOrderId}
+                        onclick={handleDeclineRepair}
+                        class="sfs-repair-approval-button"
+                    ></lightning-button>
+                </div>
+            </template>
+            <template if:true={appt.showConfirmShippingAction}>
+                <div class="sfs-repair-approval-actions">
+                    <lightning-button
+                        variant="brand"
+                        label="Confirm Shipping"
+                        data-woid={appt.workOrderId}
+                        onclick={handleConfirmShipping}
+                        class={appt.confirmShippingButtonClass}
+                        disabled={appt.confirmShippingDisabled}
+                    ></lightning-button>
+                </div>
+            </template>
+        </div>
+
+        <!-- Contact, address, tracking and schedule - wrapped in sfs-card-meta for reduced variant -->
+        <template if:true={showCardMeta}>
+            <div class="sfs-card-meta">
+                <!-- Contact (name only) -->
+                <template if:true={appt.contactName}>
+                    <p class="sfs-line">
+                        <span class="sfs-label">Contact</span>
+                        <span class="sfs-value">{appt.contactName}</span>
+                    </p>
+                </template>
+                <template if:false={appt.contactName}>
+                    <template if:true={appt.canAddReporterContact}>
+                        <p class="sfs-line">
+                            <span class="sfs-label">Contact</span>
+                            <span class="sfs-value">
+                                <button
+                                    type="button"
+                                    class="sfs-address-edit sfs-contact-edit"
+                                    data-id={appt.cardId}
+                                    data-woid={appt.workOrderId}
+                                    data-appointment-id={appt.appointmentId}
+                                    onclick={handleOpenReporterContactModal}
+                                    aria-label="Add contact info"
+                                >
+                                    <lightning-icon
+                                        icon-name="utility:edit"
+                                        size="x-small"
+                                        class="sfs-address-edit__icon"
+                                    ></lightning-icon>
+                                    <span>Add contact info</span>
+                                </button>
+                            </span>
+                        </p>
+                    </template>
+                </template>
+
+                <!-- Address -->
+                <template if:true={appt.hasFullAddress}>
+                    <p class="sfs-line sfs-line_address">
+                        <span class="sfs-label">Site Address</span>
+                        <span class="sfs-value sfs-value_address sfs-address-value">
+                            <span class="sfs-address-text">
+                                {appt.fullAddress}
+                            </span>
+                        </span>
+                    </p>
+                </template>
+                <template if:false={appt.hasFullAddress}>
+                    <p class="sfs-line sfs-line_address sfs-line_address-empty">
+                        <span class="sfs-label">Site Address</span>
+                        <button
+                            class="sfs-address-edit"
+                            type="button"
+                            data-id={appt.cardId}
+                            data-woid={appt.workOrderId}
+                            data-appointment-id={appt.appointmentId}
+                            onclick={handleOpenAddressModal}
+                        >
+                            <lightning-icon
+                                icon-name="utility:edit"
+                                size="x-small"
+                                class="sfs-address-edit__icon"
+                            ></lightning-icon>
+                            <span>Add site address</span>
+                        </button>
+                    </p>
+                </template>
+
+                <template if:true={appt.showShippingAddressSection}>
+                    <p class="sfs-line sfs-line_address">
+                        <span class="sfs-label">Shipping Address</span>
+                        <span class="sfs-value sfs-value_address sfs-address-value">
+                            <template if:true={appt.shippingAttn}>
+                                <span class="sfs-address-text">
+                                    Attn: {appt.shippingAttn}
+                                </span>
+                                <br />
+                            </template>
+                            <template if:true={appt.shippingFullAddress}>
+                                <span class="sfs-address-text">
+                                    {appt.shippingFullAddress}
+                                </span>
+                            </template>
+                            <template if:false={appt.hasShippingAddress}>
+                                <span class="sfs-address-text">
+                                    Add shipping address
+                                </span>
+                            </template>
+                            <button
+                                type="button"
+                                class="sfs-address-edit sfs-address-edit_inline"
+                                data-id={appt.cardId}
+                                data-woid={appt.workOrderId}
+                                data-appointment-id={appt.appointmentId}
+                                onclick={handleOpenShippingAddressModal}
+                                aria-label="Edit shipping address"
+                                title="Edit shipping address"
+                            >
+                                <lightning-icon
+                                    icon-name="utility:edit"
+                                    size="x-small"
+                                    class="sfs-address-edit__icon"
+                                ></lightning-icon>
+                            </button>
+                        </span>
+                    </p>
+                </template>
+
+                <template if:true={appt.showResolvedTracking}>
+                    <p class="sfs-line">
+                        <span class="sfs-label">Tracking</span>
+                        <span class="sfs-value sfs-value_tracking">
+                            <button
+                                type="button"
+                                class="sfs-tracking-link"
+                                data-tracking={appt.resolvedTrackingNumber}
+                                onclick={handleCopyTracking}
+                                title="Copy tracking number"
+                                aria-label="Copy tracking number"
+                            >
+                                {appt.resolvedTrackingNumber}
+                            </button>
+                        </span>
+                    </p>
+                </template>
+                <template if:true={appt.showLoanerTracking}>
+                    <p class="sfs-line">
+                        <span class="sfs-label">Loaner Tracking</span>
+                        <span class="sfs-value sfs-value_tracking">
+                            <button
+                                type="button"
+                                class="sfs-tracking-link"
+                                data-tracking={appt.loanerTrackingNumber}
+                                onclick={handleCopyTracking}
+                                title="Copy loaner tracking number"
+                                aria-label="Copy loaner tracking number"
+                            >
+                                {appt.loanerTrackingNumber}
+                            </button>
+                        </span>
+                    </p>
+                </template>
+
+                <!-- Schedule (Start - End) -->
+                <template if:true={appt.hasAppointment}>
+                    <p class="sfs-line sfs-line_schedule">
+                        <span class="sfs-label">Schedule</span>
+                        <span class="sfs-value sfs-value_schedule">
+                            <lightning-formatted-date-time
+                                value={appt.schedStart}
+                                year="numeric"
+                                month="short"
+                                day="2-digit"
+                                hour="2-digit"
+                                minute="2-digit"
+                                time-zone={userTimeZoneId}
+                            ></lightning-formatted-date-time>
+                            <span class="sfs-schedule-separator">–</span>
+                            <lightning-formatted-date-time
+                                value={appt.schedEnd}
+                                year="numeric"
+                                month="short"
+                                day="2-digit"
+                                hour="2-digit"
+                                minute="2-digit"
+                                time-zone={userTimeZoneId}
+                            ></lightning-formatted-date-time>
+                        </span>
+                    </p>
+                </template>
+
+            </div>
+        </template>
+        <template if:false={showCardMeta}>
+            <!-- Contact (name only) -->
+            <template if:true={appt.contactName}>
+                <p class="sfs-line">
+                    <span class="sfs-label">Contact</span>
+                    <span class="sfs-value">{appt.contactName}</span>
+                </p>
+            </template>
+            <template if:false={appt.contactName}>
+                <template if:true={appt.canAddReporterContact}>
+                    <p class="sfs-line">
+                        <span class="sfs-label">Contact</span>
+                        <span class="sfs-value">
+                            <button
+                                type="button"
+                                class="sfs-address-edit sfs-contact-edit"
+                                data-id={appt.cardId}
+                                data-woid={appt.workOrderId}
+                                data-appointment-id={appt.appointmentId}
+                                onclick={handleOpenReporterContactModal}
+                                aria-label="Add contact info"
+                            >
+                                <lightning-icon
+                                    icon-name="utility:edit"
+                                    size="x-small"
+                                    class="sfs-address-edit__icon"
+                                ></lightning-icon>
+                                <span>Add contact info</span>
+                            </button>
+                        </span>
+                    </p>
+                </template>
+            </template>
+
+            <!-- Address -->
+            <template if:true={appt.hasFullAddress}>
+                <p class="sfs-line sfs-line_address">
+                    <span class="sfs-label">Site Address</span>
+                    <span class="sfs-value sfs-value_address sfs-address-value">
+                        <span class="sfs-address-text">
+                            {appt.fullAddress}
+                        </span>
+                    </span>
+                </p>
+            </template>
+            <template if:false={appt.hasFullAddress}>
+                <p class="sfs-line sfs-line_address sfs-line_address-empty">
+                    <span class="sfs-label">Site Address</span>
+                    <button
+                        class="sfs-address-edit"
+                        type="button"
+                        data-id={appt.cardId}
+                        data-woid={appt.workOrderId}
+                        data-appointment-id={appt.appointmentId}
+                        onclick={handleOpenAddressModal}
+                    >
+                        <lightning-icon
+                            icon-name="utility:edit"
+                            size="x-small"
+                            class="sfs-address-edit__icon"
+                        ></lightning-icon>
+                        <span>Add site address</span>
+                    </button>
+                </p>
+            </template>
+
+            <template if:true={appt.showShippingAddressSection}>
+                <p class="sfs-line sfs-line_address">
+                    <span class="sfs-label">Shipping Address</span>
+                    <span class="sfs-value sfs-value_address sfs-address-value">
+                        <template if:true={appt.shippingAttn}>
+                            <span class="sfs-address-text">
+                                Attn: {appt.shippingAttn}
+                            </span>
+                            <br />
+                        </template>
+                        <template if:true={appt.shippingFullAddress}>
+                            <span class="sfs-address-text">
+                                {appt.shippingFullAddress}
+                            </span>
+                        </template>
+                        <template if:false={appt.hasShippingAddress}>
+                            <span class="sfs-address-text">
+                                Add shipping address
+                            </span>
+                        </template>
+                        <button
+                            type="button"
+                            class="sfs-address-edit sfs-address-edit_inline"
+                            data-id={appt.cardId}
+                            data-woid={appt.workOrderId}
+                            data-appointment-id={appt.appointmentId}
+                            onclick={handleOpenShippingAddressModal}
+                            aria-label="Edit shipping address"
+                            title="Edit shipping address"
+                        >
+                            <lightning-icon
+                                icon-name="utility:edit"
+                                size="x-small"
+                                class="sfs-address-edit__icon"
+                            ></lightning-icon>
+                        </button>
+                    </span>
+                </p>
+            </template>
+
+            <template if:true={appt.showResolvedTracking}>
+                <p class="sfs-line">
+                    <span class="sfs-label">Tracking</span>
+                    <span class="sfs-value sfs-value_tracking">
+                        <button
+                            type="button"
+                            class="sfs-tracking-link"
+                            data-tracking={appt.resolvedTrackingNumber}
+                            onclick={handleCopyTracking}
+                            title="Copy tracking number"
+                            aria-label="Copy tracking number"
+                        >
+                            {appt.resolvedTrackingNumber}
+                        </button>
+                    </span>
+                </p>
+            </template>
+            <template if:true={appt.showLoanerTracking}>
+                <p class="sfs-line">
+                    <span class="sfs-label">Loaner Tracking</span>
+                    <span class="sfs-value sfs-value_tracking">
+                        <button
+                            type="button"
+                            class="sfs-tracking-link"
+                            data-tracking={appt.loanerTrackingNumber}
+                            onclick={handleCopyTracking}
+                            title="Copy loaner tracking number"
+                            aria-label="Copy loaner tracking number"
+                        >
+                            {appt.loanerTrackingNumber}
+                        </button>
+                    </span>
+                </p>
+            </template>
+
+            <!-- Schedule (Start - End) -->
+            <template if:true={appt.hasAppointment}>
+                <p class="sfs-line sfs-line_schedule">
+                    <span class="sfs-label">Schedule</span>
+                    <span class="sfs-value sfs-value_schedule">
+                        <lightning-formatted-date-time
+                            value={appt.schedStart}
+                            year="numeric"
+                            month="short"
+                            day="2-digit"
+                            hour="2-digit"
+                            minute="2-digit"
+                            time-zone={userTimeZoneId}
+                        ></lightning-formatted-date-time>
+                        <span class="sfs-schedule-separator">–</span>
+                        <lightning-formatted-date-time
+                            value={appt.schedEnd}
+                            year="numeric"
+                            month="short"
+                            day="2-digit"
+                            hour="2-digit"
+                            minute="2-digit"
+                            time-zone={userTimeZoneId}
+                        ></lightning-formatted-date-time>
+                    </span>
+                </p>
+            </template>
+        </template>
+
+            <!-- Expand / collapse toggle -->
+            <template if:true={appt.hasDetailSection}>
+                <div class="sfs-list-toggle-row">
+                    <template if:true={appt.isExpanded}>
+                        <button
+                            type="button"
+                            class="sfs-list-toggle-btn sfs-list-toggle-btn_open"
+                            data-id={appt.cardId}
+                            onclick={handleToggleListDetails}
+                        >
+                            <span class="sfs-list-toggle-chevron">▸</span>
+                            <span>Contact &amp; reporter</span>
+                        </button>
+                    </template>
+                    <template if:false={appt.isExpanded}>
+                        <button
+                            type="button"
+                            class="sfs-list-toggle-btn"
+                            data-id={appt.cardId}
+                            onclick={handleToggleListDetails}
+                        >
+                            <span class="sfs-list-toggle-chevron">▸</span>
+                            <span>Contact &amp; reporter</span>
+                        </button>
+                    </template>
+                </div>
+            </template>
+
+            <!-- Expanded details -->
+            <template if:true={appt.hasDetailSection}>
+                <template if:true={appt.isExpanded}>
+                    <div class="sfs-list-details">
+                        <!-- Contact phone -->
+                        <template if:true={appt.contactPhoneHref}>
+                            <p class="sfs-list-details-row">
+                                <span class="sfs-list-details-label">
+                                    Contact Phone
+                                </span>
+                                <span class="sfs-list-details-value">
+                                    <a href={appt.contactPhoneHref}>
+                                        {appt.contactPhone}
+                                    </a>
+                                </span>
+                            </p>
+                        </template>
+
+                        <!-- Contact email -->
+                        <template if:true={appt.contactEmailHref}>
+                            <p class="sfs-list-details-row">
+                                <span class="sfs-list-details-label">
+                                    Contact Email
+                                </span>
+                                <span class="sfs-list-details-value">
+                                    <a href={appt.contactEmailHref}>
+                                        {appt.contactEmail}
+                                    </a>
+                                </span>
+                            </p>
+                        </template>
+
+                        <!-- Reporter (from Work Order) -->
+                        <template if:true={appt.reporterContactInfo}>
+                            <p class="sfs-list-details-row">
+                                <span class="sfs-list-details-label">
+                                    Reporter
+                                </span>
+                                <span class="sfs-list-details-value">
+                                    <template if:true={appt.reporterName}>
+                                        {appt.reporterName}
+                                    </template>
+                                    <template if:false={appt.reporterName}>
+                                        {appt.reporterContactInfo}
+                                    </template>
+                                </span>
+                            </p>
+
+                            <template if:true={appt.reporterPhoneDisplay}>
+                                <p class="sfs-list-details-row">
+                                    <span class="sfs-list-details-label">
+                                        Reporter Phone
+                                    </span>
+                                    <span class="sfs-list-details-value">
+                                        <a href={appt.reporterPhoneHref}>
+                                            {appt.reporterPhoneDisplay}
+                                        </a>
+                                    </span>
+                                </p>
+                            </template>
+
+                            <template if:true={appt.reporterEmail}>
+                                <p class="sfs-list-details-row">
+                                    <span class="sfs-list-details-label">
+                                        Reporter Email
+                                    </span>
+                                    <span class="sfs-list-details-value">
+                                        <a href={appt.reporterEmailHref}>
+                                            {appt.reporterEmail}
+                                        </a>
+                                    </span>
+                                </p>
+                            </template>
+                        </template>
+
+                    </div>
+                </template>
+            </template>
+
+            <template if:true={appt.showQuoteLineItems}>
+                <div class="sfs-quote-lines">
+                    <button
+                        type="button"
+                        class="sfs-quote-lines__toggle"
+                        data-card-id={appt.cardId}
+                        onclick={handleToggleQuoteLineItems}
+                    >
+                        <lightning-icon
+                            icon-name={appt.quoteLineItemsExpandedIcon}
+                            size="x-small"
+                            class="sfs-quote-lines__toggle-icon"
+                        ></lightning-icon>
+                        <span class="sfs-quote-lines__toggle-label">
+                            {appt.quoteLineItemsToggleLabel}
+                        </span>
+                        <span class="sfs-quote-lines__count">
+                            ({appt.quoteLineItems.length})
+                        </span>
+                    </button>
+
+                    <template if:true={appt.quoteLineItemsExpanded}>
+                        <div class="sfs-quote-lines__table-wrapper">
+                            <table class="sfs-quote-lines__table">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">Parts/Probes</th>
+                                        <th scope="col" class="sfs-quote-lines__status">
+                                            Status
+                                        </th>
+                                        <th scope="col" class="sfs-quote-lines__numeric">
+                                            Qty
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <template
+                                        for:each={appt.groupedQuoteLineItems}
+                                        for:item="group"
+                                    >
+                                        <tr key={group.key} class="sfs-quote-lines__group-row">
+                                            <th scope="row" colspan="3">
+                                                <span class="sfs-quote-lines__group-label">
+                                                    {group.label}
+                                                </span>
+                                            </th>
+                                        </tr>
+                                        <template for:each={group.lines} for:item="line">
+                                            <tr key={line.lineItemId}>
+                                                <td>{line.productName}</td>
+                                                <td class="sfs-quote-lines__status">
+                                                    {line.lineTypeLabel}
+                                                </td>
+                                                <td class="sfs-quote-lines__numeric">
+                                                    {line.quantity}
+                                                </td>
+                                            </tr>
+                                        </template>
+                                    </template>
+                                </tbody>
+                            </table>
+                        </div>
+                    </template>
+                </div>
+            </template>
+
+            <template if:true={appt.showQuickSchedule}>
+                <div
+                    class={appt.scheduleActionsClass}
+                    data-id={appt.cardId}
+                    data-blocked={appt.scheduleDisabled}
+                    onclick={handleScheduleActionClick}
+                >
+                    <lightning-button
+                        variant="neutral"
+                        label={appt.quickScheduleLabel}
+                        data-id={appt.cardId}
+                        onclick={handleToggleQuickSchedulePanel}
+                        class={appt.quickScheduleButtonClass}
+                        title={appt.scheduleBlockedReason}
+                        aria-disabled={appt.scheduleDisabled}
+                    >
+                    </lightning-button>
+                    <template if:true={appt.showScheduleOnCalendar}>
+                        <lightning-button
+                            variant="brand"
+                            label={scheduleOnCalendarLabel}
+                            data-id={appt.cardId}
+                            onclick={handleScheduleOnCalendar}
+                            class={appt.calendarButtonClass}
+                            title={appt.scheduleBlockedReason}
+                            aria-disabled={appt.scheduleDisabled}
+                        >
+                        </lightning-button>
+                    </template>
+                </div>
+
+                <template if:true={appt.showAddressHelpBubble}>
+                    <div class="sfs-help-bubble" role="status">
+                        Enter an address to schedule.
+                    </div>
+                </template>
+
+                <template if:true={appt.quickScheduleExpanded}>
+                    <div class="sfs-input-block sfs-quick-schedule__input">
+                        <lightning-input
+                            type="datetime-local"
+                            name="quickScheduleStart"
+                            label={appt.quickScheduleDateLabel}
+                            value={appt.quickScheduleStart}
+                            data-id={appt.cardId}
+                            onchange={handleQuickScheduleChange}
+                        >
+                        </lightning-input>
+                    </div>
+
+                    <div class="sfs-actions sfs-schedule-actions sfs-quick-schedule__footer sfs-option-actions">
+                        <lightning-button
+                            variant="brand"
+                            label={appt.quickScheduleActionLabel}
+                            data-id={appt.cardId}
+                            onclick={handleQuickSchedule}
+                            class="sfs-compact-button sfs-option-button"
+                        >
+                        </lightning-button>
+                    </div>
+                </template>
+            </template>
+
+            <!-- Crew assignment controls shown only in Crew Pool mode -->
+            <template if:true={isCrewMode}>
+                <template if:true={appt.crewOptions}>
+                    <div class="sfs-input-block">
+                        <lightning-combobox
+                            name="crewMember"
+                            label="Assign to crew member"
+                            placeholder="Select technician"
+                            options={appt.crewOptions}
+                            value={appt.selectedCrewMemberId}
+                            data-id={appt.appointmentId}
+                            onchange={handleCrewMemberChange}
+                        >
+                        </lightning-combobox>
+                    </div>
+
+                    <div class="sfs-actions">
+                        <lightning-button
+                            variant="neutral"
+                            label="Assign Tech"
+                            data-id={appt.appointmentId}
+                            onclick={handleAssignToCrewMember}
+                            disabled={appt.disableAssignTech}
+                        >
+                        </lightning-button>
+                    </div>
+                </template>
+            </template>
+    </div>
+</template>

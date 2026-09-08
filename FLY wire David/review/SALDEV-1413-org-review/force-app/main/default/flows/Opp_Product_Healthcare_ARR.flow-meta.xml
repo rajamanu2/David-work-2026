@@ -1,0 +1,1035 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>61.0</apiVersion>
+    <areMetricsLoggedToDataCloud>false</areMetricsLoggedToDataCloud>
+    <decisions>
+        <name>Opp_meets_criteria</name>
+        <label>Opp meets criteria?</label>
+        <locationX>2558</locationX>
+        <locationY>323</locationY>
+        <defaultConnectorLabel>Exit Flow</defaultConnectorLabel>
+        <rules>
+            <name>Yes</name>
+            <conditionLogic>1 AND 2</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Opportunity.IsClosed</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Opportunity.RecordType.DeveloperName</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Healthcare</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Quote_Line_Type</targetReference>
+            </connector>
+            <label>Yes</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Product</name>
+        <label>Product</label>
+        <locationX>1898</locationX>
+        <locationY>539</locationY>
+        <defaultConnectorLabel>Other</defaultConnectorLabel>
+        <rules>
+            <name>Epic_Secure_Ckt_Usage</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Product2.ProductCode</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>FWSC1100</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Epic_Usage_ARR</targetReference>
+            </connector>
+            <label>Epic Secure Ckt Usage</label>
+        </rules>
+        <rules>
+            <name>Integrated_Financing</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Product2.ProductCode</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>FWHC1600</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Int_Financing_ARR</targetReference>
+            </connector>
+            <label>Integrated Financing</label>
+        </rules>
+        <rules>
+            <name>Paper_Statements</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Product2.ProductCode</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>FWHC1200</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Paper_Stm_ARR</targetReference>
+            </connector>
+            <label>Paper Statements</label>
+        </rules>
+        <rules>
+            <name>Paper_Suppression</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Product2.ProductCode</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>FWSFS3100</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Paper_Suppress_ARR</targetReference>
+            </connector>
+            <label>Paper Suppression</label>
+        </rules>
+        <rules>
+            <name>Non_Installment_Payments</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Product2.ProductCode</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>FWSFEE-01</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Svc_Fee_One_Time</targetReference>
+            </connector>
+            <label>Non-Installment Payments</label>
+        </rules>
+        <rules>
+            <name>Service_Fee</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Product2.ProductCode</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>FWSFEE1000</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Service_Fee_ARR</targetReference>
+            </connector>
+            <label>Service Fee</label>
+        </rules>
+        <rules>
+            <name>Contingency_Fee</name>
+            <conditionLogic>1 AND (2 OR (3 AND 4))</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Product2.ProductCode</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>FWCFEE1000</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Opportunity.Annual_Expected_Self_Pay_USD__c</leftValueReference>
+                <operator>GreaterThan</operator>
+                <rightValue>
+                    <numberValue>1.0</numberValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.SBQQ__QuoteLine__r.Usage_Rate__c</leftValueReference>
+                <operator>GreaterThan</operator>
+                <rightValue>
+                    <numberValue>0.0</numberValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Opportunity.Contract_Paper_Factor__c</leftValueReference>
+                <operator>GreaterThan</operator>
+                <rightValue>
+                    <numberValue>0.0</numberValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Contingency_ARR</targetReference>
+            </connector>
+            <label>Contingency Fee</label>
+        </rules>
+        <rules>
+            <name>Merchant_Processing</name>
+            <conditionLogic>or</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.ProductCode</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>FWHC1330</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.ProductCode</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>FWHC1310</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.ProductCode</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>FWHC1320</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Merchant_Processing_BPS</targetReference>
+            </connector>
+            <label>Merchant Processing</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Quote_Line_Type</name>
+        <label>Quote Line Type</label>
+        <locationX>1634</locationX>
+        <locationY>431</locationY>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Renewal</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Quote_Line_Type__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Renewal</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Get_Original_Opportunity_Product_Renewal</targetReference>
+            </connector>
+            <label>Renewal</label>
+        </rules>
+        <rules>
+            <name>Cancellation</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Quote_Line_Type__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Cancellation</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Get_Original_Opportunity_Product_Cancellation</targetReference>
+            </connector>
+            <label>Cancellation</label>
+        </rules>
+        <rules>
+            <name>Amendment</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Quote_Line_Type__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Amendment</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Amendment_No_ARR</targetReference>
+            </connector>
+            <label>Amendment</label>
+        </rules>
+        <rules>
+            <name>Calculate_ARR</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Quote_Line_Type__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>New</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Product</targetReference>
+            </connector>
+            <label>Calculate ARR</label>
+        </rules>
+    </decisions>
+    <description>Products:
+Epic Secure Checkout (Usage) - FWSC1100
+Integrated Financing (Payzen) - FWHC1600
+Paper Statements - FWHC1200
+Event Based Paper Suppression - FWSFS3100
+Non-Installment Payments - FWSFEE-01
+Service Fee - FWSFEE1000
+Contingency fee - FWCFEE1000
+Merchant Processing BPS - FWHC1340
+Merchant Processing TX - FWHC1310
+Merchant Processing Interchange - FWHC1320
+
+HC ARR calculator. Updated 08/28/2024 to include Merchant processing Net Price and ARR. BOPI-511 Updated to calculate ARR when Quote Line Type not &apos;Cancellation&apos; or &apos;Renewal&apos;. BOPI-511 Updated 11/08/2024 to calculate the different merchant processing products. BOPI-589 Updated 11/26/2024 to replace deprecated Net Price field. BOPI-603 updated to set ARR to 0 for cancelled lines. BOPI-620 updated to set the ARR for cancelled lines to the original amount as a negative value
+BOPI-727 Updated Paper Statements, Non-Installment Payments, Service Fee and Contingency fee calculation formulas. SALDEV-1158 Updated formula in the MerchantProcessingBPSNetPrice variable.
+
+SALDEV - 1413: Quote Line fields Quoted_Usage_Amt__c, Quoted_Usage_Percent__c replaced with Average_Quoted_Usage_Amt__c, Average_Quoted_Usage_Percent__c in formulas: EpicSecureUsageARR, EpicSecureUsageRevenueCalculated, PaperSuppressionARR, NonInstallFeeARR, NonInstallmentPaymentsRevenueCalculated, ContingencyARR, ContingencyFeeRevenueCalculated</description>
+    <environments>Default</environments>
+    <formulas>
+        <name>Cancelled_ARR</name>
+        <dataType>Number</dataType>
+        <expression>{!Get_Original_Opportunity_Product_Cancellation.Opp_Product_ARR__c} * (-1)</expression>
+        <scale>2</scale>
+    </formulas>
+    <formulas>
+        <name>Cancelled_NetARR</name>
+        <dataType>Number</dataType>
+        <expression>{!Get_Original_Opportunity_Product_Cancellation.Commissions_Net_ARR__c} * (-1)</expression>
+        <scale>2</scale>
+    </formulas>
+    <formulas>
+        <name>ContingencyARR</name>
+        <dataType>Number</dataType>
+        <expression>IF(
+    {!$Record.Opportunity.Annual_Expected_Self_Pay_USD__c} &gt; 1,  
+    {!$Record.Opportunity.Annual_Expected_Self_Pay_USD__c} * 
+    ({!$Record.SBQQ__QuoteLine__r.Average_Quoted_Usage_Percent__c} / 100) *
+    ({!$Record.Opportunity.Contract_Paper_Factor__c} / 100), 
+    {!$Record.Opportunity.Ship_To_Account__r.Net_Patient_Revenue__c} * 0.00035 * 
+    (({!$Record.Opportunity.Contract_Paper_Factor__c} / 100) / 0.015) *
+    ({!$Record.SBQQ__QuoteLine__r.Average_Quoted_Usage_Percent__c} / 100)
+)</expression>
+        <scale>2</scale>
+    </formulas>
+    <formulas>
+        <name>ContingencyFeeRevenueCalculated</name>
+        <dataType>String</dataType>
+        <expression>&quot;Contingency Fee - &quot; +
+IF(
+{!$Record.Opportunity.Annual_Expected_Self_Pay_USD__c}&gt;1,
+TEXT({!$Record.Opportunity.Annual_Expected_Self_Pay_USD__c}) + &quot; * &quot; +
+TEXT({!$Record.SBQQ__QuoteLine__r.Avg_Quoted_Rate__c}),
+TEXT({!$Record.Opportunity.Ship_To_Account__r.Net_Patient_Revenue__c}) + &quot; * 0.00035 * (&quot; +
+TEXT({!$Record.SBQQ__QuoteLine__r.Average_Quoted_Usage_Percent__c}) + &quot;) * &quot; +
+TEXT({!$Record__Prior.Opportunity.Contract_Paper_Factor__c})
+)
++ &quot; Calculated: &quot; + 
+TEXT( NOW() - 0.1666)</expression>
+    </formulas>
+    <formulas>
+        <name>EpicSecureUsageARR</name>
+        <dataType>Number</dataType>
+        <expression>IF(
+    {!$Record.Opportunity.Annual_Expected_Self_Pay_USD__c} &gt; 1, 
+    {!$Record.Opportunity.Annual_Expected_Self_Pay_USD__c} * 0.0004, 
+    {!$Record.Opportunity.Ship_To_Account__r.Net_Patient_Revenue__c} * 0.00003 * ({!$Record.SBQQ__QuoteLine__r.Average_Quoted_Usage_Amt__c} / 0.25)
+)</expression>
+        <scale>2</scale>
+    </formulas>
+    <formulas>
+        <name>EpicSecureUsageRevenueCalculated</name>
+        <dataType>String</dataType>
+        <expression>&quot;Epic Secure Checkout Usage - &quot; +
+IF(
+{!$Record.Opportunity.Annual_Expected_Self_Pay_USD__c}&gt;1,
+TEXT({!$Record.Opportunity.Annual_Expected_Self_Pay_USD__c}) + &quot; * 0.0004 &quot;,
+TEXT({!$Record.Opportunity.Ship_To_Account__r.Net_Patient_Revenue__c}) + &quot; * 0.00002 * (&quot; +
+TEXT({!$Record.SBQQ__QuoteLine__r.Average_Quoted_Usage_Amt__c}) + &quot;)&quot;
+)
++ &quot; Calculated: &quot; + 
+TEXT( NOW() - 0.1666)</expression>
+    </formulas>
+    <formulas>
+        <name>IntegratedFinancingARR</name>
+        <dataType>Number</dataType>
+        <expression>IF(
+    {!$Record.Opportunity.Annual_Plan_Origination_USD__c} &gt; 1, 
+    {!$Record.Opportunity.Annual_Plan_Origination_USD__c} * 0.0276, 
+    {!$Record.Opportunity.Ship_To_Account__r.Net_Patient_Revenue__c} * 0.0002
+)</expression>
+        <scale>2</scale>
+    </formulas>
+    <formulas>
+        <name>IntegratedFinancingRevenueCalculated</name>
+        <dataType>String</dataType>
+        <expression>&quot;Integrated Financing - &quot; +
+IF(
+{!$Record.Opportunity.Annual_Plan_Origination_USD__c}&gt;1,
+TEXT({!$Record.Opportunity.Annual_Plan_Origination_USD__c}) + &quot; * 0.0276&quot;,
+TEXT({!$Record.Opportunity.Ship_To_Account__r.Net_Patient_Revenue__c}) + &quot; * 0.0002&quot;
+)
++ &quot; Calculated: &quot; + 
+TEXT( NOW() - 0.1666)</expression>
+    </formulas>
+    <formulas>
+        <description>Merchant Processing BPS ARR = (BPS Up charge / 10000) x Processed Volume $</description>
+        <name>MerchantProcessingBPSARR</name>
+        <dataType>Number</dataType>
+        <expression>({!$Record.SBQQ__QuoteLine__r.BPS_Upcharge__c} / 10000) *
+{!$Record.SBQQ__QuoteLine__r.Processed_Volume_Amount__c}</expression>
+        <scale>2</scale>
+    </formulas>
+    <formulas>
+        <description>Merchant Processing BPS Net Price = ((BPS Upcharge - 5 / 10000)) * Processed Volume $</description>
+        <name>MerchantProcessingBPSNetPrice</name>
+        <dataType>Number</dataType>
+        <expression>(({!$Record.SBQQ__QuoteLine__r.BPS_Upcharge__c} - 3) / 10000) *
+{!$Record.SBQQ__QuoteLine__r.Processed_Volume_Amount__c}</expression>
+        <scale>2</scale>
+    </formulas>
+    <formulas>
+        <name>MerchantProcessingBPSRevenueCalculated</name>
+        <dataType>String</dataType>
+        <expression>&quot;Merchant Processing ARR Automation: (Opp Product) Healthcare ARR - Resources: MerchantProcessingBPSARR, MerchantProcessingBPSNetPrice&quot;</expression>
+    </formulas>
+    <formulas>
+        <description>Merchant Processing Interchange ARR = Processed Volume $ * Interchange Rate</description>
+        <name>MerchantProcessingInterchangeARR</name>
+        <dataType>Number</dataType>
+        <expression>{!$Record.SBQQ__QuoteLine__r.Processed_Volume_Amount__c} * ({!$Record.SBQQ__QuoteLine__r.Interchange_Rate__c} / 100)</expression>
+        <scale>2</scale>
+    </formulas>
+    <formulas>
+        <name>MerchantProcessingInterchangeRevenueCalculated</name>
+        <dataType>String</dataType>
+        <expression>&quot;Merchant Processing ARR Automation: (Opp Product) Healthcare ARR - Resource: MerchantProcessingInterchangeARR&quot;</expression>
+    </formulas>
+    <formulas>
+        <description>Merchant Processing TX ARR = Per Transaction Upcharge * Processed Volume #</description>
+        <name>MerchantProcessingTXARR</name>
+        <dataType>Number</dataType>
+        <expression>{!$Record.SBQQ__QuoteLine__r.Per_Transaction_Upcharge__c} *
+{!$Record.SBQQ__QuoteLine__r.No_Processed_Volume__c}</expression>
+        <scale>2</scale>
+    </formulas>
+    <formulas>
+        <description>Merchant Processing TX Net Price = (Per Transaction Upcharge - 0.08) * Processed Volume #</description>
+        <name>MerchantProcessingTXNetPrice</name>
+        <dataType>Number</dataType>
+        <expression>IF(
+    {!$Record.SBQQ__QuoteLine__r.Per_Transaction_Upcharge__c} - 0.04 &gt; 0,
+    ({!$Record.SBQQ__QuoteLine__r.Per_Transaction_Upcharge__c} - 0.04) * {!$Record.SBQQ__QuoteLine__r.No_Processed_Volume__c},
+    0
+)</expression>
+        <scale>2</scale>
+    </formulas>
+    <formulas>
+        <name>MerchantProcessingTXRevenueCalculated</name>
+        <dataType>String</dataType>
+        <expression>&quot;Merchant Processing ARR Automation: (Opp Product) Healthcare ARR - Resources: MerchantProcessingTXARR, MerchantProcessingTXNetPrice&quot;</expression>
+    </formulas>
+    <formulas>
+        <name>NonInstallFeeARR</name>
+        <dataType>Number</dataType>
+        <expression>IF(
+    {!$Record.Opportunity.Annual_Expected_Self_Pay_USD__c} &gt; 1, 
+    {!$Record.Opportunity.Annual_Expected_Self_Pay_USD__c} * 0.0004 * 
+    ({!$Record.Opportunity.Contract_Paper_Factor__c} / 100), 
+    ({!$Record.Opportunity.Ship_To_Account__r.Net_Patient_Revenue__c} * 0.00003) * 
+    (({!$Record.SBQQ__QuoteLine__r.Average_Quoted_Usage_Amt__c}) / 0.25) *
+    ({!$Record.Opportunity.Contract_Paper_Factor__c} / 100)
+)</expression>
+        <scale>2</scale>
+    </formulas>
+    <formulas>
+        <name>NonInstallmentPaymentsRevenueCalculated</name>
+        <dataType>String</dataType>
+        <expression>&quot;Non-Installment Payment Plan - &quot; +
+IF(
+{!$Record.Opportunity.Annual_Expected_Self_Pay_USD__c}&gt;1,
+TEXT({!$Record.Opportunity.Annual_Expected_Self_Pay_USD__c}) + &quot; * 0.0004 &quot;,
+TEXT({!$Record.Opportunity.Ship_To_Account__r.Net_Patient_Revenue__c}) + &quot; * 0.00003 * &quot; +
+TEXT({!$Record.Opportunity.Contract_Paper_Factor__c}) + &quot; * &quot; +
+TEXT({!$Record.SBQQ__QuoteLine__r.Average_Quoted_Usage_Amt__c})
+)
++ &quot; Calculated: &quot; + 
+TEXT( NOW() - 0.1666)</expression>
+    </formulas>
+    <formulas>
+        <name>PaperStatementARR</name>
+        <dataType>Number</dataType>
+        <expression>IF(
+    {!$Record.Opportunity.Annual_Print_Statement_Volume__c} &gt; 1, 
+    {!$Record.Opportunity.Annual_Print_Statement_Volume__c} * 0.14, 
+    {!$Record.Opportunity.Ship_To_Account__r.Net_Patient_Revenue__c} * 0.00058 * 0.14
+)</expression>
+        <scale>2</scale>
+    </formulas>
+    <formulas>
+        <name>PaperStatementsRevenueCalculated</name>
+        <dataType>String</dataType>
+        <expression>&quot;Paper Statements - &quot; +
+IF(
+{!$Record.Opportunity.Ship_To_Account__r.Annual_Print_Statement_Volume__c}&gt;1,
+TEXT({!$Record.Opportunity.Ship_To_Account__r.Annual_Print_Statement_Volume__c}) + &quot; * 0.14&quot;,
+TEXT({!$Record.Opportunity.Ship_To_Account__r.Net_Patient_Revenue__c}) + &quot; * 0.00058&quot;
+)
++ &quot; Calculated: &quot; + 
+TEXT( NOW() - 0.1666)</expression>
+    </formulas>
+    <formulas>
+        <name>PaperSuppressionARR</name>
+        <dataType>Number</dataType>
+        <expression>IF(
+    {!$Record.Opportunity.Annual_Print_Statement_Volume__c} &gt; 1, 
+    {!$Record.Opportunity.Annual_Print_Statement_Volume__c} * 0.05 * {!$Record.SBQQ__QuoteLine__r.Average_Quoted_Usage_Amt__c} * ({!$Record.Opportunity.Contract_Paper_Factor__c} / 100), 
+    {!$Record.Opportunity.Ship_To_Account__r.Net_Patient_Revenue__c} * 0.00058 * 0.05 * {!$Record.SBQQ__QuoteLine__r.Average_Quoted_Usage_Amt__c} * ({!$Record.Opportunity.Contract_Paper_Factor__c} / 100)
+)</expression>
+        <scale>2</scale>
+    </formulas>
+    <formulas>
+        <name>PaperSuppressionRevenueCalculated</name>
+        <dataType>String</dataType>
+        <expression>&quot;Paper Supression - &quot; + TEXT({!$Record.Opportunity.Ship_To_Account__r.Annual_Print_Statement_Volume__c}) + &quot; * 0.1 * 0.35&quot;
++ &quot; Calculated: &quot; + 
+TEXT( NOW() - 0.1666)</expression>
+    </formulas>
+    <formulas>
+        <name>QuotedUsageRate</name>
+        <dataType>Number</dataType>
+        <expression>IF(
+    NOT(ISBLANK({!$Record.Adjusted_Rate_Percent__c})), {!$Record.Adjusted_Rate_Percent__c}, 
+    IF(
+        NOT(ISBLANK({!$Record.Usage_Rate__c})), {!$Record.Usage_Rate__c}, 0
+    )
+)</expression>
+        <scale>2</scale>
+    </formulas>
+    <formulas>
+        <name>ServiceFeeARR</name>
+        <dataType>Number</dataType>
+        <expression>IF(
+    {!$Record.Opportunity.Annual_Expected_Self_Pay_USD__c} &gt; 1, 
+    {!$Record.Opportunity.Annual_Expected_Self_Pay_USD__c} * 0.0061 *
+    ({!$Record.Opportunity.Contract_Paper_Factor__c} / 100), 
+    {!$Record.Opportunity.Ship_To_Account__r.Net_Patient_Revenue__c} * 0.00032 * 
+    ({!$Record.Opportunity.Contract_Paper_Factor__c} / 100)
+)</expression>
+        <scale>2</scale>
+    </formulas>
+    <formulas>
+        <name>ServiceFeeRevenueCalculated</name>
+        <dataType>String</dataType>
+        <expression>&quot;Service Fee - &quot; +
+IF(
+{!$Record.Opportunity.Annual_Expected_Self_Pay_USD__c}&gt;1,
+TEXT({!$Record.Opportunity.Annual_Expected_Self_Pay_USD__c}) + &quot; * 0.0061&quot;,
+TEXT({!$Record.Opportunity.Ship_To_Account__r.Net_Patient_Revenue__c}) + &quot; * 0.00032 * &quot; +
+TEXT({!$Record.Opportunity.Contract_Paper_Factor__c}) 
+)
++ &quot; Calculated: &quot; + 
+TEXT( NOW() - 0.1666)</expression>
+    </formulas>
+    <interviewLabel>(Opp Product) Healthcare ARR {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>(Opp Product) Healthcare ARR</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <recordLookups>
+        <name>Get_Original_Opportunity_Product_Cancellation</name>
+        <label>Get Original Opportunity Product</label>
+        <locationX>314</locationX>
+        <locationY>539</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Cancellation_No_ARR</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Opportunity_Line_Id__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>$Record.Opportunity_Line_Id__c</elementReference>
+            </value>
+        </filters>
+        <filters>
+            <field>Id</field>
+            <operator>NotEqualTo</operator>
+            <value>
+                <elementReference>$Record.Id</elementReference>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>OpportunityLineItem</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordLookups>
+        <name>Get_Original_Opportunity_Product_Renewal</name>
+        <label>Get Original Opportunity Product</label>
+        <locationX>50</locationX>
+        <locationY>539</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Renewals_ARR_is_set_manually</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Opportunity_Line_Id__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>$Record.Opportunity_Line_Id__c</elementReference>
+            </value>
+        </filters>
+        <filters>
+            <field>Id</field>
+            <operator>NotEqualTo</operator>
+            <value>
+                <elementReference>$Record.Id</elementReference>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>OpportunityLineItem</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordUpdates>
+        <name>Amendment_No_ARR</name>
+        <label>Amendment - No ARR</label>
+        <locationX>578</locationX>
+        <locationY>539</locationY>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Quote_Line_Type__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>Amendment</stringValue>
+            </value>
+        </filters>
+        <inputAssignments>
+            <field>Opp_Product_ARR__c</field>
+            <value>
+                <numberValue>0.0</numberValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Revenue_Calculated__c</field>
+            <value>
+                <stringValue>Amendment: No modifications were made to this line</stringValue>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>Cancellation_No_ARR</name>
+        <label>Cancellation - No ARR</label>
+        <locationX>314</locationX>
+        <locationY>647</locationY>
+        <connector>
+            <targetReference>Cancellation_No_Net_ARR</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Quote_Line_Type__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>Cancellation</stringValue>
+            </value>
+        </filters>
+        <inputAssignments>
+            <field>Opp_Product_ARR__c</field>
+            <value>
+                <elementReference>Cancelled_ARR</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Revenue_Calculated__c</field>
+            <value>
+                <stringValue>Line cancelled</stringValue>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>Cancellation_No_Net_ARR</name>
+        <label>Cancellation - No Net ARR</label>
+        <locationX>314</locationX>
+        <locationY>755</locationY>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Quote_Line_Type__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>Cancellation</stringValue>
+            </value>
+        </filters>
+        <inputAssignments>
+            <field>Commissions_Net_ARR__c</field>
+            <value>
+                <elementReference>Cancelled_NetARR</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>Contingency_ARR</name>
+        <label>Contingency ARR</label>
+        <locationX>2426</locationX>
+        <locationY>647</locationY>
+        <inputAssignments>
+            <field>Opp_Product_ARR__c</field>
+            <value>
+                <elementReference>ContingencyARR</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Revenue_Calculated__c</field>
+            <value>
+                <elementReference>ContingencyFeeRevenueCalculated</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>Epic_Usage_ARR</name>
+        <label>Epic Usage ARR</label>
+        <locationX>842</locationX>
+        <locationY>647</locationY>
+        <inputAssignments>
+            <field>Opp_Product_ARR__c</field>
+            <value>
+                <elementReference>EpicSecureUsageARR</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Revenue_Calculated__c</field>
+            <value>
+                <elementReference>EpicSecureUsageRevenueCalculated</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>Int_Financing_ARR</name>
+        <label>Int Financing ARR</label>
+        <locationX>1106</locationX>
+        <locationY>647</locationY>
+        <inputAssignments>
+            <field>Opp_Product_ARR__c</field>
+            <value>
+                <elementReference>IntegratedFinancingARR</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Revenue_Calculated__c</field>
+            <value>
+                <elementReference>IntegratedFinancingRevenueCalculated</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>Merchant_Processing_BPS</name>
+        <label>Merchant Processing BPS</label>
+        <locationX>2690</locationX>
+        <locationY>647</locationY>
+        <connector>
+            <targetReference>Merchant_Processing_TX</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>ProductCode</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>FWHC1330</stringValue>
+            </value>
+        </filters>
+        <inputAssignments>
+            <field>Commissions_Net_ARR__c</field>
+            <value>
+                <elementReference>MerchantProcessingBPSNetPrice</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Opp_Product_ARR__c</field>
+            <value>
+                <elementReference>MerchantProcessingBPSARR</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Revenue_Calculated__c</field>
+            <value>
+                <elementReference>MerchantProcessingBPSRevenueCalculated</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <description>Net price will always be $0. Sales price uses 2% annual patient payment</description>
+        <name>Merchant_Processing_Interchange</name>
+        <label>Merchant Processing Interchange</label>
+        <locationX>2690</locationX>
+        <locationY>863</locationY>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>ProductCode</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>FWHC1320</stringValue>
+            </value>
+        </filters>
+        <inputAssignments>
+            <field>Opp_Product_ARR__c</field>
+            <value>
+                <elementReference>MerchantProcessingInterchangeARR</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Revenue_Calculated__c</field>
+            <value>
+                <elementReference>MerchantProcessingInterchangeRevenueCalculated</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>Merchant_Processing_TX</name>
+        <label>Merchant Processing TX</label>
+        <locationX>2690</locationX>
+        <locationY>755</locationY>
+        <connector>
+            <targetReference>Merchant_Processing_Interchange</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>ProductCode</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>FWHC1310</stringValue>
+            </value>
+        </filters>
+        <inputAssignments>
+            <field>Commissions_Net_ARR__c</field>
+            <value>
+                <elementReference>MerchantProcessingTXNetPrice</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Opp_Product_ARR__c</field>
+            <value>
+                <elementReference>MerchantProcessingTXARR</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Revenue_Calculated__c</field>
+            <value>
+                <elementReference>MerchantProcessingTXRevenueCalculated</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>Paper_Stm_ARR</name>
+        <label>Paper Stm ARR</label>
+        <locationX>1370</locationX>
+        <locationY>647</locationY>
+        <inputAssignments>
+            <field>Opp_Product_ARR__c</field>
+            <value>
+                <elementReference>PaperStatementARR</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Revenue_Calculated__c</field>
+            <value>
+                <elementReference>PaperStatementsRevenueCalculated</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>Paper_Suppress_ARR</name>
+        <label>Paper Suppress ARR</label>
+        <locationX>1634</locationX>
+        <locationY>647</locationY>
+        <inputAssignments>
+            <field>Opp_Product_ARR__c</field>
+            <value>
+                <elementReference>PaperSuppressionARR</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Revenue_Calculated__c</field>
+            <value>
+                <elementReference>PaperSuppressionRevenueCalculated</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <description>Reps should get the last 12 months ARR number and manually update the Opp Product ARR</description>
+        <name>Renewals_ARR_is_set_manually</name>
+        <label>Renewals ARR is set manually</label>
+        <locationX>50</locationX>
+        <locationY>647</locationY>
+        <inputAssignments>
+            <field>Baseline_ARR__c</field>
+            <value>
+                <elementReference>Get_Original_Opportunity_Product_Renewal.Opp_Product_ARR__c</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Do_not_Auto_Calculate_Price__c</field>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Opp_Product_ARR__c</field>
+            <value>
+                <numberValue>0.0</numberValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Revenue_Calculated__c</field>
+            <value>
+                <stringValue>For Renewals, please enter the ARR manually</stringValue>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>Service_Fee_ARR</name>
+        <label>Service Fee ARR</label>
+        <locationX>2162</locationX>
+        <locationY>647</locationY>
+        <inputAssignments>
+            <field>Opp_Product_ARR__c</field>
+            <value>
+                <elementReference>ServiceFeeARR</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Revenue_Calculated__c</field>
+            <value>
+                <elementReference>ServiceFeeRevenueCalculated</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <description>Non-installment Payment Plan product</description>
+        <name>Svc_Fee_One_Time</name>
+        <label>Non-installment Payment ARR</label>
+        <locationX>1898</locationX>
+        <locationY>647</locationY>
+        <inputAssignments>
+            <field>Opp_Product_ARR__c</field>
+            <value>
+                <elementReference>NonInstallFeeARR</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Revenue_Calculated__c</field>
+            <value>
+                <elementReference>NonInstallmentPaymentsRevenueCalculated</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <start>
+        <locationX>2432</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Opp_meets_criteria</targetReference>
+        </connector>
+        <filterLogic>(1 OR 2 OR 3 OR 4 OR 5 OR 6 OR 7 OR 8 OR 9 OR 10) AND 11</filterLogic>
+        <filters>
+            <field>ProductCode</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>FWCFEE1000</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>ProductCode</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>FWSC1100</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>ProductCode</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>FWHC1600</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>ProductCode</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>FWSFEE-01</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>ProductCode</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>FWHC1200</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>ProductCode</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>FWSFS3100</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>ProductCode</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>FWSFEE1000</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>ProductCode</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>FWHC1330</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>ProductCode</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>FWHC1310</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>ProductCode</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>FWHC1320</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>Do_not_Auto_Calculate_Price__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <booleanValue>false</booleanValue>
+            </value>
+        </filters>
+        <object>OpportunityLineItem</object>
+        <recordTriggerType>CreateAndUpdate</recordTriggerType>
+        <triggerType>RecordAfterSave</triggerType>
+    </start>
+    <status>Active</status>
+</Flow>

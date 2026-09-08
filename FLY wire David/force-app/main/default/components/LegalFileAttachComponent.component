@@ -1,0 +1,27 @@
+<apex:component controller="LegalEmailAttachmentController" access="global">
+    <!-- Attribute to catch the Account ID from the Email Template -->
+    <apex:attribute name="pId" type="Id" description="Account ID" assignTo="{!accountId}" />
+    
+    <!-- Data Table -->
+    <table border="1" cellpadding="8" cellspacing="0" style="border-collapse: collapse; width: 100%; font-family: Arial, sans-serif;">
+        <thead>
+            <tr style="background-color: #f2f2f2; text-align: left;">
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Email</th>
+                <th>Title</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Iterate over the records fetched by the Apex class -->
+            <apex:repeat value="{!relatedContacts}" var="con">
+                <tr>
+                    <td>{!con.FirstName}</td>
+                    <td>{!con.LastName}</td>
+                    <td>{!con.Email}</td>
+                    <td>{!con.Title}</td>
+                </tr>
+            </apex:repeat>
+        </tbody>
+    </table>
+</apex:component>

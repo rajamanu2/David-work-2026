@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <help>
+        <!-- Select the Type of Legal Paper this Contract Record represents. 
+Examples:
+
+Contract &gt; Signed, Includes terms, products, etc.
+
+Addendum &gt; Adding or removing Products.
+
+Other Change &gt; Error correction, Notice of Entity Change, Other. -->
+    </help>
+    <label><!-- Type --></label>
+    <name>Type__c</name>
+    <picklistValues>
+        <masterLabel>Addendum</masterLabel>
+        <translation><!-- Addendum --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Contract</masterLabel>
+        <translation><!-- Contract --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Other Change</masterLabel>
+        <translation><!-- Other Change --></translation>
+    </picklistValues>
+</CustomFieldTranslation>

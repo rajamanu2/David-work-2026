@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Prod_Config_Val_Bypass__c</fullName>
+    <description>Admin field not for reporting. Used to bypass validation rules when Flows are triggered. Works with Prod Config Bypass DateTime</description>
+    <formula>Prod_Config_Bypass_DateTime__c &gt; NOW() - 0.00005787037 /*Five Seconds*/</formula>
+    <inlineHelpText>Admin field not for reporting. Used to bypass validation rules when Flows are triggered. Works with Prod Config Bypass DateTime</inlineHelpText>
+    <label>Prod Config Val Bypass</label>
+    <trackHistory>false</trackHistory>
+    <type>Checkbox</type>
+</CustomField>

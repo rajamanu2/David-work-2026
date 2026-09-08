@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>RMA_3_Repair_Sent_Loaner_not_Returned</fullName>
+    <booleanFilter>1 AND 2 AND 3 AND 4 AND 5 AND 6</booleanFilter>
+    <columns>NAME</columns>
+    <columns>Opportunity_No__c</columns>
+    <columns>Opportunity_Owner__c</columns>
+    <columns>Opportunity_Name__c</columns>
+    <columns>Account_Name__c</columns>
+    <columns>CREATED_DATE</columns>
+    <columns>Date_Loaner_Shipped__c</columns>
+    <columns>Loaner_Asset_Number__c</columns>
+    <columns>Loaner_Serial__c</columns>
+    <columns>Loaner_Probe_Model__c</columns>
+    <columns>RMA_Item_Serial_Number__c</columns>
+    <columns>Repair_Probe_SN__c</columns>
+    <columns>Date_Repaired_Probe_Shipped__c</columns>
+    <columns>Contact_Name__c</columns>
+    <columns>Loaner_Due_Back__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>RECORDTYPE</field>
+        <operation>equals</operation>
+        <value>RMA__c.Loaner_Return</value>
+    </filters>
+    <filters>
+        <field>Date_RMA_Item_Received__c</field>
+        <operation>equals</operation>
+    </filters>
+    <filters>
+        <field>Loaner_changed_to_sale__c</field>
+        <operation>equals</operation>
+        <value>0</value>
+    </filters>
+    <filters>
+        <field>Account_Name_for_customer_portal__c</field>
+        <operation>notEqual</operation>
+    </filters>
+    <filters>
+        <field>Probe_Never_Sent_In__c</field>
+        <operation>equals</operation>
+        <value>0</value>
+    </filters>
+    <filters>
+        <field>Date_Repaired_Probe_Shipped__c</field>
+        <operation>notEqual</operation>
+    </filters>
+    <label>RMA 3. Repair Sent, Loaner not Returned</label>
+</ListView>

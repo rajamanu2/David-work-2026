@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>ARR_Req_Type_Opp</fullName>
+    <active>false</active>
+    <description>Ensure &quot;Type&quot; Field is filled in before adding Product for all Opportunities.</description>
+    <errorConditionFormula>AND(
+    $Profile.Name &lt;&gt; &apos;System Administrator&apos;,
+    $Profile.Name &lt;&gt; &quot;B - Looker&quot;,
+    ISBLANK(TEXT(Opportunity.Type))
+)
+&amp;&amp; Opportunity.Opp_Val_Bypass__c = false</errorConditionFormula>
+    <errorMessage>The Opportunity Type is required for adding productsThe &quot;Type&quot; field on the Opportunity must be filled in before adding products. Go back to the Opportunity and fill that in then try adding product again.</errorMessage>
+</ValidationRule>

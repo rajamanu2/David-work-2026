@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PermissionSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>Add all users to this permissions set so they can only log in via OKTA. Only Integrations or Admin that have a requirement to enter without OKTA should NOT have this Permission set.</description>
+    <hasActivationRequired>false</hasActivationRequired>
+    <label>SSO Permission</label>
+    <userPermissions>
+        <enabled>true</enabled>
+        <name>IsSsoEnabled</name>
+    </userPermissions>
+</PermissionSet>

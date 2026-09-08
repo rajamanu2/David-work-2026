@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<FlowDefinition xmlns="http://soap.sforce.com/2006/04/metadata">
+    <activeVersionNumber>16</activeVersionNumber>
+    <description>Matches lead email to account domain and fills in Account Lookup field. If lead matches criteria for EDU, B2B, or Travel then Account Owner is assigned to Lead. Update 3/4/24: added additional B2B BDR assignment logic that if lead is matched to a prospect account without an open opportunity, the lead is assigned the BDR Owner for the account. SAL-3391. Update 6/25/2024 – Added logic to match HC vertical account owner to lead. SAL-5105 03/17/2025 Update: B2B vertical logic update to remove BDRs.</description>
+    <masterLabel>(LEAD) Account Domain Match + Acct Owner ReAssignment</masterLabel>
+</FlowDefinition>

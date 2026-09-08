@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Child_Must_Be_Trouble_Ticket</fullName>
+    <active>true</active>
+    <description>SCC-3380: Child cases of a Trouble Ticket must also use the Trouble Ticket record type so they keep a consistent NOC case model.</description>
+    <errorConditionFormula>AND(
+    NOT(ISBLANK(ParentId)),
+    Parent.RecordType.DeveloperName = &quot;Trouble_Ticket&quot;,
+    RecordType.DeveloperName &lt;&gt; &quot;Trouble_Ticket&quot;
+)</errorConditionFormula>
+    <errorDisplayField>ParentId</errorDisplayField>
+    <errorMessage>Child cases of a Trouble Ticket must use the Trouble Ticket record type.</errorMessage>
+</ValidationRule>

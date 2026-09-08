@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Shipping_from_Location_Address_Line_2__c</fullName>
+    <externalId>false</externalId>
+    <formula>IF(Shipping_FROM_Location__c = &apos;Fishers, IN&apos;, &apos;Fishers, IN 46037&apos;, IF(Shipping_FROM_Location__c = &apos;Tulsa, OK&apos;, &apos;Tulsa, OK 74133&apos;, IF(Shipping_FROM_Location__c = &apos;Tampa, FL&apos;,  &apos;Tampa, FL 33634&apos;, &apos;&apos;)))</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Shipping from Location Address Line 2</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

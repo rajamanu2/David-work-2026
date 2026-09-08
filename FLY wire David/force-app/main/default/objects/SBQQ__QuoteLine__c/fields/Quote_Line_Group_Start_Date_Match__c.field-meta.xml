@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Quote_Line_Group_Start_Date_Match__c</fullName>
+    <description>Created for ARR Price Rules to determine if Quote Start Date and Group Start Date are the same.</description>
+    <formula>IF(SBQQ__Group__r.SBQQ__StartDate__c =  SBQQ__Quote__r.SBQQ__StartDate__c, true, false)</formula>
+    <label>Quote Line Group Start Date Match</label>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

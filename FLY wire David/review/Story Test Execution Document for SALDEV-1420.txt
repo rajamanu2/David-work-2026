@@ -1,0 +1,112 @@
+FILE: C:\Users\LIKKI\Downloads\ref do not used SALDEV-1420-20260907T161927Z-1-001\ref do not used SALDEV-1420\Story Test Execution Document for SALDEV-1420.docx
+PARAGRAPHS: 134
+TABLES: 3
+P1 [normal]: Story Test Execution Document for SALDEV-1420
+P2 [normal]: Tested in Org: Partial
+P3 [normal]: Tested as Profile/User: Cognizant Tester
+P4 [normal]: Jira URL: https://jira.flywire.tech/browse/SALDEV-1420
+P5 [normal]: Created a Quote and took it through Approval: https://flywire--partial.sandbox.lightning.force.com/lightning/r/SBQQ__Quote__c/a2NhG000003d843UAA/view
+P6 [normal]: https://flywire--partial.sandbox.lightning.force.com/lightning/r/Opportunity/006hG000006dBLJQA2/view
+P7 [normal]: Metadata verification:
+P8 [normal]: Set-up -> Custom Metadata Types (In Quick Find) -> Email Table (API Name: Email_Table__mdt)
+P9 [normal]: The Email Tables Data:
+P10 [normal]: The Email Templates:
+P12 [normal]: Scenario-1: As System Admin, Data created with 3 Groups in total. Group 1 and Group 2 are Step up Pricing (Allow Product Ramping = True) and Group 3 is Non-Step Up.
+P16 [normal]: As confirmed with the developer,
+P17 [normal]: Quote Approval - Request - Quote Approval Request - AQS
+P18 [normal]: Legal for Legal - Approval Request
+P19 [normal]: Revenue Approval for Revenue - Approval Request.
+P20 [normal]: Legal for Credit Risk Approval
+P22 [normal]: For Request - Quote Approval Request - AQS - Should have the following Table headers under the Quote Line Items Title on the Email:
+P33 [normal]: For Credit Risk Approval and Legal - Approval request the Following fields must be visible:
+P36 [normal]: Legal Approval Request:
+P42 [normal]: For Revenue - Approval Request, The Following fields are displayed:
+P45 [normal]: Grouping, Order and Hierarchy:
+P46 [normal]: Scenario-2: When an Education Quote has No Group:
+P47 [normal]: On Quote Approval, No Group Names Headers are displayed, Email looks like the Standard Flat Table:
+P48 [normal]: Note: Ship to account field visibility depends on if Quote.Multiple ship to account = Yes. When there are no Group, The Table will not have the Ship To Account Column
+P52 [normal]: On Opportunity Approvals:
+P53 [normal]: Legal Approval Template:
+P54 [normal]: Credit Risk Approval Template:
+P55 [normal]: Revenue Approval Template:
+P61 [normal]: Scenario-3: Travel Quote with 3 Groups (Stepped Up) subsequently yearned with High Discount to trigger Revenue Approval - As Multiple Ship to Account = No, The Ship-To Account Field is not displayed:
+P62 [normal]: https://flywire--partial.sandbox.lightning.force.com/lightning/r/Opportunity/006hG000006ajhYQAQ/view
+P63 [normal]: Note: When Cloning for Grouping, Make sure to change the Group Name
+P64 [normal]: Quote Approval:
+P76 [normal]: Opportunity Approvals:
+P77 [normal]: Legal Approval:
+P78 [normal]: Credit Rick Approval:
+P79 [normal]: Revenue Approval:
+P80 [normal]: Scenario-4: B2B Quote with 3 Groups, But no Step-Up and Added 2 Ship-To- Accounts for 2 groups, But Multiple Ship To Account field = No: https://flywire--partial.sandbox.lightning.force.com/lightning/r/Opportunity/006hG000006bOkfQAE/view
+P81 [normal]: Quote Approval Template:
+P82 [normal]: Legal Approval Template:
+P83 [normal]: Credit Risk Approval Template:
+P84 [normal]: Revenue Approval Template:
+P88 [normal]: Scenario-5: On Amendment, The only lines where Transaction Type = Price changes/New/Cancellation are displayed on the Email, Not the Lines where Transaction Type = Amendment. https://flywire--partial.sandbox.lightning.force.com/lightning/r/SBQQ__Quote__c/a2NhG000003gCpSUAU/view
+P89 [normal]: Quote Approval template:
+P90 [normal]: Credit Risk Template:
+P91 [normal]: Legal Approval template:
+P92 [normal]: Revenue Approval template:
+P97 [normal]: Updated Testing from Ada’s comment on 17th August 2026 - The new grouping order and header requirements:
+P98 [normal]: Email Template Header for groups: should have "Term" + <a sequential number starting with 1> + " : "+ <number from the Subscription terms field in the group> + "Months".
+P99 [normal]: Example:
+P100 [normal]: Term 1: 36 Months
+P101 [normal]: Groups should be ordered by Start Date with the longest terms length first.
+P102 [normal]: Note: The Multiple Ship to Account issue is being taken care of in a new ticket.
+P104 [normal]: 3 Groups - All Ramped up: https://flywire--partial.sandbox.lightning.force.com/lightning/r/Opportunity/006hG000007C3pJQAS/view
+P105 [normal]: Quote Approval template:
+P106 [normal]: Credit Risk Template:
+P107 [normal]: Legal Approval template:
+P108 [normal]: Revenue Approval template:
+P109 [normal]: 3 Groups - No ramping:
+P110 [normal]: Quote Approval template:
+P111 [normal]: Credit Risk Template:
+P112 [normal]: Legal Approval template:
+P113 [normal]: Revenue Approval template:
+P114 [normal]: 3 Groups -  2 Ramped up, 1 Non-ramped up:
+P115 [normal]: Quote Approval template:
+P116 [normal]: Credit Risk Template:
+P117 [normal]: Legal Approval template:
+P118 [normal]: Revenue Approval template:
+P119 [normal]: 4 Groups - 3 Ramped up, 1 Non-ramped up:
+P120 [normal]: Quote Approval template:
+P121 [normal]: Credit Risk Template:
+P122 [normal]: Legal Approval template:
+P123 [normal]: Revenue Approval template:
+P124 [normal]: 4 Groups - 2 Ramped up, 2 Non-ramped up:
+P125 [normal]: Quote Approval template:
+P126 [normal]: Credit Risk Template:
+P127 [normal]: Legal Approval template:
+P128 [normal]: Revenue Approval template:
+P129 [normal]: No groups:
+P130 [normal]: Quote Approval template:
+P131 [normal]: Credit Risk Template:
+P132 [normal]: Legal Approval template:
+P133 [normal]: Revenue Approval template:
+TABLE 1 (10x6)
+R1: Label | Email Table Name | Column Header | Column Order | Email Template | Field API Name
+R2: Quote Approval Field 1 | Quote_Approval_Field_1 | Product Name | 1 | Quote Approval | SBQQ__ProductName__c
+R3: Quote Approval Field 2 | Quote_Approval_Field_2 | Applied Discount | 2 | Quote Approval | Applied_Discount__c
+R4: Quote Approval Field 3 | Quote_Approval_Field_3 | Price | 3 | Quote Approval | Price__c
+R5: Quote Approval Field 4 | Quote_Approval_Field_4 | Quantity | 4 | Quote Approval | SBQQ__Quantity__c
+R6: Quote Approval Field 5 | Quote_Approval_Field_5 | Billing Frequency | 6 | Quote Approval | SBQQ__BillingFrequency__c
+R7: Quote Approval Field 6 | Quote_Approval_Field_6 | Subscription Type | 6 | Quote Approval | SBQQ__SubscriptionType__c
+R8: Quote Approval Field 7 | Quote_Approval_Field_7 | Description | 7 | Quote Approval | CONCAT:SBQQ__Description__c,Rate_Details__c
+R9: Quote Approval Field 8 | Quote_Approval_Field_8 | Quote Line Type | 8 | Quote Approval | Quote_Line_Type__c
+R10: Quote Approval Field 9 | Quote_Approval_Field_9 | Ship to Account | 9 | Quote Approval | Ship_To_Account__r.Name
+TABLE 2 (7x6)
+R1: Label | Email Table Name | Column Header | Column Order | Email Template | Field API Name
+R2: Legal field 1 | Legal_field_1 | Product Name | 1 | Legal | SBQQ__ProductName__c
+R3: Legal field 2 | Legal_field_2 | Price | 2 | Legal | Price__c
+R4: Legal field 3 | Legal_field_3 | Quantity | 3 | Legal | SBQQ__Quantity__c
+R5: Legal field 4 | Legal_field_4 | Billing Frequency | 4 | Legal | SBQQ__BillingFrequency__c
+R6: Legal field 5 | Legal_field_5 | Description | 5 | Legal | CONCAT: External_Description__c, Rate_Details__c
+R7: Legal field 6 | Legal_field_6 | Ship to Account | 6 | Legal | Ship_To_Account__r.Name
+TABLE 3 (7x6)
+R1: Label | Email Table Name | Column Header | Column Order | Email Template | Field API Name
+R2: Revenue Approval Field 1 | Revenue_Approval_Field_1 | Product Name | 1 | Revenue Approval | SBQQ__ProductName__c
+R3: Revenue Approval Field 2 | Revenue_Approval_Field_2 | Applied Discount | 2 | Revenue Approval | Applied_Discount__c
+R4: Revenue Approval Field 3 | Revenue_Approval_Field_3 | Price | 3 | Revenue Approval | Price__c
+R5: Revenue Approval Field 4 | Revenue_Approval_Field_4 | Quantity | 4 | Revenue Approval | SBQQ__Quantity__c
+R6: Revenue Approval Field 5 | Revenue_Approval_Field_5 | Billing Frequency | 5 | Revenue Approval | SBQQ__BillingFrequency__c
+R7: Revenue Approval Field 6 | Revenue_Approval_Field_6 | Description | 6 | Revenue Approval | CONCAT: SBQQ__Description__c,Rate_Details__c

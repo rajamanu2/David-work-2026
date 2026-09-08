@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>EDU_All_Accounts_Higher_Ed_Dynamic_Lis</fullName>
+    <columns>ACCOUNT.NAME</columns>
+    <columns>ACCOUNT.ADDRESS1_STATE</columns>
+    <columns>ACCOUNT.PHONE1</columns>
+    <columns>ACCOUNT.TYPE</columns>
+    <columns>CORE.USERS.ALIAS</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>ACCOUNT.RECORDTYPE</field>
+        <operation>equals</operation>
+        <value>Account.Education</value>
+    </filters>
+    <filters>
+        <field>Account_Sub_Industry__c</field>
+        <operation>equals</operation>
+        <value>Higher Ed</value>
+    </filters>
+    <filters>
+        <field>Account_Status__c</field>
+        <operation>equals</operation>
+        <value>Active (Product Live),Client Signed,In Progress,Merger,On Hold,Prospect</value>
+    </filters>
+    <label>EDU All (Higher Ed) Dynamic List</label>
+    <sharedTo>
+        <group>Marketo_Dynamic_Lists</group>
+    </sharedTo>
+</ListView>

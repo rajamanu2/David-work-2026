@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Product_Stage__c</fullName>
+    <description>Select the stage of completion for this Prod Config.</description>
+    <inlineHelpText>Select the stage of completion for this Prod Config.</inlineHelpText>
+    <label>Product Stage</label>
+    <required>false</required>
+    <trackHistory>true</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Configuration</fullName>
+                <default>false</default>
+                <label>Configuration</label>
+            </value>
+            <value>
+                <fullName>Client Training</fullName>
+                <default>false</default>
+                <label>Client Training</label>
+            </value>
+            <value>
+                <fullName>Client Roll-out</fullName>
+                <default>false</default>
+                <label>Client Roll-out</label>
+            </value>
+            <value>
+                <fullName>On hold by Client</fullName>
+                <default>false</default>
+                <label>On hold by Client</label>
+            </value>
+            <value>
+                <fullName>Payment Completed</fullName>
+                <default>false</default>
+                <label>Payment Completed</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

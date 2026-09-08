@@ -1,0 +1,94 @@
+<template>
+    <div>
+        <template if:true={existingRecordsDataAvailable}>
+            <div  class="slds-grid slds-wrap" style="overflow: visible;">
+                <table class="slds-table slds-table_cell-buffer slds-table_bordered">
+                        <thead>  
+                            <tr class="slds-line-height_reset">
+                                <th class="" scope="col">
+                                    <div class="slds-truncate" title="Selected"><lightning-input type="checkbox" onchange={handleSelectAllLineItems}></lightning-input></div>
+                                </th>
+                                <th class="" scope="col">
+                                    <div class="slds-truncate" title="Asset No">Asset No</div>
+                                </th>
+                                <th class="" scope="col">
+                                        <div class="slds-truncate" title="Product Name">Product Name</div>
+                                </th>
+                                <th class="" scope="col">
+                                        <div class="slds-truncate" title="Serial No">Serial No</div>
+                                </th>
+                                <th class="" scope="col">
+                                    <div class="slds-truncate" title="Purchasing Approved">Purchasing Approved</div>
+                                </th>
+                                <th class="" scope="col">
+                                    <div class="slds-truncate" title="Functional Rating">Functional Rating</div>
+                                </th>
+                                <th class="" scope="col">
+                                    <div class="slds-truncate" title="Cosmetic Rating">Cosmetic Rating</div>
+                                </th>
+                                <th class="" scope="col" style="text-align: center;">
+                                    <div class="slds-truncate" title="Sold">Sold</div>
+                                </th>
+                                <th class="" scope="col">
+                                    <div class="slds-truncate" title="Sales Price">Sales Price</div>
+                                </th>
+                                <th class="" scope="col">
+                                    <div class="slds-truncate" title="Repair Value">Repair Value</div>
+                                </th>
+                                <th class="" scope="col">
+                                    <div class="slds-truncate" title="Cost">Cost</div>
+                                </th>
+                                
+                            </tr>  
+                        </thead>
+                        <tbody>
+                                <template for:each={existingRecordsData} for:item='oli'>
+                                        <tr class="slds-hint-parent" key={oli.Id}>
+                                                        <td data-label="Checkbox" class="slds-text-align_center" style="width: 3.25rem;">
+                                                            <div class="slds-truncate" key={oli.Id}><lightning-input type="checkbox" onchange={handleSelectedLineItems} data-value={oli.Id}></lightning-input></div>
+                                                        </td>
+                                                        <td data-label="Asset No" style="min-width: 120px; max-width: none" class="slds-text-align_left">
+                                                            <div class="slds-truncate" key={oli.Id}><lightning-formatted-text value='{oli.Name}'></lightning-formatted-text></div>
+                                                        </td>
+                                                        <td data-label="Product Name" style="min-width: 150px; max-width: none" class="slds-text-align_left">
+                                                            <div class="slds-truncate" key={oli.Id}><lightning-formatted-text value='{oli.Product2_Name__c}'></lightning-formatted-text></div>
+                                                        </td>
+                                                        <td data-label="Serial No" style="min-width: 120px; max-width: none" class="slds-text-align_left">
+                                                            <div class="slds-truncate" key={oli.Id}><lightning-formatted-text value='{oli.Serial_No__c}'></lightning-formatted-text></div>     
+                                                        </td>
+                                                        <td data-label="Purchasing Approved" style="min-width: 80px; max-width: none" class="slds-text-align_center">
+                                                            <div class="slds-truncate" key={oli.Id}><lightning-input type="checkbox" checked={oli.Purchasing_Approved__c} disabled></lightning-input></div>
+                                                        </td>
+                                                        <td data-label="Functional Rating" style="min-width: 120px; max-width: none" class="slds-text-align_left">
+                                                            <div class="slds-truncate" key={oli.Id}><lightning-formatted-text value='{oli.Functional_Rating__c}'></lightning-formatted-text></div>
+                                                        </td> 
+                                                        <td data-label="Cosmetic Rating" style="min-width: 120px; max-width: none" class="slds-text-align_left" >
+                                                            <div class="slds-truncate" key={oli.Id}><lightning-formatted-text value='{oli.Cosmetic_Rating__c}'></lightning-formatted-text></div>
+                                                        </td> 
+                                                        <td data-label="Sold" style="min-width: 100px; max-width: none" class="slds-text-align_center">
+                                                            <div class="slds-truncate" key={oli.Id}><lightning-input type="checkbox" checked={oli.Sold__c} disabled></lightning-input></div>
+                                                        </td>
+                                                        <td data-label="Sales Price" style="min-width: 100px; max-width: 120px;" class="slds-text-align_right">
+                                                            <div class="slds-truncate" key={oli.Id}><lightning-formatted-number value='{oli.Sales_Price__c}' format-style="currency" currency-code="USD"></lightning-formatted-number></div>
+                                                        </td>
+                                                        <td data-label="Repair Value" style="min-width: 100px; max-width: 120px;" class="slds-text-align_right">
+                                                            <div class="slds-truncate" key={oli.Id}><lightning-formatted-number value='{oli.Repair_Value__c}' format-style="currency" currency-code="USD"></lightning-formatted-number></div>
+                                                        </td>
+                                                        <td data-label="Cost" style="min-width: 100px; max-width: none" class="slds-text-align_right">
+                                                            <div class="slds-truncate" key={oli.Id} ><lightning-input type="number" value='{oli.Cost__c}' format-style="currency" step="0.01" currency-code="USD" data-value={oli.Id} onchange={handleCostChange}></lightning-input></div>
+                                                        </td> 
+                                                        
+                                        </tr> 
+                                </template>
+                        </tbody>  
+                </table> 
+            </div> 
+            <div class="slds-grid  slds-wrap" style="display: flex; margin-top: 4%">
+                    <div class="slds-col slds-size_1-of-2 slds-medium-size_1-of-1 slds-large-size_1-of-1" style="text-align: center">
+                        <lightning-button variant="brand" label="Next" title="Next" name="next"  onclick='{handleNext}' class="slds-m-left_x-small"></lightning-button>
+                        <lightning-button variant="brand" label="Cancel" title="Cancel" name="cancel"  onclick={handleCancel} class="slds-m-left_x-small"></lightning-button>
+                    </div>
+            </div> 
+       </template>
+    </div>        
+</template>

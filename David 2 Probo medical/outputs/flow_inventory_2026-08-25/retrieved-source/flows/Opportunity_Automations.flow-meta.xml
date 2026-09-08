@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>64.0</apiVersion>
+    <areMetricsLoggedToDataCloud>false</areMetricsLoggedToDataCloud>
+    <customErrors>
+        <name>Rental_Not_Paid_or_Confirmed_Error</name>
+        <label>Rental Not Paid or Confirmed Error</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <customErrorMessages>
+            <errorMessage>Moving to Equipment Rental is blocked. The Account for {!$Record.Account.Name} is set to Prepay and payment has not been received.
+
+Please ensure the Opportunity shows a paid Invoice, or have Finance process it for approval.</errorMessage>
+            <isFieldError>false</isFieldError>
+        </customErrorMessages>
+    </customErrors>
+    <decisions>
+        <description>This Decision element looks at the Account&apos;s Payment Terms and Opportunity Confirmation Number to determine if a deal has been paid.
+
+If the deal requires prepayment and has not been paid, or hasn&apos;t had the Confirmation Number field completed, the Prepay and Not Paid or Not Confirmed route is taken.</description>
+        <name>Customer_Payment_Status_Check</name>
+        <label>Customer Payment Status Check</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <defaultConnectorLabel>Not Prepay</defaultConnectorLabel>
+        <rules>
+            <name>Prepay</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Account.Payment_Term__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Prepay</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Confirmation_Number__c</leftValueReference>
+                <operator>IsBlank</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Invoice_Number__r.Payment_Status__c</leftValueReference>
+                <operator>NotEqualTo</operator>
+                <rightValue>
+                    <stringValue>Paid</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Which_Record_Type</targetReference>
+            </connector>
+            <label>Prepay and Not Paid or Not Confirmed</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <description>Check the Record Type of the Opportunity to determine which action to prevent.
+
+Rental Opportunity: Error occurs when a user tries to update the Stage to Equipment Rental.</description>
+        <name>Which_Record_Type</name>
+        <label>Record Type Check</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Rental_Opportunity</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.RecordType.DeveloperName</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Rental_Opportunity</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.StageName</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Equipment Rental</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Rental_Not_Paid_or_Confirmed_Error</targetReference>
+            </connector>
+            <doesRequireRecordChangedToMeetCriteria>true</doesRequireRecordChangedToMeetCriteria>
+            <label>Rental Opportunity</label>
+        </rules>
+    </decisions>
+    <description>09/12/2025 - V4 - SP - Removed the Part Sales Opportunity path and adjusted the decision to look at the Opportunity Record Type&apos;s Developer Name
+09/13/2025 - V5 - SP - Adjusting the Record Type Check to run only if the record that triggered the flow to run is updated to meet the condition requirements
+09/13/2025 - V6 - SP - Adjusting the Rental Not Paid or Confirmed Custom Error Message
+09/13/2025 - V7 - SP - Adjusting the description boxes on elements to improve clarity and understanding</description>
+    <environments>Default</environments>
+    <interviewLabel>Opportunity Automations {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Opportunity Automations</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <start>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Customer_Payment_Status_Check</targetReference>
+        </connector>
+        <object>Opportunity</object>
+        <recordTriggerType>CreateAndUpdate</recordTriggerType>
+        <triggerType>RecordAfterSave</triggerType>
+    </start>
+    <status>Active</status>
+</Flow>

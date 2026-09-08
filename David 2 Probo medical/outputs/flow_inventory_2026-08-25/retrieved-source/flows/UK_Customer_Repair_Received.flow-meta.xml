@@ -1,0 +1,318 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionCalls>
+        <name>Copy_1_of_AlertKatyJon</name>
+        <label>Copy 1 of AlertKatyJon</label>
+        <locationX>50</locationX>
+        <locationY>431</locationY>
+        <actionName>emailSimple</actionName>
+        <actionType>emailSimple</actionType>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
+        <inputParameters>
+            <name>emailAddresses</name>
+            <value>
+                <stringValue>katy.base@probomedical.co.uk, tim.price@probomedical.co.uk,caroline.clinton@probomedical.co.uk</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>emailSubject</name>
+            <value>
+                <elementReference>Subject</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>emailBody</name>
+            <value>
+                <elementReference>EmailBody</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>sendRichBody</name>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </inputParameters>
+        <nameSegment>emailSimple</nameSegment>
+        <offset>0</offset>
+    </actionCalls>
+    <actionCalls>
+        <name>SendWOOwnerEmail</name>
+        <label>SendWOOwnerEmail</label>
+        <locationX>314</locationX>
+        <locationY>539</locationY>
+        <actionName>emailSimple</actionName>
+        <actionType>emailSimple</actionType>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
+        <inputParameters>
+            <name>emailAddresses</name>
+            <value>
+                <stringValue>Jon.kean@probomedical.co.uk,Sacha.pearce@probomedical.co.uk, parts@probomedical.co.uk</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>emailSubject</name>
+            <value>
+                <elementReference>SubjectTemplate</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>emailBody</name>
+            <value>
+                <elementReference>EmailTemplate</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>sendRichBody</name>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </inputParameters>
+        <nameSegment>emailSimple</nameSegment>
+        <offset>0</offset>
+    </actionCalls>
+    <apiVersion>56.0</apiVersion>
+    <areMetricsLoggedToDataCloud>false</areMetricsLoggedToDataCloud>
+    <decisions>
+        <name>RMA_or_Purchase</name>
+        <label>RMA or Purchase?</label>
+        <locationX>314</locationX>
+        <locationY>323</locationY>
+        <defaultConnectorLabel>Other</defaultConnectorLabel>
+        <rules>
+            <name>RMA</name>
+            <conditionLogic>((1 OR 4 OR 5 OR 6) AND 2 AND 3)</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Check_In_Type__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Customer Repair</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Ownership__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>PROBO-UK</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Receive_date__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Check_In_Type__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Vet – Customer Repair</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Check_In_Type__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Warranty Repair</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Check_In_Type__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Vet – Warranty Repair</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Copy_1_of_AlertKatyJon</targetReference>
+            </connector>
+            <doesRequireRecordChangedToMeetCriteria>true</doesRequireRecordChangedToMeetCriteria>
+            <label>RMA</label>
+        </rules>
+        <rules>
+            <name>Purchase_for_Work_Order</name>
+            <conditionLogic>(1 OR 2) AND 3 AND 4 AND 5</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Check_In_Type__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Purchase</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Check_In_Type__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Vet – Purchase</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Purchasing_Opportunity__r.Related_Work_Order__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Ownership__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>PROBO-UK</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Receive_date__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>GetWorkOrderInfo</targetReference>
+            </connector>
+            <doesRequireRecordChangedToMeetCriteria>true</doesRequireRecordChangedToMeetCriteria>
+            <label>Purchase for Work Order?</label>
+        </rules>
+    </decisions>
+    <description>Edited email alert</description>
+    <environments>Default</environments>
+    <formulas>
+        <name>CreatedByEmailCollection</name>
+        <dataType>String</dataType>
+        <expression>{!GetWorkOrderInfo.CreatedBy.Email}</expression>
+    </formulas>
+    <interviewLabel>UK Customer Repair Received {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>UK Customer Repair Received</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <recordLookups>
+        <name>GetWorkOrderInfo</name>
+        <label>GetWorkOrderInfo</label>
+        <locationX>314</locationX>
+        <locationY>431</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>SendWOOwnerEmail</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Work_Order_ID__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>$Record.Purchasing_Opportunity__r.Related_Work_Order__r.Work_Order_ID__c</elementReference>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>WorkOrder</object>
+        <queriedFields>Id</queriedFields>
+        <queriedFields>OwnerId</queriedFields>
+        <queriedFields>CreatedById</queriedFields>
+        <queriedFields>WorkOrderNumber</queriedFields>
+        <queriedFields>Account_Name__c</queriedFields>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <start>
+        <locationX>188</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>RMA_or_Purchase</targetReference>
+        </connector>
+        <doesRequireRecordChangedToMeetCriteria>true</doesRequireRecordChangedToMeetCriteria>
+        <filterLogic>1 AND 2 AND (3 OR  4 OR  5 OR  6 OR 7)</filterLogic>
+        <filters>
+            <field>Ownership__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>PROBO-UK</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>Receive_date__c</field>
+            <operator>IsNull</operator>
+            <value>
+                <booleanValue>false</booleanValue>
+            </value>
+        </filters>
+        <filters>
+            <field>Check_In_Type__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>Customer Repair</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>Check_In_Type__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>Purchase</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>Check_In_Type__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>Vet – Purchase</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>Check_In_Type__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>Vet – Customer Repair</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>Check_In_Type__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>Warranty Repair</stringValue>
+            </value>
+        </filters>
+        <object>ProductItem__c</object>
+        <recordTriggerType>CreateAndUpdate</recordTriggerType>
+        <triggerType>RecordAfterSave</triggerType>
+    </start>
+    <status>Active</status>
+    <textTemplates>
+        <name>EmailBody</name>
+        <isViewedAsPlainText>true</isViewedAsPlainText>
+        <text>{!$Record.Name} - {!$Record.Product_Name__r.Name} - {!$Record.Serial_No__c} has been received in Stores. 
+
+The current location is: {!$Record.Current_Location__c}.
+
+
+Cheers!</text>
+    </textTemplates>
+    <textTemplates>
+        <name>EmailTemplate</name>
+        <isViewedAsPlainText>false</isViewedAsPlainText>
+        <text>&lt;p&gt;Hello {!GetWorkOrderInfo.CreatedBy.FirstName},&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;{!$Record.Name} has been created on {!$Record.Purchasing_Opportunity__r.Name} for Work Order: {!$Record.Purchasing_Opportunity__r.Related_Work_Order__r.WorkOrderNumber} and received at Stores on {!$Record.Receive_date__c}. Please add the asset to Work Order &lt;span style=&quot;background-color: rgb(255, 255, 255); color: rgb(68, 68, 68);&quot;&gt;{!$Record.Purchasing_Opportunity__r.Related_Work_Order__r.WorkOrderNumber}&lt;/span&gt;. &lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;Once it&apos;s Purchasing Approved, please submit Work Order for shipping.&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;Cheers!&lt;/p&gt;</text>
+    </textTemplates>
+    <textTemplates>
+        <name>Subject</name>
+        <isViewedAsPlainText>true</isViewedAsPlainText>
+        <text>Asset {!$Record.Name} - {!$Record.Product_Name__r.Name} - {!$Record.Serial_No__c} has been received.</text>
+    </textTemplates>
+    <textTemplates>
+        <name>SubjectTemplate</name>
+        <isViewedAsPlainText>false</isViewedAsPlainText>
+        <text>&lt;p&gt;Asset {!$Record.Name}, a {!$Record.Product_Name__r.Name}, SN: {!$Record.Serial_No__c} Received for Work Order {!$Record.Purchasing_Opportunity__r.Related_Work_Order__r.WorkOrderNumber}&lt;/p&gt;</text>
+    </textTemplates>
+</Flow>

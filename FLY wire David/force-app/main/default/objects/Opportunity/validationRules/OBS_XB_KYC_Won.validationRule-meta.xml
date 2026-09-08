@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>OBS_XB_KYC_Won</fullName>
+    <active>false</active>
+    <description>The Account must have &quot;KYC Status&quot; as Approved</description>
+    <errorConditionFormula>AND(
+$Profile.Name &lt;&gt; &apos;System Administrator&apos;,
+$Profile.Name &lt;&gt; &quot;B - Looker&quot;,
+RecordType.Name &lt;&gt; &quot;Bank-PSP Partner&quot;,
+RecordType.Name &lt;&gt; &quot;Agents&quot;,
+RecordType.Name &lt;&gt; &quot;Strategic Partner&quot;,
+Opp_Product_Family__c = &quot;Cross Border&quot;,
+Probability &gt; 0.95,
+ OR
+  (
+   Account.Client_Legal_Entity_Name__c = &quot;&quot;,
+   ISBLANK(ContractId),
+   NOT(ISPICKVAL( Account.KYC_Status__c , &quot;Approved&quot;)) 
+  )
+)&amp;&amp; Opp_Val_Bypass__c = false</errorConditionFormula>
+    <errorMessage>***  KYC Team must mark  &apos;KYC Status&apos; as Approved on the Account Record. Client Legal Entity on Account must be filled in and Contract record must be linked ***</errorMessage>
+</ValidationRule>

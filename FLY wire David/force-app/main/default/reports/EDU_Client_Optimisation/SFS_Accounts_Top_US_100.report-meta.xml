@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>Product_Configuration__c.Portal_Type__c</field>
+    </columns>
+    <columns>
+        <field>Product_Configuration__c.Link__c</field>
+    </columns>
+    <columns>
+        <field>Product_Configuration__c.Product__c</field>
+    </columns>
+    <columns>
+        <field>Product_Configuration__c.Product_Status__c</field>
+    </columns>
+    <columns>
+        <field>Product_Configuration__c.Code__c</field>
+    </columns>
+    <columns>
+        <field>Account.Account_Category__c</field>
+    </columns>
+    <currency>USD</currency>
+    <description>Accounts flagged as Top 100 US account with SFS</description>
+    <filter>
+        <criteriaItems>
+            <column>Product_Configuration__c.Portal_Type__c</column>
+            <columnToColumn>false</columnToColumn>
+            <isUnlocked>true</isUnlocked>
+            <operator>equals</operator>
+            <value>SFS -Student Financial Software</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Account.Account_Industry__c</column>
+            <columnToColumn>false</columnToColumn>
+            <isUnlocked>true</isUnlocked>
+            <operator>equals</operator>
+            <value>Education</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Account.Account_Category__c</column>
+            <columnToColumn>false</columnToColumn>
+            <isUnlocked>true</isUnlocked>
+            <operator>equals</operator>
+            <value>Top US 100</value>
+        </criteriaItems>
+    </filter>
+    <format>Summary</format>
+    <groupingsDown>
+        <dateGranularity>Day</dateGranularity>
+        <field>ACCOUNT.NAME</field>
+        <sortOrder>Asc</sortOrder>
+    </groupingsDown>
+    <name>SFS Accounts - Top US 100</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>AccountCustomEntity$Product_Configuration__c</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <showGrandTotal>false</showGrandTotal>
+    <showSubTotals>true</showSubTotals>
+    <sortColumn>Account.Account_Category__c</sortColumn>
+    <sortOrder>Asc</sortOrder>
+    <timeFrameFilter>
+        <dateColumn>DUE_DATE</dateColumn>
+        <interval>INTERVAL_CUSTOM</interval>
+    </timeFrameFilter>
+</Report>

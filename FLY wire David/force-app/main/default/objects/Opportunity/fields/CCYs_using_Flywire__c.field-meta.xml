@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CCYs_using_Flywire__c</fullName>
+    <description>B2B Field to help with ARR and Payment Flow Analysis. SAL-3168</description>
+    <inlineHelpText>Select all the currencies that Client will be transacting across Flywire</inlineHelpText>
+    <label>CCYs using Flywire</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>MultiselectPicklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetName>Currencies</valueSetName>
+    </valueSet>
+    <visibleLines>6</visibleLines>
+</CustomField>

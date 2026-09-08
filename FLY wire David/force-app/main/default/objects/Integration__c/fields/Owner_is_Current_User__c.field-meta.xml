@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Owner_is_Current_User__c</fullName>
+    <description>Use for My Account List views. The logged in user will see only their records.</description>
+    <formula>IF(OwnerId = $User.Id,True,False)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <inlineHelpText>Use for My Account List views. The logged in user will see only their records.</inlineHelpText>
+    <label>Owner is Current User</label>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

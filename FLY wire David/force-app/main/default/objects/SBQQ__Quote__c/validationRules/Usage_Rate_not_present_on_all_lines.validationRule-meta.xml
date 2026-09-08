@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Usage_Rate_not_present_on_all_lines</fullName>
+    <active>true</active>
+    <description>Created for SALDEV-677</description>
+    <errorConditionFormula>AND(
+				 ISPICKVAL(SBQQ__Status__c, &quot;Client_Approved&quot;),
+				 Count_usage_field_values__c &gt; 0)</errorConditionFormula>
+    <errorMessage>This quote can not be progressed to Customer Approved because product(s) are missing a price. To fix, please recall the quote approval. Then edit lines and locate the product missing a rate and enter an Adjusted Rate value. Then, resubmit for approval.</errorMessage>
+</ValidationRule>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Trade_Timing_Other</fullName>
+    <active>true</active>
+    <description>Other Trade Timing must be filled in if Trade Timing is Other.</description>
+    <errorConditionFormula>AND(
+$Profile.Name &lt;&gt; &apos;System Administrator&apos;,
+$Profile.Name &lt;&gt; &quot;B - Looker&quot;,
+ ISBLANK(Other_Trade_Timing__c), 
+ ISPICKVAL(Trade_Timing__c,&quot;Other&quot;)
+)</errorConditionFormula>
+    <errorMessage>Other Trade Timing must be filled in if Trade Timing is Other.</errorMessage>
+</ValidationRule>

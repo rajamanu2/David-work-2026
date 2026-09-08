@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>This_Week_s_Service_Appointments</fullName>
+    <columns>Name</columns>
+    <columns>Service_Appointment_Screen_Information__c</columns>
+    <columns>Appointment_Type__c</columns>
+    <columns>Work_Order_Subject__c</columns>
+    <columns>SchedStartTime</columns>
+    <columns>SchedEndTime</columns>
+    <filterScope>Mine</filterScope>
+    <filters>
+        <field>SchedStartTime</field>
+        <operation>equals</operation>
+        <value>THIS_WEEK</value>
+    </filters>
+    <label>This Week&apos;s Service Appointments</label>
+</ListView>

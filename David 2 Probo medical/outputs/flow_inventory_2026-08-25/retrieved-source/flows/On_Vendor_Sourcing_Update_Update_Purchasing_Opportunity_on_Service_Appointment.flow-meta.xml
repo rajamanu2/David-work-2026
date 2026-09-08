@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>65.0</apiVersion>
+    <areMetricsLoggedToDataCloud>false</areMetricsLoggedToDataCloud>
+    <description>10/21/2025 (BW) - Updates the purchasing opportunity on the service appointment when the Vendor Sourcing gets a purchasing opportunity</description>
+    <environments>Default</environments>
+    <interviewLabel>On Vendor Sourcing Update | Update Purchasing Opportunity on Service Appointment {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>On Vendor Sourcing Update | Update Purchasing Opportunity on Service Appointment</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <recordUpdates>
+        <name>Update_Service_Appointment_with_Purchasing_Opportunity</name>
+        <label>Update Service Appointment with Purchasing Opportunity</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <inputAssignments>
+            <field>Vendor_Sourcing_PO_Opportunity__c</field>
+            <value>
+                <elementReference>$Record.Purchasing_Opportunity__c</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record.Service_Appointment__r</inputReference>
+    </recordUpdates>
+    <start>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Update_Service_Appointment_with_Purchasing_Opportunity</targetReference>
+        </connector>
+        <filterFormula>NOT(ISBLANK({!$Record.Purchasing_Opportunity__c})) &amp;&amp; (ISNEW() || ISCHANGED({!$Record.Purchasing_Opportunity__c})) &amp;&amp; NOT(ISBLANK({!$Record.Service_Appointment__c}))</filterFormula>
+        <object>Vendor_Sourcing__c</object>
+        <recordTriggerType>CreateAndUpdate</recordTriggerType>
+        <triggerType>RecordAfterSave</triggerType>
+    </start>
+    <status>Active</status>
+</Flow>

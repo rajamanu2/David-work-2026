@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>DUE_DATE</field>
+    </columns>
+    <columns>
+        <field>USERS.NAME</field>
+    </columns>
+    <columns>
+        <field>ACCOUNT.NAME</field>
+    </columns>
+    <columns>
+        <field>ADDRESS1_STATE</field>
+    </columns>
+    <columns>
+        <field>TYPE</field>
+    </columns>
+    <columns>
+        <field>RATING</field>
+    </columns>
+    <columns>
+        <field>LAST_UPDATE</field>
+    </columns>
+    <currency>USD</currency>
+    <filter>
+        <booleanFilter>1 OR 2 OR 3 OR 4</booleanFilter>
+        <criteriaItems>
+            <column>ACCOUNT.NAME</column>
+            <columnToColumn>false</columnToColumn>
+            <isUnlocked>true</isUnlocked>
+            <operator>equals</operator>
+            <value>Ohio State University Wexner Medical Center (AKA Ohio State University Health System),University of Illinois Hospital &amp; Health Sciences System (AKA UI Health),Community Health Network,M Health Fairview (FKA Fairview Health Services),Cleveland Clinic Health System,Jefferson Health System,Geisinger Health System,Franciscan Alliance,Norton Healthcare,WVU Medicine (AKA West Virginia University Health System),University Of Michigan Health System,Essentia Health,University Of Wisconsin Health (UW Health),Premier Health (FKA: Premier Health Partners),Main Line Health,SSM Health Care,Henry Ford Health (FKA Henry Ford Health System),Parkview Health,Baptist Health (Louisville KY),Universal Health Services,Northside Hospital System,MedStar Health,Encompass Health Corporation (FKA HealthSouth),Penn State Hershey Health System,Great Lakes Health System of Western New York,Baystate Health,Stony Brook Medicine (AKA Stony Brook University Hospital System),Albany Medical Center Health System,Kaleida Health,Huntsville Hospital Health System,Adventist HealthCare (MD),Maimonides,Excela Health (Merging with Butler Health --&gt; agg. npr ~ $1B),Care New England,North Mississippi Medical Center System (North Mississippi Health Services),AtlantiCare - A Member of Geisinger Health System</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>ACCOUNT.NAME</column>
+            <columnToColumn>false</columnToColumn>
+            <isUnlocked>true</isUnlocked>
+            <operator>equals</operator>
+            <value>Navicent Health (FKA Central Georgia Health System),St Josephs Health,Commonwealth Health,Capital Health,Crozer-Keystone Health System,Cape Cod Hospital,Billings Clinic,San Antonio Regional Health,University of New Mexico Hospitals,Children&apos;s Hospital of Los Angeles,CHOC Childrens,PIH Health,Pomona Valley Hospital Medical Center,Antelope Valley Hospital (FKA Antelope Valley Hospital Medical Center),Hendrick Health,Prospect Medical Holdings,Ventura County Healthcare Agency,DHR Health,Northbay Healthcare,Oklahoma Heart Hospital,AHMC Healthcare,St John Health System,El Paso County Health District,Los Angeles County Health Agency,Citrus Valley Health Partners,Hawaii Health Systems,KPC Group,Pipeline Health,Southwest Healthcare System,Team Health,SCP Health,Baptist South Florida,Tallahassee Memorial,BayCare,Jackson Health System,Moffitt Cancer Center,Lawrence Memorial,Broward,CoxHealth,University of TN,Christus,University of Missouri,Sarah Bush Lincoln Health Center,Memorial Medical Center,Silver Cross Hospital,Genesis Health System,Jennie Edmundson Hospital,Indiana University Health (AKA IU Health),Union Hospital Health Group,Beacon Health (Memorial Hospital &amp; Health System),Shawnee Mission Medical Center,Holland Community Hospital</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>ACCOUNT.NAME</column>
+            <columnToColumn>false</columnToColumn>
+            <isUnlocked>true</isUnlocked>
+            <operator>equals</operator>
+            <value>Gillette Childrens Specialty Health,Trinity Hospital,Nebraska Methodist Hospital,Regional West Medical Center,Nebraska Methodist Health System,Regional West Health Services,Marshfield Medical Center - Eau Claire,Fairfield Medical Center,Southwest General Health Center,McLaren,University of Texas System,Stanford Medicine,Sanford Health,Kaiser Permanente,University of Florida Health (FKA Shands Healthcare),PeaceHealth,OHSU Partners,Lee Health (AKA Lee Memorial Health System),UCHealth (AKA University of Colorado Health),University of Washington (UW) Medicine,University of Utah Health Care,The University of Kansas Health System,Scripps Health,Memorial Healthcare System (FL),Legacy Health,University of Miami Health System (AKA UHealth),Baptist Health (Jacksonville FL),Saint Francis Health System,Childrens Hospital Colorado System,St Charles Health System,Shannon Health,Tahoe Forest Health System (Tahoe Forest Hospital District),Tampa General Hospital,Seattle Childrens Hospital,Parkland Health and Hospital System,University Medical Center (UMC) of Southern Nevada,Northwell,NYU Langone Health (FKA NYU Langone Medical Center),Mount Sinai Health System (FKA Mount Sinai Medical Center),NewYork-Presbyterian Healthcare System,UNC Health (FKA UNC Health Care),RWJBarnabas Health</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>ACCOUNT.NAME</column>
+            <columnToColumn>false</columnToColumn>
+            <isUnlocked>true</isUnlocked>
+            <operator>equals</operator>
+            <value>Prisma Health (FKA SC Health Company),Sentara Healthcare,Johns Hopkins Health System (AKA Johns Hopkins Medicine),Emory Healthcare,University of Maryland Medical System,WellStar Health System,MaineHealth,Medical University of South Carolina Health System (AKA MUSC Health),CHSLI,UMass Memorial Health Care,Albany Medical Center Health System,VCU Health System,Southcoast Health System,The University of Vermont Health Network (FKA Fletcher Allen Partners)</value>
+        </criteriaItems>
+    </filter>
+    <format>Tabular</format>
+    <name>HC Top 100 List 2023</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>AccountList</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <showGrandTotal>true</showGrandTotal>
+    <showSubTotals>true</showSubTotals>
+    <timeFrameFilter>
+        <dateColumn>CREATED_DATE</dateColumn>
+        <interval>INTERVAL_CUSTOM</interval>
+    </timeFrameFilter>
+</Report>

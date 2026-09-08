@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Avg_Trans_Amt__c</fullName>
+    <defaultValue>0</defaultValue>
+    <description>Average transaction amount (in client currency) for cross border FX payments. Used to auto calculate Payables price SAL-2265.
+Modified label and Help to be used for different currencies in flow calculation 02-23-2024 SAL-3624</description>
+    <externalId>false</externalId>
+    <inlineHelpText>The Average transaction amount in Clients Home Currency for FX Cross Border Payments.</inlineHelpText>
+    <label>Avg FX Trans Amt</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>0</scale>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Number</type>
+    <unique>false</unique>
+</CustomField>

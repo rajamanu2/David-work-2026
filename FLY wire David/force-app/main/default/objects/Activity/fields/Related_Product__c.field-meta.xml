@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Related_Product__c</fullName>
+    <description>For CS use, Select Products the engagement relates to. SAL-2221</description>
+    <inlineHelpText>Select Products the engagement relates to.</inlineHelpText>
+    <label>Related Product</label>
+    <required>false</required>
+    <type>MultiselectPicklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>WPM RCP</fullName>
+                <default>false</default>
+                <label>WPM RCP</label>
+            </value>
+            <value>
+                <fullName>WPM OS</fullName>
+                <default>false</default>
+                <label>WPM OS</label>
+            </value>
+            <value>
+                <fullName>WPM Extranet</fullName>
+                <default>false</default>
+                <label>WPM Extranet</label>
+            </value>
+            <value>
+                <fullName>xB Payex / Dashboard</fullName>
+                <default>false</default>
+                <label>xB Payex / Dashboard</label>
+            </value>
+            <value>
+                <fullName>CRS</fullName>
+                <default>false</default>
+                <label>CRS</label>
+            </value>
+            <value>
+                <fullName>Payables</fullName>
+                <default>false</default>
+                <label>Payables</label>
+            </value>
+            <value>
+                <fullName>Agents</fullName>
+                <default>false</default>
+                <label>Agents</label>
+            </value>
+            <value>
+                <fullName>RCP</fullName>
+                <default>false</default>
+                <label>RCP</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+    <visibleLines>4</visibleLines>
+</CustomField>

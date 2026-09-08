@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>texcellency__DefHC_Attached_Accounts</fullName>
+    <columns>ACCOUNT.NAME</columns>
+    <columns>texcellency__DefHC_HospitalID__c</columns>
+    <columns>texcellency__DefHC_Hospital_Name__c</columns>
+    <columns>texcellency__DefHC_Hospital_Type__c</columns>
+    <columns>texcellency__DefHC_NetworkID__c</columns>
+    <columns>texcellency__DefHC_Network_Name__c</columns>
+    <columns>texcellency__DefHC_Parent_Network_Name__c</columns>
+    <columns>PARENT_NAME</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>texcellency__DefHC_HospitalID__c</field>
+        <operation>greaterThan</operation>
+        <value>0</value>
+    </filters>
+    <label>DefHC Attached Accounts</label>
+</ListView>

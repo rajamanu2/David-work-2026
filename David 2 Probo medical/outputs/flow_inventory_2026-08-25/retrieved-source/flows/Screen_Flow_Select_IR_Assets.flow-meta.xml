@@ -1,0 +1,258 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionCalls>
+        <name>Convert_JSON_to_Records</name>
+        <label>Convert JSON to Records</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <actionName>FlowJsonToRecords</actionName>
+        <actionType>apex</actionType>
+        <dataTypeMappings>
+            <typeName>U__records</typeName>
+            <typeValue>ProductItem__c</typeValue>
+        </dataTypeMappings>
+        <flowTransactionModel>Automatic</flowTransactionModel>
+        <inputParameters>
+            <name>json</name>
+            <value>
+                <elementReference>SelectAssets.selectedRecordsJson</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>sObjectApiName</name>
+            <value>
+                <stringValue>ProductItem__c</stringValue>
+            </value>
+        </inputParameters>
+        <nameSegment>FlowJsonToRecords</nameSegment>
+        <offset>0</offset>
+        <outputParameters>
+            <assignToReference>SelectedAssets</assignToReference>
+            <name>records</name>
+        </outputParameters>
+    </actionCalls>
+    <actionCalls>
+        <name>Convert_Records_to_JSON</name>
+        <label>Convert Records to JSON</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <actionName>FlowRecordsToJson</actionName>
+        <actionType>apex</actionType>
+        <connector>
+            <targetReference>Select_Assets_Screen</targetReference>
+        </connector>
+        <dataTypeMappings>
+            <typeName>T__records</typeName>
+            <typeValue>ProductItem__c</typeValue>
+        </dataTypeMappings>
+        <flowTransactionModel>Automatic</flowTransactionModel>
+        <inputParameters>
+            <name>records</name>
+            <value>
+                <elementReference>AssetsToDisplay</elementReference>
+            </value>
+        </inputParameters>
+        <nameSegment>FlowRecordsToJson</nameSegment>
+        <offset>0</offset>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </actionCalls>
+    <apiVersion>66.0</apiVersion>
+    <areMetricsLoggedToDataCloud>false</areMetricsLoggedToDataCloud>
+    <customProperties>
+        <name>ScreenProgressIndicator</name>
+        <value>
+            <stringValue>{&quot;location&quot;:&quot;top&quot;,&quot;type&quot;:&quot;simple&quot;}</stringValue>
+        </value>
+    </customProperties>
+    <decisions>
+        <name>Assets_Selected_D</name>
+        <label>Assets Selected?</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <defaultConnector>
+            <targetReference>No_Assets_Screem</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>No</defaultConnectorLabel>
+        <rules>
+            <name>Yes_Assets_Selected_DO</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>SelectAssets.selectedRecordsJson</leftValueReference>
+                <operator>NotEqualTo</operator>
+                <rightValue>
+                    <stringValue>[]</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Convert_JSON_to_Records</targetReference>
+            </connector>
+            <label>Yes</label>
+        </rules>
+    </decisions>
+    <environments>Default</environments>
+    <interviewLabel>Screen Flow: Edit IR Assets {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Screen Flow: Select IR Assets</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>Flow</processType>
+    <screens>
+        <name>No_Assets_Screem</name>
+        <label>No Assets</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <allowBack>true</allowBack>
+        <allowFinish>true</allowFinish>
+        <allowPause>true</allowPause>
+        <fields>
+            <name>No_Assets_Selected_Screen_Header</name>
+            <fieldText>&lt;p&gt;&lt;span style=&quot;background-color: rgb(255, 255, 255);&quot;&gt;You did not select any assets, click the previous button if this was an error.&lt;/span&gt;&lt;/p&gt;</fieldText>
+            <fieldType>DisplayText</fieldType>
+            <styleProperties>
+                <verticalAlignment>
+                    <stringValue>top</stringValue>
+                </verticalAlignment>
+                <width>
+                    <stringValue>12</stringValue>
+                </width>
+            </styleProperties>
+        </fields>
+        <showFooter>true</showFooter>
+        <showHeader>false</showHeader>
+    </screens>
+    <screens>
+        <name>Select_Assets_Screen</name>
+        <label>Select Assets</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <allowBack>true</allowBack>
+        <allowFinish>true</allowFinish>
+        <allowPause>true</allowPause>
+        <connector>
+            <targetReference>Assets_Selected_D</targetReference>
+        </connector>
+        <fields>
+            <name>SelectAssets</name>
+            <extensionName>c:recordTableStateful</extensionName>
+            <fieldType>ComponentInstance</fieldType>
+            <inputParameters>
+                <name>columnsJson</name>
+                <value>
+                    <elementReference>ColumnsJson</elementReference>
+                </value>
+            </inputParameters>
+            <inputParameters>
+                <name>initialRecordsJson</name>
+                <value>
+                    <elementReference>Convert_Records_to_JSON.json</elementReference>
+                </value>
+            </inputParameters>
+            <inputParameters>
+                <name>requiredFieldsCsv</name>
+                <value>
+                    <stringValue>Cost__c</stringValue>
+                </value>
+            </inputParameters>
+            <inputParameters>
+                <name>title</name>
+                <value>
+                    <stringValue>Select Assets</stringValue>
+                </value>
+            </inputParameters>
+            <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+            <isRequired>true</isRequired>
+            <storeOutputAutomatically>true</storeOutputAutomatically>
+            <styleProperties>
+                <verticalAlignment>
+                    <stringValue>top</stringValue>
+                </verticalAlignment>
+                <width>
+                    <stringValue>12</stringValue>
+                </width>
+            </styleProperties>
+        </fields>
+        <showFooter>true</showFooter>
+        <showHeader>false</showHeader>
+    </screens>
+    <start>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Convert_Records_to_JSON</targetReference>
+        </connector>
+    </start>
+    <status>Active</status>
+    <textTemplates>
+        <name>ColumnsJson</name>
+        <isViewedAsPlainText>true</isViewedAsPlainText>
+        <text>[
+{&quot;label&quot;:&quot;Asset No.&quot;,&quot;fieldName&quot;:&quot;Name&quot;,&quot;type&quot;:&quot;text&quot;,&quot;editable&quot;:false},
+{&quot;label&quot;:&quot;Cost&quot;,&quot;fieldName&quot;:&quot;Cost__c&quot;,&quot;type&quot;:&quot;currency&quot;,&quot;editable&quot;:true},
+{&quot;label&quot;:&quot;Product Name&quot;,&quot;fieldName&quot;:&quot;Product2_Name__c&quot;,&quot;type&quot;:&quot;text&quot;,&quot;editable&quot;:false},
+{&quot;label&quot;:&quot;Serial_No.&quot;,&quot;fieldName&quot;:&quot;Serial_No__c&quot;,&quot;type&quot;:&quot;text&quot;,&quot;editable&quot;:false},
+{&quot;label&quot;:&quot;Functional Rating&quot;,&quot;fieldName&quot;:&quot;Functional_Rating__c&quot;,&quot;type&quot;:&quot;test&quot;,&quot;editable&quot;:false},
+{&quot;label&quot;:&quot;Cosmetic Rating&quot;,&quot;fieldName&quot;:&quot;Cosmetic_Rating__c&quot;,&quot;type&quot;:&quot;text&quot;,&quot;editable&quot;:false}
+]</text>
+    </textTemplates>
+    <textTemplates>
+        <description>when defines the condition that triggers the rule:
+
+- field — the API name of the field to check
+- operator — either HAS_VALUE (field is not blank) or EQUALS (field matches a specific value)
+- value — only needed when operator is EQUALS
+
+require is a list of field API names that become required when the condition is met.
+
+You can have as many rules in the array as you need. If you only want always-required fields with no conditions, use the Always-Required Fields input instead and just pass a comma-separated string like Cost__c, Notes__c.</description>
+        <name>ConditionalRequiredRulesJsonExample</name>
+        <isViewedAsPlainText>true</isViewedAsPlainText>
+        <text>[
+  {
+    &quot;when&quot;: {
+      &quot;field&quot;: &quot;Status__c&quot;,
+      &quot;operator&quot;: &quot;EQUALS&quot;,
+      &quot;value&quot;: &quot;Active&quot;
+    },
+    &quot;require&quot;: [&quot;Cost__c&quot;, &quot;Notes__c&quot;]
+  },
+  {
+    &quot;when&quot;: {
+      &quot;field&quot;: &quot;Cost__c&quot;,
+      &quot;operator&quot;: &quot;HAS_VALUE&quot;
+    },
+    &quot;require&quot;: [&quot;Approved_By__c&quot;]
+  }
+]</text>
+    </textTemplates>
+    <variables>
+        <name>AssetsToDisplay</name>
+        <dataType>SObject</dataType>
+        <isCollection>true</isCollection>
+        <isInput>true</isInput>
+        <isOutput>false</isOutput>
+        <objectType>ProductItem__c</objectType>
+    </variables>
+    <variables>
+        <name>SelectedAssets</name>
+        <dataType>SObject</dataType>
+        <isCollection>true</isCollection>
+        <isInput>false</isInput>
+        <isOutput>true</isOutput>
+        <objectType>ProductItem__c</objectType>
+    </variables>
+</Flow>

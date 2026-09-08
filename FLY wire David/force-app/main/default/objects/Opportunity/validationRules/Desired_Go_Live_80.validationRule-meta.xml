@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Desired_Go_Live_80</fullName>
+    <active>true</active>
+    <description>For B2B, Edu and Healthcare, Desired Go Live Date needs to be filled before moving to Legal (80%)
+SALDEV-1368: Created for B2B, Edu and HC</description>
+    <errorConditionFormula>AND(
+$Profile.Name &lt;&gt; &quot;System Administrator&quot;,
+$Profile.Name &lt;&gt; &quot;B - Looker&quot;,
+$User.Alias &lt;&gt; &quot;Workato&quot;,
+IsClosed = False,
+Probability &gt;=0.80,
+SBQQ__PrimaryQuote__r.Number_of_New_Quote_Lines__c &gt;=1,
+OR(
+RecordType.Name = &apos;B2B&apos;,
+RecordType.Name = &apos;Education&apos;,
+RecordType.Name = &apos;Healthcare&apos;
+),
+ISBLANK( Desired_Go_Live_Date__c),
+NOT(ISPICKVAL(Type, &quot;Renewal&quot;)),
+NOT(ISPICKVAL(Type, &quot;Auto Renewal&quot;))
+)
+&amp;&amp; Opp_Val_Bypass__c = false</errorConditionFormula>
+    <errorDisplayField>Desired_Go_Live_Date__c</errorDisplayField>
+    <errorMessage>Enter Desired Go Live before moving to next stage.</errorMessage>
+</ValidationRule>

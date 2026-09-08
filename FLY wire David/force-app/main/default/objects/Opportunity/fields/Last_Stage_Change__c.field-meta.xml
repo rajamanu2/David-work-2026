@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Last_Stage_Change__c</fullName>
+    <description>Get the latest date of a stage change</description>
+    <formula>IF(
+    AND(
+        ISBLANK(Date_30__c),
+        ISBLANK(Date_35__c),
+        ISBLANK(Date_50__c),
+        ISBLANK(Date_60__c),
+        ISBLANK(Date_80__c),
+        ISBLANK(Date_90__c),
+        ISBLANK(Date_95__c),
+        ISBLANK(Date_100__c)
+    ),
+    NULL,
+    DATE(1900, 01, 01) +
+    MAX(
+        BLANKVALUE(
+            Date_30__c, 
+            DATE(1900, 01, 01)
+        ) - DATE(1900, 01, 01),
+        BLANKVALUE(
+            Date_35__c,
+            DATE(1900, 01, 01)
+        ) - DATE(1900, 01, 01),
+        BLANKVALUE(
+            Date_50__c,
+            DATE(1900, 01, 01)
+        ) - DATE(1900, 01, 01),
+        BLANKVALUE(
+            Date_60__c,
+            DATE(1900, 01, 01)
+        ) - DATE(1900, 01, 01),
+        BLANKVALUE(
+            Date_80__c,
+            DATE(1900, 01, 01)
+        ) - DATE(1900, 01, 01),
+        BLANKVALUE(
+            Date_90__c,
+            DATE(1900, 01, 01)
+        ) - DATE(1900, 01, 01),
+        BLANKVALUE(
+            Date_95__c,
+            DATE(1900, 01, 01)
+        ) - DATE(1900, 01, 01),
+        BLANKVALUE(
+            Date_100__c,
+            DATE(1900, 01, 01)
+        ) - DATE(1900, 01, 01)
+    )
+)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <inlineHelpText>Last Stage Date Change</inlineHelpText>
+    <label>Last Stage Change</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <type>Date</type>
+</CustomField>

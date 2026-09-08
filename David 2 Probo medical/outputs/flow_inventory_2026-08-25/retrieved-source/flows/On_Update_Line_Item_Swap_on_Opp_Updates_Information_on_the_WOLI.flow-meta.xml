@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionCalls>
+        <name>Get_Recently_Deleted_WOLI</name>
+        <label>Get Recently Deleted WOLI</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <actionName>RecentlyDeletedWoliLookupInvocable</actionName>
+        <actionType>apex</actionType>
+        <connector>
+            <targetReference>Is_VarLineIntent_Blank</targetReference>
+        </connector>
+        <flowTransactionModel>Automatic</flowTransactionModel>
+        <inputParameters>
+            <name>workOrderId</name>
+            <value>
+                <elementReference>$Record.WorkOrderId</elementReference>
+            </value>
+        </inputParameters>
+        <nameSegment>RecentlyDeletedWoliLookupInvocable</nameSegment>
+        <offset>0</offset>
+        <outputParameters>
+            <assignToReference>varLineIntent</assignToReference>
+            <name>lineIntent</name>
+        </outputParameters>
+        <outputParameters>
+            <assignToReference>varWorkOrderId</assignToReference>
+            <name>workOrderId</name>
+        </outputParameters>
+    </actionCalls>
+    <apiVersion>64.0</apiVersion>
+    <areMetricsLoggedToDataCloud>false</areMetricsLoggedToDataCloud>
+    <decisions>
+        <name>Is_VarLineIntent_Blank</name>
+        <label>Is varLineIntent Blank?</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>VarLineItent_Not_Blank</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>varLineIntent</leftValueReference>
+                <operator>IsBlank</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Update_Line_Intent_on_new_Line</targetReference>
+            </connector>
+            <label>varLineItent Not Blank</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Is_Work_Order_FSL_and_United_States</name>
+        <label>Is Work Order FSL and United States?</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Yes_FSL_and_United_States</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.WorkOrder.Country</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>United States</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.WorkOrder.RecordType.Name</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>FSL Work Order</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Get_Recently_Deleted_WOLI</targetReference>
+            </connector>
+            <label>Yes, FSL and United States</label>
+        </rules>
+    </decisions>
+    <description>02/26/2026 (BW) - Updated the behavior so that line intent is pulled appropriately</description>
+    <environments>Default</environments>
+    <interviewLabel>On Update | Line Item Swap on Opp Updates Information on the WOLI {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>On Update | Line Item Swap on Opp Updates Information on the WOLI</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <recordUpdates>
+        <name>Update_Line_Intent_on_new_Line</name>
+        <label>Update Line Intent on new Line</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <inputAssignments>
+            <field>Line_Intent__c</field>
+            <value>
+                <elementReference>varLineIntent</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <start>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <object>WorkOrderLineItem</object>
+        <recordTriggerType>Create</recordTriggerType>
+        <scheduledPaths>
+            <connector>
+                <targetReference>Is_Work_Order_FSL_and_United_States</targetReference>
+            </connector>
+            <pathType>AsyncAfterCommit</pathType>
+        </scheduledPaths>
+        <triggerType>RecordAfterSave</triggerType>
+    </start>
+    <status>Obsolete</status>
+    <variables>
+        <name>varLineIntent</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <name>varNextServiceAppointment</name>
+        <dataType>SObject</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+        <objectType>ServiceAppointment</objectType>
+    </variables>
+    <variables>
+        <name>varOpportunityProductToUpdate</name>
+        <dataType>SObject</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+        <objectType>OpportunityLineItem</objectType>
+    </variables>
+    <variables>
+        <name>varWorkOrderId</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+</Flow>

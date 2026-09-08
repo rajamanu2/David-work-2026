@@ -1,0 +1,96 @@
+FILE: C:\Users\LIKKI\Downloads\SALDEV-1440.docx
+PARAGRAPHS: 92
+TABLES: 0
+P1 [normal]: SALDEV-1440
+P2 [Heading 2]: Configuration for distinguishing groups for stepped up pricing vs others
+P4 [normal]: Type:
+P5 [normal]: Story
+P6 [normal]: Resolution:
+P7 [normal]: Unresolved
+P8 [normal]: Priority:
+P9 [normal]: Medium
+P10 [normal]: Fix Version/s:
+P11 [normal]: vStep-up Pricing
+P12 [normal]: Affects Version/s:
+P13 [normal]: None
+P14 [normal]: Labels:
+P15 [normal]: PreGroomed
+P16 [normal]: RevOps
+P17 [normal]: Epic Link:
+P18 [normal]: [EPIC] StepUp - UI
+P19 [normal]: Sprint:
+P20 [normal]: Sprint 19: 8/10 - 8/21, Sprint 20: 8/24 - 9/4
+P21 [normal]: Story Points:
+P22 [normal]: 1
+P23 [normal]: User Story:
+P24 [normal]: As a sales user, I need to be able to use Quote Line Groups for both Stepped Up Pricing and for other purposes, such as separating quote lines by Ship to Account or Payments. I must be able to toggle between these use cases to allow for different UI and business rules behavior.
+P25 [normal]: Requirement Detail:
+P26 [normal]: As a system, there must be backend logic to indicate when quote line groups are being used for stepped up pricing vs for another use, such as separating lines by ship to account.
+P28 [normal]: This indicator must be visible in quote to user and will be used in other system logic to apply stepped up pricing guardrails only when appropriate
+P29 [normal]: Design Detail:
+P30 [normal]: This has been largely configured as a POC on SALDEV-1417
+P32 [normal]: Create a checkbox "Allow Product Ramping" on the Quote Line group.
+Add the field to the QuoteLine Group FieldSet.
+--Added 8/17, This part was part of POC.
+Updated the Custom Script for Duplicate validation error based on the Field value.--SALDEV-1404
+P33 [normal]: Implementation Detail:
+P34 [normal]: 1. New Checkbox Field Created On Quote Line Group:
+P35 [normal]: Label: Allow Product Ramping.
+P36 [normal]: 2.Added the field:Allow Product Ramping,StartDate,EndDate,Subscription to the QuoteLine Group FieldSet: SBQQ__LineEditor
+3. Updated Permission Set : CPQ Sales Permissions
+P37 [normal]: Acceptance Criteria:
+P38 [normal]: When creating quotes should be able to create groups for step up pricing and for non step pricing such as separating quote lines by Ship to Account or Payments.
+P40 [normal]: - create quote groups and clone them with step up pricing.
+
+-create quote and add groups without step up pricing.
+
+-create quote and add same products with different ship to accounts.
+P41 [Heading 3]: Description
+P42 [normal]: None
+P43 [Heading 3]: Attachments
+P45 [normal]: Options
+P46 [normal]: Drop files to attach, or browse.
+P47 [Heading 3]: Issue Links
+P48 [normal]: requires
+P49 [normal]: SALDEV-1417 [Investigate] Distinguishing types of QL groups for stepped up pricing
+P51 [normal]: Closed
+P52 [normal]: Delete this link
+P53 [normal]: Add Link
+P54 [Heading 3]: Activity
+P55 [normal]: All
+P56 [normal]: Comments
+P57 [normal]: Work Log
+P58 [normal]: History
+P59 [normal]: Activity
+P60 [normal]: Timepiece
+P61 [normal]: Transitions
+P62 [normal]: Oldest first
+P63 [normal]: You can now pin up to five comments to highlight important information. Pinned comments will appear above all other comments, so they're easy to find.
+P64 [normal]: Got itLearn more about pinned comments
+P65 [Heading 3]: Collapse comment: Meg Vogler added a comment - 04/Aug/26 7:26 PM
+P67 [normal]: Meg Vogler added a comment - 04/Aug/26 7:26 PM
+P68 [normal]: Per Kirk, the new checkbox field should be called Allow Product Ramping
+P69 [normal]: EditDeletePin
+P70 [Heading 3]: Collapse comment: Varini Rajkumar added a comment - 07/Aug/26 10:20 PM, Edited by Varini Rajkumar - 07/Aug/26 10:21 PM
+P72 [normal]: Varini Rajkumar added a comment - 07/Aug/26 10:20 PM - edited
+P73 [normal]: Hi Team,
+P74 [normal]: Completed Validating this ticket in Partial. This ticket is to verify that users can differentiate on the UI between Stepped up and Non-Stepped up pricing, using the "Allow Product Ramping" Checkbox
+P75 [normal]: Document Link: https://docs.google.com/document/d/1Cg1jk8a8C_ZopzP1m1tz2E0w0dKgvZSKrXrAuwtbbxo/edit?usp=sharing
+P76 [normal]: Note:  In-Depth testing for the Duplication Validation (In New Business, Amendment and Renewal) is being done in SALDEV-1404, which is currently in progress. Depending on Review, Further testing might be needed.
+P77 [normal]: Thanks!
+P78 [normal]: cc Meg Vogler Sunita Bhattad Lauren Miller Kirk Hornberger
+P79 [normal]: EditDeletePin
+P80 [Heading 3]: Collapse comment: Kirk Hornberger added a comment - 14/Aug/26 6:15 PM
+P82 [normal]: Kirk Hornberger added a comment - 14/Aug/26 6:15 PM
+P83 [normal]: Ada CirilloMeg VoglerVarini Rajkumar et al - reviewed this functionality in partial and all looks in order thus far. Items tested:
+P84 [normal]: The "Allow Product Ramping" checkbox is present and functioning.
+  - Cloning without this box checked triggers an error message for duplicate products, as expected.
+  - Cloning with this box checked is allowed. However, it triggers error messages regarding the full contract timeframe not being built out yet. Once the total contract term was covered by the groups, it saved correctly as expected. (Note: The QCP appears to be rolling down the dates upon quick save now!)
+  - NOTE: One-time fees carried over between groups when cloning. I am noting this here but it may be another ticket being worked on.
+  - Confirmed that once "Allow Product Ramping" is checked, you can either keep the amounts the same or adjust them within each group.
+  - Confirmed that a new product can be added to a group, however it does not roll down automatically to later groups (which I believe we previously discussed as a limitation)
+  - Confirmed that products can be deleted within groups if needed.
+P85 [normal]: Non-Ramped Groups:
+  - Confirmed that you can have different products in different groups.
+  - Confirmed that you can have the same products if there are different "Ship To" locations between groups.
+P86 [normal]: EditDeletePin

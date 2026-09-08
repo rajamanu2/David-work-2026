@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>49.0</apiVersion>
+    <areMetricsLoggedToDataCloud>false</areMetricsLoggedToDataCloud>
+    <interviewLabel>Search Contacts for Phone Number {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Search Contacts for Phone Number</label>
+    <processType>AutoLaunchedFlow</processType>
+    <recordLookups>
+        <name>Search_Contacts_for_Phone_Number</name>
+        <label>Search Contacts for Phone Number</label>
+        <locationX>709</locationX>
+        <locationY>88</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Update_Lead_with_Contact_Owner_ID</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Phone</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>NewlyCreatedLead.Phone</elementReference>
+            </value>
+        </filters>
+        <object>Contact</object>
+        <outputAssignments>
+            <assignToReference>ContactOwnerID</assignToReference>
+            <field>OwnerId</field>
+        </outputAssignments>
+    </recordLookups>
+    <recordUpdates>
+        <name>Update_Lead_with_Contact_Owner_ID</name>
+        <label>Update Lead with Contact Owner ID</label>
+        <locationX>716</locationX>
+        <locationY>208</locationY>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>NewlyCreatedLead.Id</elementReference>
+            </value>
+        </filters>
+        <inputAssignments>
+            <field>OwnerId</field>
+            <value>
+                <elementReference>ContactOwnerID</elementReference>
+            </value>
+        </inputAssignments>
+        <object>Lead</object>
+    </recordUpdates>
+    <startElementReference>Search_Contacts_for_Phone_Number</startElementReference>
+    <status>Obsolete</status>
+    <variables>
+        <name>ContactOwnerID</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>true</isOutput>
+        <value>
+            <elementReference>NewlyCreatedLead.OwnerId</elementReference>
+        </value>
+    </variables>
+    <variables>
+        <name>NewlyCreatedLead</name>
+        <dataType>SObject</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>true</isOutput>
+        <objectType>Lead</objectType>
+    </variables>
+</Flow>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Website_Email_Domain__c</fullName>
+    <description>Pulls account email domain from website capture field.</description>
+    <externalId>false</externalId>
+    <formula>IF(FIND(&quot;/&quot;, Website_Domain_Capture__c )&gt;0, LOWER(LEFT(Website_Domain_Capture__c, FIND(&quot;/&quot;, Website_Domain_Capture__c) - 1)), LOWER(Website_Domain_Capture__c))</formula>
+    <inlineHelpText>Pulls account email domain from website capture field.</inlineHelpText>
+    <label>Website Email Domain</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

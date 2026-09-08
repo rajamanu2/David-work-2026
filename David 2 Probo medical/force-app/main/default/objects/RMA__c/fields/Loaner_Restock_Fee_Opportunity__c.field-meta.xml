@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Loaner_Restock_Fee_Opportunity__c</fullName>
+    <deleteConstraint>SetNull</deleteConstraint>
+    <description>Invoice opportunity for damaged loaner</description>
+    <label>Loaner / Restock Fee Opportunity</label>
+    <referenceTo>Opportunity</referenceTo>
+    <relationshipLabel>RMAS (Loaner / Restock Fee Opportunity)</relationshipLabel>
+    <relationshipName>RMAS</relationshipName>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Lookup</type>
+</CustomField>

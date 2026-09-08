@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>OwnerRM_Running_User__c</fullName>
+    <description>If the Owner or Relationship Manager is the running user, checks the box. To be used in list view.</description>
+    <formula>Relationship_Manager__r.Id = $User.Id &amp;&amp; Relationship_Manager__r.Id != &quot;&quot;</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <inlineHelpText>If the Owner or Relationship Manager is the running user, checks the box. To be used in list view.</inlineHelpText>
+    <label>OwnerRM Running User</label>
+    <trackHistory>false</trackHistory>
+    <type>Checkbox</type>
+</CustomField>

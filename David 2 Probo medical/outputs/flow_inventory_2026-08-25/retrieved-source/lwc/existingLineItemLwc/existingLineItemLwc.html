@@ -1,0 +1,45 @@
+<template>
+    <template if:false={hideSpinner}><lightning-spinner alternative-text="Loading"></lightning-spinner></template>
+    <template if:true={hideSpinner}>
+        <template if:true={messages.warningMessageAvailable}>
+            <c-add-product-warning-lwc header={messages.warningHeader} message={messages.warningMessage} cancel-label={messages.closeButtonLabel} show-confirm={messages.showConfirmationButton} onconfirmmessage={handleWarningConfirmation}  onclosemessage={handleCancel}></c-add-product-warning-lwc>
+        </template> 
+        <template if:false={messages.warningMessageAvailable}>
+            <div> 
+                <template if:true={isContractLineItemSearch}> 
+                    <template if:true={displayLineItemSelection}>
+                        <lightning-card title="Contract Line Item">
+                            <c-oli-selection-new-lwc opportunity-id='{localOpportunityId}' record-type-name='{selectedRecordTypeName}' onsuccessoliselection={handleOLISelection} onoliselectioncomplete={handleOLISelectionComplete}> </c-oli-selection-new-lwc> 
+                        </lightning-card>
+                    </template>
+                </template>  
+                <template if:true={isOppLineItemSwap}> 
+                    <lightning-card title="Opportunity Line Item">
+                        <c-oli-selection-lwc  opportunity-id='{localOpportunityId}' onsuccessoliselection={handleOLISelection} onoliselectioncomplete={handleOLISelectionComplete}> </c-oli-selection-lwc>
+                    </lightning-card>
+                </template>
+                <template if:true={isAssetSelection}>
+                    <lightning-card title="Assets">
+                      <c-record-selection-lwc name='{localObjectName}' parent-id='{localRecordId}' action='{localAction}' onsuccessrecordselection={handleRecordSelection} onrecordselectioncomplete={handleRecordSelectionComplete} ></c-record-selection-lwc>
+                    </lightning-card>    
+                </template>
+                <template if:true={isItemReceiptSelection}>
+                    <lightning-card title="Assets">
+                      <c-item-receipt-selection-lwc name='{localObjectName}' parent-id='{localRecordId}' action='{localAction}' onsuccessrecordselection={handleRecordSelection} onrecordselectioncomplete={handleRecordSelectionComplete} ></c-item-receipt-selection-lwc>
+                    </lightning-card>    
+                </template>
+                <template if:true={isPRLISelection}>
+                    <lightning-card title="Product Repair Line Item">
+                      <c-prli-selection-lwc name='{localObjectName}' parent-id='{localRecordId}' action='{localAction}' onsuccessprliselection={handleRecordSelection} onprliselectioncomplete={handleRecordSelectionComplete} ></c-prli-selection-lwc>
+                    </lightning-card>    
+                </template>
+
+            </div> 
+            <div>    
+                <template if:true={displayRecordTypeSelection}>
+                    <c-record-type-selection-lwc name='{localObjectName}' parent-id={localRecordId} onsuccessrecordtypeselection={handleRecordTypeSelection} onrecordtypeselectioncomplete={handleRecordTypeSelectionComplete}></c-record-type-selection-lwc>
+                </template>
+            </div>
+        </template>
+    </template>   
+</template>

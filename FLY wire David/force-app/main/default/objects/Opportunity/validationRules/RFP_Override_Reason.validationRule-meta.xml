@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>RFP_Override_Reason</fullName>
+    <active>true</active>
+    <description>If a No Bid is recived and they want to override, they must check the RFP Override checkbox and fill in the Override Reason field.</description>
+    <errorConditionFormula>AND(
+No_Bid_Override__c = True,
+ISBLANK(No_Bid_Override_Reason__c)
+)</errorConditionFormula>
+    <errorDisplayField>No_Bid_Override_Reason__c</errorDisplayField>
+    <errorMessage>To Override the RFP No Bid and submit anyway, Check Override No Bid AND Provide No Bid Override Reason.</errorMessage>
+</ValidationRule>

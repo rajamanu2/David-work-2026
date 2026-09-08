@@ -1,0 +1,99 @@
+--- Sept4
+
++++ Current
+
+@@ -101,23 +101,6 @@
+
+     }
+     return false;
+ }
+-if (fieldName === "Estimated_Volume__c") {
+-    if (vertical !== "B2B") return false;
+-    // SALDEV-1345: Completely hide Estimated Volume for B2B Domestic Payments (FWCCY1000)
+-    if (pCode === "FWCCY1000") {
+-        return false;
+-    }
+-    // SALDEV-1345: Isolated B2B Vertical Updates (Only tracks for FWXB1000 now)
+-    if (isARR) {
+-        if (pCode === "FWXB1000" && transType === "FX") return true;
+-        if (pCode === "FWXB1000" && transType === "Same Currency" && usageType === "Amount") return true;
+-        if (transType === "Same Currency" && usageType === "Percent") return true;
+-    }
+-    if (pCode === "FWXB1000" && transType === "Same Currency" && usageType === "Amount") {
+-        return true;
+-    }
+-    return false;
+-}
+ if (fieldName === "Est_Annual_MM__c") {
+     if (pCode === "FWFA-1100") return true;
+     if (vertical === "Travel" && ["FWCCY1000", "FWXB1000"].includes(pCode)) return isARR;
+@@ -324,6 +307,21 @@
+
+     return true;
+ }
+ /**
++ * CANONICAL FIELD CONFIGURATION (SALDEV-1371 / SALDEV-1427)
++ * Centralized ARR field list to avoid cross-script drift.
++ */
++const ARR_FIELDS_TO_NULL = [
++    'DOM_Outgoing_PYMTS__c', 'Utilization__c', 'Actual_12_Months_Tuition_CC_Vol__c',
++    'Annual_Number_of_Domestic_Transactions__c', 'Annual_No_Surcharge_Transactions__c',
++    'Annual_Total_CC_Volume__c', 'Annual_Total_Surcharge_Volume__c', 'Avg_FX_Trans_Amt__c',
++    'BPS_Upcharge__c', 'Client_Home_CCY_XB_PYMNTS__c', 'Domestic_Sponsor__c',
++    'Est_Annual_MM__c', 'Estimated_Volume__c', 'Expected_of_Apps_per_Year__c',
++    'FX_XB_Outgoing_PYMTS__c', 'International_Sponsor__c', 'Interchange_Rate__c',
++    'Last_12_Months_Payment_Plans__c', 'MPP_Card_Usage_Included__c', 'No_International_Payers__c',
++    'One_Door__c', 'Per_Transaction_Upcharge__c', 'No_Processed_Volume__c',
++    'Total_Flows__c', 'Yearly_Invoiced_Sent__c'
++];
++/**
+  * ============================================================================
+  * FUNCTION: onBeforeCalculate
+  * ============================================================================
+@@ -334,17 +332,7 @@
+
+  * calculations while preserving net-new user input.
+  */
+ export function onBeforeCalculate(quoteModel, quoteLineModels) {
+-    const arrFieldsToNull = [
+-        'DOM_Outgoing_PYMTS__c', 'Utilization__c', 'Actual_12_Months_Tuition_CC_Vol__c',
+-        'Annual_Number_of_Domestic_Transactions__c', 'Annual_No_Surcharge_Transactions__c',
+-        'Annual_Total_CC_Volume__c', 'Annual_Total_Surcharge_Volume__c', 'Avg_FX_Trans_Amt__c',
+-        'BPS_Upcharge__c', 'Client_Home_CCY_XB_PYMNTS__c', 'Domestic_Sponsor__c',
+-        'Est_Annual_MM__c', 'Estimated_Volume__c', 'Expected_of_Apps_per_Year__c',
+-        'FX_XB_Outgoing_PYMTS__c', 'International_Sponsor__c', 'Interchange_Rate__c',
+-        'Last_12_Months_Payment_Plans__c', 'MPP_Card_Usage_Included__c', 'No_International_Payers__c',
+-        'One_Door__c', 'Per_Transaction_Upcharge__c', 'No_Processed_Volume__c',
+-        'Total_Flows__c', 'Yearly_Invoiced_Sent__c'
+-    ];
++    const arrFieldsToNull = ARR_FIELDS_TO_NULL;
+     if (quoteLineModels && quoteLineModels.length > 0) {
+         quoteLineModels.forEach(function(line) {
+             const rec = line.record;
+@@ -355,10 +343,10 @@
+
+             const isClonedLine = rec.SBQQ__Source__c != null || line.SBQQ__Source__c != null;
+             const isNewUnsavedLine = rec.SBQQ__Existing__c === false;
+             if (isNewUnsavedLine) {
+-                // Always clear integration IDs on unsaved lines
++                // Always clear integration and tracking IDs on unsaved lines
+                 rec['NS_ID__c'] = null;
++                rec['Opportunity_Line_Id__c'] = null;
+                 // ONLY clear ARR fields if the line or group was CLONED!
+-                // Do NOT clear if the user is adding a net-new product and typing ARR inputs!
+                 if (isClonedGroup || isClonedLine) {
+                     arrFieldsToNull.forEach(function(fieldApi) {
+                         rec[fieldApi] = null;
+@@ -1053,9 +1041,8 @@
+
+ }
+ });
+ }
+-/**
+- * ============================================================================
+- * FUNCTION: checkDuplicateQuoteLineUSLoanProduct
++//============================================================================
++ /* FUNCTION: checkDuplicateQuoteLineUSLoanProduct
+  * ============================================================================
+  * SALDEV-1441: Evaluates duplicate FAD US Loan Product (FWFA-1000) instances
+  * per Ship To Account independently within each validation context / Step-Up group.

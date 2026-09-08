@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>66.0</apiVersion>
+    <areMetricsLoggedToDataCloud>false</areMetricsLoggedToDataCloud>
+    <decisions>
+        <name>Does_Opportunity_have_a_Paid_Invoice_Date</name>
+        <label>Does Opportunity have a Paid Invoice Date?</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Yes_Has_Paid_Invoice_Date</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Opportunity__r.Invoice_Paid_Date__c</leftValueReference>
+                <operator>IsBlank</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Correct_Invoice_Paid_Date_to_Blank</targetReference>
+            </connector>
+            <label>Yes, Has Paid Invoice Date</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Is_Invoice_Paid</name>
+        <label>Is Invoice Paid?</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <defaultConnector>
+            <targetReference>Does_Opportunity_have_a_Paid_Invoice_Date</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Yes_Fully_Paid</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Balance_Due__c</leftValueReference>
+                <operator>LessThanOrEqualTo</operator>
+                <rightValue>
+                    <elementReference>$Record.Total_Paid_Amount__c</elementReference>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Set_Invoice_Paid_Date_on_Opportunity_to_Today</targetReference>
+            </connector>
+            <label>Yes, Fully Paid</label>
+        </rules>
+    </decisions>
+    <description>04/15/2026 (BW) - Adding functionality to remove the invoice paid date on the opportunity if the payment is rolled back</description>
+    <environments>Default</environments>
+    <formulas>
+        <name>formToday</name>
+        <dataType>Date</dataType>
+        <expression>TODAY()</expression>
+    </formulas>
+    <interviewLabel>On Payment of Invoice, Update Opportunity to Invoice Paid {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>On Payment Applied to Invoice, Control Invoice Paid Date on Opporutnity</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <recordUpdates>
+        <name>Correct_Invoice_Paid_Date_to_Blank</name>
+        <label>Correct Invoice Paid Date to Blank</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <inputAssignments>
+            <field>Invoice_Paid_Date__c</field>
+        </inputAssignments>
+        <inputReference>$Record.Opportunities__r</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>Set_Invoice_Paid_Date_on_Opportunity_to_Today</name>
+        <label>Set Invoice Paid Date on Opportunity to Today</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <inputAssignments>
+            <field>Invoice_Paid_Date__c</field>
+            <value>
+                <elementReference>formToday</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record.Opportunities__r</inputReference>
+    </recordUpdates>
+    <start>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Total_Paid_Amount__c</field>
+            <operator>IsChanged</operator>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </filters>
+        <object>Invoice__c</object>
+        <recordTriggerType>Update</recordTriggerType>
+        <scheduledPaths>
+            <connector>
+                <targetReference>Is_Invoice_Paid</targetReference>
+            </connector>
+            <pathType>AsyncAfterCommit</pathType>
+        </scheduledPaths>
+        <triggerType>RecordAfterSave</triggerType>
+    </start>
+    <status>Active</status>
+</Flow>

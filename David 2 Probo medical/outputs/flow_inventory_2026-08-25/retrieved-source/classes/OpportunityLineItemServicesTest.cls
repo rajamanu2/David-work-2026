@@ -1,0 +1,323 @@
+@isTest
+private class OpportunityLineItemServicesTest {
+
+	@testSetup
+    static void setup() {
+    	//Get Standard Price Book
+    	Id stdPB = ProboCommonUtils.getStdPricebookId();
+        system.debug('TEST: standard price book id: '+stdPB);
+        
+    	//Create Products
+    	List<Product2> listProducts = new List<Product2>();
+    	Product2 p1 = testDataFactory.createProduct('Ultrasound Probe','Acer Y9','Ultrasound Probe', false);
+        listProducts.add(p1);
+        Product2 p2 = testDataFactory.createProduct('Ultrasound Probe','Sony BZ3','Ultrasound Probe', false);
+        listProducts.add(p2);
+        Product2 p3 = testDataFactory.createProduct('Ultrasound Probe','Sony BZ3','Ultrasound Probe', false);
+        listProducts.add(p3);
+    	Product2 p4 = testDataFactory.createProduct('Ultrasound Probe','Connair C4-9T','Ultrasound Probe', false);
+        listProducts.add(p4);
+        insert listProducts;
+        
+    	//Create Pricebook Entries for Products
+    	List<PriceBookEntry> listPriceBookEntries = new List<PriceBookEntry>();
+    	PriceBookEntry pbe1 = testDataFactory.createPricebookEntry(p1.id, false);
+        listPriceBookEntries.add(pbe1);
+        PriceBookEntry pbe2 = testDataFactory.createPricebookEntry(p2.id, false);
+        listPriceBookEntries.add(pbe2);
+        PriceBookEntry pbe3 = testDataFactory.createPricebookEntry(p4.id, false);
+        listPriceBookEntries.add(pbe3);
+        insert listPriceBookEntries;
+        
+        //Create Product Items
+        List<ProductItem__c> listProductItems = new List<ProductItem__c>();
+        ProductItem__c pi1 = testDataFactory.createProductItem(p1.id, false); 
+        pi1.Check_In_Type__c = 'Purchase';
+        pi1.Generic_Product__c = false;
+        pi1.Location__c = 'QA-Testing';
+        pi1.Functional_Rating__c = 'Good';
+        pi1.Cosmetic_Rating__c = 'Good';
+        pi1.Review_Status__c = 'Finished Goods';
+        pi1.Domestic_Only__c = true;
+        pi1.Purchasing_Approved__c = true;
+        pi1.Posted_on_Ebay__c = false;
+        pi1.Reserved__c = false;
+        listProductItems.add(pi1);
+        ProductItem__c pi2 = testDataFactory.createProductItem(p2.id, false); 
+        pi2.Cost__c = 0;
+        pi2.Check_In_Type__c = 'Generic';
+        pi2.Generic_Product__c = true;
+        listProductItems.add(pi2);
+        ProductItem__c pi3 = testDataFactory.createProductItem(p3.id, false); 
+        pi3.Check_In_Type__c = 'Purchase';
+        pi3.Generic_Product__c = false;
+        pi3.Location__c = 'QA-Testing';
+        pi3.Functional_Rating__c = 'Good';
+        pi3.Cosmetic_Rating__c = 'Good';
+        pi3.Review_Status__c = 'Finished Goods';
+        pi3.Domestic_Only__c = true;
+        pi3.Purchasing_Approved__c = true;
+        pi3.Posted_on_Ebay__c = false;
+        pi3.Reserved__c = false;
+        listProductItems.add(pi3);
+        ProductItem__c pi4 = testDataFactory.createProductItem(p4.id, false); 
+        pi4.Check_In_Type__c = 'Purchase';
+        pi4.Generic_Product__c = false;
+        pi4.Location__c = 'QA-Testing';
+        pi4.Functional_Rating__c = 'Good';
+        pi4.Cosmetic_Rating__c = 'Good';
+        pi4.Review_Status__c = 'Finished Goods';
+        pi4.Domestic_Only__c = true;
+        pi4.Purchasing_Approved__c = true;
+        pi4.Posted_on_Ebay__c = false;
+        pi4.Reserved__c = false;
+        listProductItems.add(pi4);
+        insert listProductItems;
+        
+        // Create Business Units
+        //List<Account> BUsToInsert = testDataFactory.createAccounts(3, false);
+        //BUsToInsert[0].Name = 'Probo Medical - Tulsa';
+        //BUsToInsert[1].Name = 'MedCorp LLC';
+        //BUsToInsert[2].Name = 'Probo Medical - Indy';
+        //insert BUsToInsert;
+        
+    	//Create Customer Account
+    	Account a = testDataFactory.createAccount(false);
+		a.Name = 'Test Account';
+        insert a;
+        
+    	//Create Opportunities
+    	List<Opportunity> listOpportunities = new List<Opportunity>();
+    	Opportunity o1 = testDataFactory.createOpportunity('Sales Opportunity', a.Id, false);
+        o1.Name = 'TestSalesOpp';
+        o1.Opportunity_Notes__c = 'This is what needs to be done';
+        o1.Pricebook2Id = stdPB;
+        o1.Repair_Evaluation_Serial_Number__c = '123456';
+        o1.Ship_Date__c = date.today() + 30;
+        o1.CloseDate = date.today()+15;
+        o1.Verified_Asset_and_Serial_Numbers_Match__c = true;
+        listOpportunities.add(o1);
+        Opportunity o2 = testDataFactory.createOpportunity('Purchasing Opportunity', a.Id, false);
+        o2.Name = 'TestPurchasingOpp';
+        o2.Opportunity_Notes__c = 'Test Purchasing';
+        o2.Pricebook2Id = stdPB;
+        o2.Repair_Evaluation_Serial_Number__c = '78910';
+        o2.Ship_Date__c = date.today() + 30;
+        o2.CloseDate = date.today()+15;
+        o2.Verified_Asset_and_Serial_Numbers_Match__c = true;
+        listOpportunities.add(o2);
+        insert listOpportunities;
+        
+    	//Add Opportunity Products
+    	OpportunityLineItem oli = testDataFactory.createOpportunityLineItem(o1.id, pbe2.Id, pi2.Id, false);
+        insert oli;
+    }
+    
+   static testmethod void testGetProducts() {
+       Map<String, Object> queryParams = new Map<String, Object>();
+       Opportunity opp = [SELECT id, name FROM Opportunity WHERE name = 'TestSalesOpp' LIMIT 1];
+       Product2 p = [SELECT Id, Name FROM Product2 WHERE Name = 'Acer Y9' LIMIT 1];
+       ProductItem__c pItem = [SELECT Id, Name, Product_Name__c, Check_In_Type__c FROM ProductItem__c WHERE Product_Name__c =: p.Id AND Check_In_Type__c != 'Generic' LIMIT 1];
+       
+       queryParams.put('queryString', 'Acer Y9');
+       List<String> listFamily = new List<String>();
+       listFamily.add('Ultrasound Probe');
+       queryParams.put('family', listFamily);
+       List<String> listRating = new List<String>();
+       listRating.add('Good');
+       queryParams.put('functionalRating', listRating);
+       queryParams.put('cosmeticRating', listRating);
+       List<String> listCheckInType = new List<String>();
+       listCheckInType.add('Purchase');
+       queryParams.put('checkInType', listCheckInType);
+       List<String> listReviewStatus = new List<String>();
+       listReviewStatus.add('Finished Goods');
+       queryParams.put('reviewStatus', listReviewStatus);
+       queryParams.put('domestic', true);
+       queryParams.put('available', true);
+       List<Object> listObjects = new List<Object>();                
+                       
+       
+       test.startTest();
+       listObjects = OpportunityLineItemServices.getProducts(queryParams);
+       test.stopTest();
+       
+       system.assertEquals(1, listObjects.size(), 'Product Item list size not equal to 1');
+       ProductItem__c pItem1 = (ProductItem__c)listObjects[0];
+       system.assertEquals(pItem.Product_Name__c, pItem1.Product_Name__c, 'Product Item product name does not match');
+   }    
+
+   static testmethod void testCreateOpportunityLineItemsNoSwap() {
+       Map<String, Object> queryParams = new Map<String, Object>();
+       Opportunity opp = [SELECT id, name FROM Opportunity WHERE name = 'TestSalesOpp' LIMIT 1];
+       Product2 p = [SELECT Id, Name FROM Product2 WHERE Name = 'Acer Y9' LIMIT 1];
+       ProductItem__c pItem = [SELECT Id, Name, Price__c, Check_In_Type__c FROM ProductItem__c WHERE Product_Name__c =: p.Id AND Check_In_Type__c != 'Generic' LIMIT 1];
+       List<Map<String, Object>> listSelectedItems = new List<Map<String, Object>>();
+       List<String> listSwapItems = new List<String>();
+       List<Map<String, Object>> listPurchasingItems = new List<Map<String, Object>>();
+       Map<String, Object> productItemRecord = new Map<String, Object>();
+       system.debug('PITEM from line 159 >> ' + pItem);
+       productItemRecord.put('id', pItem.Id);
+       productItemRecord.put('price', pItem.Price__c);
+       productItemRecord.put('cost', 1000.00);
+       productItemRecord.put('exchange', false);
+       system.debug('PRODUCT ITEM RECORD from line 164 >> ' + productItemRecord);
+       listSelectedItems.add(productItemRecord);
+       
+       test.startTest();
+       OpportunityLineItemServices.createOpportunityLineItems(listSelectedItems, listPurchasingItems, listSwapItems, opp.Id, true);
+       test.stopTest();
+       
+       List<OpportunityLineItem> listOli = [SELECT Id, ProductItem__c, TotalPrice, Cost__c FROM OpportunityLineItem WHERE OpportunityId =: opp.Id AND ProductItem__c =: pItem.Id];
+       system.debug('LIST OLI from 172 >> ' + listOli);
+       system.assertEquals(1, listOli.size(), 'Opportunity line item size is not equal to 1');
+       system.assertEquals(pItem.Price__c, listOli[0].TotalPrice, 'Opportunity line item price is not equal to Product Item Price');
+       system.assertEquals(1000.00, listOli[0].Cost__c, 'Opportunity line item cost is not equal to 1000');
+       system.assertEquals(pItem.Id, listOli[0].ProductItem__c, 'Product Item on Opportunity line does not match');
+       
+   }
+    
+   static testmethod void testCreateTestPurchasingOpportunityLineItemsNoSwap() {
+       Map<String, Object> queryParams = new Map<String, Object>();
+       Opportunity opp = [SELECT id, name FROM Opportunity WHERE name = 'TestPurchasingOpp' LIMIT 1];
+       Product2 p = [SELECT Id, Name FROM Product2 WHERE Name = 'Connair C4-9T' LIMIT 1];
+       ProductItem__c pItem = [SELECT Id, Name, Price__c, Check_In_Type__c FROM ProductItem__c WHERE Product_Name__c =: p.Id AND Check_In_Type__c != 'Generic' LIMIT 1];
+       List<Map<String, Object>> listSelectedItems = new List<Map<String, Object>>();
+       List<String> listSwapItems = new List<String>();
+       List<Map<String, Object>> listPurchasingItems = new List<Map<String, Object>>();
+       Map<String, Object> productItemRecord = new Map<String, Object>();
+       
+       productItemRecord.put('id', pItem.Id);
+       productItemRecord.put('price', pItem.Price__c);
+       productItemRecord.put('exchange', false);
+       
+       listPurchasingItems.add(productItemRecord);
+       
+       test.startTest();
+       OpportunityLineItemServices.createOpportunityLineItems(listSelectedItems, listPurchasingItems, listSwapItems, opp.Id, false);
+       test.stopTest();
+       
+       List<OpportunityLineItem> listOli = [SELECT Id, ProductItem__c FROM OpportunityLineItem WHERE OpportunityId =: opp.Id AND ProductItem__c =: pItem.Id];
+       system.assertEquals(1, listOli.size(), 'Opportunity line item size is not equal to 1');
+       system.assertEquals(pItem.Id, listOli[0].ProductItem__c, 'Product Item on Opportunity line does not match');
+       
+   }
+
+   static testmethod void testCreateOpportunityLineItemsWithSwap() {
+       Map<String, Object> queryParams = new Map<String, Object>();
+       Opportunity opp = [SELECT id, name FROM Opportunity WHERE name = 'TestSalesOpp' LIMIT 1];
+       OpportunityLineItem oli = [SELECT Id FROM OpportunityLineItem WHERE OpportunityId =: opp.Id LIMIT 1];  
+       ProductItem__c pItem = [SELECT Id, Name, Price__c FROM ProductItem__c WHERE Product_Name__r.Name = 'Sony BZ3' AND Check_In_Type__c = 'Purchase' LIMIT 1];
+       List<Map<String, Object>> listSelectedItems = new List<Map<String, Object>>();
+       List<String> listSwapItems = new List<String>();
+       List<Map<String, Object>> listPurchasingItems = new List<Map<String, Object>>();
+       Map<String, Object> productItemRecord = new Map<String, Object>();
+       
+       productItemRecord.put('id', pItem.Id);
+       productItemRecord.put('price', pItem.Price__c);
+       productItemRecord.put('exchange', false);
+       
+       listSelectedItems.add(productItemRecord);
+       listSwapItems.add(oli.Id + '-' + pItem.Id);
+       
+       test.startTest();
+       OpportunityLineItemServices.createOpportunityLineItems(listSelectedItems, listPurchasingItems, listSwapItems, opp.Id, false);
+       test.stopTest();
+
+       List<OpportunityLineItem> listOli = [SELECT Id, ProductItem__c FROM OpportunityLineItem WHERE OpportunityId =: opp.Id];
+       system.assertEquals(1, listOli.size(), 'Opportunity line item size is not equal to 1');
+       system.assertEquals(pItem.Id, listOli[0].ProductItem__c, 'Product Item on Opportunity line does not match');
+
+   }
+ 
+   static testmethod void testGetOpportunityInfo() {
+       Opportunity opp = [SELECT id, name FROM Opportunity WHERE name = 'TestSalesOpp' LIMIT 1];
+       Map<String, String> opportunityMap = new Map<String, String>();
+       Object o;
+       
+       test.startTest();
+       o = OpportunityLineItemServices.getOpportunityInfo(opp.Id);
+       test.stopTest();
+       
+       opportunityMap = (Map<String, String>) o;
+       
+       system.assertEquals('Sales_Opportunity', opportunityMap.get('recordTypeName'), 'Record type name is not equal to Sales_Opportunity');
+   }
+    
+   static testmethod void testDeleteOpportunityLineItem() {
+       Opportunity opp = [SELECT id, name FROM Opportunity WHERE name = 'TestSalesOpp' LIMIT 1];
+       OpportunityLineItem oli = [SELECT Id, ProductItem__c FROM OpportunityLineItem WHERE OpportunityId =: opp.Id LIMIT 1];
+
+       test.startTest();
+       OpportunityLineItemServices.deleteOpportunityLineItem(oli.ProductItem__c, opp.Id);
+       test.stopTest();
+
+       List<OpportunityLineItem> listOli = [SELECT Id, ProductItem__c FROM OpportunityLineItem WHERE OpportunityId =: opp.Id];
+       system.assertEquals(0, listOli.size(), 'Opportunity line item size is not equal to 0');
+   }
+
+   static testmethod void testCreateOpportunityLineItemsOpporunityNameUpdate() {
+       Map<String, Object> queryParams = new Map<String, Object>();
+       Opportunity opp = [SELECT id, name FROM Opportunity WHERE name = 'TestSalesOpp' LIMIT 1];
+       Product2 p = [SELECT Id, Name FROM Product2 WHERE Name = 'Acer Y9' LIMIT 1];
+       ProductItem__c pItem = [SELECT Id, Name, Price__c, Check_In_Type__c FROM ProductItem__c WHERE Product_Name__c =: p.Id AND Check_In_Type__c != 'Generic' LIMIT 1];
+       List<Map<String, Object>> listSelectedItems = new List<Map<String, Object>>();
+       List<String> listSwapItems = new List<String>();
+       List<Map<String, Object>> listPurchasingItems = new List<Map<String, Object>>();
+       Map<String, Object> productItemRecord = new Map<String, Object>();
+       
+       opp.Name = 'TEST QUICK OPP';
+       update opp;
+       
+       productItemRecord.put('id', pItem.Id);
+       productItemRecord.put('price', pItem.Price__c);
+       productItemRecord.put('exchange', false);
+       
+       listSelectedItems.add(productItemRecord);
+       
+       test.startTest();
+       OpportunityLineItemServices.createOpportunityLineItems(listSelectedItems, listPurchasingItems, listSwapItems, opp.Id, false);
+       test.stopTest();
+       
+       List<OpportunityLineItem> listOli = [SELECT Id, ProductItem__c, Product_Name__c FROM OpportunityLineItem WHERE OpportunityId =: opp.Id AND ProductItem__c =: pItem.Id];
+       Opportunity updatedOpp = [SELECT Id, Name FROM Opportunity WHERE Id =: opp.Id];
+       system.assertEquals(1, listOli.size(), 'Opportunity line item size is not equal to 1');
+       system.assertEquals(pItem.Id, listOli[0].ProductItem__c, 'Product Item on Opportunity line does not match');
+       String productName = listOli[0].Product_Name__c;
+       system.assert(updatedOpp.Name.contains(productName), 'Opportunity name does not have Product name');
+   }
+    
+   static testmethod void testCheckPriceFieldAccess() {
+       String fieldAccess;
+       
+       test.startTest();
+       fieldAccess = OpportunityLineItemServices.checkPriceFieldAccess();
+       test.stopTest();
+       
+       system.assertNotEquals(null, fieldAccess, 'No field access returned');
+   }
+
+   static testmethod void testCheckCostFieldAccess() {
+       String fieldAccess;
+       
+       test.startTest();
+       fieldAccess = OpportunityLineItemServices.checkCostFieldAccess();
+       test.stopTest();
+       
+       system.assertNotEquals(null, fieldAccess, 'No field access returned');
+   }   
+    
+   static testmethod void testGetOpportunityLineItemsQuery() {
+       Opportunity opp = [SELECT id, name FROM Opportunity WHERE name = 'TestSalesOpp' LIMIT 1];
+       String query;
+       
+       test.startTest();
+       query = OpportunityLineItemServices.getOpportunityLineItemsQuery(opp.Id);
+       test.stopTest();
+       
+       system.assertNotEquals(null, query, 'No query returned');
+       system.assert(query.contains(opp.Id));
+   }      
+
+
+}

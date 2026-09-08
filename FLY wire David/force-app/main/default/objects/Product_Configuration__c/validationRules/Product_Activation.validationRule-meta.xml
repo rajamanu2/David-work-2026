@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Product_Activation</fullName>
+    <active>true</active>
+    <description>Requires the user to use the Activation button to activate the product record.</description>
+    <errorConditionFormula>AND(
+$Profile.Name &lt;&gt; &quot;B - Looker&quot;,
+ISPICKVAL( Product_Status__c ,&apos;Active (Product Live)&apos;) 
+&amp;&amp;  ISCHANGED(Product_Status__c))
+&amp;&amp;  Prod_Config_Val_Bypass__c = false</errorConditionFormula>
+    <errorMessage>Please use the Activation button to activate the product. Press cancel and then go to the &quot;Activate Product&quot; button in the upper right corner. Follow the screen prompts to confirm the product status date.</errorMessage>
+</ValidationRule>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Disqualified_Reason_Required</fullName>
+    <active>true</active>
+    <description>Requires Disqualified Reason if status is Disqualified for new Lead Person Status field.</description>
+    <errorConditionFormula>AND(
+ISPICKVAL( Lead_Person_Status__c, &quot;Disqualified&quot;),
+ISBLANK(Text(Lead_Disqualified_Reason__c)),
+NOT($UserRole.Name = &quot;Admin&quot;) 
+)
+&amp;&amp; Lead_Val_Bypass__c = False</errorConditionFormula>
+    <errorDisplayField>Lead_Disqualified_Reason__c</errorDisplayField>
+    <errorMessage>Disqualified reason must be filled in.</errorMessage>
+</ValidationRule>

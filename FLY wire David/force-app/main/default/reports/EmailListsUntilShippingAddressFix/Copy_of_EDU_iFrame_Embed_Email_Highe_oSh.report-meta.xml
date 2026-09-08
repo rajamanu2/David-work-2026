@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <block>
+        <blockInfo>
+            <blockId>B0</blockId>
+            <joinTable>a</joinTable>
+        </blockInfo>
+        <columns>
+            <field>ACCOUNT.ADDRESS2_COUNTRY</field>
+        </columns>
+        <columns>
+            <field>RATING</field>
+        </columns>
+        <columns>
+            <field>TITLE</field>
+        </columns>
+        <columns>
+            <field>FIRST_NAME</field>
+        </columns>
+        <columns>
+            <field>LAST_NAME</field>
+        </columns>
+        <columns>
+            <field>EMAIL</field>
+        </columns>
+        <columns>
+            <field>Account.Relationship_Manager__c</field>
+        </columns>
+        <filter>
+            <booleanFilter>((1 AND 2 AND 3 AND 4 AND 5 AND 6 AND 7 AND 8) OR (9 AND 4)) AND 10</booleanFilter>
+            <criteriaItems>
+                <column>Account.Account_Industry__c</column>
+                <columnToColumn>false</columnToColumn>
+                <isUnlocked>true</isUnlocked>
+                <operator>equals</operator>
+                <value>Education</value>
+            </criteriaItems>
+            <criteriaItems>
+                <column>RATING</column>
+                <columnToColumn>false</columnToColumn>
+                <isUnlocked>true</isUnlocked>
+                <operator>equals</operator>
+                <value>Bronze,Penny</value>
+            </criteriaItems>
+            <criteriaItems>
+                <column>Account.Account_Status__c</column>
+                <columnToColumn>false</columnToColumn>
+                <isUnlocked>true</isUnlocked>
+                <operator>equals</operator>
+                <value>Active (Product Live)</value>
+            </criteriaItems>
+            <criteriaItems>
+                <column>TITLE</column>
+                <columnToColumn>false</columnToColumn>
+                <isUnlocked>true</isUnlocked>
+                <operator>contains</operator>
+                <value>Student Accounts,Cashier,Controller,Finance,Student Fees,Accountant,Accounts Receivable,Admissions,Enrollment,International Student,International Advisor,Global,International Office,International,Financial</value>
+            </criteriaItems>
+            <criteriaItems>
+                <column>Account.Account_Sub_Industry__c</column>
+                <columnToColumn>false</columnToColumn>
+                <isUnlocked>true</isUnlocked>
+                <operator>equals</operator>
+                <value>Higher Ed</value>
+            </criteriaItems>
+            <criteriaItems>
+                <column>ACCOUNT.ADDRESS2_COUNTRY</column>
+                <columnToColumn>false</columnToColumn>
+                <isUnlocked>true</isUnlocked>
+                <operator>notEqual</operator>
+                <value>Egypt,China,Japan,Korea,Germany,Italy,Spain,Argentina,Brazil,Chile,Colombia,Mexico,Peru,Indonesia,Taiwan,Vietnam,India,Nigeria,Pakistan,Uganda,United Arab Emirates,Ecuador,Uruguay</value>
+            </criteriaItems>
+            <criteriaItems>
+                <column>ACCOUNT.NAME</column>
+                <columnToColumn>false</columnToColumn>
+                <isUnlocked>true</isUnlocked>
+                <operator>notEqual</operator>
+                <value>Le Cordon Bleu Japan,Le Cordon Bleu Canada,Glion Institute of Higher Education Switzerland,Rutgers University,University of New Hampshire,Curtin University - Sarawak Malaysia,Universiti of Malaya (UM),ESSEC Asia-Pacific,JCU Singapore,Lasalle College of the Arts,Kwantlen Polytechnic,Langara College,University of Liverpool,London School of Economics and Political Science,Courtauld Institute of Art,University of the Arts London,Glion Institute UK,JOHNSON &amp; WALES UNIVERSITY (JWU),WILLIAMS COLLEGE,Johnson &amp; Wales University,California State Polytechnic University - Pomona,California State University - Fullerton,Texas A&amp;M University - Kingsville,Texas Tech University,University of North Texas,University of Utah,Washington State University,exas Tech,TAM Kingsville,Wichita State University,Kansas State University,University of Oklahoma,University of Central Oklahoma,University of Kansas,Chapman University,Pacific Lutheran University,Reed College,University of Portland</value>
+            </criteriaItems>
+            <criteriaItems>
+                <column>ACCOUNT.ADDRESS2_COUNTRY</column>
+                <columnToColumn>false</columnToColumn>
+                <isUnlocked>true</isUnlocked>
+                <operator>notEqual</operator>
+                <value>Australia</value>
+            </criteriaItems>
+            <criteriaItems>
+                <column>ACCOUNT.NAME</column>
+                <columnToColumn>false</columnToColumn>
+                <isUnlocked>true</isUnlocked>
+                <operator>equals</operator>
+                <value>Macleay College,Canning College</value>
+            </criteriaItems>
+            <criteriaItems>
+                <column>ACCOUNT.NAME</column>
+                <columnToColumn>false</columnToColumn>
+                <isUnlocked>true</isUnlocked>
+                <operator>notContain</operator>
+                <value>California State University</value>
+            </criteriaItems>
+        </filter>
+        <format>Summary</format>
+        <name>Contacts &amp; Accounts block 1</name>
+        <params>
+            <name>co</name>
+            <value>1</value>
+        </params>
+        <reportType>ContactList</reportType>
+        <scope>organization</scope>
+        <showGrandTotal>true</showGrandTotal>
+        <showSubTotals>true</showSubTotals>
+        <timeFrameFilter>
+            <dateColumn>CREATED_DATE</dateColumn>
+            <interval>INTERVAL_CUSTOM</interval>
+        </timeFrameFilter>
+    </block>
+    <block>
+        <blockInfo>
+            <blockId>B1</blockId>
+            <joinTable>fka</joinTable>
+        </blockInfo>
+        <columns>
+            <field>CUST_NAME</field>
+        </columns>
+        <columns>
+            <field>Integration__c.Integration_Type__c</field>
+        </columns>
+        <columns>
+            <field>Integration__c.Partner_System_Version__c</field>
+        </columns>
+        <format>Summary</format>
+        <name>Integrations with Account block 1</name>
+        <params>
+            <name>co</name>
+            <value>1</value>
+        </params>
+        <reportType>CustomEntity$Integration__c@Integration__c.Account__c</reportType>
+        <scope>organization</scope>
+        <showGrandTotal>true</showGrandTotal>
+        <showSubTotals>true</showSubTotals>
+        <timeFrameFilter>
+            <dateColumn>Integration__c.X10_Post_Go_Live__c</dateColumn>
+            <interval>INTERVAL_CUSTOM</interval>
+        </timeFrameFilter>
+    </block>
+    <blockInfo>
+        <blockId xsi:nil="true"/>
+        <joinTable>a</joinTable>
+    </blockInfo>
+    <description>Clients, Higher Ed, Bronze/Penny, Account/Finance/International Titles (+ RM feedback filters)</description>
+    <format>MultiBlock</format>
+    <groupingsDown>
+        <dateGranularity>Day</dateGranularity>
+        <field>ACCOUNT.NAME</field>
+        <sortOrder>Asc</sortOrder>
+    </groupingsDown>
+    <name>NEW EDU - iFrame Embed Email - Higher Ed</name>
+    <reportType>ContactList</reportType>
+    <showDetails>true</showDetails>
+</Report>

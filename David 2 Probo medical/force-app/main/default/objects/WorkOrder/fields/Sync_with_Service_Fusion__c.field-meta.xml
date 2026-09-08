@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Sync_with_Service_Fusion__c</fullName>
+    <formula>IF(
+   AND(
+      !ISBLANK(Account.Service_Fusion_ID__c),
+      ISBLANK(Service_Fusion_ID__c),
+      !FSR_Attached__c,
+      TEXT(Ship_Date__c) = &apos;&apos;,
+      OR(
+         AND(
+            RecordType.Name = &apos;Service Call&apos;,
+            !ISBLANK(Field_Service_Engineer__c)
+         ),
+         AND(
+            RecordType.Name = &apos;Preventative Maintenance&apos;,
+            Next_Service_Date__c &lt;= TODAY() +30,
+            Next_Service_Date__c &gt;= TODAY()
+         ),
+         AND(
+            RecordType.Name = &apos;ZZ Work Order&apos;
+         )
+      )
+   ),
+true,
+false
+)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Sync with Service Fusion</label>
+    <trackHistory>false</trackHistory>
+    <type>Checkbox</type>
+</CustomField>

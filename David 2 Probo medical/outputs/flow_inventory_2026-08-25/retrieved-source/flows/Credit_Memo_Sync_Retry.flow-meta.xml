@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>64.0</apiVersion>
+    <areMetricsLoggedToDataCloud>false</areMetricsLoggedToDataCloud>
+    <description>When Credit Memo Intacct Sync fails, this flow will retry sync every 48 hours, for 5 attempts.</description>
+    <environments>Default</environments>
+    <formulas>
+        <name>IncrementSyncRetiresFormula</name>
+        <dataType>Number</dataType>
+        <expression>{!$Record.Sync_Retries__c} + 1</expression>
+        <scale>0</scale>
+    </formulas>
+    <interviewLabel>Credit Memo Sync Retry {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Credit Memo Sync Retry</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <recordUpdates>
+        <description>Updates the Sync Retries field.  The flow will stop after the 5th retry.</description>
+        <name>Update_Sync_Retries</name>
+        <label>Update Sync Retries</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <inputAssignments>
+            <field>Sync_Retries__c</field>
+            <value>
+                <elementReference>IncrementSyncRetiresFormula</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>Update_Sync_Status_to_Sync</name>
+        <label>Update Sync Status to Sync</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <inputAssignments>
+            <field>Intacct_Credit_Memo_Sync_Status__c</field>
+            <value>
+                <stringValue>Sync</stringValue>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <start>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Update_Sync_Retries</targetReference>
+        </connector>
+        <doesRequireRecordChangedToMeetCriteria>true</doesRequireRecordChangedToMeetCriteria>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Intacct_Credit_Memo_Sync_Status__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>Error</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>Sync_Retries__c</field>
+            <operator>LessThanOrEqualTo</operator>
+            <value>
+                <numberValue>5.0</numberValue>
+            </value>
+        </filters>
+        <object>Credit_Memo__c</object>
+        <recordTriggerType>Update</recordTriggerType>
+        <scheduledPaths>
+            <name>Retry_in_24_Hours</name>
+            <connector>
+                <targetReference>Update_Sync_Status_to_Sync</targetReference>
+            </connector>
+            <label>Retry in 24 Hours</label>
+            <offsetNumber>24</offsetNumber>
+            <offsetUnit>Hours</offsetUnit>
+            <timeSource>RecordTriggerEvent</timeSource>
+        </scheduledPaths>
+        <triggerType>RecordAfterSave</triggerType>
+    </start>
+    <status>Active</status>
+</Flow>

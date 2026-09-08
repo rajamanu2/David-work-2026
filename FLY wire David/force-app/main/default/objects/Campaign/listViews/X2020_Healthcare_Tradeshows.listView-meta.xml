@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>X2020_Healthcare_Tradeshows</fullName>
+    <columns>CAMPAIGN.NAME</columns>
+    <columns>Event_Name__c</columns>
+    <columns>CAMPAIGN.START_DATE</columns>
+    <columns>CAMPAIGN.END_DATE</columns>
+    <columns>CAMPAIGN.CAMPAIGN_TYPE</columns>
+    <columns>of_Passes__c</columns>
+    <columns>CAMPAIGN.STATUS</columns>
+    <columns>Booth_Number__c</columns>
+    <columns>Location__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>CAMPAIGN.CAMPAIGN_TYPE</field>
+        <operation>equals</operation>
+        <value>Trade Show</value>
+    </filters>
+    <filters>
+        <field>Vertical__c</field>
+        <operation>equals</operation>
+        <value>Healthcare</value>
+    </filters>
+    <filters>
+        <field>CAMPAIGN.START_DATE</field>
+        <operation>greaterOrEqual</operation>
+        <value>1/1/2020</value>
+    </filters>
+    <label>2020 Healthcare Tradeshows</label>
+</ListView>

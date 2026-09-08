@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Conditional_Approval_Documents__c</fullName>
+    <description>For CR to enter the documents required for credit reassessment. SAL-2307</description>
+    <inlineHelpText>Documents required for credit reassessment</inlineHelpText>
+    <label>Conditional Approval Documents</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>MultiselectPicklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Income Statement</fullName>
+                <default>false</default>
+                <label>Income Statement</label>
+            </value>
+            <value>
+                <fullName>Balance Sheet</fullName>
+                <default>false</default>
+                <label>Balance Sheet</label>
+            </value>
+            <value>
+                <fullName>Cash Flow Statement</fullName>
+                <default>false</default>
+                <label>Cash Flow Statement</label>
+            </value>
+            <value>
+                <fullName>Bank Statements</fullName>
+                <default>false</default>
+                <label>Bank Statements</label>
+            </value>
+            <value>
+                <fullName>Interim Financial Statements</fullName>
+                <default>false</default>
+                <label>Interim Financial Statements</label>
+            </value>
+            <value>
+                <fullName>Management Reports</fullName>
+                <default>false</default>
+                <label>Management Reports</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+    <visibleLines>4</visibleLines>
+</CustomField>

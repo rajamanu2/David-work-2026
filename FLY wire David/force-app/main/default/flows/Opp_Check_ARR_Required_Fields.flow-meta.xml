@@ -1,0 +1,1881 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>62.0</apiVersion>
+    <areMetricsLoggedToDataCloud>false</areMetricsLoggedToDataCloud>
+    <assignments>
+        <name>ACH_PNC_Gateway_Validations</name>
+        <label>ACH PNC Gateway Validations</label>
+        <locationX>2112</locationX>
+        <locationY>755</locationY>
+        <assignmentItems>
+            <assignToReference>ErrorLines</assignToReference>
+            <operator>Add</operator>
+            <value>
+                <elementReference>ShipToTotalEnrollment</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>ErrorLines</assignToReference>
+            <operator>Add</operator>
+            <value>
+                <elementReference>ShipToInternationalPayers</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>ErrorLines</assignToReference>
+            <operator>Add</operator>
+            <value>
+                <elementReference>ShipToAvgTuitionBySemester</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Find_products_with_ARR_required_fields</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Add_Unique_Lines</name>
+        <label>Add Unique Lines</label>
+        <locationX>264</locationX>
+        <locationY>1223</locationY>
+        <assignmentItems>
+            <assignToReference>ErrorMessage</assignToReference>
+            <operator>Add</operator>
+            <value>
+                <elementReference>ErrorLineToAdd</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Add_only_unique_error_lines</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>B2B_XB_FX_or_Same_Currency_and_Percent_Validations</name>
+        <label>B2B XB FX or Same Currency and Percent Validations</label>
+        <locationX>6864</locationX>
+        <locationY>755</locationY>
+        <assignmentItems>
+            <assignToReference>ErrorLines</assignToReference>
+            <operator>Add</operator>
+            <value>
+                <elementReference>EstAnnualMM</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>ErrorLines</assignToReference>
+            <operator>Add</operator>
+            <value>
+                <elementReference>Utilization</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Find_products_with_ARR_required_fields</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>B2B_XB_Same_Currency_Amount_Validation</name>
+        <label>B2B XB Same Currency Amount Validation</label>
+        <locationX>6600</locationX>
+        <locationY>755</locationY>
+        <assignmentItems>
+            <assignToReference>ErrorLines</assignToReference>
+            <operator>Add</operator>
+            <value>
+                <elementReference>EstimatedVolume</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>ErrorLines</assignToReference>
+            <operator>Add</operator>
+            <value>
+                <elementReference>Utilization</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Find_products_with_ARR_required_fields</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>CC_First_Data_Validations</name>
+        <label>CC First Data Validations</label>
+        <locationX>2376</locationX>
+        <locationY>755</locationY>
+        <assignmentItems>
+            <assignToReference>ErrorLines</assignToReference>
+            <operator>Add</operator>
+            <value>
+                <elementReference>ShipToTotalEnrollment</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>ErrorLines</assignToReference>
+            <operator>Add</operator>
+            <value>
+                <elementReference>ShipToInternationalPayers</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>ErrorLines</assignToReference>
+            <operator>Add</operator>
+            <value>
+                <elementReference>ShipToAvgTuitionBySemester</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Find_products_with_ARR_required_fields</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Edu_DOM_Validations</name>
+        <label>Edu DOM Validations</label>
+        <locationX>264</locationX>
+        <locationY>755</locationY>
+        <assignmentItems>
+            <assignToReference>ErrorMessage</assignToReference>
+            <operator>Add</operator>
+            <value>
+                <elementReference>EduTotalVolumeOrTransactions</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>ErrorMessage</assignToReference>
+            <operator>Add</operator>
+            <value>
+                <elementReference>EduSurchargeVolumeOrTransactions</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>ErrorMessage</assignToReference>
+            <operator>Add</operator>
+            <value>
+                <elementReference>ShipToShippingCountry</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>ErrorMessage</assignToReference>
+            <operator>Add</operator>
+            <value>
+                <elementReference>Utilization</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Find_products_with_ARR_required_fields</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Edu_Outgoing_Payments_Cross_Border_Validations</name>
+        <label>Edu Outgoing Payments Cross Border Validations</label>
+        <locationX>1320</locationX>
+        <locationY>755</locationY>
+        <assignmentItems>
+            <assignToReference>ErrorLines</assignToReference>
+            <operator>Add</operator>
+            <value>
+                <elementReference>EduClientHomeCCYXBPYMNTS</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>ErrorLines</assignToReference>
+            <operator>Add</operator>
+            <value>
+                <elementReference>ShipToShippingCountry</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Find_products_with_ARR_required_fields</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Edu_Outgoing_Payments_EFT_Validations</name>
+        <label>Edu Outgoing Payments EFT Validations</label>
+        <locationX>1584</locationX>
+        <locationY>755</locationY>
+        <assignmentItems>
+            <assignToReference>ErrorLines</assignToReference>
+            <operator>Add</operator>
+            <value>
+                <elementReference>EduNoDOMOutgoingPYMTS</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>ErrorLines</assignToReference>
+            <operator>Add</operator>
+            <value>
+                <elementReference>ShipToShippingCountry</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Find_products_with_ARR_required_fields</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Edu_Outgoing_Payments_Fixed_Fee_Validations</name>
+        <label>Edu Outgoing Payments Fixed Fee Validations</label>
+        <locationX>1056</locationX>
+        <locationY>755</locationY>
+        <assignmentItems>
+            <assignToReference>ErrorLines</assignToReference>
+            <operator>Add</operator>
+            <value>
+                <elementReference>EduAvgFxTransAmt</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>ErrorLines</assignToReference>
+            <operator>Add</operator>
+            <value>
+                <elementReference>EduFxXBOutgoingPYMTS</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>ErrorLines</assignToReference>
+            <operator>Add</operator>
+            <value>
+                <elementReference>ShipToShippingCountry</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Find_products_with_ARR_required_fields</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Edu_XB_Validations</name>
+        <label>Edu XB Validations</label>
+        <locationX>528</locationX>
+        <locationY>755</locationY>
+        <assignmentItems>
+            <assignToReference>ErrorLines</assignToReference>
+            <operator>Add</operator>
+            <value>
+                <elementReference>ShipToSubIndustry</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>ErrorLines</assignToReference>
+            <operator>Add</operator>
+            <value>
+                <elementReference>ShipToOwnershipType</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>ErrorLines</assignToReference>
+            <operator>Add</operator>
+            <value>
+                <elementReference>InternationalPayers</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>ErrorLines</assignToReference>
+            <operator>Add</operator>
+            <value>
+                <elementReference>ShipToShippingCountry</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>ErrorLines</assignToReference>
+            <operator>Add</operator>
+            <value>
+                <elementReference>Utilization</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Find_products_with_ARR_required_fields</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Enrollment_Fee_Validations</name>
+        <label>Enrollment Fee Validations</label>
+        <locationX>1848</locationX>
+        <locationY>755</locationY>
+        <assignmentItems>
+            <assignToReference>ErrorLines</assignToReference>
+            <operator>Add</operator>
+            <value>
+                <elementReference>ShipToTotalEnrollment</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>ErrorLines</assignToReference>
+            <operator>Add</operator>
+            <value>
+                <elementReference>ShipToInternationalPayers</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Find_products_with_ARR_required_fields</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Epic_Secure_Checkout_Validations</name>
+        <label>Epic Secure Checkout Validations</label>
+        <locationX>4312</locationX>
+        <locationY>755</locationY>
+        <assignmentItems>
+            <assignToReference>ErrorLines</assignToReference>
+            <operator>Add</operator>
+            <value>
+                <elementReference>AnnualExpectedSelfPayOrNetPatientRevenue</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Find_products_with_ARR_required_fields</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Fees_products_Validations</name>
+        <label>Fees products Validations</label>
+        <locationX>5368</locationX>
+        <locationY>755</locationY>
+        <assignmentItems>
+            <assignToReference>ErrorLines</assignToReference>
+            <operator>Add</operator>
+            <value>
+                <elementReference>AnnualExpectedSelfPayOrNetPatientRevenue</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>ErrorLines</assignToReference>
+            <operator>Add</operator>
+            <value>
+                <elementReference>ContractPaperFactor</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Find_products_with_ARR_required_fields</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Integrated_Financing_Validations</name>
+        <label>Integrated Financing Validations</label>
+        <locationX>4576</locationX>
+        <locationY>755</locationY>
+        <assignmentItems>
+            <assignToReference>ErrorLines</assignToReference>
+            <operator>Add</operator>
+            <value>
+                <elementReference>AnnualPlanOriginationOrNetPatientRevenue</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Find_products_with_ARR_required_fields</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Merchant_Processing_BPS_Validations</name>
+        <label>Merchant Processing BPS Validations</label>
+        <locationX>5632</locationX>
+        <locationY>755</locationY>
+        <assignmentItems>
+            <assignToReference>ErrorLines</assignToReference>
+            <operator>Add</operator>
+            <value>
+                <elementReference>BPSUpcharge</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>ErrorLines</assignToReference>
+            <operator>Add</operator>
+            <value>
+                <elementReference>ProcessedVolumeAmount</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Find_products_with_ARR_required_fields</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Merchant_Processing_Interchange_Validations</name>
+        <label>Merchant Processing Interchange Validations</label>
+        <locationX>6160</locationX>
+        <locationY>755</locationY>
+        <assignmentItems>
+            <assignToReference>ErrorLines</assignToReference>
+            <operator>Add</operator>
+            <value>
+                <elementReference>ProcessedVolumeAmount</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>ErrorLines</assignToReference>
+            <operator>Add</operator>
+            <value>
+                <elementReference>InterchangeRate</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Find_products_with_ARR_required_fields</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Merchant_Processing_TX_Validations</name>
+        <label>Merchant Processing TX Validations</label>
+        <locationX>5896</locationX>
+        <locationY>755</locationY>
+        <assignmentItems>
+            <assignToReference>ErrorLines</assignToReference>
+            <operator>Add</operator>
+            <value>
+                <elementReference>PerTransactionUpcharge</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>ErrorLines</assignToReference>
+            <operator>Add</operator>
+            <value>
+                <elementReference>NoProcessedVolume</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Find_products_with_ARR_required_fields</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Paper_Statements_Validations</name>
+        <label>Paper Statements Validations</label>
+        <locationX>4840</locationX>
+        <locationY>755</locationY>
+        <assignmentItems>
+            <assignToReference>ErrorLines</assignToReference>
+            <operator>Add</operator>
+            <value>
+                <elementReference>AnnualPrintStatementOrNetPatientRevenue</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Find_products_with_ARR_required_fields</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Paper_Suppression_Validations</name>
+        <label>Paper Suppression Validations</label>
+        <locationX>5104</locationX>
+        <locationY>755</locationY>
+        <assignmentItems>
+            <assignToReference>ErrorLines</assignToReference>
+            <operator>Add</operator>
+            <value>
+                <elementReference>AnnualPrintStatementVolume</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>ErrorLines</assignToReference>
+            <operator>Add</operator>
+            <value>
+                <elementReference>ContractPaperFactor</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Find_products_with_ARR_required_fields</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Solve_the_Error_Instructions</name>
+        <label>Solve the Error Instructions</label>
+        <locationX>308</locationX>
+        <locationY>1523</locationY>
+        <assignmentItems>
+            <assignToReference>ErrorMessage</assignToReference>
+            <operator>Add</operator>
+            <value>
+                <elementReference>InstructionsToSolveErrors</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Fields_Validation_Error_Message</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>StudyLink_Fields_Validations</name>
+        <label>StudyLink Validations</label>
+        <locationX>792</locationX>
+        <locationY>755</locationY>
+        <assignmentItems>
+            <assignToReference>ErrorLines</assignToReference>
+            <operator>Add</operator>
+            <value>
+                <elementReference>ExpectedNoAppsPerYear</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>ErrorLines</assignToReference>
+            <operator>Add</operator>
+            <value>
+                <elementReference>ShipToShippingCountry</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Find_products_with_ARR_required_fields</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Third_Party_Invoicing_Validations</name>
+        <label>Third Party Invoicing Validations</label>
+        <locationX>2640</locationX>
+        <locationY>755</locationY>
+        <assignmentItems>
+            <assignToReference>ErrorLines</assignToReference>
+            <operator>Add</operator>
+            <value>
+                <elementReference>InternationalSponsor</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>ErrorLines</assignToReference>
+            <operator>Add</operator>
+            <value>
+                <elementReference>YearlyInvoicedSent</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>ErrorLines</assignToReference>
+            <operator>Add</operator>
+            <value>
+                <elementReference>TotalDollarFlows</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Find_products_with_ARR_required_fields</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Travel_Outgoing_Payments_Cross_Border_Validations</name>
+        <label>Travel Outgoing Payments Cross Border Validations</label>
+        <locationX>3608</locationX>
+        <locationY>755</locationY>
+        <assignmentItems>
+            <assignToReference>ErrorLines</assignToReference>
+            <operator>Add</operator>
+            <value>
+                <elementReference>TravelClientHomeCCYXBPYMNTS</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>ErrorLines</assignToReference>
+            <operator>Add</operator>
+            <value>
+                <elementReference>ShipToShippingCountry</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Find_products_with_ARR_required_fields</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Travel_Outgoing_Payments_EFT_Validations</name>
+        <label>Travel Outgoing Payments EFT Validations</label>
+        <locationX>3872</locationX>
+        <locationY>755</locationY>
+        <assignmentItems>
+            <assignToReference>ErrorLines</assignToReference>
+            <operator>Add</operator>
+            <value>
+                <elementReference>TravelNoDOMOutgoingPYMTS</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>ErrorLines</assignToReference>
+            <operator>Add</operator>
+            <value>
+                <elementReference>ShipToShippingCountry</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Find_products_with_ARR_required_fields</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Travel_Outgoing_Payments_Fixed_Fee_Validations</name>
+        <label>Travel Outgoing Payments Fixed Fee Validations</label>
+        <locationX>3344</locationX>
+        <locationY>755</locationY>
+        <assignmentItems>
+            <assignToReference>ErrorLines</assignToReference>
+            <operator>Add</operator>
+            <value>
+                <elementReference>TravelAvgFxTransAmt</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>ErrorLines</assignToReference>
+            <operator>Add</operator>
+            <value>
+                <elementReference>TravelFxXBOutgoingPYmTS</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>ErrorLines</assignToReference>
+            <operator>Add</operator>
+            <value>
+                <elementReference>ShipToShippingCountry</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Find_products_with_ARR_required_fields</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Travel_XB_Validations</name>
+        <label>Travel XB/DOM Validations</label>
+        <locationX>3080</locationX>
+        <locationY>755</locationY>
+        <assignmentItems>
+            <assignToReference>ErrorLines</assignToReference>
+            <operator>Add</operator>
+            <value>
+                <elementReference>ShipToShippingCountry</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>ErrorLines</assignToReference>
+            <operator>Add</operator>
+            <value>
+                <elementReference>ShipToSubIndustryTravel</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>ErrorLines</assignToReference>
+            <operator>Add</operator>
+            <value>
+                <elementReference>ShipToIndustry</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>ErrorLines</assignToReference>
+            <operator>Add</operator>
+            <value>
+                <elementReference>EstAnnualMM</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Find_products_with_ARR_required_fields</targetReference>
+        </connector>
+    </assignments>
+    <constants>
+        <description>Line break to separate the different errors and make them more readable</description>
+        <name>LineBreak</name>
+        <dataType>String</dataType>
+        <value>
+            <stringValue>&lt;br/&gt;</stringValue>
+        </value>
+    </constants>
+    <customErrors>
+        <name>Fields_Validation_Error_Message</name>
+        <label>Fields Validation Error Message</label>
+        <locationX>308</locationX>
+        <locationY>1631</locationY>
+        <customErrorMessages>
+            <errorMessage>{!ErrorMessage}</errorMessage>
+            <isFieldError>false</isFieldError>
+        </customErrorMessages>
+    </customErrors>
+    <decisions>
+        <name>B2B_Products</name>
+        <label>B2B Products</label>
+        <locationX>6864</locationX>
+        <locationY>647</locationY>
+        <defaultConnector>
+            <targetReference>Find_products_with_ARR_required_fields</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>B2B_XB_Same_Currency_Amount</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>Find_products_with_ARR_required_fields.SBQQ__Product__r.ProductCode</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>FWXB1000</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>Find_products_with_ARR_required_fields.Usage_Type__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Amount</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>Find_products_with_ARR_required_fields.Transaction_Type__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Same Currency</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>Find_products_with_ARR_required_fields.Requires_ARR_Fields_Completion__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>B2B_XB_Same_Currency_Amount_Validation</targetReference>
+            </connector>
+            <label>B2B XB Same Currency Amount</label>
+        </rules>
+        <rules>
+            <name>B2B_XB_FX_or_Same_Currency_and_Percent</name>
+            <conditionLogic>1 AND 5 AND (2 or (3 AND 4))</conditionLogic>
+            <conditions>
+                <leftValueReference>Find_products_with_ARR_required_fields.SBQQ__Product__r.ProductCode</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>FWXB1000</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>Find_products_with_ARR_required_fields.Transaction_Type__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>FX</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>Find_products_with_ARR_required_fields.Transaction_Type__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Same Currency</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>Find_products_with_ARR_required_fields.Usage_Type__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Percent</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>Find_products_with_ARR_required_fields.Requires_ARR_Fields_Completion__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>B2B_XB_FX_or_Same_Currency_and_Percent_Validations</targetReference>
+            </connector>
+            <label>B2B XB FX or Same Currency and Percent</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Edu_Products</name>
+        <label>Edu Products</label>
+        <locationX>1584</locationX>
+        <locationY>647</locationY>
+        <defaultConnector>
+            <targetReference>Find_products_with_ARR_required_fields</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Domestic_Payments_Edu</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>Find_products_with_ARR_required_fields.SBQQ__Product__r.ProductCode</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>FWCCY1000</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>Find_products_with_ARR_required_fields.Requires_ARR_Fields_Completion__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Edu_DOM_Validations</targetReference>
+            </connector>
+            <label>Domestic Payments</label>
+        </rules>
+        <rules>
+            <name>Cross_Border_Payments_Edu</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>Find_products_with_ARR_required_fields.SBQQ__Product__r.ProductCode</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>FWXB1000</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>Find_products_with_ARR_required_fields.Requires_ARR_Fields_Completion__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Edu_XB_Validations</targetReference>
+            </connector>
+            <label>Cross Border Payments</label>
+        </rules>
+        <rules>
+            <name>StudyLink_Application_Fees</name>
+            <conditionLogic>or</conditionLogic>
+            <conditions>
+                <leftValueReference>Find_products_with_ARR_required_fields.SBQQ__Product__r.ProductCode</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>FWSL3000</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>Find_products_with_ARR_required_fields.SBQQ__Product__r.ProductCode</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>FWSL3010</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>Find_products_with_ARR_required_fields.SBQQ__Product__r.ProductCode</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>FWSL3020</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>StudyLink_Fields_Validations</targetReference>
+            </connector>
+            <label>StudyLink Application Fees</label>
+        </rules>
+        <rules>
+            <name>Outgoing_Payments_FX_Fixed_Fee_Edu</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>Find_products_with_ARR_required_fields.SBQQ__Product__r.ProductCode</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>FWAP1000</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Edu_Outgoing_Payments_Fixed_Fee_Validations</targetReference>
+            </connector>
+            <label>Outgoing Payments - FX Fixed Fee</label>
+        </rules>
+        <rules>
+            <name>Outgoing_Payments_Cross_Border_Edu</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>Find_products_with_ARR_required_fields.SBQQ__Product__r.ProductCode</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>FWAP1100</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Edu_Outgoing_Payments_Cross_Border_Validations</targetReference>
+            </connector>
+            <label>Outgoing Payments - Cross Border</label>
+        </rules>
+        <rules>
+            <name>Outgoing_Payments_EFT_Edu</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>Find_products_with_ARR_required_fields.SBQQ__Product__r.ProductCode</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>FWAP1200</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Edu_Outgoing_Payments_EFT_Validations</targetReference>
+            </connector>
+            <label>Outgoing Payments - EFT</label>
+        </rules>
+        <rules>
+            <name>Enrollment_Fee</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>Find_products_with_ARR_required_fields.SBQQ__Product__r.ProductCode</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>FWSFS1600</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Enrollment_Fee_Validations</targetReference>
+            </connector>
+            <label>Enrollment Fee</label>
+        </rules>
+        <rules>
+            <name>ACH_PNC_Gateway_for_SFS</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>Find_products_with_ARR_required_fields.SBQQ__Product__r.ProductCode</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>FWPAY2110</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>ACH_PNC_Gateway_Validations</targetReference>
+            </connector>
+            <label>ACH PNC Gateway for SFS</label>
+        </rules>
+        <rules>
+            <name>CC_First_Data_CC_Flywire_MoR</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>Find_products_with_ARR_required_fields.SBQQ__Product__r.ProductCode</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>FWPAY1700</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>CC_First_Data_Validations</targetReference>
+            </connector>
+            <label>CC - First Data / CC - Flywire MoR</label>
+        </rules>
+        <rules>
+            <name>Third_Party_Invoicing</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>Find_products_with_ARR_required_fields.SBQQ__Product__r.ProductCode</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>FWSI1200</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Third_Party_Invoicing_Validations</targetReference>
+            </connector>
+            <label>Third Party Invoicing</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Healthcare_Products</name>
+        <label>Healthcare Products</label>
+        <locationX>5368</locationX>
+        <locationY>647</locationY>
+        <defaultConnector>
+            <targetReference>Find_products_with_ARR_required_fields</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Epic_Secure_Checkout_Usage</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>Find_products_with_ARR_required_fields.SBQQ__Product__r.ProductCode</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>FWSC1100</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Epic_Secure_Checkout_Validations</targetReference>
+            </connector>
+            <label>Epic Secure Checkout (Usage)</label>
+        </rules>
+        <rules>
+            <name>Integrated_Financing_Payzen</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>Find_products_with_ARR_required_fields.SBQQ__Product__r.ProductCode</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>FWHC1600</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Integrated_Financing_Validations</targetReference>
+            </connector>
+            <label>Integrated Financing (Payzen)</label>
+        </rules>
+        <rules>
+            <name>Paper_Statements</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>Find_products_with_ARR_required_fields.SBQQ__Product__r.ProductCode</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>FWHC1200</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Paper_Statements_Validations</targetReference>
+            </connector>
+            <label>Paper Statements</label>
+        </rules>
+        <rules>
+            <name>Event_Based_Paper_Suppression</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>Find_products_with_ARR_required_fields.SBQQ__Product__r.ProductCode</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>FWSFS3100</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Paper_Suppression_Validations</targetReference>
+            </connector>
+            <label>Event Based Paper Suppression</label>
+        </rules>
+        <rules>
+            <name>Non_Installment_Service_and_Contingency_Fee</name>
+            <conditionLogic>or</conditionLogic>
+            <conditions>
+                <leftValueReference>Find_products_with_ARR_required_fields.SBQQ__Product__r.ProductCode</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>FWSFEE-01</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>Find_products_with_ARR_required_fields.SBQQ__Product__r.ProductCode</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>FWSFEE1000</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>Find_products_with_ARR_required_fields.SBQQ__Product__r.ProductCode</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>FWCFEE1000</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Fees_products_Validations</targetReference>
+            </connector>
+            <label>Non-Installment, Service and Contingency Fee</label>
+        </rules>
+        <rules>
+            <name>Merchant_Processing</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>Find_products_with_ARR_required_fields.SBQQ__Product__r.ProductCode</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>FWHC1330</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Merchant_Processing_BPS_Validations</targetReference>
+            </connector>
+            <label>Merchant Processing BPS</label>
+        </rules>
+        <rules>
+            <name>Merchant_Processing_TX</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>Find_products_with_ARR_required_fields.SBQQ__Product__r.ProductCode</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>FWHC1310</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Merchant_Processing_TX_Validations</targetReference>
+            </connector>
+            <label>Merchant Processing TX</label>
+        </rules>
+        <rules>
+            <name>Merchant_Processing_Interchange</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>Find_products_with_ARR_required_fields.SBQQ__Product__r.ProductCode</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>FWHC1320</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Merchant_Processing_Interchange_Validations</targetReference>
+            </connector>
+            <label>Merchant Processing Interchange</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Record_Type</name>
+        <label>Record Type</label>
+        <locationX>4444</locationX>
+        <locationY>539</locationY>
+        <defaultConnector>
+            <targetReference>Find_products_with_ARR_required_fields</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Education</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.RecordType.DeveloperName</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Education</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Edu_Products</targetReference>
+            </connector>
+            <label>Education</label>
+        </rules>
+        <rules>
+            <name>Travel</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.RecordType.DeveloperName</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Travel</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Travel_Products</targetReference>
+            </connector>
+            <label>Travel</label>
+        </rules>
+        <rules>
+            <name>Healthcare</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.RecordType.DeveloperName</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Healthcare</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Healthcare_Products</targetReference>
+            </connector>
+            <label>Healthcare</label>
+        </rules>
+        <rules>
+            <name>B2B</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.RecordType.DeveloperName</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>B2B</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>B2B_Products</targetReference>
+            </connector>
+            <label>B2B</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <description>Determine if the error message contains instructions for the user.</description>
+        <name>Show_Error</name>
+        <label>Show Error</label>
+        <locationX>176</locationX>
+        <locationY>1415</locationY>
+        <defaultConnector>
+            <targetReference>Solve_the_Error_Instructions</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Yes</defaultConnectorLabel>
+        <rules>
+            <name>No_Error</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>ErrorMessage</leftValueReference>
+                <operator>EndsWith</operator>
+                <rightValue>
+                    <stringValue>:</stringValue>
+                </rightValue>
+            </conditions>
+            <label>No Error</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Travel_Products</name>
+        <label>Travel Products</label>
+        <locationX>3608</locationX>
+        <locationY>647</locationY>
+        <defaultConnector>
+            <targetReference>Find_products_with_ARR_required_fields</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Cross_Border_Domestic_Payments</name>
+            <conditionLogic>(1 OR 2) AND 3</conditionLogic>
+            <conditions>
+                <leftValueReference>Find_products_with_ARR_required_fields.SBQQ__Product__r.ProductCode</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>FWXB1000</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>Find_products_with_ARR_required_fields.SBQQ__Product__r.ProductCode</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>FWCCY1000</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>Find_products_with_ARR_required_fields.Requires_ARR_Fields_Completion__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Travel_XB_Validations</targetReference>
+            </connector>
+            <label>Cross Border/Domestic Payments</label>
+        </rules>
+        <rules>
+            <name>Outgoing_Payments_FX_Fixed_Fee_Travel</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>Find_products_with_ARR_required_fields.SBQQ__Product__r.ProductCode</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>FWAP1000</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Travel_Outgoing_Payments_Fixed_Fee_Validations</targetReference>
+            </connector>
+            <label>Outgoing Payments - FX Fixed Fee</label>
+        </rules>
+        <rules>
+            <name>Outgoing_Payments_Cross_Border_Travel</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>Find_products_with_ARR_required_fields.SBQQ__Product__r.ProductCode</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>FWAP1100</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Travel_Outgoing_Payments_Cross_Border_Validations</targetReference>
+            </connector>
+            <label>Outgoing Payments - Cross Border</label>
+        </rules>
+        <rules>
+            <name>Outgoing_Payments_EFT_Travel</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>Find_products_with_ARR_required_fields.SBQQ__Product__r.ProductCode</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>FWAP1200</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Travel_Outgoing_Payments_EFT_Validations</targetReference>
+            </connector>
+            <label>Outgoing Payments - EFT</label>
+        </rules>
+    </decisions>
+    <description>BOPI-532 Ensures that all required fields on related objects are correctly filled based on the products added to the opportunity. BOPI-532 Update 11/08/2024 to validate the new HC Merchant processing products required fields. BOPI-532 Updated 11/22/2024 to include Third party invoicing validation. BOPI-620 Updated to ensure the ARR fields are validated only for new quote lines. BOPI-631 Updated to request ARR information on XB/DOM only for one line for each ship to account (Requires_ARR_Fields_Completion__c = true).
+BOPI-628 Updated Merchant Processing BPS product code FWHC1300 -&gt; FWHC1330
+BOPI-727 Adjust required fields on HC products
+BOPI-798 The DOM ARR fields now need to be filled in always regardless of the Account shipping country
+BOPI-857 Allow opportunity products to have ARR $0 (Not blank)
+SALDEV-1279 Update ARR calculation field requirement.</description>
+    <environments>Default</environments>
+    <formulas>
+        <name>AnnualExpectedSelfPayOrNetPatientRevenue</name>
+        <dataType>String</dataType>
+        <expression>IF(AND(
+OR(ISBLANK({!$Record.Annual_Expected_Self_Pay_USD__c})),
+OR(ISBLANK({!$Record.Ship_To_Account__r.Net_Patient_Revenue__c})
+)),
+&apos; Either the &quot;Annual Expected Self-Pay USD&quot; field on the Opportunity or the &quot;Net Patient Revenue&quot; field on the &quot;&apos; &amp; {!$Record.Ship_To_Account__r.Name} &amp; &apos;&quot; Account.&apos;,
+&apos;&apos;
+)</expression>
+    </formulas>
+    <formulas>
+        <name>AnnualPlanOriginationOrNetPatientRevenue</name>
+        <dataType>String</dataType>
+        <expression>IF(AND(
+OR(ISBLANK({!$Record.Annual_Plan_Origination_USD__c})),
+OR(ISBLANK({!$Record.Ship_To_Account__r.Net_Patient_Revenue__c})
+)),
+&apos; Either the &quot;Annual Plan Origination USD&quot; field on the Opportunity or the &quot;Net Patient Revenue&quot; field on the &quot;&apos; &amp; {!$Record.Ship_To_Account__r.Name} &amp; &apos;&quot; Account.&apos;,
+&apos;&apos;
+)</expression>
+    </formulas>
+    <formulas>
+        <name>AnnualPrintStatementOrNetPatientRevenue</name>
+        <dataType>String</dataType>
+        <expression>IF(AND(
+OR(ISBLANK({!$Record.Annual_Print_Statement_Volume__c})),
+OR(ISBLANK({!$Record.Ship_To_Account__r.Net_Patient_Revenue__c})
+)),
+&apos; Either the &quot;Annual Print Statement Volume&quot; field or the &quot;Net Patient Revenue&quot; field on the &quot;&apos; &amp; {!$Record.Ship_To_Account__r.Name} &amp; &apos;&quot; Account.&apos;,
+&apos;&apos;
+)</expression>
+    </formulas>
+    <formulas>
+        <name>AnnualPrintStatementVolume</name>
+        <dataType>String</dataType>
+        <expression>IF(OR(ISBLANK({!$Record.Ship_To_Account__r.Annual_Print_Statement_Volume__c})
+),
+&apos; &quot;Annual Print Statement Volume&quot; field on the &quot;&apos; &amp; {!$Record.Ship_To_Account__r.Name} &amp; &apos;&quot; Account.&apos;,
+&apos;&apos;
+)</expression>
+    </formulas>
+    <formulas>
+        <description>Average Tuition by Semester consists of four fields:
+
+Annual In-State Avg. Tuition
+% In State
+
+Annual Out-of-State Avg. Tuition
+% Out of State
+
+At least one of these tuition and percentage pairs must be completed to calculate the average tuition per semester.</description>
+        <name>AvgTuitionBySemesterCalculation</name>
+        <dataType>Number</dataType>
+        <expression>(IF(AND(
+NOT(ISBLANK({!Find_products_with_ARR_required_fields.Ship_To_Account__r.In_State_Avg_Tuition__c})),
+NOT(ISBLANK({!Find_products_with_ARR_required_fields.Ship_To_Account__r.In_State__c}))),
+(({!Find_products_with_ARR_required_fields.Ship_To_Account__r.In_State_Avg_Tuition__c} * 
+{!Find_products_with_ARR_required_fields.Ship_To_Account__r.In_State__c}) / 2),
+0
+)
++
+IF(AND(
+NOT(ISBLANK({!Find_products_with_ARR_required_fields.Ship_To_Account__r.Out_of_State_Avg_Tuition__c})),
+NOT(ISBLANK({!Find_products_with_ARR_required_fields.Ship_To_Account__r.Out_of_State__c}))),
+(({!Find_products_with_ARR_required_fields.Ship_To_Account__r.Out_of_State_Avg_Tuition__c} * 
+{!Find_products_with_ARR_required_fields.Ship_To_Account__r.Out_of_State__c}) / 2),
+0
+)) /100</expression>
+        <scale>0</scale>
+    </formulas>
+    <formulas>
+        <name>BPSUpcharge</name>
+        <dataType>String</dataType>
+        <expression>IF(OR(ISBLANK({!Find_products_with_ARR_required_fields.BPS_Upcharge__c})
+),
+&apos; &quot;BPS Upcharge&quot; field on the &quot;&apos; &amp; {!Find_products_with_ARR_required_fields.SBQQ__ProductName__c} &amp; &apos;&quot; Quote Line.&apos;,
+&apos;&apos;
+)</expression>
+    </formulas>
+    <formulas>
+        <name>ContractPaperFactor</name>
+        <dataType>String</dataType>
+        <expression>IF(ISBLANK(TEXT({!$Record.Contract_Paper__c})),
+&apos; &quot;Contract Paper&quot; field on the Opportunity.&apos;,
+&apos;&apos;
+)</expression>
+    </formulas>
+    <formulas>
+        <name>EduAvgFxTransAmt</name>
+        <dataType>String</dataType>
+        <expression>IF(OR(
+{!Find_products_with_ARR_required_fields.Ship_To_Account__r.ShippingCountry} = &apos;Canada&apos;,
+{!Find_products_with_ARR_required_fields.Ship_To_Account__r.ShippingCountry} = &apos;United Kingdom&apos;
+),
+IF(OR(ISBLANK({!Find_products_with_ARR_required_fields.Avg_FX_Trans_Amt__c})),
+&apos; &quot;Avg FX Trans Amt&quot; field on the &quot;&apos; &amp; {!Find_products_with_ARR_required_fields.SBQQ__ProductName__c} &amp; &apos;&quot; Quote Line.&apos;,
+&apos;&apos;
+),
+&apos;&apos;
+)</expression>
+    </formulas>
+    <formulas>
+        <name>EduClientHomeCCYXBPYMNTS</name>
+        <dataType>String</dataType>
+        <expression>IF(OR(
+{!Find_products_with_ARR_required_fields.Ship_To_Account__r.ShippingCountry} = &apos;Canada&apos;,
+{!Find_products_with_ARR_required_fields.Ship_To_Account__r.ShippingCountry} = &apos;United Kingdom&apos;
+),
+IF(OR(ISBLANK({!Find_products_with_ARR_required_fields.Client_Home_CCY_XB_PYMNTS__c})),
+&apos; &quot;Client Home CCY XB PYMNTS&quot; field on the &quot;&apos; &amp; {!Find_products_with_ARR_required_fields.SBQQ__ProductName__c} &amp; &apos;&quot; Quote Line.&apos;,
+&apos;&apos;
+),
+&apos;&apos;
+)</expression>
+    </formulas>
+    <formulas>
+        <name>EduFxXBOutgoingPYMTS</name>
+        <dataType>String</dataType>
+        <expression>IF(OR(
+{!Find_products_with_ARR_required_fields.Ship_To_Account__r.ShippingCountry} = &apos;Canada&apos;,
+{!Find_products_with_ARR_required_fields.Ship_To_Account__r.ShippingCountry} = &apos;United Kingdom&apos;
+),
+IF(OR({!Find_products_with_ARR_required_fields.FX_XB_Outgoing_PYMTS__c} &lt; 1,
+ISBLANK({!Find_products_with_ARR_required_fields.FX_XB_Outgoing_PYMTS__c})),
+&apos; &quot;FX XB Outgoing PYMTS&quot; field on the &quot;&apos; &amp; {!Find_products_with_ARR_required_fields.SBQQ__ProductName__c} &amp; &apos;&quot; Quote Line.&apos;,
+&apos;&apos;
+),
+&apos;&apos;
+)</expression>
+    </formulas>
+    <formulas>
+        <name>EduNoDOMOutgoingPYMTS</name>
+        <dataType>String</dataType>
+        <expression>IF(OR(
+{!Find_products_with_ARR_required_fields.Ship_To_Account__r.ShippingCountry} = &apos;Canada&apos;,
+{!Find_products_with_ARR_required_fields.Ship_To_Account__r.ShippingCountry} = &apos;United Kingdom&apos;
+),
+IF(OR(ISBLANK({!Find_products_with_ARR_required_fields.DOM_Outgoing_PYMTS__c})),
+&apos; &quot;# DOM Outgoing PYMTS&quot; field on the &quot;&apos; &amp; {!Find_products_with_ARR_required_fields.SBQQ__ProductName__c} &amp; &apos;&quot; Quote Line.&apos;,
+&apos;&apos;
+),
+&apos;&apos;
+)</expression>
+    </formulas>
+    <formulas>
+        <name>EduSurchargeVolumeOrTransactions</name>
+        <dataType>String</dataType>
+        <expression>IF(
+    AND(
+        {!Find_products_with_ARR_required_fields.Requires_ARR_Fields_Completion__c} = true,
+        AND(
+            ISPICKVAL({!Find_products_with_ARR_required_fields.Surcharging__c}, &quot;Yes&quot;),
+            OR(
+                AND(
+                    ISPICKVAL({!Find_products_with_ARR_required_fields.Usage_Type__c}, &quot;Amount&quot;),
+                    OR(
+                        ISBLANK({!Find_products_with_ARR_required_fields.Annual_No_Surcharge_Transactions__c})
+                    )
+                ),
+                AND(
+                    OR(
+                        ISPICKVAL({!Find_products_with_ARR_required_fields.Usage_Type__c}, &quot;Percent&quot;),
+                        ISPICKVAL({!Find_products_with_ARR_required_fields.Usage_Type__c}, &quot;Both&quot;)
+                    ),
+                    OR(
+                        ISBLANK({!Find_products_with_ARR_required_fields.Annual_Total_Surcharge_Volume__c})
+                    )
+                )
+            )
+        )
+    ),
+    IF(
+        ISPICKVAL({!Find_products_with_ARR_required_fields.Usage_Type__c}, &quot;Amount&quot;),
+        IF(
+            AND(
+                ISPICKVAL({!Find_products_with_ARR_required_fields.Surcharging__c}, &quot;Yes&quot;),
+                OR(
+                    ISBLANK({!Find_products_with_ARR_required_fields.Annual_No_Surcharge_Transactions__c})
+                )
+            ),
+            &apos;&quot;Annual # Surcharge Transactions&quot; field on this Quote Line.&apos;,
+            &quot;&quot;
+        ),
+        IF(
+            AND(
+                ISPICKVAL({!Find_products_with_ARR_required_fields.Surcharging__c}, &quot;Yes&quot;),
+                OR(
+                    ISBLANK({!Find_products_with_ARR_required_fields.Annual_Total_Surcharge_Volume__c})
+                )
+            ),
+            &apos;&quot;Annual Total Surcharge Volume&quot; field on this Quote Line.&apos;,
+            &quot;&quot;
+        )
+    ),
+    &quot;&quot;
+)</expression>
+    </formulas>
+    <formulas>
+        <name>EduTotalVolumeOrTransactions</name>
+        <dataType>String</dataType>
+        <expression>IF(
+    AND(
+        {!Find_products_with_ARR_required_fields.Requires_ARR_Fields_Completion__c} = true,
+        OR(
+            AND(
+                ISPICKVAL({!Find_products_with_ARR_required_fields.Usage_Type__c}, &quot;Amount&quot;),
+                OR(
+                    ISBLANK({!Find_products_with_ARR_required_fields.Annual_Number_of_Domestic_Transactions__c})
+                )
+            ),
+            AND(
+                OR(
+                    ISPICKVAL({!Find_products_with_ARR_required_fields.Usage_Type__c}, &quot;Percent&quot;),
+                    ISPICKVAL({!Find_products_with_ARR_required_fields.Usage_Type__c}, &quot;Both&quot;)
+                ),
+                OR(
+                    ISBLANK({!Find_products_with_ARR_required_fields.Annual_Total_CC_Volume__c})
+                )
+            )
+        )
+    ),
+    IF(
+        ISPICKVAL({!Find_products_with_ARR_required_fields.Usage_Type__c}, &quot;Amount&quot;),
+        IF(
+            OR(
+                ISBLANK({!Find_products_with_ARR_required_fields.Annual_Number_of_Domestic_Transactions__c})
+            ),
+             &apos; &quot;Annual # of Domestic Transactions&quot; field on the &quot;&apos; &amp; {!Find_products_with_ARR_required_fields.SBQQ__ProductName__c} &amp; &apos;&quot; Quote Line.&apos;,
+            &quot;&quot;
+        ),
+        IF(
+            OR(
+                ISBLANK({!Find_products_with_ARR_required_fields.Annual_Total_CC_Volume__c})
+            ),
+             &apos; &quot;Annual Total Domestic Volume&quot; field on the &apos; &amp; {!Find_products_with_ARR_required_fields.SBQQ__ProductName__c} &amp; &apos; Quote Line.&apos;,
+            &quot;&quot;
+        )
+    ),
+    &quot;&quot;
+)</expression>
+    </formulas>
+    <formulas>
+        <description>If the error line is already present, just add an empty string.</description>
+        <name>ErrorLineToAdd</name>
+        <dataType>String</dataType>
+        <expression>IF(CONTAINS({!ErrorMessage}, {!Add_only_unique_error_lines}),&apos;&apos;,{!Add_only_unique_error_lines})</expression>
+    </formulas>
+    <formulas>
+        <name>EstAnnualMM</name>
+        <dataType>String</dataType>
+        <expression>IF(OR(ISBLANK({!Find_products_with_ARR_required_fields.Est_Annual_MM__c})),
+&apos; &quot;Est Annual MM&quot; field on the &quot;&apos; &amp; {!Find_products_with_ARR_required_fields.SBQQ__ProductName__c} &amp; &apos;&quot; Quote Line.&apos;,
+&apos;&apos;
+)</expression>
+    </formulas>
+    <formulas>
+        <name>EstimatedVolume</name>
+        <dataType>String</dataType>
+        <expression>IF(OR(ISBLANK({!Find_products_with_ARR_required_fields.Estimated_Volume__c})),
+&apos; &quot;Estimated Volume&quot; field on the &quot;&apos; &amp; {!Find_products_with_ARR_required_fields.SBQQ__ProductName__c} &amp; &apos;&quot; Quote Line.&apos;,
+&apos;&apos;
+)</expression>
+    </formulas>
+    <formulas>
+        <name>ExpectedNoAppsPerYear</name>
+        <dataType>String</dataType>
+        <expression>IF(OR(ISBLANK({!Find_products_with_ARR_required_fields.Expected_of_Apps_per_Year__c})),
+&apos; &quot;Expected # of Apps per Year&quot; field on the &quot;&apos; &amp; {!Find_products_with_ARR_required_fields.SBQQ__ProductName__c} &amp; &apos;&quot; Quote Line.&apos;,
+&apos;&apos;
+)</expression>
+    </formulas>
+    <formulas>
+        <name>InstructionsToSolveErrors</name>
+        <dataType>String</dataType>
+        <expression>IF(ISPICKVAL({!$Record.SBQQ__PrimaryQuote__r.ApprovalStatus__c},&apos;Approved&apos;),
+&apos; If the field you need to complete is on the Quote Line, navigate to the Quote record, click &quot;Recall Approval&quot;, then click &quot;Edit Lines,&quot; fill in the missing information, and then click &quot;Save&quot;. After that, resubmit the quote for approval.&apos;,
+&apos; If the field you need to complete is on the Quote Line, navigate to the Quote record, click &quot;Edit Lines,&quot; fill in the missing information, and then click &quot;Save&quot;.&apos;
+)</expression>
+    </formulas>
+    <formulas>
+        <name>InterchangeRate</name>
+        <dataType>String</dataType>
+        <expression>IF(ISBLANK({!Find_products_with_ARR_required_fields.Interchange_Rate__c}),
+&apos; &quot;Interchange Rate&quot; field on the &quot;&apos; &amp; {!Find_products_with_ARR_required_fields.SBQQ__ProductName__c} &amp; &apos;&quot; Quote Line.&apos;,
+&apos;&apos;
+)</expression>
+    </formulas>
+    <formulas>
+        <name>InternationalPayers</name>
+        <dataType>String</dataType>
+        <expression>IF(
+    AND(
+        {!Find_products_with_ARR_required_fields.Requires_ARR_Fields_Completion__c} = true,
+        OR(
+            ISBLANK({!Find_products_with_ARR_required_fields.No_International_Payers__c})
+        )
+    ),
+    &apos; &quot;No. International Payers&quot; field on the &quot;&apos; &amp; {!Find_products_with_ARR_required_fields.SBQQ__ProductName__c} &amp; &apos;&quot; Quote Line.&apos;,
+    &apos;&apos;
+)</expression>
+    </formulas>
+    <formulas>
+        <name>InternationalSponsor</name>
+        <dataType>String</dataType>
+        <expression>IF(ISBLANK({!Find_products_with_ARR_required_fields.International_Sponsor__c}),
+&apos; &quot;Int Sponsor&quot; field on the &quot;&apos; &amp; {!Find_products_with_ARR_required_fields.SBQQ__ProductName__c} &amp; &apos;&quot; Quote Line.&apos;,
+&apos;&apos;
+)</expression>
+    </formulas>
+    <formulas>
+        <name>NoProcessedVolume</name>
+        <dataType>String</dataType>
+        <expression>IF(OR(ISBLANK({!Find_products_with_ARR_required_fields.No_Processed_Volume__c})
+),
+&apos; &quot;# Processed Volume&quot; field on the &quot;&apos; &amp; {!Find_products_with_ARR_required_fields.SBQQ__ProductName__c} &amp; &apos;&quot; Quote Line.&apos;,
+&apos;&apos;
+)</expression>
+    </formulas>
+    <formulas>
+        <name>PerTransactionUpcharge</name>
+        <dataType>String</dataType>
+        <expression>IF(ISBLANK({!Find_products_with_ARR_required_fields.Per_Transaction_Upcharge__c}),
+&apos; &quot;Per Transaction Upcharge&quot; field on the &quot;&apos; &amp; {!Find_products_with_ARR_required_fields.SBQQ__ProductName__c} &amp; &apos;&quot; Quote Line.&apos;,
+&apos;&apos;
+)</expression>
+    </formulas>
+    <formulas>
+        <name>ProcessedVolumeAmount</name>
+        <dataType>String</dataType>
+        <expression>IF(OR(ISBLANK({!Find_products_with_ARR_required_fields.Processed_Volume_Amount__c})
+),
+&apos; &quot;Processed Volume Amount&quot; field on the &quot;&apos; &amp; {!Find_products_with_ARR_required_fields.SBQQ__ProductName__c} &amp; &apos;&quot; Quote Line.&apos;,
+&apos;&apos;
+)</expression>
+    </formulas>
+    <formulas>
+        <name>ShipToAvgTuitionBySemester</name>
+        <dataType>String</dataType>
+        <expression>IF(OR(ISBLANK({!AvgTuitionBySemesterCalculation})),
+&apos; &quot;Annual In-State Avg. Tuition&quot; and the &quot;% In State&quot; fields, or the &quot;Annual Out-of-State Avg. Tuition&quot; and the &quot;% Out of State&quot; fields on the &quot;&apos; &amp; 
+{!Find_products_with_ARR_required_fields.Ship_To_Account__r.Name} &amp; &apos;&quot; Account &apos; &amp;
+&apos; or all four fields if applicable.&apos;,
+&apos;&apos;
+)</expression>
+    </formulas>
+    <formulas>
+        <name>ShipToIndustry</name>
+        <dataType>String</dataType>
+        <expression>IF((ISBLANK(TEXT({!Find_products_with_ARR_required_fields.Ship_To_Account__r.Account_Industry__c}))),
+&apos; &quot;Account Industry&quot; field on the &quot;&apos; &amp; {!Find_products_with_ARR_required_fields.Ship_To_Account__r.Name} &amp; &apos;&quot; Account.&apos;,
+&apos;&apos;
+)</expression>
+    </formulas>
+    <formulas>
+        <name>ShipToInternationalPayers</name>
+        <dataType>String</dataType>
+        <expression>IF(OR({!Find_products_with_ARR_required_fields.Ship_To_Account__r.No_International_Payers_At_Account__c} &lt; 1,
+ISBLANK({!Find_products_with_ARR_required_fields.Ship_To_Account__r.No_International_Payers_At_Account__c})),
+&apos; &quot;No. International Payers At Account&quot; field on the &quot;&apos; &amp; {!Find_products_with_ARR_required_fields.Ship_To_Account__r.Name} &amp; &apos;&quot; Account.&apos;,
+&apos;&apos;
+)</expression>
+    </formulas>
+    <formulas>
+        <name>ShipToOwnershipType</name>
+        <dataType>String</dataType>
+        <expression>IF(
+    AND(
+        {!Find_products_with_ARR_required_fields.Requires_ARR_Fields_Completion__c} = true,
+        ISBLANK(TEXT({!Find_products_with_ARR_required_fields.Ship_To_Account__r.Ownership_Type__c})),
+        {!Find_products_with_ARR_required_fields.Ship_To_Account__r.ShippingCountry} = &apos;Australia&apos;
+    ),
+    &apos; &quot;Ownership Type&quot; field on the &quot;&apos; &amp; {!Find_products_with_ARR_required_fields.Ship_To_Account__r.Name} &amp; &apos;&quot; Account.&apos;,
+    &apos;&apos;
+)</expression>
+    </formulas>
+    <formulas>
+        <name>ShipToShippingCountry</name>
+        <dataType>String</dataType>
+        <expression>IF(ISBLANK({!Find_products_with_ARR_required_fields.Ship_To_Account__r.ShippingCountry}),
+&apos; &quot;Shipping Country&quot; field on the &quot;&apos; &amp; {!Find_products_with_ARR_required_fields.Ship_To_Account__r.Name} &amp; &apos;&quot; Account.&apos;,
+&apos;&apos;
+)</expression>
+    </formulas>
+    <formulas>
+        <name>ShipToSubIndustry</name>
+        <dataType>String</dataType>
+        <expression>IF(
+    AND(
+        {!Find_products_with_ARR_required_fields.Requires_ARR_Fields_Completion__c} = true,
+        ISBLANK(TEXT({!Find_products_with_ARR_required_fields.Ship_To_Account__r.Account_Sub_Industry__c}))
+    ),
+    &apos; &quot;Account Sub Industry&quot; field on the &quot;&apos; &amp; {!Find_products_with_ARR_required_fields.Ship_To_Account__r.Name} &amp; &apos;&quot; Account.&apos;,
+    &apos;&apos;
+)</expression>
+    </formulas>
+    <formulas>
+        <name>ShipToSubIndustryTravel</name>
+        <dataType>String</dataType>
+        <expression>IF(AND((ISBLANK(TEXT({!Find_products_with_ARR_required_fields.Ship_To_Account__r.Account_Sub_Industry__c}))),
+ISPICKVAL({!Find_products_with_ARR_required_fields.Ship_To_Account__r.Account_Industry__c},&apos;Accommodations&apos;)),
+&apos; &quot;Account Sub Industry&quot; field on the &quot;&apos; &amp; {!Find_products_with_ARR_required_fields.Ship_To_Account__r.Name} &amp; &apos;&quot; Account.&apos;,
+&apos;&apos;
+)</expression>
+    </formulas>
+    <formulas>
+        <name>ShipToTotalEnrollment</name>
+        <dataType>String</dataType>
+        <expression>IF(OR(ISBLANK({!Find_products_with_ARR_required_fields.Ship_To_Account__r.Total_Enrollment__c} )),
+&apos; Either the &quot;Undergrad Enrollment&quot; field, the &quot;Graduate Enrollment&quot; field on the &quot;&apos; &amp; 
+{!Find_products_with_ARR_required_fields.Ship_To_Account__r.Name} &amp; &apos;&quot; Account.&apos; &amp;
+&apos; or both fields if applicable.&apos;,
+&apos;&apos;
+)</expression>
+    </formulas>
+    <formulas>
+        <name>TotalDollarFlows</name>
+        <dataType>String</dataType>
+        <expression>IF(ISBLANK({!Find_products_with_ARR_required_fields.Total_Flows__c}),
+&apos; &quot;Total $ Flows&quot; field on the &quot;&apos; &amp; {!Find_products_with_ARR_required_fields.SBQQ__ProductName__c} &amp; &apos;&quot; Quote Line.&apos;,
+&apos;&apos;
+)</expression>
+    </formulas>
+    <formulas>
+        <name>TravelAvgFxTransAmt</name>
+        <dataType>String</dataType>
+        <expression>IF({!Find_products_with_ARR_required_fields.Ship_To_Account__r.Account_Region__c} = &apos;EMEA&apos;,
+IF(OR(ISBLANK({!Find_products_with_ARR_required_fields.Avg_FX_Trans_Amt__c})),
+&apos; &quot;Avg FX Trans Amt&quot; field on the &quot;&apos; &amp; {!Find_products_with_ARR_required_fields.SBQQ__ProductName__c} &amp; &apos;&quot; Quote Line.&apos;,
+&apos;&apos;
+),
+&apos;&apos;
+)</expression>
+    </formulas>
+    <formulas>
+        <name>TravelClientHomeCCYXBPYMNTS</name>
+        <dataType>String</dataType>
+        <expression>IF({!Find_products_with_ARR_required_fields.Ship_To_Account__r.Account_Region__c} = &apos;EMEA&apos;,
+IF(OR(ISBLANK({!Find_products_with_ARR_required_fields.Client_Home_CCY_XB_PYMNTS__c})),
+&apos; &quot;Client Home CCY XB PYMNTS&quot; field on the &quot;&apos; &amp; {!Find_products_with_ARR_required_fields.SBQQ__ProductName__c} &amp; &apos;&quot; Quote Line.&apos;,
+&apos;&apos;
+),
+&apos;&apos;
+)</expression>
+    </formulas>
+    <formulas>
+        <name>TravelFxXBOutgoingPYmTS</name>
+        <dataType>String</dataType>
+        <expression>IF({!Find_products_with_ARR_required_fields.Ship_To_Account__r.Account_Region__c} = &apos;EMEA&apos;,
+IF(OR(ISBLANK({!Find_products_with_ARR_required_fields.FX_XB_Outgoing_PYMTS__c})),
+&apos; &quot;FX XB Outgoing PYMTS&quot; field on the &quot;&apos; &amp; {!Find_products_with_ARR_required_fields.SBQQ__ProductName__c} &amp; &apos;&quot; Quote Line.&apos;,
+&apos;&apos;
+),
+&apos;&apos;
+)</expression>
+    </formulas>
+    <formulas>
+        <name>TravelNoDOMOutgoingPYMTS</name>
+        <dataType>String</dataType>
+        <expression>IF({!Find_products_with_ARR_required_fields.Ship_To_Account__r.Account_Region__c} = &apos;EMEA&apos;,
+IF(OR(ISBLANK({!Find_products_with_ARR_required_fields.DOM_Outgoing_PYMTS__c})),
+&apos; &quot;# DOM Outgoing PYMTS&quot; field on the &quot;&apos; &amp; {!Find_products_with_ARR_required_fields.SBQQ__ProductName__c} &amp; &apos;&quot; Quote Line.&apos;,
+&apos;&apos;
+),
+&apos;&apos;
+)</expression>
+    </formulas>
+    <formulas>
+        <name>Utilization</name>
+        <dataType>String</dataType>
+        <expression>IF(ISBLANK(TEXT({!Find_products_with_ARR_required_fields.Utilization__c})),
+&apos; &quot;% Utilization&quot; field on the &quot;&apos; &amp; {!Find_products_with_ARR_required_fields.SBQQ__ProductName__c} &amp; &apos;&quot; Quote Line.&apos;,
+&apos;&apos;
+)</expression>
+    </formulas>
+    <formulas>
+        <name>YearlyInvoicedSent</name>
+        <dataType>String</dataType>
+        <expression>IF(ISBLANK({!Find_products_with_ARR_required_fields.Yearly_Invoiced_Sent__c}),
+&apos; &quot;Yearly Invoiced Sent&quot; field on the &quot;&apos; &amp; {!Find_products_with_ARR_required_fields.SBQQ__ProductName__c} &amp; &apos;&quot; Quote Line.&apos;,
+&apos;&apos;
+)</expression>
+    </formulas>
+    <interviewLabel>(Opp) Check ARR Required Fields {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>(Opp) Check ARR Required Fields</label>
+    <loops>
+        <description>Check if the error line is already present before adding it to the final error message</description>
+        <name>Add_only_unique_error_lines</name>
+        <label>Add only unique error lines</label>
+        <locationX>176</locationX>
+        <locationY>1115</locationY>
+        <collectionReference>ErrorLines</collectionReference>
+        <iterationOrder>Asc</iterationOrder>
+        <nextValueConnector>
+            <targetReference>Add_Unique_Lines</targetReference>
+        </nextValueConnector>
+        <noMoreValuesConnector>
+            <targetReference>Show_Error</targetReference>
+        </noMoreValuesConnector>
+    </loops>
+    <loops>
+        <description>If a required field doesn&apos;t have a value add an error line to help the user fill the missing value</description>
+        <name>Find_products_with_ARR_required_fields</name>
+        <label>Find products with ARR required fields</label>
+        <locationX>176</locationX>
+        <locationY>431</locationY>
+        <collectionReference>Get_Quote_Lines</collectionReference>
+        <iterationOrder>Asc</iterationOrder>
+        <nextValueConnector>
+            <targetReference>Record_Type</targetReference>
+        </nextValueConnector>
+        <noMoreValuesConnector>
+            <targetReference>Add_only_unique_error_lines</targetReference>
+        </noMoreValuesConnector>
+    </loops>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <recordLookups>
+        <name>Get_Quote_Lines</name>
+        <label>Get Quote Lines</label>
+        <locationX>176</locationX>
+        <locationY>323</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Find_products_with_ARR_required_fields</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>SBQQ__Quote__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>$Record.SBQQ__PrimaryQuote__c</elementReference>
+            </value>
+        </filters>
+        <filters>
+            <field>Quote_Line_Type__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>New</stringValue>
+            </value>
+        </filters>
+        <getFirstRecordOnly>false</getFirstRecordOnly>
+        <object>SBQQ__QuoteLine__c</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <start>
+        <locationX>50</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Get_Quote_Lines</targetReference>
+        </connector>
+        <filterFormula>AND(
+{!$UserRole.DeveloperName} != &apos;Admin&apos;,
+{!$User.Alias} != &apos;miguel.g&apos; ,
+{!$User.Alias} != &apos;Workato&apos;,
+{!$Record.HasOpportunityLineItem} = true,
+{!$Record.IsClosed} = false,
+{!$Record.Probability} &gt; 0.80,
+{!$Record.Pricebook2.Name} = &apos;CPQ&apos;
+)</filterFormula>
+        <object>Opportunity</object>
+        <recordTriggerType>Update</recordTriggerType>
+        <triggerType>RecordAfterSave</triggerType>
+    </start>
+    <status>Active</status>
+    <variables>
+        <name>Debug</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <name>ErrorLines</name>
+        <dataType>String</dataType>
+        <isCollection>true</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <name>ErrorMessage</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+        <value>
+            <stringValue>Please complete the following information before moving to &quot;Legal&quot; stage:</stringValue>
+        </value>
+    </variables>
+</Flow>

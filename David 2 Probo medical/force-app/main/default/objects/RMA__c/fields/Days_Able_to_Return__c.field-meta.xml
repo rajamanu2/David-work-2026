@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Days_Able_to_Return__c</fullName>
+    <externalId>false</externalId>
+    <formula>MAX(
+0,
+(
+ProductItem__r.Receive_date__c +
+CASE(
+ProductItem__r.Vendor_Warranty_Length__c,
+&quot;30 Days&quot;, 30,
+&quot;45 Days&quot;, 45,
+&quot;60 Days&quot;, 60,
+&quot;90 Days&quot;, 90,
+&quot;120 Days&quot;, 120,
+&quot;6 Months&quot;, 180,
+&quot;10 months&quot;, 300,
+&quot;11 months&quot;, 330,
+&quot;1 Year&quot;, 365,
+&quot;2 Years&quot;, 730,
+&quot;3 Years&quot;, 1095,
+&quot;5 Years&quot;, 1825,
+0
+)
+) - TODAY()
+)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Days Able to Return</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>2</scale>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Number</type>
+    <unique>false</unique>
+</CustomField>

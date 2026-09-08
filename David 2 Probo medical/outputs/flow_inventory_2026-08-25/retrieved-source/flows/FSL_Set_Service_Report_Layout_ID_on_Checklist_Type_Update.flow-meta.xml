@@ -1,0 +1,262 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>65.0</apiVersion>
+    <areMetricsLoggedToDataCloud>false</areMetricsLoggedToDataCloud>
+    <decisions>
+        <name>Service_Report_Template_Supported</name>
+        <label>Service Report Template Supported?</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Service_Report_Template_is_Supported</name>
+            <conditionLogic>or</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Checklist_Type__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>C-Arm</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Checklist_Type__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Cardio Labs</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Checklist_Type__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>CT</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Checklist_Type__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Dental</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Checklist_Type__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Intraoral</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Checklist_Type__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>DEXA</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Checklist_Type__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Intraoral</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Checklist_Type__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Mammography</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Checklist_Type__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Mobile X-Ray</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Checklist_Type__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Static Fluoro</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Checklist_Type__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Static X-Ray CR</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Checklist_Type__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Static X-Ray DDR</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Checklist_Type__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Ultrasound</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Checklist_Type__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Ultrasound Pre-Contract Inspection</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Checklist_Type__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>CR Reader</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Checklist_Type__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Nuclear Medicine</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Checklist_Type__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>C-Arm Pre-Contract Inspection</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Checklist_Type__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Ultrasound Electrical Safety Test</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Get_Service_Report_Layout</targetReference>
+            </connector>
+            <label>Service Report Template is Supported</label>
+        </rules>
+    </decisions>
+    <description>26/03/2026 - SP - Adding Ultrasound Electrical Safety Test.</description>
+    <environments>Default</environments>
+    <formulas>
+        <description>This is used to return the developer name of the Service Report Template related to the Checklist Type.</description>
+        <name>formulaServiceReportLayoutDeveloperName</name>
+        <dataType>String</dataType>
+        <expression>CASE(
+    {!$Record.Checklist_Type__c},
+
+    &quot;C-Arm&quot;, &quot;C-Arm - Preventive Maintenance - Service Report Template&quot;,
+    &quot;Cardio Labs&quot;, &quot;Cardio Labs - Preventive Maintenance - Service Report Template&quot;,
+    &quot;CT&quot;, &quot;CT - Preventive Maintenance - Service Report Template&quot;,
+    &quot;Dental&quot;, &quot;Dental - Preventive Maintenance - Service Report Template&quot;,
+    &quot;DEXA&quot;, &quot;DEXA - Preventive Maintenance - Service Report Template&quot;,
+    &quot;Injector&quot;, &quot;Injector - Preventive Maintenance - Service Report Template&quot;,
+    &quot;Intraoral&quot;, &quot;Intraoral - Preventive Maintenance - Service Report Template&quot;,
+    &quot;Iradimed Infusion Pump&quot;, &quot;Iradimed Infusion Pump - Preventive Maintenance - Service Report Template&quot;,
+    &quot;Iradimed Patient Monitor&quot;, &quot;Iradimed Patient Monitor - Preventive Maintenance - Service Report Template&quot;,
+    &quot;Mammography&quot;, &quot;Mammography - Preventive Maintenance - Service Report Template&quot;,
+    &quot;Mobile X-Ray&quot;, &quot;Mobile X-Ray - Preventive Maintenance - Service Report Template&quot;,
+    &quot;MRI&quot;, &quot;MRI - Preventive Maintenance - Service Report Template&quot;,
+    &quot;Static Fluoro&quot;, &quot;Static Fluoro - Preventive Maintenance - Service Report Template&quot;,
+    &quot;Static X-Ray CR&quot;, &quot;Static X-Ray CR - Preventive Maintenance - Service Report Template&quot;,
+    &quot;Static X-Ray DDR&quot;, &quot;Static X-Ray DDR - Preventive Maintenance - Service Report Template&quot;,
+    &quot;Ultrasound&quot;, &quot;PPM Ultrasound&quot;,
+    &quot;Ultrasound Electrical Safety Test&quot;, &quot;PPM Ultrasound&quot;,
+    &quot;Ultrasound Pre-Contract Inspection&quot;, &quot;Ultrasound - Pre-Contract Inspection - Service Report Template&quot;,
+    &quot;CR Reader&quot;, &quot;CR Reader - Preventive Maintenance - Service Report Template&quot;,
+    &quot;Nuclear Medicine&quot;, &quot;Nuclear Medicine - Preventive Maintenance - Service Report Template&quot;,
+    &quot;C-Arm Pre-Contract Inspection&quot;, &quot;C-Arm - Pre-Contract Inspection - Service Report Template&quot;,
+
+    NULL
+)</expression>
+    </formulas>
+    <interviewLabel>FSL - Work Order - {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>FSL - Set Service Report Layout ID on Checklist Type Update</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <recordLookups>
+        <name>Get_Service_Report_Layout</name>
+        <label>Get Service Report Layout</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Update_Work_Order_s_Parent_Record_Service_Report_Layout_ID</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>DeveloperName</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>formulaServiceReportLayoutDeveloperName</elementReference>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>ServiceReportLayout</object>
+        <queriedFields>Id</queriedFields>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordUpdates>
+        <name>Update_Work_Order_s_Parent_Record_Service_Report_Layout_ID</name>
+        <label>Update Work Order&apos;s (Parent Record) Service Report Layout ID</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <inputAssignments>
+            <field>ServiceReportTemplateId</field>
+            <value>
+                <elementReference>Get_Service_Report_Layout.Id</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record.Work_Order__r</inputReference>
+    </recordUpdates>
+    <start>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Service_Report_Template_Supported</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Checklist_Type__c</field>
+            <operator>IsChanged</operator>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </filters>
+        <filters>
+            <field>Checklist_Type__c</field>
+            <operator>IsNull</operator>
+            <value>
+                <booleanValue>false</booleanValue>
+            </value>
+        </filters>
+        <object>ServiceAppointment</object>
+        <recordTriggerType>Update</recordTriggerType>
+        <triggerType>RecordAfterSave</triggerType>
+    </start>
+    <status>Active</status>
+</Flow>

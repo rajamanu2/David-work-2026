@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CPQ_AA_OPP_Move_To_Legal</fullName>
+    <active>true</active>
+    <description>BOPI-528 Fields required for Advanced Approval email templates except for the ones on Required_for_Legal_Additional which are all related to the contract.
+BOPI-600 updated to prevent auto renewals from stopping</description>
+    <errorConditionFormula>AND(
+    $Profile.Name &lt;&gt; &apos;System Administrator&apos;,
+    $Profile.Name &lt;&gt; &quot;B - Looker&quot;,
+    $User.Alias &lt;&gt; &quot;Workato&quot;,
+    Pricebook2.Name = &apos;CPQ&apos;,
+    Probability &gt; 0.80,
+    OR(
+        ISBLANK(SBQQ__PrimaryQuote__c),
+        ISBLANK(Account.Client_Legal_Entity_Name__c),
+        OR(
+            AND(
+                RecordType.DeveloperName &lt;&gt; &quot;Healthcare&quot;,
+                ISBLANK(Ship_To_Account__c)
+            ),
+            AND(
+                ISPICKVAL(SBQQ__PrimaryQuote__r.Multiple_Ship_to_Accounts__c,&quot;No&quot;),
+                ISBLANK(Ship_To_Account__c)
+            )
+        ),
+        ISPICKVAL(Type,&quot;&quot;),
+        ISBLANK(TEXT(SBQQ__PrimaryQuote__r.Multiple_Ship_to_Accounts__c))
+    ),
+    NOT(ISPICKVAL(Type, &quot;Auto Renewal&quot;))
+)</errorConditionFormula>
+    <errorMessage>The following fields are required:
+On Account:
+- &apos;Client Legal Entity Name&apos;
+On the Primary Quote:
+- &apos;Multiple Ship to Accounts&apos;
+On Opportunity:
+- &apos;Type&apos;</errorMessage>
+</ValidationRule>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Ship_To_Account_must_match_Quote</fullName>
+    <active>true</active>
+    <description>BOPI-36 Ship To Account used to add subsidiaries to parent contracts must be set on Opp/Quote, cannot change on Order</description>
+    <errorConditionFormula>Ship_To_Account__c  &lt;&gt;  SBQQ__Quote__r.Ship_To_Account__c</errorConditionFormula>
+    <errorDisplayField>Ship_To_Account__c</errorDisplayField>
+    <errorMessage>Cannot change Ship To Account on Order, only on Opportunity or Quote</errorMessage>
+</ValidationRule>

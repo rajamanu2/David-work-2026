@@ -1,0 +1,250 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionCalls>
+        <name>Copy_2_of_Procurement_of_System_Email</name>
+        <label>Copy 2 of Procurement of System Email</label>
+        <locationX>314</locationX>
+        <locationY>647</locationY>
+        <actionName>emailSimple</actionName>
+        <actionType>emailSimple</actionType>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
+        <inputParameters>
+            <name>emailAddressesArray</name>
+        </inputParameters>
+        <inputParameters>
+            <name>emailSubject</name>
+            <value>
+                <elementReference>ProcurementSubject</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>emailBody</name>
+            <value>
+                <elementReference>ProcurementBody</elementReference>
+            </value>
+        </inputParameters>
+        <nameSegment>emailSimple</nameSegment>
+    </actionCalls>
+    <actionCalls>
+        <name>Procurement_of_System_Email</name>
+        <label>Procurement of System Email</label>
+        <locationX>50</locationX>
+        <locationY>539</locationY>
+        <actionName>emailSimple</actionName>
+        <actionType>emailSimple</actionType>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
+        <inputParameters>
+            <name>emailAddressesArray</name>
+            <value>
+                <elementReference>EmailCollectionVariable</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>emailSubject</name>
+            <value>
+                <elementReference>ProcurementSubject</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>emailBody</name>
+            <value>
+                <elementReference>ProcurementBody</elementReference>
+            </value>
+        </inputParameters>
+        <nameSegment>emailSimple</nameSegment>
+    </actionCalls>
+    <apiVersion>61.0</apiVersion>
+    <areMetricsLoggedToDataCloud>false</areMetricsLoggedToDataCloud>
+    <assignments>
+        <description>All below emails:
+dbarnett@probomedical.com
+mdavis@probomedical.com
+jgentil@probomedical.com
+ben.rice@probomedical.ca
+leon.parsons@probomedical.co.uk
+joe.witcomb@probomedical.co.uk
+simon.roussel@probomedical.fr</description>
+        <name>EmailsForBIPO</name>
+        <label>EmailsForBIPO</label>
+        <locationX>50</locationX>
+        <locationY>431</locationY>
+        <assignmentItems>
+            <assignToReference>EmailCollectionVariable</assignToReference>
+            <operator>Add</operator>
+            <value>
+                <stringValue>ben.rice@probomedical.ca</stringValue>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>EmailCollectionVariable</assignToReference>
+            <operator>Add</operator>
+            <value>
+                <stringValue>leon.parsons@probomedical.co.uk</stringValue>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>EmailCollectionVariable</assignToReference>
+            <operator>Add</operator>
+            <value>
+                <stringValue>joe.witcomb@probomedical.co.uk</stringValue>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>EmailCollectionVariable</assignToReference>
+            <operator>Add</operator>
+            <value>
+                <stringValue>simon.roussel@probomedical.fr</stringValue>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Procurement_of_System_Email</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <description>All below emails:
+dbarnett@probomedical.com
+mdavis@probomedical.com
+jgentil@probomedical.com</description>
+        <name>EmailsForUltrasound</name>
+        <label>EmailsForUltrasound</label>
+        <locationX>314</locationX>
+        <locationY>539</locationY>
+        <assignmentItems>
+            <assignToReference>EmailCollectionUltrasound</assignToReference>
+            <operator>Add</operator>
+            <value>
+                <stringValue>dbarnett@probomedical.com</stringValue>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>EmailCollectionUltrasound</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>mdavis@probomedical.com</stringValue>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>EmailCollectionUltrasound</assignToReference>
+            <operator>Add</operator>
+            <value>
+                <stringValue>jgentil@probomedical.com</stringValue>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Copy_2_of_Procurement_of_System_Email</targetReference>
+        </connector>
+    </assignments>
+    <decisions>
+        <name>Modality</name>
+        <label>Modality</label>
+        <locationX>446</locationX>
+        <locationY>431</locationY>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Ultrasound</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Product_Name__r.Modality__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Ultrasound</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>EmailsForUltrasound</targetReference>
+            </connector>
+            <label>Ultrasound</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Who_Created</name>
+        <label>Who Created?</label>
+        <locationX>248</locationX>
+        <locationY>323</locationY>
+        <defaultConnector>
+            <targetReference>Modality</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>JacieCreated</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$User.Full_Name__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Jacie Rostagno</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>EmailsForBIPO</targetReference>
+            </connector>
+            <label>JacieCreated</label>
+        </rules>
+    </decisions>
+    <description>A flow was created initially for Jacie&apos;s Sourcing requests for procurement to go to specific users.
+
+Eventually, move the existing workflows into this flow.</description>
+    <environments>Default</environments>
+    <interviewLabel>Sourcing Request Creation Flow {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Sourcing Request Creation Flow</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <start>
+        <locationX>122</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Who_Created</targetReference>
+        </connector>
+        <object>Sourcing_Request_Item__c</object>
+        <recordTriggerType>Create</recordTriggerType>
+        <triggerType>RecordAfterSave</triggerType>
+    </start>
+    <status>InvalidDraft</status>
+    <textTemplates>
+        <name>ProcurementBody</name>
+        <isViewedAsPlainText>true</isViewedAsPlainText>
+        <text>A sourcing request has been created. 
+
+Please procure a {!$Record.Model__c} for {!$Record.Purpose_of_Procurement__c}.
+
+Additional detail: System Requirements: {!$Record.Additional_Details__c}
+Condition: {!$Record.Condition_Requested__c}
+Max Budget: {!$Record.CurrencyIsoCode}{!$Record.Max_Budget__c}</text>
+    </textTemplates>
+    <textTemplates>
+        <name>ProcurementSubject</name>
+        <isViewedAsPlainText>true</isViewedAsPlainText>
+        <text>Jacie has raised a Sourcing Request and requires a system for {!$Record.Purpose_of_Procurement__c}</text>
+    </textTemplates>
+    <variables>
+        <name>EmailCollectionUltrasound</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>true</isOutput>
+    </variables>
+    <variables>
+        <name>EmailCollectionVariable</name>
+        <dataType>String</dataType>
+        <isCollection>true</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+</Flow>

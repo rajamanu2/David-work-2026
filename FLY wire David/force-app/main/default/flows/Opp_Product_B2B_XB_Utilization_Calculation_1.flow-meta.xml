@@ -1,0 +1,463 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>61.0</apiVersion>
+    <areMetricsLoggedToDataCloud>false</areMetricsLoggedToDataCloud>
+    <decisions>
+        <name>Opp_meets_criteria</name>
+        <label>Opp meets criteria?</label>
+        <locationX>974</locationX>
+        <locationY>323</locationY>
+        <defaultConnectorLabel>Exit Flow</defaultConnectorLabel>
+        <rules>
+            <name>Yes</name>
+            <conditionLogic>1 AND 2</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Opportunity.IsClosed</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Opportunity.RecordType.DeveloperName</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>B2B</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Quote_Line_Type</targetReference>
+            </connector>
+            <label>Yes</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Quote_Line_Type</name>
+        <label>Quote Line Type</label>
+        <locationX>578</locationX>
+        <locationY>431</locationY>
+        <defaultConnectorLabel>End</defaultConnectorLabel>
+        <rules>
+            <name>Renewal</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Quote_Line_Type__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Renewal</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Get_Original_Opportunity_Product_Renewal</targetReference>
+            </connector>
+            <label>Renewal</label>
+        </rules>
+        <rules>
+            <name>Cancellation</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Quote_Line_Type__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Cancellation</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Get_Original_Opportunity_Product_Cancellation</targetReference>
+            </connector>
+            <label>Cancellation</label>
+        </rules>
+        <rules>
+            <name>Amendment</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Quote_Line_Type__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Amendment</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Amendment_No_ARR</targetReference>
+            </connector>
+            <label>Amendment</label>
+        </rules>
+        <rules>
+            <name>Calculate_ARR</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Quote_Line_Type__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>New</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Get_Current_FX_rate</targetReference>
+            </connector>
+            <label>Calculate ARR</label>
+        </rules>
+    </decisions>
+    <description>Products:
+Cross Border Payments - FWXB1000
+
+Migrated from the [Opp Product] B2B XB Utilization Calculation process using multiple criteria.
+ARR Calculation for &quot;Cross Border - Commercial&quot; with Utilization and Estimated Annual Money Moved. Added ByPass to skip validation rules on Opportunity 05/14/2024. Update to make currency conversion and filter by product code; renewals should not generate ARR; use Ship_To_Account__r 07/24/2024. Use Quote_Line_Type__c instead of Opportunity.Type 07/26/2024. BOPI-511 Updated to calculate ARR when Quote Line Type not &apos;Cancellation&apos; or &apos;Renewal&apos;. BOPI-518 removing Opp criteria filters to let the flow run when renewals are created and the quote line fields are empty. BOPI-603 updated to set ARR to 0 for cancelled lines. BOPI-620 updated to set the ARR for cancelled lines to the original amount as a negative value
+BOPI-857 Allow reps to set ARR to $0
+SALDEV-1184 updated formulas for B2B XB ARR, UtilizationRevenueText, Added new Decision for &quot;New&quot; Quote Lines and Added an &quot;End&quot; if it didnt meet any criteria.
+SALDEV-1277 – updated formula for constant 4% on FX version ≠ bank transfer
+SALDEV-1312 - updated formula for constant 4% on FX version, added new formulas for Same Currency when Usage Type = Amount, and for Same Currency when Usage Type = Percent</description>
+    <environments>Default</environments>
+    <formulas>
+        <name>B2B_XB_ARR</name>
+        <dataType>Currency</dataType>
+        <expression>IF(
+  ISPICKVAL({!$Record.SBQQ__QuoteLine__r.Transaction_Type__c}, &quot;FX&quot;),
+  {!$Record.SBQQ__QuoteLine__r.Est_Annual_MM__c} * 0.04 * {!UtilizationValue} / {!ConversionRate},
+  +
+  IF(
+    AND(
+      ISPICKVAL({!$Record.SBQQ__QuoteLine__r.Transaction_Type__c}, &quot;Same Currency&quot;),
+      ISPICKVAL({!$Record.SBQQ__QuoteLine__r.Usage_Type__c}, &quot;Amount&quot;)
+    ),
+    {!$Record.SBQQ__QuoteLine__r.Estimated_Volume__c} * {!$Record.SBQQ__QuoteLine__r.Quoted_Usage_Amt__c} * {!UtilizationValue} / {!ConversionRate},
+    +
+    IF(
+      AND(
+        ISPICKVAL({!$Record.SBQQ__QuoteLine__r.Transaction_Type__c}, &quot;Same Currency&quot;),
+        ISPICKVAL({!$Record.SBQQ__QuoteLine__r.Usage_Type__c}, &quot;Percent&quot;)
+      ),
+      {!$Record.SBQQ__QuoteLine__r.Est_Annual_MM__c}* ({!$Record.SBQQ__QuoteLine__r.Quoted_Usage_Percent__c} / 100) * {!UtilizationValue} / {!ConversionRate},
+      
+      null /* Default value if no criteria are met */
+    )))</expression>
+        <scale>18</scale>
+    </formulas>
+    <formulas>
+        <name>Cancelled_ARR</name>
+        <dataType>Number</dataType>
+        <expression>{!Get_Original_Opportunity_Product_Cancellation.Opp_Product_ARR__c} * (-1)</expression>
+        <scale>2</scale>
+    </formulas>
+    <formulas>
+        <name>formula_141_myRule_1_A1_5023655328</name>
+        <dataType>String</dataType>
+        <expression>{!$Record.Family__c}</expression>
+    </formulas>
+    <formulas>
+        <description>Renewals shouldn&apos;t generate ARR</description>
+        <name>RenewalRevenueText</name>
+        <dataType>String</dataType>
+        <expression>&quot;Renewal Calculated: &quot; + TEXT( NOW() - 0.1666)</expression>
+    </formulas>
+    <formulas>
+        <name>UtilizationRevenueText</name>
+        <dataType>String</dataType>
+        <expression>IF(
+         ISPICKVAL({!$Record.SBQQ__QuoteLine__r.Transaction_Type__c}, &quot;FX&quot;),
+    /* Formula 1: Transaction Type = FX */
+    (
+&quot;B2B XB FX Est Annual MM $&quot; +
+        TEXT({!$Record.SBQQ__QuoteLine__r.Est_Annual_MM__c}) + &quot;*&quot; +
+        &quot;0.04&quot; + &quot;*&quot; +
+        TEXT({!UtilizationValue}) + &quot;/&quot; +
+        TEXT({!ConversionRate})
+    ),    
+IF(
+AND(            
+ISPICKVAL({!$Record.SBQQ__QuoteLine__r.Transaction_Type__c}, &quot;Same Currency&quot;),
+      ISPICKVAL({!$Record.SBQQ__QuoteLine__r.Usage_Type__c}, &quot;Amount&quot;)
+    ),    
+    /* Formula 2: Transaction Type = Same Currency and Usage Type = Amount */
+    (
+&quot;B2B XB Same Currency Est Volume  $&quot; + 
+        TEXT({!$Record.SBQQ__QuoteLine__r.Estimated_Volume__c}) + &quot;*&quot; + 
+        TEXT({!$Record.SBQQ__QuoteLine__r.Quoted_Usage_Amt__c}) + &quot;*&quot; + 
+        TEXT({!UtilizationValue}) + &quot;/&quot; +
+        TEXT({!ConversionRate})
+    ),
+ IF(
+      AND(
+        ISPICKVAL({!$Record.SBQQ__QuoteLine__r.Transaction_Type__c}, &quot;Same Currency&quot;),
+        ISPICKVAL({!$Record.SBQQ__QuoteLine__r.Usage_Type__c}, &quot;Percent&quot;)
+      ),
+/* Formula 3: Transaction Type = Same Currency and Usage Type = Percent */
+(
+      TEXT({!$Record.SBQQ__QuoteLine__r.Est_Annual_MM__c}) + &quot;*&quot; +  
+TEXT(({!$Record.SBQQ__QuoteLine__r.Quoted_Usage_Percent__c} / 100)) +  &quot;*&quot; + 
+Text({!UtilizationValue}) + &quot;/&quot; + Text({!ConversionRate})
+),
+&quot;&quot;
+)))
++ &quot; &quot; +
+&quot;Calculated&quot; + &quot; &quot; + TEXT(NOW()-0.0115)</expression>
+    </formulas>
+    <formulas>
+        <description>Extract the actual value from the quote line utilization picklist</description>
+        <name>UtilizationValue</name>
+        <dataType>Number</dataType>
+        <expression>CASE(
+    $Record.SBQQ__QuoteLine__r.Utilization__c,
+    &quot;20%&quot;, 0.2,
+    &quot;40%&quot;, 0.4,
+    &quot;60%&quot;, 0.6,
+    &quot;80%&quot;, 0.8,
+    &quot;100%&quot;, 1,
+    0
+)</expression>
+        <scale>2</scale>
+    </formulas>
+    <interviewLabel>(Opp Product) B2B XB Utilization Calculation_1 {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>(Opp Product) B2B XB Utilization Calculation</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <recordLookups>
+        <description>Gets the dated exchange rate value for the current currency and period</description>
+        <name>Get_Current_FX_rate</name>
+        <label>Get Current FX rate</label>
+        <locationX>842</locationX>
+        <locationY>539</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>B2B_XB_with_utilization</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>IsoCode</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>$Record.Opportunity.CurrencyIsoCode</elementReference>
+            </value>
+        </filters>
+        <filters>
+            <field>StartDate</field>
+            <operator>LessThanOrEqualTo</operator>
+            <value>
+                <elementReference>$Flow.CurrentDateTime</elementReference>
+            </value>
+        </filters>
+        <filters>
+            <field>NextStartDate</field>
+            <operator>GreaterThan</operator>
+            <value>
+                <elementReference>$Flow.CurrentDateTime</elementReference>
+            </value>
+        </filters>
+        <object>DatedConversionRate</object>
+        <outputAssignments>
+            <assignToReference>ConversionRate</assignToReference>
+            <field>ConversionRate</field>
+        </outputAssignments>
+    </recordLookups>
+    <recordLookups>
+        <name>Get_Original_Opportunity_Product_Cancellation</name>
+        <label>Get Original Opportunity Product</label>
+        <locationX>314</locationX>
+        <locationY>539</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Cancellation_No_ARR</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Opportunity_Line_Id__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>$Record.Opportunity_Line_Id__c</elementReference>
+            </value>
+        </filters>
+        <filters>
+            <field>Id</field>
+            <operator>NotEqualTo</operator>
+            <value>
+                <elementReference>$Record.Id</elementReference>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>OpportunityLineItem</object>
+        <sortField>CreatedDate</sortField>
+        <sortOrder>Desc</sortOrder>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordLookups>
+        <name>Get_Original_Opportunity_Product_Renewal</name>
+        <label>Get Original Opportunity Product</label>
+        <locationX>50</locationX>
+        <locationY>539</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Renewals_ARR_is_set_manually</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Opportunity_Line_Id__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>$Record.Opportunity_Line_Id__c</elementReference>
+            </value>
+        </filters>
+        <filters>
+            <field>Id</field>
+            <operator>NotEqualTo</operator>
+            <value>
+                <elementReference>$Record.Id</elementReference>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>OpportunityLineItem</object>
+        <sortField>CreatedDate</sortField>
+        <sortOrder>Desc</sortOrder>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordUpdates>
+        <name>Amendment_No_ARR</name>
+        <label>Amendment - No ARR</label>
+        <locationX>578</locationX>
+        <locationY>539</locationY>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Quote_Line_Type__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>Amendment</stringValue>
+            </value>
+        </filters>
+        <inputAssignments>
+            <field>Opp_Product_ARR__c</field>
+            <value>
+                <numberValue>0.0</numberValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Revenue_Calculated__c</field>
+            <value>
+                <stringValue>Amendment: No modifications were made to this line</stringValue>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>B2B_XB_with_utilization</name>
+        <label>B2B XB with utilization</label>
+        <locationX>842</locationX>
+        <locationY>647</locationY>
+        <inputAssignments>
+            <field>Opp_Product_ARR__c</field>
+            <value>
+                <elementReference>B2B_XB_ARR</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Revenue_Calculated__c</field>
+            <value>
+                <elementReference>UtilizationRevenueText</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <description>On cancellations the ARR should reflect the original amount as a negative value</description>
+        <name>Cancellation_No_ARR</name>
+        <label>Cancellation - No ARR</label>
+        <locationX>314</locationX>
+        <locationY>647</locationY>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Quote_Line_Type__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>Cancellation</stringValue>
+            </value>
+        </filters>
+        <inputAssignments>
+            <field>Opp_Product_ARR__c</field>
+            <value>
+                <elementReference>Cancelled_ARR</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Revenue_Calculated__c</field>
+            <value>
+                <stringValue>Line cancelled</stringValue>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <description>Reps should get the last 12 months ARR number and manually update the Opp Product ARR</description>
+        <name>Renewals_ARR_is_set_manually</name>
+        <label>Renewals ARR is set manually</label>
+        <locationX>50</locationX>
+        <locationY>647</locationY>
+        <inputAssignments>
+            <field>Baseline_ARR__c</field>
+            <value>
+                <elementReference>Get_Original_Opportunity_Product_Renewal.Opp_Product_ARR__c</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Do_not_Auto_Calculate_Price__c</field>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Opp_Product_ARR__c</field>
+            <value>
+                <numberValue>0.0</numberValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Revenue_Calculated__c</field>
+            <value>
+                <stringValue>For Renewals, please enter the ARR manually</stringValue>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <start>
+        <locationX>848</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Opp_meets_criteria</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>ProductCode</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>FWXB1000</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>Do_not_Auto_Calculate_Price__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <booleanValue>false</booleanValue>
+            </value>
+        </filters>
+        <object>OpportunityLineItem</object>
+        <recordTriggerType>CreateAndUpdate</recordTriggerType>
+        <triggerType>RecordAfterSave</triggerType>
+    </start>
+    <status>Active</status>
+    <variables>
+        <name>ConversionRate</name>
+        <dataType>Number</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+        <scale>6</scale>
+    </variables>
+</Flow>

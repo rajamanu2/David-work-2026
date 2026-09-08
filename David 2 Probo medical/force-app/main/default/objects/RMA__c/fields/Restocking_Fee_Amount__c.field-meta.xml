@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Restocking_Fee_Amount__c</fullName>
+    <externalId>false</externalId>
+    <formula>IF(NOT(ISBLANK(Restock_Fee_Percentage_Override__c)), Restock_Fee_Percentage_Override__c, IF((Date_RMA_Item_Received__c - Date_Opportunity_Item_Shipped__c) &lt; 15, 0.25, IF((Date_RMA_Item_Received__c - Date_Opportunity_Item_Shipped__c) &lt; 46, 0.35, 1))) *  (ProductItem__r.Sales_Price__c +  IF(NOT(ISBLANK(Opportunity__r.AVA_SFCLOUD__Sales_Tax__c)),((Opportunity__r.AVA_SFCLOUD__Sales_Tax__c/ Opportunity__r.Amount)*  ProductItem__r.Sales_Price__c), 0))</formula>
+    <label>Restocking Fee Amount</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>2</scale>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Number</type>
+    <unique>false</unique>
+</CustomField>

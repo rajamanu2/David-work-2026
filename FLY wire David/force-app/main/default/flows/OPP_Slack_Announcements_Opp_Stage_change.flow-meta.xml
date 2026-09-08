@@ -1,0 +1,541 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionCalls>
+        <name>HC_Post_Strategic_Partner_stage_change</name>
+        <label>HC Post Strategic Partner stage change</label>
+        <locationX>842</locationX>
+        <locationY>647</locationY>
+        <actionName>publishToSlackBasic</actionName>
+        <actionType>apex</actionType>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
+        <inputParameters>
+            <name>channel</name>
+            <value>
+                <stringValue>#healthcare-pipeline</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>slackMessage</name>
+            <value>
+                <elementReference>PostHCStrategicPartner</elementReference>
+            </value>
+        </inputParameters>
+        <nameSegment>publishToSlackBasic</nameSegment>
+        <offset>0</offset>
+    </actionCalls>
+    <actionCalls>
+        <name>Post_Closed_Won_B2B</name>
+        <label>Post Closed Won B2B</label>
+        <locationX>1634</locationX>
+        <locationY>647</locationY>
+        <actionName>publishToSlackBasic</actionName>
+        <actionType>apex</actionType>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
+        <inputParameters>
+            <name>channel</name>
+            <value>
+                <stringValue>#b2b-client-assignment</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>slackMessage</name>
+            <value>
+                <elementReference>B2BClosedWonMessage</elementReference>
+            </value>
+        </inputParameters>
+        <nameSegment>publishToSlackBasic</nameSegment>
+        <offset>0</offset>
+    </actionCalls>
+    <actionCalls>
+        <description>A differrnt channel needs to be defined and the message needs to be worded differently</description>
+        <name>Post_Closed_Won_Edu</name>
+        <label>Post Closed Won Edu</label>
+        <locationX>50</locationX>
+        <locationY>647</locationY>
+        <actionName>publishToSlackBasic</actionName>
+        <actionType>apex</actionType>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
+        <inputParameters>
+            <name>channel</name>
+            <value>
+                <stringValue>#sfdc-sandbox</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>slackMessage</name>
+            <value>
+                <elementReference>EduClosedWonMessage</elementReference>
+            </value>
+        </inputParameters>
+        <nameSegment>publishToSlackBasic</nameSegment>
+        <offset>0</offset>
+    </actionCalls>
+    <actionCalls>
+        <name>Post_HC_pipeline</name>
+        <label>Post HC pipeline</label>
+        <locationX>1370</locationX>
+        <locationY>647</locationY>
+        <actionName>publishToSlackBasic</actionName>
+        <actionType>apex</actionType>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
+        <inputParameters>
+            <name>channel</name>
+            <value>
+                <stringValue>#healthcare-pipeline</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>slackMessage</name>
+            <value>
+                <elementReference>HCStageChangeMessage</elementReference>
+            </value>
+        </inputParameters>
+        <nameSegment>publishToSlackBasic</nameSegment>
+        <offset>0</offset>
+    </actionCalls>
+    <actionCalls>
+        <name>Post_new_B2B_Opp</name>
+        <label>Post new B2B Opp</label>
+        <locationX>1898</locationX>
+        <locationY>647</locationY>
+        <actionName>publishToSlackBasic</actionName>
+        <actionType>apex</actionType>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
+        <inputParameters>
+            <name>channel</name>
+            <value>
+                <stringValue>#b2b-monitor</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>slackMessage</name>
+            <value>
+                <elementReference>PostNewB2BOpp</elementReference>
+            </value>
+        </inputParameters>
+        <nameSegment>publishToSlackBasic</nameSegment>
+        <offset>0</offset>
+    </actionCalls>
+    <actionCalls>
+        <name>Post_new_HC_Opp</name>
+        <label>Post new HC Opp</label>
+        <locationX>1106</locationX>
+        <locationY>647</locationY>
+        <actionName>publishToSlackBasic</actionName>
+        <actionType>apex</actionType>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
+        <inputParameters>
+            <name>channel</name>
+            <value>
+                <stringValue>#healthcare-pipeline</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>slackMessage</name>
+            <value>
+                <elementReference>PostNewHCOpp</elementReference>
+            </value>
+        </inputParameters>
+        <nameSegment>publishToSlackBasic</nameSegment>
+        <offset>0</offset>
+    </actionCalls>
+    <actionCalls>
+        <name>Post_to_B2B_pipeline</name>
+        <label>Post to B2B pipeline</label>
+        <locationX>2162</locationX>
+        <locationY>647</locationY>
+        <actionName>publishToSlackBasic</actionName>
+        <actionType>apex</actionType>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
+        <inputParameters>
+            <name>channel</name>
+            <value>
+                <stringValue>#b2b-monitor</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>slackMessage</name>
+            <value>
+                <elementReference>B2BStageChangeMessage</elementReference>
+            </value>
+        </inputParameters>
+        <nameSegment>publishToSlackBasic</nameSegment>
+        <offset>0</offset>
+    </actionCalls>
+    <actionCalls>
+        <name>Post_to_Edu_pipeline</name>
+        <label>Post to Edu pipeline</label>
+        <locationX>314</locationX>
+        <locationY>647</locationY>
+        <actionName>publishToSlackBasic</actionName>
+        <actionType>apex</actionType>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
+        <inputParameters>
+            <name>channel</name>
+            <value>
+                <stringValue>#edu-pipeline</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>slackMessage</name>
+            <value>
+                <elementReference>EduMessage</elementReference>
+            </value>
+        </inputParameters>
+        <nameSegment>publishToSlackBasic</nameSegment>
+        <offset>0</offset>
+    </actionCalls>
+    <actionCalls>
+        <name>Post_to_Travel_pipeline</name>
+        <label>Post to Travel pipeline</label>
+        <locationX>578</locationX>
+        <locationY>539</locationY>
+        <actionName>publishToSlackBasic</actionName>
+        <actionType>apex</actionType>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
+        <inputParameters>
+            <name>channel</name>
+            <value>
+                <stringValue>#travel-pipeline</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>slackMessage</name>
+            <value>
+                <elementReference>TravelMessage</elementReference>
+            </value>
+        </inputParameters>
+        <nameSegment>publishToSlackBasic</nameSegment>
+        <offset>0</offset>
+    </actionCalls>
+    <apiVersion>63.0</apiVersion>
+    <areMetricsLoggedToDataCloud>false</areMetricsLoggedToDataCloud>
+    <decisions>
+        <name>B2B_Opp</name>
+        <label>B2B Opp</label>
+        <locationX>1898</locationX>
+        <locationY>539</locationY>
+        <defaultConnector>
+            <targetReference>Post_to_B2B_pipeline</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Is_Won_B2B</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.IsWon</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.IsClosed</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Post_Closed_Won_B2B</targetReference>
+            </connector>
+            <label>Is Won</label>
+        </rules>
+        <rules>
+            <name>Is_New_B2B_Opp</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>IsNew</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Post_new_B2B_Opp</targetReference>
+            </connector>
+            <label>Is New B2B Opp</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>HC_Opp</name>
+        <label>HC Opp</label>
+        <locationX>1106</locationX>
+        <locationY>539</locationY>
+        <defaultConnector>
+            <targetReference>Post_HC_pipeline</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Is_Strategic_Partner</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Account.RecordType.DeveloperName</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Strategic_Partner</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>HC_Post_Strategic_Partner_stage_change</targetReference>
+            </connector>
+            <label>Is Strategic Partner</label>
+        </rules>
+        <rules>
+            <name>Is_New_HC_Opp</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>IsNew</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Account.RecordType.DeveloperName</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Healthcare</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Post_new_HC_Opp</targetReference>
+            </connector>
+            <label>Is New HC Opp</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Is_Test</name>
+        <label>Is Test</label>
+        <locationX>545</locationX>
+        <locationY>323</locationY>
+        <defaultConnector>
+            <targetReference>Record_Type</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>No</defaultConnectorLabel>
+        <rules>
+            <name>Yes_Test</name>
+            <conditionLogic>or</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Name</leftValueReference>
+                <operator>Contains</operator>
+                <rightValue>
+                    <stringValue>Test</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Account.Name</leftValueReference>
+                <operator>Contains</operator>
+                <rightValue>
+                    <stringValue>Flywire</stringValue>
+                </rightValue>
+            </conditions>
+            <label>Yes</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Is_Won_Edu</name>
+        <label>Is Won</label>
+        <locationX>182</locationX>
+        <locationY>539</locationY>
+        <defaultConnector>
+            <targetReference>Post_to_Edu_pipeline</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Yes_Won_Edu</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.IsClosed</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.IsWon</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Post_Closed_Won_Edu</targetReference>
+            </connector>
+            <label>Yes</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Record_Type</name>
+        <label>Record Type</label>
+        <locationX>1304</locationX>
+        <locationY>431</locationY>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Education</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.RecordType.DeveloperName</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Education</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Is_Won_Edu</targetReference>
+            </connector>
+            <label>Education</label>
+        </rules>
+        <rules>
+            <name>Travel</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.RecordType.DeveloperName</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Travel</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Post_to_Travel_pipeline</targetReference>
+            </connector>
+            <label>Travel</label>
+        </rules>
+        <rules>
+            <name>Healthcare</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.RecordType.DeveloperName</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Healthcare</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>HC_Opp</targetReference>
+            </connector>
+            <label>Healthcare</label>
+        </rules>
+        <rules>
+            <name>B2B</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.RecordType.DeveloperName</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>B2B</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>B2B_Opp</targetReference>
+            </connector>
+            <label>B2B</label>
+        </rules>
+    </decisions>
+    <description>BOPI-799 Send slack messages to vertical channels when opp stage changes</description>
+    <environments>Default</environments>
+    <formulas>
+        <name>B2BClosedWonMessage</name>
+        <dataType>String</dataType>
+        <expression>&quot;*&quot;+{!$Record.Owner.FirstName} + &quot;* *&quot; + {!$Record.Owner.LastName} + &quot;&apos;s* B2B Opportunity *&quot;&amp; {!$Record.Name} &amp; &quot;* has changed:&quot; &amp; SUBSTITUTE({!$Label.LineBreak}, &quot;-&quot;, &quot;&quot;) &amp; &quot;From: *&quot; &amp; {!$Record.Previous_Stage__c} + &quot;*&quot; &amp; SUBSTITUTE({!$Label.LineBreak}, &quot;-&quot;, &quot;&quot;) &amp; &quot;To: *&quot; &amp; TEXT({!$Record.StageName}) + &quot;*&quot;
+&amp; SUBSTITUTE({!$Label.LineBreak}, &quot;-&quot;, &quot;&quot;) &amp; &quot;ARR: *&quot; &amp; TEXT({!$Record.Opp_ARR__c}) + &quot;*&quot;</expression>
+    </formulas>
+    <formulas>
+        <name>B2BStageChangeMessage</name>
+        <dataType>String</dataType>
+        <expression>&quot;*&quot;+{!$Record.Owner.FirstName} + &quot;* *&quot; + {!$Record.Owner.LastName} + &quot;&apos;s* Opportunity *&quot;&amp; {!$Record.Name} &amp; &quot;* has changed:&quot; &amp; SUBSTITUTE({!$Label.LineBreak}, &quot;-&quot;, &quot;&quot;) &amp; &quot;From: *&quot; &amp; {!$Record.Previous_Stage__c} + &quot;*&quot; &amp; SUBSTITUTE({!$Label.LineBreak}, &quot;-&quot;, &quot;&quot;) &amp; &quot;To: *&quot; &amp; TEXT({!$Record.StageName}) + &quot;*&quot;
+&amp; SUBSTITUTE({!$Label.LineBreak}, &quot;-&quot;, &quot;&quot;) &amp; &quot;Lost Reason: *&quot; &amp; TEXT( {!$Record.Lost_Reason__c}) + &quot;*&quot;
+&amp; SUBSTITUTE({!$Label.LineBreak}, &quot;-&quot;, &quot;&quot;) &amp;
+&quot;Referred by Partner: *&quot; &amp; ( {!$Record.Referred_by_Partner__r.Name})  + &quot;*&quot;
+&amp; SUBSTITUTE({!$Label.LineBreak}, &quot;-&quot;, &quot;&quot;) &amp;
+&quot;Industry: *&quot; &amp; TEXT({!$Record.Account.Account_Sub_Industry__c}) + &quot;*&quot;  
+&amp; SUBSTITUTE({!$Label.LineBreak}, &quot;-&quot;, &quot;&quot;) &amp; 
+&quot;ARR: $*&quot; &amp; TEXT({!$Record.Opp_ARR__c}) + &quot;*&quot;</expression>
+    </formulas>
+    <formulas>
+        <name>EduClosedWonMessage</name>
+        <dataType>String</dataType>
+        <expression>&quot;*&quot;+{!$Record.Owner.FirstName} + &quot;* *&quot; + {!$Record.Owner.LastName} + &quot;&apos;s* Edu Opportunity *&quot;&amp; {!$Record.Name} &amp; &quot;* has changed:&quot; &amp; SUBSTITUTE({!$Label.LineBreak}, &quot;-&quot;, &quot;&quot;) &amp; &quot;From: *&quot; &amp; {!$Record.Previous_Stage__c} + &quot;*&quot; &amp; SUBSTITUTE({!$Label.LineBreak}, &quot;-&quot;, &quot;&quot;) &amp; &quot;To: *&quot; &amp; TEXT({!$Record.StageName}) + &quot;*&quot;
+&amp; SUBSTITUTE({!$Label.LineBreak}, &quot;-&quot;, &quot;&quot;) &amp; &quot;ARR: *$&quot; &amp; TEXT({!$Record.Opp_ARR__c}) + &quot;*&quot;</expression>
+    </formulas>
+    <formulas>
+        <name>EduMessage</name>
+        <dataType>String</dataType>
+        <expression>&quot;*&quot;+{!$Record.Owner.FirstName} + &quot;* *&quot; + {!$Record.Owner.LastName} + &quot;&apos;s* Edu Opportunity *&quot;&amp; {!$Record.Name} &amp; &quot;* has changed:&quot; 
+&amp; SUBSTITUTE({!$Label.LineBreak}, &quot;-&quot;, &quot;&quot;) &amp; &quot;From: *&quot; &amp; {!$Record.Previous_Stage__c} + &quot;*&quot; 
+&amp; SUBSTITUTE({!$Label.LineBreak}, &quot;-&quot;, &quot;&quot;) &amp; &quot;To: *&quot; &amp; TEXT({!$Record.StageName}) + &quot;*&quot;
+&amp; SUBSTITUTE({!$Label.LineBreak}, &quot;-&quot;, &quot;&quot;) &amp; &quot;ARR: $*&quot; &amp; TEXT({!$Record.Opp_ARR__c}) + &quot;*&quot;</expression>
+    </formulas>
+    <formulas>
+        <name>HCStageChangeMessage</name>
+        <dataType>String</dataType>
+        <expression>&quot;*&quot;+{!$Record.Owner.FirstName} + &quot;* *&quot; + {!$Record.Owner.LastName} + &quot;&apos;s* HC Opportunity *&quot;&amp; {!$Record.Name} &amp; &quot;* has changed:&quot; &amp; SUBSTITUTE({!$Label.LineBreak}, &quot;-&quot;, &quot;&quot;) &amp; &quot;From: *&quot; &amp; {!$Record.Previous_Stage__c} + &quot;*&quot; &amp; SUBSTITUTE({!$Label.LineBreak}, &quot;-&quot;, &quot;&quot;) &amp; &quot;To: *&quot; &amp; TEXT({!$Record.StageName}) + &quot;*&quot;</expression>
+    </formulas>
+    <formulas>
+        <name>IsNew</name>
+        <dataType>Boolean</dataType>
+        <expression>ISNEW()</expression>
+    </formulas>
+    <formulas>
+        <name>PostHCStrategicPartner</name>
+        <dataType>String</dataType>
+        <expression>&quot;*&quot;+{!$Record.Owner.FirstName} + &quot;* *&quot; + {!$Record.Owner.LastName} + &quot;&apos;s* Strategic Partner Opportunity *&quot;&amp; {!$Record.Name} &amp; &quot;* has changed:&quot; &amp; SUBSTITUTE({!$Label.LineBreak}, &quot;-&quot;, &quot;&quot;) &amp; &quot;From: *&quot; &amp; {!$Record.Previous_Stage__c} + &quot;*&quot; &amp; SUBSTITUTE({!$Label.LineBreak}, &quot;-&quot;, &quot;&quot;) &amp; &quot;To: *&quot; &amp; TEXT({!$Record.StageName}) + &quot;*&quot;</expression>
+    </formulas>
+    <formulas>
+        <name>PostNewB2BOpp</name>
+        <dataType>String</dataType>
+        <expression>&quot;*&quot;+{!$Record.Owner.FirstName} + &quot;* *&quot; + {!$Record.Owner.LastName} + &quot;* created a new B2B Opportunity for *&quot;&amp; {!$Record.Name} &amp; &quot;* &quot; 
+&amp; SUBSTITUTE({!$Label.LineBreak}, &quot;-&quot;, &quot;&quot;) &amp; 
+&quot;Stage: *&quot; &amp; TEXT({!$Record.StageName}) + &quot;*&quot;  
+&amp; SUBSTITUTE({!$Label.LineBreak}, &quot;-&quot;, &quot;&quot;) &amp;
+&quot;Referred by Partner: *&quot; &amp; ( {!$Record.Referred_by_Partner__r.Name})  + &quot;*&quot;
+&amp; SUBSTITUTE({!$Label.LineBreak}, &quot;-&quot;, &quot;&quot;) &amp;
+&quot;Sub Industry: *&quot; &amp; TEXT({!$Record.Account.Account_Sub_Industry__c}) + &quot;*&quot;</expression>
+    </formulas>
+    <formulas>
+        <name>PostNewHCOpp</name>
+        <dataType>String</dataType>
+        <expression>&quot;*&quot;+{!$Record.Owner.FirstName} + &quot;* *&quot; + {!$Record.Owner.LastName} + &quot;* created HC Opportunity: *&quot;&amp; {!$Record.Name} &amp; &quot;* &quot; &amp; SUBSTITUTE({!$Label.LineBreak}, &quot;-&quot;, &quot;&quot;) &amp; &quot;Stage: *&quot; &amp; TEXT({!$Record.StageName}) + &quot;*&quot;</expression>
+    </formulas>
+    <formulas>
+        <name>TravelMessage</name>
+        <dataType>String</dataType>
+        <expression>&quot;*&quot;+{!$Record.Owner.FirstName} + &quot;* *&quot; + {!$Record.Owner.LastName} + &quot;&apos;s* Opportunity *&quot;&amp; {!$Record.Name} &amp; &quot;* has changed:&quot; &amp; SUBSTITUTE({!$Label.LineBreak}, &quot;-&quot;, &quot;&quot;) &amp; &quot;From: *&quot; &amp; {!$Record.Previous_Stage__c} + &quot;*&quot; &amp; SUBSTITUTE({!$Label.LineBreak}, &quot;-&quot;, &quot;&quot;) &amp; &quot;To: *&quot; &amp; TEXT({!$Record.StageName}) + &quot;*&quot;</expression>
+    </formulas>
+    <interviewLabel>(OPP) Slack Announcements Opp Stage cgange {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>(OPP) Slack Announcements Opp Stage change</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <start>
+        <locationX>419</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Is_Test</targetReference>
+        </connector>
+        <filterFormula>OR(
+   ISNEW(),
+   ISCHANGED({!$Record.StageName}) 
+)</filterFormula>
+        <object>Opportunity</object>
+        <recordTriggerType>CreateAndUpdate</recordTriggerType>
+        <triggerType>RecordAfterSave</triggerType>
+    </start>
+    <status>Draft</status>
+</Flow>

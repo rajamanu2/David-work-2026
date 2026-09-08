@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Close_Related_Trouble_Tickets__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>SCC-3380: Confirmation that closing this Incident should also close Trouble Ticket cases linked in Case Related Issue. Incident_After_Update only bulk-closes related cases when this box is checked.</description>
+    <inlineHelpText>SCC-3380: Check this box when setting Status to Closed if the related Trouble Tickets should be closed as well. Leave unchecked to close only this Incident.</inlineHelpText>
+    <label>Close Related Trouble Tickets</label>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Checkbox</type>
+</CustomField>

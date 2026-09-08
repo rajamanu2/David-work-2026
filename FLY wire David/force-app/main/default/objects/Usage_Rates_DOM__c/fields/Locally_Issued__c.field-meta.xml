@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Locally_Issued__c</fullName>
+    <externalId>false</externalId>
+    <formula>IF(
+ISPICKVAL(CC_Country__c, &quot;Locally Issued&quot;),
+&quot;Yes&quot;,
+IF(
+ISPICKVAL(CC_Country__c, &quot;Non-Locally Issued&quot;),
+&quot;No&quot;,
+&quot;N/A&quot;
+)
+)</formula>
+    <label>Locally Issued</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Integration_Type__c</fullName>
+    <description>Select the type of Integration we are doing.</description>
+    <inlineHelpText>Select the type of Integration we are doing.</inlineHelpText>
+    <label>Integration Type</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Callbacks</fullName>
+                <default>false</default>
+                <label>Callbacks</label>
+            </value>
+            <value>
+                <fullName>Custom File</fullName>
+                <default>false</default>
+                <label>Custom File</label>
+            </value>
+            <value>
+                <fullName>Intelligent Link</fullName>
+                <default>false</default>
+                <label>Intelligent Link</label>
+            </value>
+            <value>
+                <fullName>Internal Redirects</fullName>
+                <default>false</default>
+                <label>Internal Redirects</label>
+            </value>
+            <value>
+                <fullName>JavaScript</fullName>
+                <default>false</default>
+                <label>JavaScript</label>
+            </value>
+            <value>
+                <fullName>JSON</fullName>
+                <default>false</default>
+                <label>JSON</label>
+            </value>
+            <value>
+                <fullName>Landing Pages</fullName>
+                <default>false</default>
+                <label>Landing Pages</label>
+            </value>
+            <value>
+                <fullName>Partnerships</fullName>
+                <default>false</default>
+                <label>Partnerships</label>
+            </value>
+            <value>
+                <fullName>SFTP</fullName>
+                <default>false</default>
+                <label>SFTP</label>
+            </value>
+            <value>
+                <fullName>Undefined</fullName>
+                <default>false</default>
+                <label>Undefined</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

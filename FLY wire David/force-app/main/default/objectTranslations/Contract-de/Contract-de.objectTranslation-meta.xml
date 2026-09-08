@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fieldSets>
+        <label><!-- Active Contract Lookup --></label>
+        <name>SBQQ__ActiveContractLookup</name>
+    </fieldSets>
+    <recordTypes>
+        <description><!-- Contract Record for a Sales Client --></description>
+        <label><!-- Client Contract --></label>
+        <name>Client_Contract</name>
+    </recordTypes>
+    <validationRules>
+        <errorMessage><!-- You can&apos;t change a Contract Record once it&apos;s been Activated. If the record is wrong please submit a ticket in Jira for your Salesforce Administrator and include the link to the Contract and changes needed. --></errorMessage>
+        <name>CantChangeActivatedContract</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- The Contract linked should be the final countersigned version in the &quot;Legal -Contracts&quot; folder in Drive. --></errorMessage>
+        <name>ContractURLtoDrive</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- ***This Contract has been verified, Contact Ada is you need to change it.*** --></errorMessage>
+        <name>NoEditIfQVVerified</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- You must include the link to the Contract on the Google Shared Legal Drive. --></errorMessage>
+        <name>URLnot_blank_to_Activate</name>
+    </validationRules>
+    <webLinks>
+        <label><!-- Request_Contract --></label>
+        <name>Request_Contract</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- Amend --></label>
+        <name>SBQQ__Amend</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- RenewContracts --></label>
+        <name>SBQQ__RenewContracts</name>
+    </webLinks>
+</CustomObjectTranslation>

@@ -1,0 +1,257 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Ship_Type__c</fullName>
+    <defaultValue>IF(ISPICKVAL($User.Location__c, &quot;Gloucester, UK&quot;), &quot;--None--&quot;, &quot;Fedex Standard Overnight&quot;)</defaultValue>
+    <description>03/06/2025 - Changed True condition from Engineer Collection to None.</description>
+    <label>Ship Type</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Air Freight</fullName>
+                <default>false</default>
+                <label>Air Freight</label>
+            </value>
+            <value>
+                <fullName>Customer Pick Up</fullName>
+                <default>false</default>
+                <label>Customer Pick Up</label>
+            </value>
+            <value>
+                <fullName>Dedicated Truck</fullName>
+                <default>false</default>
+                <label>Dedicated Truck</label>
+            </value>
+            <value>
+                <fullName>DHL - Customer Scheduled</fullName>
+                <default>false</default>
+                <label>DHL - Customer Scheduled</label>
+            </value>
+            <value>
+                <fullName>DHL - Express</fullName>
+                <default>false</default>
+                <label>DHL - Express</label>
+            </value>
+            <value>
+                <fullName>DHL - Parcel</fullName>
+                <default>false</default>
+                <label>DHL - Parcel</label>
+            </value>
+            <value>
+                <fullName>DHL - Pre 10:30</fullName>
+                <default>false</default>
+                <label>DHL - Pre 10:30</label>
+            </value>
+            <value>
+                <fullName>DHL - Pre 12:00</fullName>
+                <default>false</default>
+                <label>DHL - Pre 12:00</label>
+            </value>
+            <value>
+                <fullName>DHL - Pre 9:00</fullName>
+                <default>false</default>
+                <label>DHL - Pre 9:00</label>
+            </value>
+            <value>
+                <fullName>DHL - Probo to Schedule</fullName>
+                <default>false</default>
+                <label>DHL - Probo to Schedule</label>
+            </value>
+            <value>
+                <fullName>DPD</fullName>
+                <default>false</default>
+                <label>DPD</label>
+            </value>
+            <value>
+                <fullName>DPD - Pre 10:30</fullName>
+                <default>false</default>
+                <label>DPD - Pre 10:30</label>
+            </value>
+            <value>
+                <fullName>DPD - Pre 12:00</fullName>
+                <default>false</default>
+                <label>DPD - Pre 12:00</label>
+            </value>
+            <value>
+                <fullName>Engineer Collection</fullName>
+                <default>false</default>
+                <label>Engineer Collection</label>
+            </value>
+            <value>
+                <fullName>Fedex 2 Day</fullName>
+                <default>false</default>
+                <label>Fedex 2 Day</label>
+            </value>
+            <value>
+                <fullName>FedEx 2Day® A.M.</fullName>
+                <default>false</default>
+                <label>FedEx 2Day® A.M.</label>
+            </value>
+            <value>
+                <fullName>Fedex Express Saver</fullName>
+                <default>false</default>
+                <label>Fedex Express Saver</label>
+            </value>
+            <value>
+                <fullName>FedEx First Overnight</fullName>
+                <default>false</default>
+                <label>FedEx First Overnight</label>
+            </value>
+            <value>
+                <fullName>Fedex Freight</fullName>
+                <default>false</default>
+                <label>Fedex Freight</label>
+            </value>
+            <value>
+                <fullName>Fedex Ground</fullName>
+                <default>false</default>
+                <label>Fedex Ground</label>
+            </value>
+            <value>
+                <fullName>FedEx International Economy</fullName>
+                <default>false</default>
+                <label>FedEx International Economy</label>
+            </value>
+            <value>
+                <fullName>FedEx International Priority</fullName>
+                <default>false</default>
+                <label>FedEx International Priority</label>
+            </value>
+            <value>
+                <fullName>Fedex Pre 10:00</fullName>
+                <default>false</default>
+                <label>Fedex Pre 10:00</label>
+            </value>
+            <value>
+                <fullName>Fedex Pre 12:00</fullName>
+                <default>false</default>
+                <label>Fedex Pre 12:00</label>
+            </value>
+            <value>
+                <fullName>Fedex Pre 9:00</fullName>
+                <default>false</default>
+                <label>Fedex Pre 9:00</label>
+            </value>
+            <value>
+                <fullName>Fedex Priority Overnight</fullName>
+                <default>false</default>
+                <label>Fedex Priority Overnight</label>
+            </value>
+            <value>
+                <fullName>FedEx Priority Overnight (Saturday Delivery)</fullName>
+                <default>false</default>
+                <label>FedEx Priority Overnight (Saturday Delivery)</label>
+            </value>
+            <value>
+                <fullName>Fedex Standard Overnight</fullName>
+                <default>false</default>
+                <label>Fedex Standard Overnight</label>
+            </value>
+            <value>
+                <fullName>Other</fullName>
+                <default>false</default>
+                <label>Other</label>
+            </value>
+            <value>
+                <fullName>Pilot</fullName>
+                <default>false</default>
+                <label>Pilot</label>
+            </value>
+            <value>
+                <fullName>Pilot - White Glove</fullName>
+                <default>false</default>
+                <label>Pilot - White Glove</label>
+            </value>
+            <value>
+                <fullName>Royal Mail Parcel</fullName>
+                <default>false</default>
+                <label>Royal Mail Parcel</label>
+            </value>
+            <value>
+                <fullName>Sea Freight - Container</fullName>
+                <default>false</default>
+                <label>Sea Freight - Container</label>
+            </value>
+            <value>
+                <fullName>See Below</fullName>
+                <default>false</default>
+                <label>See Below</label>
+            </value>
+            <value>
+                <fullName>Shipping Arranged by Probo Medical</fullName>
+                <default>false</default>
+                <label>Shipping Arranged by Probo Medical</label>
+            </value>
+            <value>
+                <fullName>Ship Using Attached Label</fullName>
+                <default>false</default>
+                <label>Ship Using Attached Label</label>
+            </value>
+            <value>
+                <fullName>Southeastern Freight Lines for LTL</fullName>
+                <default>false</default>
+                <label>Southeastern Freight Lines for LTL</label>
+            </value>
+            <value>
+                <fullName>Thinventory</fullName>
+                <default>false</default>
+                <label>Thinventory</label>
+            </value>
+            <value>
+                <fullName>Trump Card White Glove</fullName>
+                <default>false</default>
+                <label>Trump Card White Glove</label>
+            </value>
+            <value>
+                <fullName>Uber Freight for LTL</fullName>
+                <default>false</default>
+                <label>Uber Freight for LTL</label>
+            </value>
+            <value>
+                <fullName>UPS 2 Day</fullName>
+                <default>false</default>
+                <label>UPS 2 Day</label>
+            </value>
+            <value>
+                <fullName>UPS Express Saver</fullName>
+                <default>false</default>
+                <label>UPS Express Saver</label>
+            </value>
+            <value>
+                <fullName>UPS Ground</fullName>
+                <default>false</default>
+                <label>UPS Ground</label>
+            </value>
+            <value>
+                <fullName>UPS Next Day Air Saver</fullName>
+                <default>false</default>
+                <label>UPS Next Day Air Saver</label>
+            </value>
+            <value>
+                <fullName>UPS Priority Overnight</fullName>
+                <default>false</default>
+                <label>UPS Priority Overnight</label>
+            </value>
+            <value>
+                <fullName>UPS Standard Overnight</fullName>
+                <default>false</default>
+                <label>UPS Standard Overnight</label>
+            </value>
+            <value>
+                <fullName>Van Lines</fullName>
+                <default>false</default>
+                <label>Van Lines</label>
+            </value>
+            <value>
+                <fullName>Vendor Shipped</fullName>
+                <default>false</default>
+                <label>Vendor Shipped</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

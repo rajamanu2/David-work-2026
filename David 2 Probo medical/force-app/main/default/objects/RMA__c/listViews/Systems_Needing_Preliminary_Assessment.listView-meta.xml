@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Systems_Needing_Preliminary_Assessment</fullName>
+    <columns>NAME</columns>
+    <columns>ProductItem__c</columns>
+    <columns>RMA_Item_Serial_Number__c</columns>
+    <columns>Account_Name__c</columns>
+    <columns>Date_RMA_Item_Received__c</columns>
+    <columns>Preliminary_Assessment__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>RECORDTYPE</field>
+        <operation>equals</operation>
+        <value>RMA__c.Warranty_Claim,RMA__c.Loaner_Return</value>
+    </filters>
+    <filters>
+        <field>Warranty_Claim_Action__c</field>
+        <operation>equals</operation>
+    </filters>
+    <filters>
+        <field>Product_Family__c</field>
+        <operation>equals</operation>
+        <value>Ultrasound System</value>
+    </filters>
+    <filters>
+        <field>Loaner_changed_to_sale__c</field>
+        <operation>equals</operation>
+        <value>0</value>
+    </filters>
+    <filters>
+        <field>Probe_Never_Sent_In__c</field>
+        <operation>equals</operation>
+        <value>0</value>
+    </filters>
+    <label>Systems Needing Preliminary Assessment</label>
+    <sharedTo>
+        <allInternalUsers></allInternalUsers>
+    </sharedTo>
+</ListView>

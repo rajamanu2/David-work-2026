@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Trade_Timing__c</fullName>
+    <label>Trade Timing</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>At Time of Settlement to Flywire</fullName>
+                <default>false</default>
+                <label>At Time of Settlement to Flywire</label>
+            </value>
+            <value>
+                <fullName>At Time Payer Submits Transaction</fullName>
+                <default>false</default>
+                <label>At Time Payer Submits Transaction</label>
+            </value>
+            <value>
+                <fullName>At Time of Payment Booking on Flywire</fullName>
+                <default>false</default>
+                <label>At Time of Payment Booking on Flywire</label>
+            </value>
+            <value>
+                <fullName>Other</fullName>
+                <default>false</default>
+                <label>Other</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

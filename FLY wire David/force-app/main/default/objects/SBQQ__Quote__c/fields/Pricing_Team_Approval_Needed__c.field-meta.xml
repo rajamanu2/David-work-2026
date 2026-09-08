@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Pricing_Team_Approval_Needed__c</fullName>
+    <description>Created for BOPI-410</description>
+    <inlineHelpText>Rollup Summary field showing a value if there is a quote line that has the &quot;No Usage Rate Present&quot; checkbox marked as true</inlineHelpText>
+    <label>Pricing Team Approval Needed</label>
+    <summaryFilterItems>
+        <field>SBQQ__QuoteLine__c.No_Usage_Rate_Present__c</field>
+        <operation>equals</operation>
+        <value>True</value>
+    </summaryFilterItems>
+    <summaryForeignKey>SBQQ__QuoteLine__c.SBQQ__Quote__c</summaryForeignKey>
+    <summaryOperation>count</summaryOperation>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Summary</type>
+</CustomField>

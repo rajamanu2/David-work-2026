@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Req_Contract_Won</fullName>
+    <active>false</active>
+    <description>Must have Contract Record Created and Linked to Complete</description>
+    <errorConditionFormula>AND(
+$Profile.Name &lt;&gt; &apos;System Administrator&apos;,
+$Profile.Name &lt;&gt; &quot;B - Looker&quot;,
+RecordType.Name != &apos;Bank-PSP Partner&apos;,
+RecordType.Name != &apos;Strategic Partner&apos;,
+RecordType.Name != &apos;Agents&apos;,
+NOT(ISPICKVAL(Type, &apos;Statement of Work&apos;)),
+Probability &gt;0.95,
+ OR
+  (
+   ContractId = &quot;&quot;,
+    ISBLANK(Contract.ActivatedDate),
+    ISBLANK(TEXT(Contract.Flywire_Entity__c)),
+    ISBLANK(Contract.StartDate),
+    ISBLANK(Contract.EndDate)
+  )
+)</errorConditionFormula>
+    <errorDisplayField>ContractId</errorDisplayField>
+    <errorMessage>***.  Link the Contract Record to Opp, Ensure all Fields are filled in AND it has been Activated by clicking the &apos;Activate&apos; Button.  ***</errorMessage>
+</ValidationRule>

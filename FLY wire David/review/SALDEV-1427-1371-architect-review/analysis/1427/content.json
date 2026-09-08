@@ -1,0 +1,462 @@
+{
+  "source": "C:\\Users\\LIKKI\\Downloads\\SSALDEV-1427.docx",
+  "sha256": "84eb53bc43b8d5576dcf4eb44a7088892d06ec372506de95fe9f63e0a790fea9",
+  "sections": 1,
+  "paragraphs": [
+    {
+      "index": 0,
+      "style": "normal",
+      "text": "SALDEV-1427"
+    },
+    {
+      "index": 1,
+      "style": "Heading 2",
+      "text": "Update QCP cloning logic for copying lines and fields in stepped up pricing"
+    },
+    {
+      "index": 3,
+      "style": "normal",
+      "text": "\n\n Story"
+    },
+    {
+      "index": 4,
+      "style": "normal",
+      "text": "Resolution:"
+    },
+    {
+      "index": 5,
+      "style": "normal",
+      "text": "Unresolved"
+    },
+    {
+      "index": 6,
+      "style": "normal",
+      "text": "Priority:"
+    },
+    {
+      "index": 7,
+      "style": "normal",
+      "text": " High"
+    },
+    {
+      "index": 8,
+      "style": "normal",
+      "text": "Fix Version/s:"
+    },
+    {
+      "index": 9,
+      "style": "normal",
+      "text": "vStep-up Pricing"
+    },
+    {
+      "index": 10,
+      "style": "normal",
+      "text": "Affects Version/s:"
+    },
+    {
+      "index": 11,
+      "style": "normal",
+      "text": "None"
+    },
+    {
+      "index": 12,
+      "style": "normal",
+      "text": "Labels:"
+    },
+    {
+      "index": 13,
+      "style": "normal",
+      "text": "ReadyToBuild"
+    },
+    {
+      "index": 14,
+      "style": "normal",
+      "text": " RevOps"
+    },
+    {
+      "index": 15,
+      "style": "normal",
+      "text": "Epic Link:"
+    },
+    {
+      "index": 16,
+      "style": "normal",
+      "text": "[EPIC] StepUp - QCP"
+    },
+    {
+      "index": 17,
+      "style": "normal",
+      "text": "Sprint:"
+    },
+    {
+      "index": 18,
+      "style": "normal",
+      "text": "Sprint 19: 8/10 - 8/21, Sprint 20: 8/24 - 9/4"
+    },
+    {
+      "index": 19,
+      "style": "normal",
+      "text": "Story Points:"
+    },
+    {
+      "index": 20,
+      "style": "normal",
+      "text": "8"
+    },
+    {
+      "index": 21,
+      "style": "normal",
+      "text": "User Story:"
+    },
+    {
+      "index": 22,
+      "style": "normal",
+      "text": "As a user, when quoting with stepped up pricing, the cloned lines should have field values that align with business processes - copying values where appropriate and setting others to null."
+    },
+    {
+      "index": 24,
+      "style": "normal",
+      "text": "Stepped up pricing will involve cloning groups of quote lines to represent the years (or other timeframes) of a subscription term. To maintain data integrity and provide a MVP solution, many fields should not be editable in the cloned groups. This ticket provides the requirements for the fields that should be cloned, those that should be made null upon cloning, and which fields the users will be able to edit in the cloned groups.\n\nIn addition, we'll align SALDEV-1371 with this ticket -\n\nAs a user, when a line is cloned, either for price change or other purposes, the fields that calculate ARR should not be cloned as well. This is currently leading to erroneous data, as discovered on SALDEV-1351"
+    },
+    {
+      "index": 25,
+      "style": "normal",
+      "text": "Requirement Detail:"
+    },
+    {
+      "index": 26,
+      "style": "normal",
+      "text": "See Sunita's proposed design from SALDEV-1382: https://docs.google.com/spreadsheets/d/1aARLxpdhEETdCyBgOOt4ZhdjzP8x-4yYY1LjbEiJ5Rs/edit?gid=1836819863#gid=1836819863"
+    },
+    {
+      "index": 27,
+      "style": "normal",
+      "text": "Design Detail:"
+    },
+    {
+      "index": 28,
+      "style": "normal",
+      "text": "-ARR fields below will be set to null on all cloned quote lines within groups or cloned lines for Non-SUP:"
+    },
+    {
+      "index": 29,
+      "style": "normal",
+      "text": "# DOM Outgoing PYMTS"
+    },
+    {
+      "index": 30,
+      "style": "normal",
+      "text": "% Utilization\nActual 12 Months Tuition CC Vol\nAnnual # of Domestic Transactions\nAnnual # of Surcharge Transactions\nAnnual Total Domestic Volume\nAnnual Total Surcharge Volume\nAvg FX Trans Amt\nBPS Upcharge\nClient Home CCY XB PYMNTS\nDomestic Sponsor %\nEst Annual MM\nEstimated Volume\nExpected # of Apps per Year\nFX XB Outgoing PYMTS\nInt'l Sponsor %\nInterchange Rate\nLast 12 Months Payment Plans (# of)\nMPP Card Usage Included\nNo. International Payers\nOne Door\nPer Transaction Up Charge\nProcessed Volume #\nTotal $ Flows\nYearly Invoiced Sent\n\n-Clone Group button functionality:\nBy default, clicking the Clone Group button in a quote line group automatically copies all quote lines.\n\nQCP will need to overlay below guardrails:\n-- The Opportunity Line Id and NS Id fields:\n*****we need to confirm with NS whether these should remain constant across the groups or differ? ***\nCurrent assumption is that Opp Line Id should remain the same but the NS id should not copy. (NS id would be populated on renewal, still TBD how we will address changing non-stepped up pricing contract to stepped-up pricing on amend/renew)\n\n-- For XB and Domestic, all of the attribute field values should all copy to subsequent groups, including Transaction Currency\n   -- If the user changes any of these field values in the first group, we will NOT copy those changes forward to the following groups. This is for MVP and may be revised in further enhancements. OK per Kirk\n\n-- Users cannot change any fields on the cloned group lines except for quantity and price-related fields. This means no changes to attribute-related or any other fields in the drawer.\n\n-- Quantity, Quoted Price, Adjusted Rate Amt, Adjusted Rate %, Rate Details -\nThough these values are copied they should be editable by users in the subsequent groups.\n\n-- The Ship to Account field should copy to the subsequent groups and should not be editable when cloning groups for stepped up pricing only. (Kirk to confirm ok for MVP)\n\n-- ARR fields -\n   -- ARR fields will only be visible in the first group, this includes for multiple XB/DOM lines within the group as it is in the current design. Further cloned groups will NOT have any of those fields visible, and the values from the first group will not copy to subsequent group lines at all.\n\n  -- From SALDEV-1371, ARR fields should be set to null when cloning lines for Non-SUP purposes as well.\n   \n-- Changes made to fields in one group do NOT automatically update subsequent groups. OK per Kirk\n-- Products added in one group do NOT automatically update subsequent groups. OK per Kirk\n\nMV 7/16: Also consider what needs to be updated in the Clone Handler custom script, and what needs to be addressed for the line cloning functionality. See documentation on SALDEV-1384\n\nMV 8/17: Removed reference to amendments, now out of scope for MVP"
+    },
+    {
+      "index": 31,
+      "style": "normal",
+      "text": "Implementation Detail:"
+    },
+    {
+      "index": 32,
+      "style": "normal",
+      "text": "Updated QCP : QCP_HideFieldInQLE [ I have added the comments with the Jira # on QCP and"
+    },
+    {
+      "index": 33,
+      "style": "normal",
+      "text": "Updated: QLE_CloneLineHandler"
+    },
+    {
+      "index": 34,
+      "style": "normal",
+      "text": "Apex Trigger: QuoteLineTrigger [ QuoteLineTriggerHandler.copyOpportunityLineIdOnRamp(Trigger.new)].\nApex Class: QuoteLineTriggerHandler\nApex Test Class: QuoteLineTriggerHandlerTest\n"
+    },
+    {
+      "index": 35,
+      "style": "normal",
+      "text": "Acceptance Criteria:"
+    },
+    {
+      "index": 36,
+      "style": "normal",
+      "text": "When quoting with stepped up pricing -"
+    },
+    {
+      "index": 37,
+      "style": "normal",
+      "text": "- You can edit the fields as usual in the first group"
+    },
+    {
+      "index": 38,
+      "style": "normal",
+      "text": "- Once the first group is cloned, the values in the drawer for each line copy to the cloned group's lines. But the fields in the drawer of the cloned group are not editable, except for those related to usage prices.\n- The Quantity and Quote Price fields are editable on the quote lines.\n- The above is true for all further cloned groups/lines\nAfter saving the quote, review the opportunity line ids across the groups. Quote Line 1 in Group 1 should have the same Opp Line Id as Quote Line 1 in Group 2, etc.\n- NS Ids are only present if this is an amendment or renewal, and should not change during the quoting process\n-Testing should include multiple verticals, quotes with mix of step up pricing groups and non step up, multiple ship to accounts and only 1 ship to account, payments and bundled products.\n\nWhen quoting for non-stepped up pricing but cloning lines or groups, the values entered for any of the ARR fields noted above are not copied to the cloned lines. This must be checked outside of the QLE on the Quote Line record detail pages, since those fields are hidden on the cloned lines."
+    },
+    {
+      "index": 39,
+      "style": "Heading 3",
+      "text": "Description"
+    },
+    {
+      "index": 40,
+      "style": "normal",
+      "text": "None"
+    },
+    {
+      "index": 41,
+      "style": "Heading 3",
+      "text": "Attachments"
+    },
+    {
+      "index": 43,
+      "style": "normal",
+      "text": "Options"
+    },
+    {
+      "index": 44,
+      "style": "normal",
+      "text": "Drop files to attach, or browse."
+    },
+    {
+      "index": 45,
+      "style": "Heading 3",
+      "text": "Issue Links"
+    },
+    {
+      "index": 46,
+      "style": "normal",
+      "text": "blocks"
+    },
+    {
+      "index": 47,
+      "style": "normal",
+      "text": " SALDEV-1404 Update QCP duplicate rules for stepped-up pricing"
+    },
+    {
+      "index": 49,
+      "style": "normal",
+      "text": "Blocked"
+    },
+    {
+      "index": 50,
+      "style": "normal",
+      "text": "Delete this link"
+    },
+    {
+      "index": 51,
+      "style": "normal",
+      "text": "relates to"
+    },
+    {
+      "index": 52,
+      "style": "normal",
+      "text": " SALDEV-1382 [Investigate] Copying lines and specific fields across quote line groups for stepped-up pricing"
+    },
+    {
+      "index": 54,
+      "style": "normal",
+      "text": "Closed"
+    },
+    {
+      "index": 55,
+      "style": "normal",
+      "text": "Delete this link"
+    },
+    {
+      "index": 56,
+      "style": "normal",
+      "text": " SALDEV-1371 Cloning QL should not clone ARR field values (QCP Cloning Custom Script)"
+    },
+    {
+      "index": 58,
+      "style": "normal",
+      "text": "In Progress"
+    },
+    {
+      "index": 59,
+      "style": "normal",
+      "text": "Delete this link"
+    },
+    {
+      "index": 60,
+      "style": "normal",
+      "text": "split to"
+    },
+    {
+      "index": 61,
+      "style": "normal",
+      "text": " SALDEV-1441 Update business logic to work as needed for Step up product groupings vs Non SUP"
+    },
+    {
+      "index": 63,
+      "style": "normal",
+      "text": "In Progress"
+    },
+    {
+      "index": 64,
+      "style": "normal",
+      "text": "Delete this link"
+    },
+    {
+      "index": 65,
+      "style": "normal",
+      "text": "Add Link"
+    },
+    {
+      "index": 66,
+      "style": "Heading 3",
+      "text": "Activity"
+    },
+    {
+      "index": 67,
+      "style": "normal",
+      "text": "All"
+    },
+    {
+      "index": 68,
+      "style": "normal",
+      "text": "Comments"
+    },
+    {
+      "index": 69,
+      "style": "normal",
+      "text": "Work Log"
+    },
+    {
+      "index": 70,
+      "style": "normal",
+      "text": "History"
+    },
+    {
+      "index": 71,
+      "style": "normal",
+      "text": "Activity"
+    },
+    {
+      "index": 72,
+      "style": "normal",
+      "text": "Timepiece"
+    },
+    {
+      "index": 73,
+      "style": "normal",
+      "text": "Transitions"
+    },
+    {
+      "index": 74,
+      "style": "normal",
+      "text": "Oldest first"
+    },
+    {
+      "index": 75,
+      "style": "normal",
+      "text": "You can now pin up to five comments to highlight important information. Pinned comments will appear above all other comments, so they're easy to find."
+    },
+    {
+      "index": 76,
+      "style": "normal",
+      "text": "Got itLearn more about pinned comments"
+    },
+    {
+      "index": 77,
+      "style": "Heading 3",
+      "text": " Collapse comment: Meg Vogler added a comment - 24/Jul/26 1:13 PM"
+    },
+    {
+      "index": 79,
+      "style": "normal",
+      "text": "Meg Vogler added a comment - 24/Jul/26 1:13 PM"
+    },
+    {
+      "index": 80,
+      "style": "normal",
+      "text": "Brette Chmura would you please review the list of ARR fields above to confirm it aligns with your master ARR documentation? We need to be sure we're considering all ARR-related fields for the stepped up pricing build."
+    },
+    {
+      "index": 81,
+      "style": "normal",
+      "text": "EditDeletePin"
+    },
+    {
+      "index": 82,
+      "style": "Heading 3",
+      "text": " Collapse comment: Ada Cirillo added a comment - 03/Aug/26 8:20 PM"
+    },
+    {
+      "index": 84,
+      "style": "normal",
+      "text": "Ada Cirillo added a comment - 03/Aug/26 8:20 PM"
+    },
+    {
+      "index": 85,
+      "style": "normal",
+      "text": "Sunita Bhattad Cross referenced with our Master ARR sheet, the only field I didn't see in your list is \"Processed Volume $\" API Name \"Processed_Volume_Amount__c)\" used in HC for \"Merchant Processing BPS\" and \"Merchant Processing Interchange\" for ARR flows. Per Meg this is not needed for QCP so your list is complete."
+    },
+    {
+      "index": 86,
+      "style": "normal",
+      "text": "EditDeletePin"
+    },
+    {
+      "index": 87,
+      "style": "Heading 3",
+      "text": " Collapse comment: Stuti Saxena added a comment - 04/Aug/26 1:50 PM"
+    },
+    {
+      "index": 89,
+      "style": "normal",
+      "text": "Stuti Saxena added a comment - 04/Aug/26 1:50 PM"
+    },
+    {
+      "index": 90,
+      "style": "normal",
+      "text": "Testing - 3 SP"
+    },
+    {
+      "index": 91,
+      "style": "normal",
+      "text": "EditDeletePin"
+    },
+    {
+      "index": 92,
+      "style": "Heading 3",
+      "text": " Collapse comment: Meg Vogler added a comment - 17/Aug/26 12:43 PM"
+    },
+    {
+      "index": 94,
+      "style": "normal",
+      "text": "Meg Vogler added a comment - 17/Aug/26 12:43 PM"
+    },
+    {
+      "index": 95,
+      "style": "normal",
+      "text": "Per Sunita - we should remove the requirement for one-time products from this ticket and include it with the ticket for product rules SALDEV-1441. "
+    },
+    {
+      "index": 96,
+      "style": "normal",
+      "text": "EditDeletePin"
+    },
+    {
+      "index": 97,
+      "style": "Heading 3",
+      "text": " Collapse comment: Sunita Bhattad added a comment - 03/Sep/26 1:20 PM"
+    },
+    {
+      "index": 99,
+      "style": "normal",
+      "text": "Sunita Bhattad added a comment - 9 hours ago"
+    },
+    {
+      "index": 100,
+      "style": "normal",
+      "text": "David Okolo : This ticket is ready for review. Kindly share your feedback."
+    }
+  ],
+  "tables": [],
+  "inline_shapes": 15,
+  "package_media": [
+    {
+      "part": "word/media/image12.png",
+      "file": "C:\\Users\\LIKKI\\Documents\\ChatGPT\\david\\review\\SALDEV-1427-1371-architect-review\\analysis\\1427\\media\\image12.png",
+      "bytes": 70,
+      "sha256": "18d840af2c50eff9a5241d4b50833a596e6b71af0cee87cf2b3435345f2f7aba"
+    }
+  ]
+}

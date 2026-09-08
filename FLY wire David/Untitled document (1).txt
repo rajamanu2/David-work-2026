@@ -1,0 +1,91 @@
+FILE: C:\Users\LIKKI\Downloads\Untitled document (1).docx
+PARAGRAPHS: 92
+TABLES: 0
+P1 [normal]: SALDEV-1403
+P2 [Heading 2]: Update Output docs for stepped up pricing - Omnistudio
+P4 [normal]: Type:
+P5 [normal]: Story
+P6 [normal]: Resolution:
+P7 [normal]: Unresolved
+P8 [normal]: Priority:
+P9 [normal]: Medium
+P10 [normal]: Fix Version/s:
+P11 [normal]: vStep-up Pricing
+P12 [normal]: Affects Version/s:
+P13 [normal]: None
+P14 [normal]: Labels:
+P15 [normal]: Dependency
+P16 [normal]: ReadyToBuild
+P17 [normal]: RevOps
+P18 [normal]: Epic Link:
+P19 [normal]: [EPIC] StepUp - Output Documents
+P20 [normal]: Sprint:
+P21 [normal]: Sprint 18: 7/27 - 8/7, Sprint 19: 8/10 - 8/21
+P22 [normal]: Story Points:
+P23 [normal]: 5
+P24 [normal]: User Story:
+P25 [normal]: Quote output doc and email templates must be updated for stepped-up pricing
+P26 [normal]: Requirement Detail:
+P27 [normal]: Add quote line groups to templates, ensure they appear in correct order
+P28 [normal]: Order the quote lines within each group to equal the order they appear in the QLE, keeping bundle options under bundle parents, etc.
+P29 [normal]: Design Detail:
+P30 [normal]: Update the omnistudio template for quotes to dynamically show quote line groups when they are included in the quotes
+P32 [normal]: Update all email templates to include quote line groups, for both approvals and legal
+
+For quotes without stepped-up pricing, ensure the doc and templates still look as they do today. For Legal, there cannot be a 'Group 1' if there are no other groups on the quote. This may require separate templates for grouped and non-grouped quotes
+
+Until the duplicate rules have been updated, you will not be able to test this exactly for stepped-up pricing, because you cannot save such quotes. In the meantime, you can create multiple groups for different products or different ship to accounts to replicate the same visual effect on the output doc and templates.
+
+Include Start and End Date fields in the quote line groups, in preparation for the stepped up pricing functionality
+P33 [normal]: Implementation Detail:
+P34 [normal]: None
+P35 [normal]: Acceptance Criteria:
+P36 [normal]: Quote output documents and email templates for all approvals (including Legal) show quote line groups in proper order if they exist on the quote. If a quote does not have quote line groups, then the templates/output doc appear as they always have.
+P38 [normal]: Until the duplicate rules have been updated, you will not be able to test this exactly for stepped-up pricing, because you cannot save such quotes. In the meantime, you can create multiple groups for different products or different ship to accounts to replicate the same visual effect on the output doc and templates.
+P41 [Heading 3]: Issue Links
+P42 [normal]: is cloned by
+P43 [normal]: SALDEV-1420 Update Output docs for stepped up pricing - Email template
+P45 [normal]: In Progress
+P46 [normal]: Delete this link
+P47 [normal]: relates to
+P48 [normal]: SALDEV-1389 [Investigate] Output document updates for stepped-up pricing
+P50 [normal]: Closed
+P51 [normal]: Delete this link
+P52 [normal]: requires
+P53 [normal]: SALDEV-1404 Update QCP duplicate rules for stepped-up pricing
+P55 [normal]: QA In Partial
+P56 [normal]: Delete this link
+P57 [normal]: Add Link
+P58 [Heading 3]: Activity
+P59 [normal]: All
+P60 [normal]: Comments
+P61 [normal]: Work Log
+P62 [normal]: History
+P63 [normal]: Activity
+P64 [normal]: Timepiece
+P65 [normal]: Transitions
+P66 [normal]: Oldest first
+P67 [normal]: You can now pin up to five comments to highlight important information. Pinned comments will appear above all other comments, so they're easy to find.
+P68 [normal]: Got itLearn more about pinned comments
+P69 [Heading 3]: Collapse comment: Meg Vogler added a comment - 21/Jul/26 2:25 PM
+P71 [normal]: Meg Vogler added a comment - 21/Jul/26 2:25 PM
+P72 [normal]: Will add a mock up of the desired template layouts
+P73 [normal]: EditDeletePin
+P74 [Heading 3]: Collapse comment: Meg Vogler added a comment - 21/Jul/26 3:45 PM
+P76 [normal]: Meg Vogler added a comment - 21/Jul/26 3:45 PM
+P77 [normal]: From the investigate ticket -
+P78 [normal]: For the OmniStudio Document Generation tools, you can setup product groups, so that each group would have a header and then would display the products in that group under it.
+P79 [normal]: You would need to update the DataRaptors to pull in the which products belong to which groups. Meaning we may need a background field to identify Year 1, Year 2, etc.
+P80 [normal]: Then the Document Template would need to be updated to include those groups headers and set up to repeat for each group there is.
+P81 [normal]: For the Email Templates, you can setup groups, but it is going to require updating the visualforce email templates, we will need to create a custom visualforce component for the groups, and some Apex controller to retrieve the grouped quote lines.
+P82 [normal]: With the updates to Quote Line for stepped-up pricing, we should just be able to use any new fields created for those on Quote Line to handle the templates for Request-Quote Approval Request-AQS, it is the only one that shows Quote Lines.
+P83 [normal]: We will need to twin the stepped-up pricing fields to Opportunity Product and then update the following templates for Opportunities:
+P84 [normal]: Revenue-Approval Request
+Legal-Approval Request
+Credit Risk-Approval Request
+P85 [normal]: EditDeletePin
+P86 [Heading 3]: Collapse comment: Meg Vogler added a comment - 04/Aug/26 12:39 PM
+P88 [normal]: Meg Vogler added a comment - 04/Aug/26 12:39 PM
+P89 [normal]: Initial work resulted in duplicate lines displaying for quote line groups
+P90 [normal]: Sunita was able to edit a filter id that referenced quote line instead of quote line group to resolve the duplicate lines
+P91 [normal]: Kyle will continue to work on adding the necessary fields and template formatting, as well as the logic to trigger when to display as groups and when not to (when groups aren't used).

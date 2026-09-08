@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PermissionSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>Add permission for connecting to the Connected OAUTH App for Yesware. Connected App set to Admin approved users are pre-authorized.
+SAL-7349: Approve Uninstalled Connected Apps.</description>
+    <hasActivationRequired>false</hasActivationRequired>
+    <label>Yesware Permission</label>
+    <userPermissions>
+        <enabled>true</enabled>
+        <name>ApiEnabled</name>
+    </userPermissions>
+    <userPermissions>
+        <enabled>true</enabled>
+        <name>CanApproveUninstalledApps</name>
+    </userPermissions>
+</PermissionSet>

@@ -1,0 +1,120 @@
+@startuml
+skinparam backgroundColor white
+skinparam shadowing false
+skinparam classBackgroundColor #F6F7F8
+skinparam classBorderColor #222222
+skinparam classArrowColor #3D8DFF
+skinparam classFontColor #111111
+skinparam classHeaderBackgroundColor #D0EDFA
+hide methods
+hide circle
+
+class CustomerAccount {
+  +AccountId : Id
+  +GoldenRecordKey : String
+  +ParentAccountId : Id
+  +LifecycleStatus : String
+  +DataQualityScore : Decimal
+}
+class LegalEntity {
+  +LegalEntityId : Id
+  +EntityCode : String
+  +Country : String
+  +BaseCurrency : String
+}
+class Opportunity {
+  +OpportunityId : Id
+  +Stage : String
+  +ForecastCategory : String
+  +PrimaryEntityId : Id
+}
+class Quote {
+  +QuoteId : Id
+  +Version : Integer
+  +Status : QuoteStatus
+  +CurrencyIsoCode : String
+  +ARR : Currency
+  +TCV : Currency
+}
+class QuoteLine {
+  +QuoteLineId : Id
+  +Quantity : Decimal
+  +StartDate : Date
+  +EndDate : Date
+  +ListPrice : Currency
+  +NetPrice : Currency
+  +RevenueType : String
+}
+class Product {
+  +ProductId : Id
+  +SKU : String
+  +ProductFamily : String
+  +LifecycleStatus : String
+}
+class PriceBookEntry {
+  +PriceBookEntryId : Id
+  +CurrencyIsoCode : String
+  +ListPrice : Currency
+  +EffectiveFrom : Date
+  +EffectiveTo : Date
+}
+class PricingSchedule {
+  +ScheduleId : Id
+  +PeriodNumber : Integer
+  +EscalationPercent : Decimal
+  +PeriodNetAmount : Currency
+}
+class ApprovalRequest {
+  +ApprovalRequestId : Id
+  +Status : ApprovalStatus
+  +SubmittedAt : DateTime
+  +DecisionAt : DateTime
+}
+class ApprovalStep {
+  +ApprovalStepId : Id
+  +Sequence : Integer
+  +Persona : String
+  +Status : ApprovalStatus
+  +Reason : String
+}
+class Contract {
+  +ContractId : Id
+  +ContractNumber : String
+  +Status : ContractStatus
+  +StartDate : Date
+  +EndDate : Date
+}
+class ContractLine {
+  +ContractLineId : Id
+  +ProductId : Id
+  +CommittedARR : Currency
+  +BillingFrequency : String
+}
+class Order {
+  +OrderId : Id
+  +Status : OrderStatus
+  +ExternalOrderKey : String
+}
+class IntegrationEvent {
+  +EventId : Id
+  +CorrelationId : String
+  +EventType : String
+  +DeliveryStatus : String
+}
+
+CustomerAccount "1" -- "0..*" CustomerAccount : parent / child
+CustomerAccount "1" -- "1..*" LegalEntity : operates through
+CustomerAccount "1" -- "0..*" Opportunity
+Opportunity "1" -- "0..*" Quote
+Quote "1" *-- "1..*" QuoteLine
+Product "1" -- "0..*" PriceBookEntry
+PriceBookEntry "1" -- "0..*" QuoteLine
+QuoteLine "1" *-- "0..*" PricingSchedule
+Quote "1" -- "0..*" ApprovalRequest
+ApprovalRequest "1" *-- "1..*" ApprovalStep
+Quote "1" -- "0..1" Contract : accepted quote
+Contract "1" *-- "1..*" ContractLine
+Contract "1" -- "0..*" Order
+Quote "1" -- "0..*" IntegrationEvent
+Contract "1" -- "0..*" IntegrationEvent
+@enduml

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Cannot_Change_Original_Time_Warranty</fullName>
+    <active>false</active>
+    <description>Cannot Change Original Time Warranty/Loaner Action Approved field once its approved.</description>
+    <errorConditionFormula>AND(
+NOT(ISNULL(Original_Time_Warranty_Loaner_Action_App__c)),
+ISCHANGED(Original_Time_Warranty_Loaner_Action_App__c)
+)</errorConditionFormula>
+    <errorMessage>You cannot change the Original Time Warranty/Loaner Action Approved field after its been set!</errorMessage>
+</ValidationRule>

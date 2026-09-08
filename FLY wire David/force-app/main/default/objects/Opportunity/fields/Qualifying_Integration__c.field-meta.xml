@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Qualifying_Integration__c</fullName>
+    <description>Integration field for EDU commissions. If the product will be integrated with one of these then, the Commissions are affected.</description>
+    <inlineHelpText>Enter if products on this Opp will be integrated with one of these options.</inlineHelpText>
+    <label>Qualifying Integration</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>API</fullName>
+                <default>false</default>
+                <label>API</label>
+            </value>
+            <value>
+                <fullName>CRS</fullName>
+                <default>false</default>
+                <label>CRS</label>
+            </value>
+            <value>
+                <fullName>JSON Gateway</fullName>
+                <default>false</default>
+                <label>JSON Gateway</label>
+            </value>
+            <value>
+                <fullName>SFS</fullName>
+                <default>false</default>
+                <label>SFS</label>
+            </value>
+            <value>
+                <fullName>Non Partner - Custom Integration</fullName>
+                <default>false</default>
+                <label>Non Partner - Custom Integration</label>
+            </value>
+            <value>
+                <fullName>Partner Integration</fullName>
+                <default>false</default>
+                <label>Partner Integration</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

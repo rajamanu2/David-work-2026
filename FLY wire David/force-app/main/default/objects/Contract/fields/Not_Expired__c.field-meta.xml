@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Not_Expired__c</fullName>
+    <description>No Auto Renewal and Past Contract End Date</description>
+    <formula>NOT(
+AND(
+TODAY() &gt;  EndDate,
+ISPICKVAL(Auto_Renewal__c, &quot;No&quot;)
+))</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Not Expired</label>
+    <trackHistory>false</trackHistory>
+    <type>Checkbox</type>
+</CustomField>

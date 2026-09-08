@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CSS_Customer_Pulse__c</fullName>
+    <description>WPM Engagement Level of Client with Customer Success Specialist</description>
+    <inlineHelpText>WPM Engagement Level of Client with Customer Success Specialist</inlineHelpText>
+    <label>OBS0424-CSS Customer Pulse</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>No Engagement</fullName>
+                <default>false</default>
+                <label>No Engagement</label>
+            </value>
+            <value>
+                <fullName>Disengaged</fullName>
+                <default>false</default>
+                <label>Disengaged</label>
+            </value>
+            <value>
+                <fullName>Engaged</fullName>
+                <default>false</default>
+                <label>Engaged</label>
+            </value>
+            <value>
+                <fullName>Fully Engaged</fullName>
+                <default>false</default>
+                <label>Fully Engaged</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

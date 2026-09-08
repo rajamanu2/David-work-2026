@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Activity_Status__c</fullName>
+    <description>Status of combined Activity Type field.</description>
+    <externalId>false</externalId>
+    <formula>IF((ywr__Yesware_TotalCall__c &gt;= 1), &quot;Call&quot;,
+IF((ywr__Yesware_Meeting__c &gt;= 1), &quot;Meeting&quot;,
+
+IF(BEGINS(Subject,&quot;Message Sent:&quot;), &quot;Sent&quot;,
+IF(BEGINS(Subject,&quot;InMail sent from Sales Navigator&quot;), &quot;Sent&quot;,
+IF(BEGINS(Subject,&quot;Message sent from Sales Navigator&quot;), &quot;Sent&quot;,
+IF(BEGINS(Subject,&quot;Was Sent Email:&quot;), &quot;Sent&quot;,
+IF(BEGINS(Subject,&quot;Email:&quot;), &quot;Sent&quot;,
+IF(( ywr__Yesware_Sent__c  &gt;= 1), &quot;Sent&quot;,
+
+IF(BEGINS(Subject,&quot;Message Opened:&quot;), &quot;Opened&quot;,
+IF(BEGINS(Subject,&quot;Opened Email:&quot;), &quot;Opened&quot;,
+IF((yw__YeswareOpens__c  &gt;= 1), &quot;Opened&quot;,
+
+IF(BEGINS(Subject,&quot;Reply:&quot;), &quot;Reply&quot;,
+IF((yw__YeswareReplies__c  &gt;= 1), &quot;Reply&quot;,
+
+IF(BEGINS(Subject,&quot;Link Clicked in Message:&quot;), &quot;Clicked&quot;,
+IF(BEGINS(Subject,&quot;Smart Link View from Sales Navigator&quot;), &quot;Clicked&quot;,
+IF(BEGINS(Subject,&quot;Clicked Link in Email:&quot;), &quot;Clicked&quot;,
+IF((yw__YeswareLinkClicks__c  &gt;= 1), &quot;Clicked&quot;,
+
+IF(BEGINS(Subject,&quot;Attachment Opened in Message:&quot;), &quot;Opened Attachment&quot;,
+IF((yw__YeswareAttachmentOpens__c  &gt;= 1), &quot;Opened Attachment&quot;,
+
+IF(BEGINS(Subject,&quot;Presentation Viewed in Message:&quot;), &quot;Viewed Presentation&quot;,
+IF((yw__YeswarePresentationViews__c  &gt;= 1), &quot;Viewed Presentation&quot;,
+
+
+IF(BEGINS(Subject,&quot;YW Custom&quot;), &quot;Sync&quot;,
+IF(BEGINS(Subject,&quot;Message Sync:&quot;), &quot;Sync&quot;,
+
+IF(BEGINS(Subject,&quot;Notes from Sales Navigator&quot;), &quot;LinkedIn-Note&quot;,
+
+IF(BEGINS(Subject,&quot;Filled Out Form&quot;), &quot;Completed&quot;,
+
+IF(BEGINS(Subject,&quot;Bounce Received: Undeliverable:&quot;), &quot;Bounce&quot;,
+IF(BEGINS(Subject,&quot;Unresolved Email:&quot;), &quot;Bounce&quot;,
+IF((Subject = &quot;Bounce Received: Delivery Status Notification (Failure)&quot;), &quot;Bounce&quot;,
+IF((ywr__Yesware_Bounce__c  &gt;= 1), &quot;Bounce&quot;,
+
+
+&quot;Other&quot;)))))))))))))))))))))))))))))</formula>
+    <label>Activity Status</label>
+    <required>false</required>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

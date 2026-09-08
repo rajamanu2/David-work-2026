@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Owner_Same_as_Account__c</fullName>
+    <description>Returns True if the Account Owner and the Opportunity Owner are the same.</description>
+    <formula>OwnerId =  Account.OwnerId</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <inlineHelpText>Returns True if the Account Owner and the Opportunity Owner are the same.</inlineHelpText>
+    <label>Owner Same as Account?</label>
+    <trackHistory>false</trackHistory>
+    <type>Checkbox</type>
+</CustomField>

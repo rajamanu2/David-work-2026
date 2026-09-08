@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Rental_RMAs</fullName>
+    <columns>NAME</columns>
+    <columns>Account_Name__c</columns>
+    <columns>ProductItem__c</columns>
+    <columns>Opportunity_Owner__c</columns>
+    <columns>Opportunity__c</columns>
+    <columns>Date_Opportunity_Item_Shipped__c</columns>
+    <columns>Opportunity_Stage__c</columns>
+    <columns>Date_RMA_Item_Received__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>RECORDTYPE</field>
+        <operation>equals</operation>
+        <value>RMA__c.Rental_Return</value>
+    </filters>
+    <filters>
+        <field>Date_RMA_Item_Received__c</field>
+        <operation>notEqual</operation>
+    </filters>
+    <filters>
+        <field>Opportunity_Stage__c</field>
+        <operation>notEqual</operation>
+        <value>Closed Lost</value>
+    </filters>
+    <label>Rental RMAs - Returned - Not Closed Lost</label>
+    <sharedTo>
+        <allInternalUsers></allInternalUsers>
+    </sharedTo>
+</ListView>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Workflow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fieldUpdates>
+        <fullName>Marketo_Set_Campaign_Active</fullName>
+        <description>Sets campaign to active if it is created by the Marketo user.</description>
+        <field>IsActive</field>
+        <literalValue>1</literalValue>
+        <name>Marketo Set Campaign Active</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <rules>
+        <fullName>Set Campaign to Active</fullName>
+        <actions>
+            <name>Marketo_Set_Campaign_Active</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <criteriaItems>
+            <field>Campaign.CreatedById</field>
+            <operation>startsWith</operation>
+            <value>Marketo</value>
+        </criteriaItems>
+        <description>Sets campaign to active if created by Marketo user.</description>
+        <triggerType>onCreateOnly</triggerType>
+    </rules>
+</Workflow>

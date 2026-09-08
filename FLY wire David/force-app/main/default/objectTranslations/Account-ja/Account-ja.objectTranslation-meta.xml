@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <recordTypes>
+        <description><!-- Agent Accounts --></description>
+        <label><!-- Agents --></label>
+        <name>Agents</name>
+    </recordTypes>
+    <recordTypes>
+        <description><!-- Account Record type for B2B Segment --></description>
+        <label><!-- B2B --></label>
+        <name>B2B</name>
+    </recordTypes>
+    <recordTypes>
+        <description><!-- Bank we have a contracted partnership with. --></description>
+        <label><!-- Bank Partner --></label>
+        <name>Bank_Partner</name>
+    </recordTypes>
+    <recordTypes>
+        <description><!-- Record Type for Current and Potential Commercial Clients. --></description>
+        <label><!-- Commercial --></label>
+        <name>Commercial</name>
+    </recordTypes>
+    <recordTypes>
+        <description><!-- All Inactive Accounts --></description>
+        <label><!-- Deactivated --></label>
+        <name>Deactivated</name>
+    </recordTypes>
+    <recordTypes>
+        <description><!-- Record Type for Current and Potential Education Clients. --></description>
+        <label><!-- Education --></label>
+        <name>Education</name>
+    </recordTypes>
+    <recordTypes>
+        <description><!-- Record Type for Current and Potential Healthcare Clients. --></description>
+        <label><!-- Healthcare --></label>
+        <name>Healthcare</name>
+    </recordTypes>
+    <recordTypes>
+        <description><!-- Payment Service Provider&apos;s we Partner with. (Ex. Worldpay, Muthoot) --></description>
+        <label><!-- Payment Service Provider --></label>
+        <name>Payment_Service_Provider</name>
+    </recordTypes>
+    <recordTypes>
+        <description><!-- Transferring to Strategic Partner Account Record Type as of 3/2/20. Please create a Strategic Partner. --></description>
+        <label><!-- Sales Partner --></label>
+        <name>Sales_Partner</name>
+    </recordTypes>
+    <recordTypes>
+        <description><!-- Simplee Accounts --></description>
+        <label><!-- Simplee Healthcare --></label>
+        <name>Simplee_Healthcare</name>
+    </recordTypes>
+    <recordTypes>
+        <description><!-- Companies we are trying to create a partnership with. May or may not include revenue share (Ex. Nelnet, Intrinsiq)) --></description>
+        <label><!-- Strategic Partner --></label>
+        <name>Strategic_Partner</name>
+    </recordTypes>
+    <recordTypes>
+        <description><!-- Account Record type for the Travel Segment --></description>
+        <label><!-- Travel --></label>
+        <name>Travel</name>
+    </recordTypes>
+    <validationRules>
+        <errorMessage>
+            <!-- Following fields are required to set Account to Active:
+Industry, Sub Industry, Status Date and Shipping Address. -->
+        </errorMessage>
+        <name>Active_Account_Requirements</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- This field cannot be modified if it has a value. Please contact your System Administrator. --></errorMessage>
+        <name>AgentsCohortGo_ID_only_editable_if_empty</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Generic website domains are not allowed (e.g. gmail.com, yahoo.com, xyz.com, msn.com, etc). Please update the website field with the Account&apos;s website address. --></errorMessage>
+        <name>Generic_Website_Not_Allowed</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Must enter an Inactive/Disqualified reason --></errorMessage>
+        <name>Inactive_Disqualified_Reason</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- CompanyId should be a numeric value --></errorMessage>
+        <name>LID__Check_CompanyId_Value</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- CompanyId should be a numeric value --></errorMessage>
+        <name>LID__Check_Company_Id_Value</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Please contact your manager to request a change  of Account Ownership. --></errorMessage>
+        <name>Only_RevOps_can_edit_EDU_US_AcctOwner</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Please contact your manager to request a change of Relationship Manager for this account. --></errorMessage>
+        <name>Only_RevOps_can_edit_EDU_US_RM</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Please contact your manager to request a change of Regional Director for this account. --></errorMessage>
+        <name>Only_RevOps_can_edit_EDU_US_RegionalDir</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Please contact your manager to request a change of Relationship Manager for this account. --></errorMessage>
+        <name>Only_RevOps_can_edit_Travel_RM</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Please select the Account Industry --></errorMessage>
+        <name>Req_Account_Industry</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage>
+            <!-- Your Tax Id can not contain a &quot;-&quot; or only 0&apos;s. Please adjust.
+If you believe this account truly doesn&apos;t have a Tax / VAT / GST / etc Id, please submit Salesforce Jira ticket -->
+        </errorMessage>
+        <name>Tax_ID_Value_Restrictions</name>
+    </validationRules>
+    <webLinks>
+        <label><!-- Clone --></label>
+        <name>Clone</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- GoogleMaps --></label>
+        <name>GoogleMaps</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- GoogleNews --></label>
+        <name>GoogleNews</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- GoogleSearch --></label>
+        <name>GoogleSearch</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- Amend_Assets --></label>
+        <name>SBQQ__Amend_Assets</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- Renew_Assets --></label>
+        <name>SBQQ__Renew_Assets</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- Add_to_Watch_List --></label>
+        <name>mkto_si__Add_to_Watch_List</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- Add_to_Watch_List_Detail --></label>
+        <name>mkto_si__Add_to_Watch_List_Detail</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- Billing --></label>
+        <name>texcellency__Billing</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- DHC_Contact_Manager --></label>
+        <name>texcellency__DHC_Contact_Manager</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- DHC_Hierarchy --></label>
+        <name>texcellency__DHC_Hierarchy</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- Import_DHC_Data --></label>
+        <name>texcellency__Import_DHC_Data</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- Auto_Mark --></label>
+        <name>zaapit__Auto_Mark</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- Mass_Merge --></label>
+        <name>zaapit__Mass_Merge</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- Merge_Accounts --></label>
+        <name>zaapit__Merge_Accounts</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- Merge_Accounts_L --></label>
+        <name>zaapit__Merge_Accounts_L</name>
+    </webLinks>
+</CustomObjectTranslation>

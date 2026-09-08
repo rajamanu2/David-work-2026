@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Canada_Higher_Ed_K12_Dynamic_List</fullName>
+    <columns>ACCOUNT.NAME</columns>
+    <columns>ACCOUNT.ADDRESS1_STATE</columns>
+    <columns>ACCOUNT.PHONE1</columns>
+    <columns>ACCOUNT.TYPE</columns>
+    <columns>CORE.USERS.ALIAS</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Account_Industry__c</field>
+        <operation>equals</operation>
+        <value>Education</value>
+    </filters>
+    <filters>
+        <field>ACCOUNT.ADDRESS2_COUNTRY</field>
+        <operation>equals</operation>
+        <value>Canada,CAN</value>
+    </filters>
+    <filters>
+        <field>Account_Sub_Industry__c</field>
+        <operation>equals</operation>
+        <value>Higher Ed,K12/Independent</value>
+    </filters>
+    <label>EDU Canada Higher Ed/K12 Dynamic List</label>
+    <sharedTo>
+        <group>Marketo_Dynamic_Lists</group>
+    </sharedTo>
+</ListView>

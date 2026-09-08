@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>BDR_Owner_Names_Allowed</fullName>
+    <active>false</active>
+    <description>Deactivated 8/21/2025 AC – no longer relevant to current process per RevOps team
+
+Users eligible for the BDR Owner on open opportunities - SAL-3204</description>
+    <errorConditionFormula>AND(
+$Profile.Name &lt;&gt; &apos;B - Marketo Integration&apos;,
+$Profile.Name &lt;&gt; &apos;System Administrator&apos;,
+NOT(ISNEW()),
+IsConverted = false,
+NOT(
+OR(
+BDR_Owner__r.Flow_Full_Name__c = &quot;Logan Strickland&quot;,
+BDR_Owner__r.Flow_Full_Name__c = &quot;Sean Meers&quot;,
+BDR_Owner__r.Flow_Full_Name__c = &quot;Javier Fontoba&quot;,
+BDR_Owner__r.Flow_Full_Name__c = &quot;Sydney Banks&quot;,
+BDR_Owner__r.Flow_Full_Name__c = &quot;Anne-Sophie Kadjo&quot;,
+BDR_Owner__r.Flow_Full_Name__c = &quot;Minori Nishioka&quot;,
+BDR_Owner__r.Flow_Full_Name__c = &quot;Charlie Dreher&quot;,
+BDR_Owner__r.Flow_Full_Name__c = &quot;Caitlin Cowdrey&quot;,
+BDR_Owner__r.Flow_Full_Name__c = &quot;Sabrina Alam&quot;,
+BDR_Owner__r.Flow_Full_Name__c = &quot;Alex Godfrey&quot;,
+BDR_Owner__r.Flow_Full_Name__c = &quot;John Quinn&quot;,
+BDR_Owner__r.Flow_Full_Name__c = &quot;Chloe Engle&quot;,
+BDR_Owner__r.Flow_Full_Name__c = &quot;Leah Prigmore&quot;,
+BDR_Owner__r.Flow_Full_Name__c = &quot;Sophie Brockbank&quot;,
+BDR_Owner__r.Flow_Full_Name__c = &quot;Mubz Rahman&quot;,
+BDR_Owner__r.Flow_Full_Name__c = &quot;Gustavo Ruiz-Esteller&quot;,
+BDR_Owner__r.Flow_Full_Name__c = &quot;Lloyd Ng&quot;,
+BDR_Owner__r.Flow_Full_Name__c = &quot;Sherlyn Yang&quot;,
+BDR_Owner__r.Flow_Full_Name__c = &quot;Wataru Oishi&quot;,
+ISBLANK( BDR_Owner__c )
+)))
+&amp;&amp; Lead_Val_Bypass__c = False</errorConditionFormula>
+    <errorDisplayField>BDR_Owner__c</errorDisplayField>
+    <errorMessage>This field is for BDRs only. If you are entering the name of a new BDR, please submit a ticket to Salesforce Admin so they can be added. This field should not be filled in for other purposes, or people in other roles.</errorMessage>
+</ValidationRule>

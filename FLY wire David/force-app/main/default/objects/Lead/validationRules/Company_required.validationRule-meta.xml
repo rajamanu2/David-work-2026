@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Company_required</fullName>
+    <active>true</active>
+    <description>Company name required to create and save lead record. Created to keep the database clean in the event of potential workarounds or API integrations.</description>
+    <errorConditionFormula>AND(
+ISNEW(),
+ISBLANK(Company)
+)
+&amp;&amp; Lead_Val_Bypass__c = False</errorConditionFormula>
+    <errorMessage>Company name required to create and save lead record.</errorMessage>
+</ValidationRule>

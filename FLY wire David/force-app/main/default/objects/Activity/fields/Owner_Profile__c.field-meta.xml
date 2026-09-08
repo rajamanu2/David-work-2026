@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Owner_Profile__c</fullName>
+    <description>This was used for a Process builder to get last activity. No longer needed, superseded by Flow that looks at CreatedBy</description>
+    <externalId>false</externalId>
+    <formula>CreatedBy.Profile.Name</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <inlineHelpText>This was used for a Process builder to get last activity. No longer needed, superseded by Flow that looks at CreatedBy</inlineHelpText>
+    <label>OBS Owner Profile</label>
+    <required>false</required>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

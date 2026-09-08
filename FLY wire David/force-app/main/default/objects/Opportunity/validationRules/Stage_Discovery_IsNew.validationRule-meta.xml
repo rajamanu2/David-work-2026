@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Stage_Discovery_IsNew</fullName>
+    <active>false</active>
+    <description>Stage can only be Prospecting when the Opportunity is created</description>
+    <errorConditionFormula>AND(
+$Profile.Name &lt;&gt; &apos;System Administrator&apos;,
+ISNEW(),
+TEXT(StageName) &lt;&gt; &quot;Discovery / Qualifying&quot;
+)&amp;&amp; Opp_Val_Bypass__c = false</errorConditionFormula>
+    <errorMessage>Stage must be Discovery / Qualifying when Opportunity is created.</errorMessage>
+</ValidationRule>

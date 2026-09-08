@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>63.0</apiVersion>
+    <areMetricsLoggedToDataCloud>false</areMetricsLoggedToDataCloud>
+    <assignments>
+        <name>Estimated_Duration_to</name>
+        <label>Duration to 2 Hours</label>
+        <locationX>314</locationX>
+        <locationY>431</locationY>
+        <assignmentItems>
+            <assignToReference>ServiceAppointmentDurationVariable</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <numberValue>2.0</numberValue>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Update_Service_Appointment</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Estimated_Duration_to_30_Minutes</name>
+        <label>Duration to 30 Minutes</label>
+        <locationX>50</locationX>
+        <locationY>431</locationY>
+        <assignmentItems>
+            <assignToReference>ServiceAppointmentDurationVariable</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <numberValue>0.5</numberValue>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Update_Service_Appointment</targetReference>
+        </connector>
+    </assignments>
+    <decisions>
+        <name>Check_Work_Type</name>
+        <label>Check Work Type</label>
+        <locationX>314</locationX>
+        <locationY>323</locationY>
+        <defaultConnectorLabel>Else</defaultConnectorLabel>
+        <rules>
+            <name>Tech_Support</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Appointment_Type__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Tech Support Call</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Estimated_Duration_to_30_Minutes</targetReference>
+            </connector>
+            <label>Tech Support</label>
+        </rules>
+        <rules>
+            <name>Break_Fix</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Appointment_Type__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Site Visit</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Estimated_Duration_to</targetReference>
+            </connector>
+            <label>Site Visit</label>
+        </rules>
+    </decisions>
+    <description>08/05/2026 - SP - Updating the Flow to only run when the &quot;Duration&quot; field is null.</description>
+    <environments>Default</environments>
+    <interviewLabel>Set SA Duration for Ultrasound Work Types {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Set SA Duration for Ultrasound Based on Work Type</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <recordUpdates>
+        <name>Update_Service_Appointment</name>
+        <label>Update Service Appointment</label>
+        <locationX>314</locationX>
+        <locationY>623</locationY>
+        <inputAssignments>
+            <field>Duration</field>
+            <value>
+                <elementReference>ServiceAppointmentDurationVariable</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <start>
+        <locationX>188</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Check_Work_Type</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Modality__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>Ultrasound</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>Shipping_FROM_Location__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>Gloucester, UK</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>Duration</field>
+            <operator>IsNull</operator>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </filters>
+        <object>ServiceAppointment</object>
+        <recordTriggerType>CreateAndUpdate</recordTriggerType>
+        <triggerType>RecordAfterSave</triggerType>
+    </start>
+    <status>Active</status>
+    <variables>
+        <description>This is to store the information relating to Duration times on Ultrasound Serivce Appointments.</description>
+        <name>ServiceAppointmentDurationVariable</name>
+        <dataType>Number</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+        <scale>2</scale>
+    </variables>
+</Flow>

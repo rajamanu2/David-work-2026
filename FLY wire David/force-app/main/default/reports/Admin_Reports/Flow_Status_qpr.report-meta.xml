@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>FlowInterviewLog$FlowDeveloperName</field>
+    </columns>
+    <columns>
+        <field>FlowInterviewLog$FlowNamespace</field>
+    </columns>
+    <columns>
+        <field>FlowInterviewLog$FlowLabel</field>
+    </columns>
+    <columns>
+        <field>FlowInterviewLog$CreatedDate</field>
+    </columns>
+    <currency>USD</currency>
+    <format>Summary</format>
+    <groupingsDown>
+        <dateGranularity>Day</dateGranularity>
+        <field>FlowInterviewLog$InterviewStatus</field>
+        <sortOrder>Asc</sortOrder>
+    </groupingsDown>
+    <name>Flow Status</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>Flows__c</reportType>
+    <scope>organization</scope>
+    <showDetails>false</showDetails>
+    <showGrandTotal>true</showGrandTotal>
+    <showSubTotals>true</showSubTotals>
+    <timeFrameFilter>
+        <dateColumn>FlowInterviewLog$CreatedDate</dateColumn>
+        <interval>INTERVAL_CURRENT</interval>
+    </timeFrameFilter>
+</Report>

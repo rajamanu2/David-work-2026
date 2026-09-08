@@ -1,0 +1,34 @@
+<messaging:emailTemplate subject="Opportunity Approval - LGL - APPROVED: {!relatedTo.sbaa__Opportunity__r.Name}"
+recipientType="User"
+relatedToType="sbaa__Approval__c">
+<messaging:HtmlEmailBody >
+<html>
+<body>
+
+<apex:image value="{!LEFT($Api.Enterprise_Server_URL_300, FIND('/services',$Api.Enterprise_Server_URL_300))}/servlet/servlet.ImageServer?id={!$Setup.AQS_AA_Enablement_IDs__c.AQS_Approval_Email_Logo_ID__c}&oid={!$Organization.Id}" 
+/>
+
+<b></b>
+<p></p><br/>
+
+Hello {!recipient.name}, 
+
+<p> Your Opportunity for customer {!relatedTo.sbaa__Opportunity__r.Account.Name} has been approved.
+</p>
+
+<b>Opportunity Approval Comments:</b> {!relatedTo.sbaa__CommentsLong__c}
+
+<p><b> </b> <br/>
+<b>Account: </b>&nbsp;<apex:outputLink value="{!LEFT($Api.Enterprise_Server_URL_300, FIND('/services',$Api.Enterprise_Server_URL_300))}/{!relatedTo.sbaa__Opportunity__r.Account.Id}" 
+>{!relatedTo.sbaa__Opportunity__r.Account.Name}</apex:outputLink><br/>
+<b>Opportunity: </b>&nbsp;<apex:outputLink value="{!LEFT($Api.Enterprise_Server_URL_300, FIND('/services',$Api.Enterprise_Server_URL_300))}/{!relatedTo.sbaa__Opportunity__r.Id}" 
+>{!relatedTo.sbaa__Opportunity__r.Name}</apex:outputLink><br/>
+<b>Opportunity Owner:</b>&nbsp;{!relatedTo.sbaa__Opportunity__r.Owner.Name}<br/>
+<b>Opportunity Total:</b>&nbsp;<apex:outputText ></apex:outputText> value="{!relatedTo.sbaa__Opportunity__r.Amount}"/><br/></p>
+
+<p style="color:white"><apex:outputText value="{!relatedTo.Id}"/></p>
+
+</body>
+</html>
+</messaging:HtmlEmailBody>
+</messaging:emailTemplate>

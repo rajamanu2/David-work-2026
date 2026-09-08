@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Workflow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <alerts>
+        <fullName>Expired_Password_Notification_Email</fullName>
+        <description>Expired Password Notification Email</description>
+        <protected>false</protected>
+        <recipients>
+            <recipient>ada@flywire.com</recipient>
+            <type>user</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>unfiled$public/Password_Expirres</template>
+    </alerts>
+    <fieldUpdates>
+        <fullName>Expired_Password_Checkbox_Off</fullName>
+        <description>Expired Password Notification checkbox set to False</description>
+        <field>Expired_Password_Notification__c</field>
+        <literalValue>0</literalValue>
+        <name>Expired Password Checkbox Off</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>update_Expired_Password_Checkbox</fullName>
+        <description>Update &apos;Expired Password Notification&apos; on user record to True.</description>
+        <field>Expired_Password_Notification__c</field>
+        <literalValue>1</literalValue>
+        <name>update Expired Password Checkbox</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <rules>
+        <fullName>Password Expiration Notice</fullName>
+        <actions>
+            <name>update_Expired_Password_Checkbox</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>false</active>
+        <criteriaItems>
+            <field>User.Expired_Password_Notification__c</field>
+            <operation>equals</operation>
+            <value>False</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>User.ProfileId</field>
+            <operation>equals</operation>
+            <value>System Administrator</value>
+        </criteriaItems>
+        <description>Password Expiration Notice 7 days prior.</description>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+        <workflowTimeTriggers>
+            <actions>
+                <name>Expired_Password_Notification_Email</name>
+                <type>Alert</type>
+            </actions>
+            <actions>
+                <name>Expired_Password_Checkbox_Off</name>
+                <type>FieldUpdate</type>
+            </actions>
+            <offsetFromField>User.LastPasswordChangeDate</offsetFromField>
+            <timeLength>85</timeLength>
+            <workflowTimeTriggerUnit>Days</workflowTimeTriggerUnit>
+        </workflowTimeTriggers>
+    </rules>
+</Workflow>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Quote_Val_Bypass__c</fullName>
+    <description>BOPI-581 Used to bypass validation rules when Flows are triggered. Works with Opp Bypass DateTime</description>
+    <formula>Quote_Bypass_DateTime__c &gt; NOW() - 0.00005787037 /*Five Seconds*/</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <inlineHelpText>Admin field not for reporting. Used to bypass validation rules when Flows are triggered. Works with Opp Bypass DateTime</inlineHelpText>
+    <label>Quote Val Bypass</label>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

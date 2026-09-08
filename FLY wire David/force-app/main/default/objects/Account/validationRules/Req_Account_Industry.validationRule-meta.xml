@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Req_Account_Industry</fullName>
+    <active>true</active>
+    <description>Require Account Industry, using validation rule instead of field requirement so it can be bypassed by Flow.</description>
+    <errorConditionFormula>AND(
+$Profile.Name &lt;&gt; &quot;System Administrator&quot;,
+$Profile.Name &lt;&gt; &quot;B - Looker&quot;,
+RecordType.Name = &apos;B2B&apos;,
+RecordType.Name = &apos;Travel&apos;,
+RecordType.Name = &apos;Education&apos;,
+RecordType.Name = &apos;Healthcare&apos;,
+Acc_Val_Bypass__c = false,
+ISBLANK(TEXT(Account_Industry__c))
+)</errorConditionFormula>
+    <errorDisplayField>Account_Industry__c</errorDisplayField>
+    <errorMessage>Please select the Account Industry</errorMessage>
+</ValidationRule>

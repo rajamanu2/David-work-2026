@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>ACCOUNT.NAME</field>
+    </columns>
+    <columns>
+        <field>Account.AccountLongID__c</field>
+    </columns>
+    <currency>USD</currency>
+    <filter>
+        <criteriaItems>
+            <column>USERS.NAME</column>
+            <columnToColumn>false</columnToColumn>
+            <isUnlocked>true</isUnlocked>
+            <operator>equals</operator>
+            <value>Chris Sabiston</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Account.AccountLongID__c</column>
+            <columnToColumn>false</columnToColumn>
+            <isUnlocked>true</isUnlocked>
+            <operator>equals</operator>
+            <value>0018W00002eAtTOQA0,0018W00002eAk5CQAS,0018W00002eAAJSQA4,0018W00002e9gOIQAY,0018W00002bPnQeQAK,0018W00002bPnOZQA0,0018W00002bPnPCQA0,0018W00002bPnOFQA0,0018W00002bPnOnQAK,0018W00002bPnOYQA0,0018W00002bPjlBQAS,0018W00002bPjkrQAC,0018W00002bPjk8QAC,0018W00002bNnXVQA0,0018W00002bNnX6QAK,0018W00002bNnVpQAK,0018W00002bNnWDQA0,0018W00002bNnVoQAK,0018W00002bNnVKQA0,0018W00002bNL3rQAG,0018W00002bNL1qQAG,0018W00002OnnYwQAJ,001f200001snL1JAAU,0018W00002gAZWAQA4,0018W00002eAtUqQAK</value>
+        </criteriaItems>
+    </filter>
+    <format>Summary</format>
+    <groupingsDown>
+        <dateGranularity>Day</dateGranularity>
+        <field>USERS.NAME</field>
+        <sortOrder>Asc</sortOrder>
+    </groupingsDown>
+    <groupingsDown>
+        <dateGranularity>Day</dateGranularity>
+        <field>ADDRESS2_COUNTRY_CODE</field>
+        <sortOrder>Asc</sortOrder>
+    </groupingsDown>
+    <groupingsDown>
+        <dateGranularity>Quarter</dateGranularity>
+        <field>CREATED_DATE</field>
+        <sortOrder>Desc</sortOrder>
+    </groupingsDown>
+    <name>Chris Sabiston Accounts - US Shipping Co</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>AccountList</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <showGrandTotal>true</showGrandTotal>
+    <showSubTotals>true</showSubTotals>
+    <timeFrameFilter>
+        <dateColumn>CREATED_DATE</dateColumn>
+        <interval>INTERVAL_CUSTOM</interval>
+    </timeFrameFilter>
+</Report>

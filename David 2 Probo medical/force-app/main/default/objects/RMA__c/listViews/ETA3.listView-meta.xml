@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>ETA3</fullName>
+    <booleanFilter>1 AND 2 and 3</booleanFilter>
+    <columns>NAME</columns>
+    <columns>ProductItem__c</columns>
+    <columns>Location__c</columns>
+    <columns>Needs_to_be_moved_to_this_location__c</columns>
+    <columns>Approved_Repairs__c</columns>
+    <columns>Account_Name__c</columns>
+    <columns>Opportunity_Name__c</columns>
+    <columns>Date_Repair_Approved__c</columns>
+    <columns>Customer_Declined_all_Repairs__c</columns>
+    <columns>Probe_Deemed_Unrepairable__c</columns>
+    <columns>Exchange_Offer_Declined__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Date_Repair_Approved__c</field>
+        <operation>greaterOrEqual</operation>
+        <value>9/18/2017</value>
+    </filters>
+    <filters>
+        <field>RMA_Type__c</field>
+        <operation>contains</operation>
+        <value>REPAIR</value>
+    </filters>
+    <filters>
+        <field>Location__c</field>
+        <operation>contains</operation>
+        <value>qa</value>
+    </filters>
+    <label>APPROVED NEED MOVED</label>
+    <sharedTo>
+        <allInternalUsers></allInternalUsers>
+    </sharedTo>
+</ListView>

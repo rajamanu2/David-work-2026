@@ -1,0 +1,54 @@
+@startuml
+top to bottom direction
+skinparam backgroundColor white
+skinparam shadowing false
+skinparam classBackgroundColor #F6F7F8
+skinparam classBorderColor #222222
+skinparam classArrowColor #3D8DFF
+skinparam classHeaderBackgroundColor #D0EDFA
+hide methods
+hide circle
+class Quote {
+  +QuoteId : Id
+  +Version : Integer
+  +Status : QuoteStatus
+}
+class ApprovalRequest {
+  +Status : ApprovalStatus
+  +SubmittedAt : DateTime
+  +DecisionAt : DateTime
+}
+class ApprovalStep {
+  +Sequence : Integer
+  +Persona : String
+  +Status : ApprovalStatus
+  +Reason : String
+}
+class Contract {
+  +ContractNumber : String
+  +Status : ContractStatus
+  +StartDate : Date
+  +EndDate : Date
+}
+class ContractLine {
+  +ProductId : Id
+  +CommittedARR : Currency
+  +BillingFrequency : String
+}
+class Order {
+  +Status : OrderStatus
+  +ExternalOrderKey : String
+}
+class IntegrationEvent {
+  +CorrelationId : String
+  +EventType : String
+  +DeliveryStatus : String
+}
+Quote "1" -- "0..*" ApprovalRequest
+ApprovalRequest "1" *-- "1..*" ApprovalStep
+Quote "1" -- "0..1" Contract : accepted version
+Contract "1" *-- "1..*" ContractLine
+Contract "1" -- "0..*" Order
+Quote "1" -- "0..*" IntegrationEvent
+Contract "1" -- "0..*" IntegrationEvent
+@enduml

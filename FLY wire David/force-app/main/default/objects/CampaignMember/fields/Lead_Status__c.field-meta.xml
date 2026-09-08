@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Lead_Status__c</fullName>
+    <description>Shows Contact Person Status if Contact Record. If Lead Record, shows Lead Person Status. Updated with new formula 8/30/2023 so that status can be seen on standard campaign w campaign member report, request from Brette.</description>
+    <externalId>false</externalId>
+    <formula>IF( NOT(ISNULL(ContactId)) , TEXT( Contact.Contact_Status__c ), &apos;&apos;) + 
+IF( NOT(ISNULL(LeadId)) , TEXT(Lead.Lead_Person_Status__c  ), &apos;&apos;)</formula>
+    <inlineHelpText>Shows Contact Person Status if Contact Record. If Lead Record, shows Lead Person Status.</inlineHelpText>
+    <label>Person Status</label>
+    <required>false</required>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

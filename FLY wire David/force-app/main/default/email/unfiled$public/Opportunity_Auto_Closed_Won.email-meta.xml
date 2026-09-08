@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>BOPI-554 Notification for CPQ opps that are closed won automatically</description>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <name>Opportunity Auto Closed Won</name>
+    <style>none</style>
+    <subject>Important Update: {!Opportunity.Name} Closed/Won</subject>
+    <textOnly>Hi {!Opportunity.OwnerFirstName},
+
+We are excited to inform you that your Opportunity &quot;{!Opportunity.Name}&quot; has been automatically closed as Won!
+
+Click here to go to the opportunity</textOnly>
+    <type>custom</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

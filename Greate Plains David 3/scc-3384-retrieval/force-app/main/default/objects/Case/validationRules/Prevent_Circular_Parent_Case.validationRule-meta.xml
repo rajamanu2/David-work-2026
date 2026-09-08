@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Prevent_Circular_Parent_Case</fullName>
+    <active>true</active>
+    <description>SCC-3380: Stops a Case from being its own parent, and stops a two-level circular parent/child relationship.</description>
+    <errorConditionFormula>AND(
+    NOT(ISBLANK(ParentId)),
+    OR(
+        AND(NOT(ISNEW()), ParentId = Id),
+        AND(NOT(ISBLANK(Parent.ParentId)), Parent.ParentId = Id)
+    )
+)</errorConditionFormula>
+    <errorDisplayField>ParentId</errorDisplayField>
+    <errorMessage>A case cannot be the parent of itself, and two cases cannot be parents of each other.</errorMessage>
+</ValidationRule>

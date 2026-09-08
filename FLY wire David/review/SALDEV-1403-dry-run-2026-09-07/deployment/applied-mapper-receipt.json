@@ -1,0 +1,84 @@
+{
+  "validatedQuote": "Q-37912",
+  "updatedIds": [
+    "0kdhG0000002nUTQAY",
+    "0kdhG0000002m5NQAQ"
+  ],
+  "createdItems": [
+    {
+      "attributes": {
+        "type": "OmniDataTransformItem",
+        "url": "/services/data/v68.0/sobjects/OmniDataTransformItem/0kdhG0000003FiTQAU"
+      },
+      "InputObjectQuerySequence": 2.0,
+      "OmniDataTransformationId": "0jIhG0000000GsnUAE",
+      "IsDisabled": false,
+      "OutputFieldName": "SBQuote:QuoteLineGroup",
+      "FilterGroup": 0.0,
+      "GlobalKey": "f954608a-4966-59df-bf68-1cafe82800b4",
+      "Name": "GetQuoteProposalDataSteppedUpPricing",
+      "FilterValue": "SBQQ__StartDate__c ASC NULLS LAST, SBQQ__SubscriptionTerm__c DESC NULLS LAST, SBQQ__Number__c ASC",
+      "OutputCreationSequence": 0.0,
+      "FilterOperator": "ORDER BY",
+      "InputFieldName": "",
+      "Id": "0kdhG0000003FiTQAU",
+      "InputObjectName": "SBQQ__QuoteLineGroup__c",
+      "OutputObjectName": "json"
+    },
+    {
+      "attributes": {
+        "type": "OmniDataTransformItem",
+        "url": "/services/data/v68.0/sobjects/OmniDataTransformItem/0kdhG0000003FiUQAU"
+      },
+      "InputObjectQuerySequence": 3.0,
+      "OmniDataTransformationId": "0jIhG0000000GsnUAE",
+      "IsDisabled": false,
+      "OutputFieldName": "SBQuote:QuoteLineGroup:QuoteLine",
+      "FilterGroup": 0.0,
+      "GlobalKey": "ef0094f4-0d62-5df4-8ed9-8c6a47460228",
+      "Name": "GetQuoteProposalDataSteppedUpPricing",
+      "FilterValue": "SBQQ__Number__c ASC",
+      "OutputCreationSequence": 0.0,
+      "FilterOperator": "ORDER BY",
+      "InputFieldName": "",
+      "Id": "0kdhG0000003FiUQAU",
+      "InputObjectName": "SBQQ__QuoteLine__c",
+      "OutputObjectName": "json"
+    },
+    {
+      "attributes": {
+        "type": "OmniDataTransformItem",
+        "url": "/services/data/v68.0/sobjects/OmniDataTransformItem/0kdhG0000003FiVQAU"
+      },
+      "InputObjectQuerySequence": 5.0,
+      "OmniDataTransformationId": "0jIhG0000000GsnUAE",
+      "IsDisabled": false,
+      "OutputFieldName": "SBQuote:UngroupedLine",
+      "FilterGroup": 0.0,
+      "GlobalKey": "e5e1c4d9-c0dc-566c-9f8a-e667783ada31",
+      "Name": "GetQuoteProposalDataSteppedUpPricing",
+      "FilterValue": "SBQQ__Number__c ASC",
+      "OutputCreationSequence": 0.0,
+      "FilterOperator": "ORDER BY",
+      "InputFieldName": "",
+      "Id": "0kdhG0000003FiVQAU",
+      "InputObjectName": "SBQQ__QuoteLine__c",
+      "OutputObjectName": "json"
+    },
+    {
+      "attributes": {
+        "type": "OmniDataTransformItem",
+        "url": "/services/data/v68.0/sobjects/OmniDataTransformItem/0kdhG0000003FiWQAU"
+      },
+      "OutputCreationSequence": 1.0,
+      "InputFieldName": "SBQuote:QuoteLineGroup:SBQQ__SubscriptionTerm__c",
+      "OmniDataTransformationId": "0jIhG0000000GsnUAE",
+      "IsDisabled": false,
+      "OutputFieldName": "QuoteLineGroup:SubscriptionTerm",
+      "Id": "0kdhG0000003FiWQAU",
+      "GlobalKey": "482e2698-66a3-50b9-9744-1a9d21199dc2",
+      "Name": "GetQuoteProposalDataSteppedUpPricing",
+      "OutputObjectName": "json"
+    }
+  ]
+}

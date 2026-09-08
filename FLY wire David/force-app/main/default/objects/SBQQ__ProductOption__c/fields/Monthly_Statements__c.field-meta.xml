@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Monthly_Statements__c</fullName>
+    <description>Created from JIRA ticket: BOPI-319. (This field is used in a Configuration Attribute rule during quoting
+)</description>
+    <label>Monthly Statements</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>&lt;50k</fullName>
+                <default>false</default>
+                <label>&lt;50k</label>
+            </value>
+            <value>
+                <fullName>50k - 200k</fullName>
+                <default>false</default>
+                <label>50k - 200k</label>
+            </value>
+            <value>
+                <fullName>200k - 500k</fullName>
+                <default>false</default>
+                <label>200k - 500k</label>
+            </value>
+            <value>
+                <fullName>500k+</fullName>
+                <default>false</default>
+                <label>500k+</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

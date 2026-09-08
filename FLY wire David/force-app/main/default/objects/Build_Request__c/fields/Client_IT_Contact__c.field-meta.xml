@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Client_IT_Contact__c</fullName>
+    <deleteConstraint>SetNull</deleteConstraint>
+    <description>BOPI-534. For Healthcare. Indicate who is the IT Contact</description>
+    <inlineHelpText>Indicate who is the IT Contact</inlineHelpText>
+    <label>Client IT Contact</label>
+    <lookupFilter>
+        <active>true</active>
+        <filterItems>
+            <field>Contact.Inactive__c</field>
+            <operation>notEqual</operation>
+            <value>True</value>
+        </filterItems>
+        <isOptional>false</isOptional>
+    </lookupFilter>
+    <referenceTo>Contact</referenceTo>
+    <relationshipLabel>Build Requests (Client IT Contact)</relationshipLabel>
+    <relationshipName>Build_Requests4</relationshipName>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Lookup</type>
+</CustomField>

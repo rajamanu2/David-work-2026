@@ -1,0 +1,314 @@
+[
+  {
+    "mode": "current source",
+    "name": "Downstream raw-record Ship-To lock",
+    "expected": false,
+    "actual": true,
+    "pass": false
+  },
+  {
+    "mode": "current source",
+    "name": "Downstream raw-record currency lock",
+    "expected": false,
+    "actual": true,
+    "pass": false
+  },
+  {
+    "mode": "current source",
+    "name": "Enriched wrapper Ship-To lock control",
+    "expected": false,
+    "actual": false,
+    "pass": true
+  },
+  {
+    "mode": "current source",
+    "name": "Enriched wrapper usage percent editable",
+    "expected": true,
+    "actual": false,
+    "pass": false
+  },
+  {
+    "mode": "current source",
+    "name": "Enriched wrapper usage amount editable",
+    "expected": true,
+    "actual": false,
+    "pass": false
+  },
+  {
+    "mode": "current source",
+    "name": "Enriched wrapper allowed SBQQ__Quantity__c",
+    "expected": true,
+    "actual": true,
+    "pass": true
+  },
+  {
+    "mode": "current source",
+    "name": "Enriched wrapper allowed Quoted_Price__c",
+    "expected": true,
+    "actual": true,
+    "pass": true
+  },
+  {
+    "mode": "current source",
+    "name": "Enriched wrapper allowed Adjusted_Rate_Amount__c",
+    "expected": true,
+    "actual": true,
+    "pass": true
+  },
+  {
+    "mode": "current source",
+    "name": "Enriched wrapper allowed Adjusted_Rate_Percent__c",
+    "expected": true,
+    "actual": true,
+    "pass": true
+  },
+  {
+    "mode": "current source",
+    "name": "Enriched wrapper allowed Rate_Details__c",
+    "expected": true,
+    "actual": true,
+    "pass": true
+  },
+  {
+    "mode": "current source",
+    "name": "First-group ordinary attribute control",
+    "expected": true,
+    "actual": true,
+    "pass": true
+  },
+  {
+    "mode": "current source",
+    "name": "Downstream ARR Utilization hidden",
+    "expected": false,
+    "actual": true,
+    "pass": false
+  },
+  {
+    "mode": "current source",
+    "name": "Clone hook clears ARR",
+    "expected": [
+      null,
+      null
+    ],
+    "actual": [
+      null,
+      null
+    ],
+    "pass": true
+  },
+  {
+    "mode": "current source",
+    "name": "Clone hook preserves business attributes",
+    "expected": [
+      "USD",
+      "SHIP"
+    ],
+    "actual": [
+      "USD",
+      "SHIP"
+    ],
+    "pass": true
+  },
+  {
+    "mode": "current source",
+    "name": "Clone hook ID clearing observed",
+    "expected": [
+      null,
+      null
+    ],
+    "actual": [
+      null,
+      null
+    ],
+    "pass": true
+  },
+  {
+    "mode": "current source",
+    "name": "Saved non-contracted line retains established IDs",
+    "expected": [
+      "ESTABLISHED-ID",
+      "ESTABLISHED-NS"
+    ],
+    "actual": [
+      null,
+      null
+    ],
+    "pass": false
+  },
+  {
+    "mode": "current source",
+    "name": "Net-new ARR input retained control",
+    "expected": 123,
+    "actual": 123,
+    "pass": true
+  },
+  {
+    "mode": "current source",
+    "name": "Contracted existing line preserves IDs",
+    "expected": [
+      "EXISTING",
+      "NS"
+    ],
+    "actual": [
+      "EXISTING",
+      "NS"
+    ],
+    "pass": true
+  },
+  {
+    "mode": "stored transpiled code",
+    "name": "Downstream raw-record Ship-To lock",
+    "expected": false,
+    "actual": true,
+    "pass": false
+  },
+  {
+    "mode": "stored transpiled code",
+    "name": "Downstream raw-record currency lock",
+    "expected": false,
+    "actual": true,
+    "pass": false
+  },
+  {
+    "mode": "stored transpiled code",
+    "name": "Enriched wrapper Ship-To lock control",
+    "expected": false,
+    "actual": false,
+    "pass": true
+  },
+  {
+    "mode": "stored transpiled code",
+    "name": "Enriched wrapper usage percent editable",
+    "expected": true,
+    "actual": false,
+    "pass": false
+  },
+  {
+    "mode": "stored transpiled code",
+    "name": "Enriched wrapper usage amount editable",
+    "expected": true,
+    "actual": false,
+    "pass": false
+  },
+  {
+    "mode": "stored transpiled code",
+    "name": "Enriched wrapper allowed SBQQ__Quantity__c",
+    "expected": true,
+    "actual": true,
+    "pass": true
+  },
+  {
+    "mode": "stored transpiled code",
+    "name": "Enriched wrapper allowed Quoted_Price__c",
+    "expected": true,
+    "actual": true,
+    "pass": true
+  },
+  {
+    "mode": "stored transpiled code",
+    "name": "Enriched wrapper allowed Adjusted_Rate_Amount__c",
+    "expected": true,
+    "actual": true,
+    "pass": true
+  },
+  {
+    "mode": "stored transpiled code",
+    "name": "Enriched wrapper allowed Adjusted_Rate_Percent__c",
+    "expected": true,
+    "actual": true,
+    "pass": true
+  },
+  {
+    "mode": "stored transpiled code",
+    "name": "Enriched wrapper allowed Rate_Details__c",
+    "expected": true,
+    "actual": true,
+    "pass": true
+  },
+  {
+    "mode": "stored transpiled code",
+    "name": "First-group ordinary attribute control",
+    "expected": true,
+    "actual": true,
+    "pass": true
+  },
+  {
+    "mode": "stored transpiled code",
+    "name": "Downstream ARR Utilization hidden",
+    "expected": false,
+    "actual": true,
+    "pass": false
+  },
+  {
+    "mode": "stored transpiled code",
+    "name": "Clone hook clears ARR",
+    "expected": [
+      null,
+      null
+    ],
+    "actual": [
+      null,
+      null
+    ],
+    "pass": true
+  },
+  {
+    "mode": "stored transpiled code",
+    "name": "Clone hook preserves business attributes",
+    "expected": [
+      "USD",
+      "SHIP"
+    ],
+    "actual": [
+      "USD",
+      "SHIP"
+    ],
+    "pass": true
+  },
+  {
+    "mode": "stored transpiled code",
+    "name": "Clone hook ID clearing observed",
+    "expected": [
+      null,
+      null
+    ],
+    "actual": [
+      null,
+      null
+    ],
+    "pass": true
+  },
+  {
+    "mode": "stored transpiled code",
+    "name": "Saved non-contracted line retains established IDs",
+    "expected": [
+      "ESTABLISHED-ID",
+      "ESTABLISHED-NS"
+    ],
+    "actual": [
+      null,
+      null
+    ],
+    "pass": false
+  },
+  {
+    "mode": "stored transpiled code",
+    "name": "Net-new ARR input retained control",
+    "expected": 123,
+    "actual": 123,
+    "pass": true
+  },
+  {
+    "mode": "stored transpiled code",
+    "name": "Contracted existing line preserves IDs",
+    "expected": [
+      "EXISTING",
+      "NS"
+    ],
+    "actual": [
+      "EXISTING",
+      "NS"
+    ],
+    "pass": true
+  }
+]

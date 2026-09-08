@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>65.0</apiVersion>
+    <areMetricsLoggedToDataCloud>false</areMetricsLoggedToDataCloud>
+    <decisions>
+        <name>Is_the_related_work_order_a_US_work_order</name>
+        <label>Is the related work order a US work order?</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Yes_US_Work_Order</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Related_Work_Order__r.Country</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>United States</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>FSL_US_Update_Work_Order_to_Repair_In_Progress_Flow_1</targetReference>
+            </connector>
+            <label>Yes, US Work Order</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Is_there_a_related_work_order</name>
+        <label>Is there a related work order?</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Yes_there_is_a_related_work_order</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Related_Work_Order__c</leftValueReference>
+                <operator>IsBlank</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Is_the_related_work_order_a_US_work_order</targetReference>
+            </connector>
+            <label>Yes, there is a related work order</label>
+        </rules>
+    </decisions>
+    <description>03/12/2026 (BW) - Updated the actual call to update the work order to an autolaunched flow that runs in system context to avoid user context for the approving guest site user.</description>
+    <environments>Default</environments>
+    <interviewLabel>US FSL | For Probe Repair Opp {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>US FSL | For Probe Repair Opp, On Setting of Repair Approved, change Work Order to Repair In-Progress</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <start>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <filterLogic>1 AND 2 AND (3 OR 4)</filterLogic>
+        <filters>
+            <field>StageName</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>Repair Approved</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>StageName</field>
+            <operator>IsChanged</operator>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </filters>
+        <filters>
+            <field>RecordTypeId</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>0124O000000tE2oQAE</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>RecordTypeId</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>0124O000000tE2o</stringValue>
+            </value>
+        </filters>
+        <object>Opportunity</object>
+        <recordTriggerType>Update</recordTriggerType>
+        <scheduledPaths>
+            <connector>
+                <targetReference>Is_there_a_related_work_order</targetReference>
+            </connector>
+            <pathType>AsyncAfterCommit</pathType>
+        </scheduledPaths>
+        <triggerType>RecordAfterSave</triggerType>
+    </start>
+    <status>Active</status>
+    <subflows>
+        <name>FSL_US_Update_Work_Order_to_Repair_In_Progress_Flow_1</name>
+        <label>FSL US: Update Work Order to &quot;Repair In-Progress&quot; Flow 1</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <flowName>FSL_US_Update_Work_Order_to_Repair_In_Progress</flowName>
+        <inputAssignments>
+            <name>recordId</name>
+            <value>
+                <elementReference>$Record.Related_Work_Order__c</elementReference>
+            </value>
+        </inputAssignments>
+    </subflows>
+</Flow>

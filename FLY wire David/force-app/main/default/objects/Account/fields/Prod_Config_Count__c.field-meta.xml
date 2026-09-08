@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Prod_Config_Count__c</fullName>
+    <description>Roll up Summary, count of all Product Configuration records linked to this Account.</description>
+    <inlineHelpText>Roll up Summary, count of all Product Configuration records linked to this Account.</inlineHelpText>
+    <label>Prod Config Count</label>
+    <summaryForeignKey>Product_Configuration__c.Account__c</summaryForeignKey>
+    <summaryOperation>count</summaryOperation>
+    <trackHistory>false</trackHistory>
+    <type>Summary</type>
+</CustomField>

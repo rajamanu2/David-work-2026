@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Opp_Past_Closed_Date</fullName>
+    <active>true</active>
+    <description>Can&apos;t add product if Opportunity CloseDate is in the past</description>
+    <errorConditionFormula>AND(
+$Profile.Name &lt;&gt; &quot;System Administrator&quot;,
+$Profile.Name &lt;&gt; &quot;A - RevOps&quot;,
+$Profile.Name &lt;&gt; &quot;B - Looker&quot;,
+$User.Alias &lt;&gt; &apos;Workato&apos;,
+Opportunity.CloseDate &lt; TODAY()
+)
+&amp;&amp; Opportunity.Opp_Val_Bypass__c = false</errorConditionFormula>
+    <errorMessage>Please update the Close Date as it is currently in the past.</errorMessage>
+</ValidationRule>

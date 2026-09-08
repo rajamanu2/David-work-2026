@@ -1,0 +1,1108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RecordType xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>vlocity_cmt__MobilePhoneCase</fullName>
+    <active>true</active>
+    <businessProcess>vlocity_cmt__Vlocity Support Process</businessProcess>
+    <description>Mobile Phone Case</description>
+    <label>MobilePhoneCase</label>
+    <picklistValues>
+        <picklist>Contact_Preference__c</picklist>
+        <values>
+            <fullName>Call Before Arrival</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Email</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Home Phone</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Mobile Phone</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>No Contact - Proceed to Site</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Text Before Arrival</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Text Message</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Work Phone</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Origin</picklist>
+        <values>
+            <fullName>Email</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Phone</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Web</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Primary_Resolution__c</picklist>
+        <values>
+            <fullName>Additional%2FNew Pod Needed</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Assigned Static IP%2FCGNAT</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Assigned To Correct Acct</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Built Missing Service</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>CGNAT Conv Issue Resolved</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Cable Rehab Completed</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Call Routing Change</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Clear - No Trip</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Cleared Without Repair</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Configuration Error</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Corrected Plant Records</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Corrected Service Type</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Corrected VLAN%2FEVC</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Cust Owned Equipment</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Customer Canceled Ticket</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Customer Education</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Device Reset%2FFirmware</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Duplicate Ticket</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Email Retirement</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Email Settings</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Equipment Outage Repaired</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Fiber Splicing Completed</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Greeting Recording Chg%2FModif</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Hardware Replacement</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Hardware Reset</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Inside Wiring Repaired</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Line Is Other Carriers</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Locate Complete</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Maintenance Completed</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Mobi Outage</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Mobi Programming</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Network Outage</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>No Trouble Found</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Other Carrier Resolution</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Outage Resolved</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Ped Replaced%2FRepaired</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Rebuilt ONT</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Reconnected%2FProvisioned</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Referred To Billing%2FCRC</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Reimbursed Customer</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Repaired Open%2FGround%2FShort</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Repaired Yard%2FLandscaping</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Repaired%2FRepalced Drop</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Replaced Batteries</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Replaced Firestick</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Replaced ONT</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Replaced Power Supply</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Replaced Remote</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Replaced%2FRepaired STB</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Replaced%2FRepaired Sensor</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Rogue ONT</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>TAP %28Trouble Analysis Proced%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Term Toll %2F LCR</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>UC Corrected Provisioning</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Unable To Reach Customer</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>User Info Modified</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Username%2FPassword Reset</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Priority</picklist>
+        <values>
+            <fullName>High</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Low</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Medium</fullName>
+            <default>true</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Priority__c</picklist>
+        <values>
+            <fullName>High</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Low</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Med</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Reason</picklist>
+        <values>
+            <fullName>Complex functionality</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Existing problem</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Instructions not clear</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>New problem</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>User didn%27t attend training</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Secondary_Resolution__c</picklist>
+        <values>
+            <fullName>Additional%2FNew Pod Needed</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Assigned Static IP%2FCGNAT</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Assigned To Correct Acct</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Built Missing Service</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>CGNAT Conv Issue Resolved</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Cable Rehab Completed</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Call Routing Change</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Clear - No Trip</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Cleared Without Repair</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Configuration Error</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Corrected Plant Records</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Corrected Service Type</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Corrected VLAN%2FEVC</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Cust Owned Equipment</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Customer Canceled Ticket</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Customer Education</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Device Reset%2FFirmware</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Duplicate Ticket</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Email Retirement</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Email Settings</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Equipment Outage Repaired</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Fiber Splicing Completed</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Greeting Recording Chg%2FModif</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Hardware Replacement</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Hardware Reset</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Inside Wiring Repaired</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Line Is Other Carriers</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Locate Complete</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Maintenance Completed</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Mobi Outage</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Mobi Programming</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Network Outage</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>No Trouble Found</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Other Carrier Resolution</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Outage Resolved</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Ped Replaced%2FRepaired</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Rebuilt ONT</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Reconnected%2FProvisioned</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Referred To Billing%2FCRC</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Reimbursed Customer</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Repaired Open%2FGround%2FShort</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Repaired Yard%2FLandscaping</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Repaired%2FRepalced Drop</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Replaced Batteries</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Replaced Firestick</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Replaced ONT</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Replaced Power Supply</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Replaced Remote</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Replaced%2FRepaired STB</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Replaced%2FRepaired Sensor</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Rogue ONT</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>TAP %28Trouble Analysis Proced%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Term Toll %2F LCR</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>UC Corrected Provisioning</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Unable To Reach Customer</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>User Info Modified</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Username%2FPassword Reset</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Service_Type__c</picklist>
+        <values>
+            <fullName>Circuit</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Internet</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Other</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Video</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Voice</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Wireless</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Subscriber_Report__c</picklist>
+        <values>
+            <fullName>All Pods Not Connecting</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>All Services Out</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Audio Problems</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Camera Trouble</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Can%27t Connect</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Can%27t Loop NIU</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Circuit Down</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Circuit Running Errors</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Communication Trouble</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Cross Talk</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Cut Cable</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Cut Cable Or Drop</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Damage Claim</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Drop Or Wiring</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>E-Mail Trouble</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Elite WiFi Trbl</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Email Settings Or Set Up</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Equipment Failure</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Failed To Test</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Features Not Working</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Gigacenter - Not Working</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Gigacenter - Slow Speeds</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Jack%2FExt Issues</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Kandy App Update</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Keypad Problem</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>LSS Trouble</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Latency%2FJitter</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Locate</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Migration</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Missing Channels</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>NBR Trouble</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>No Dial Tone</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>No Light On Modem</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Noisy Phone</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Non-Pay%2FPerm Disc</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>PRI</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Password Reset</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Plume - One Pod Not Connecting</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Plume - Slow%2FIntermittent</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Plume Device Not Connecting</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Poor Picture Quality</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Referred To Billing</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Remote Control Trouble</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>STB Trouble</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Sensor Problem</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Slow Speeds</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Total Connect</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Trouble Making Calls</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Trouble Receiving Calls</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Unified</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Webpage Will Not Load</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>WiFi - Modem</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>WiFi - Rukus</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>WiFi - Ubiquiti</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Type</picklist>
+        <values>
+            <fullName>Feature Request</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Problem</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Question</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>vlocity_cmt__Reason__c</picklist>
+        <values>
+            <fullName>Account info in blacklist removal request</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Account requires credit evaluation exception</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Adress does not have pre-feasibility</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Change of mobile due to malfunction</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>General complaint</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Generate a bill copy</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Generate consumption details</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Inquiry about campaign</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Inquiry about plan details</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Inquiry about promotion details</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Inquiry service pre-feasibility</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Problem creating account</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Problem receiving bill</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Problem with CPE</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Problem with IMEI</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Problem with SIM unlock</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Problem with SMS</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Problem with activation</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Problem with add-on creation</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Problem with add-on registration</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Problem with automatic payment configuration</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Problem with bill adjustment and refunds</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Problem with bill explanation</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Problem with bill payment receipt</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Problem with change of MSISDN</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Problem with change of SIM</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Problem with change of billing cycle</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Problem with change of customer information</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Problem with change of mobile phone</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Problem with change of ownership</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Problem with change of plan</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Problem with change to retention plan</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Problem with credit card</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Problem with data</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Problem with delivery</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Problem with friends and family number configuration</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Problem with impairment accessibility</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Problem with installation</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Problem with managing users</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Problem with mobile configuration</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Problem with port-in</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Problem with port-out</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Problem with recurring discounts</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Problem with repair pick up</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Problem with roaming</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Problem with service consumption details</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Problem with service restoration</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Problem with suspensions</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Problem with termination</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Problem with top up registration</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Problem with top-up creation</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Problem with transferring credit between accounts</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Problem with usage thresholds</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Problem with voice</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Problem with voluntary suspension</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Request change plan terms and conditions</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Request for adjustments</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Request mobile on loan while repair</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Request supervisor</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Require assistance with self service portal</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Suggestions</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Unacknowledged change of plan</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Unacknowledged purchase</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Unacknowledged termination</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>vlocity_cmt__Severity__c</picklist>
+        <values>
+            <fullName>Critical</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Major</fullName>
+            <default>true</default>
+        </values>
+        <values>
+            <fullName>Minor</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+</RecordType>

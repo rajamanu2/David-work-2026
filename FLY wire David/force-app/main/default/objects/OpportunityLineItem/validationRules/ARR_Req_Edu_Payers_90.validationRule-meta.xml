@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>ARR_Req_Edu_Payers_90</fullName>
+    <active>false</active>
+    <description>Check required fields to add product</description>
+    <errorConditionFormula>AND(
+    $Profile.Name &lt;&gt; &apos;System Administrator&apos;,
+    Opportunity.RecordType.DeveloperName = &apos;Education&apos;,
+    Opportunity.Probability &gt;= 0.90,
+    CONTAINS(&apos;Cross Border&apos;,PricebookEntry.Product2.Name),
+    Opportunity.No_International_Payers_At_Opportunity__c &gt; 0
+)</errorConditionFormula>
+    <errorMessage>The field &apos;No. International Payers At Opportunity&apos; must be filled in to calculate Cross Border ARR</errorMessage>
+</ValidationRule>

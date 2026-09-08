@@ -1,0 +1,3532 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>58.0</apiVersion>
+    <areMetricsLoggedToDataCloud>false</areMetricsLoggedToDataCloud>
+    <decisions>
+        <name>Opp_meets_criteria</name>
+        <label>Opp meets criteria?</label>
+        <locationX>4142</locationX>
+        <locationY>323</locationY>
+        <defaultConnectorLabel>Exit Flow</defaultConnectorLabel>
+        <rules>
+            <name>Yes</name>
+            <conditionLogic>1 AND 2</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Opportunity.IsClosed</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Opportunity.RecordType.Name</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Education</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Quote_Line_Type</targetReference>
+            </connector>
+            <label>Yes</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Quote_Line_Type</name>
+        <label>Quote Line Type</label>
+        <locationX>2690</locationX>
+        <locationY>431</locationY>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Renewal</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Quote_Line_Type__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Renewal</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Get_Original_Opportunity_Product_Renewal</targetReference>
+            </connector>
+            <label>Renewal</label>
+        </rules>
+        <rules>
+            <name>Cancellation</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Quote_Line_Type__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Cancellation</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Get_Original_Opportunity_Product_Cancellation</targetReference>
+            </connector>
+            <label>Cancellation</label>
+        </rules>
+        <rules>
+            <name>Amendment</name>
+            <conditionLogic>or</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Quote_Line_Type__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Amendment</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Amendment_No_ARR</targetReference>
+            </connector>
+            <label>Amendment</label>
+        </rules>
+        <rules>
+            <name>Calculate_ARR</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.SBQQ__QuoteLine__r.No_International_Payers__c</leftValueReference>
+                <operator>IsBlank</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Quote_Line_Type__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>New</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Revenue_Region</targetReference>
+            </connector>
+            <label>Calculate ARR</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Revenue_Region</name>
+        <label>Revenue Region</label>
+        <locationX>2954</locationX>
+        <locationY>539</locationY>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>APAC</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.SBQQ__QuoteLine__r.Ship_To_Account__r.Revenue_Region__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>APAC</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>APAC_Higher_Ed</targetReference>
+            </connector>
+            <label>APAC</label>
+        </rules>
+        <rules>
+            <name>Singapore</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.SBQQ__QuoteLine__r.Ship_To_Account__r.Revenue_Region__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>SG</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>SG_Higher_Ed</targetReference>
+            </connector>
+            <label>Singapore</label>
+        </rules>
+        <rules>
+            <name>Malaysia</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.SBQQ__QuoteLine__r.Ship_To_Account__r.Revenue_Region__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>MY</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>MY_Higher_Ed</targetReference>
+            </connector>
+            <label>Malaysia</label>
+        </rules>
+        <rules>
+            <name>AUS</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.SBQQ__QuoteLine__r.Ship_To_Account__r.Revenue_Region__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>AUS</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>AUS_Higher_Ed_Public</targetReference>
+            </connector>
+            <label>Australlia</label>
+        </rules>
+        <rules>
+            <name>New_Zealand</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.SBQQ__QuoteLine__r.Ship_To_Account__r.Revenue_Region__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>NZ</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>NZ_Higher_Ed</targetReference>
+            </connector>
+            <label>New Zealand</label>
+        </rules>
+        <rules>
+            <name>Canada</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.SBQQ__QuoteLine__r.Ship_To_Account__r.Revenue_Region__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>CAN</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>CA_Higher_Ed</targetReference>
+            </connector>
+            <label>Canada</label>
+        </rules>
+        <rules>
+            <name>Other</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.SBQQ__QuoteLine__r.Ship_To_Account__r.Revenue_Region__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Other</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Other_Higher_Ed</targetReference>
+            </connector>
+            <label>Other</label>
+        </rules>
+        <rules>
+            <name>UK</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.SBQQ__QuoteLine__r.Ship_To_Account__r.Revenue_Region__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>UK</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.SBQQ__QuoteLine__r.One_Door__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>No</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Uk_Higher_Ed</targetReference>
+            </connector>
+            <label>UK</label>
+        </rules>
+        <rules>
+            <name>UK_One_Door</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.SBQQ__QuoteLine__r.Ship_To_Account__r.Revenue_Region__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>UK</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.SBQQ__QuoteLine__r.One_Door__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Yes</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>UK_One_Door_Higher_Ed</targetReference>
+            </connector>
+            <label>UK One Door</label>
+        </rules>
+        <rules>
+            <name>USA</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.SBQQ__QuoteLine__r.Ship_To_Account__r.Revenue_Region__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>USA</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>USA_Higher_Ed</targetReference>
+            </connector>
+            <label>USA</label>
+        </rules>
+        <rules>
+            <name>France</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.SBQQ__QuoteLine__r.Ship_To_Account__r.Revenue_Region__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>FR</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>France_Higher_Ed</targetReference>
+            </connector>
+            <label>France</label>
+        </rules>
+        <rules>
+            <name>Germany</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.SBQQ__QuoteLine__r.Ship_To_Account__r.Revenue_Region__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>DE</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Germany_Higher_Ed</targetReference>
+            </connector>
+            <label>Germany</label>
+        </rules>
+        <rules>
+            <name>Ireland</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.SBQQ__QuoteLine__r.Ship_To_Account__r.Revenue_Region__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>IE</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Ireland_Higher_Ed</targetReference>
+            </connector>
+            <label>Ireland</label>
+        </rules>
+        <rules>
+            <name>Japan</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.SBQQ__QuoteLine__r.Ship_To_Account__r.Revenue_Region__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>JP</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Japan_Higher_Ed</targetReference>
+            </connector>
+            <label>Japan</label>
+        </rules>
+        <rules>
+            <name>Spain</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.SBQQ__QuoteLine__r.Ship_To_Account__r.Revenue_Region__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>ES</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Spain_Higher_Ed</targetReference>
+            </connector>
+            <label>Spain</label>
+        </rules>
+        <rules>
+            <name>Switzerland</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.SBQQ__QuoteLine__r.Ship_To_Account__r.Revenue_Region__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>CH</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Switzerland_Higher_Ed</targetReference>
+            </connector>
+            <label>Switzerland</label>
+        </rules>
+    </decisions>
+    <description>Products in this calculation:
+Cross Border Payments - FWXB1000
+
+Migrated PB [Opp Product] Edu XB Revenue Calculator.
+1/5/24 SAL-3427  ARR $ updates 2/14 SAL-3707 Corrected Calc for AUS Lang&amp;Other 2/15 SAL-3707 Correct Formula Names, Copy Product Family only when null SAL-3698. Added ByPass to skip validation rules on Opportunity 05/14/2024. Update ARR instead of UnitPrice 07/09/2024. Update to make currency conversion and filter by product code; renewals should not generate ARR; use Ship_To_Account__r 07/24/2024. Use Quote_Line_Type__c instead of Opportunity.Type 07/26/2024. Update 08/29/2024 Remove Adjusted_Total_Text__c update, the field is deprecated. BOPI-511 Updated to calculate ARR when Quote Line Type not &apos;Cancellation&apos; or &apos;Renewal&apos;. BOPI-518 Updated to get baseline ARR from original opportunity product and set Net ARR. BOPI-518 removing Opp criteria filters to let the flow run when renewals are created and the quote line fields are empty. BOPI-603 updated to set ARR to 0 for cancelled lines. BOPI-620 updated to set the ARR for cancelled lines to the original amount as a negative value. SALDEV-1186 updated ARR calculation formulas and revenue text formulas for each region</description>
+    <environments>Default</environments>
+    <formulas>
+        <name>APACHigherEdARR</name>
+        <dataType>Currency</dataType>
+        <expression>{!$Record.SBQQ__QuoteLine__r.No_International_Payers__c} * 107.79 * {!UtilizationValue}</expression>
+        <scale>18</scale>
+    </formulas>
+    <formulas>
+        <name>APACHigherEdRevenueText</name>
+        <dataType>String</dataType>
+        <expression>&quot;APAC - Higher Ed - $107.79 * &quot; + TEXT({!$Record.SBQQ__QuoteLine__r.No_International_Payers__c}) + &quot;*&quot; + TEXT({!$Record.SBQQ__QuoteLine__r.Utilization__c}) +
+
+&quot; Calculated: &quot;+  
+TEXT( NOW() - 0.1666)</expression>
+    </formulas>
+    <formulas>
+        <name>APACK12ARR</name>
+        <dataType>Currency</dataType>
+        <expression>{!$Record.SBQQ__QuoteLine__r.No_International_Payers__c} * 183.67 * {!UtilizationValue}</expression>
+        <scale>18</scale>
+    </formulas>
+    <formulas>
+        <name>APACK12RevenueText</name>
+        <dataType>String</dataType>
+        <expression>&quot;APAC - K12/Independent- $183.67*&quot; + TEXT({!$Record.SBQQ__QuoteLine__r.No_International_Payers__c}) + &quot;*&quot; + TEXT({!$Record.SBQQ__QuoteLine__r.Utilization__c}) +
+
+
+&quot; Calculated: &quot;+  
+TEXT( NOW())</expression>
+    </formulas>
+    <formulas>
+        <name>APACLanguageSchoolARR</name>
+        <dataType>Currency</dataType>
+        <expression>{!$Record.SBQQ__QuoteLine__r.No_International_Payers__c} * 64.57 * {!UtilizationValue}</expression>
+        <scale>18</scale>
+    </formulas>
+    <formulas>
+        <name>APACLanguageSchoolRevenueText</name>
+        <dataType>String</dataType>
+        <expression>&quot;APAC - Language School- $64.57*&quot; + TEXT({!$Record.SBQQ__QuoteLine__r.No_International_Payers__c}) + &quot;*&quot; + TEXT({!$Record.SBQQ__QuoteLine__r.Utilization__c})  +
+
+
+&quot; Calculated: &quot;+  
+TEXT( NOW())</expression>
+    </formulas>
+    <formulas>
+        <name>APACOtherARR</name>
+        <dataType>Currency</dataType>
+        <expression>{!$Record.SBQQ__QuoteLine__r.No_International_Payers__c} * 69.42 * {!UtilizationValue}</expression>
+        <scale>18</scale>
+    </formulas>
+    <formulas>
+        <name>APACOtherRevenueText</name>
+        <dataType>String</dataType>
+        <expression>&quot;APAC - Other - $69.42 * &quot; + TEXT({!$Record.SBQQ__QuoteLine__r.No_International_Payers__c}) + &quot;*&quot; + TEXT({!$Record.SBQQ__QuoteLine__r.Utilization__c})  +
+
+
+&quot; Calculated: &quot;+  
+TEXT( NOW() - 0.1666)</expression>
+    </formulas>
+    <formulas>
+        <name>AUSHigherEdPrivateARR</name>
+        <dataType>Currency</dataType>
+        <expression>{!$Record.SBQQ__QuoteLine__r.No_International_Payers__c} * 24.10 * {!UtilizationValue}</expression>
+        <scale>17</scale>
+    </formulas>
+    <formulas>
+        <name>AUSHigherEdPrivateRevenue</name>
+        <dataType>String</dataType>
+        <expression>&quot;AUS - Higher Ed Private - $24.10 * &quot; + TEXT({!$Record.SBQQ__QuoteLine__r.No_International_Payers__c}) + &quot;*&quot; + TEXT({!$Record.SBQQ__QuoteLine__r.Utilization__c})  +
+
+
+&quot; Calculated: &quot;+  
+TEXT( NOW() - 0.1666)</expression>
+    </formulas>
+    <formulas>
+        <name>AUSHigherEdPublicARR</name>
+        <dataType>Currency</dataType>
+        <expression>{!$Record.SBQQ__QuoteLine__r.No_International_Payers__c} * 48.24 * {!UtilizationValue}</expression>
+        <scale>18</scale>
+    </formulas>
+    <formulas>
+        <name>AUSHigherEdPublicRevenue</name>
+        <dataType>String</dataType>
+        <expression>&quot;AUS - Higher Ed, Public - $48.24* &quot; + TEXT({!$Record.SBQQ__QuoteLine__r.No_International_Payers__c}) + &quot;*&quot; + TEXT({!$Record.SBQQ__QuoteLine__r.Utilization__c})  +
+
+
+&quot; Calculated: &quot;+  
+TEXT( NOW() - 0.1666)</expression>
+    </formulas>
+    <formulas>
+        <name>AUSK12IndependentARR</name>
+        <dataType>Currency</dataType>
+        <expression>{!$Record.SBQQ__QuoteLine__r.No_International_Payers__c} * 60.13 * {!UtilizationValue}</expression>
+        <scale>18</scale>
+    </formulas>
+    <formulas>
+        <name>AUSK12IndependentRevenue</name>
+        <dataType>String</dataType>
+        <expression>&quot;AUS- K12/Independent - $60.13 * &quot; + TEXT({!$Record.SBQQ__QuoteLine__r.No_International_Payers__c}) + &quot;*&quot; + TEXT({!$Record.SBQQ__QuoteLine__r.Utilization__c}) +
+
+
+&quot; Calculated: &quot;+  
+TEXT( NOW() - 0.1666)</expression>
+    </formulas>
+    <formulas>
+        <name>AUSLanguageARR</name>
+        <dataType>Currency</dataType>
+        <expression>{!$Record.SBQQ__QuoteLine__r.No_International_Payers__c} * 14.57 * {!UtilizationValue}</expression>
+        <scale>18</scale>
+    </formulas>
+    <formulas>
+        <name>AUSLanguageRevenue</name>
+        <dataType>String</dataType>
+        <expression>&quot;AUS - Language School - $14.57 * &quot; + TEXT({!$Record.SBQQ__QuoteLine__r.No_International_Payers__c}) + &quot;*&quot; + TEXT({!$Record.SBQQ__QuoteLine__r.Utilization__c})  +
+
+
+&quot; Calculated: &quot;+  
+TEXT( NOW() - 0.1666)</expression>
+    </formulas>
+    <formulas>
+        <name>AUSOtherARR</name>
+        <dataType>Currency</dataType>
+        <expression>{!$Record.SBQQ__QuoteLine__r.No_International_Payers__c} * 24.37 * {!UtilizationValue}</expression>
+        <scale>18</scale>
+    </formulas>
+    <formulas>
+        <name>AUSOtherRevenue</name>
+        <dataType>String</dataType>
+        <expression>&quot;AUS - Other- $24.37 * &quot; + TEXT({!$Record.SBQQ__QuoteLine__r.No_International_Payers__c}) + &quot;*&quot; + TEXT({!$Record.SBQQ__QuoteLine__r.Utilization__c})  +
+
+
+&quot; Calculated: &quot;+  
+TEXT( NOW() - 0.1666)</expression>
+    </formulas>
+    <formulas>
+        <name>CanadaHigherEdARR</name>
+        <dataType>Currency</dataType>
+        <expression>{!$Record.SBQQ__QuoteLine__r.No_International_Payers__c} * 179.57 * {!UtilizationValue}</expression>
+        <scale>18</scale>
+    </formulas>
+    <formulas>
+        <name>CanadaHigherEdRevenueText</name>
+        <dataType>String</dataType>
+        <expression>&quot;Canada - Higher Ed - $179.57 * &quot; + TEXT({!$Record.SBQQ__QuoteLine__r.No_International_Payers__c}) + &quot;*&quot; + TEXT({!$Record.SBQQ__QuoteLine__r.Utilization__c}) +
+
+
+&quot; Calculated: &quot;+  
+TEXT( NOW() - 0.1666)</expression>
+    </formulas>
+    <formulas>
+        <name>CanadaK12ARR</name>
+        <dataType>Currency</dataType>
+        <expression>{!$Record.SBQQ__QuoteLine__r.No_International_Payers__c} * 156.63 * {!UtilizationValue}</expression>
+        <scale>18</scale>
+    </formulas>
+    <formulas>
+        <name>CanadaK12RevenueText</name>
+        <dataType>String</dataType>
+        <expression>&quot;Canada - K12/Independent - $156.63 * &quot; + TEXT({!$Record.SBQQ__QuoteLine__r.No_International_Payers__c}) + &quot;*&quot; + TEXT({!$Record.SBQQ__QuoteLine__r.Utilization__c})  +
+
+
+&quot; Calculated: &quot;+  
+TEXT( NOW() - 0.1666)</expression>
+    </formulas>
+    <formulas>
+        <name>CanadaLanguageARR</name>
+        <dataType>Currency</dataType>
+        <expression>{!$Record.SBQQ__QuoteLine__r.No_International_Payers__c} *  40.20 * {!UtilizationValue}</expression>
+        <scale>18</scale>
+    </formulas>
+    <formulas>
+        <name>CanadaLanguageRevenueText</name>
+        <dataType>String</dataType>
+        <expression>&quot;Canada - Language School - $40.20 * &quot; + TEXT({!$Record.SBQQ__QuoteLine__r.No_International_Payers__c}) + &quot;*&quot; + TEXT({!$Record.SBQQ__QuoteLine__r.Utilization__c})  +
+
+
+&quot; Calculated: &quot;+  
+TEXT( NOW() - 0.1666)</expression>
+    </formulas>
+    <formulas>
+        <name>CanadaOtherARR</name>
+        <dataType>Currency</dataType>
+        <expression>{!$Record.SBQQ__QuoteLine__r.No_International_Payers__c} * 55.86 * {!UtilizationValue}</expression>
+        <scale>18</scale>
+    </formulas>
+    <formulas>
+        <name>Cancelled_ARR</name>
+        <dataType>Number</dataType>
+        <expression>{!Get_Original_Opportunity_Product_Cancellation.Opp_Product_ARR__c} * (-1)</expression>
+        <scale>2</scale>
+    </formulas>
+    <formulas>
+        <name>CAOtherRevenueText</name>
+        <dataType>String</dataType>
+        <expression>&quot;Canada - Other - $55.86 * &quot; + TEXT({!$Record.SBQQ__QuoteLine__r.No_International_Payers__c}) + &quot;*&quot; + TEXT({!$Record.SBQQ__QuoteLine__r.Utilization__c})  +
+
+
+&quot; Calculated: &quot;+  
+TEXT( NOW() - 0.1666)</expression>
+    </formulas>
+    <formulas>
+        <name>FranceHigherEdARR</name>
+        <dataType>Currency</dataType>
+        <expression>{!$Record.SBQQ__QuoteLine__r.No_International_Payers__c} *  38.10 * {!UtilizationValue}</expression>
+        <scale>18</scale>
+    </formulas>
+    <formulas>
+        <name>FranceHigherEdRevenueText</name>
+        <dataType>String</dataType>
+        <expression>&quot;France - Higher Ed - $38.10 * &quot; + TEXT({!$Record.SBQQ__QuoteLine__r.No_International_Payers__c}) + &quot;*&quot; + TEXT({!$Record.SBQQ__QuoteLine__r.Utilization__c})  +
+
+&quot; Calculated: &quot;+  
+TEXT( NOW() - 0.1666)</expression>
+    </formulas>
+    <formulas>
+        <name>FranceK12ARR</name>
+        <dataType>Currency</dataType>
+        <expression>{!$Record.SBQQ__QuoteLine__r.No_International_Payers__c} *  58.90 * {!UtilizationValue}</expression>
+        <scale>18</scale>
+    </formulas>
+    <formulas>
+        <name>FranceK12RevenueText</name>
+        <dataType>String</dataType>
+        <expression>&quot;France - K12/Independent - $58.90 * &quot; + TEXT({!$Record.SBQQ__QuoteLine__r.No_International_Payers__c}) + &quot;*&quot; + TEXT({!$Record.SBQQ__QuoteLine__r.Utilization__c}) +
+
+
+&quot; Calculated: &quot;+  
+TEXT( NOW() - 0.1666)</expression>
+    </formulas>
+    <formulas>
+        <name>FranceLanguageARR</name>
+        <dataType>Currency</dataType>
+        <expression>{!$Record.SBQQ__QuoteLine__r.No_International_Payers__c} *  8.62 * {!UtilizationValue}</expression>
+        <scale>18</scale>
+    </formulas>
+    <formulas>
+        <name>FranceLanguageRevenueText</name>
+        <dataType>String</dataType>
+        <expression>&quot;France - Language School- $8.62 * &quot; + TEXT({!$Record.SBQQ__QuoteLine__r.No_International_Payers__c}) + &quot;*&quot; + TEXT({!$Record.SBQQ__QuoteLine__r.Utilization__c})  +
+
+
+&quot; Calculated: &quot;+  
+TEXT( NOW() - 0.1666)</expression>
+    </formulas>
+    <formulas>
+        <name>FranceOtherARR</name>
+        <dataType>Currency</dataType>
+        <expression>{!$Record.SBQQ__QuoteLine__r.No_International_Payers__c} * 13.64 * {!UtilizationValue}</expression>
+        <scale>18</scale>
+    </formulas>
+    <formulas>
+        <name>FranceOtherRevenueText</name>
+        <dataType>String</dataType>
+        <expression>&quot;France - Other - $13.64 * &quot; + TEXT({!$Record.SBQQ__QuoteLine__r.No_International_Payers__c}) + &quot;*&quot; + TEXT({!$Record.SBQQ__QuoteLine__r.Utilization__c})  +
+
+
+&quot; Calculated: &quot;+  
+TEXT( NOW() - 0.1666)</expression>
+    </formulas>
+    <formulas>
+        <name>GermanyHigherEdARR</name>
+        <dataType>Currency</dataType>
+        <expression>{!$Record.SBQQ__QuoteLine__r.No_International_Payers__c} *  31.08 * {!UtilizationValue}</expression>
+        <scale>18</scale>
+    </formulas>
+    <formulas>
+        <name>GermanyHigherEdRevenueText</name>
+        <dataType>String</dataType>
+        <expression>&quot;Germany - Higher Ed - $31.08 * &quot; + TEXT({!$Record.SBQQ__QuoteLine__r.No_International_Payers__c}) + &quot;*&quot; + TEXT({!$Record.SBQQ__QuoteLine__r.Utilization__c}) +
+
+&quot; Calculated: &quot;+  
+TEXT( NOW() - 0.1666)</expression>
+    </formulas>
+    <formulas>
+        <name>GermanyK12ARR</name>
+        <dataType>Currency</dataType>
+        <expression>{!$Record.SBQQ__QuoteLine__r.No_International_Payers__c} *  58.90 * {!UtilizationValue}</expression>
+        <scale>18</scale>
+    </formulas>
+    <formulas>
+        <name>GermanyK12RevenueText</name>
+        <dataType>String</dataType>
+        <expression>&quot;Germany - K12/Independent - $58.90* &quot; + TEXT({!$Record.SBQQ__QuoteLine__r.No_International_Payers__c}) + &quot;*&quot; + TEXT({!$Record.SBQQ__QuoteLine__r.Utilization__c}) +
+&quot; Calculated: &quot;+  
+TEXT( NOW() - 0.1666)</expression>
+    </formulas>
+    <formulas>
+        <name>GermanyLanguageARR</name>
+        <dataType>Currency</dataType>
+        <expression>{!$Record.SBQQ__QuoteLine__r.No_International_Payers__c} *  22.36 * {!UtilizationValue}</expression>
+        <scale>18</scale>
+    </formulas>
+    <formulas>
+        <name>GermanyLanguageRevenueText</name>
+        <dataType>String</dataType>
+        <expression>&quot;Germany - Language School - $22.36* &quot; + TEXT({!$Record.SBQQ__QuoteLine__r.No_International_Payers__c}) + &quot;*&quot; + TEXT({!$Record.SBQQ__QuoteLine__r.Utilization__c}) +
+
+&quot; Calculated: &quot;+  
+TEXT( NOW() - 0.1666)</expression>
+    </formulas>
+    <formulas>
+        <name>GermanyOtherARR</name>
+        <dataType>Currency</dataType>
+        <expression>{!$Record.SBQQ__QuoteLine__r.No_International_Payers__c} *  6.91 * {!UtilizationValue}</expression>
+        <scale>18</scale>
+    </formulas>
+    <formulas>
+        <name>GermanyOtherRevenueText</name>
+        <dataType>String</dataType>
+        <expression>&quot;Germany - Other - $6.91* &quot; + TEXT({!$Record.SBQQ__QuoteLine__r.No_International_Payers__c}) + &quot;*&quot; + TEXT({!$Record.SBQQ__QuoteLine__r.Utilization__c}) +
+
+&quot; Calculated: &quot;+  
+TEXT( NOW() - 0.1666)</expression>
+    </formulas>
+    <formulas>
+        <name>IrelandHigherEdARR</name>
+        <dataType>Currency</dataType>
+        <expression>{!$Record.SBQQ__QuoteLine__r.No_International_Payers__c} *  34.35 * {!UtilizationValue}</expression>
+        <scale>18</scale>
+    </formulas>
+    <formulas>
+        <name>IrelandHigherEdRevenueText</name>
+        <dataType>String</dataType>
+        <expression>&quot;Ireland - Higher Ed - $34.35* &quot; + TEXT({!$Record.SBQQ__QuoteLine__r.No_International_Payers__c}) + &quot;*&quot; + TEXT({!$Record.SBQQ__QuoteLine__r.Utilization__c}) +
+
+&quot; Calculated: &quot;+  
+TEXT( NOW() - 0.1666)</expression>
+    </formulas>
+    <formulas>
+        <name>IrelandK12ARR</name>
+        <dataType>Currency</dataType>
+        <expression>{!$Record.SBQQ__QuoteLine__r.No_International_Payers__c} *  168.62 * {!UtilizationValue}</expression>
+        <scale>18</scale>
+    </formulas>
+    <formulas>
+        <name>IrelandK12RevenueText</name>
+        <dataType>String</dataType>
+        <expression>&quot;Ireland - K12/Independent - $168.62* &quot; + TEXT({!$Record.SBQQ__QuoteLine__r.No_International_Payers__c}) + &quot;*&quot; + TEXT({!$Record.SBQQ__QuoteLine__r.Utilization__c}) +
+
+&quot; Calculated: &quot;+  
+TEXT( NOW() - 0.1666)</expression>
+    </formulas>
+    <formulas>
+        <name>IrelandLanguageSchoolARR</name>
+        <dataType>Currency</dataType>
+        <expression>{!$Record.SBQQ__QuoteLine__r.No_International_Payers__c} *  17.17 * {!UtilizationValue}</expression>
+        <scale>18</scale>
+    </formulas>
+    <formulas>
+        <name>IrelandLanguageSchoolRevenueText</name>
+        <dataType>String</dataType>
+        <expression>&quot;Ireland - Language School - $17.17* &quot; + TEXT({!$Record.SBQQ__QuoteLine__r.No_International_Payers__c}) + &quot;*&quot; + TEXT({!$Record.SBQQ__QuoteLine__r.Utilization__c}) +
+
+&quot; Calculated: &quot;+  
+TEXT( NOW() - 0.1666)</expression>
+    </formulas>
+    <formulas>
+        <name>IrelandOtherARR</name>
+        <dataType>Currency</dataType>
+        <expression>{!$Record.SBQQ__QuoteLine__r.No_International_Payers__c} *  8.66 * {!UtilizationValue}</expression>
+        <scale>18</scale>
+    </formulas>
+    <formulas>
+        <name>IrelandOtherRevenueText</name>
+        <dataType>String</dataType>
+        <expression>&quot;Ireland - Other - $8.66* &quot; + TEXT({!$Record.SBQQ__QuoteLine__r.No_International_Payers__c}) + &quot;*&quot; + TEXT({!$Record.SBQQ__QuoteLine__r.Utilization__c}) +
+
+&quot; Calculated: &quot;+  
+TEXT( NOW() - 0.1666)</expression>
+    </formulas>
+    <formulas>
+        <name>JapanLanguageARR</name>
+        <dataType>Currency</dataType>
+        <expression>{!$Record.SBQQ__QuoteLine__r.No_International_Payers__c} *  44.00 * {!UtilizationValue}</expression>
+        <scale>18</scale>
+    </formulas>
+    <formulas>
+        <name>JapanLanguageRevenueText</name>
+        <dataType>String</dataType>
+        <expression>&quot;Japan - Language School - $44.00 * &quot; + TEXT({!$Record.SBQQ__QuoteLine__r.No_International_Payers__c}) + &quot;*&quot; + TEXT({!$Record.SBQQ__QuoteLine__r.Utilization__c}) +
+&quot; Calculated: &quot;+  
+TEXT( NOW() - 0.1666)</expression>
+    </formulas>
+    <formulas>
+        <name>JAPHigherEdARR</name>
+        <dataType>Currency</dataType>
+        <expression>{!$Record.SBQQ__QuoteLine__r.No_International_Payers__c} *  61.66 * {!UtilizationValue}</expression>
+        <scale>18</scale>
+    </formulas>
+    <formulas>
+        <name>JAPHigherEdRevenueText</name>
+        <dataType>String</dataType>
+        <expression>&quot;Japan - Higher Ed - $61.66* &quot; + TEXT({!$Record.SBQQ__QuoteLine__r.No_International_Payers__c}) + &quot;*&quot; + TEXT({!$Record.SBQQ__QuoteLine__r.Utilization__c}) +
+
+&quot; Calculated: &quot;+  
+TEXT( NOW() - 0.1666)</expression>
+    </formulas>
+    <formulas>
+        <name>JAPK12ARR</name>
+        <dataType>Currency</dataType>
+        <expression>{!$Record.SBQQ__QuoteLine__r.No_International_Payers__c} *  100.58 * {!UtilizationValue}</expression>
+        <scale>18</scale>
+    </formulas>
+    <formulas>
+        <name>JAPK12RevenueText</name>
+        <dataType>String</dataType>
+        <expression>&quot;Japan - K12/Independent - $100.58* &quot; + TEXT({!$Record.SBQQ__QuoteLine__r.No_International_Payers__c}) + &quot;*&quot; + TEXT({!$Record.SBQQ__QuoteLine__r.Utilization__c}) +
+
+&quot; Calculated: &quot;+  
+TEXT( NOW() - 0.1666)</expression>
+    </formulas>
+    <formulas>
+        <name>JAPOtherARR</name>
+        <dataType>Currency</dataType>
+        <expression>{!$Record.SBQQ__QuoteLine__r.No_International_Payers__c} *  40.96 * {!UtilizationValue}</expression>
+        <scale>18</scale>
+    </formulas>
+    <formulas>
+        <name>JAPOtherRevenueText</name>
+        <dataType>String</dataType>
+        <expression>&quot;Japan - Other - $40.96* &quot; + TEXT({!$Record.SBQQ__QuoteLine__r.No_International_Payers__c}) + &quot;*&quot; + TEXT({!$Record.SBQQ__QuoteLine__r.Utilization__c}) +
+
+&quot; Calculated: &quot;+  
+TEXT( NOW() - 0.1666)</expression>
+    </formulas>
+    <formulas>
+        <name>MYHigherEdARR</name>
+        <dataType>Currency</dataType>
+        <expression>{!$Record.SBQQ__QuoteLine__r.No_International_Payers__c} * 56.69 * {!UtilizationValue}</expression>
+        <scale>17</scale>
+    </formulas>
+    <formulas>
+        <name>MYHigherEdRevenueText</name>
+        <dataType>String</dataType>
+        <expression>&quot;Malaysia - Higher Ed - $56.69 * &quot; + TEXT({!$Record.SBQQ__QuoteLine__r.No_International_Payers__c}) + &quot;*&quot; + TEXT({!$Record.SBQQ__QuoteLine__r.Utilization__c}) +
+
+&quot; Calculated: &quot;+  
+TEXT( NOW() - 0.1666)</expression>
+    </formulas>
+    <formulas>
+        <name>MYK12ARR</name>
+        <dataType>Currency</dataType>
+        <expression>{!$Record.SBQQ__QuoteLine__r.No_International_Payers__c} * 151 * {!UtilizationValue}</expression>
+        <scale>2</scale>
+    </formulas>
+    <formulas>
+        <name>MYK12RevenueText</name>
+        <dataType>String</dataType>
+        <expression>&quot;Malaysia - K12/Independent - $151.00 * &quot; + TEXT({!$Record.SBQQ__QuoteLine__r.No_International_Payers__c}) + &quot;*&quot; + TEXT({!$Record.SBQQ__QuoteLine__r.Utilization__c}) +
+
+&quot; Calculated: &quot;+  
+TEXT( NOW() - 0.1666)</expression>
+    </formulas>
+    <formulas>
+        <name>MYLanguageARR</name>
+        <dataType>Currency</dataType>
+        <expression>{!$Record.SBQQ__QuoteLine__r.No_International_Payers__c} * 64.57 * {!UtilizationValue}</expression>
+        <scale>17</scale>
+    </formulas>
+    <formulas>
+        <name>MYLangugeSchoolRevenueText</name>
+        <dataType>String</dataType>
+        <expression>&quot;Malaysia - Language School - $64.57 * &quot; + TEXT({!$Record.SBQQ__QuoteLine__r.No_International_Payers__c}) + &quot;*&quot; + TEXT({!$Record.SBQQ__QuoteLine__r.Utilization__c}) +
+
+&quot; Calculated: &quot;+  
+TEXT( NOW() - 0.1666)</expression>
+    </formulas>
+    <formulas>
+        <name>MYOtherARR</name>
+        <dataType>Currency</dataType>
+        <expression>{!$Record.SBQQ__QuoteLine__r.No_International_Payers__c} * 69.42 * {!UtilizationValue}</expression>
+        <scale>17</scale>
+    </formulas>
+    <formulas>
+        <name>MYOtherRevenueText</name>
+        <dataType>String</dataType>
+        <expression>&quot;Malaysia - Other - $69.42 * &quot; + TEXT({!$Record.SBQQ__QuoteLine__r.No_International_Payers__c}) + &quot;*&quot; + TEXT({!$Record.SBQQ__QuoteLine__r.Utilization__c}) +
+
+&quot; Calculated: &quot;+  
+TEXT( NOW() - 0.1666)</expression>
+    </formulas>
+    <formulas>
+        <name>NZHigherEdARR</name>
+        <dataType>Currency</dataType>
+        <expression>{!$Record.SBQQ__QuoteLine__r.No_International_Payers__c} * 44.74 * {!UtilizationValue}</expression>
+        <scale>17</scale>
+    </formulas>
+    <formulas>
+        <name>NZHigherEdRevenueText</name>
+        <dataType>String</dataType>
+        <expression>&quot;New Zealand - Higher Ed - $44.74 * &quot; + TEXT({!$Record.SBQQ__QuoteLine__r.No_International_Payers__c}) + &quot;*&quot; + TEXT({!$Record.SBQQ__QuoteLine__r.Utilization__c}) +
+
+&quot; Calculated: &quot;+  
+TEXT( NOW() - 0.1666)</expression>
+    </formulas>
+    <formulas>
+        <name>NZK12ARR</name>
+        <dataType>Currency</dataType>
+        <expression>{!$Record.SBQQ__QuoteLine__r.No_International_Payers__c} * 44.73 * {!UtilizationValue}</expression>
+        <scale>17</scale>
+    </formulas>
+    <formulas>
+        <name>NZK12RevenueText</name>
+        <dataType>String</dataType>
+        <expression>&quot;New Zealand - K12/Independent - $44.73 * &quot; + TEXT({!$Record.SBQQ__QuoteLine__r.No_International_Payers__c}) + &quot;*&quot; + TEXT({!$Record.SBQQ__QuoteLine__r.Utilization__c}) +
+
+&quot; Calculated: &quot;+  
+TEXT( NOW() - 0.1666)</expression>
+    </formulas>
+    <formulas>
+        <name>NZLanguageRevenueText</name>
+        <dataType>String</dataType>
+        <expression>&quot;New Zealand - Language School - $12.33 * &quot; + TEXT({!$Record.SBQQ__QuoteLine__r.No_International_Payers__c}) + &quot;*&quot; + TEXT({!$Record.SBQQ__QuoteLine__r.Utilization__c}) +
+
+&quot; Calculated: &quot;+  
+TEXT( NOW() - 0.1666)</expression>
+    </formulas>
+    <formulas>
+        <name>NZLangugageARR</name>
+        <dataType>Currency</dataType>
+        <expression>{!$Record.SBQQ__QuoteLine__r.No_International_Payers__c} * 12.33 * {!UtilizationValue}</expression>
+        <scale>17</scale>
+    </formulas>
+    <formulas>
+        <name>NZOtherARR</name>
+        <dataType>Currency</dataType>
+        <expression>{!$Record.SBQQ__QuoteLine__r.No_International_Payers__c} * 28.22 * {!UtilizationValue}</expression>
+        <scale>17</scale>
+    </formulas>
+    <formulas>
+        <name>NZOtherRevenueText</name>
+        <dataType>String</dataType>
+        <expression>&quot;New Zealand - Other - $28.22 * &quot; + TEXT({!$Record.SBQQ__QuoteLine__r.No_International_Payers__c}) + &quot;*&quot; + TEXT({!$Record.SBQQ__QuoteLine__r.Utilization__c}) +
+
+&quot; Calculated: &quot;+  
+TEXT( NOW() - 0.1666)</expression>
+    </formulas>
+    <formulas>
+        <name>Opp_Product_Family</name>
+        <dataType>String</dataType>
+        <expression>{!$Record.Family__c}</expression>
+    </formulas>
+    <formulas>
+        <name>OtherHigherEdARR</name>
+        <dataType>Currency</dataType>
+        <expression>{!$Record.SBQQ__QuoteLine__r.No_International_Payers__c} * 33.69 * {!UtilizationValue}</expression>
+        <scale>18</scale>
+    </formulas>
+    <formulas>
+        <name>OtherHigherEdRevenueText</name>
+        <dataType>String</dataType>
+        <expression>&quot;Other - Higher Ed - $33.69 * &quot; + TEXT({!$Record.SBQQ__QuoteLine__r.No_International_Payers__c}) + &quot;*&quot; + TEXT({!$Record.SBQQ__QuoteLine__r.Utilization__c}) +
+
+&quot; Calculated: &quot;+  
+TEXT( NOW() - 0.1666)</expression>
+    </formulas>
+    <formulas>
+        <name>OtherK12ARR</name>
+        <dataType>Currency</dataType>
+        <expression>{!$Record.SBQQ__QuoteLine__r.No_International_Payers__c} * 58.90 * {!UtilizationValue}</expression>
+        <scale>18</scale>
+    </formulas>
+    <formulas>
+        <name>OtherK12RevenueText</name>
+        <dataType>String</dataType>
+        <expression>&quot;Other - K12/Independent - 58.90 * &quot; + TEXT({!$Record.SBQQ__QuoteLine__r.No_International_Payers__c}) + &quot;*&quot; + TEXT({!$Record.SBQQ__QuoteLine__r.Utilization__c}) +
+
+&quot; Calculated: &quot;+  
+TEXT( NOW() - 0.1666)</expression>
+    </formulas>
+    <formulas>
+        <name>OtherLanguageSchoolARR</name>
+        <dataType>Currency</dataType>
+        <expression>{!$Record.SBQQ__QuoteLine__r.No_International_Payers__c} * 21.75 * {!UtilizationValue}</expression>
+        <scale>18</scale>
+    </formulas>
+    <formulas>
+        <name>OtherLanguageSchoolRevenueText</name>
+        <dataType>String</dataType>
+        <expression>&quot;Other - Language School - $21.75 * &quot; + TEXT({!$Record.SBQQ__QuoteLine__r.No_International_Payers__c}) + &quot;*&quot; + TEXT({!$Record.SBQQ__QuoteLine__r.Utilization__c}) +
+
+&quot; Calculated: &quot;+  
+TEXT( NOW() - 0.1666)</expression>
+    </formulas>
+    <formulas>
+        <name>OtherOtherARR</name>
+        <dataType>Currency</dataType>
+        <expression>{!$Record.SBQQ__QuoteLine__r.No_International_Payers__c} * 13.64 * {!UtilizationValue}</expression>
+        <scale>18</scale>
+    </formulas>
+    <formulas>
+        <name>OtherOtherRevenueText</name>
+        <dataType>String</dataType>
+        <expression>&quot;Other - Other - $13.64 * &quot; + TEXT({!$Record.SBQQ__QuoteLine__r.No_International_Payers__c}) + &quot;*&quot; + TEXT({!$Record.SBQQ__QuoteLine__r.Utilization__c}) +
+
+&quot; Calculated: &quot;+  
+TEXT( NOW() - 0.1666)</expression>
+    </formulas>
+    <formulas>
+        <name>SGHigherEdARR</name>
+        <dataType>Currency</dataType>
+        <expression>{!$Record.SBQQ__QuoteLine__r.No_International_Payers__c} * 33.59 * {!UtilizationValue}</expression>
+        <scale>17</scale>
+    </formulas>
+    <formulas>
+        <name>SGHigherEdRevenueText</name>
+        <dataType>String</dataType>
+        <expression>&quot;Singapore - Higher Ed - $33.59 * &quot; + TEXT({!$Record.SBQQ__QuoteLine__r.No_International_Payers__c}) + &quot;*&quot; + TEXT({!$Record.SBQQ__QuoteLine__r.Utilization__c}) +
+
+&quot; Calculated: &quot;+  
+TEXT( NOW() - 0.1666)</expression>
+    </formulas>
+    <formulas>
+        <name>SGK12ARR</name>
+        <dataType>Currency</dataType>
+        <expression>{!$Record.SBQQ__QuoteLine__r.No_International_Payers__c} * 186.70 * {!UtilizationValue}</expression>
+        <scale>17</scale>
+    </formulas>
+    <formulas>
+        <name>SGK12RevenueText</name>
+        <dataType>String</dataType>
+        <expression>&quot;Singapore - K12/Independent - $186.70 * &quot; + TEXT({!$Record.SBQQ__QuoteLine__r.No_International_Payers__c}) + &quot;*&quot; + TEXT({!$Record.SBQQ__QuoteLine__r.Utilization__c}) +
+
+&quot; Calculated: &quot;+  
+TEXT( NOW() - 0.1666)</expression>
+    </formulas>
+    <formulas>
+        <name>SGLanguageARR</name>
+        <dataType>Currency</dataType>
+        <expression>{!$Record.SBQQ__QuoteLine__r.No_International_Payers__c} * 64.57 * {!UtilizationValue}</expression>
+        <scale>17</scale>
+    </formulas>
+    <formulas>
+        <name>SGLanguageRevenueText</name>
+        <dataType>String</dataType>
+        <expression>&quot;Singapore - Language School - $64.57 * &quot; + TEXT({!$Record.SBQQ__QuoteLine__r.No_International_Payers__c}) + &quot;*&quot; + TEXT({!$Record.SBQQ__QuoteLine__r.Utilization__c}) +
+
+&quot; Calculated: &quot;+  
+TEXT( NOW() - 0.1666)</expression>
+    </formulas>
+    <formulas>
+        <name>SGOtherARR</name>
+        <dataType>Currency</dataType>
+        <expression>{!$Record.SBQQ__QuoteLine__r.No_International_Payers__c} * 69.42 * {!UtilizationValue}</expression>
+        <scale>17</scale>
+    </formulas>
+    <formulas>
+        <name>SGOtherRevenueText</name>
+        <dataType>String</dataType>
+        <expression>&quot;Singapore - Other - $69.42 * &quot; + TEXT({!$Record.SBQQ__QuoteLine__r.No_International_Payers__c}) + &quot;*&quot; + TEXT({!$Record.SBQQ__QuoteLine__r.Utilization__c}) +
+
+&quot; Calculated: &quot;+  
+TEXT( NOW() - 0.1666)</expression>
+    </formulas>
+    <formulas>
+        <name>SpainHigherEdARR</name>
+        <dataType>Currency</dataType>
+        <expression>{!$Record.SBQQ__QuoteLine__r.No_International_Payers__c} *  28.53 * {!UtilizationValue}</expression>
+        <scale>18</scale>
+    </formulas>
+    <formulas>
+        <name>SpainHigherEdRevenueText</name>
+        <dataType>String</dataType>
+        <expression>&quot;Spain - Higher Ed - $28.53* &quot; + TEXT({!$Record.SBQQ__QuoteLine__r.No_International_Payers__c}) + &quot;*&quot; + TEXT({!$Record.SBQQ__QuoteLine__r.Utilization__c}) +
+
+
+&quot; Calculated: &quot;+  
+TEXT( NOW() - 0.1666)</expression>
+    </formulas>
+    <formulas>
+        <name>SpainK12ARR</name>
+        <dataType>Currency</dataType>
+        <expression>{!$Record.SBQQ__QuoteLine__r.No_International_Payers__c} *  58.90 * {!UtilizationValue}</expression>
+        <scale>18</scale>
+    </formulas>
+    <formulas>
+        <name>SpainK12RevenueText</name>
+        <dataType>String</dataType>
+        <expression>&quot;Spain - K12/Independent - $58.90* &quot; + TEXT({!$Record.SBQQ__QuoteLine__r.No_International_Payers__c}) + &quot;*&quot; + TEXT({!$Record.SBQQ__QuoteLine__r.Utilization__c}) +
+
+&quot; Calculated: &quot;+  
+TEXT( NOW() - 0.1666)</expression>
+    </formulas>
+    <formulas>
+        <name>SpainLanguageSchoolARR</name>
+        <dataType>Currency</dataType>
+        <expression>{!$Record.SBQQ__QuoteLine__r.No_International_Payers__c} *  11.56 * {!UtilizationValue}</expression>
+        <scale>18</scale>
+    </formulas>
+    <formulas>
+        <name>SpainLanguageSchoolRevenueText</name>
+        <dataType>String</dataType>
+        <expression>&quot;Spain - Language School - $11.56* &quot; + TEXT({!$Record.SBQQ__QuoteLine__r.No_International_Payers__c}) + &quot;*&quot; + TEXT({!$Record.SBQQ__QuoteLine__r.Utilization__c}) +
+
+
+&quot; Calculated: &quot;+  
+TEXT( NOW() - 0.1666)</expression>
+    </formulas>
+    <formulas>
+        <name>SpainOtherARR</name>
+        <dataType>Currency</dataType>
+        <expression>{!$Record.SBQQ__QuoteLine__r.No_International_Payers__c} *  15.25 * {!UtilizationValue}</expression>
+        <scale>18</scale>
+    </formulas>
+    <formulas>
+        <name>SpainOtherRevenueText</name>
+        <dataType>String</dataType>
+        <expression>&quot;Spain - Other - $15.25* &quot; + TEXT({!$Record.SBQQ__QuoteLine__r.No_International_Payers__c}) + &quot;*&quot; + TEXT({!$Record.SBQQ__QuoteLine__r.Utilization__c}) +
+
+
+&quot; Calculated: &quot;+  
+TEXT( NOW() - 0.1666)</expression>
+    </formulas>
+    <formulas>
+        <name>SwitzerlandHigherEdARR</name>
+        <dataType>Currency</dataType>
+        <expression>{!$Record.SBQQ__QuoteLine__r.No_International_Payers__c} *  144.50 * {!UtilizationValue}</expression>
+        <scale>18</scale>
+    </formulas>
+    <formulas>
+        <name>SwitzerlandHigherEdRevenueText</name>
+        <dataType>String</dataType>
+        <expression>&quot;Switzerland - Higher Ed - $144.50* &quot; + TEXT({!$Record.SBQQ__QuoteLine__r.No_International_Payers__c}) + &quot;*&quot; + TEXT({!$Record.SBQQ__QuoteLine__r.Utilization__c}) +
+
+&quot; Calculated: &quot;+  
+TEXT( NOW() - 0.1666)</expression>
+    </formulas>
+    <formulas>
+        <name>SwitzerlandK12ARR</name>
+        <dataType>Currency</dataType>
+        <expression>{!$Record.SBQQ__QuoteLine__r.No_International_Payers__c} *  160.51 * {!UtilizationValue}</expression>
+        <scale>18</scale>
+    </formulas>
+    <formulas>
+        <name>SwitzerlandK12RevenueText</name>
+        <dataType>String</dataType>
+        <expression>&quot;Switzerland - K12/Independent - $160.51* &quot; + TEXT({!$Record.SBQQ__QuoteLine__r.No_International_Payers__c}) + &quot;*&quot; + TEXT({!$Record.SBQQ__QuoteLine__r.Utilization__c}) +
+
+
+&quot; Calculated: &quot;+  
+TEXT( NOW() - 0.1666)</expression>
+    </formulas>
+    <formulas>
+        <name>SwitzerlandLanguageSchoolARR</name>
+        <dataType>Currency</dataType>
+        <expression>{!$Record.SBQQ__QuoteLine__r.No_International_Payers__c} *  37.62  * {!UtilizationValue}</expression>
+        <scale>18</scale>
+    </formulas>
+    <formulas>
+        <name>SwitzerlandLanguageSchoolRevenueText</name>
+        <dataType>String</dataType>
+        <expression>&quot;Switzerland - Language School - $37.62* &quot; + TEXT({!$Record.SBQQ__QuoteLine__r.No_International_Payers__c}) + &quot;*&quot; + TEXT({!$Record.SBQQ__QuoteLine__r.Utilization__c}) +
+
+&quot; Calculated: &quot;+  
+TEXT( NOW() - 0.1666)</expression>
+    </formulas>
+    <formulas>
+        <name>SwitzerlandOtherARR</name>
+        <dataType>Currency</dataType>
+        <expression>{!$Record.SBQQ__QuoteLine__r.No_International_Payers__c} *  17.29 * {!UtilizationValue}</expression>
+        <scale>18</scale>
+    </formulas>
+    <formulas>
+        <name>SwitzerlandOtherRevenueText</name>
+        <dataType>String</dataType>
+        <expression>&quot;Switzerland - Other - $17.29* &quot; + TEXT({!$Record.SBQQ__QuoteLine__r.No_International_Payers__c}) + &quot;*&quot; + TEXT({!$Record.SBQQ__QuoteLine__r.Utilization__c}) +
+
+&quot; Calculated: &quot;+  
+TEXT( NOW() - 0.1666)</expression>
+    </formulas>
+    <formulas>
+        <name>UKHigherEdARR</name>
+        <dataType>Currency</dataType>
+        <expression>{!$Record.SBQQ__QuoteLine__r.No_International_Payers__c} * 101.12 * {!UtilizationValue}</expression>
+        <scale>18</scale>
+    </formulas>
+    <formulas>
+        <name>UKHigherEdRevenueText</name>
+        <dataType>String</dataType>
+        <expression>&quot;UK - Higher Ed - $101.12 * &quot; + TEXT({!$Record.SBQQ__QuoteLine__r.No_International_Payers__c}) + &quot;*&quot; + TEXT({!$Record.SBQQ__QuoteLine__r.Utilization__c}) +
+
+&quot; Calculated: &quot;+  
+TEXT( NOW() - 0.1666)</expression>
+    </formulas>
+    <formulas>
+        <name>UKK12ARR</name>
+        <dataType>Currency</dataType>
+        <expression>{!$Record.SBQQ__QuoteLine__r.No_International_Payers__c} * 72.7 * {!UtilizationValue}</expression>
+        <scale>18</scale>
+    </formulas>
+    <formulas>
+        <name>UKK12RevenueText</name>
+        <dataType>String</dataType>
+        <expression>&quot;UK - K12/Independent - $72.70 * &quot; + TEXT({!$Record.SBQQ__QuoteLine__r.No_International_Payers__c}) + &quot;*&quot; + TEXT({!$Record.SBQQ__QuoteLine__r.Utilization__c}) +
+
+&quot; Calculated: &quot;+  
+TEXT( NOW() - 0.1666)</expression>
+    </formulas>
+    <formulas>
+        <name>UKLanaguageARR</name>
+        <dataType>Currency</dataType>
+        <expression>{!$Record.SBQQ__QuoteLine__r.No_International_Payers__c} * 6.32 * {!UtilizationValue}</expression>
+        <scale>18</scale>
+    </formulas>
+    <formulas>
+        <name>UKLanguageRevenueText</name>
+        <dataType>String</dataType>
+        <expression>&quot;UK - Language School - $6.32 * &quot; + TEXT({!$Record.SBQQ__QuoteLine__r.No_International_Payers__c}) + &quot;*&quot; + TEXT({!$Record.SBQQ__QuoteLine__r.Utilization__c}) +
+
+&quot; Calculated: &quot;+  
+TEXT( NOW() - 0.1666)</expression>
+    </formulas>
+    <formulas>
+        <name>UKOneDoorARR</name>
+        <dataType>Currency</dataType>
+        <expression>{!$Record.SBQQ__QuoteLine__r.No_International_Payers__c} * 188.00 * {!UtilizationValue}</expression>
+        <scale>18</scale>
+    </formulas>
+    <formulas>
+        <name>UKOneDoorHigherEdRevenue</name>
+        <dataType>String</dataType>
+        <expression>&quot;UK - Higher Ed - $188.00 * &quot; + TEXT({!$Record.SBQQ__QuoteLine__r.No_International_Payers__c}) + &quot;*&quot; + TEXT({!$Record.SBQQ__QuoteLine__r.Utilization__c}) +
+
+&quot; Calculated: &quot;+  
+TEXT( NOW() - 0.1666)</expression>
+    </formulas>
+    <formulas>
+        <name>UKOtherARR</name>
+        <dataType>Currency</dataType>
+        <expression>{!$Record.SBQQ__QuoteLine__r.No_International_Payers__c} *  50.42 * {!UtilizationValue}</expression>
+        <scale>18</scale>
+    </formulas>
+    <formulas>
+        <name>UKOtherRevenueText</name>
+        <dataType>String</dataType>
+        <expression>&quot;UK - Other - $50.42 * &quot; + TEXT({!$Record.SBQQ__QuoteLine__r.No_International_Payers__c}) + &quot;*&quot; + TEXT({!$Record.SBQQ__QuoteLine__r.Utilization__c}) +
+
+&quot; Calculated: &quot;+  
+TEXT( NOW() - 0.1666)</expression>
+    </formulas>
+    <formulas>
+        <name>USAHigherEdARR</name>
+        <dataType>Currency</dataType>
+        <expression>{!$Record.SBQQ__QuoteLine__r.No_International_Payers__c} * 33.00 * {!UtilizationValue}</expression>
+        <scale>18</scale>
+    </formulas>
+    <formulas>
+        <name>USAHigherEdRevenueText</name>
+        <dataType>String</dataType>
+        <expression>&quot;USA - Higher Ed - $33.00 * &quot; + TEXT({!$Record.SBQQ__QuoteLine__r.No_International_Payers__c}) + &quot;*&quot; + TEXT({!$Record.SBQQ__QuoteLine__r.Utilization__c}) +
+
+&quot; Calculated: &quot;+  
+TEXT( NOW() - 0.1666)</expression>
+    </formulas>
+    <formulas>
+        <name>USAK12ARR</name>
+        <dataType>Currency</dataType>
+        <expression>{!$Record.SBQQ__QuoteLine__r.No_International_Payers__c} * 122.00 * {!UtilizationValue}</expression>
+        <scale>18</scale>
+    </formulas>
+    <formulas>
+        <name>USAK12RevenueText</name>
+        <dataType>String</dataType>
+        <expression>&quot;USA - K12/Independent - $122.00 * &quot; + TEXT({!$Record.SBQQ__QuoteLine__r.No_International_Payers__c}) + &quot;*&quot; + TEXT({!$Record.SBQQ__QuoteLine__r.Utilization__c}) +
+
+&quot; Calculated: &quot;+  
+TEXT( NOW() - 0.1666)</expression>
+    </formulas>
+    <formulas>
+        <name>USALanguageSchoolARR</name>
+        <dataType>Currency</dataType>
+        <expression>{!$Record.SBQQ__QuoteLine__r.No_International_Payers__c} * 16.41 * {!UtilizationValue}</expression>
+        <scale>18</scale>
+    </formulas>
+    <formulas>
+        <name>USALanguageSchoolRevenueText</name>
+        <dataType>String</dataType>
+        <expression>&quot;USA - Language School - $16.41 * &quot; + TEXT({!$Record.SBQQ__QuoteLine__r.No_International_Payers__c}) + &quot;*&quot; + TEXT({!$Record.SBQQ__QuoteLine__r.Utilization__c}) +
+
+&quot; Calculated: &quot;+  
+TEXT( NOW() - 0.1666)</expression>
+    </formulas>
+    <formulas>
+        <name>USAOtherARR</name>
+        <dataType>Currency</dataType>
+        <expression>{!$Record.SBQQ__QuoteLine__r.No_International_Payers__c} * 32.41 * {!UtilizationValue}</expression>
+        <scale>18</scale>
+    </formulas>
+    <formulas>
+        <name>USAOtherRevenueText</name>
+        <dataType>String</dataType>
+        <expression>&quot;USA - Other - $32.41 * &quot; + TEXT({!$Record.SBQQ__QuoteLine__r.No_International_Payers__c}) + &quot;*&quot; + TEXT({!$Record.SBQQ__QuoteLine__r.Utilization__c}) +
+
+
+&quot; Calculated: &quot;+  
+TEXT( NOW() - 0.1666)</expression>
+    </formulas>
+    <formulas>
+        <name>UtilizationValue</name>
+        <dataType>Number</dataType>
+        <expression>CASE(
+    $Record.SBQQ__QuoteLine__r.Utilization__c,
+    &quot;20%&quot;, 0.2,
+    &quot;40%&quot;, 0.4,
+    &quot;60%&quot;, 0.6,
+    &quot;80%&quot;, 0.8,
+    &quot;100%&quot;, 1,
+    0
+)</expression>
+        <scale>2</scale>
+    </formulas>
+    <interviewLabel>[Opp Product] Edu XB Revenue Calculator {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>(Opp Product) Edu XB ARR Calculator</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <recordLookups>
+        <name>Get_Original_Opportunity_Product_Cancellation</name>
+        <label>Get Original Opportunity Product</label>
+        <locationX>314</locationX>
+        <locationY>539</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Cancellation_No_ARR</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Opportunity_Line_Id__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>$Record.Opportunity_Line_Id__c</elementReference>
+            </value>
+        </filters>
+        <filters>
+            <field>Id</field>
+            <operator>NotEqualTo</operator>
+            <value>
+                <elementReference>$Record.Id</elementReference>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>OpportunityLineItem</object>
+        <sortField>CreatedDate</sortField>
+        <sortOrder>Desc</sortOrder>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordLookups>
+        <name>Get_Original_Opportunity_Product_Renewal</name>
+        <label>Get Original Opportunity Product</label>
+        <locationX>50</locationX>
+        <locationY>539</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Renewals_ARR_is_set_manually</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Opportunity_Line_Id__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>$Record.Opportunity_Line_Id__c</elementReference>
+            </value>
+        </filters>
+        <filters>
+            <field>Id</field>
+            <operator>NotEqualTo</operator>
+            <value>
+                <elementReference>$Record.Id</elementReference>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>OpportunityLineItem</object>
+        <sortField>CreatedDate</sortField>
+        <sortOrder>Desc</sortOrder>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordUpdates>
+        <name>Amendment_No_ARR</name>
+        <label>Amendment - No ARR</label>
+        <locationX>578</locationX>
+        <locationY>539</locationY>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Quote_Line_Type__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>Amendment</stringValue>
+            </value>
+        </filters>
+        <inputAssignments>
+            <field>Opp_Product_ARR__c</field>
+            <value>
+                <numberValue>0.0</numberValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Revenue_Calculated__c</field>
+            <value>
+                <stringValue>Amendment: No modifications were made to this line</stringValue>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>APAC_Higher_Ed</name>
+        <label>APAC Higher Ed</label>
+        <locationX>842</locationX>
+        <locationY>647</locationY>
+        <connector>
+            <targetReference>APAC_K12</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Account_Sub_Industry__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>Higher Ed</stringValue>
+            </value>
+        </filters>
+        <inputAssignments>
+            <field>Opp_Product_ARR__c</field>
+            <value>
+                <elementReference>APACHigherEdARR</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Revenue_Calculated__c</field>
+            <value>
+                <elementReference>APACHigherEdRevenueText</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>APAC_K12</name>
+        <label>APAC K12</label>
+        <locationX>842</locationX>
+        <locationY>755</locationY>
+        <connector>
+            <targetReference>APAC_Language_School</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Account_Sub_Industry__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>K12/Independent</stringValue>
+            </value>
+        </filters>
+        <inputAssignments>
+            <field>Opp_Product_ARR__c</field>
+            <value>
+                <elementReference>APACK12ARR</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Revenue_Calculated__c</field>
+            <value>
+                <elementReference>APACK12RevenueText</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>APAC_Language_School</name>
+        <label>APAC Language School</label>
+        <locationX>842</locationX>
+        <locationY>863</locationY>
+        <connector>
+            <targetReference>APAC_Other</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Account_Sub_Industry__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>Language School</stringValue>
+            </value>
+        </filters>
+        <inputAssignments>
+            <field>Opp_Product_ARR__c</field>
+            <value>
+                <elementReference>APACLanguageSchoolARR</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Revenue_Calculated__c</field>
+            <value>
+                <elementReference>APACLanguageSchoolRevenueText</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>APAC_Other</name>
+        <label>APAC Other</label>
+        <locationX>842</locationX>
+        <locationY>971</locationY>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Account_Sub_Industry__c</field>
+            <operator>NotEqualTo</operator>
+            <value>
+                <stringValue>Higher Ed</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>Account_Sub_Industry__c</field>
+            <operator>NotEqualTo</operator>
+            <value>
+                <stringValue>K12/Independent</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>Account_Sub_Industry__c</field>
+            <operator>NotEqualTo</operator>
+            <value>
+                <stringValue>Language School</stringValue>
+            </value>
+        </filters>
+        <inputAssignments>
+            <field>Opp_Product_ARR__c</field>
+            <value>
+                <elementReference>APACOtherARR</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Revenue_Calculated__c</field>
+            <value>
+                <elementReference>APACOtherRevenueText</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>AUS_Higher_Ed_Private</name>
+        <label>AUS Higher Ed Private</label>
+        <locationX>1634</locationX>
+        <locationY>755</locationY>
+        <connector>
+            <targetReference>AUS_K12_Independent</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Account_Sub_Industry__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>Higher Ed</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>Account_Ownership_Type__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>Private</stringValue>
+            </value>
+        </filters>
+        <inputAssignments>
+            <field>Opp_Product_ARR__c</field>
+            <value>
+                <elementReference>AUSHigherEdPrivateARR</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Revenue_Calculated__c</field>
+            <value>
+                <elementReference>AUSHigherEdPrivateRevenue</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>AUS_Higher_Ed_Public</name>
+        <label>AUS Higher Ed Public</label>
+        <locationX>1634</locationX>
+        <locationY>647</locationY>
+        <connector>
+            <targetReference>AUS_Higher_Ed_Private</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Account_Sub_Industry__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>Higher Ed</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>Account_Ownership_Type__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>Public</stringValue>
+            </value>
+        </filters>
+        <inputAssignments>
+            <field>Opp_Product_ARR__c</field>
+            <value>
+                <elementReference>AUSHigherEdPublicARR</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Revenue_Calculated__c</field>
+            <value>
+                <elementReference>AUSHigherEdPublicRevenue</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>AUS_K12_Independent</name>
+        <label>K12/Independent</label>
+        <locationX>1634</locationX>
+        <locationY>863</locationY>
+        <connector>
+            <targetReference>AUS_Language_School</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Account_Sub_Industry__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>K12/Independent</stringValue>
+            </value>
+        </filters>
+        <inputAssignments>
+            <field>Opp_Product_ARR__c</field>
+            <value>
+                <elementReference>AUSK12IndependentARR</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Revenue_Calculated__c</field>
+            <value>
+                <elementReference>AUSK12IndependentRevenue</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>AUS_Language_School</name>
+        <label>Language School</label>
+        <locationX>1634</locationX>
+        <locationY>971</locationY>
+        <connector>
+            <targetReference>AUS_Other</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Account_Sub_Industry__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>Language School</stringValue>
+            </value>
+        </filters>
+        <inputAssignments>
+            <field>Opp_Product_ARR__c</field>
+            <value>
+                <elementReference>AUSLanguageARR</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Revenue_Calculated__c</field>
+            <value>
+                <elementReference>AUSLanguageRevenue</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>AUS_Other</name>
+        <label>Other</label>
+        <locationX>1634</locationX>
+        <locationY>1079</locationY>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Account_Sub_Industry__c</field>
+            <operator>NotEqualTo</operator>
+            <value>
+                <stringValue>Higher Ed</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>Account_Sub_Industry__c</field>
+            <operator>NotEqualTo</operator>
+            <value>
+                <stringValue>K12/Independent</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>Account_Sub_Industry__c</field>
+            <operator>NotEqualTo</operator>
+            <value>
+                <stringValue>Language School</stringValue>
+            </value>
+        </filters>
+        <inputAssignments>
+            <field>Opp_Product_ARR__c</field>
+            <value>
+                <elementReference>AUSOtherARR</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Revenue_Calculated__c</field>
+            <value>
+                <elementReference>AUSOtherRevenue</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>CA_Higher_Ed</name>
+        <label>CA Higher Ed</label>
+        <locationX>2162</locationX>
+        <locationY>647</locationY>
+        <connector>
+            <targetReference>CA_K12_Independent</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Account_Sub_Industry__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>Higher Ed</stringValue>
+            </value>
+        </filters>
+        <inputAssignments>
+            <field>Opp_Product_ARR__c</field>
+            <value>
+                <elementReference>CanadaHigherEdARR</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Revenue_Calculated__c</field>
+            <value>
+                <elementReference>CanadaHigherEdRevenueText</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>CA_K12_Independent</name>
+        <label>CA K12/Independent</label>
+        <locationX>2162</locationX>
+        <locationY>755</locationY>
+        <connector>
+            <targetReference>CA_Language_School</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Account_Sub_Industry__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>K12/Independent</stringValue>
+            </value>
+        </filters>
+        <inputAssignments>
+            <field>Opp_Product_ARR__c</field>
+            <value>
+                <elementReference>CanadaK12ARR</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Revenue_Calculated__c</field>
+            <value>
+                <elementReference>CanadaK12RevenueText</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>CA_Language_School</name>
+        <label>CA Language School</label>
+        <locationX>2162</locationX>
+        <locationY>863</locationY>
+        <connector>
+            <targetReference>CA_Other</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Account_Sub_Industry__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>Language School</stringValue>
+            </value>
+        </filters>
+        <inputAssignments>
+            <field>Opp_Product_ARR__c</field>
+            <value>
+                <elementReference>CanadaLanguageARR</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Revenue_Calculated__c</field>
+            <value>
+                <elementReference>CanadaLanguageRevenueText</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>CA_Other</name>
+        <label>CA Other</label>
+        <locationX>2162</locationX>
+        <locationY>971</locationY>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Account_Sub_Industry__c</field>
+            <operator>NotEqualTo</operator>
+            <value>
+                <stringValue>Higher Ed</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>Account_Sub_Industry__c</field>
+            <operator>NotEqualTo</operator>
+            <value>
+                <stringValue>Language School</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>Account_Sub_Industry__c</field>
+            <operator>NotEqualTo</operator>
+            <value>
+                <stringValue>K12/Independent</stringValue>
+            </value>
+        </filters>
+        <inputAssignments>
+            <field>Opp_Product_ARR__c</field>
+            <value>
+                <elementReference>CanadaOtherARR</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Revenue_Calculated__c</field>
+            <value>
+                <elementReference>CAOtherRevenueText</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>Cancellation_No_ARR</name>
+        <label>Cancellation - No ARR</label>
+        <locationX>314</locationX>
+        <locationY>647</locationY>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Quote_Line_Type__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>Cancellation</stringValue>
+            </value>
+        </filters>
+        <inputAssignments>
+            <field>Opp_Product_ARR__c</field>
+            <value>
+                <elementReference>Cancelled_ARR</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Revenue_Calculated__c</field>
+            <value>
+                <stringValue>Line cancelled</stringValue>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>France_Higher_Ed</name>
+        <label>Higher Ed</label>
+        <locationX>3482</locationX>
+        <locationY>647</locationY>
+        <connector>
+            <targetReference>France_K12</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Account_Sub_Industry__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>Higher Ed</stringValue>
+            </value>
+        </filters>
+        <inputAssignments>
+            <field>Opp_Product_ARR__c</field>
+            <value>
+                <elementReference>FranceHigherEdARR</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Revenue_Calculated__c</field>
+            <value>
+                <elementReference>FranceHigherEdRevenueText</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>France_K12</name>
+        <label>K12/Independent</label>
+        <locationX>3482</locationX>
+        <locationY>755</locationY>
+        <connector>
+            <targetReference>France_Language_School</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Account_Sub_Industry__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>K12/Independent</stringValue>
+            </value>
+        </filters>
+        <inputAssignments>
+            <field>Opp_Product_ARR__c</field>
+            <value>
+                <elementReference>FranceK12ARR</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Revenue_Calculated__c</field>
+            <value>
+                <elementReference>FranceK12RevenueText</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>France_Language_School</name>
+        <label>Language School</label>
+        <locationX>3482</locationX>
+        <locationY>863</locationY>
+        <connector>
+            <targetReference>France_Other</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Account_Sub_Industry__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>Language School</stringValue>
+            </value>
+        </filters>
+        <inputAssignments>
+            <field>Opp_Product_ARR__c</field>
+            <value>
+                <elementReference>FranceLanguageARR</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Revenue_Calculated__c</field>
+            <value>
+                <elementReference>FranceLanguageRevenueText</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>France_Other</name>
+        <label>Other</label>
+        <locationX>3482</locationX>
+        <locationY>971</locationY>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Account_Sub_Industry__c</field>
+            <operator>NotEqualTo</operator>
+            <value>
+                <stringValue>Higher Ed</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>Account_Sub_Industry__c</field>
+            <operator>NotEqualTo</operator>
+            <value>
+                <stringValue>K12/Independent</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>Account_Sub_Industry__c</field>
+            <operator>NotEqualTo</operator>
+            <value>
+                <stringValue>Language School</stringValue>
+            </value>
+        </filters>
+        <inputAssignments>
+            <field>Opp_Product_ARR__c</field>
+            <value>
+                <elementReference>FranceOtherARR</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Revenue_Calculated__c</field>
+            <value>
+                <elementReference>FranceOtherRevenueText</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>Germany_Higher_Ed</name>
+        <label>Higher Ed</label>
+        <locationX>3746</locationX>
+        <locationY>647</locationY>
+        <connector>
+            <targetReference>Germany_K12</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Account_Sub_Industry__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>Higher Ed</stringValue>
+            </value>
+        </filters>
+        <inputAssignments>
+            <field>Opp_Product_ARR__c</field>
+            <value>
+                <elementReference>GermanyHigherEdARR</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Revenue_Calculated__c</field>
+            <value>
+                <elementReference>GermanyHigherEdRevenueText</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>Germany_K12</name>
+        <label>K12/Independent</label>
+        <locationX>3746</locationX>
+        <locationY>755</locationY>
+        <connector>
+            <targetReference>Germany_Language_School</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Account_Sub_Industry__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>K12/Independent</stringValue>
+            </value>
+        </filters>
+        <inputAssignments>
+            <field>Opp_Product_ARR__c</field>
+            <value>
+                <elementReference>GermanyK12ARR</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Revenue_Calculated__c</field>
+            <value>
+                <elementReference>GermanyK12RevenueText</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>Germany_Language_School</name>
+        <label>Language School</label>
+        <locationX>3746</locationX>
+        <locationY>863</locationY>
+        <connector>
+            <targetReference>Germany_Other</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Account_Sub_Industry__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>Language School</stringValue>
+            </value>
+        </filters>
+        <inputAssignments>
+            <field>Opp_Product_ARR__c</field>
+            <value>
+                <elementReference>GermanyLanguageARR</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Revenue_Calculated__c</field>
+            <value>
+                <elementReference>GermanyLanguageRevenueText</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>Germany_Other</name>
+        <label>Other</label>
+        <locationX>3746</locationX>
+        <locationY>971</locationY>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Account_Sub_Industry__c</field>
+            <operator>NotEqualTo</operator>
+            <value>
+                <stringValue>Higher Ed</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>Account_Sub_Industry__c</field>
+            <operator>NotEqualTo</operator>
+            <value>
+                <stringValue>K12/Independent</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>Account_Sub_Industry__c</field>
+            <operator>NotEqualTo</operator>
+            <value>
+                <stringValue>Language School</stringValue>
+            </value>
+        </filters>
+        <inputAssignments>
+            <field>Opp_Product_ARR__c</field>
+            <value>
+                <elementReference>GermanyOtherARR</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Revenue_Calculated__c</field>
+            <value>
+                <elementReference>GermanyOtherRevenueText</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>Ireland_Higher_Ed</name>
+        <label>Higher Ed</label>
+        <locationX>4010</locationX>
+        <locationY>647</locationY>
+        <connector>
+            <targetReference>Ireland_K12</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Account_Sub_Industry__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>Higher Ed</stringValue>
+            </value>
+        </filters>
+        <inputAssignments>
+            <field>Opp_Product_ARR__c</field>
+            <value>
+                <elementReference>IrelandHigherEdARR</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Revenue_Calculated__c</field>
+            <value>
+                <elementReference>IrelandHigherEdRevenueText</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>Ireland_K12</name>
+        <label>K12/Independent</label>
+        <locationX>4010</locationX>
+        <locationY>755</locationY>
+        <connector>
+            <targetReference>Ireland_Language_School</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Account_Sub_Industry__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>K12/Independent</stringValue>
+            </value>
+        </filters>
+        <inputAssignments>
+            <field>Opp_Product_ARR__c</field>
+            <value>
+                <elementReference>IrelandK12ARR</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Revenue_Calculated__c</field>
+            <value>
+                <elementReference>IrelandK12RevenueText</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>Ireland_Language_School</name>
+        <label>Language School</label>
+        <locationX>4010</locationX>
+        <locationY>863</locationY>
+        <connector>
+            <targetReference>Ireland_Other</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Account_Sub_Industry__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>Language School</stringValue>
+            </value>
+        </filters>
+        <inputAssignments>
+            <field>Opp_Product_ARR__c</field>
+            <value>
+                <elementReference>IrelandLanguageSchoolARR</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Revenue_Calculated__c</field>
+            <value>
+                <elementReference>IrelandLanguageSchoolRevenueText</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>Ireland_Other</name>
+        <label>Other</label>
+        <locationX>4010</locationX>
+        <locationY>971</locationY>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Account_Sub_Industry__c</field>
+            <operator>NotEqualTo</operator>
+            <value>
+                <stringValue>Higher Ed</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>Account_Sub_Industry__c</field>
+            <operator>NotEqualTo</operator>
+            <value>
+                <stringValue>K12/Independent</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>Account_Sub_Industry__c</field>
+            <operator>NotEqualTo</operator>
+            <value>
+                <stringValue>Language School</stringValue>
+            </value>
+        </filters>
+        <inputAssignments>
+            <field>Opp_Product_ARR__c</field>
+            <value>
+                <elementReference>IrelandOtherARR</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Revenue_Calculated__c</field>
+            <value>
+                <elementReference>IrelandOtherRevenueText</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>Japan_Higher_Ed</name>
+        <label>Higher Ed</label>
+        <locationX>4274</locationX>
+        <locationY>647</locationY>
+        <connector>
+            <targetReference>Japan_K12</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Account_Sub_Industry__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>Higher Ed</stringValue>
+            </value>
+        </filters>
+        <inputAssignments>
+            <field>Opp_Product_ARR__c</field>
+            <value>
+                <elementReference>JAPHigherEdARR</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Revenue_Calculated__c</field>
+            <value>
+                <elementReference>JAPHigherEdRevenueText</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>Japan_K12</name>
+        <label>K12/Independent</label>
+        <locationX>4274</locationX>
+        <locationY>755</locationY>
+        <connector>
+            <targetReference>Japan_Language_School</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Account_Sub_Industry__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>K12/Independent</stringValue>
+            </value>
+        </filters>
+        <inputAssignments>
+            <field>Opp_Product_ARR__c</field>
+            <value>
+                <elementReference>JAPK12ARR</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Revenue_Calculated__c</field>
+            <value>
+                <elementReference>JAPK12RevenueText</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>Japan_Language_School</name>
+        <label>Language School</label>
+        <locationX>4274</locationX>
+        <locationY>863</locationY>
+        <connector>
+            <targetReference>Japan_Other</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Account_Sub_Industry__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>Language School</stringValue>
+            </value>
+        </filters>
+        <inputAssignments>
+            <field>Opp_Product_ARR__c</field>
+            <value>
+                <elementReference>JapanLanguageARR</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Revenue_Calculated__c</field>
+            <value>
+                <elementReference>JapanLanguageRevenueText</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>Japan_Other</name>
+        <label>Other</label>
+        <locationX>4274</locationX>
+        <locationY>971</locationY>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Account_Sub_Industry__c</field>
+            <operator>NotEqualTo</operator>
+            <value>
+                <stringValue>Higher Ed</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>Account_Sub_Industry__c</field>
+            <operator>NotEqualTo</operator>
+            <value>
+                <stringValue>K12/Independent</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>Account_Sub_Industry__c</field>
+            <operator>NotEqualTo</operator>
+            <value>
+                <stringValue>Language School</stringValue>
+            </value>
+        </filters>
+        <inputAssignments>
+            <field>Opp_Product_ARR__c</field>
+            <value>
+                <elementReference>JAPOtherARR</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Revenue_Calculated__c</field>
+            <value>
+                <elementReference>JAPOtherRevenueText</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>MY_Higher_Ed</name>
+        <label>MY Higher Ed</label>
+        <locationX>1370</locationX>
+        <locationY>647</locationY>
+        <connector>
+            <targetReference>MY_K12</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Account_Sub_Industry__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>Higher Ed</stringValue>
+            </value>
+        </filters>
+        <inputAssignments>
+            <field>Opp_Product_ARR__c</field>
+            <value>
+                <elementReference>MYHigherEdARR</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Revenue_Calculated__c</field>
+            <value>
+                <elementReference>MYHigherEdRevenueText</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>MY_K12</name>
+        <label>MY K12</label>
+        <locationX>1370</locationX>
+        <locationY>755</locationY>
+        <connector>
+            <targetReference>MY_Language_School</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Account_Sub_Industry__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>K12/Independent</stringValue>
+            </value>
+        </filters>
+        <inputAssignments>
+            <field>Opp_Product_ARR__c</field>
+            <value>
+                <elementReference>MYK12ARR</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Revenue_Calculated__c</field>
+            <value>
+                <elementReference>MYK12RevenueText</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>MY_Language_School</name>
+        <label>MY Language School</label>
+        <locationX>1370</locationX>
+        <locationY>863</locationY>
+        <connector>
+            <targetReference>MY_Other</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Account_Sub_Industry__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>Language School</stringValue>
+            </value>
+        </filters>
+        <inputAssignments>
+            <field>Opp_Product_ARR__c</field>
+            <value>
+                <elementReference>MYLanguageARR</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Revenue_Calculated__c</field>
+            <value>
+                <elementReference>MYLangugeSchoolRevenueText</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>MY_Other</name>
+        <label>MY Other</label>
+        <locationX>1370</locationX>
+        <locationY>971</locationY>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Account_Sub_Industry__c</field>
+            <operator>NotEqualTo</operator>
+            <value>
+                <stringValue>Higher Ed</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>Account_Sub_Industry__c</field>
+            <operator>NotEqualTo</operator>
+            <value>
+                <stringValue>K12/Independent</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>Account_Sub_Industry__c</field>
+            <operator>NotEqualTo</operator>
+            <value>
+                <stringValue>Language School</stringValue>
+            </value>
+        </filters>
+        <inputAssignments>
+            <field>Opp_Product_ARR__c</field>
+            <value>
+                <elementReference>MYOtherARR</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Revenue_Calculated__c</field>
+            <value>
+                <elementReference>MYOtherRevenueText</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>NZ_Higher_Ed</name>
+        <label>NZ Higher Ed</label>
+        <locationX>1898</locationX>
+        <locationY>647</locationY>
+        <connector>
+            <targetReference>NZ_K12_Independent</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Account_Sub_Industry__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>Higher Ed</stringValue>
+            </value>
+        </filters>
+        <inputAssignments>
+            <field>Opp_Product_ARR__c</field>
+            <value>
+                <elementReference>NZHigherEdARR</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Revenue_Calculated__c</field>
+            <value>
+                <elementReference>NZHigherEdRevenueText</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>NZ_K12_Independent</name>
+        <label>NZ K12/Independent</label>
+        <locationX>1898</locationX>
+        <locationY>755</locationY>
+        <connector>
+            <targetReference>NZ_Language_School</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Account_Sub_Industry__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>K12/Independent</stringValue>
+            </value>
+        </filters>
+        <inputAssignments>
+            <field>Opp_Product_ARR__c</field>
+            <value>
+                <elementReference>NZK12ARR</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Revenue_Calculated__c</field>
+            <value>
+                <elementReference>NZK12RevenueText</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>NZ_Language_School</name>
+        <label>NZ Language School</label>
+        <locationX>1898</locationX>
+        <locationY>863</locationY>
+        <connector>
+            <targetReference>NZ_Other</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Account_Sub_Industry__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>Language School</stringValue>
+            </value>
+        </filters>
+        <inputAssignments>
+            <field>Opp_Product_ARR__c</field>
+            <value>
+                <elementReference>NZLangugageARR</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Revenue_Calculated__c</field>
+            <value>
+                <elementReference>NZLanguageRevenueText</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>NZ_Other</name>
+        <label>NZ Other</label>
+        <locationX>1898</locationX>
+        <locationY>971</locationY>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Account_Sub_Industry__c</field>
+            <operator>NotEqualTo</operator>
+            <value>
+                <stringValue>Higher Ed</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>Account_Sub_Industry__c</field>
+            <operator>NotEqualTo</operator>
+            <value>
+                <stringValue>K12/Independent</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>Account_Sub_Industry__c</field>
+            <operator>NotEqualTo</operator>
+            <value>
+                <stringValue>Language School</stringValue>
+            </value>
+        </filters>
+        <inputAssignments>
+            <field>Opp_Product_ARR__c</field>
+            <value>
+                <elementReference>NZOtherARR</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Revenue_Calculated__c</field>
+            <value>
+                <elementReference>NZOtherRevenueText</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>Other_Higher_Ed</name>
+        <label>Higher Ed</label>
+        <locationX>2426</locationX>
+        <locationY>647</locationY>
+        <connector>
+            <targetReference>Other_K12</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Account_Sub_Industry__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>Higher Ed</stringValue>
+            </value>
+        </filters>
+        <inputAssignments>
+            <field>Opp_Product_ARR__c</field>
+            <value>
+                <elementReference>OtherHigherEdARR</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Revenue_Calculated__c</field>
+            <value>
+                <elementReference>OtherHigherEdRevenueText</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>Other_K12</name>
+        <label>K12/Independent</label>
+        <locationX>2426</locationX>
+        <locationY>755</locationY>
+        <connector>
+            <targetReference>Other_Language_School</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Account_Sub_Industry__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>K12/Independent</stringValue>
+            </value>
+        </filters>
+        <inputAssignments>
+            <field>Opp_Product_ARR__c</field>
+            <value>
+                <elementReference>OtherK12ARR</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Revenue_Calculated__c</field>
+            <value>
+                <elementReference>OtherK12RevenueText</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>Other_Language_School</name>
+        <label>Language School</label>
+        <locationX>2426</locationX>
+        <locationY>863</locationY>
+        <connector>
+            <targetReference>Other_Other</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Account_Sub_Industry__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>Language School</stringValue>
+            </value>
+        </filters>
+        <inputAssignments>
+            <field>Opp_Product_ARR__c</field>
+            <value>
+                <elementReference>OtherLanguageSchoolARR</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Revenue_Calculated__c</field>
+            <value>
+                <elementReference>OtherLanguageSchoolRevenueText</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>Other_Other</name>
+        <label>Other</label>
+        <locationX>2426</locationX>
+        <locationY>971</locationY>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Account_Sub_Industry__c</field>
+            <operator>NotEqualTo</operator>
+            <value>
+                <stringValue>Higher Ed</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>Account_Sub_Industry__c</field>
+            <operator>NotEqualTo</operator>
+            <value>
+                <stringValue>K12/Independent</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>Account_Sub_Industry__c</field>
+            <operator>NotEqualTo</operator>
+            <value>
+                <stringValue>Language School</stringValue>
+            </value>
+        </filters>
+        <inputAssignments>
+            <field>Opp_Product_ARR__c</field>
+            <value>
+                <elementReference>OtherOtherARR</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Revenue_Calculated__c</field>
+            <value>
+                <elementReference>OtherOtherRevenueText</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <description>Reps should get the last 12 months ARR number and manually update the Opp Product ARR</description>
+        <name>Renewals_ARR_is_set_manually</name>
+        <label>Renewals ARR is set manually</label>
+        <locationX>50</locationX>
+        <locationY>647</locationY>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>$Record.Id</elementReference>
+            </value>
+        </filters>
+        <inputAssignments>
+            <field>Baseline_ARR__c</field>
+            <value>
+                <elementReference>Get_Original_Opportunity_Product_Renewal.Opp_Product_ARR__c</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Do_not_Auto_Calculate_Price__c</field>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Opp_Product_ARR__c</field>
+            <value>
+                <numberValue>0.0</numberValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Revenue_Calculated__c</field>
+            <value>
+                <stringValue>For Renewals, please enter the ARR manually</stringValue>
+            </value>
+        </inputAssignments>
+        <object>OpportunityLineItem</object>
+    </recordUpdates>
+    <recordUpdates>
+        <name>SG_Higher_Ed</name>
+        <label>SG Higher Ed</label>
+        <locationX>1106</locationX>
+        <locationY>647</locationY>
+        <connector>
+            <targetReference>SG_K12</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Account_Sub_Industry__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>Higher Ed</stringValue>
+            </value>
+        </filters>
+        <inputAssignments>
+            <field>Opp_Product_ARR__c</field>
+            <value>
+                <elementReference>SGHigherEdARR</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Revenue_Calculated__c</field>
+            <value>
+                <elementReference>SGHigherEdRevenueText</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>SG_K12</name>
+        <label>SG K12</label>
+        <locationX>1106</locationX>
+        <locationY>755</locationY>
+        <connector>
+            <targetReference>SG_Language_School</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Account_Sub_Industry__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>K12/Independent</stringValue>
+            </value>
+        </filters>
+        <inputAssignments>
+            <field>Opp_Product_ARR__c</field>
+            <value>
+                <elementReference>SGK12ARR</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Revenue_Calculated__c</field>
+            <value>
+                <elementReference>SGK12RevenueText</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>SG_Language_School</name>
+        <label>SG Language School</label>
+        <locationX>1106</locationX>
+        <locationY>863</locationY>
+        <connector>
+            <targetReference>SG_Other</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Account_Sub_Industry__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>Language School</stringValue>
+            </value>
+        </filters>
+        <inputAssignments>
+            <field>Opp_Product_ARR__c</field>
+            <value>
+                <elementReference>SGLanguageARR</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Revenue_Calculated__c</field>
+            <value>
+                <elementReference>SGLanguageRevenueText</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>SG_Other</name>
+        <label>SG Other</label>
+        <locationX>1106</locationX>
+        <locationY>971</locationY>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Account_Sub_Industry__c</field>
+            <operator>NotEqualTo</operator>
+            <value>
+                <stringValue>Higher Ed</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>Account_Sub_Industry__c</field>
+            <operator>NotEqualTo</operator>
+            <value>
+                <stringValue>K12/Independent</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>Account_Sub_Industry__c</field>
+            <operator>NotEqualTo</operator>
+            <value>
+                <stringValue>Language School</stringValue>
+            </value>
+        </filters>
+        <inputAssignments>
+            <field>Opp_Product_ARR__c</field>
+            <value>
+                <elementReference>SGOtherARR</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Revenue_Calculated__c</field>
+            <value>
+                <elementReference>SGOtherRevenueText</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>Spain_Higher_Ed</name>
+        <label>Higher Ed</label>
+        <locationX>4538</locationX>
+        <locationY>647</locationY>
+        <connector>
+            <targetReference>Spain_K12</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Account_Sub_Industry__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>Higher Ed</stringValue>
+            </value>
+        </filters>
+        <inputAssignments>
+            <field>Opp_Product_ARR__c</field>
+            <value>
+                <elementReference>SpainHigherEdARR</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Revenue_Calculated__c</field>
+            <value>
+                <elementReference>SpainHigherEdRevenueText</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>Spain_K12</name>
+        <label>K12/Independent</label>
+        <locationX>4538</locationX>
+        <locationY>755</locationY>
+        <connector>
+            <targetReference>Spain_Language_School</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Account_Sub_Industry__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>K12/Independent</stringValue>
+            </value>
+        </filters>
+        <inputAssignments>
+            <field>Opp_Product_ARR__c</field>
+            <value>
+                <elementReference>SpainK12ARR</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Revenue_Calculated__c</field>
+            <value>
+                <elementReference>SpainK12RevenueText</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>Spain_Language_School</name>
+        <label>Language School</label>
+        <locationX>4538</locationX>
+        <locationY>863</locationY>
+        <connector>
+            <targetReference>Spain_Other</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Account_Sub_Industry__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>Language School</stringValue>
+            </value>
+        </filters>
+        <inputAssignments>
+            <field>Opp_Product_ARR__c</field>
+            <value>
+                <elementReference>SpainLanguageSchoolARR</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Revenue_Calculated__c</field>
+            <value>
+                <elementReference>SpainLanguageSchoolRevenueText</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>Spain_Other</name>
+        <label>Other</label>
+        <locationX>4538</locationX>
+        <locationY>971</locationY>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Account_Sub_Industry__c</field>
+            <operator>NotEqualTo</operator>
+            <value>
+                <stringValue>Higher Ed</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>Account_Sub_Industry__c</field>
+            <operator>NotEqualTo</operator>
+            <value>
+                <stringValue>K12/Independent</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>Account_Sub_Industry__c</field>
+            <operator>NotEqualTo</operator>
+            <value>
+                <stringValue>Language School</stringValue>
+            </value>
+        </filters>
+        <inputAssignments>
+            <field>Opp_Product_ARR__c</field>
+            <value>
+                <elementReference>SpainOtherARR</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Revenue_Calculated__c</field>
+            <value>
+                <elementReference>SpainOtherRevenueText</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>Switzerland_Higher_Ed</name>
+        <label>Higher Ed</label>
+        <locationX>4802</locationX>
+        <locationY>647</locationY>
+        <connector>
+            <targetReference>Switzerland_K12</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Account_Sub_Industry__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>Higher Ed</stringValue>
+            </value>
+        </filters>
+        <inputAssignments>
+            <field>Opp_Product_ARR__c</field>
+            <value>
+                <elementReference>SwitzerlandHigherEdARR</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Revenue_Calculated__c</field>
+            <value>
+                <elementReference>SwitzerlandHigherEdRevenueText</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>Switzerland_K12</name>
+        <label>K12/Independent</label>
+        <locationX>4802</locationX>
+        <locationY>755</locationY>
+        <connector>
+            <targetReference>Switzerland_Language_School</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Account_Sub_Industry__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>K12/Independent</stringValue>
+            </value>
+        </filters>
+        <inputAssignments>
+            <field>Opp_Product_ARR__c</field>
+            <value>
+                <elementReference>SwitzerlandK12ARR</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Revenue_Calculated__c</field>
+            <value>
+                <elementReference>SwitzerlandK12RevenueText</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>Switzerland_Language_School</name>
+        <label>Language School</label>
+        <locationX>4802</locationX>
+        <locationY>863</locationY>
+        <connector>
+            <targetReference>Switzerland_Other</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Account_Sub_Industry__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>Language School</stringValue>
+            </value>
+        </filters>
+        <inputAssignments>
+            <field>Opp_Product_ARR__c</field>
+            <value>
+                <elementReference>SwitzerlandLanguageSchoolARR</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Revenue_Calculated__c</field>
+            <value>
+                <elementReference>SwitzerlandLanguageSchoolRevenueText</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>Switzerland_Other</name>
+        <label>Other</label>
+        <locationX>4802</locationX>
+        <locationY>971</locationY>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Account_Sub_Industry__c</field>
+            <operator>NotEqualTo</operator>
+            <value>
+                <stringValue>Higher Ed</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>Account_Sub_Industry__c</field>
+            <operator>NotEqualTo</operator>
+            <value>
+                <stringValue>K12/Independent</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>Account_Sub_Industry__c</field>
+            <operator>NotEqualTo</operator>
+            <value>
+                <stringValue>Language School</stringValue>
+            </value>
+        </filters>
+        <inputAssignments>
+            <field>Opp_Product_ARR__c</field>
+            <value>
+                <elementReference>SwitzerlandOtherARR</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Revenue_Calculated__c</field>
+            <value>
+                <elementReference>SwitzerlandOtherRevenueText</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>Uk_Higher_Ed</name>
+        <label>Uk Higher Ed</label>
+        <locationX>2690</locationX>
+        <locationY>647</locationY>
+        <connector>
+            <targetReference>UK_K12_Independent</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Account_Sub_Industry__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>Higher Ed</stringValue>
+            </value>
+        </filters>
+        <inputAssignments>
+            <field>Opp_Product_ARR__c</field>
+            <value>
+                <elementReference>UKHigherEdARR</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Revenue_Calculated__c</field>
+            <value>
+                <elementReference>UKHigherEdRevenueText</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>UK_K12_Independent</name>
+        <label>UK K12/Independent</label>
+        <locationX>2690</locationX>
+        <locationY>755</locationY>
+        <connector>
+            <targetReference>UK_Language_School</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Account_Sub_Industry__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>K12/Independent</stringValue>
+            </value>
+        </filters>
+        <inputAssignments>
+            <field>Opp_Product_ARR__c</field>
+            <value>
+                <elementReference>UKK12ARR</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Revenue_Calculated__c</field>
+            <value>
+                <elementReference>UKK12RevenueText</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>UK_Language_School</name>
+        <label>UK Language School</label>
+        <locationX>2690</locationX>
+        <locationY>863</locationY>
+        <connector>
+            <targetReference>UK_Other</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Account_Sub_Industry__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>Language School</stringValue>
+            </value>
+        </filters>
+        <inputAssignments>
+            <field>Opp_Product_ARR__c</field>
+            <value>
+                <elementReference>UKLanaguageARR</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Revenue_Calculated__c</field>
+            <value>
+                <elementReference>UKLanguageRevenueText</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>UK_One_Door_Higher_Ed</name>
+        <label>Higher Ed</label>
+        <locationX>2954</locationX>
+        <locationY>647</locationY>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Account_Sub_Industry__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>Higher Ed</stringValue>
+            </value>
+        </filters>
+        <inputAssignments>
+            <field>Opp_Product_ARR__c</field>
+            <value>
+                <elementReference>UKOneDoorARR</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Revenue_Calculated__c</field>
+            <value>
+                <elementReference>UKOneDoorHigherEdRevenue</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>UK_Other</name>
+        <label>UK Other</label>
+        <locationX>2690</locationX>
+        <locationY>971</locationY>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Account_Sub_Industry__c</field>
+            <operator>NotEqualTo</operator>
+            <value>
+                <stringValue>Higher Ed</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>Account_Sub_Industry__c</field>
+            <operator>NotEqualTo</operator>
+            <value>
+                <stringValue>K12/Independent</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>Account_Sub_Industry__c</field>
+            <operator>NotEqualTo</operator>
+            <value>
+                <stringValue>Language School</stringValue>
+            </value>
+        </filters>
+        <inputAssignments>
+            <field>Opp_Product_ARR__c</field>
+            <value>
+                <elementReference>UKOtherARR</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Revenue_Calculated__c</field>
+            <value>
+                <elementReference>UKOtherRevenueText</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>USA_Higher_Ed</name>
+        <label>USA Higher Ed</label>
+        <locationX>3218</locationX>
+        <locationY>647</locationY>
+        <connector>
+            <targetReference>USA_K12_Independent</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Account_Sub_Industry__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>Higher Ed</stringValue>
+            </value>
+        </filters>
+        <inputAssignments>
+            <field>Opp_Product_ARR__c</field>
+            <value>
+                <elementReference>USAHigherEdARR</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Revenue_Calculated__c</field>
+            <value>
+                <elementReference>USAHigherEdRevenueText</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>USA_K12_Independent</name>
+        <label>USA K12/Independent</label>
+        <locationX>3218</locationX>
+        <locationY>755</locationY>
+        <connector>
+            <targetReference>USA_Language_School</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Account_Sub_Industry__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>K12/Independent</stringValue>
+            </value>
+        </filters>
+        <inputAssignments>
+            <field>Opp_Product_ARR__c</field>
+            <value>
+                <elementReference>USAK12ARR</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Revenue_Calculated__c</field>
+            <value>
+                <elementReference>USAK12RevenueText</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>USA_Language_School</name>
+        <label>Language School</label>
+        <locationX>3218</locationX>
+        <locationY>863</locationY>
+        <connector>
+            <targetReference>USA_Other</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Account_Sub_Industry__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>Language School</stringValue>
+            </value>
+        </filters>
+        <inputAssignments>
+            <field>Opp_Product_ARR__c</field>
+            <value>
+                <elementReference>USALanguageSchoolARR</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Revenue_Calculated__c</field>
+            <value>
+                <elementReference>USALanguageSchoolRevenueText</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>USA_Other</name>
+        <label>Other</label>
+        <locationX>3218</locationX>
+        <locationY>971</locationY>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Account_Sub_Industry__c</field>
+            <operator>NotEqualTo</operator>
+            <value>
+                <stringValue>Higher Ed</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>Account_Sub_Industry__c</field>
+            <operator>NotEqualTo</operator>
+            <value>
+                <stringValue>K12/Independent</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>Account_Sub_Industry__c</field>
+            <operator>NotEqualTo</operator>
+            <value>
+                <stringValue>Language School</stringValue>
+            </value>
+        </filters>
+        <inputAssignments>
+            <field>Opp_Product_ARR__c</field>
+            <value>
+                <elementReference>USAOtherARR</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Revenue_Calculated__c</field>
+            <value>
+                <elementReference>USAOtherRevenueText</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <start>
+        <locationX>4016</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Opp_meets_criteria</targetReference>
+        </connector>
+        <filterLogic>(1  OR 3) AND 2</filterLogic>
+        <filters>
+            <field>ProductCode</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>FWXB1000</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>Do_not_Auto_Calculate_Price__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <booleanValue>false</booleanValue>
+            </value>
+        </filters>
+        <filters>
+            <field>ProductCode</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>FWPAY2700</stringValue>
+            </value>
+        </filters>
+        <object>OpportunityLineItem</object>
+        <recordTriggerType>CreateAndUpdate</recordTriggerType>
+        <triggerType>RecordAfterSave</triggerType>
+    </start>
+    <status>Active</status>
+    <variables>
+        <name>OriginalARR</name>
+        <dataType>Number</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+        <scale>2</scale>
+    </variables>
+</Flow>

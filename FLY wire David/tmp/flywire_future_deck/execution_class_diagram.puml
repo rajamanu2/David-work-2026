@@ -1,0 +1,39 @@
+@startuml
+top to bottom direction
+skinparam backgroundColor white
+skinparam shadowing false
+skinparam classBackgroundColor #F6F7F8
+skinparam classBorderColor #222222
+skinparam classArrowColor #3D8DFF
+skinparam classHeaderBackgroundColor #D0EDFA
+hide circle
+
+class QuoteExecutionCoordinator {
+  +prepareProposal(quoteId) : ProposalResult
+  +acceptQuote(quoteId) : AcceptanceResult
+  +activateContract(quoteId) : ContractResult
+}
+class RevenueMetricService {
+  +calculate(context) : RevenueMetrics
+  +reconcile(actuals) : VarianceResult
+}
+class DocumentGenerationService {
+  +generateProposal(quoteId) : DocumentReference
+}
+class ContractHandoffService {
+  +createContract(acceptedQuoteId) : ContractId
+}
+class IntegrationEventPublisher {
+  +publish(event) : DeliveryReceipt
+}
+class ReconciliationService {
+  +match(correlationId) : ReconciliationResult
+}
+
+QuoteExecutionCoordinator --> RevenueMetricService
+QuoteExecutionCoordinator --> DocumentGenerationService
+QuoteExecutionCoordinator --> ContractHandoffService
+QuoteExecutionCoordinator --> IntegrationEventPublisher
+IntegrationEventPublisher --> ReconciliationService
+ReconciliationService --> RevenueMetricService
+@enduml

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Cant_make_contact_Billing_Contact</fullName>
+    <active>true</active>
+    <description>Created for SALDEV-1118</description>
+    <errorConditionFormula>AND(
+				OR(
+								 Lower(Contact_FirstName__c) = &quot;dummy&quot;, 
+Contains(Lower(Contact_FirstName__c), &quot;do not&quot;),
+Contains(Lower(Contact_LastName__c), &quot;do not&quot;),  
+Contains(Lower(Contact_FirstName__c), &quot;wrong&quot;),
+Contains(Lower(Contact_LastName__c), &quot;wrong&quot;),
+Contains(Lower(Contact_FirstName__c), &quot;not anymore&quot;),
+Contains(Lower(Contact_LastName__c), &quot;not anymore&quot;),
+Contains(Lower(Contact_FirstName__c), &quot;no longer&quot;),
+Contains(Lower(Contact_LastName__c), &quot;no longer&quot;),
+Lower(Contact_FirstName__c) = &quot;contact&quot;,
+Contains(Lower(Contact_LastName__c), &quot;contact&quot;),
+Contains(Lower(Contact_FirstName__c), &quot;inactive&quot;),
+Contains(Lower(Contact_LastName__c), &quot;inactive&quot;),
+Contains(Lower(Contact_FirstName__c), &quot;not provided&quot;),
+Contains(Lower(Contact_LastName__c), &quot;not provided&quot;),
+Contains(Lower(Contact_FirstName__c), &quot;deceased&quot;),
+Contains(Lower(Contact_LastName__c), &quot;deceased&quot;)),
+				 Billing_Contact_for_Account__c = true)</errorConditionFormula>
+    <errorMessage>You cannot make this Contact a Billing Contact until their First or Last name has been updated to a real name</errorMessage>
+</ValidationRule>

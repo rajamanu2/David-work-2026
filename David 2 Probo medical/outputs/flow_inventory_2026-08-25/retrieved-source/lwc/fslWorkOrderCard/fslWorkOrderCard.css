@@ -1,0 +1,1069 @@
+/* ============================================================
+   fslWorkOrderCard.css
+   Extracted from fslHello.css — work-order card rules only.
+   Targets: .sfs-card*, .sfs-work-type*, .sfs-worktype*,
+            and all card-specific classes listed in the spec.
+   ============================================================ */
+
+/* ── CARD BASE ─────────────────────────────────────────────── */
+
+.sfs-card {
+    background: #ffffff;
+    border: 1px solid #e3e8f0;
+    border-radius: 0.5rem;
+    padding: 0.75rem 0.75rem 0.9rem;
+    box-shadow: 0 4px 12px rgba(15, 23, 42, 0.12);
+    position: relative;
+}
+
+.sfs-card[data-card-variant='reduced'] {
+    padding: 0.6rem 0.65rem 0.7rem;
+}
+
+.sfs-card[data-card-variant='reduced'] .sfs-card-header-pills {
+    gap: 0.25rem;
+}
+
+.sfs-card[data-card-variant='reduced'] .sfs-card-body {
+    font-size: 0.75rem;
+}
+
+.sfs-card[data-card-variant='reduced'] .sfs-journey__progress-meta {
+    margin-bottom: 0.35rem;
+    font-size: 0.74rem;
+}
+
+.sfs-card[data-card-variant='reduced'] .sfs-label-WOLabel {
+    font-size: 0.9rem;
+}
+
+.sfs-card[data-card-variant='reduced'] .sfs-value-wonumber {
+    font-size: 1.2rem;
+}
+
+.sfs-card[data-card-variant='reduced'] .sfs-subject-btn {
+    font-size: 0.95rem;
+}
+
+.sfs-card[data-card-variant='reduced'] .sfs-subject-row {
+    margin-bottom: 0.15rem;
+}
+
+.sfs-card[data-card-variant='reduced'] .sfs-quote-bar {
+    margin: 0.45rem 0;
+}
+
+.sfs-card[data-card-variant='reduced'] .sfs-input-block {
+    margin-top: 0.45rem;
+}
+
+.sfs-card[data-card-variant='reduced'] .sfs-card-meta {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr));
+    gap: 0.2rem 0.75rem;
+    margin-top: 0.35rem;
+}
+
+.sfs-card[data-card-variant='reduced'] .sfs-card-meta .sfs-line,
+.sfs-card[data-card-variant='reduced'] .sfs-card-meta .sfs-line_address,
+.sfs-card[data-card-variant='reduced'] .sfs-card-meta .sfs-line_address-empty {
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr);
+    align-items: start;
+    gap: 0.35rem;
+    margin: 0;
+}
+
+.sfs-card[data-card-variant='reduced'] .sfs-card-meta .sfs-line_address,
+.sfs-card[data-card-variant='reduced'] .sfs-card-meta .sfs-line_address-empty {
+    grid-column: 1 / -1;
+}
+
+.sfs-card[data-card-variant='reduced'] .sfs-card-meta .sfs-value,
+.sfs-card[data-card-variant='reduced'] .sfs-card-meta .sfs-value_address,
+.sfs-card[data-card-variant='reduced'] .sfs-card-meta .sfs-address-text {
+    text-align: left;
+}
+
+.sfs-card[data-card-variant='reduced'] .sfs-quote-lines {
+    margin: 0.5rem 0 0.35rem;
+    padding: 0.1rem 0.1rem 0.25rem;
+}
+
+.sfs-card[data-card-variant='reduced'] .sfs-quote-lines__toggle {
+    padding: 0.4rem 0.6rem;
+    font-size: 0.78rem;
+}
+
+.sfs-card[data-card-variant='reduced'] .sfs-quote-lines__table-wrapper {
+    padding: 0 0.35rem 0.45rem;
+}
+
+.sfs-card[data-card-variant='reduced'] .sfs-quote-lines__table {
+    font-size: 0.78rem;
+    table-layout: fixed;
+}
+
+.sfs-card[data-card-variant='reduced'] .sfs-quote-lines__table th,
+.sfs-card[data-card-variant='reduced'] .sfs-quote-lines__table td {
+    padding: 0.35rem 0.4rem;
+}
+
+.sfs-card[data-card-variant='reduced'] .sfs-quote-lines__status {
+    width: 20%;
+}
+
+.sfs-card[data-card-variant='reduced'] .sfs-quote-lines__numeric {
+    width: 10%;
+}
+
+.sfs-card[data-card-variant='reduced'] .sfs-quote-lines__group-row th {
+    font-size: 0.72rem;
+}
+
+/* List card date/time input */
+.sfs-card .sfs-input-block lightning-input {
+    display: block;
+    width: 80%;
+    margin: 0 auto;
+}
+
+/* ── JOURNEY (card-level progress) ────────────────────────── */
+
+.sfs-journey__badge {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.15rem 0.5rem;
+    border-radius: 999px;
+    font-size: 0.7rem;
+    font-weight: 700;
+    border: 1px solid transparent;
+    background: #eef3ff;
+    color: #0b5cab;
+}
+
+.sfs-journey__badge_hold {
+    background: #fff6e6;
+    color: #8a4b00;
+    border-color: #f5c26b;
+}
+
+.sfs-journey__progress-track {
+    position: relative;
+    height: 0.35rem;
+    background: #e8edfb;
+    border-radius: 999px;
+    overflow: hidden;
+    border: 1px solid #d7def3;
+}
+
+.sfs-journey__progress-fill {
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    border-radius: 999px;
+    background: linear-gradient(90deg, #4b8bff 0%, #6cc1ff 100%);
+    box-shadow: 0 0 0 1px rgba(11, 92, 171, 0.18);
+}
+
+.sfs-journey__progress-meta {
+    display: flex;
+    justify-content: space-between;
+    gap: 0.5rem;
+    align-items: center;
+    flex-wrap: wrap;
+    font-size: 0.78rem;
+    color: #3d4f6a;
+}
+
+.sfs-journey__compact-header {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    min-height: 0.5rem;
+}
+
+.sfs-journey__compact-current {
+    font-weight: 700;
+}
+
+.sfs-journey__compact-next {
+    font-size: 0.78rem;
+    color: #394b63;
+}
+
+/* ── CARD HEADER / PILLS ───────────────────────────────────── */
+
+.sfs-card-header {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    align-items: start;
+    gap: 0.35rem;
+}
+
+.sfs-card-header-pills {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.35rem;
+}
+
+.sfs-card-header-pills__row {
+    display: flex;
+    align-items: center;
+    gap: 0.35rem;
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+.sfs-card-header-pills__row_primary {
+    flex-wrap: nowrap;
+}
+
+.sfs-card-header-more-actions {
+    justify-self: end;
+    align-self: start;
+}
+
+@media (max-width: 480px) {
+    .sfs-card-header-pills__row_primary {
+        flex-wrap: wrap;
+    }
+
+    .sfs-visit-pill {
+        min-width: 0;
+    }
+}
+
+/* ── VISIT PILL ────────────────────────────────────────────── */
+
+.sfs-visit-pill {
+    display: inline-flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 0.35rem;
+    min-width: 10.25rem;
+    flex: 0 0 auto;
+}
+
+.sfs-visit-pill__selector {
+    width: 8.8rem;
+    height: 1.25rem;
+    border: 1px solid #002c8f;
+    border-radius: 999px;
+    background: #002c8f;
+    color: #ffffff;
+    font-size: 0.65rem;
+    font-weight: 600;
+    line-height: 1rem;
+    padding: 0 1.1rem 0 0.42rem;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-image:
+        linear-gradient(45deg, transparent 50%, #ffffff 50%),
+        linear-gradient(135deg, #ffffff 50%, transparent 50%);
+    background-position:
+        calc(100% - 0.62rem) calc(50% - 0.08rem),
+        calc(100% - 0.44rem) calc(50% - 0.08rem);
+    background-size: 0.22rem 0.22rem, 0.22rem 0.22rem;
+    background-repeat: no-repeat;
+}
+
+.sfs-visit-pill__selector:focus {
+    outline: 2px solid #85c2ff;
+    outline-offset: 1px;
+}
+
+.sfs-visit-pill__date {
+    font-size: 0.65rem;
+    font-weight: 600;
+    color: #5f6b7f;
+    line-height: 1.1;
+    white-space: nowrap;
+}
+
+/* ── OPPORTUNITY PILL & META ───────────────────────────────── */
+
+.sfs-opportunity-pill {
+    display: inline-block;
+    padding: 0.15rem 0.5rem;
+    font-size: 0.65rem;
+    font-weight: 700;
+    border-radius: 999px;
+    background: #f2f7ff;
+    border: 1px solid #cfdaf5;
+    color: #2c4b8f;
+    max-width: 60%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.sfs-opportunity-meta {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.35rem 0.75rem;
+    margin: 0.35rem 0 0.4rem;
+    font-size: 0.75rem;
+    color: #4a4a4a;
+}
+
+.sfs-opportunity-meta__item {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.25rem;
+}
+
+.sfs-opportunity-meta__label {
+    font-size: 0.6rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: #6b6b6b;
+}
+
+.sfs-opportunity-meta__value {
+    font-weight: 600;
+    color: #1f1f1f;
+}
+
+/* ── REPAIR / EXCHANGE APPROVAL ────────────────────────────── */
+
+.sfs-repair-approval-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    margin-top: 0.6rem;
+}
+
+.sfs-repair-approval-button,
+.sfs-exchange-approval-button {
+    --slds-c-button-brand-spacing-inline-start: 0.75rem;
+    --slds-c-button-brand-spacing-inline-end: 0.75rem;
+}
+
+.sfs-exchange-approval-button {
+    --slds-c-button-brand-color-background: #2e844a;
+    --slds-c-button-brand-color-border: #2e844a;
+}
+
+.sfs-repair-approval-button_disabled {
+    --slds-c-button-brand-color-background: #d8dde6;
+    --slds-c-button-brand-color-border: #d8dde6;
+    --slds-c-button-text-color: #7e8a9a;
+    opacity: 0.75;
+    cursor: not-allowed;
+}
+
+/* ── PO LINE ───────────────────────────────────────────────── */
+
+.sfs-line_po .sfs-label {
+    align-self: flex-start;
+}
+
+.sfs-value_po {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 0.4rem;
+}
+
+.sfs-po-edit {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 0.35rem;
+    width: 100%;
+}
+
+.sfs-po-edit-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.1rem 0.35rem;
+}
+
+.sfs-po-input {
+    min-width: 180px;
+}
+
+.sfs-po-actions {
+    display: flex;
+    gap: 0.35rem;
+    justify-content: flex-end;
+}
+
+.sfs-po-action {
+    border: 1px solid #d4d4d4;
+    border-radius: 0.35rem;
+    background: #ffffff;
+    color: #2e2e2e;
+    font-size: 0.72rem;
+    padding: 0.2rem 0.6rem;
+    cursor: pointer;
+}
+
+.sfs-po-action:hover {
+    border-color: #0b5cab;
+    color: #0b5cab;
+}
+
+.sfs-po-action_secondary {
+    background: #f8f9fb;
+}
+
+/* ── WORKTYPE ──────────────────────────────────────────────── */
+
+.sfs-worktype {
+    display: inline-block;
+    font-size: 0.65rem;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    padding: 0.15rem 0.4rem;
+    border-radius: 999px;
+    background: #f4f6f9;
+}
+
+/* ── CARD BODY / LINES / LABELS / VALUES ───────────────────── */
+
+.sfs-card-body {
+    font-size: 0.8rem;
+}
+
+.sfs-line {
+    display: flex;
+    justify-content: space-between;
+    gap: 0.5rem;
+    margin: 0.1rem 0;
+}
+
+.sfs-wo-line {
+    align-items: center;
+}
+
+.sfs-label {
+    font-weight: 600;
+}
+
+.sfs-label-WOLabel {
+    font-weight: 700;
+    font-size: 1.05rem;
+}
+
+.sfs-value {
+    text-align: right;
+}
+
+.sfs-value_account {
+    font-weight: 700;
+    color: #0b2e59;
+}
+
+.sfs-value_schedule {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    white-space: nowrap;
+}
+
+.sfs-schedule-separator {
+    color: var(--lwc-colorTextWeak, #6b6d70);
+    font-weight: 600;
+}
+
+.sfs-value-wonumber {
+    text-align: right;
+    font-weight: 700;
+    font-size: 1.5rem;
+}
+
+/* ── INPUT BLOCK ───────────────────────────────────────────── */
+
+.sfs-input-block {
+    margin-top: 0.6rem;
+}
+
+/* keep the lightning-input nicely contained */
+.sfs-input-block lightning-input {
+    display: block;
+    width: 100%;
+    margin: 0;
+}
+
+/* ── COMPACT BUTTON ────────────────────────────────────────── */
+
+.sfs-compact-button {
+    --slds-c-button-font-size: 0.85rem;
+    --slds-c-button-line-height: 1.65rem;
+    --slds-c-button-brand-spacing-inline-start: 0.6rem;
+    --slds-c-button-brand-spacing-inline-end: 0.6rem;
+    --slds-c-button-neutral-spacing-inline-start: 0.6rem;
+    --slds-c-button-neutral-spacing-inline-end: 0.6rem;
+}
+
+/* ── QUICK SCHEDULE ────────────────────────────────────────── */
+
+.sfs-quick-schedule__input {
+    margin-top: 0.25rem;
+}
+
+.sfs-quick-schedule__footer {
+    justify-content: flex-start;
+}
+
+/* ── QUOTE BAR & DOWNLOAD ──────────────────────────────────── */
+
+.sfs-quote-bar {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    align-items: center;
+    margin: 0.6rem 0;
+}
+
+.sfs-quote-download {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    padding: 0.4rem 0.65rem;
+    border-radius: 0.5rem;
+    border: 1px solid #d0d7e3;
+    background: #f6f8fb;
+    text-decoration: none;
+    color: #1b5297;
+    font-weight: 600;
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.8);
+}
+
+.sfs-quote-download:hover {
+    background: #eaf1ff;
+}
+
+.sfs-quote-download__icon {
+    --sds-c-icon-color-foreground: #1b5297;
+}
+
+.sfs-quote-action-button {
+    --slds-c-button-brand-font-size: 0.64rem;
+    --slds-c-button-brand-line-height: 1.35rem;
+    --slds-c-button-brand-spacing-inline-start: 0.56rem;
+    --slds-c-button-brand-spacing-inline-end: 0.56rem;
+    flex: 0 1 auto;
+}
+
+.sfs-quote-action-button_disabled {
+    --slds-c-button-brand-color-background: #e5e7eb;
+    --slds-c-button-brand-color-border: #cfd4db;
+    --slds-c-button-brand-text-color: #6b7280;
+    cursor: not-allowed;
+    opacity: 0.85;
+}
+
+@media (max-width: 480px) {
+    .sfs-quote-bar {
+        gap: 0.35rem;
+    }
+
+    .sfs-quote-download {
+        padding: 0.3rem 0.5rem;
+        font-size: 0.75rem;
+    }
+
+    .sfs-quote-action-button {
+        --slds-c-button-brand-font-size: 0.56rem;
+        --slds-c-button-brand-line-height: 1.16rem;
+        --slds-c-button-brand-spacing-inline-start: 0.41rem;
+        --slds-c-button-brand-spacing-inline-end: 0.41rem;
+    }
+}
+
+/* ── QUOTE LINES ───────────────────────────────────────────── */
+
+.sfs-quote-lines {
+    border: none;
+    border-radius: 0.75rem;
+    background: linear-gradient(180deg, #f8fafc 0%, #eef2f7 100%);
+    margin: 0.85rem 0 0.5rem;
+    padding: 0.2rem 0.2rem 0.4rem;
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.6);
+}
+
+.sfs-quote-lines__toggle {
+    display: flex;
+    align-items: center;
+    gap: 0.35rem;
+    width: 100%;
+    border: none;
+    background: transparent;
+    color: #0b5cab;
+    font-weight: 700;
+    padding: 0.5rem 0.75rem;
+    cursor: pointer;
+    border-radius: 0.55rem;
+}
+
+.sfs-quote-lines__toggle:hover,
+.sfs-quote-lines__toggle:focus {
+    background: #eef3ff;
+    outline: none;
+}
+
+.sfs-quote-lines__toggle:focus {
+    box-shadow: 0 0 0 2px #eef3ff, 0 0 0 4px #0b5cab;
+}
+
+.sfs-quote-lines__toggle-icon {
+    --sds-c-icon-color-foreground: #0b5cab;
+}
+
+.sfs-quote-lines__toggle-label {
+    flex: 1 1 auto;
+    text-align: left;
+}
+
+.sfs-quote-lines__count {
+    color: #5f6c82;
+    font-weight: 600;
+}
+
+.sfs-quote-lines__table-wrapper {
+    padding: 0 0.45rem 0.6rem;
+    overflow-x: auto;
+}
+
+.sfs-quote-lines__table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.85rem;
+    background: #ffffff;
+    border-radius: 0.55rem;
+    overflow: hidden;
+}
+
+.sfs-quote-lines__table th,
+.sfs-quote-lines__table td {
+    padding: 0.45rem 0.5rem;
+    text-align: left;
+}
+
+.sfs-quote-lines__table th {
+    background: rgba(241, 244, 251, 0.7);
+    color: #16325c;
+    font-weight: 700;
+    border-bottom: 1px solid #e4e9f2;
+}
+
+.sfs-quote-lines__table tr:nth-child(even) td {
+    background: rgba(249, 251, 255, 0.7);
+}
+
+.sfs-quote-lines__numeric {
+    text-align: right;
+    white-space: nowrap;
+}
+
+.sfs-quote-lines__status {
+    white-space: nowrap;
+}
+
+.sfs-quote-lines__group-row th {
+    background: #e8eef9;
+    color: #0f2a4f;
+    text-align: left;
+    font-size: 0.78rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+}
+
+.sfs-quote-lines__group-label {
+    display: inline-block;
+    padding: 0.1rem 0;
+}
+
+/* ── CARD ACTIONS ──────────────────────────────────────────── */
+
+.sfs-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 0.5rem;
+    margin-top: 0.5rem;
+}
+
+.sfs-card-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+    align-items: flex-start;
+    margin: 0 0 0.5rem;
+}
+
+.sfs-option-actions {
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+}
+
+.sfs-schedule-actions {
+    justify-content: flex-start;
+    flex-wrap: wrap;
+}
+
+.sfs-option-button {
+    --slds-c-button-radius-border: 999px;
+    --slds-c-button-font-size: 0.82rem;
+    --slds-c-button-line-height: 1.5rem;
+    --slds-c-button-spacing-inline-start: 0.65rem;
+    --slds-c-button-spacing-inline-end: 0.65rem;
+    --slds-c-button-neutral-color-border: #d8dde6;
+    --slds-c-button-neutral-color-background: #ffffff;
+    --slds-c-button-brand-line-height: 1.5rem;
+    --slds-c-button-brand-spacing-inline-start: 0.65rem;
+    --slds-c-button-brand-spacing-inline-end: 0.65rem;
+    --slds-c-button-destructive-text-line-height: 1.5rem;
+    --slds-c-button-destructive-text-spacing-inline-start: 0.65rem;
+    --slds-c-button-destructive-text-spacing-inline-end: 0.65rem;
+}
+
+.sfs-more-actions-menu {
+    --slds-c-button-menu-radius-border: 999px;
+    --slds-c-button-menu-spacing-inline-start: 0.65rem;
+    --slds-c-button-menu-spacing-inline-end: 0.65rem;
+    --slds-c-button-menu-color-border: #d8dde6;
+    --slds-c-button-menu-color-background: #ffffff;
+    --slds-c-button-menu-color-border-hover: #1b5297;
+}
+
+/* ── PROBE SALE DESCRIPTION ────────────────────────────────── */
+
+.sfs-probe-sale-description {
+    margin: 0.25rem 0 0;
+    font-size: 0.8rem;
+    line-height: 1.35;
+    color: #4a5a70;
+}
+
+/* ── SUBJECT ROW / BUTTON ──────────────────────────────────── */
+
+.sfs-subject-btn {
+    display: block;
+    width: 100%;
+    text-align: left;
+    padding: 0;
+    margin: 0;
+    border: none;
+    background: transparent;
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: #0b2e59;
+    letter-spacing: 0.01em;
+    cursor: pointer;
+}
+
+.sfs-subject-btn_static {
+    cursor: default;
+    pointer-events: none;
+}
+
+.sfs-subject-btn:hover {
+    text-decoration: underline;
+}
+
+.sfs-subject-btn_static:hover {
+    text-decoration: none;
+}
+
+.sfs-subject-row {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: center;
+    column-gap: 0.35rem;
+    margin-bottom: 0.25rem;
+}
+
+/* ── SUBJECT ACCOUNT BOX ───────────────────────────────────── */
+
+.sfs-subject-account-box {
+    display: flex;
+    flex-direction: column;
+    gap: 0.15rem;
+    padding: 0.5rem 0.6rem;
+    margin: 0.25rem 0 0.4rem;
+    border-radius: 0.6rem;
+    position: relative;
+    overflow: visible;
+}
+
+.sfs-subject-account-box::before {
+    content: '';
+    position: absolute;
+    top: -0.25rem;
+    bottom: -0.25rem;
+    left: 0;
+    right: -2.5rem;
+    border-radius: 0.75rem;
+    background: linear-gradient(90deg, rgba(210, 210, 210, 0.28) 0%, rgba(255, 255, 255, 0) 85%);
+    opacity: 0.8;
+    pointer-events: none;
+    -webkit-mask-image: linear-gradient(
+        180deg,
+        rgba(0, 0, 0, 0) 0%,
+        #000 22%,
+        #000 78%,
+        rgba(0, 0, 0, 0) 100%
+    );
+    mask-image: linear-gradient(
+        180deg,
+        rgba(0, 0, 0, 0) 0%,
+        #000 22%,
+        #000 78%,
+        rgba(0, 0, 0, 0) 100%
+    );
+}
+
+.sfs-subject-account-box > * {
+    position: relative;
+    z-index: 1;
+}
+
+.sfs-subject-account-box .sfs-line {
+    margin: 0;
+}
+
+.sfs-subject-account-box .sfs-anchor-row {
+    background: transparent;
+    border: none;
+    padding: 0;
+}
+
+.sfs-subject-account-box .sfs-account-name {
+    margin: 0;
+    color: #2f2f2f;
+    font-size: 0.92rem;
+}
+
+/* ── MAKE / MODEL EMPHASIS ─────────────────────────────────── */
+
+.sfs-make-model-emphasis {
+    margin: 0;
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 0.5rem;
+    font-size: 0.88rem;
+}
+
+/* ── INFO BUTTON ───────────────────────────────────────────── */
+
+.sfs-info-button_block {
+    align-self: flex-start;
+}
+
+.sfs-info-button {
+    border: none;
+    background: none;
+    color: #1b96ff;
+    font-size: 0.75rem;
+    line-height: 1.1;
+    padding: 0;
+    margin: 0;
+    min-height: auto;
+    white-space: nowrap;
+    cursor: pointer;
+}
+
+/* ── ADDRESS LINES ─────────────────────────────────────────── */
+
+.sfs-line_address .sfs-label {
+    align-self: flex-start;
+}
+
+.sfs-value_address {
+    text-align: right;
+    white-space: normal;
+    word-wrap: break-word;
+}
+
+.sfs-line_address-empty {
+    align-items: center;
+}
+
+.sfs-address-value {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    align-items: start;
+    column-gap: 0.35rem;
+}
+
+.sfs-address-text {
+    min-width: 0;
+    text-align: right;
+    word-break: break-word;
+}
+
+.sfs-address-edit {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+    border: 1px dashed #a8b7c7;
+    border-radius: 0.35rem;
+    background: #f8fbff;
+    color: #0b5cab;
+    padding: 0.25rem 0.5rem;
+    cursor: pointer;
+    transition: border-color 120ms ease, background 120ms ease;
+}
+
+.sfs-address-edit:hover {
+    border-color: #0b5cab;
+    background: #eef5ff;
+}
+
+.sfs-address-edit__icon {
+    --sds-c-icon-color-foreground-default: #0b5cab;
+}
+
+.sfs-address-edit_inline {
+    margin-left: 0;
+}
+
+/* ── CONTACT EDIT ──────────────────────────────────────────── */
+
+.sfs-contact-edit {
+    font-size: 0.75rem;
+    padding: 0.2rem 0.45rem;
+}
+
+/* ── SCHEDULE ACTIONS DISABLED / OPTION BUTTON STATES ─────── */
+
+.sfs-schedule-actions_disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+.sfs-option-button_disabled {
+    --slds-c-button-text-color: #7e8a9a;
+    --slds-c-button-color-border: #d8dde6;
+    --slds-c-button-color-background: #f3f4f6;
+    pointer-events: auto;
+    cursor: not-allowed;
+}
+
+.sfs-option-button_primary {
+    --slds-c-button-brand-color-background: #0b5cab;
+    --slds-c-button-brand-color-border: #0b5cab;
+}
+
+/* ── HELP BUBBLE ───────────────────────────────────────────── */
+
+.sfs-help-bubble {
+    background: #0b5cab;
+    color: #ffffff;
+    padding: 0.35rem 0.5rem;
+    border-radius: 0.4rem;
+    font-size: 0.78rem;
+    margin-top: 0.25rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    box-shadow: 0 2px 6px rgba(11, 92, 171, 0.25);
+}
+
+/* ── TRACKING LINK ─────────────────────────────────────────── */
+
+.sfs-value_tracking {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+}
+
+.sfs-tracking-link {
+    background: none;
+    border: none;
+    color: #0b5cab;
+    padding: 0;
+    margin: 0;
+    font: inherit;
+    text-decoration: underline;
+    cursor: pointer;
+    word-break: break-all;
+    text-align: left;
+    display: inline-flex;
+    align-items: center;
+    touch-action: manipulation;
+}
+
+.sfs-tracking-link:hover,
+.sfs-tracking-link:focus {
+    color: #074e98;
+    outline: none;
+    text-decoration: none;
+}
+
+/* ── LIST TOGGLE (inline detail expand) ────────────────────── */
+
+.sfs-list-toggle-row {
+    margin-top: 0.25rem;
+    margin-bottom: 0.25rem;
+    display: flex;
+    justify-content: flex-start;
+}
+
+.sfs-list-toggle-btn {
+    border: none;
+    background: transparent;
+    padding: 0.1rem 0;
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: #0070d2;
+    display: inline-flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.sfs-list-toggle-chevron {
+    display: inline-block;
+    margin-right: 0.2rem;
+    transition: transform 0.15s ease;
+}
+
+.sfs-list-toggle-btn_open .sfs-list-toggle-chevron {
+    transform: rotate(90deg);
+}
+
+/* ── LIST DETAILS ──────────────────────────────────────────── */
+
+.sfs-list-details {
+    margin-top: 0.1rem;
+    margin-bottom: 0.35rem;
+    padding: 0.35rem 0.45rem;
+    border-radius: 0.5rem;
+    background: #f9fafb;
+    border: 1px dashed #d8dde6;
+    font-size: 0.75rem;
+}
+
+.sfs-list-details-row {
+    display: flex;
+    justify-content: space-between;
+    gap: 0.5rem;
+    margin: 0.06rem 0;
+}
+
+.sfs-list-details-label {
+    font-weight: 600;
+}
+
+.sfs-list-details-value {
+    text-align: right;
+}
+
+.sfs-list-details-value a {
+    color: #0070d2;
+    text-decoration: underline;
+}

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Relationship_Manager__c</fullName>
+    <description>Marketo Only field.</description>
+    <externalId>false</externalId>
+    <formula>Account.Relationship_Manager__r.FirstName &amp;&quot; &quot;&amp; Account.Relationship_Manager__r.LastName</formula>
+    <inlineHelpText>Marketo Only field.</inlineHelpText>
+    <label>Relationship Manager</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

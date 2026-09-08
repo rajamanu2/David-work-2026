@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>Account$Name</field>
+    </columns>
+    <columns>
+        <field>Account.Product_Configuration__r$Name</field>
+    </columns>
+    <columns>
+        <field>Account.Product_Configuration__r$Code__c</field>
+    </columns>
+    <crossFilters>
+        <criteriaItems>
+            <column>Code__c</column>
+            <isUnlocked>false</isUnlocked>
+            <operator>equals</operator>
+            <value>WBS,NEU,TLW,HCM,GVS,IAM,GSP,KYU,GRO,CFI,IAL,HCR,EHT,IMI,MNS,SBC,DQT,MEH,GLN,IWP,WNM,SPB,MPG,CSX,LVS,TRQ,EHC,BTB,CGP,OPZ,QTM,HBA,HCX,DCB,LSJ,GVT,YES,XET,SMR,RHX,PPJ,LSW,LST,ICX,FFN,EAC,ALM,ALE,LEV,KXX,SBL,BYL,SLH,SID,ZBT,FUA,CIO,CYY,LTU</value>
+        </criteriaItems>
+        <operation>with</operation>
+        <primaryTableColumn>Account$Id</primaryTableColumn>
+        <relatedTable>Product_Configuration__c</relatedTable>
+        <relatedTableJoinColumn>Account__c</relatedTableJoinColumn>
+    </crossFilters>
+    <currency>USD</currency>
+    <format>Summary</format>
+    <name>Copy of portal code entities</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>Accounts_w_wo_Prod_Config_Contract_c__c</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <showGrandTotal>true</showGrandTotal>
+    <showSubTotals>true</showSubTotals>
+    <timeFrameFilter>
+        <dateColumn>Account$CreatedDate</dateColumn>
+        <interval>INTERVAL_CUSTOM</interval>
+    </timeFrameFilter>
+</Report>

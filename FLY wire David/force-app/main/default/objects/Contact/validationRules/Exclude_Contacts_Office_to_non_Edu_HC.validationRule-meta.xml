@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Exclude_Contacts_Office_to_non_Edu_HC</fullName>
+    <active>false</active>
+    <description>Exclude non Edu and HC users to enter a value for Contact&apos;s Office field</description>
+    <errorConditionFormula>AND(
+$Profile.Name &lt;&gt; &apos;System Administrator&apos;,
+$Profile.Name &lt;&gt; &apos;B - Marketo Integration&apos;,
+$Profile.Name &lt;&gt; &apos;A - RM Travel&apos;,
+$Profile.Name &lt;&gt; &apos;A - Sales Travel&apos;,
+$User.User_LongID__c &lt;&gt; &apos;005f2000009yztxAAA&apos;,
+$User.User_LongID__c &lt;&gt; &apos;0058W00000AFZm6QAH&apos;,
+NOT(ISNEW()),
+ISBLANK( TEXT(Contact_s_Office__c )))
+&amp;&amp; Contact_Automation_Bypassed__c = False</errorConditionFormula>
+    <errorDisplayField>Contact_s_Office__c</errorDisplayField>
+    <errorMessage>Update Contact&apos;s Offce</errorMessage>
+</ValidationRule>

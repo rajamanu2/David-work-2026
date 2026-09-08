@@ -1,0 +1,3130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <areMetricsLoggedToDataCloud>false</areMetricsLoggedToDataCloud>
+    <choices>
+        <name>Fail_with_Comments</name>
+        <choiceText>F - with comments</choiceText>
+        <dataType>String</dataType>
+        <value>
+            <stringValue>F - with comments</stringValue>
+        </value>
+    </choices>
+    <choices>
+        <name>Fail_with_Readings</name>
+        <choiceText>F - with readings</choiceText>
+        <dataType>String</dataType>
+        <value>
+            <stringValue>F - with readings</stringValue>
+        </value>
+    </choices>
+    <choices>
+        <name>Greater_Than_0_2_Fail</name>
+        <choiceText>&gt;0.2 = F - with comments</choiceText>
+        <dataType>String</dataType>
+        <value>
+            <stringValue>&gt;0.2 = F - with comments</stringValue>
+        </value>
+    </choices>
+    <choices>
+        <name>Less_Than_0_2_Pass</name>
+        <choiceText>&lt;0.2 = P - with comments</choiceText>
+        <dataType>String</dataType>
+        <value>
+            <stringValue>&lt;0.2 = P - with comments</stringValue>
+        </value>
+    </choices>
+    <choices>
+        <name>No</name>
+        <choiceText>No</choiceText>
+        <dataType>String</dataType>
+        <value>
+            <stringValue>No</stringValue>
+        </value>
+    </choices>
+    <choices>
+        <name>No_with_Comments</name>
+        <choiceText>No - with comments</choiceText>
+        <dataType>String</dataType>
+        <value>
+            <stringValue>No - with comments</stringValue>
+        </value>
+    </choices>
+    <choices>
+        <name>Not_Applicable</name>
+        <choiceText>N/A</choiceText>
+        <dataType>String</dataType>
+        <value>
+            <stringValue>N/A</stringValue>
+        </value>
+    </choices>
+    <choices>
+        <name>Pass</name>
+        <choiceText>P</choiceText>
+        <dataType>String</dataType>
+        <value>
+            <stringValue>P</stringValue>
+        </value>
+    </choices>
+    <choices>
+        <name>Pass_with_Comments</name>
+        <choiceText>P - with comments</choiceText>
+        <dataType>String</dataType>
+        <value>
+            <stringValue>P - with comments</stringValue>
+        </value>
+    </choices>
+    <choices>
+        <name>Pass_with_Readings</name>
+        <choiceText>P - with readings</choiceText>
+        <dataType>String</dataType>
+        <value>
+            <stringValue>P - with readings</stringValue>
+        </value>
+    </choices>
+    <choices>
+        <name>Percentage_0_10</name>
+        <choiceText>0-10% - with comments</choiceText>
+        <dataType>String</dataType>
+        <value>
+            <stringValue>0-10% - with comments</stringValue>
+        </value>
+    </choices>
+    <choices>
+        <name>Percentage_11_20</name>
+        <choiceText>11-20% - with comments</choiceText>
+        <dataType>String</dataType>
+        <value>
+            <stringValue>11-20% - with comments</stringValue>
+        </value>
+    </choices>
+    <choices>
+        <name>Percentage_Over_20</name>
+        <choiceText>&gt;20% - with comments</choiceText>
+        <dataType>String</dataType>
+        <value>
+            <stringValue>&gt;20% - with comments</stringValue>
+        </value>
+    </choices>
+    <choices>
+        <name>TBC_Fail</name>
+        <choiceText>TBC = F - with comments</choiceText>
+        <dataType>String</dataType>
+        <value>
+            <stringValue>TBC = F - with comments</stringValue>
+        </value>
+    </choices>
+    <choices>
+        <name>TBC_Pass</name>
+        <choiceText>TBC = P - with comments</choiceText>
+        <dataType>String</dataType>
+        <value>
+            <stringValue>TBC = P - with comments</stringValue>
+        </value>
+    </choices>
+    <choices>
+        <name>Yes</name>
+        <choiceText>Yes</choiceText>
+        <dataType>String</dataType>
+        <value>
+            <stringValue>Yes</stringValue>
+        </value>
+    </choices>
+    <choices>
+        <name>Yes_with_Comments</name>
+        <choiceText>Yes - with comments</choiceText>
+        <dataType>String</dataType>
+        <value>
+            <stringValue>Yes - with comments</stringValue>
+        </value>
+    </choices>
+    <constants>
+        <name>BlankString</name>
+        <dataType>String</dataType>
+        <value>
+            <stringValue></stringValue>
+        </value>
+    </constants>
+    <description>04/04/2025 (BW) - Updating this checksheet to follow newer methodology
+21/01/2025 - V5 - SP - Updating to match the current FSL formatting process</description>
+    <environments>Default</environments>
+    <formulas>
+        <name>ChecklistOutputPart1</name>
+        <dataType>String</dataType>
+        <expression>&quot;&lt;b&gt;&lt;u&gt;General Checks&lt;/u&gt;&lt;/b&gt;&quot; + &quot;&lt;br/&gt;&quot; +
+&quot;&lt;b&gt;Visual Inspection: &quot; + {!Visual_Inspection_General} + &quot;&lt;/b&gt;&lt;br/&gt;&quot; +
+&quot;Visual Inspection Comments (If Applicable): &quot; + {!Visual_Inspection_Comments} + &quot;&lt;br/&gt;&quot; +
+&quot;&lt;b&gt;Error Logs: &quot; + {!Error_Logs} + &quot;&lt;/b&gt;&lt;br/&gt;&quot; +
+&quot;Error Logs Comments (If Applicable): &quot; + {!Error_Logs_Comments} + &quot;&lt;br/&gt;&lt;br/&gt;&quot; +
+
+&quot;&lt;b&gt;&lt;u&gt;Dust Prevention&lt;/u&gt;&lt;/b&gt;&quot; + &quot;&lt;br/&gt;&quot; +
+&quot;&lt;b&gt;Reconstructor: &quot; + {!Reconstuctor} + &quot;&lt;/b&gt;&lt;br/&gt;&quot; +
+&quot;Reconstructor Comments (If Applicable): &quot; + {!Reconstructor_Comments} + &quot;&lt;br/&gt;&quot; +
+&quot;&lt;b&gt;Data Acquisition System: &quot; + {!Data_Acquisition_System} + &quot;&lt;/b&gt;&lt;br/&gt;&quot; +
+&quot;Data Acquisition Comments (If Applicable): &quot; + {!Data_Acquisition_System_Comments} + &quot;&lt;br/&gt;&quot; +
+&quot;&lt;b&gt;RF Amp: &quot; + {!RF_Amp} + &quot;&lt;/b&gt;&lt;br/&gt;&quot; +
+&quot;RF Amp Comments (If Applicable): &quot; + {!RF_Amp_Comments} + &quot;&lt;br/&gt;&quot; +
+&quot;&lt;b&gt;Patient Ventilation: &quot; + {!Patient_Ventilation} + &quot;&lt;/b&gt;&lt;br/&gt;&quot; +
+&quot;Patient Ventilation Comments (If Applicable): &quot; + {!Patient_Ventilation_Comments} + &quot;&lt;br/&gt;&lt;br/&gt;&quot; +
+
+&quot;&lt;b&gt;&lt;u&gt;RF&lt;/u&gt;&lt;/b&gt;&quot; + &quot;&lt;br/&gt;&quot; +
+&quot;&lt;b&gt;Check RF coils for damage: &quot; + {!Check_RF_coils_for_damage} + &quot;&lt;/b&gt;&lt;br/&gt;&quot; +
+&quot;RF Coil Comments (If Applicable): &quot; + {!RF_Coils_Notes} + &quot;&lt;br/&gt;&quot; +
+&quot;&lt;b&gt;Check RF cage for damage: &quot; + {!Check_RF_cage_for_damage} + &quot;&lt;/b&gt;&lt;br/&gt;&quot; +
+&quot;RF Cage Comments (If Applicable): &quot; + {!RF_Cage_Notes} + &quot;&lt;br/&gt;&lt;br/&gt;&quot; +
+
+&quot;&lt;b&gt;&lt;u&gt;Gradient System&lt;/u&gt;&lt;/b&gt;&quot; + &quot;&lt;br/&gt;&quot; +
+&quot;&lt;b&gt;Check gradient coil temp sensors: &quot; + {!Check_gradient_coil_temp_sensors} + &quot;&lt;/b&gt;&lt;br/&gt;&quot; +
+&quot;Gradient Coil Temp Sensor Comments (If Applicable): &quot; + {!Gradient_Coil_Temp_Sensor_Notes} + &quot;&lt;br/&gt;&quot; +
+&quot;&lt;b&gt;Check cabinet door interlock: &quot; + {!Check_cabinet_door_interlock} + &quot;&lt;/b&gt;&lt;br/&gt;&quot; +
+&quot;Cabinet Door Interlock Comments (If Applicable): &quot; + {!Cabinet_Door_Interlock_Notes} + &quot;&lt;br/&gt;&lt;br/&gt;&quot; +
+
+&quot;&lt;b&gt;&lt;u&gt;Liquid Cooling System&lt;/u&gt;&lt;/b&gt;&quot; + &quot;&lt;br/&gt;&quot; +
+&quot;&lt;b&gt;Check hoses: &quot; + {!Check_hoses} + &quot;&lt;/b&gt;&lt;br/&gt;&quot; +
+&quot;Hoses Comments (If Applicable): &quot; + {!Hoses_Notes} + &quot;&lt;br/&gt;&quot; +
+&quot;&lt;b&gt;Check coolant level: &quot; + {!Checkcoolantlevel} + &quot;&lt;/b&gt;&lt;br/&gt;&quot; +
+&quot;Coolant Level Comments (If Applicable): &quot; + {!Coolant_Level_Notes} + &quot;&lt;br/&gt;&lt;br/&gt;&quot; +
+
+&quot;&lt;b&gt;&lt;u&gt;Refrigeration System&lt;/u&gt;&lt;/b&gt;&quot; + &quot;&lt;br/&gt;&quot; +
+&quot;&lt;b&gt;Check compressor pressure: &quot; + {!Check_compressor_pressure} + &quot;&lt;/b&gt;&lt;br/&gt;&quot; +
+&quot;Compressor Pressure Comments (If Applicable): &quot; + {!Compressor_Pressure_Comments} + &quot;&lt;br/&gt;&quot; +
+&quot;&lt;b&gt;Check chilled water supply: &quot; + {!Check_chilled_water_supply} + &quot;&lt;/b&gt;&lt;br/&gt;&quot; +
+&quot;Chilled Water Supply Comments (If Applicable): &quot; + {!Chilled_Water_Supply_Comments} + &quot;&lt;br/&gt;&quot;</expression>
+    </formulas>
+    <formulas>
+        <name>ChecklistOutputPart2</name>
+        <dataType>String</dataType>
+        <expression>&quot;&lt;b&gt;&lt;u&gt;Magnet&lt;/u&gt;&lt;/b&gt;&quot; + &quot;&lt;br/&gt;&quot; +
+&quot;&lt;b&gt;Check helium level and boiloff: &quot; + {!Check_helium_level_and_boiloff} + &quot;&lt;/b&gt;&lt;br/&gt;&quot; +
+&quot;Helium level and boiloff comments: &quot; + {!Helium_Level_and_Boiloff_Notes} + &quot;&lt;br/&gt;&quot; +
+&quot;&lt;b&gt;Check magnet pressure: &quot; + {!Check_magnet_pressure} + &quot;&lt;/b&gt;&lt;br/&gt;&quot; +
+&quot;Magnet pressure comments: &quot; + {!Magnet_Pressure_Notes} + &quot;&lt;br/&gt;&quot; +
+&quot;&lt;b&gt;Check vent pipe: &quot; + {!Check_vent_pipe} + &quot;&lt;/b&gt;&lt;br/&gt;&quot; +
+&quot;Vent pipe comments: &quot; + {!Vent_Pipe_Notes} + &quot;&lt;br/&gt;&quot; +
+&quot;&lt;b&gt;Check water drain: &quot; + {!Check_water_drain} + &quot;&lt;/b&gt;&lt;br/&gt;&quot;  +
+&quot;Water drain comments: &quot; + {!Water_Drain_Notes} + &quot;&lt;br/&gt;&quot; + &quot;&lt;br/&gt;&quot; +
+
+&quot;&lt;b&gt;&lt;u&gt;Patient Support&lt;/u&gt;&lt;/b&gt;&quot; + &quot;&lt;br/&gt;&quot; +
+&quot;&lt;b&gt;Check safety switches: &quot; + {!Check_safety_switches} + &quot;&lt;/b&gt;&lt;br/&gt;&quot; +
+&quot;Safety switches comments: &quot; + {!Safety_Switch_Comments}+ &quot;&lt;br/&gt;&quot; +
+&quot;&lt;b&gt;Check emergency stop function: &quot; + {!Check_emergency_stop_function} + &quot;&lt;/b&gt;&lt;br/&gt;&quot; +
+&quot;Emergency stop function comments: &quot; + {!Emergency_Stop_Function_Comments} + &quot;&lt;br/&gt;&quot; +
+&quot;&lt;b&gt;Check manual function: &quot; + {!Check_manual_function} + &quot;&lt;/b&gt;&lt;br/&gt;&quot; +
+&quot;Manual function comments: &quot; + {!Manual_Function_Comments} + &quot;&lt;br/&gt;&quot; +
+&quot;&lt;b&gt;Clean table for damage: &quot; + {!Clean_table_for_damage} + &quot;&lt;/b&gt;&lt;br/&gt;&quot; +
+&quot;Table for damage comments: &quot; + {!Table_Comments} + &quot;&lt;br/&gt;&quot; +
+&quot;&lt;b&gt;Check bore lights: &quot; + {!Check_bore_lights} + &quot;&lt;/b&gt;&lt;br/&gt;&quot; +
+&quot;Bore lights comments: &quot; + {!Bore_Light_Comments} + &quot;&lt;br/&gt;&quot; +
+&quot;&lt;b&gt;Check patient alarm: &quot; + {!Check_patient_alarm} + &quot;&lt;/b&gt;&lt;br/&gt;&quot; +
+&quot;Patient alarm comments: &quot; + {!Patient_Alarm_Comments} + &quot;&lt;br/&gt;&quot; +
+&quot;&lt;b&gt;Check finger protection plate: &quot; + {!Check_finger_protection_plate} + &quot;&lt;/b&gt;&lt;br/&gt;&quot; +
+&quot;Finger protection plate comments: &quot; + {!Finger_Protection_Plate_Comments} + &quot;&lt;br/&gt;&quot; + &quot;&lt;br/&gt;&quot; +
+
+&quot;&lt;b&gt;&lt;u&gt;System Imaging Checks&lt;/u&gt;&lt;/b&gt;&quot; + &quot;&lt;br/&gt;&quot; +
+&quot;&lt;b&gt;Run PIQT: &quot; + {!Run_PIQT} + &quot;&lt;/b&gt;&lt;br/&gt;&quot; +
+&quot;PIQT comments: &quot; + {!Run_PIQT} + &quot;&lt;br/&gt;&quot; +
+&quot;&lt;b&gt;RunSpike batch scans: &quot; + {!RunSpike_batch_scans} + &quot;&lt;/b&gt;&lt;br/&gt;&quot; +
+&quot;RunSpike batch scans comments : &quot; + {!RunSpike_batch_scans} + &quot;&lt;br/&gt;&quot; +
+&quot;&lt;b&gt;Run Spurious noise checks: &quot; + {!Run_Spurious_noise_checks} + &quot;&lt;/b&gt;&lt;br/&gt;&quot; +
+&quot;Spurious noise comments: &quot; + {!Run_Spurious_noise_checks} + &quot;&lt;br/&gt;&quot; +
+&quot;&lt;b&gt;Run VSWR scan: &quot; + {!Run_VSWR_scan} + &quot;&lt;/b&gt;&lt;br/&gt;&quot; + 
+&quot;VSWR scan comments: &quot; + {!VSWR_Comments} + &quot;&lt;br/&gt;&quot;</expression>
+    </formulas>
+    <formulas>
+        <name>ChecklistOutputPart3</name>
+        <dataType>String</dataType>
+        <expression>&quot;&lt;b&gt;&lt;u&gt;Operators Console&lt;/u&gt;&lt;/b&gt;&quot; + &quot;&lt;br/&gt;&quot; +
+&quot;&lt;b&gt;Clean Monitor: &quot; + {!Clean_Monitor} + &quot;&lt;/b&gt;&lt;br/&gt;&quot; +
+&quot;Monitor comments: &quot; + {!Monitor_Notes} + &quot;&lt;br/&gt;&quot; +
+&quot;&lt;b&gt;Clean mouse + Keyboard: &quot; + {!Clean_mouse_Keyboard} + &quot;&lt;/b&gt;&lt;br/&gt;&quot; +
+&quot;Mouse + Keyboard comments: &quot; + {!Mouse_Keyboard_Notes}+ &quot;&lt;br/&gt;&quot; +
+&quot;&lt;b&gt;Check patient communication: &quot; + {!Check_patient_communication} + &quot;&lt;/b&gt;&lt;br/&gt;&quot; +
+&quot;Patient communication comments: &quot; + {!Patient_Communication_Notes}+ &quot;&lt;br/&gt;&quot; + &quot;&lt;br/&gt;&quot; +
+
+&quot;&lt;b&gt;&lt;u&gt;Software&lt;/u&gt;&lt;/b&gt;&quot; + &quot;&lt;br/&gt;&quot; +
+&quot;&lt;b&gt;Clean up disk and defrag if required: &quot; + {!Clean_up_disk_and_defrag_if_required} + &quot;&lt;/b&gt;&lt;br/&gt;&quot; +
+&quot;Disk health comments: &quot; + {!Disk_Health_Notes} + &quot;&lt;br/&gt;&quot; +
+&quot;&lt;b&gt;Backup system software: &quot; + {!Backup_system_software} + &quot;&lt;/b&gt;&lt;br/&gt;&quot; +
+&quot;Backup comments: &quot; + {!Backup_Notes} + &quot;&lt;br/&gt;&quot; + &quot;&lt;br/&gt;&quot; +
+
+&quot;&lt;b&gt;&lt;u&gt;Final Works&lt;/u&gt;&lt;/b&gt;&quot; + &quot;&lt;br/&gt;&quot; +
+&quot;&lt;b&gt;Monitor / UI Clean: &quot; + {!Monitor_UI_Clean} + &quot;&lt;/b&gt;&lt;br/&gt;&quot; +
+&quot;Monitor / UI comments: &quot; + {!Monitor_UI_Notes} + &quot;&lt;br/&gt;&quot; +
+&quot;&lt;b&gt;Covers Secured: &quot; + {!Covers_Secured} + &quot;&lt;/b&gt;&lt;br/&gt;&quot; +
+&quot;Covers Secured comments: &quot; + {!Covers_Notes} + &quot;&lt;br/&gt;&quot; +
+&quot;&lt;b&gt;Final Functional Checks: &quot; + {!Final_Functional_Checks} + &quot;&lt;/b&gt;&lt;br/&gt;&quot; +
+&quot;Final functional comments: &quot; + {!Final_Functional_Check_Notes} + &quot;&lt;br/&gt;&quot; +
+&quot;&lt;b&gt;Final Visual Checks: &quot; + {!Final_Visual_Checks} + &quot;&lt;/b&gt;&lt;br/&gt;&quot; +
+&quot;Final visual comments: &quot; + {!Final_Visual_Notes} + &quot;&lt;br/&gt;&quot; + &quot;&lt;br/&gt;&quot; +
+
+&quot;&lt;b&gt;Additional Documentation References: &quot; + {!Additional_Documentation_Ref}</expression>
+    </formulas>
+    <formulas>
+        <name>formAdditionalDocumentationRefDefault</name>
+        <dataType>String</dataType>
+        <expression>LEFT(
+    RIGHT({!OutputFormatFetched}, LEN({!OutputFormatFetched}) - FIND(&quot;Additional Documentation Ref:&quot;, {!OutputFormatFetched}) - LEN(&quot;Additional Documentation Ref:&quot;)),
+    FIND(&quot;&lt;/p&gt;&quot;, RIGHT({!OutputFormatFetched}, LEN({!OutputFormatFetched}) - FIND(&quot;Additional Documentation Ref:&quot;, {!OutputFormatFetched}) - LEN(&quot;Additional Documentation Ref:&quot;))) - 1
+)</expression>
+    </formulas>
+    <formulas>
+        <name>formBackupCommentsDefault</name>
+        <dataType>String</dataType>
+        <expression>LEFT(
+    RIGHT({!OutputFormatFetched}, LEN({!OutputFormatFetched}) - FIND(&quot;Backup comments:&quot;, {!OutputFormatFetched}) - LEN(&quot;Backup comments:&quot;)),
+    FIND(&quot;&lt;br&gt;&quot;, RIGHT({!OutputFormatFetched}, LEN({!OutputFormatFetched}) - FIND(&quot;Backup comments:&quot;, {!OutputFormatFetched}) - LEN(&quot;Backup comments:&quot;))) - 1
+)</expression>
+    </formulas>
+    <formulas>
+        <name>formBackupSystemSoftwareDefault</name>
+        <dataType>String</dataType>
+        <expression>LEFT(
+    RIGHT({!OutputFormatFetched}, LEN({!OutputFormatFetched}) - FIND(&quot;Backup system software:&quot;, {!OutputFormatFetched}) - LEN(&quot;Backup system software:&quot;)),
+    FIND(&quot;&lt;/b&gt;&quot;, RIGHT({!OutputFormatFetched}, LEN({!OutputFormatFetched}) - FIND(&quot;Backup system software:&quot;, {!OutputFormatFetched}) - LEN(&quot;Backup system software:&quot;))) - 1
+)</expression>
+    </formulas>
+    <formulas>
+        <name>formBoreLightsCommentsDefault</name>
+        <dataType>String</dataType>
+        <expression>LEFT(
+    RIGHT({!OutputFormatFetched}, LEN({!OutputFormatFetched}) - FIND(&quot;Bore lights comments:&quot;, {!OutputFormatFetched}) - LEN(&quot;Bore lights comments:&quot;)),
+    FIND(&quot;&lt;br&gt;&quot;, RIGHT({!OutputFormatFetched}, LEN({!OutputFormatFetched}) - FIND(&quot;Bore lights comments:&quot;, {!OutputFormatFetched}) - LEN(&quot;Bore lights comments:&quot;))) - 1
+)</expression>
+    </formulas>
+    <formulas>
+        <name>formCabinetDoorInterlockCommentsDefault</name>
+        <dataType>String</dataType>
+        <expression>LEFT(
+    RIGHT({!OutputFormatFetched}, LEN({!OutputFormatFetched}) - FIND(&quot;Cabinet Door Interlock Comments (If Applicable):&quot;, {!OutputFormatFetched}) - LEN(&quot;Cabinet Door Interlock Comments (If Applicable):&quot;)),
+    FIND(&quot;&lt;br&gt;&quot;, RIGHT({!OutputFormatFetched}, LEN({!OutputFormatFetched}) - FIND(&quot;Cabinet Door Interlock Comments (If Applicable):&quot;, {!OutputFormatFetched}) - LEN(&quot;Cabinet Door Interlock Comments (If Applicable):&quot;))) - 1
+)</expression>
+    </formulas>
+    <formulas>
+        <name>formCheckBoreLightsDefault</name>
+        <dataType>String</dataType>
+        <expression>LEFT(
+    RIGHT({!OutputFormatFetched}, LEN({!OutputFormatFetched}) - FIND(&quot;Check bore lights:&quot;, {!OutputFormatFetched}) - LEN(&quot;Check bore lights:&quot;)),
+    FIND(&quot;&lt;/b&gt;&quot;, RIGHT({!OutputFormatFetched}, LEN({!OutputFormatFetched}) - FIND(&quot;Check bore lights:&quot;, {!OutputFormatFetched}) - LEN(&quot;Check bore lights:&quot;))) - 1
+)</expression>
+    </formulas>
+    <formulas>
+        <name>formCheckCabinetDoorInterlockDefault</name>
+        <dataType>String</dataType>
+        <expression>LEFT(
+    RIGHT({!OutputFormatFetched}, LEN({!OutputFormatFetched}) - FIND(&quot;Check cabinet door interlock:&quot;, {!OutputFormatFetched}) - LEN(&quot;Check cabinet door interlock:&quot;)),
+    FIND(&quot;&lt;/b&gt;&quot;, RIGHT({!OutputFormatFetched}, LEN({!OutputFormatFetched}) - FIND(&quot;Check cabinet door interlock:&quot;, {!OutputFormatFetched}) - LEN(&quot;Check cabinet door interlock:&quot;))) - 1
+)</expression>
+    </formulas>
+    <formulas>
+        <name>formCheckChilledWaterSupplyDefault</name>
+        <dataType>String</dataType>
+        <expression>LEFT(
+    RIGHT({!OutputFormatFetched}, LEN({!OutputFormatFetched}) - FIND(&quot;Check chilled water supply:&quot;, {!OutputFormatFetched}) - LEN(&quot;Check chilled water supply:&quot;)),
+    FIND(&quot;&lt;/b&gt;&quot;, RIGHT({!OutputFormatFetched}, LEN({!OutputFormatFetched}) - FIND(&quot;Check chilled water supply:&quot;, {!OutputFormatFetched}) - LEN(&quot;Check chilled water supply:&quot;))) - 1
+)</expression>
+    </formulas>
+    <formulas>
+        <name>formCheckCompressorPressureDefault</name>
+        <dataType>String</dataType>
+        <expression>LEFT(
+    RIGHT({!OutputFormatFetched}, LEN({!OutputFormatFetched}) - FIND(&quot;Check compressor pressure:&quot;, {!OutputFormatFetched}) - LEN(&quot;Check compressor pressure:&quot;)),
+    FIND(&quot;&lt;/b&gt;&quot;, RIGHT({!OutputFormatFetched}, LEN({!OutputFormatFetched}) - FIND(&quot;Check compressor pressure:&quot;, {!OutputFormatFetched}) - LEN(&quot;Check compressor pressure:&quot;))) - 1
+)</expression>
+    </formulas>
+    <formulas>
+        <name>formCheckCoolantLevelDefault</name>
+        <dataType>String</dataType>
+        <expression>LEFT(
+    RIGHT({!OutputFormatFetched}, LEN({!OutputFormatFetched}) - FIND(&quot;Check coolant level:&quot;, {!OutputFormatFetched}) - LEN(&quot;Check coolant level:&quot;)),
+    FIND(&quot;&lt;/b&gt;&quot;, RIGHT({!OutputFormatFetched}, LEN({!OutputFormatFetched}) - FIND(&quot;Check coolant level:&quot;, {!OutputFormatFetched}) - LEN(&quot;Check coolant level:&quot;))) - 1
+)</expression>
+    </formulas>
+    <formulas>
+        <name>formCheckEmergencyStopFunctionDefault</name>
+        <dataType>String</dataType>
+        <expression>LEFT(
+    RIGHT({!OutputFormatFetched}, LEN({!OutputFormatFetched}) - FIND(&quot;Check emergency stop function:&quot;, {!OutputFormatFetched}) - LEN(&quot;Check emergency stop function:&quot;)),
+    FIND(&quot;&lt;/b&gt;&quot;, RIGHT({!OutputFormatFetched}, LEN({!OutputFormatFetched}) - FIND(&quot;Check emergency stop function:&quot;, {!OutputFormatFetched}) - LEN(&quot;Check emergency stop function:&quot;))) - 1
+)</expression>
+    </formulas>
+    <formulas>
+        <name>formCheckFingerProtectionPlateDefault</name>
+        <dataType>String</dataType>
+        <expression>LEFT(
+    RIGHT({!OutputFormatFetched}, LEN({!OutputFormatFetched}) - FIND(&quot;Check finger protection plate:&quot;, {!OutputFormatFetched}) - LEN(&quot;Check finger protection plate:&quot;)),
+    FIND(&quot;&lt;/b&gt;&quot;, RIGHT({!OutputFormatFetched}, LEN({!OutputFormatFetched}) - FIND(&quot;Check finger protection plate:&quot;, {!OutputFormatFetched}) - LEN(&quot;Check finger protection plate:&quot;))) - 1
+)</expression>
+    </formulas>
+    <formulas>
+        <name>formCheckGradientCoilTempSensorsDefault</name>
+        <dataType>String</dataType>
+        <expression>LEFT(
+    RIGHT({!OutputFormatFetched}, LEN({!OutputFormatFetched}) - FIND(&quot;Check gradient coil temp sensors:&quot;, {!OutputFormatFetched}) - LEN(&quot;Check gradient coil temp sensors:&quot;)),
+    FIND(&quot;&lt;/b&gt;&quot;, RIGHT({!OutputFormatFetched}, LEN({!OutputFormatFetched}) - FIND(&quot;Check gradient coil temp sensors:&quot;, {!OutputFormatFetched}) - LEN(&quot;Check gradient coil temp sensors:&quot;))) - 1
+)</expression>
+    </formulas>
+    <formulas>
+        <name>formCheckHeliumLevelAndBoiloffDefault</name>
+        <dataType>String</dataType>
+        <expression>LEFT(
+    RIGHT({!OutputFormatFetched}, LEN({!OutputFormatFetched}) - FIND(&quot;Check helium level and boiloff:&quot;, {!OutputFormatFetched}) - LEN(&quot;Check helium level and boiloff:&quot;)),
+    FIND(&quot;&lt;/b&gt;&quot;, RIGHT({!OutputFormatFetched}, LEN({!OutputFormatFetched}) - FIND(&quot;Check helium level and boiloff:&quot;, {!OutputFormatFetched}) - LEN(&quot;Check helium level and boiloff:&quot;))) - 1
+)</expression>
+    </formulas>
+    <formulas>
+        <name>formCheckHosesDefault</name>
+        <dataType>String</dataType>
+        <expression>LEFT(
+    RIGHT({!OutputFormatFetched}, LEN({!OutputFormatFetched}) - FIND(&quot;Check hoses:&quot;, {!OutputFormatFetched}) - LEN(&quot;Check hoses:&quot;)),
+    FIND(&quot;&lt;/b&gt;&quot;, RIGHT({!OutputFormatFetched}, LEN({!OutputFormatFetched}) - FIND(&quot;Check hoses:&quot;, {!OutputFormatFetched}) - LEN(&quot;Check hoses:&quot;))) - 1
+)</expression>
+    </formulas>
+    <formulas>
+        <name>formCheckMagnetPressureDefault</name>
+        <dataType>String</dataType>
+        <expression>LEFT(
+    RIGHT({!OutputFormatFetched}, LEN({!OutputFormatFetched}) - FIND(&quot;Check magnet pressure:&quot;, {!OutputFormatFetched}) - LEN(&quot;Check magnet pressure:&quot;)),
+    FIND(&quot;&lt;/b&gt;&quot;, RIGHT({!OutputFormatFetched}, LEN({!OutputFormatFetched}) - FIND(&quot;Check magnet pressure:&quot;, {!OutputFormatFetched}) - LEN(&quot;Check magnet pressure:&quot;))) - 1
+)</expression>
+    </formulas>
+    <formulas>
+        <name>formCheckManualFunctionDefault</name>
+        <dataType>String</dataType>
+        <expression>LEFT(
+    RIGHT({!OutputFormatFetched}, LEN({!OutputFormatFetched}) - FIND(&quot;Check manual function:&quot;, {!OutputFormatFetched}) - LEN(&quot;Check manual function:&quot;)),
+    FIND(&quot;&lt;/b&gt;&quot;, RIGHT({!OutputFormatFetched}, LEN({!OutputFormatFetched}) - FIND(&quot;Check manual function:&quot;, {!OutputFormatFetched}) - LEN(&quot;Check manual function:&quot;))) - 1
+)</expression>
+    </formulas>
+    <formulas>
+        <name>formCheckPatientAlarmDefault</name>
+        <dataType>String</dataType>
+        <expression>LEFT(
+    RIGHT({!OutputFormatFetched}, LEN({!OutputFormatFetched}) - FIND(&quot;Check patient alarm:&quot;, {!OutputFormatFetched}) - LEN(&quot;Check patient alarm:&quot;)),
+    FIND(&quot;&lt;/b&gt;&quot;, RIGHT({!OutputFormatFetched}, LEN({!OutputFormatFetched}) - FIND(&quot;Check patient alarm:&quot;, {!OutputFormatFetched}) - LEN(&quot;Check patient alarm:&quot;))) - 1
+)</expression>
+    </formulas>
+    <formulas>
+        <name>formCheckPatientCommunicationDefault</name>
+        <dataType>String</dataType>
+        <expression>LEFT(
+    RIGHT({!OutputFormatFetched}, LEN({!OutputFormatFetched}) - FIND(&quot;Check patient communication:&quot;, {!OutputFormatFetched}) - LEN(&quot;Check patient communication:&quot;)),
+    FIND(&quot;&lt;/b&gt;&quot;, RIGHT({!OutputFormatFetched}, LEN({!OutputFormatFetched}) - FIND(&quot;Check patient communication:&quot;, {!OutputFormatFetched}) - LEN(&quot;Check patient communication:&quot;))) - 1
+)</expression>
+    </formulas>
+    <formulas>
+        <name>formCheckRFCageForDamageDefault</name>
+        <dataType>String</dataType>
+        <expression>LEFT(
+    RIGHT({!OutputFormatFetched}, LEN({!OutputFormatFetched}) - FIND(&quot;Check RF cage for damage:&quot;, {!OutputFormatFetched}) - LEN(&quot;Check RF cage for damage:&quot;)),
+    FIND(&quot;&lt;/b&gt;&quot;, RIGHT({!OutputFormatFetched}, LEN({!OutputFormatFetched}) - FIND(&quot;Check RF cage for damage:&quot;, {!OutputFormatFetched}) - LEN(&quot;Check RF cage for damage:&quot;))) - 1
+)</expression>
+    </formulas>
+    <formulas>
+        <name>formCheckRFCoilsForDamageDefault</name>
+        <dataType>String</dataType>
+        <expression>LEFT(
+    RIGHT({!OutputFormatFetched}, LEN({!OutputFormatFetched}) - FIND(&quot;Check RF coils for damage:&quot;, {!OutputFormatFetched}) - LEN(&quot;Check RF coils for damage:&quot;)),
+    FIND(&quot;&lt;/b&gt;&quot;, RIGHT({!OutputFormatFetched}, LEN({!OutputFormatFetched}) - FIND(&quot;Check RF coils for damage:&quot;, {!OutputFormatFetched}) - LEN(&quot;Check RF coils for damage:&quot;))) - 1
+)</expression>
+    </formulas>
+    <formulas>
+        <name>formCheckSafetySwitchesDefault</name>
+        <dataType>String</dataType>
+        <expression>LEFT(
+    RIGHT({!OutputFormatFetched}, LEN({!OutputFormatFetched}) - FIND(&quot;Check safety switches:&quot;, {!OutputFormatFetched}) - LEN(&quot;Check safety switches:&quot;)),
+    FIND(&quot;&lt;/b&gt;&quot;, RIGHT({!OutputFormatFetched}, LEN({!OutputFormatFetched}) - FIND(&quot;Check safety switches:&quot;, {!OutputFormatFetched}) - LEN(&quot;Check safety switches:&quot;))) - 1
+)</expression>
+    </formulas>
+    <formulas>
+        <name>formCheckVentPipeDefault</name>
+        <dataType>String</dataType>
+        <expression>LEFT(
+    RIGHT({!OutputFormatFetched}, LEN({!OutputFormatFetched}) - FIND(&quot;Check vent pipe:&quot;, {!OutputFormatFetched}) - LEN(&quot;Check vent pipe:&quot;)),
+    FIND(&quot;&lt;/b&gt;&quot;, RIGHT({!OutputFormatFetched}, LEN({!OutputFormatFetched}) - FIND(&quot;Check vent pipe:&quot;, {!OutputFormatFetched}) - LEN(&quot;Check vent pipe:&quot;))) - 1
+)</expression>
+    </formulas>
+    <formulas>
+        <name>formCheckWaterDrainDefault</name>
+        <dataType>String</dataType>
+        <expression>LEFT(
+    RIGHT({!OutputFormatFetched}, LEN({!OutputFormatFetched}) - FIND(&quot;Check water drain:&quot;, {!OutputFormatFetched}) - LEN(&quot;Check water drain:&quot;)),
+    FIND(&quot;&lt;/b&gt;&quot;, RIGHT({!OutputFormatFetched}, LEN({!OutputFormatFetched}) - FIND(&quot;Check water drain:&quot;, {!OutputFormatFetched}) - LEN(&quot;Check water drain:&quot;))) - 1
+)</expression>
+    </formulas>
+    <formulas>
+        <name>formChilledWaterSupplyCommentsDefault</name>
+        <dataType>String</dataType>
+        <expression>LEFT(
+    RIGHT({!OutputFormatFetched}, LEN({!OutputFormatFetched}) - FIND(&quot;Chilled Water Supply Comments (If Applicable):&quot;, {!OutputFormatFetched}) - LEN(&quot;Chilled Water Supply Comments (If Applicable):&quot;)),
+    FIND(&quot;&lt;br&gt;&quot;, RIGHT({!OutputFormatFetched}, LEN({!OutputFormatFetched}) - FIND(&quot;Chilled Water Supply Comments (If Applicable):&quot;, {!OutputFormatFetched}) - LEN(&quot;Chilled Water Supply Comments (If Applicable):&quot;))) - 1
+)</expression>
+    </formulas>
+    <formulas>
+        <name>formCleanMonitorDefault</name>
+        <dataType>String</dataType>
+        <expression>LEFT(
+    RIGHT({!OutputFormatFetched}, LEN({!OutputFormatFetched}) - FIND(&quot;Clean Monitor:&quot;, {!OutputFormatFetched}) - LEN(&quot;Clean Monitor:&quot;)),
+    FIND(&quot;&lt;/b&gt;&quot;, RIGHT({!OutputFormatFetched}, LEN({!OutputFormatFetched}) - FIND(&quot;Clean Monitor:&quot;, {!OutputFormatFetched}) - LEN(&quot;Clean Monitor:&quot;))) - 1
+)</expression>
+    </formulas>
+    <formulas>
+        <name>formCleanMouseKeyboardDefault</name>
+        <dataType>String</dataType>
+        <expression>LEFT(
+    RIGHT({!OutputFormatFetched}, LEN({!OutputFormatFetched}) - FIND(&quot;Clean mouse + Keyboard:&quot;, {!OutputFormatFetched}) - LEN(&quot;Clean mouse + Keyboard:&quot;)),
+    FIND(&quot;&lt;/b&gt;&quot;, RIGHT({!OutputFormatFetched}, LEN({!OutputFormatFetched}) - FIND(&quot;Clean mouse + Keyboard:&quot;, {!OutputFormatFetched}) - LEN(&quot;Clean mouse + Keyboard:&quot;))) - 1
+)</expression>
+    </formulas>
+    <formulas>
+        <name>formCleanTableForDamageDefault</name>
+        <dataType>String</dataType>
+        <expression>LEFT(
+    RIGHT({!OutputFormatFetched}, LEN({!OutputFormatFetched}) - FIND(&quot;Clean table for damage:&quot;, {!OutputFormatFetched}) - LEN(&quot;Clean table for damage:&quot;)),
+    FIND(&quot;&lt;/b&gt;&quot;, RIGHT({!OutputFormatFetched}, LEN({!OutputFormatFetched}) - FIND(&quot;Clean table for damage:&quot;, {!OutputFormatFetched}) - LEN(&quot;Clean table for damage:&quot;))) - 1
+)</expression>
+    </formulas>
+    <formulas>
+        <name>formCleanUpDiskAndDefragIfRequiredDefault</name>
+        <dataType>String</dataType>
+        <expression>LEFT(
+    RIGHT({!OutputFormatFetched}, LEN({!OutputFormatFetched}) - FIND(&quot;Clean up disk and defrag if required:&quot;, {!OutputFormatFetched}) - LEN(&quot;Clean up disk and defrag if required:&quot;)),
+    FIND(&quot;&lt;/b&gt;&quot;, RIGHT({!OutputFormatFetched}, LEN({!OutputFormatFetched}) - FIND(&quot;Clean up disk and defrag if required:&quot;, {!OutputFormatFetched}) - LEN(&quot;Clean up disk and defrag if required:&quot;))) - 1
+)</expression>
+    </formulas>
+    <formulas>
+        <name>formCompressorPressureCommentsDefault</name>
+        <dataType>String</dataType>
+        <expression>LEFT(
+    RIGHT({!OutputFormatFetched}, LEN({!OutputFormatFetched}) - FIND(&quot;Compressor Pressure Comments (If Applicable):&quot;, {!OutputFormatFetched}) - LEN(&quot;Compressor Pressure Comments (If Applicable):&quot;)),
+    FIND(&quot;&lt;br&gt;&quot;, RIGHT({!OutputFormatFetched}, LEN({!OutputFormatFetched}) - FIND(&quot;Compressor Pressure Comments (If Applicable):&quot;, {!OutputFormatFetched}) - LEN(&quot;Compressor Pressure Comments (If Applicable):&quot;))) - 1
+)</expression>
+    </formulas>
+    <formulas>
+        <name>formCoolantLevelCommentsDefault</name>
+        <dataType>String</dataType>
+        <expression>LEFT(
+    RIGHT({!OutputFormatFetched}, LEN({!OutputFormatFetched}) - FIND(&quot;Coolant Level Comments (If Applicable):&quot;, {!OutputFormatFetched}) - LEN(&quot;Coolant Level Comments (If Applicable):&quot;)),
+    FIND(&quot;&lt;br&gt;&quot;, RIGHT({!OutputFormatFetched}, LEN({!OutputFormatFetched}) - FIND(&quot;Coolant Level Comments (If Applicable):&quot;, {!OutputFormatFetched}) - LEN(&quot;Coolant Level Comments (If Applicable):&quot;))) - 1
+)</expression>
+    </formulas>
+    <formulas>
+        <name>formCoversSecuredCommentsDefault</name>
+        <dataType>String</dataType>
+        <expression>LEFT(
+    RIGHT({!OutputFormatFetched}, LEN({!OutputFormatFetched}) - FIND(&quot;Covers Secured comments:&quot;, {!OutputFormatFetched}) - LEN(&quot;Covers Secured comments:&quot;)),
+    FIND(&quot;&lt;br&gt;&quot;, RIGHT({!OutputFormatFetched}, LEN({!OutputFormatFetched}) - FIND(&quot;Covers Secured comments:&quot;, {!OutputFormatFetched}) - LEN(&quot;Covers Secured comments:&quot;))) - 1
+)</expression>
+    </formulas>
+    <formulas>
+        <name>formCoversSecuredDefault</name>
+        <dataType>String</dataType>
+        <expression>LEFT(
+    RIGHT({!OutputFormatFetched}, LEN({!OutputFormatFetched}) - FIND(&quot;Covers Secured:&quot;, {!OutputFormatFetched}) - LEN(&quot;Covers Secured:&quot;)),
+    FIND(&quot;&lt;/b&gt;&quot;, RIGHT({!OutputFormatFetched}, LEN({!OutputFormatFetched}) - FIND(&quot;Covers Secured:&quot;, {!OutputFormatFetched}) - LEN(&quot;Covers Secured:&quot;))) - 1
+)</expression>
+    </formulas>
+    <formulas>
+        <name>formDataAcquisitionCommentsDefault</name>
+        <dataType>String</dataType>
+        <expression>LEFT(
+    RIGHT({!OutputFormatFetched}, LEN({!OutputFormatFetched}) - FIND(&quot;Data Acquisition Comments (If Applicable):&quot;, {!OutputFormatFetched}) - LEN(&quot;Data Acquisition Comments (If Applicable):&quot;)),
+    FIND(&quot;&lt;br&gt;&quot;, RIGHT({!OutputFormatFetched}, LEN({!OutputFormatFetched}) - FIND(&quot;Data Acquisition Comments (If Applicable):&quot;, {!OutputFormatFetched}) - LEN(&quot;Data Acquisition Comments (If Applicable):&quot;))) - 1
+)</expression>
+    </formulas>
+    <formulas>
+        <name>formDataAcquisitionSystemDefault</name>
+        <dataType>String</dataType>
+        <expression>LEFT(
+    RIGHT({!OutputFormatFetched}, LEN({!OutputFormatFetched}) - FIND(&quot;Data Acquisition System:&quot;, {!OutputFormatFetched}) - LEN(&quot;Data Acquisition System:&quot;)),
+    FIND(&quot;&lt;/b&gt;&quot;, RIGHT({!OutputFormatFetched}, LEN({!OutputFormatFetched}) - FIND(&quot;Data Acquisition System:&quot;, {!OutputFormatFetched}) - LEN(&quot;Data Acquisition System:&quot;))) - 1
+)</expression>
+    </formulas>
+    <formulas>
+        <name>formDiskHealthCommentsDefault</name>
+        <dataType>String</dataType>
+        <expression>LEFT(
+    RIGHT({!OutputFormatFetched}, LEN({!OutputFormatFetched}) - FIND(&quot;Disk health comments:&quot;, {!OutputFormatFetched}) - LEN(&quot;Disk health comments:&quot;)),
+    FIND(&quot;&lt;br&gt;&quot;, RIGHT({!OutputFormatFetched}, LEN({!OutputFormatFetched}) - FIND(&quot;Disk health comments:&quot;, {!OutputFormatFetched}) - LEN(&quot;Disk health comments:&quot;))) - 1
+)</expression>
+    </formulas>
+    <formulas>
+        <name>formEmergencyStopFunctionCommentsDefault</name>
+        <dataType>String</dataType>
+        <expression>LEFT(
+    RIGHT({!OutputFormatFetched}, LEN({!OutputFormatFetched}) - FIND(&quot;Emergency stop function comments:&quot;, {!OutputFormatFetched}) - LEN(&quot;Emergency stop function comments:&quot;)),
+    FIND(&quot;&lt;br&gt;&quot;, RIGHT({!OutputFormatFetched}, LEN({!OutputFormatFetched}) - FIND(&quot;Emergency stop function comments:&quot;, {!OutputFormatFetched}) - LEN(&quot;Emergency stop function comments:&quot;))) - 1
+)</expression>
+    </formulas>
+    <formulas>
+        <name>formErrorLogsCommentsDefault</name>
+        <dataType>String</dataType>
+        <expression>LEFT(
+    RIGHT({!OutputFormatFetched}, LEN({!OutputFormatFetched}) - FIND(&quot;Error Logs Comments (If Applicable):&quot;, {!OutputFormatFetched}) - LEN(&quot;Error Logs Comments (If Applicable):&quot;)),
+    FIND(&quot;&lt;br&gt;&quot;, RIGHT({!OutputFormatFetched}, LEN({!OutputFormatFetched}) - FIND(&quot;Error Logs Comments (If Applicable):&quot;, {!OutputFormatFetched}) - LEN(&quot;Error Logs Comments (If Applicable):&quot;))) - 1
+)</expression>
+    </formulas>
+    <formulas>
+        <name>formErrorLogsDefault</name>
+        <dataType>String</dataType>
+        <expression>LEFT(
+    RIGHT({!OutputFormatFetched}, LEN({!OutputFormatFetched}) - FIND(&quot;Error Logs:&quot;, {!OutputFormatFetched}) - LEN(&quot;Error Logs:&quot;)),
+    FIND(&quot;&lt;/b&gt;&quot;, RIGHT({!OutputFormatFetched}, LEN({!OutputFormatFetched}) - FIND(&quot;Error Logs:&quot;, {!OutputFormatFetched}) - LEN(&quot;Error Logs:&quot;))) - 1
+)</expression>
+    </formulas>
+    <formulas>
+        <name>formFinalFunctionalChecksDefault</name>
+        <dataType>String</dataType>
+        <expression>LEFT(
+    RIGHT({!OutputFormatFetched}, LEN({!OutputFormatFetched}) - FIND(&quot;Final Functional Checks:&quot;, {!OutputFormatFetched}) - LEN(&quot;Final Functional Checks:&quot;)),
+    FIND(&quot;&lt;/b&gt;&quot;, RIGHT({!OutputFormatFetched}, LEN({!OutputFormatFetched}) - FIND(&quot;Final Functional Checks:&quot;, {!OutputFormatFetched}) - LEN(&quot;Final Functional Checks:&quot;))) - 1
+)</expression>
+    </formulas>
+    <formulas>
+        <name>formFinalFunctionalCommentsDefault</name>
+        <dataType>String</dataType>
+        <expression>LEFT(
+    RIGHT({!OutputFormatFetched}, LEN({!OutputFormatFetched}) - FIND(&quot;Final functional comments:&quot;, {!OutputFormatFetched}) - LEN(&quot;Final functional comments:&quot;)),
+    FIND(&quot;&lt;br&gt;&quot;, RIGHT({!OutputFormatFetched}, LEN({!OutputFormatFetched}) - FIND(&quot;Final functional comments:&quot;, {!OutputFormatFetched}) - LEN(&quot;Final functional comments:&quot;))) - 1
+)</expression>
+    </formulas>
+    <formulas>
+        <name>formFinalVisualChecksDefault</name>
+        <dataType>String</dataType>
+        <expression>LEFT(
+    RIGHT({!OutputFormatFetched}, LEN({!OutputFormatFetched}) - FIND(&quot;Final Visual Checks:&quot;, {!OutputFormatFetched}) - LEN(&quot;Final Visual Checks:&quot;)),
+    FIND(&quot;&lt;/b&gt;&quot;, RIGHT({!OutputFormatFetched}, LEN({!OutputFormatFetched}) - FIND(&quot;Final Visual Checks:&quot;, {!OutputFormatFetched}) - LEN(&quot;Final Visual Checks:&quot;))) - 1
+)</expression>
+    </formulas>
+    <formulas>
+        <name>formFinalVisualCommentsDefault</name>
+        <dataType>String</dataType>
+        <expression>LEFT(
+    RIGHT({!OutputFormatFetched}, LEN({!OutputFormatFetched}) - FIND(&quot;Final visual comments:&quot;, {!OutputFormatFetched}) - LEN(&quot;Final visual comments:&quot;)),
+    FIND(&quot;&lt;br&gt;&quot;, RIGHT({!OutputFormatFetched}, LEN({!OutputFormatFetched}) - FIND(&quot;Final visual comments:&quot;, {!OutputFormatFetched}) - LEN(&quot;Final visual comments:&quot;))) - 1
+)</expression>
+    </formulas>
+    <formulas>
+        <name>formFingerProtectionPlateCommentsDefault</name>
+        <dataType>String</dataType>
+        <expression>LEFT(
+    RIGHT({!OutputFormatFetched}, LEN({!OutputFormatFetched}) - FIND(&quot;Finger protection plate comments:&quot;, {!OutputFormatFetched}) - LEN(&quot;Finger protection plate comments:&quot;)),
+    FIND(&quot;&lt;br&gt;&quot;, RIGHT({!OutputFormatFetched}, LEN({!OutputFormatFetched}) - FIND(&quot;Finger protection plate comments:&quot;, {!OutputFormatFetched}) - LEN(&quot;Finger protection plate comments:&quot;))) - 1
+)</expression>
+    </formulas>
+    <formulas>
+        <name>formGradientCoilTempSensorCommentsDefault</name>
+        <dataType>String</dataType>
+        <expression>LEFT(
+    RIGHT({!OutputFormatFetched}, LEN({!OutputFormatFetched}) - FIND(&quot;Gradient Coil Temp Sensor Comments (If Applicable):&quot;, {!OutputFormatFetched}) - LEN(&quot;Gradient Coil Temp Sensor Comments (If Applicable):&quot;)),
+    FIND(&quot;&lt;br&gt;&quot;, RIGHT({!OutputFormatFetched}, LEN({!OutputFormatFetched}) - FIND(&quot;Gradient Coil Temp Sensor Comments (If Applicable):&quot;, {!OutputFormatFetched}) - LEN(&quot;Gradient Coil Temp Sensor Comments (If Applicable):&quot;))) - 1
+)</expression>
+    </formulas>
+    <formulas>
+        <name>formHeliumLevelAndBoiloffCommentsDefault</name>
+        <dataType>String</dataType>
+        <expression>LEFT(
+    RIGHT({!OutputFormatFetched}, LEN({!OutputFormatFetched}) - FIND(&quot;Helium level and boiloff comments:&quot;, {!OutputFormatFetched}) - LEN(&quot;Helium level and boiloff comments:&quot;)),
+    FIND(&quot;&lt;br&gt;&quot;, RIGHT({!OutputFormatFetched}, LEN({!OutputFormatFetched}) - FIND(&quot;Helium level and boiloff comments:&quot;, {!OutputFormatFetched}) - LEN(&quot;Helium level and boiloff comments:&quot;))) - 1
+)</expression>
+    </formulas>
+    <formulas>
+        <name>formHosesCommentsDefault</name>
+        <dataType>String</dataType>
+        <expression>LEFT(
+    RIGHT({!OutputFormatFetched}, LEN({!OutputFormatFetched}) - FIND(&quot;Hoses Comments (If Applicable):&quot;, {!OutputFormatFetched}) - LEN(&quot;Hoses Comments (If Applicable):&quot;)),
+    FIND(&quot;&lt;/b&gt;&quot;, RIGHT({!OutputFormatFetched}, LEN({!OutputFormatFetched}) - FIND(&quot;Hoses Comments (If Applicable):&quot;, {!OutputFormatFetched}) - LEN(&quot;Hoses Comments (If Applicable):&quot;))) - 1
+)</expression>
+    </formulas>
+    <formulas>
+        <name>formMagnetPressureCommentsDefault</name>
+        <dataType>String</dataType>
+        <expression>LEFT(
+    RIGHT({!OutputFormatFetched}, LEN({!OutputFormatFetched}) - FIND(&quot;Magnet pressure comments:&quot;, {!OutputFormatFetched}) - LEN(&quot;Magnet pressure comments:&quot;)),
+    FIND(&quot;&lt;br&gt;&quot;, RIGHT({!OutputFormatFetched}, LEN({!OutputFormatFetched}) - FIND(&quot;Magnet pressure comments:&quot;, {!OutputFormatFetched}) - LEN(&quot;Magnet pressure comments:&quot;))) - 1
+)</expression>
+    </formulas>
+    <formulas>
+        <name>formManualFunctionCommentsDefault</name>
+        <dataType>String</dataType>
+        <expression>LEFT(
+    RIGHT({!OutputFormatFetched}, LEN({!OutputFormatFetched}) - FIND(&quot;Manual function comments:&quot;, {!OutputFormatFetched}) - LEN(&quot;Manual function comments:&quot;)),
+    FIND(&quot;&lt;br&gt;&quot;, RIGHT({!OutputFormatFetched}, LEN({!OutputFormatFetched}) - FIND(&quot;Manual function comments:&quot;, {!OutputFormatFetched}) - LEN(&quot;Manual function comments:&quot;))) - 1
+)</expression>
+    </formulas>
+    <formulas>
+        <name>formMonitorCommentsDefault</name>
+        <dataType>String</dataType>
+        <expression>LEFT(
+    RIGHT({!OutputFormatFetched}, LEN({!OutputFormatFetched}) - FIND(&quot;Monitor comments:&quot;, {!OutputFormatFetched}) - LEN(&quot;Monitor comments:&quot;)),
+    FIND(&quot;&lt;br&gt;&quot;, RIGHT({!OutputFormatFetched}, LEN({!OutputFormatFetched}) - FIND(&quot;Monitor comments:&quot;, {!OutputFormatFetched}) - LEN(&quot;Monitor comments:&quot;))) - 1
+)</expression>
+    </formulas>
+    <formulas>
+        <name>formMonitorUICleanDefault</name>
+        <dataType>String</dataType>
+        <expression>LEFT(
+    RIGHT({!OutputFormatFetched}, LEN({!OutputFormatFetched}) - FIND(&quot;Monitor / UI Clean:&quot;, {!OutputFormatFetched}) - LEN(&quot;Monitor / UI Clean:&quot;)),
+    FIND(&quot;&lt;/b&gt;&quot;, RIGHT({!OutputFormatFetched}, LEN({!OutputFormatFetched}) - FIND(&quot;Monitor / UI Clean:&quot;, {!OutputFormatFetched}) - LEN(&quot;Monitor / UI Clean:&quot;))) - 1
+)</expression>
+    </formulas>
+    <formulas>
+        <name>formMonitorUICommentsDefault</name>
+        <dataType>String</dataType>
+        <expression>LEFT(
+    RIGHT({!OutputFormatFetched}, LEN({!OutputFormatFetched}) - FIND(&quot;Monitor / UI comments:&quot;, {!OutputFormatFetched}) - LEN(&quot;Monitor / UI comments:&quot;)),
+    FIND(&quot;&lt;br&gt;&quot;, RIGHT({!OutputFormatFetched}, LEN({!OutputFormatFetched}) - FIND(&quot;Monitor / UI comments:&quot;, {!OutputFormatFetched}) - LEN(&quot;Monitor / UI comments:&quot;))) - 1
+)</expression>
+    </formulas>
+    <formulas>
+        <name>formMouseKeyboardCommentsDefault</name>
+        <dataType>String</dataType>
+        <expression>LEFT(
+    RIGHT({!OutputFormatFetched}, LEN({!OutputFormatFetched}) - FIND(&quot;Mouse + Keyboard comments:&quot;, {!OutputFormatFetched}) - LEN(&quot;Mouse + Keyboard comments:&quot;)),
+    FIND(&quot;&lt;br&gt;&quot;, RIGHT({!OutputFormatFetched}, LEN({!OutputFormatFetched}) - FIND(&quot;Mouse + Keyboard comments:&quot;, {!OutputFormatFetched}) - LEN(&quot;Mouse + Keyboard comments:&quot;))) - 1
+)</expression>
+    </formulas>
+    <formulas>
+        <name>formPatientAlarmCommentsDefault</name>
+        <dataType>String</dataType>
+        <expression>LEFT(
+    RIGHT({!OutputFormatFetched}, LEN({!OutputFormatFetched}) - FIND(&quot;Patient alarm comments:&quot;, {!OutputFormatFetched}) - LEN(&quot;Patient alarm comments:&quot;)),
+    FIND(&quot;&lt;br&gt;&quot;, RIGHT({!OutputFormatFetched}, LEN({!OutputFormatFetched}) - FIND(&quot;Patient alarm comments:&quot;, {!OutputFormatFetched}) - LEN(&quot;Patient alarm comments:&quot;))) - 1
+)</expression>
+    </formulas>
+    <formulas>
+        <name>formPatientCommunicationCommentsDefault</name>
+        <dataType>String</dataType>
+        <expression>LEFT(
+    RIGHT({!OutputFormatFetched}, LEN({!OutputFormatFetched}) - FIND(&quot;Patient communication comments:&quot;, {!OutputFormatFetched}) - LEN(&quot;Patient communication comments:&quot;)),
+    FIND(&quot;&lt;br&gt;&quot;, RIGHT({!OutputFormatFetched}, LEN({!OutputFormatFetched}) - FIND(&quot;Patient communication comments:&quot;, {!OutputFormatFetched}) - LEN(&quot;Patient communication comments:&quot;))) - 1
+)</expression>
+    </formulas>
+    <formulas>
+        <name>formPatientVentilationCommentsDefault</name>
+        <dataType>String</dataType>
+        <expression>LEFT(
+    RIGHT({!OutputFormatFetched}, LEN({!OutputFormatFetched}) - FIND(&quot;Patient Ventilation Comments (If Applicable):&quot;, {!OutputFormatFetched}) - LEN(&quot;Patient Ventilation Comments (If Applicable):&quot;)),
+    FIND(&quot;&lt;br&gt;&quot;, RIGHT({!OutputFormatFetched}, LEN({!OutputFormatFetched}) - FIND(&quot;Patient Ventilation Comments (If Applicable):&quot;, {!OutputFormatFetched}) - LEN(&quot;Patient Ventilation Comments (If Applicable):&quot;))) - 1
+)</expression>
+    </formulas>
+    <formulas>
+        <name>formPatientVentilationDefault</name>
+        <dataType>String</dataType>
+        <expression>LEFT(
+    RIGHT({!OutputFormatFetched}, LEN({!OutputFormatFetched}) - FIND(&quot;Patient Ventilation:&quot;, {!OutputFormatFetched}) - LEN(&quot;Patient Ventilation:&quot;)),
+    FIND(&quot;&lt;/b&gt;&quot;, RIGHT({!OutputFormatFetched}, LEN({!OutputFormatFetched}) - FIND(&quot;Patient Ventilation:&quot;, {!OutputFormatFetched}) - LEN(&quot;Patient Ventilation:&quot;))) - 1
+)</expression>
+    </formulas>
+    <formulas>
+        <name>formPIQTCommentsDefault</name>
+        <dataType>String</dataType>
+        <expression>LEFT(
+    RIGHT({!OutputFormatFetched}, LEN({!OutputFormatFetched}) - FIND(&quot;PIQT comments:&quot;, {!OutputFormatFetched}) - LEN(&quot;PIQT comments:&quot;)),
+    FIND(&quot;&lt;br&gt;&quot;, RIGHT({!OutputFormatFetched}, LEN({!OutputFormatFetched}) - FIND(&quot;PIQT comments:&quot;, {!OutputFormatFetched}) - LEN(&quot;PIQT comments:&quot;))) - 1
+)</expression>
+    </formulas>
+    <formulas>
+        <name>formReconstructorCommentsDefault</name>
+        <dataType>String</dataType>
+        <expression>LEFT(
+    RIGHT({!OutputFormatFetched}, LEN({!OutputFormatFetched}) - FIND(&quot;Reconstructor Comments (If Applicable):&quot;, {!OutputFormatFetched}) - LEN(&quot;Reconstructor Comments (If Applicable):&quot;)),
+    FIND(&quot;&lt;br&gt;&quot;, RIGHT({!OutputFormatFetched}, LEN({!OutputFormatFetched}) - FIND(&quot;Reconstructor Comments (If Applicable):&quot;, {!OutputFormatFetched}) - LEN(&quot;Reconstructor Comments (If Applicable):&quot;))) - 1
+)</expression>
+    </formulas>
+    <formulas>
+        <name>formReconstructorDefault</name>
+        <dataType>String</dataType>
+        <expression>LEFT(
+    RIGHT({!OutputFormatFetched}, LEN({!OutputFormatFetched}) - FIND(&quot;Reconstructor:&quot;, {!OutputFormatFetched}) - LEN(&quot;Reconstructor:&quot;)),
+    FIND(&quot;&lt;/b&gt;&quot;, RIGHT({!OutputFormatFetched}, LEN({!OutputFormatFetched}) - FIND(&quot;Reconstructor:&quot;, {!OutputFormatFetched}) - LEN(&quot;Reconstructor:&quot;))) - 1
+)</expression>
+    </formulas>
+    <formulas>
+        <name>formRFAmpCommentsDefault</name>
+        <dataType>String</dataType>
+        <expression>LEFT(
+    RIGHT({!OutputFormatFetched}, LEN({!OutputFormatFetched}) - FIND(&quot;RF Amp Comments (If Applicable):&quot;, {!OutputFormatFetched}) - LEN(&quot;RF Amp Comments (If Applicable):&quot;)),
+    FIND(&quot;&lt;br&gt;&quot;, RIGHT({!OutputFormatFetched}, LEN({!OutputFormatFetched}) - FIND(&quot;RF Amp Comments (If Applicable):&quot;, {!OutputFormatFetched}) - LEN(&quot;RF Amp Comments (If Applicable):&quot;))) - 1
+)</expression>
+    </formulas>
+    <formulas>
+        <name>formRFAmpDefault</name>
+        <dataType>String</dataType>
+        <expression>LEFT(
+    RIGHT({!OutputFormatFetched}, LEN({!OutputFormatFetched}) - FIND(&quot;RF Amp:&quot;, {!OutputFormatFetched}) - LEN(&quot;RF Amp:&quot;)),
+    FIND(&quot;&lt;/b&gt;&quot;, RIGHT({!OutputFormatFetched}, LEN({!OutputFormatFetched}) - FIND(&quot;RF Amp:&quot;, {!OutputFormatFetched}) - LEN(&quot;RF Amp:&quot;))) - 1
+)</expression>
+    </formulas>
+    <formulas>
+        <name>formRFCageCommentsDefault</name>
+        <dataType>String</dataType>
+        <expression>LEFT(
+    RIGHT({!OutputFormatFetched}, LEN({!OutputFormatFetched}) - FIND(&quot;RF Cage Comments (If Applicable):&quot;, {!OutputFormatFetched}) - LEN(&quot;RF Cage Comments (If Applicable):&quot;)),
+    FIND(&quot;&lt;br&gt;&quot;, RIGHT({!OutputFormatFetched}, LEN({!OutputFormatFetched}) - FIND(&quot;RF Cage Comments (If Applicable):&quot;, {!OutputFormatFetched}) - LEN(&quot;RF Cage Comments (If Applicable):&quot;))) - 1
+)</expression>
+    </formulas>
+    <formulas>
+        <name>formRFCoilCommentsDefault</name>
+        <dataType>String</dataType>
+        <expression>LEFT(
+    RIGHT({!OutputFormatFetched}, LEN({!OutputFormatFetched}) - FIND(&quot;RF Coil Comments (If Applicable):&quot;, {!OutputFormatFetched}) - LEN(&quot;RF Coil Comments (If Applicable):&quot;)),
+    FIND(&quot;&lt;br&gt;&quot;, RIGHT({!OutputFormatFetched}, LEN({!OutputFormatFetched}) - FIND(&quot;RF Coil Comments (If Applicable):&quot;, {!OutputFormatFetched}) - LEN(&quot;RF Coil Comments (If Applicable):&quot;))) - 1
+)</expression>
+    </formulas>
+    <formulas>
+        <name>formRunPIQTDefault</name>
+        <dataType>String</dataType>
+        <expression>LEFT(
+    RIGHT({!OutputFormatFetched}, LEN({!OutputFormatFetched}) - FIND(&quot;Run PIQT:&quot;, {!OutputFormatFetched}) - LEN(&quot;Run PIQT:&quot;)),
+    FIND(&quot;&lt;/b&gt;&quot;, RIGHT({!OutputFormatFetched}, LEN({!OutputFormatFetched}) - FIND(&quot;Run PIQT:&quot;, {!OutputFormatFetched}) - LEN(&quot;Run PIQT:&quot;))) - 1
+)</expression>
+    </formulas>
+    <formulas>
+        <name>formRunSpikeBatchScansCommentsDefault</name>
+        <dataType>String</dataType>
+        <expression>LEFT(
+    RIGHT({!OutputFormatFetched}, LEN({!OutputFormatFetched}) - FIND(&quot;RunSpike batch scans comments :&quot;, {!OutputFormatFetched}) - LEN(&quot;RunSpike batch scans comments :&quot;)),
+    FIND(&quot;&lt;br&gt;&quot;, RIGHT({!OutputFormatFetched}, LEN({!OutputFormatFetched}) - FIND(&quot;RunSpike batch scans comments :&quot;, {!OutputFormatFetched}) - LEN(&quot;RunSpike batch scans comments :&quot;))) - 1
+)</expression>
+    </formulas>
+    <formulas>
+        <name>formRunSpikeBatchScansDefault</name>
+        <dataType>String</dataType>
+        <expression>LEFT(
+    RIGHT({!OutputFormatFetched}, LEN({!OutputFormatFetched}) - FIND(&quot;RunSpike batch scans:&quot;, {!OutputFormatFetched}) - LEN(&quot;RunSpike batch scans:&quot;)),
+    FIND(&quot;&lt;/b&gt;&quot;, RIGHT({!OutputFormatFetched}, LEN({!OutputFormatFetched}) - FIND(&quot;RunSpike batch scans:&quot;, {!OutputFormatFetched}) - LEN(&quot;RunSpike batch scans:&quot;))) - 1
+)</expression>
+    </formulas>
+    <formulas>
+        <name>formRunSpuriousNoiseChecksDefault</name>
+        <dataType>String</dataType>
+        <expression>LEFT(
+    RIGHT({!OutputFormatFetched}, LEN({!OutputFormatFetched}) - FIND(&quot;Run Spurious noise checks:&quot;, {!OutputFormatFetched}) - LEN(&quot;Run Spurious noise checks:&quot;)),
+    FIND(&quot;&lt;/b&gt;&quot;, RIGHT({!OutputFormatFetched}, LEN({!OutputFormatFetched}) - FIND(&quot;Run Spurious noise checks:&quot;, {!OutputFormatFetched}) - LEN(&quot;Run Spurious noise checks:&quot;))) - 1
+)</expression>
+    </formulas>
+    <formulas>
+        <name>formRunVSWRScanDefault</name>
+        <dataType>String</dataType>
+        <expression>LEFT(
+    RIGHT({!OutputFormatFetched}, LEN({!OutputFormatFetched}) - FIND(&quot;Run VSWR scan:&quot;, {!OutputFormatFetched}) - LEN(&quot;Run VSWR scan:&quot;)),
+    FIND(&quot;&lt;/b&gt;&quot;, RIGHT({!OutputFormatFetched}, LEN({!OutputFormatFetched}) - FIND(&quot;Run VSWR scan:&quot;, {!OutputFormatFetched}) - LEN(&quot;Run VSWR scan:&quot;))) - 1
+)</expression>
+    </formulas>
+    <formulas>
+        <name>formSafetySwitchesCommentsDefault</name>
+        <dataType>String</dataType>
+        <expression>LEFT(
+    RIGHT({!OutputFormatFetched}, LEN({!OutputFormatFetched}) - FIND(&quot;Safety switches comments:&quot;, {!OutputFormatFetched}) - LEN(&quot;Safety switches comments:&quot;)),
+    FIND(&quot;&lt;br&gt;&quot;, RIGHT({!OutputFormatFetched}, LEN({!OutputFormatFetched}) - FIND(&quot;Safety switches comments:&quot;, {!OutputFormatFetched}) - LEN(&quot;Safety switches comments:&quot;))) - 1
+)</expression>
+    </formulas>
+    <formulas>
+        <name>formSpuriousNoiseCommentsDefault</name>
+        <dataType>String</dataType>
+        <expression>LEFT(
+    RIGHT({!OutputFormatFetched}, LEN({!OutputFormatFetched}) - FIND(&quot;Spurious noise comments:&quot;, {!OutputFormatFetched}) - LEN(&quot;Spurious noise comments:&quot;)),
+    FIND(&quot;&lt;br&gt;&quot;, RIGHT({!OutputFormatFetched}, LEN({!OutputFormatFetched}) - FIND(&quot;Spurious noise comments:&quot;, {!OutputFormatFetched}) - LEN(&quot;Spurious noise comments:&quot;))) - 1
+)</expression>
+    </formulas>
+    <formulas>
+        <name>formTableForDamageCommentsDefault</name>
+        <dataType>String</dataType>
+        <expression>LEFT(
+    RIGHT({!OutputFormatFetched}, LEN({!OutputFormatFetched}) - FIND(&quot;Table for damage comments:&quot;, {!OutputFormatFetched}) - LEN(&quot;Table for damage comments:&quot;)),
+    FIND(&quot;&lt;br&gt;&quot;, RIGHT({!OutputFormatFetched}, LEN({!OutputFormatFetched}) - FIND(&quot;Table for damage comments:&quot;, {!OutputFormatFetched}) - LEN(&quot;Table for damage comments:&quot;))) - 1
+)</expression>
+    </formulas>
+    <formulas>
+        <name>formVentPipeCommentsDefault</name>
+        <dataType>String</dataType>
+        <expression>LEFT(
+    RIGHT({!OutputFormatFetched}, LEN({!OutputFormatFetched}) - FIND(&quot;Vent pipe comments:&quot;, {!OutputFormatFetched}) - LEN(&quot;Vent pipe comments:&quot;)),
+    FIND(&quot;&lt;br&gt;&quot;, RIGHT({!OutputFormatFetched}, LEN({!OutputFormatFetched}) - FIND(&quot;Vent pipe comments:&quot;, {!OutputFormatFetched}) - LEN(&quot;Vent pipe comments:&quot;))) - 1
+)</expression>
+    </formulas>
+    <formulas>
+        <name>formVisualInspectionCommentsDefault</name>
+        <dataType>String</dataType>
+        <expression>LEFT(
+    RIGHT({!OutputFormatFetched}, LEN({!OutputFormatFetched}) - FIND(&quot;Visual Inspection Comments (If Applicable):&quot;, {!OutputFormatFetched}) - LEN(&quot;Visual Inspection Comments (If Applicable):&quot;)),
+    FIND(&quot;&lt;br&gt;&quot;, RIGHT({!OutputFormatFetched}, LEN({!OutputFormatFetched}) - FIND(&quot;Visual Inspection Comments (If Applicable):&quot;, {!OutputFormatFetched}) - LEN(&quot;Visual Inspection Comments (If Applicable):&quot;))) - 1
+)</expression>
+    </formulas>
+    <formulas>
+        <name>formVisualInspectionDefault</name>
+        <dataType>String</dataType>
+        <expression>LEFT(
+    RIGHT({!OutputFormatFetched}, LEN({!OutputFormatFetched}) - FIND(&quot;Visual Inspection:&quot;, {!OutputFormatFetched}) - LEN(&quot;Visual Inspection:&quot;)), 
+    FIND(&quot;&lt;/b&gt;&quot;, RIGHT({!OutputFormatFetched}, LEN({!OutputFormatFetched}) - FIND(&quot;Visual Inspection:&quot;, {!OutputFormatFetched}) - LEN(&quot;Visual Inspection:&quot;))) - 1
+)</expression>
+    </formulas>
+    <formulas>
+        <name>formVSWRScanCommentsDefault</name>
+        <dataType>String</dataType>
+        <expression>LEFT(
+    RIGHT({!OutputFormatFetched}, LEN({!OutputFormatFetched}) - FIND(&quot;VSWR scan comments:&quot;, {!OutputFormatFetched}) - LEN(&quot;VSWR scan comments:&quot;)),
+    FIND(&quot;&lt;br&gt;&quot;, RIGHT({!OutputFormatFetched}, LEN({!OutputFormatFetched}) - FIND(&quot;VSWR scan comments:&quot;, {!OutputFormatFetched}) - LEN(&quot;VSWR scan comments:&quot;))) - 1
+)</expression>
+    </formulas>
+    <formulas>
+        <name>formWaterDrainCommentsDefault</name>
+        <dataType>String</dataType>
+        <expression>LEFT(
+    RIGHT({!OutputFormatFetched}, LEN({!OutputFormatFetched}) - FIND(&quot;Water drain comments:&quot;, {!OutputFormatFetched}) - LEN(&quot;Water drain comments:&quot;)),
+    FIND(&quot;&lt;br&gt;&quot;, RIGHT({!OutputFormatFetched}, LEN({!OutputFormatFetched}) - FIND(&quot;Water drain comments:&quot;, {!OutputFormatFetched}) - LEN(&quot;Water drain comments:&quot;))) - 1
+)</expression>
+    </formulas>
+    <formulas>
+        <name>Fullchecklistoutput</name>
+        <dataType>String</dataType>
+        <expression>{!ChecklistOutputPart1} + {!ChecklistOutputPart2} + {!ChecklistOutputPart3}</expression>
+    </formulas>
+    <interviewLabel>MRI Checklist {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>MRI Checklist</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>FieldServiceMobile</processType>
+    <recordLookups>
+        <name>get_service_appointment</name>
+        <label>get service appointment</label>
+        <locationX>176</locationX>
+        <locationY>134</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Work_Step_Completion</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>ServiceAppointmentId</elementReference>
+            </value>
+        </filters>
+        <object>ServiceAppointment</object>
+        <outputAssignments>
+            <assignToReference>InputChecklistOutput1</assignToReference>
+            <field>Checklist_Output_Formatted_1__c</field>
+        </outputAssignments>
+        <outputAssignments>
+            <assignToReference>InputChecklistOutput2</assignToReference>
+            <field>Checklist_Output_Formatted_2__c</field>
+        </outputAssignments>
+        <outputAssignments>
+            <assignToReference>InputChecklistOutput3</assignToReference>
+            <field>Checklist_Output_Formatted_3__c</field>
+        </outputAssignments>
+        <outputAssignments>
+            <assignToReference>OutputFormatFetched</assignToReference>
+            <field>Checklist_Output_Formatted__c</field>
+        </outputAssignments>
+    </recordLookups>
+    <recordUpdates>
+        <name>Copy_1_of_Round_1_Update_Service_Appointment</name>
+        <label>Copy 1 of Round 1 Update Service Appointment</label>
+        <locationX>176</locationX>
+        <locationY>782</locationY>
+        <connector>
+            <targetReference>Gradient_System</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>ServiceAppointmentId</elementReference>
+            </value>
+        </filters>
+        <inputAssignments>
+            <field>Checklist_Output_Formatted_1__c</field>
+            <value>
+                <elementReference>ChecklistOutputPart1</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Checklist_Output_Formatted__c</field>
+            <value>
+                <elementReference>varTextTemplateFinal</elementReference>
+            </value>
+        </inputAssignments>
+        <object>ServiceAppointment</object>
+    </recordUpdates>
+    <recordUpdates>
+        <name>Copy_1_of_Round_2_Update_Service_Appointment</name>
+        <label>Copy 1 of Round 2 Update Service Appointment</label>
+        <locationX>176</locationX>
+        <locationY>2078</locationY>
+        <connector>
+            <targetReference>Operators_Console</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>ServiceAppointmentId</elementReference>
+            </value>
+        </filters>
+        <inputAssignments>
+            <field>Checklist_Output_Formatted_2__c</field>
+            <value>
+                <elementReference>ChecklistOutputPart2</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Checklist_Output_Formatted__c</field>
+            <value>
+                <elementReference>varTextTemplateFinal</elementReference>
+            </value>
+        </inputAssignments>
+        <object>ServiceAppointment</object>
+    </recordUpdates>
+    <recordUpdates>
+        <name>Copy_2_of_Round_2_Update_Service_Appointment</name>
+        <label>Copy 2 of Round 2 Update Service Appointment</label>
+        <locationX>176</locationX>
+        <locationY>1862</locationY>
+        <connector>
+            <targetReference>System_Imaging_Checks</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>ServiceAppointmentId</elementReference>
+            </value>
+        </filters>
+        <inputAssignments>
+            <field>Checklist_Output_Formatted_2__c</field>
+            <value>
+                <elementReference>ChecklistOutputPart2</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Checklist_Output_Formatted__c</field>
+            <value>
+                <elementReference>varTextTemplateFinal</elementReference>
+            </value>
+        </inputAssignments>
+        <object>ServiceAppointment</object>
+    </recordUpdates>
+    <recordUpdates>
+        <name>Copy_2_of_Round_3_Update_Service_Appointment</name>
+        <label>Copy 2 of Round 3 Update Service Appointment</label>
+        <locationX>176</locationX>
+        <locationY>2510</locationY>
+        <connector>
+            <targetReference>Final_Works</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>ServiceAppointmentId</elementReference>
+            </value>
+        </filters>
+        <inputAssignments>
+            <field>Checklist_Output_Formatted_3__c</field>
+            <value>
+                <elementReference>ChecklistOutputPart3</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Checklist_Output_Formatted__c</field>
+            <value>
+                <elementReference>varTextTemplateFinal</elementReference>
+            </value>
+        </inputAssignments>
+        <object>ServiceAppointment</object>
+    </recordUpdates>
+    <recordUpdates>
+        <name>Copy_3_of_Round_1_Update_Service_Appointment</name>
+        <label>Copy 3 of Round 1 Update Service Appointment</label>
+        <locationX>176</locationX>
+        <locationY>998</locationY>
+        <connector>
+            <targetReference>Liquid_cooling_system</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>ServiceAppointmentId</elementReference>
+            </value>
+        </filters>
+        <inputAssignments>
+            <field>Checklist_Output_Formatted_1__c</field>
+            <value>
+                <elementReference>ChecklistOutputPart1</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Checklist_Output_Formatted__c</field>
+            <value>
+                <elementReference>varTextTemplateFinal</elementReference>
+            </value>
+        </inputAssignments>
+        <object>ServiceAppointment</object>
+    </recordUpdates>
+    <recordUpdates>
+        <name>Copy_4_of_Round_1_Update_Service_Appointment</name>
+        <label>Copy 4 of Round 1 Update Service Appointment</label>
+        <locationX>176</locationX>
+        <locationY>1214</locationY>
+        <connector>
+            <targetReference>Refridgeration_system</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>ServiceAppointmentId</elementReference>
+            </value>
+        </filters>
+        <inputAssignments>
+            <field>Checklist_Output_Formatted_1__c</field>
+            <value>
+                <elementReference>ChecklistOutputPart1</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Checklist_Output_Formatted__c</field>
+            <value>
+                <elementReference>varTextTemplateFinal</elementReference>
+            </value>
+        </inputAssignments>
+        <object>ServiceAppointment</object>
+    </recordUpdates>
+    <recordUpdates>
+        <name>Copy_5_of_Round_1_Update_Service_Appointment</name>
+        <label>Copy 5 of Round 1 Update Service Appointment</label>
+        <locationX>176</locationX>
+        <locationY>1430</locationY>
+        <connector>
+            <targetReference>Magnet</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>ServiceAppointmentId</elementReference>
+            </value>
+        </filters>
+        <inputAssignments>
+            <field>Checklist_Output_Formatted_1__c</field>
+            <value>
+                <elementReference>ChecklistOutputPart1</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Checklist_Output_Formatted__c</field>
+            <value>
+                <elementReference>varTextTemplateFinal</elementReference>
+            </value>
+        </inputAssignments>
+        <object>ServiceAppointment</object>
+    </recordUpdates>
+    <recordUpdates>
+        <name>Round_2_Update_Service_Appointment</name>
+        <label>Round 2 Update Service Appointment</label>
+        <locationX>176</locationX>
+        <locationY>1646</locationY>
+        <connector>
+            <targetReference>Patient_Support</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>ServiceAppointmentId</elementReference>
+            </value>
+        </filters>
+        <inputAssignments>
+            <field>Checklist_Output_Formatted_2__c</field>
+            <value>
+                <elementReference>ChecklistOutputPart2</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Checklist_Output_Formatted__c</field>
+            <value>
+                <elementReference>varTextTemplateFinal</elementReference>
+            </value>
+        </inputAssignments>
+        <object>ServiceAppointment</object>
+    </recordUpdates>
+    <recordUpdates>
+        <name>Round_3_Update_Service_Appointment</name>
+        <label>Round 3 Update Service Appointment</label>
+        <locationX>176</locationX>
+        <locationY>2294</locationY>
+        <connector>
+            <targetReference>Software</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>ServiceAppointmentId</elementReference>
+            </value>
+        </filters>
+        <inputAssignments>
+            <field>Checklist_Output_Formatted_3__c</field>
+            <value>
+                <elementReference>ChecklistOutputPart3</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Checklist_Output_Formatted__c</field>
+            <value>
+                <elementReference>varTextTemplateFinal</elementReference>
+            </value>
+        </inputAssignments>
+        <object>ServiceAppointment</object>
+    </recordUpdates>
+    <recordUpdates>
+        <name>Update_Dust_Prevention</name>
+        <label>Update Dust Prevention</label>
+        <locationX>176</locationX>
+        <locationY>566</locationY>
+        <connector>
+            <targetReference>RF</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>ServiceAppointmentId</elementReference>
+            </value>
+        </filters>
+        <inputAssignments>
+            <field>Checklist_Output_Formatted_1__c</field>
+            <value>
+                <elementReference>ChecklistOutputPart1</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Checklist_Output_Formatted__c</field>
+            <value>
+                <elementReference>varTextTemplateFinal</elementReference>
+            </value>
+        </inputAssignments>
+        <object>ServiceAppointment</object>
+    </recordUpdates>
+    <recordUpdates>
+        <name>Update_General_Checks</name>
+        <label>Update General Checks</label>
+        <locationX>176</locationX>
+        <locationY>350</locationY>
+        <connector>
+            <targetReference>Dust_Prevention</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>ServiceAppointmentId</elementReference>
+            </value>
+        </filters>
+        <inputAssignments>
+            <field>Error_Logs_Comments__c</field>
+            <value>
+                <elementReference>Error_Logs_Comments</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Error_Logs__c</field>
+            <value>
+                <elementReference>Error_Logs</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Visual_Inspection_Comments__c</field>
+            <value>
+                <elementReference>Visual_Inspection_Comments</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Visual_Inspection__c</field>
+            <value>
+                <elementReference>Visual_Inspection_General</elementReference>
+            </value>
+        </inputAssignments>
+        <object>ServiceAppointment</object>
+    </recordUpdates>
+    <recordUpdates>
+        <name>Update_Service_Appointment</name>
+        <label>Update Service Appointment</label>
+        <locationX>176</locationX>
+        <locationY>2726</locationY>
+        <connector>
+            <targetReference>Display_Output_Checklist_V2</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>ServiceAppointmentId</elementReference>
+            </value>
+        </filters>
+        <inputAssignments>
+            <field>Checklist_Output_Formatted_3__c</field>
+            <value>
+                <elementReference>ChecklistOutputPart3</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Checklist_Output_Formatted__c</field>
+            <value>
+                <elementReference>varTextTemplateFinal</elementReference>
+            </value>
+        </inputAssignments>
+        <object>ServiceAppointment</object>
+    </recordUpdates>
+    <screens>
+        <name>Display_Output_Checklist_V2</name>
+        <label>Display Checklist Output</label>
+        <locationX>176</locationX>
+        <locationY>2834</locationY>
+        <allowBack>true</allowBack>
+        <allowFinish>false</allowFinish>
+        <allowPause>true</allowPause>
+        <fields>
+            <name>Copy_1_of_DisplayChecklistOutputText</name>
+            <fieldText>&lt;p&gt;{!varTextTemplateFinal}&lt;/p&gt;</fieldText>
+            <fieldType>DisplayText</fieldType>
+            <styleProperties>
+                <verticalAlignment>
+                    <stringValue>top</stringValue>
+                </verticalAlignment>
+                <width>
+                    <stringValue>12</stringValue>
+                </width>
+            </styleProperties>
+        </fields>
+        <showFooter>true</showFooter>
+        <showHeader>true</showHeader>
+    </screens>
+    <screens>
+        <name>Dust_Prevention</name>
+        <label>Dust Prevention</label>
+        <locationX>176</locationX>
+        <locationY>458</locationY>
+        <allowBack>true</allowBack>
+        <allowFinish>false</allowFinish>
+        <allowPause>true</allowPause>
+        <connector>
+            <targetReference>Update_Dust_Prevention</targetReference>
+        </connector>
+        <fields>
+            <name>Reconstuctor</name>
+            <choiceReferences>Pass</choiceReferences>
+            <choiceReferences>Fail_with_Comments</choiceReferences>
+            <choiceReferences>Pass_with_Comments</choiceReferences>
+            <dataType>String</dataType>
+            <defaultValue>
+                <elementReference>formReconstructorDefault</elementReference>
+            </defaultValue>
+            <fieldText>Reconstuctor</fieldText>
+            <fieldType>DropdownBox</fieldType>
+            <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+            <isRequired>true</isRequired>
+            <styleProperties>
+                <verticalAlignment>
+                    <stringValue>top</stringValue>
+                </verticalAlignment>
+                <width>
+                    <stringValue>12</stringValue>
+                </width>
+            </styleProperties>
+        </fields>
+        <fields>
+            <name>Reconstructor_Comments</name>
+            <defaultValue>
+                <stringValue>{!formReconstructorCommentsDefault}</stringValue>
+            </defaultValue>
+            <fieldText>Reconstructor Notes</fieldText>
+            <fieldType>LargeTextArea</fieldType>
+            <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+            <isRequired>false</isRequired>
+            <styleProperties>
+                <verticalAlignment>
+                    <stringValue>top</stringValue>
+                </verticalAlignment>
+                <width>
+                    <stringValue>12</stringValue>
+                </width>
+            </styleProperties>
+        </fields>
+        <fields>
+            <name>Data_Acquisition_System</name>
+            <choiceReferences>Pass</choiceReferences>
+            <choiceReferences>Fail_with_Comments</choiceReferences>
+            <choiceReferences>Pass_with_Comments</choiceReferences>
+            <dataType>String</dataType>
+            <defaultValue>
+                <elementReference>formDataAcquisitionSystemDefault</elementReference>
+            </defaultValue>
+            <fieldText>Data Acquisition System</fieldText>
+            <fieldType>DropdownBox</fieldType>
+            <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+            <isRequired>true</isRequired>
+            <styleProperties>
+                <verticalAlignment>
+                    <stringValue>top</stringValue>
+                </verticalAlignment>
+                <width>
+                    <stringValue>12</stringValue>
+                </width>
+            </styleProperties>
+        </fields>
+        <fields>
+            <name>Data_Acquisition_System_Comments</name>
+            <defaultValue>
+                <stringValue>{!formDataAcquisitionCommentsDefault}</stringValue>
+            </defaultValue>
+            <fieldText>Data Acquisition System Notes</fieldText>
+            <fieldType>LargeTextArea</fieldType>
+            <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+            <isRequired>false</isRequired>
+            <styleProperties>
+                <verticalAlignment>
+                    <stringValue>top</stringValue>
+                </verticalAlignment>
+                <width>
+                    <stringValue>12</stringValue>
+                </width>
+            </styleProperties>
+        </fields>
+        <fields>
+            <name>RF_Amp</name>
+            <choiceReferences>Pass</choiceReferences>
+            <choiceReferences>Fail_with_Comments</choiceReferences>
+            <choiceReferences>Pass_with_Comments</choiceReferences>
+            <dataType>String</dataType>
+            <defaultValue>
+                <elementReference>formRFAmpDefault</elementReference>
+            </defaultValue>
+            <fieldText>RF Amp</fieldText>
+            <fieldType>DropdownBox</fieldType>
+            <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+            <isRequired>true</isRequired>
+            <styleProperties>
+                <verticalAlignment>
+                    <stringValue>top</stringValue>
+                </verticalAlignment>
+                <width>
+                    <stringValue>12</stringValue>
+                </width>
+            </styleProperties>
+        </fields>
+        <fields>
+            <name>RF_Amp_Comments</name>
+            <defaultValue>
+                <stringValue>{!formRFAmpCommentsDefault}</stringValue>
+            </defaultValue>
+            <fieldText>RF Amp Notes</fieldText>
+            <fieldType>LargeTextArea</fieldType>
+            <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+            <isRequired>false</isRequired>
+            <styleProperties>
+                <verticalAlignment>
+                    <stringValue>top</stringValue>
+                </verticalAlignment>
+                <width>
+                    <stringValue>12</stringValue>
+                </width>
+            </styleProperties>
+        </fields>
+        <fields>
+            <name>Patient_Ventilation</name>
+            <choiceReferences>Pass</choiceReferences>
+            <choiceReferences>Fail_with_Comments</choiceReferences>
+            <choiceReferences>Pass_with_Comments</choiceReferences>
+            <dataType>String</dataType>
+            <defaultValue>
+                <elementReference>formPatientVentilationDefault</elementReference>
+            </defaultValue>
+            <fieldText>Patient Ventilation</fieldText>
+            <fieldType>DropdownBox</fieldType>
+            <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+            <isRequired>true</isRequired>
+            <styleProperties>
+                <verticalAlignment>
+                    <stringValue>top</stringValue>
+                </verticalAlignment>
+                <width>
+                    <stringValue>12</stringValue>
+                </width>
+            </styleProperties>
+        </fields>
+        <fields>
+            <name>Patient_Ventilation_Comments</name>
+            <defaultValue>
+                <stringValue>{!formPatientVentilationCommentsDefault}</stringValue>
+            </defaultValue>
+            <fieldText>Patient Ventilation Notes</fieldText>
+            <fieldType>LargeTextArea</fieldType>
+            <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+            <isRequired>false</isRequired>
+            <styleProperties>
+                <verticalAlignment>
+                    <stringValue>top</stringValue>
+                </verticalAlignment>
+                <width>
+                    <stringValue>12</stringValue>
+                </width>
+            </styleProperties>
+        </fields>
+        <showFooter>true</showFooter>
+        <showHeader>true</showHeader>
+    </screens>
+    <screens>
+        <name>Final_Works</name>
+        <label>Final Works</label>
+        <locationX>176</locationX>
+        <locationY>2618</locationY>
+        <allowBack>true</allowBack>
+        <allowFinish>false</allowFinish>
+        <allowPause>true</allowPause>
+        <connector>
+            <targetReference>Update_Service_Appointment</targetReference>
+        </connector>
+        <fields>
+            <name>Monitor_UI_Clean</name>
+            <choiceReferences>Yes</choiceReferences>
+            <choiceReferences>Yes_with_Comments</choiceReferences>
+            <choiceReferences>No_with_Comments</choiceReferences>
+            <dataType>String</dataType>
+            <defaultValue>
+                <elementReference>formMonitorUICleanDefault</elementReference>
+            </defaultValue>
+            <fieldText>Monitor / UI Clean</fieldText>
+            <fieldType>DropdownBox</fieldType>
+            <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+            <isRequired>true</isRequired>
+            <styleProperties>
+                <verticalAlignment>
+                    <stringValue>top</stringValue>
+                </verticalAlignment>
+                <width>
+                    <stringValue>12</stringValue>
+                </width>
+            </styleProperties>
+        </fields>
+        <fields>
+            <name>Monitor_UI_Notes</name>
+            <defaultValue>
+                <stringValue>{!formMonitorUICommentsDefault}</stringValue>
+            </defaultValue>
+            <fieldText>Monitor/UI Notes</fieldText>
+            <fieldType>LargeTextArea</fieldType>
+            <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+            <isRequired>false</isRequired>
+            <styleProperties>
+                <verticalAlignment>
+                    <stringValue>top</stringValue>
+                </verticalAlignment>
+                <width>
+                    <stringValue>12</stringValue>
+                </width>
+            </styleProperties>
+        </fields>
+        <fields>
+            <name>Covers_Secured</name>
+            <choiceReferences>Yes</choiceReferences>
+            <choiceReferences>Yes_with_Comments</choiceReferences>
+            <choiceReferences>No_with_Comments</choiceReferences>
+            <dataType>String</dataType>
+            <defaultValue>
+                <elementReference>formCoversSecuredDefault</elementReference>
+            </defaultValue>
+            <fieldText>Covers Secured</fieldText>
+            <fieldType>DropdownBox</fieldType>
+            <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+            <isRequired>true</isRequired>
+            <styleProperties>
+                <verticalAlignment>
+                    <stringValue>top</stringValue>
+                </verticalAlignment>
+                <width>
+                    <stringValue>12</stringValue>
+                </width>
+            </styleProperties>
+        </fields>
+        <fields>
+            <name>Covers_Notes</name>
+            <defaultValue>
+                <stringValue>{!formCoversSecuredCommentsDefault}</stringValue>
+            </defaultValue>
+            <fieldText>Covers Notes</fieldText>
+            <fieldType>LargeTextArea</fieldType>
+            <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+            <isRequired>false</isRequired>
+            <styleProperties>
+                <verticalAlignment>
+                    <stringValue>top</stringValue>
+                </verticalAlignment>
+                <width>
+                    <stringValue>12</stringValue>
+                </width>
+            </styleProperties>
+        </fields>
+        <fields>
+            <name>Additional_Documentation_Ref</name>
+            <dataType>String</dataType>
+            <defaultValue>
+                <elementReference>formAdditionalDocumentationRefDefault</elementReference>
+            </defaultValue>
+            <fieldText>Additional Documentation Ref</fieldText>
+            <fieldType>InputField</fieldType>
+            <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+            <isRequired>false</isRequired>
+            <styleProperties>
+                <verticalAlignment>
+                    <stringValue>top</stringValue>
+                </verticalAlignment>
+                <width>
+                    <stringValue>12</stringValue>
+                </width>
+            </styleProperties>
+        </fields>
+        <fields>
+            <name>Final_Functional_Checks</name>
+            <choiceReferences>Yes</choiceReferences>
+            <choiceReferences>Yes_with_Comments</choiceReferences>
+            <choiceReferences>No_with_Comments</choiceReferences>
+            <dataType>String</dataType>
+            <defaultValue>
+                <elementReference>formFinalFunctionalChecksDefault</elementReference>
+            </defaultValue>
+            <fieldText>Final Functional Checks</fieldText>
+            <fieldType>DropdownBox</fieldType>
+            <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+            <isRequired>true</isRequired>
+            <styleProperties>
+                <verticalAlignment>
+                    <stringValue>top</stringValue>
+                </verticalAlignment>
+                <width>
+                    <stringValue>12</stringValue>
+                </width>
+            </styleProperties>
+        </fields>
+        <fields>
+            <name>Final_Functional_Check_Notes</name>
+            <defaultValue>
+                <stringValue>{!formFinalFunctionalCommentsDefault}</stringValue>
+            </defaultValue>
+            <fieldText>Final Functional Notes</fieldText>
+            <fieldType>LargeTextArea</fieldType>
+            <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+            <isRequired>false</isRequired>
+            <styleProperties>
+                <verticalAlignment>
+                    <stringValue>top</stringValue>
+                </verticalAlignment>
+                <width>
+                    <stringValue>12</stringValue>
+                </width>
+            </styleProperties>
+        </fields>
+        <fields>
+            <name>Final_Visual_Checks</name>
+            <choiceReferences>Yes</choiceReferences>
+            <choiceReferences>Yes_with_Comments</choiceReferences>
+            <choiceReferences>No_with_Comments</choiceReferences>
+            <dataType>String</dataType>
+            <defaultValue>
+                <elementReference>formFinalVisualChecksDefault</elementReference>
+            </defaultValue>
+            <fieldText>Final Visual Checks</fieldText>
+            <fieldType>DropdownBox</fieldType>
+            <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+            <isRequired>true</isRequired>
+            <styleProperties>
+                <verticalAlignment>
+                    <stringValue>top</stringValue>
+                </verticalAlignment>
+                <width>
+                    <stringValue>12</stringValue>
+                </width>
+            </styleProperties>
+        </fields>
+        <fields>
+            <name>Final_Visual_Notes</name>
+            <defaultValue>
+                <stringValue>{!formFinalVisualCommentsDefault}</stringValue>
+            </defaultValue>
+            <fieldText>Final Visual Notes</fieldText>
+            <fieldType>LargeTextArea</fieldType>
+            <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+            <isRequired>false</isRequired>
+            <styleProperties>
+                <verticalAlignment>
+                    <stringValue>top</stringValue>
+                </verticalAlignment>
+                <width>
+                    <stringValue>12</stringValue>
+                </width>
+            </styleProperties>
+        </fields>
+        <showFooter>true</showFooter>
+        <showHeader>true</showHeader>
+    </screens>
+    <screens>
+        <name>Gradient_System</name>
+        <label>Gradient System</label>
+        <locationX>176</locationX>
+        <locationY>890</locationY>
+        <allowBack>true</allowBack>
+        <allowFinish>false</allowFinish>
+        <allowPause>true</allowPause>
+        <connector>
+            <targetReference>Copy_3_of_Round_1_Update_Service_Appointment</targetReference>
+        </connector>
+        <fields>
+            <name>Check_gradient_coil_temp_sensors</name>
+            <choiceReferences>Pass</choiceReferences>
+            <choiceReferences>Fail_with_Comments</choiceReferences>
+            <choiceReferences>Pass_with_Comments</choiceReferences>
+            <dataType>String</dataType>
+            <defaultValue>
+                <elementReference>formCheckGradientCoilTempSensorsDefault</elementReference>
+            </defaultValue>
+            <fieldText>Check gradient coil temp sensors</fieldText>
+            <fieldType>DropdownBox</fieldType>
+            <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+            <isRequired>true</isRequired>
+            <styleProperties>
+                <verticalAlignment>
+                    <stringValue>top</stringValue>
+                </verticalAlignment>
+                <width>
+                    <stringValue>12</stringValue>
+                </width>
+            </styleProperties>
+        </fields>
+        <fields>
+            <name>Gradient_Coil_Temp_Sensor_Notes</name>
+            <defaultValue>
+                <stringValue>{!formGradientCoilTempSensorCommentsDefault}</stringValue>
+            </defaultValue>
+            <fieldText>Gradient Coil Temp Sensor Notes</fieldText>
+            <fieldType>LargeTextArea</fieldType>
+            <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+            <isRequired>false</isRequired>
+            <styleProperties>
+                <verticalAlignment>
+                    <stringValue>top</stringValue>
+                </verticalAlignment>
+                <width>
+                    <stringValue>12</stringValue>
+                </width>
+            </styleProperties>
+        </fields>
+        <fields>
+            <name>Check_cabinet_door_interlock</name>
+            <choiceReferences>Pass</choiceReferences>
+            <choiceReferences>Fail_with_Comments</choiceReferences>
+            <choiceReferences>Pass_with_Comments</choiceReferences>
+            <dataType>String</dataType>
+            <defaultValue>
+                <elementReference>formCheckCabinetDoorInterlockDefault</elementReference>
+            </defaultValue>
+            <fieldText>Check cabinet door interlock</fieldText>
+            <fieldType>DropdownBox</fieldType>
+            <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+            <isRequired>true</isRequired>
+            <styleProperties>
+                <verticalAlignment>
+                    <stringValue>top</stringValue>
+                </verticalAlignment>
+                <width>
+                    <stringValue>12</stringValue>
+                </width>
+            </styleProperties>
+        </fields>
+        <fields>
+            <name>Cabinet_Door_Interlock_Notes</name>
+            <defaultValue>
+                <stringValue>{!formCabinetDoorInterlockCommentsDefault}</stringValue>
+            </defaultValue>
+            <fieldText>Cabinet Door Interlock Notes</fieldText>
+            <fieldType>LargeTextArea</fieldType>
+            <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+            <isRequired>false</isRequired>
+            <styleProperties>
+                <verticalAlignment>
+                    <stringValue>top</stringValue>
+                </verticalAlignment>
+                <width>
+                    <stringValue>12</stringValue>
+                </width>
+            </styleProperties>
+        </fields>
+        <showFooter>true</showFooter>
+        <showHeader>true</showHeader>
+    </screens>
+    <screens>
+        <name>Liquid_cooling_system</name>
+        <label>Liquid cooling system</label>
+        <locationX>176</locationX>
+        <locationY>1106</locationY>
+        <allowBack>true</allowBack>
+        <allowFinish>false</allowFinish>
+        <allowPause>true</allowPause>
+        <connector>
+            <targetReference>Copy_4_of_Round_1_Update_Service_Appointment</targetReference>
+        </connector>
+        <fields>
+            <name>Check_hoses</name>
+            <choiceReferences>Pass</choiceReferences>
+            <choiceReferences>Fail_with_Comments</choiceReferences>
+            <choiceReferences>Pass_with_Comments</choiceReferences>
+            <dataType>String</dataType>
+            <defaultValue>
+                <elementReference>formCheckHosesDefault</elementReference>
+            </defaultValue>
+            <fieldText>Check hoses</fieldText>
+            <fieldType>DropdownBox</fieldType>
+            <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+            <isRequired>true</isRequired>
+            <styleProperties>
+                <verticalAlignment>
+                    <stringValue>top</stringValue>
+                </verticalAlignment>
+                <width>
+                    <stringValue>12</stringValue>
+                </width>
+            </styleProperties>
+        </fields>
+        <fields>
+            <name>Hoses_Notes</name>
+            <defaultValue>
+                <stringValue>{!formHosesCommentsDefault}</stringValue>
+            </defaultValue>
+            <fieldText>Hoses Notes</fieldText>
+            <fieldType>LargeTextArea</fieldType>
+            <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+            <isRequired>false</isRequired>
+            <styleProperties>
+                <verticalAlignment>
+                    <stringValue>top</stringValue>
+                </verticalAlignment>
+                <width>
+                    <stringValue>12</stringValue>
+                </width>
+            </styleProperties>
+        </fields>
+        <fields>
+            <name>Checkcoolantlevel</name>
+            <choiceReferences>Pass</choiceReferences>
+            <choiceReferences>Fail_with_Comments</choiceReferences>
+            <choiceReferences>Pass_with_Comments</choiceReferences>
+            <dataType>String</dataType>
+            <defaultValue>
+                <elementReference>formCheckCoolantLevelDefault</elementReference>
+            </defaultValue>
+            <fieldText>Check coolant level</fieldText>
+            <fieldType>DropdownBox</fieldType>
+            <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+            <isRequired>true</isRequired>
+            <styleProperties>
+                <verticalAlignment>
+                    <stringValue>top</stringValue>
+                </verticalAlignment>
+                <width>
+                    <stringValue>12</stringValue>
+                </width>
+            </styleProperties>
+        </fields>
+        <fields>
+            <name>Coolant_Level_Notes</name>
+            <defaultValue>
+                <stringValue>{!formCoolantLevelCommentsDefault}</stringValue>
+            </defaultValue>
+            <fieldText>Coolant Level Notes</fieldText>
+            <fieldType>LargeTextArea</fieldType>
+            <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+            <isRequired>false</isRequired>
+            <styleProperties>
+                <verticalAlignment>
+                    <stringValue>top</stringValue>
+                </verticalAlignment>
+                <width>
+                    <stringValue>12</stringValue>
+                </width>
+            </styleProperties>
+        </fields>
+        <showFooter>true</showFooter>
+        <showHeader>true</showHeader>
+    </screens>
+    <screens>
+        <name>Magnet</name>
+        <label>Magnet</label>
+        <locationX>176</locationX>
+        <locationY>1538</locationY>
+        <allowBack>true</allowBack>
+        <allowFinish>false</allowFinish>
+        <allowPause>true</allowPause>
+        <connector>
+            <targetReference>Round_2_Update_Service_Appointment</targetReference>
+        </connector>
+        <fields>
+            <name>Check_helium_level_and_boiloff</name>
+            <choiceReferences>Pass</choiceReferences>
+            <choiceReferences>Fail_with_Comments</choiceReferences>
+            <choiceReferences>Pass_with_Comments</choiceReferences>
+            <dataType>String</dataType>
+            <defaultValue>
+                <elementReference>formCheckHeliumLevelAndBoiloffDefault</elementReference>
+            </defaultValue>
+            <fieldText>Check helium level and boiloff</fieldText>
+            <fieldType>DropdownBox</fieldType>
+            <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+            <isRequired>true</isRequired>
+            <styleProperties>
+                <verticalAlignment>
+                    <stringValue>top</stringValue>
+                </verticalAlignment>
+                <width>
+                    <stringValue>12</stringValue>
+                </width>
+            </styleProperties>
+        </fields>
+        <fields>
+            <name>Helium_Level_and_Boiloff_Notes</name>
+            <defaultValue>
+                <stringValue>{!formHeliumLevelAndBoiloffCommentsDefault}</stringValue>
+            </defaultValue>
+            <fieldText>Helium Level and Boiloff Notes</fieldText>
+            <fieldType>LargeTextArea</fieldType>
+            <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+            <isRequired>false</isRequired>
+            <styleProperties>
+                <verticalAlignment>
+                    <stringValue>top</stringValue>
+                </verticalAlignment>
+                <width>
+                    <stringValue>12</stringValue>
+                </width>
+            </styleProperties>
+        </fields>
+        <fields>
+            <name>Check_magnet_pressure</name>
+            <choiceReferences>Pass</choiceReferences>
+            <choiceReferences>Fail_with_Comments</choiceReferences>
+            <choiceReferences>Pass_with_Comments</choiceReferences>
+            <dataType>String</dataType>
+            <defaultValue>
+                <elementReference>formCheckMagnetPressureDefault</elementReference>
+            </defaultValue>
+            <fieldText>Check magnet pressure</fieldText>
+            <fieldType>DropdownBox</fieldType>
+            <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+            <isRequired>true</isRequired>
+            <styleProperties>
+                <verticalAlignment>
+                    <stringValue>top</stringValue>
+                </verticalAlignment>
+                <width>
+                    <stringValue>12</stringValue>
+                </width>
+            </styleProperties>
+        </fields>
+        <fields>
+            <name>Magnet_Pressure_Notes</name>
+            <defaultValue>
+                <stringValue>{!formMagnetPressureCommentsDefault}</stringValue>
+            </defaultValue>
+            <fieldText>Magnet Pressure Notes</fieldText>
+            <fieldType>LargeTextArea</fieldType>
+            <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+            <isRequired>false</isRequired>
+            <styleProperties>
+                <verticalAlignment>
+                    <stringValue>top</stringValue>
+                </verticalAlignment>
+                <width>
+                    <stringValue>12</stringValue>
+                </width>
+            </styleProperties>
+        </fields>
+        <fields>
+            <name>Check_vent_pipe</name>
+            <choiceReferences>Pass</choiceReferences>
+            <choiceReferences>Fail_with_Comments</choiceReferences>
+            <choiceReferences>Pass_with_Comments</choiceReferences>
+            <dataType>String</dataType>
+            <defaultValue>
+                <elementReference>formCheckVentPipeDefault</elementReference>
+            </defaultValue>
+            <fieldText>Check vent pipe</fieldText>
+            <fieldType>DropdownBox</fieldType>
+            <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+            <isRequired>true</isRequired>
+            <styleProperties>
+                <verticalAlignment>
+                    <stringValue>top</stringValue>
+                </verticalAlignment>
+                <width>
+                    <stringValue>12</stringValue>
+                </width>
+            </styleProperties>
+        </fields>
+        <fields>
+            <name>Vent_Pipe_Notes</name>
+            <defaultValue>
+                <stringValue>{!formVentPipeCommentsDefault}</stringValue>
+            </defaultValue>
+            <fieldText>Vent Pipe Notes</fieldText>
+            <fieldType>LargeTextArea</fieldType>
+            <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+            <isRequired>false</isRequired>
+            <styleProperties>
+                <verticalAlignment>
+                    <stringValue>top</stringValue>
+                </verticalAlignment>
+                <width>
+                    <stringValue>12</stringValue>
+                </width>
+            </styleProperties>
+        </fields>
+        <fields>
+            <name>Check_water_drain</name>
+            <choiceReferences>Pass</choiceReferences>
+            <choiceReferences>Fail_with_Comments</choiceReferences>
+            <choiceReferences>Pass_with_Comments</choiceReferences>
+            <dataType>String</dataType>
+            <defaultValue>
+                <elementReference>formCheckWaterDrainDefault</elementReference>
+            </defaultValue>
+            <fieldText>Check water drain</fieldText>
+            <fieldType>DropdownBox</fieldType>
+            <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+            <isRequired>true</isRequired>
+            <styleProperties>
+                <verticalAlignment>
+                    <stringValue>top</stringValue>
+                </verticalAlignment>
+                <width>
+                    <stringValue>12</stringValue>
+                </width>
+            </styleProperties>
+        </fields>
+        <fields>
+            <name>Water_Drain_Notes</name>
+            <defaultValue>
+                <stringValue>{!formWaterDrainCommentsDefault}</stringValue>
+            </defaultValue>
+            <fieldText>Water Drain Notes</fieldText>
+            <fieldType>LargeTextArea</fieldType>
+            <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+            <isRequired>false</isRequired>
+            <styleProperties>
+                <verticalAlignment>
+                    <stringValue>top</stringValue>
+                </verticalAlignment>
+                <width>
+                    <stringValue>12</stringValue>
+                </width>
+            </styleProperties>
+        </fields>
+        <showFooter>true</showFooter>
+        <showHeader>true</showHeader>
+    </screens>
+    <screens>
+        <name>Operators_Console</name>
+        <label>Operators Console</label>
+        <locationX>176</locationX>
+        <locationY>2186</locationY>
+        <allowBack>true</allowBack>
+        <allowFinish>false</allowFinish>
+        <allowPause>true</allowPause>
+        <connector>
+            <targetReference>Round_3_Update_Service_Appointment</targetReference>
+        </connector>
+        <fields>
+            <name>Clean_Monitor</name>
+            <choiceReferences>Pass</choiceReferences>
+            <choiceReferences>Fail_with_Comments</choiceReferences>
+            <choiceReferences>Pass_with_Comments</choiceReferences>
+            <dataType>String</dataType>
+            <defaultValue>
+                <elementReference>formCleanMonitorDefault</elementReference>
+            </defaultValue>
+            <fieldText>Clean Monitor</fieldText>
+            <fieldType>DropdownBox</fieldType>
+            <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+            <isRequired>true</isRequired>
+            <styleProperties>
+                <verticalAlignment>
+                    <stringValue>top</stringValue>
+                </verticalAlignment>
+                <width>
+                    <stringValue>12</stringValue>
+                </width>
+            </styleProperties>
+        </fields>
+        <fields>
+            <name>Monitor_Notes</name>
+            <defaultValue>
+                <stringValue>{!formMonitorCommentsDefault}</stringValue>
+            </defaultValue>
+            <fieldText>Monitor Notes</fieldText>
+            <fieldType>LargeTextArea</fieldType>
+            <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+            <isRequired>false</isRequired>
+            <styleProperties>
+                <verticalAlignment>
+                    <stringValue>top</stringValue>
+                </verticalAlignment>
+                <width>
+                    <stringValue>12</stringValue>
+                </width>
+            </styleProperties>
+        </fields>
+        <fields>
+            <name>Clean_mouse_Keyboard</name>
+            <choiceReferences>Pass</choiceReferences>
+            <choiceReferences>Fail_with_Comments</choiceReferences>
+            <choiceReferences>Pass_with_Comments</choiceReferences>
+            <dataType>String</dataType>
+            <defaultValue>
+                <elementReference>formCleanMouseKeyboardDefault</elementReference>
+            </defaultValue>
+            <fieldText>Clean mouse &amp; Keyboard</fieldText>
+            <fieldType>DropdownBox</fieldType>
+            <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+            <isRequired>true</isRequired>
+            <styleProperties>
+                <verticalAlignment>
+                    <stringValue>top</stringValue>
+                </verticalAlignment>
+                <width>
+                    <stringValue>12</stringValue>
+                </width>
+            </styleProperties>
+        </fields>
+        <fields>
+            <name>Mouse_Keyboard_Notes</name>
+            <defaultValue>
+                <stringValue>{!formMouseKeyboardCommentsDefault}</stringValue>
+            </defaultValue>
+            <fieldText>Mouse &amp; Keyboard Notes</fieldText>
+            <fieldType>LargeTextArea</fieldType>
+            <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+            <isRequired>false</isRequired>
+            <styleProperties>
+                <verticalAlignment>
+                    <stringValue>top</stringValue>
+                </verticalAlignment>
+                <width>
+                    <stringValue>12</stringValue>
+                </width>
+            </styleProperties>
+        </fields>
+        <fields>
+            <name>Check_patient_communication</name>
+            <choiceReferences>Pass</choiceReferences>
+            <choiceReferences>Fail_with_Comments</choiceReferences>
+            <choiceReferences>Pass_with_Comments</choiceReferences>
+            <dataType>String</dataType>
+            <defaultValue>
+                <elementReference>formCheckPatientCommunicationDefault</elementReference>
+            </defaultValue>
+            <fieldText>Check patient communication</fieldText>
+            <fieldType>DropdownBox</fieldType>
+            <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+            <isRequired>true</isRequired>
+            <styleProperties>
+                <verticalAlignment>
+                    <stringValue>top</stringValue>
+                </verticalAlignment>
+                <width>
+                    <stringValue>12</stringValue>
+                </width>
+            </styleProperties>
+        </fields>
+        <fields>
+            <name>Patient_Communication_Notes</name>
+            <defaultValue>
+                <stringValue>{!formPatientCommunicationCommentsDefault}</stringValue>
+            </defaultValue>
+            <fieldText>Patient Communication Notes</fieldText>
+            <fieldType>LargeTextArea</fieldType>
+            <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+            <isRequired>false</isRequired>
+            <styleProperties>
+                <verticalAlignment>
+                    <stringValue>top</stringValue>
+                </verticalAlignment>
+                <width>
+                    <stringValue>12</stringValue>
+                </width>
+            </styleProperties>
+        </fields>
+        <showFooter>true</showFooter>
+        <showHeader>true</showHeader>
+    </screens>
+    <screens>
+        <name>Patient_Support</name>
+        <label>Patient Support</label>
+        <locationX>176</locationX>
+        <locationY>1754</locationY>
+        <allowBack>true</allowBack>
+        <allowFinish>false</allowFinish>
+        <allowPause>true</allowPause>
+        <connector>
+            <targetReference>Copy_2_of_Round_2_Update_Service_Appointment</targetReference>
+        </connector>
+        <fields>
+            <name>Check_safety_switches</name>
+            <choiceReferences>Pass</choiceReferences>
+            <choiceReferences>Fail_with_Comments</choiceReferences>
+            <choiceReferences>Pass_with_Comments</choiceReferences>
+            <dataType>String</dataType>
+            <defaultValue>
+                <elementReference>formCheckSafetySwitchesDefault</elementReference>
+            </defaultValue>
+            <fieldText>Check safety switches</fieldText>
+            <fieldType>DropdownBox</fieldType>
+            <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+            <isRequired>true</isRequired>
+            <styleProperties>
+                <verticalAlignment>
+                    <stringValue>top</stringValue>
+                </verticalAlignment>
+                <width>
+                    <stringValue>12</stringValue>
+                </width>
+            </styleProperties>
+        </fields>
+        <fields>
+            <name>Safety_Switch_Comments</name>
+            <defaultValue>
+                <stringValue>{!formSafetySwitchesCommentsDefault}</stringValue>
+            </defaultValue>
+            <fieldText>Safety Switch Notes</fieldText>
+            <fieldType>LargeTextArea</fieldType>
+            <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+            <isRequired>false</isRequired>
+            <styleProperties>
+                <verticalAlignment>
+                    <stringValue>top</stringValue>
+                </verticalAlignment>
+                <width>
+                    <stringValue>12</stringValue>
+                </width>
+            </styleProperties>
+        </fields>
+        <fields>
+            <name>Check_emergency_stop_function</name>
+            <choiceReferences>Pass</choiceReferences>
+            <choiceReferences>Fail_with_Comments</choiceReferences>
+            <choiceReferences>Pass_with_Comments</choiceReferences>
+            <dataType>String</dataType>
+            <defaultValue>
+                <elementReference>formCheckEmergencyStopFunctionDefault</elementReference>
+            </defaultValue>
+            <fieldText>Check emergency stop function</fieldText>
+            <fieldType>DropdownBox</fieldType>
+            <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+            <isRequired>true</isRequired>
+            <styleProperties>
+                <verticalAlignment>
+                    <stringValue>top</stringValue>
+                </verticalAlignment>
+                <width>
+                    <stringValue>12</stringValue>
+                </width>
+            </styleProperties>
+        </fields>
+        <fields>
+            <name>Emergency_Stop_Function_Comments</name>
+            <defaultValue>
+                <stringValue>{!formEmergencyStopFunctionCommentsDefault}</stringValue>
+            </defaultValue>
+            <fieldText>Emergency Stop Function Notes</fieldText>
+            <fieldType>LargeTextArea</fieldType>
+            <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+            <isRequired>false</isRequired>
+            <styleProperties>
+                <verticalAlignment>
+                    <stringValue>top</stringValue>
+                </verticalAlignment>
+                <width>
+                    <stringValue>12</stringValue>
+                </width>
+            </styleProperties>
+        </fields>
+        <fields>
+            <name>Check_manual_function</name>
+            <choiceReferences>Pass</choiceReferences>
+            <choiceReferences>Fail_with_Comments</choiceReferences>
+            <choiceReferences>Pass_with_Comments</choiceReferences>
+            <dataType>String</dataType>
+            <defaultValue>
+                <elementReference>formCheckManualFunctionDefault</elementReference>
+            </defaultValue>
+            <fieldText>Check manual function</fieldText>
+            <fieldType>DropdownBox</fieldType>
+            <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+            <isRequired>true</isRequired>
+            <styleProperties>
+                <verticalAlignment>
+                    <stringValue>top</stringValue>
+                </verticalAlignment>
+                <width>
+                    <stringValue>12</stringValue>
+                </width>
+            </styleProperties>
+        </fields>
+        <fields>
+            <name>Manual_Function_Comments</name>
+            <defaultValue>
+                <stringValue>{!formManualFunctionCommentsDefault}</stringValue>
+            </defaultValue>
+            <fieldText>Manual Function Notes</fieldText>
+            <fieldType>LargeTextArea</fieldType>
+            <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+            <isRequired>false</isRequired>
+            <styleProperties>
+                <verticalAlignment>
+                    <stringValue>top</stringValue>
+                </verticalAlignment>
+                <width>
+                    <stringValue>12</stringValue>
+                </width>
+            </styleProperties>
+        </fields>
+        <fields>
+            <name>Clean_table_for_damage</name>
+            <choiceReferences>Pass</choiceReferences>
+            <choiceReferences>Fail_with_Comments</choiceReferences>
+            <choiceReferences>Pass_with_Comments</choiceReferences>
+            <dataType>String</dataType>
+            <defaultValue>
+                <elementReference>formCleanTableForDamageDefault</elementReference>
+            </defaultValue>
+            <fieldText>Clean table for damage</fieldText>
+            <fieldType>DropdownBox</fieldType>
+            <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+            <isRequired>true</isRequired>
+            <styleProperties>
+                <verticalAlignment>
+                    <stringValue>top</stringValue>
+                </verticalAlignment>
+                <width>
+                    <stringValue>12</stringValue>
+                </width>
+            </styleProperties>
+        </fields>
+        <fields>
+            <name>Table_Comments</name>
+            <defaultValue>
+                <stringValue>{!formTableForDamageCommentsDefault}</stringValue>
+            </defaultValue>
+            <fieldText>Table Notes</fieldText>
+            <fieldType>LargeTextArea</fieldType>
+            <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+            <isRequired>false</isRequired>
+            <styleProperties>
+                <verticalAlignment>
+                    <stringValue>top</stringValue>
+                </verticalAlignment>
+                <width>
+                    <stringValue>12</stringValue>
+                </width>
+            </styleProperties>
+        </fields>
+        <fields>
+            <name>Check_bore_lights</name>
+            <choiceReferences>Pass</choiceReferences>
+            <choiceReferences>Fail_with_Comments</choiceReferences>
+            <choiceReferences>Pass_with_Comments</choiceReferences>
+            <dataType>String</dataType>
+            <defaultValue>
+                <elementReference>formCheckBoreLightsDefault</elementReference>
+            </defaultValue>
+            <fieldText>Check bore lights</fieldText>
+            <fieldType>DropdownBox</fieldType>
+            <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+            <isRequired>true</isRequired>
+            <styleProperties>
+                <verticalAlignment>
+                    <stringValue>top</stringValue>
+                </verticalAlignment>
+                <width>
+                    <stringValue>12</stringValue>
+                </width>
+            </styleProperties>
+        </fields>
+        <fields>
+            <name>Bore_Light_Comments</name>
+            <defaultValue>
+                <stringValue>{!formBoreLightsCommentsDefault}</stringValue>
+            </defaultValue>
+            <fieldText>Bore Light Notes</fieldText>
+            <fieldType>LargeTextArea</fieldType>
+            <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+            <isRequired>false</isRequired>
+            <styleProperties>
+                <verticalAlignment>
+                    <stringValue>top</stringValue>
+                </verticalAlignment>
+                <width>
+                    <stringValue>12</stringValue>
+                </width>
+            </styleProperties>
+        </fields>
+        <fields>
+            <name>Check_patient_alarm</name>
+            <choiceReferences>Pass</choiceReferences>
+            <choiceReferences>Fail_with_Comments</choiceReferences>
+            <choiceReferences>Pass_with_Comments</choiceReferences>
+            <dataType>String</dataType>
+            <defaultValue>
+                <elementReference>formCheckPatientAlarmDefault</elementReference>
+            </defaultValue>
+            <fieldText>Check patient alarm</fieldText>
+            <fieldType>DropdownBox</fieldType>
+            <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+            <isRequired>true</isRequired>
+            <styleProperties>
+                <verticalAlignment>
+                    <stringValue>top</stringValue>
+                </verticalAlignment>
+                <width>
+                    <stringValue>12</stringValue>
+                </width>
+            </styleProperties>
+        </fields>
+        <fields>
+            <name>Patient_Alarm_Comments</name>
+            <defaultValue>
+                <stringValue>{!formPatientAlarmCommentsDefault}</stringValue>
+            </defaultValue>
+            <fieldText>Patient Alarm Notes</fieldText>
+            <fieldType>LargeTextArea</fieldType>
+            <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+            <isRequired>false</isRequired>
+            <styleProperties>
+                <verticalAlignment>
+                    <stringValue>top</stringValue>
+                </verticalAlignment>
+                <width>
+                    <stringValue>12</stringValue>
+                </width>
+            </styleProperties>
+        </fields>
+        <fields>
+            <name>Check_finger_protection_plate</name>
+            <choiceReferences>Pass</choiceReferences>
+            <choiceReferences>Fail_with_Comments</choiceReferences>
+            <choiceReferences>Pass_with_Comments</choiceReferences>
+            <dataType>String</dataType>
+            <defaultValue>
+                <elementReference>formCheckFingerProtectionPlateDefault</elementReference>
+            </defaultValue>
+            <fieldText>Check finger protection plate</fieldText>
+            <fieldType>DropdownBox</fieldType>
+            <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+            <isRequired>true</isRequired>
+            <styleProperties>
+                <verticalAlignment>
+                    <stringValue>top</stringValue>
+                </verticalAlignment>
+                <width>
+                    <stringValue>12</stringValue>
+                </width>
+            </styleProperties>
+        </fields>
+        <fields>
+            <name>Finger_Protection_Plate_Comments</name>
+            <defaultValue>
+                <stringValue>{!formFingerProtectionPlateCommentsDefault}</stringValue>
+            </defaultValue>
+            <fieldText>Finger Protection Plate Notes</fieldText>
+            <fieldType>LargeTextArea</fieldType>
+            <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+            <isRequired>false</isRequired>
+            <styleProperties>
+                <verticalAlignment>
+                    <stringValue>top</stringValue>
+                </verticalAlignment>
+                <width>
+                    <stringValue>12</stringValue>
+                </width>
+            </styleProperties>
+        </fields>
+        <showFooter>true</showFooter>
+        <showHeader>true</showHeader>
+    </screens>
+    <screens>
+        <name>Refridgeration_system</name>
+        <label>Refridgeration system</label>
+        <locationX>176</locationX>
+        <locationY>1322</locationY>
+        <allowBack>true</allowBack>
+        <allowFinish>false</allowFinish>
+        <allowPause>true</allowPause>
+        <connector>
+            <targetReference>Copy_5_of_Round_1_Update_Service_Appointment</targetReference>
+        </connector>
+        <fields>
+            <name>Check_compressor_pressure</name>
+            <choiceReferences>Pass</choiceReferences>
+            <choiceReferences>Fail_with_Comments</choiceReferences>
+            <choiceReferences>Pass_with_Comments</choiceReferences>
+            <dataType>String</dataType>
+            <defaultValue>
+                <elementReference>formCheckCompressorPressureDefault</elementReference>
+            </defaultValue>
+            <fieldText>Check compressor pressure</fieldText>
+            <fieldType>DropdownBox</fieldType>
+            <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+            <isRequired>true</isRequired>
+            <styleProperties>
+                <verticalAlignment>
+                    <stringValue>top</stringValue>
+                </verticalAlignment>
+                <width>
+                    <stringValue>12</stringValue>
+                </width>
+            </styleProperties>
+        </fields>
+        <fields>
+            <name>Compressor_Pressure_Comments</name>
+            <defaultValue>
+                <stringValue>{!formCompressorPressureCommentsDefault}</stringValue>
+            </defaultValue>
+            <fieldText>Compressor Pressure Notes</fieldText>
+            <fieldType>LargeTextArea</fieldType>
+            <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+            <isRequired>false</isRequired>
+            <styleProperties>
+                <verticalAlignment>
+                    <stringValue>top</stringValue>
+                </verticalAlignment>
+                <width>
+                    <stringValue>12</stringValue>
+                </width>
+            </styleProperties>
+        </fields>
+        <fields>
+            <name>Check_chilled_water_supply</name>
+            <choiceReferences>Pass</choiceReferences>
+            <choiceReferences>Fail_with_Comments</choiceReferences>
+            <choiceReferences>Pass_with_Comments</choiceReferences>
+            <dataType>String</dataType>
+            <defaultValue>
+                <elementReference>formCheckChilledWaterSupplyDefault</elementReference>
+            </defaultValue>
+            <fieldText>Check chilled water supply</fieldText>
+            <fieldType>DropdownBox</fieldType>
+            <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+            <isRequired>true</isRequired>
+            <styleProperties>
+                <verticalAlignment>
+                    <stringValue>top</stringValue>
+                </verticalAlignment>
+                <width>
+                    <stringValue>12</stringValue>
+                </width>
+            </styleProperties>
+        </fields>
+        <fields>
+            <name>Chilled_Water_Supply_Comments</name>
+            <defaultValue>
+                <stringValue>{!formChilledWaterSupplyCommentsDefault}</stringValue>
+            </defaultValue>
+            <fieldText>Chilled Water Supply Notes</fieldText>
+            <fieldType>LargeTextArea</fieldType>
+            <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+            <isRequired>false</isRequired>
+            <styleProperties>
+                <verticalAlignment>
+                    <stringValue>top</stringValue>
+                </verticalAlignment>
+                <width>
+                    <stringValue>12</stringValue>
+                </width>
+            </styleProperties>
+        </fields>
+        <showFooter>true</showFooter>
+        <showHeader>true</showHeader>
+    </screens>
+    <screens>
+        <name>RF</name>
+        <label>RF</label>
+        <locationX>176</locationX>
+        <locationY>674</locationY>
+        <allowBack>true</allowBack>
+        <allowFinish>false</allowFinish>
+        <allowPause>true</allowPause>
+        <connector>
+            <targetReference>Copy_1_of_Round_1_Update_Service_Appointment</targetReference>
+        </connector>
+        <fields>
+            <name>Check_RF_coils_for_damage</name>
+            <choiceReferences>Pass</choiceReferences>
+            <choiceReferences>Fail_with_Comments</choiceReferences>
+            <choiceReferences>Pass_with_Comments</choiceReferences>
+            <dataType>String</dataType>
+            <defaultValue>
+                <elementReference>formCheckRFCoilsForDamageDefault</elementReference>
+            </defaultValue>
+            <fieldText>Check RF coils for damage</fieldText>
+            <fieldType>DropdownBox</fieldType>
+            <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+            <isRequired>true</isRequired>
+            <styleProperties>
+                <verticalAlignment>
+                    <stringValue>top</stringValue>
+                </verticalAlignment>
+                <width>
+                    <stringValue>12</stringValue>
+                </width>
+            </styleProperties>
+        </fields>
+        <fields>
+            <name>RF_Coils_Notes</name>
+            <defaultValue>
+                <stringValue>{!formRFCoilCommentsDefault}</stringValue>
+            </defaultValue>
+            <fieldText>RF Coils Notes</fieldText>
+            <fieldType>LargeTextArea</fieldType>
+            <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+            <isRequired>false</isRequired>
+            <styleProperties>
+                <verticalAlignment>
+                    <stringValue>top</stringValue>
+                </verticalAlignment>
+                <width>
+                    <stringValue>12</stringValue>
+                </width>
+            </styleProperties>
+        </fields>
+        <fields>
+            <name>Check_RF_cage_for_damage</name>
+            <choiceReferences>Pass</choiceReferences>
+            <choiceReferences>Fail_with_Comments</choiceReferences>
+            <choiceReferences>Pass_with_Comments</choiceReferences>
+            <dataType>String</dataType>
+            <defaultValue>
+                <elementReference>formCheckRFCageForDamageDefault</elementReference>
+            </defaultValue>
+            <fieldText>Check RF cage for damage</fieldText>
+            <fieldType>DropdownBox</fieldType>
+            <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+            <isRequired>true</isRequired>
+            <styleProperties>
+                <verticalAlignment>
+                    <stringValue>top</stringValue>
+                </verticalAlignment>
+                <width>
+                    <stringValue>12</stringValue>
+                </width>
+            </styleProperties>
+        </fields>
+        <fields>
+            <name>RF_Cage_Notes</name>
+            <defaultValue>
+                <stringValue>{!formRFCageCommentsDefault}</stringValue>
+            </defaultValue>
+            <fieldText>RF Cage Notes</fieldText>
+            <fieldType>LargeTextArea</fieldType>
+            <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+            <isRequired>false</isRequired>
+            <styleProperties>
+                <verticalAlignment>
+                    <stringValue>top</stringValue>
+                </verticalAlignment>
+                <width>
+                    <stringValue>12</stringValue>
+                </width>
+            </styleProperties>
+        </fields>
+        <showFooter>true</showFooter>
+        <showHeader>true</showHeader>
+    </screens>
+    <screens>
+        <name>Software</name>
+        <label>Software</label>
+        <locationX>176</locationX>
+        <locationY>2402</locationY>
+        <allowBack>true</allowBack>
+        <allowFinish>false</allowFinish>
+        <allowPause>true</allowPause>
+        <connector>
+            <targetReference>Copy_2_of_Round_3_Update_Service_Appointment</targetReference>
+        </connector>
+        <fields>
+            <name>Clean_up_disk_and_defrag_if_required</name>
+            <choiceReferences>Pass</choiceReferences>
+            <choiceReferences>Fail_with_Comments</choiceReferences>
+            <choiceReferences>Pass_with_Comments</choiceReferences>
+            <dataType>String</dataType>
+            <defaultValue>
+                <elementReference>formCleanUpDiskAndDefragIfRequiredDefault</elementReference>
+            </defaultValue>
+            <fieldText>Clean up disk and defrag if required</fieldText>
+            <fieldType>DropdownBox</fieldType>
+            <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+            <isRequired>true</isRequired>
+            <styleProperties>
+                <verticalAlignment>
+                    <stringValue>top</stringValue>
+                </verticalAlignment>
+                <width>
+                    <stringValue>12</stringValue>
+                </width>
+            </styleProperties>
+        </fields>
+        <fields>
+            <name>Disk_Health_Notes</name>
+            <defaultValue>
+                <stringValue>{!formDiskHealthCommentsDefault}</stringValue>
+            </defaultValue>
+            <fieldText>Disk Health Notes</fieldText>
+            <fieldType>LargeTextArea</fieldType>
+            <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+            <isRequired>false</isRequired>
+            <styleProperties>
+                <verticalAlignment>
+                    <stringValue>top</stringValue>
+                </verticalAlignment>
+                <width>
+                    <stringValue>12</stringValue>
+                </width>
+            </styleProperties>
+        </fields>
+        <fields>
+            <name>Backup_system_software</name>
+            <choiceReferences>Pass</choiceReferences>
+            <choiceReferences>Fail_with_Comments</choiceReferences>
+            <choiceReferences>Pass_with_Comments</choiceReferences>
+            <dataType>String</dataType>
+            <defaultValue>
+                <elementReference>formBackupSystemSoftwareDefault</elementReference>
+            </defaultValue>
+            <fieldText>Backup system software</fieldText>
+            <fieldType>DropdownBox</fieldType>
+            <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+            <isRequired>true</isRequired>
+            <styleProperties>
+                <verticalAlignment>
+                    <stringValue>top</stringValue>
+                </verticalAlignment>
+                <width>
+                    <stringValue>12</stringValue>
+                </width>
+            </styleProperties>
+        </fields>
+        <fields>
+            <name>Backup_Notes</name>
+            <defaultValue>
+                <stringValue>{!formBackupCommentsDefault}</stringValue>
+            </defaultValue>
+            <fieldText>Backup Notes</fieldText>
+            <fieldType>LargeTextArea</fieldType>
+            <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+            <isRequired>false</isRequired>
+            <styleProperties>
+                <verticalAlignment>
+                    <stringValue>top</stringValue>
+                </verticalAlignment>
+                <width>
+                    <stringValue>12</stringValue>
+                </width>
+            </styleProperties>
+        </fields>
+        <showFooter>true</showFooter>
+        <showHeader>true</showHeader>
+    </screens>
+    <screens>
+        <name>System_Imaging_Checks</name>
+        <label>System Imaging Checks</label>
+        <locationX>176</locationX>
+        <locationY>1970</locationY>
+        <allowBack>true</allowBack>
+        <allowFinish>false</allowFinish>
+        <allowPause>true</allowPause>
+        <connector>
+            <targetReference>Copy_1_of_Round_2_Update_Service_Appointment</targetReference>
+        </connector>
+        <fields>
+            <name>Run_PIQT</name>
+            <choiceReferences>Pass</choiceReferences>
+            <choiceReferences>Fail_with_Comments</choiceReferences>
+            <choiceReferences>Pass_with_Comments</choiceReferences>
+            <dataType>String</dataType>
+            <defaultValue>
+                <elementReference>formRunPIQTDefault</elementReference>
+            </defaultValue>
+            <fieldText>Run PIQT</fieldText>
+            <fieldType>DropdownBox</fieldType>
+            <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+            <isRequired>true</isRequired>
+            <styleProperties>
+                <verticalAlignment>
+                    <stringValue>top</stringValue>
+                </verticalAlignment>
+                <width>
+                    <stringValue>12</stringValue>
+                </width>
+            </styleProperties>
+        </fields>
+        <fields>
+            <name>PIQT_Comments</name>
+            <defaultValue>
+                <stringValue>{!formPIQTCommentsDefault}</stringValue>
+            </defaultValue>
+            <fieldText>PIQT Notes</fieldText>
+            <fieldType>LargeTextArea</fieldType>
+            <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+            <isRequired>false</isRequired>
+            <styleProperties>
+                <verticalAlignment>
+                    <stringValue>top</stringValue>
+                </verticalAlignment>
+                <width>
+                    <stringValue>12</stringValue>
+                </width>
+            </styleProperties>
+        </fields>
+        <fields>
+            <name>RunSpike_batch_scans</name>
+            <choiceReferences>Pass</choiceReferences>
+            <choiceReferences>Fail_with_Comments</choiceReferences>
+            <choiceReferences>Pass_with_Comments</choiceReferences>
+            <dataType>String</dataType>
+            <defaultValue>
+                <elementReference>formRunSpikeBatchScansDefault</elementReference>
+            </defaultValue>
+            <fieldText>RunSpike batch scans</fieldText>
+            <fieldType>DropdownBox</fieldType>
+            <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+            <isRequired>true</isRequired>
+            <styleProperties>
+                <verticalAlignment>
+                    <stringValue>top</stringValue>
+                </verticalAlignment>
+                <width>
+                    <stringValue>12</stringValue>
+                </width>
+            </styleProperties>
+        </fields>
+        <fields>
+            <name>RunSpike_Comments</name>
+            <defaultValue>
+                <stringValue>{!formRunSpikeBatchScansCommentsDefault}</stringValue>
+            </defaultValue>
+            <fieldText>RunSpike Notes</fieldText>
+            <fieldType>LargeTextArea</fieldType>
+            <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+            <isRequired>false</isRequired>
+            <styleProperties>
+                <verticalAlignment>
+                    <stringValue>top</stringValue>
+                </verticalAlignment>
+                <width>
+                    <stringValue>12</stringValue>
+                </width>
+            </styleProperties>
+        </fields>
+        <fields>
+            <name>Run_Spurious_noise_checks</name>
+            <choiceReferences>Pass</choiceReferences>
+            <choiceReferences>Fail_with_Comments</choiceReferences>
+            <choiceReferences>Pass_with_Comments</choiceReferences>
+            <dataType>String</dataType>
+            <defaultValue>
+                <elementReference>formRunSpuriousNoiseChecksDefault</elementReference>
+            </defaultValue>
+            <fieldText>Run Spurious noise checks</fieldText>
+            <fieldType>DropdownBox</fieldType>
+            <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+            <isRequired>true</isRequired>
+            <styleProperties>
+                <verticalAlignment>
+                    <stringValue>top</stringValue>
+                </verticalAlignment>
+                <width>
+                    <stringValue>12</stringValue>
+                </width>
+            </styleProperties>
+        </fields>
+        <fields>
+            <name>Noise_Check_Comments</name>
+            <defaultValue>
+                <stringValue>{!formSpuriousNoiseCommentsDefault}</stringValue>
+            </defaultValue>
+            <fieldText>Noise Check Notes</fieldText>
+            <fieldType>LargeTextArea</fieldType>
+            <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+            <isRequired>false</isRequired>
+            <styleProperties>
+                <verticalAlignment>
+                    <stringValue>top</stringValue>
+                </verticalAlignment>
+                <width>
+                    <stringValue>12</stringValue>
+                </width>
+            </styleProperties>
+        </fields>
+        <fields>
+            <name>Run_VSWR_scan</name>
+            <choiceReferences>Pass</choiceReferences>
+            <choiceReferences>Fail_with_Comments</choiceReferences>
+            <choiceReferences>Pass_with_Comments</choiceReferences>
+            <dataType>String</dataType>
+            <defaultValue>
+                <elementReference>formRunVSWRScanDefault</elementReference>
+            </defaultValue>
+            <fieldText>Run VSWR scan</fieldText>
+            <fieldType>DropdownBox</fieldType>
+            <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+            <isRequired>true</isRequired>
+            <styleProperties>
+                <verticalAlignment>
+                    <stringValue>top</stringValue>
+                </verticalAlignment>
+                <width>
+                    <stringValue>12</stringValue>
+                </width>
+            </styleProperties>
+        </fields>
+        <fields>
+            <name>VSWR_Comments</name>
+            <defaultValue>
+                <stringValue>{!formVSWRScanCommentsDefault}</stringValue>
+            </defaultValue>
+            <fieldText>VSWR Notes</fieldText>
+            <fieldType>LargeTextArea</fieldType>
+            <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+            <isRequired>false</isRequired>
+            <styleProperties>
+                <verticalAlignment>
+                    <stringValue>top</stringValue>
+                </verticalAlignment>
+                <width>
+                    <stringValue>12</stringValue>
+                </width>
+            </styleProperties>
+        </fields>
+        <showFooter>true</showFooter>
+        <showHeader>true</showHeader>
+    </screens>
+    <screens>
+        <name>Work_Step_Completion</name>
+        <label>General Checks</label>
+        <locationX>176</locationX>
+        <locationY>242</locationY>
+        <allowBack>true</allowBack>
+        <allowFinish>false</allowFinish>
+        <allowPause>true</allowPause>
+        <connector>
+            <targetReference>Update_General_Checks</targetReference>
+        </connector>
+        <fields>
+            <name>GeneralChecks</name>
+            <fieldText>&lt;p&gt;General Checks&lt;/p&gt;</fieldText>
+            <fieldType>DisplayText</fieldType>
+            <styleProperties>
+                <verticalAlignment>
+                    <stringValue>top</stringValue>
+                </verticalAlignment>
+                <width>
+                    <stringValue>12</stringValue>
+                </width>
+            </styleProperties>
+        </fields>
+        <fields>
+            <name>Visual_Inspection_General</name>
+            <choiceReferences>Pass</choiceReferences>
+            <choiceReferences>Fail_with_Comments</choiceReferences>
+            <choiceReferences>Pass_with_Comments</choiceReferences>
+            <dataType>String</dataType>
+            <defaultValue>
+                <elementReference>formVisualInspectionDefault</elementReference>
+            </defaultValue>
+            <fieldText>Visual Inspection</fieldText>
+            <fieldType>DropdownBox</fieldType>
+            <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+            <isRequired>true</isRequired>
+            <styleProperties>
+                <verticalAlignment>
+                    <stringValue>top</stringValue>
+                </verticalAlignment>
+                <width>
+                    <stringValue>12</stringValue>
+                </width>
+            </styleProperties>
+        </fields>
+        <fields>
+            <name>Visual_Inspection_Comments</name>
+            <defaultValue>
+                <stringValue>{!formVisualInspectionCommentsDefault}</stringValue>
+            </defaultValue>
+            <fieldText>Visual Inspection Notes</fieldText>
+            <fieldType>LargeTextArea</fieldType>
+            <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+            <isRequired>false</isRequired>
+            <styleProperties>
+                <verticalAlignment>
+                    <stringValue>top</stringValue>
+                </verticalAlignment>
+                <width>
+                    <stringValue>12</stringValue>
+                </width>
+            </styleProperties>
+        </fields>
+        <fields>
+            <name>Error_Logs</name>
+            <choiceReferences>Pass</choiceReferences>
+            <choiceReferences>Fail_with_Comments</choiceReferences>
+            <choiceReferences>Pass_with_Comments</choiceReferences>
+            <dataType>String</dataType>
+            <defaultValue>
+                <elementReference>formErrorLogsDefault</elementReference>
+            </defaultValue>
+            <fieldText>Error Logs</fieldText>
+            <fieldType>DropdownBox</fieldType>
+            <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+            <isRequired>true</isRequired>
+            <styleProperties>
+                <verticalAlignment>
+                    <stringValue>top</stringValue>
+                </verticalAlignment>
+                <width>
+                    <stringValue>12</stringValue>
+                </width>
+            </styleProperties>
+        </fields>
+        <fields>
+            <name>Error_Logs_Comments</name>
+            <defaultValue>
+                <stringValue>{!formErrorLogsCommentsDefault}</stringValue>
+            </defaultValue>
+            <fieldText>Error Logs Notes</fieldText>
+            <fieldType>LargeTextArea</fieldType>
+            <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+            <isRequired>false</isRequired>
+            <styleProperties>
+                <verticalAlignment>
+                    <stringValue>top</stringValue>
+                </verticalAlignment>
+                <width>
+                    <stringValue>12</stringValue>
+                </width>
+            </styleProperties>
+        </fields>
+        <showFooter>true</showFooter>
+        <showHeader>true</showHeader>
+    </screens>
+    <start>
+        <locationX>50</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>get_service_appointment</targetReference>
+        </connector>
+    </start>
+    <status>Draft</status>
+    <textTemplates>
+        <name>varTextTemplateFinal</name>
+        <isViewedAsPlainText>false</isViewedAsPlainText>
+        <text>&lt;p&gt;{!InputChecklistOutput1}&lt;/p&gt;&lt;p&gt;{!InputChecklistOutput2}&lt;/p&gt;&lt;p&gt;{!InputChecklistOutput3}&lt;/p&gt;</text>
+    </textTemplates>
+    <variables>
+        <name>Checklistoutput</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>true</isOutput>
+        <value>
+            <elementReference>Fullchecklistoutput</elementReference>
+        </value>
+    </variables>
+    <variables>
+        <name>InputChecklistOutput1</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <name>InputChecklistOutput2</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <name>InputChecklistOutput3</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <name>OutputFormatFetched</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <name>ServiceAppointmentId</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <name>Target_Work_Order</name>
+        <dataType>SObject</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+        <objectType>WorkOrder</objectType>
+    </variables>
+    <variables>
+        <name>Visual_Inspection_Comments_Variable</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+        <value>
+            <stringValue> </stringValue>
+        </value>
+    </variables>
+</Flow>

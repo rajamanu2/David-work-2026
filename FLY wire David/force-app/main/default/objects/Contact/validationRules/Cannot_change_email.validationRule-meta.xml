@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Cannot_change_email</fullName>
+    <active>true</active>
+    <description>Created for SALDEV-1058.</description>
+    <errorConditionFormula>AND(
+				ISCHANGED(Email),
+ 				 ISBLANK(Txt_Flow_Trigger__c))</errorConditionFormula>
+    <errorMessage>You cannot change an email address, you must click the &quot;Update Email&quot; button in the Top Left corner of the Page</errorMessage>
+</ValidationRule>

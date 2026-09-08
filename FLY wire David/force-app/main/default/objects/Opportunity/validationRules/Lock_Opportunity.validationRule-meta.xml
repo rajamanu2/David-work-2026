@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Lock_Opportunity</fullName>
+    <active>true</active>
+    <description>BOPI-600 updated to prevent auto renewals from stopping</description>
+    <errorConditionFormula>Lock_Opportunity__c  
+&amp;&amp; NOT(ISCHANGED(Lock_Opportunity__c))
+&amp;&amp; NOT(ISPICKVAL(Type, &quot;Renewal&quot;))
+&amp;&amp; NOT(ISPICKVAL(Type, &quot;Auto Renewal&quot;))</errorConditionFormula>
+    <errorMessage>Opportunity locked. Please ask help from your admin.</errorMessage>
+</ValidationRule>

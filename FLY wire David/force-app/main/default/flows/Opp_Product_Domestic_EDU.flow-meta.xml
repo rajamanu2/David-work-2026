@@ -1,0 +1,577 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>61.0</apiVersion>
+    <areMetricsLoggedToDataCloud>false</areMetricsLoggedToDataCloud>
+    <decisions>
+        <name>Opp_meets_criteria</name>
+        <label>Opp meets criteria?</label>
+        <locationX>974</locationX>
+        <locationY>323</locationY>
+        <defaultConnectorLabel>Exit Flow</defaultConnectorLabel>
+        <rules>
+            <name>Yes</name>
+            <conditionLogic>1 AND 2</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Opportunity.IsClosed</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Opportunity.RecordType.DeveloperName</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Education</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Quote_Line_Type</targetReference>
+            </connector>
+            <label>Yes</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Quote_Line_Type</name>
+        <label>Quote Line Type</label>
+        <locationX>578</locationX>
+        <locationY>431</locationY>
+        <defaultConnectorLabel>None</defaultConnectorLabel>
+        <rules>
+            <name>Renewal</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Quote_Line_Type__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Renewal</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Get_Original_Opportunity_Product_Renewal</targetReference>
+            </connector>
+            <label>Renewal</label>
+        </rules>
+        <rules>
+            <name>Cancellation</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Quote_Line_Type__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Cancellation</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Get_Original_Opportunity_Product_Cancellation</targetReference>
+            </connector>
+            <label>Cancellation</label>
+        </rules>
+        <rules>
+            <name>Amendment</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Quote_Line_Type__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Amendment</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Amendment_No_ARR</targetReference>
+            </connector>
+            <label>Amendment</label>
+        </rules>
+        <rules>
+            <name>Calculate_ARR</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Quote_Line_Type__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>New</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Get_Current_FX_rate</targetReference>
+            </connector>
+            <label>Calculate ARR</label>
+        </rules>
+    </decisions>
+    <description>Products in this calculation:
+Cross Border Payments - FWCCY1000
+
+Use Quote_Line_Type__c instead of Opportunity.Type 07/26/2024. Different formula for UK when usage is Amt 08/08/2024. Updated 09/04/2024 include surcharge in calculations and use # of transactions when usage is amount. BOPI-511 Updated to calculate ARR when Quote Line Type not &apos;Cancellation&apos; or &apos;Renewal&apos;. BOPI-603 updated to set ARR to 0 for cancelled lines. BOPI-620 updated to set the ARR for cancelled lines to the original amount as a negative value. BOPI-650 Updated to account for Canada card cost
+
+BOPI-798 Update this flow to calculate the ARR for all the regions
+
+SALDEV-1151 – Updated with new logic, calc, and metadata – OPP_ARR_EDU_Domestic_Cost_Rate__mdt</description>
+    <environments>Default</environments>
+    <formulas>
+        <name>Cancelled_ARR</name>
+        <dataType>Number</dataType>
+        <expression>{!Get_Original_Opportunity_Product_Cancellation.Opp_Product_ARR__c} * (-1)</expression>
+        <scale>2</scale>
+    </formulas>
+    <formulas>
+        <name>DOM_ARR</name>
+        <dataType>Number</dataType>
+        <expression>IF(
+    ISPICKVAL({!$Record.SBQQ__QuoteLine__r.Usage_Type__c},&apos;Percent&apos;),
+    (
+        (
+            (
+                {!$Record.SBQQ__QuoteLine__r.Annual_Total_CC_Volume__c} - 
+                BLANKVALUE({!$Record.SBQQ__QuoteLine__r.Annual_Total_Surcharge_Volume__c}, 0)
+            ) * (BLANKVALUE({!$Record.SBQQ__QuoteLine__r.Quoted_Usage_Percent__c}, 0) / 100)
+              * {!UtilizationRate}
+        ) + (BLANKVALUE({!$Record.SBQQ__QuoteLine__r.Annual_Total_Surcharge_Volume__c},0) * 0.03)
+    ) / {!ConversionRate},
+    (
+        (
+            (
+                {!$Record.SBQQ__QuoteLine__r.Annual_Number_of_Domestic_Transactions__c} - BLANKVALUE({!$Record.SBQQ__QuoteLine__r.Annual_No_Surcharge_Transactions__c}, 0)
+            ) * (BLANKVALUE({!$Record.SBQQ__QuoteLine__r.Quoted_Usage_Amt__c},0) / {!ConversionRate})
+              * {!UtilizationRate}
+        ) + (BLANKVALUE({!$Record.SBQQ__QuoteLine__r.Annual_No_Surcharge_Transactions__c}, 0) * 0.03)
+    )
+)</expression>
+        <scale>0</scale>
+    </formulas>
+    <formulas>
+        <name>DOM_Commision_ARR</name>
+        <dataType>Number</dataType>
+        <expression>IF(
+      ISPICKVAL({!$Record.SBQQ__QuoteLine__r.Usage_Type__c},&apos;Percent&apos;),
+      (
+          (
+              (
+                  {!$Record.SBQQ__QuoteLine__r.Annual_Total_CC_Volume__c} -
+                  BLANKVALUE({!$Record.SBQQ__QuoteLine__r.Annual_Total_Surcharge_Volume__c}, 0)
+              ) * ((BLANKVALUE({!$Record.SBQQ__QuoteLine__r.Quoted_Usage_Percent__c}, 0) / 100) - {!STDCostRate})
+                * {!UtilizationRate}
+          ) + (BLANKVALUE({!$Record.SBQQ__QuoteLine__r.Annual_Total_Surcharge_Volume__c},0) * 0.03)
+      ) / {!ConversionRate},
+      (
+          (
+              (
+                  {!$Record.SBQQ__QuoteLine__r.Annual_Number_of_Domestic_Transactions__c} - BLANKVALUE({!$Record.SBQQ__QuoteLine__r.Annual_No_Surcharge_Transactions__c}, 0)
+              ) * (BLANKVALUE({!$Record.SBQQ__QuoteLine__r.Quoted_Usage_Amt__c},0) / {!ConversionRate})
+                * {!UtilizationRate}
+          ) + (BLANKVALUE({!$Record.SBQQ__QuoteLine__r.Annual_No_Surcharge_Transactions__c}, 0) * 0.03)
+      )
+  )</expression>
+        <scale>0</scale>
+    </formulas>
+    <formulas>
+        <name>DOM_Revenue_Calculated_Text</name>
+        <dataType>String</dataType>
+        <expression>&quot;Domestic Payments - (((&quot; + 
+IF(
+{!QuotedUsageRatePercent} &gt; 0,
+TEXT({!$Record.SBQQ__QuoteLine__r.Annual_Total_CC_Volume__c}) + &quot; - &quot; + TEXT({!$Record.SBQQ__QuoteLine__r.Annual_Total_Surcharge_Volume__c}) + &quot;) * &quot; + TEXT({!QuotedUsageRatePercent} / 100) + &quot;) + (&quot; + TEXT({!$Record.SBQQ__QuoteLine__r.Annual_Total_Surcharge_Volume__c}) + &quot; * 0.03) * 0.7) / &quot; + TEXT({!ConversionRate}),
+TEXT({!$Record.SBQQ__QuoteLine__r.Annual_Number_of_Domestic_Transactions__c}) + &quot; - &quot; + TEXT({!$Record.SBQQ__QuoteLine__r.Annual_No_Surcharge_Transactions__c}) + &quot;) * &quot; + TEXT({!QuotedUsageRateAmount}) + &quot;) + (&quot; + TEXT({!$Record.SBQQ__QuoteLine__r.Annual_No_Surcharge_Transactions__c}) + &quot; * 0.03) * 0.7) / &quot; + TEXT({!ConversionRate})
+) +
+&quot; Calculated: &quot; + 
+TEXT( NOW() - 0.1666)</expression>
+    </formulas>
+    <formulas>
+        <name>PaymentMethodFormula</name>
+        <dataType>String</dataType>
+        <expression>IF(CONTAINS(TEXT({!$Record.SBQQ__QuoteLine__r.Payment_Method__c}), &apos;Debit&apos;),
+  &apos;Debit&apos;,
+  IF(CONTAINS(TEXT({!$Record.SBQQ__QuoteLine__r.Payment_Method__c}), &apos;OXXO&apos;),
+  &apos;OXXO&apos;,
+  IF(CONTAINS(TEXT({!$Record.SBQQ__QuoteLine__r.Payment_Method__c}), &apos;Paynet&apos;),
+  &apos;Paynet&apos;,
+  &apos;Credit&apos;
+  )))</expression>
+    </formulas>
+    <formulas>
+        <name>QuotedUsageRateAmount</name>
+        <dataType>Number</dataType>
+        <expression>IF(
+    NOT(ISBLANK({!$Record.Adjusted_Rate_Amount__c})), {!$Record.Adjusted_Rate_Amount__c}, 
+    IF(
+        NOT(ISBLANK({!$Record.Usage_Rate_Amt__c})), {!$Record.Usage_Rate_Amt__c}, 0
+    )
+)</expression>
+        <scale>2</scale>
+    </formulas>
+    <formulas>
+        <name>QuotedUsageRatePercent</name>
+        <dataType>Number</dataType>
+        <expression>IF(
+    NOT(ISBLANK({!$Record.Adjusted_Rate_Percent__c})), {!$Record.Adjusted_Rate_Percent__c}, 
+    IF(
+        NOT(ISBLANK({!$Record.Usage_Rate__c})), {!$Record.Usage_Rate__c}, 0
+    )
+)</expression>
+        <scale>2</scale>
+    </formulas>
+    <formulas>
+        <name>STDCostRate</name>
+        <dataType>Number</dataType>
+        <expression>IF(
+    {!$Record.Ship_To_Account__r.Account_Region__c} = &apos;EMEA&apos;,
+    IF(
+      TEXT({!$Record.Ship_To_Account__r.ShippingCountryCode}) = &apos;GB&apos;,
+      {!Country_EDU_Domestic_Cost_Rates.Cost_Rate__c},
+      {!REST_EMEA_EDU_Domestic_Cost_Rates.Cost_Rate__c}
+    ),
+    IF(
+       ISNULL({!Country_EDU_Domestic_Cost_Rates.Cost_Rate__c}),
+      {!Default_EDU_Domestic_Cost_Rates.Cost_Rate__c},
+      {!Country_EDU_Domestic_Cost_Rates.Cost_Rate__c}
+    )
+  )</expression>
+        <scale>6</scale>
+    </formulas>
+    <formulas>
+        <name>UtilizationRate</name>
+        <dataType>Number</dataType>
+        <expression>CASE({!$Record.SBQQ__QuoteLine__r.Utilization__c},
+    &quot;20%&quot;, 0.2,
+    &quot;40%&quot;, 0.4,
+    &quot;60%&quot;, 0.6,
+    &quot;80%&quot;, 0.8,
+    &quot;100%&quot;, 1.0,
+    1.0
+  )</expression>
+        <scale>2</scale>
+    </formulas>
+    <interviewLabel>(Opp Product) Domestic EDU {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>(Opp Product) Edu Domestic ARR Calculator</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <recordLookups>
+        <name>Country_EDU_Domestic_Cost_Rates</name>
+        <label>Country EDU Domestic Cost Rates</label>
+        <locationX>842</locationX>
+        <locationY>647</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>REST_EMEA_EDU_Domestic_Cost_Rates</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Country_ISO__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>$Record.Ship_To_Account__r.ShippingCountryCode</elementReference>
+            </value>
+        </filters>
+        <filters>
+            <field>Payment_Method__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>PaymentMethodFormula</elementReference>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>OPP_ARR_EDU_Domestic_Cost_Rate__mdt</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordLookups>
+        <name>Default_EDU_Domestic_Cost_Rates</name>
+        <label>Default EDU Domestic Cost Rates</label>
+        <locationX>842</locationX>
+        <locationY>863</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Domestic_ARR</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>DeveloperName</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>Default</stringValue>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>OPP_ARR_EDU_Domestic_Cost_Rate__mdt</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordLookups>
+        <description>Gets the dated exchange rate value for the current currency and period</description>
+        <name>Get_Current_FX_rate</name>
+        <label>Get Current FX rate</label>
+        <locationX>842</locationX>
+        <locationY>539</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Country_EDU_Domestic_Cost_Rates</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>IsoCode</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>$Record.Opportunity.CurrencyIsoCode</elementReference>
+            </value>
+        </filters>
+        <filters>
+            <field>StartDate</field>
+            <operator>LessThanOrEqualTo</operator>
+            <value>
+                <elementReference>$Flow.CurrentDateTime</elementReference>
+            </value>
+        </filters>
+        <filters>
+            <field>NextStartDate</field>
+            <operator>GreaterThan</operator>
+            <value>
+                <elementReference>$Flow.CurrentDateTime</elementReference>
+            </value>
+        </filters>
+        <object>DatedConversionRate</object>
+        <outputAssignments>
+            <assignToReference>ConversionRate</assignToReference>
+            <field>ConversionRate</field>
+        </outputAssignments>
+    </recordLookups>
+    <recordLookups>
+        <name>Get_Original_Opportunity_Product_Cancellation</name>
+        <label>Get Original Opportunity Product</label>
+        <locationX>314</locationX>
+        <locationY>539</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Cancellation_No_ARR</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Opportunity_Line_Id__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>$Record.Opportunity_Line_Id__c</elementReference>
+            </value>
+        </filters>
+        <filters>
+            <field>Id</field>
+            <operator>NotEqualTo</operator>
+            <value>
+                <elementReference>$Record.Id</elementReference>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>OpportunityLineItem</object>
+        <sortField>CreatedDate</sortField>
+        <sortOrder>Desc</sortOrder>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordLookups>
+        <name>Get_Original_Opportunity_Product_Renewal</name>
+        <label>Get Original Opportunity Product</label>
+        <locationX>50</locationX>
+        <locationY>539</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Renewals_ARR_is_set_manually</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Opportunity_Line_Id__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>$Record.Opportunity_Line_Id__c</elementReference>
+            </value>
+        </filters>
+        <filters>
+            <field>Id</field>
+            <operator>NotEqualTo</operator>
+            <value>
+                <elementReference>$Record.Id</elementReference>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>OpportunityLineItem</object>
+        <sortField>CreatedDate</sortField>
+        <sortOrder>Desc</sortOrder>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordLookups>
+        <name>REST_EMEA_EDU_Domestic_Cost_Rates</name>
+        <label>REST EMEA EDU Domestic Cost Rates</label>
+        <locationX>842</locationX>
+        <locationY>755</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Default_EDU_Domestic_Cost_Rates</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Country_ISO__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>EMEA</stringValue>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>OPP_ARR_EDU_Domestic_Cost_Rate__mdt</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordUpdates>
+        <name>Amendment_No_ARR</name>
+        <label>Amendment - No ARR</label>
+        <locationX>578</locationX>
+        <locationY>539</locationY>
+        <filterLogic>or</filterLogic>
+        <filters>
+            <field>Quote_Line_Type__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>Amendment</stringValue>
+            </value>
+        </filters>
+        <inputAssignments>
+            <field>Opp_Product_ARR__c</field>
+            <value>
+                <numberValue>0.0</numberValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Revenue_Calculated__c</field>
+            <value>
+                <stringValue>Amendment: No modifications were made to this line</stringValue>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>Cancellation_No_ARR</name>
+        <label>Cancellation - No ARR</label>
+        <locationX>314</locationX>
+        <locationY>647</locationY>
+        <filterLogic>or</filterLogic>
+        <filters>
+            <field>Quote_Line_Type__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>Cancellation</stringValue>
+            </value>
+        </filters>
+        <inputAssignments>
+            <field>Opp_Product_ARR__c</field>
+            <value>
+                <elementReference>Cancelled_ARR</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Revenue_Calculated__c</field>
+            <value>
+                <stringValue>Line cancelled</stringValue>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>Domestic_ARR</name>
+        <label>Domestic ARR</label>
+        <locationX>842</locationX>
+        <locationY>971</locationY>
+        <inputAssignments>
+            <field>Commissions_Net_ARR__c</field>
+            <value>
+                <elementReference>DOM_Commision_ARR</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Opp_Product_ARR__c</field>
+            <value>
+                <elementReference>DOM_ARR</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Revenue_Calculated__c</field>
+            <value>
+                <elementReference>DOM_Revenue_Calculated_Text</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <description>Reps should get the last 12 months ARR number and manually update the Opp Product ARR</description>
+        <name>Renewals_ARR_is_set_manually</name>
+        <label>Renewals ARR is set manually</label>
+        <locationX>50</locationX>
+        <locationY>647</locationY>
+        <inputAssignments>
+            <field>Baseline_ARR__c</field>
+            <value>
+                <elementReference>Get_Original_Opportunity_Product_Renewal.Opp_Product_ARR__c</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Do_not_Auto_Calculate_Price__c</field>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Opp_Product_ARR__c</field>
+            <value>
+                <numberValue>0.0</numberValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Revenue_Calculated__c</field>
+            <value>
+                <stringValue>For Renewals, please enter the ARR manually</stringValue>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <start>
+        <locationX>848</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Opp_meets_criteria</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>ProductCode</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>FWCCY1000</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>Do_not_Auto_Calculate_Price__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <booleanValue>false</booleanValue>
+            </value>
+        </filters>
+        <object>OpportunityLineItem</object>
+        <recordTriggerType>CreateAndUpdate</recordTriggerType>
+        <triggerType>RecordAfterSave</triggerType>
+    </start>
+    <status>Active</status>
+    <variables>
+        <name>ConversionRate</name>
+        <dataType>Number</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+        <scale>6</scale>
+    </variables>
+</Flow>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Revenue_Region__c</fullName>
+    <description>Formula field used by EDU XB Calculator flow. 
+Removed South Korea from APAC, split out AUS/NZ/Singapore/Malaysia from APAC, per SAL-3427
+04/17/2024 - Ireland (Republic), Added Laos, Myanmar (Burma), Macau to match Marketo country names in order to enable Country/Territory Picklist</description>
+    <externalId>false</externalId>
+    <formula>IF(ISBLANK( ShippingCountry ), &quot;None&quot;,
+
+IF(CONTAINS(&quot;Australia&quot;, ShippingCountry), &quot;AUS&quot;,
+IF(CONTAINS(&quot;New Zealand&quot;, ShippingCountry), &quot;NZ&quot;,
+
+IF(CONTAINS(&quot;United States&quot;, ShippingCountry), &quot;USA&quot;,
+
+IF(CONTAINS(&quot;Canada&quot;, ShippingCountry), &quot;CAN&quot;,
+IF(CONTAINS(&quot;France&quot;, ShippingCountry), &quot;FR&quot;,
+IF(CONTAINS(&quot;Germany&quot;, ShippingCountry), &quot;DE&quot;,
+IF(CONTAINS(&quot;Ireland (Republic)&quot;,ShippingCountry), &quot;IE&quot;,
+IF(CONTAINS(&quot;Japan&quot;, ShippingCountry), &quot;JP&quot;,
+IF(CONTAINS(&quot;Spain&quot;, ShippingCountry), &quot;ES&quot;,
+IF(CONTAINS(&quot;Switzerland&quot;, ShippingCountry), &quot;CH&quot;,
+IF(CONTAINS(&quot;Malaysia&quot;, ShippingCountry), &quot;MY&quot;,
+IF(CONTAINS(&quot;Singapore&quot;, ShippingCountry), &quot;SG&quot;,
+
+IF(CONTAINS(&quot;Mongolia:American Samoa:Antarctica:Bangladesh:Bhutan:Brunei:Cambodia:China:Christmas Island:Cocos (Keeling) Islands:Cook Islands:Fiji:French Polynesia:Guam:Heard Island and McDonald Islands:Hong Kong:Indonesia:Japan:Kiribati:Korea North:Laos:Macao:Maldives:Marshall Islands:Micronesia:Myanmar (Burma):Nauru:Nepal:New Caledonia:Niue:Norfolk Island:Northern Mariana Islands:Palau:Papua New Guinea:Philippines:Pitcairn:Samoa:Solomon Islands:Sri Lanka:Taiwan:Thailand:Tokelau:Tonga:Tuvalu:Vanuatu:Viet Nam:Wallis and Futuna:Afghanistan&quot;, ShippingCountry ), &quot;APAC&quot;,
+
+IF(CONTAINS(&quot;United Kingdom&quot;,ShippingCountry), &quot;UK&quot;,&quot;Other&quot;)))))))))))))))</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <inlineHelpText>Used to auto-calculate EDU ARR for cross border.</inlineHelpText>
+    <label>Revenue Region</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

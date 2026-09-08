@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>65.0</apiVersion>
+    <areMetricsLoggedToDataCloud>false</areMetricsLoggedToDataCloud>
+    <decisions>
+        <description>US PPM, Break fix</description>
+        <name>Determine_Work_Type</name>
+        <label>Determine Work Type</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <defaultConnector>
+            <isGoTo>true</isGoTo>
+            <targetReference>Copy_2_of_Get_Service_Report_Template_ID</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>BF / Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Preventative_Maintenance</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.WorkTypeId</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>08qRo0000000JttIAE</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Get_Service_Report_Template_ID</targetReference>
+            </connector>
+            <label>Preventative Maintenance</label>
+        </rules>
+        <rules>
+            <name>Break_Fix</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.WorkTypeId</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>08qRo0000000JnRIAU</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Copy_2_of_Get_Service_Report_Template_ID</targetReference>
+            </connector>
+            <label>Break Fix</label>
+        </rules>
+    </decisions>
+    <description>02/02/2026 - (KL) - Auto Assignment of Service Report Layout ID on Work Order for US Probo Only</description>
+    <environments>Default</environments>
+    <interviewLabel>Work Order - Triggeer - US FSR Layout Assignment {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Work Order - Trigger - US FSR Layout Assignment</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <recordLookups>
+        <name>Copy_2_of_Get_Service_Report_Template_ID</name>
+        <label>Copy 2 of Get Service Report Template ID</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Update_BF_Wo</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>DeveloperName</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>US Break/Fix Service Report</stringValue>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>ServiceReportLayout</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordLookups>
+        <name>Get_Service_Report_Template_ID</name>
+        <label>Get Service Report Template ID</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Update_PM_WO</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>DeveloperName</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>US Preventative Maintenance Service Report</stringValue>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>ServiceReportLayout</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordUpdates>
+        <description>Update service report layout in lookup</description>
+        <name>Update_BF_Wo</name>
+        <label>Update BF Wo</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <inputAssignments>
+            <field>ServiceReportTemplateId</field>
+            <value>
+                <elementReference>Copy_2_of_Get_Service_Report_Template_ID.Id</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <description>Update service report layout in lookup</description>
+        <name>Update_PM_WO</name>
+        <label>Update PM WO</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <inputAssignments>
+            <field>ServiceReportTemplateId</field>
+            <value>
+                <elementReference>Get_Service_Report_Template_ID.Id</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <start>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Determine_Work_Type</targetReference>
+        </connector>
+        <filterLogic>1 AND (2 OR 3) AND 4 AND 5</filterLogic>
+        <filters>
+            <field>RecordTypeId</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>012Ro000001eDqnIAE</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>ServiceTerritoryId</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>0HhRo00000014G5KAI</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>Country</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>United States</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>ServiceReportTemplateId</field>
+            <operator>IsNull</operator>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </filters>
+        <filters>
+            <field>WorkTypeId</field>
+            <operator>IsNull</operator>
+            <value>
+                <booleanValue>false</booleanValue>
+            </value>
+        </filters>
+        <object>WorkOrder</object>
+        <recordTriggerType>CreateAndUpdate</recordTriggerType>
+        <triggerType>RecordBeforeSave</triggerType>
+    </start>
+    <status>Active</status>
+</Flow>

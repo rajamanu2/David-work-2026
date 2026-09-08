@@ -1,0 +1,1673 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RecordType xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Purchasing_Replacement</fullName>
+    <active>true</active>
+    <label>Purchasing Replacement</label>
+    <picklistValues>
+        <picklist>Approved_Repairs__c</picklist>
+        <values>
+            <fullName>A%2FW Channel Repair</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>A%2FW Channel Replacement</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>A%2FW Nozzle Repair</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>A%2FW Nozzle Replacement</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>A%2FW O-Rings Repair</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>A%2FW O-Rings Replacement</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>A%2FW Separator Repair</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>A%2FW Separator Replacement</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Achromats Repair</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Achromats Replacement</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Adhesive Repair</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Adhesive Replacement</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Alignment of Image Repair</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Alignment of Image Replacement</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>All Repairs Approved</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Angulation Adjust Repair</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Angulation Adjust Replacement</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Angulation System Repair</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Angulation System Replacement</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Array Carriage Replacement</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Array Drive Switch or Board Replacement</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Array Drive System Replacement</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Array Replacement</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Array%2FCable Assembly Replacement</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Auto-Bright Repair</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Auto-Bright Replacement</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Auxiliary Channel Repair</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Auxiliary Channel Replacement</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Auxiliary Port Repair</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Auxiliary Port Replacement</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Bending Rubber%2FGlue Beads Replacement</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Bending Section Repair</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Bending Section Replacement</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Bending Sheath Repair</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Bending Sheath Replacement</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Biopsy Channel Repair</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Biopsy Channel Replacement</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Board Repair</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Board Replacement</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>CCD Chip Video Image Repair</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>CCD Chip Video Image Replacement</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Cable Advanced Whitening</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Cable Jacket Refurbishment</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Cable Jacket Splice</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Cable Repair</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Cable Replacement</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Cap Refurbishment</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Cap Replacement with Oil Fill</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Caster Replacement</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Channel Boards Replacement</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Condenser Crystal Repair</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Condenser Crystal Replacement</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Connector Boards Replacement</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Connector Housing Paint</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Connector Housing Replacement</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Connector Overhaul</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Connector Refurbishment</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Connector Repair</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Contamination Removal</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Contamination Repair</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Contamination Replacement</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Control Body Repair</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Control Body Replacement</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Control Cable Down Repair</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Control Cable Down Replacement</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Control Cable Left Repair</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Control Cable Left Replacement</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Control Cable Right Repair</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Control Cable Right Replacement</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Control Cable Up Repair</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Control Cable Up Replacement</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Control Housing Overhaul</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Control Housing Polish</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Control Knob Assembly Repair</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Control Knob Assembly Replacement</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Distal End Cap Repair</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Distal End Cap Replacement</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Distal Tip Window Repair</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Distal Tip Window Replacement</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>ETO Valve Repair</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>ETO Valve Replacement</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Electrical</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Electrical - miscellaneous</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Electrical Contacts Repair</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Electrical Contacts Replacement</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Elevator Cable Repair</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Elevator Cable Replacement</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Elevator Channel Repair</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Elevator Channel Replacement</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Elevator Lever Repair</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Elevator Lever Replacement</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Eyepiece Repair</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Eyepiece Replacement</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Eyepiece Sleeve Repair</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Eyepiece Sleeve Replacement</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Eyepiece Window Repair</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Eyepiece Window Replacement</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>F%2FO Image Bundle Repair</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>F%2FO Image Bundle Replacement</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>F%2FO Light Bundle Repair</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>F%2FO Light Bundle Replacement</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Ferrule Assembly</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Flexibility Adjustment Mechanism Repair</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Flexibility Adjustment Mechanism Replacement</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Fluid Removal</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Full Overhaul</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Grommet Replacement</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Image Bundle Repair</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Image Bundle Replacement</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Insertion Tube Repair</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Insertion Tube Replacement</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Internal Components Repair</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Internal Components Replacement</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Knob Replacement</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>L%2FR Brake Assembly Repair</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>L%2FR Brake Assembly Replacement</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>L%2FR Control Knob Repair</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>L%2FR Control Knob Replacement</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Lens Refurbishment</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Lens Relens</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Lens Remove Coating%2FRTV Seal Replacement</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Light Fibers Repair</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Light Fibers Replacement</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Light Guide Connector Repair</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Light Guide Connector Replacement</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Light Guide Lens Repair</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Light Guide Lens Replacement</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Light Guide Post Cap Repair</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Light Guide Post Cap Replacement</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Marker Plate Repair</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Marker Plate Replacement</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Miscellaneous System Repair</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Monitor Replacement</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Motor Repair</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>N%2FA - Customer opted for Exchange</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>NONE</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Objective Assembly Repair</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Objective Assembly Replacement</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Objective Lens Repair</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Objective Lens Replacement</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Ocular Repair</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Ocular Replacement</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Oil Fill</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Power Supply Replacement</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Prism Repair</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Prism Replacement</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Probe Handle Close</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Probe Handle Refurbishment</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Probe Handle Replacement</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Probe Handle Reverse</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Quick Clean</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>RTV Seal Replacement</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Recoat%2FRelabel</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Refoam</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Refurb</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Retermination</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Retermination prep</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Rod Lens Repair</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Rod Lens Replacement</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Steering Cable Adjustment</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Steering Cable Replacement</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Strain Relief Prep</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Strain Relief Refurbishment</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Strain Relief Replacement</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Stress Relief Boot Repair</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Stress Relief Boot Replacement</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Suction Channel Repair</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Suction Channel Replacement</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Suction Cylinder Repair</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Suction Cylinder Replacement</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Switch %231 Repair</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Switch %231 Replacement</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>This Repair is an Attempt</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Tip Overhaul</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Tip Polish</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Tubing Laser Weld Repair</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Tubing Laser Weld Replacement</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Tubing Repair</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Tubing Replacement</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>U%2FD Brake Assembly Repair</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>U%2FD Brake Assembly Replacement</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>U%2FD Control Knob Repair</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>U%2FD Control Knob Replacement</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Universal Cord Repair</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Universal Cord Replacement</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>User Interface Replacement</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Video Connector Repair</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Video Connector Replacement</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Video Coupler Repair</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Video Coupler Replacement</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Video Switch Assembly Repair</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Video Switch Assembly Replacement</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Wire Mesh Repair</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Wire Mesh Replacement</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Cause_of_Damage__c</picklist>
+        <values>
+            <fullName>Although no leaks were detected%2C fluid invasion was found in scope causing damage%2E</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Appears to be forcep damage to Biopsy Channel%2E</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Appears to be from user%2E</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Appears to be from wear and usage over time%2E</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Appears to have been exposed to excessive heat causing damage to inner components%2E</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Appears to have been struck against a hard surface %28possibly dropped%29 causing damage%2E</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Appears to have occurred during usage%2E</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Corrosion found due to fluid invasion%2E  May have occurred during leak test and%2For sterilization process%2E</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Distal Tip is damaged%2E Appears to have occurred during usage%2E</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Fluid invasion was found in scope causing corrosion and damage%2E</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Image is misaligned and appears to have been struck against a hard surface%2C possibly dropped%2C causing damage%2E</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Inner channel is damaged causing fluid invasion</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Insertion Tube is severely crushed%2E May have come in contact with heavy object or possible bite mark%2E</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>May be from excessive torque to Control Knob%2E</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>May have been struck against a hard surface causing damage%2E</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>May have occurred during leak test and%2For sterilization process%2E</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>May have occurred during sterilization process%2E</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Scope is bent causing damage to Rod Lenses and inner components%2E</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Threads are damaged and appears to be from user%2E</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Threads are damaged and may have occurred due to wear and usage over time%2E</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Tubing is buckled at neck of scope causing damage%2E</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Tubing is severely bent%2C causing damage to Image Guide and Objective Lens%2E</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Universal Cord is severely crushed and may have come in contact with heavy object%2E</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Closed_Reason__c</picklist>
+        <values>
+            <fullName>Customer Paid for Damage or Outright Ex%2E</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Opportunity was Lost</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Probe Never Sent In</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Customer_Expectation__c</picklist>
+        <values>
+            <fullName>Customer Does Not want Equipment Back</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Customer wants Equipment Back</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Customer_Paid__c</picklist>
+        <values>
+            <fullName>Damage</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Outright exchange</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Customer_Probe_Type__c</picklist>
+        <values>
+            <fullName>Convex</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Convex 3D</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Endocavitary</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Endoscopy - Flexible</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Endoscopy - Rigid</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Linear</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Phased Array</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Ultrasound Probe</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Estimated_Time_for_Completion__c</picklist>
+        <values>
+            <fullName>10 Business Days</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>15 Business Days</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>5 Business Days</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Intacct_RMA_Sync_Status__c</picklist>
+        <values>
+            <fullName>Error</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Processing</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Sync</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Synced</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Warning</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Loaner_Action_Approved__c</picklist>
+        <values>
+            <fullName>APPROVED</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>NOT APPROVED</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Loaner_Action__c</picklist>
+        <values>
+            <fullName>Charge customer for damage</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>No further action required</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Repair without charging customer for damage</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Logo_Override__c</picklist>
+        <values>
+            <fullName>MedCorp</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Probo Medical</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Trisonics</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Needs_to_be_moved_to_this_location__c</picklist>
+        <values>
+            <fullName>Cage</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Customer Loan %2F Demo</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>External Repair %2F Testing</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Generic</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>MAS</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Out of Flow</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>QA-Testing</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Repair Area - Cosmetic</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Repair Area - Electrical</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Repair Area - TEE</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Returned to Vendor%2FCust</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Scrap</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Shipping</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Tulsa</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Part_Return_Condition__c</picklist>
+        <values>
+            <fullName>Part Dead on Arrival</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Part Not Fitted</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Part Tested and Good</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Quality_Issue_Reported__c</picklist>
+        <values>
+            <fullName>NA</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>cosmetic issue</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>customer no longer needed</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>functional issue</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>shipped wrong probe</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Rental_Action__c</picklist>
+        <values>
+            <fullName>Charge customer for damage</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>No further action required</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Repair without charging customer for damage</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Rental_Return_Action_Approved__c</picklist>
+        <values>
+            <fullName>APPROVED</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>NOT APPROVED</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Repair_Level__c</picklist>
+        <values>
+            <fullName>Repair Level 1</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Repair Level 2</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Repair Level 3</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Repair Level 4</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Restocking_Fee__c</picklist>
+        <values>
+            <fullName>No</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Yes</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Return_Asset_to_Vendor__c</picklist>
+        <values>
+            <fullName>No</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Yes</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Return_To_Location__c</picklist>
+        <values>
+            <fullName>Fishers%2C IN</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Harrisburg%2C PA</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Return to Vendor</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Tampa%2C FL</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Tulsa%2C OK</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Return_from_Sale_Action__c</picklist>
+        <values>
+            <fullName>Charge customer for damage</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Credit memo</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>No further action</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Repair without charging customer for damage</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Restocking fee</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Return_from_Sale_Approval__c</picklist>
+        <values>
+            <fullName>APPROVED</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>NOT APPROVED</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Shipping_Account_to_Bill__c</picklist>
+        <values>
+            <fullName>Customer%27s Fedex</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Probo Medical</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Specific_Issue__c</picklist>
+        <values>
+            <fullName>4D port on backwards</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>ASIC issue</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Aftermarket arrays</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Articulation issue</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Bad airscan</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Bent housing</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Broken%2Fbent pins</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>CW</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Cable too short</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Cable whitening</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Cap %28bubble%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Cap %28coming off%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Cap %28cosmetic%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Cap %28leaking oil%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Color</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Connector boards</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Connector housing paint chipped</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Connector will not connect properly</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Cracked probe handle</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Cracked%2Fbroken connector housing</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Cut in cable</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Damaged array</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Dent in cable%2Fwrinkled</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Does not register</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Down button not working</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Dropout %28First Call%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Dropout %28Shadow%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Failing leakage</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>High capacitance</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Image blinking</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Image resolution</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Image reversed</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Insertion tube</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Knocking in 4D mode</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Lens %28RTV seal%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Lens %28chunk missing%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Lens %28cut%2Fscratches%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Lens %28delamination%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Lens %28discoloration%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Lens %28hole%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Lens %28other cosmetic%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Lens %28slightly raised%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Lens %28worn at corners%2Fedges%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Locking knob on backwards</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Low sensitivity - FC</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Missing T handle</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Missing acoustic fluid</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Motor</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Nicks%2Fscratches in PH</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Non-OEM part</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Overheating</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Probe handle - cosmetic</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>RTV</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Rattling</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>SN not legible</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Screws missing</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Serial numbers do not match</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Shipping Error - Vendor</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Shipping error - SF</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Shipping error - ops</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Shipping error - sales</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Sticker damaged or missing</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Strain relief</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>System repair failure</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>System software issue</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Ultrasound part issue</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Unknown</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Unknown system product failure</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Wrong connector</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Status__c</picklist>
+        <values>
+            <fullName>New</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Submit for Approval</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Synced with Intacct</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Type_of_Nonconformity__c</picklist>
+        <values>
+            <fullName>Customer Compliant</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>External DOA</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>External Warranty</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Return Unused</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Warranty_Claim_Action__c</picklist>
+        <values>
+            <fullName>Charge customer for damage</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Credit memo</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Credit memo - restocking fee</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>No further action required</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Repair damage listed in warranty claim</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Repair without charging customer for damage</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Warranty claim declined</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Warranty_Claim_Approved__c</picklist>
+        <values>
+            <fullName>APPROVED</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>NOT APPROVED</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Warranty_Claim_Status__c</picklist>
+        <values>
+            <fullName>Invalid - Complaint about repair not done %28for customer repair%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Invalid - Customer damage</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Invalid - Customer no longer needed</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Invalid - Customs issue</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Invalid - FSE Ordered Item Incorrectly</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Invalid - Ordered wrong product</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Invalid - Outside of warranty period</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Invalid - Standards misaligned</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Unable to verify - Can%E2%80%99t test</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Verified - Missed by QC</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Verified - Product failure</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Verified - Repair failure</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Verified - Shipping error</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+</RecordType>

@@ -1,0 +1,20 @@
+{
+  "status": 0,
+  "result": {
+    "records": [
+      {
+        "attributes": {
+          "type": "ApexComponent",
+          "url": "/services/data/v68.0/tooling/sobjects/ApexComponent/099hG0000002EdBQAU"
+        },
+        "Id": "099hG0000002EdBQAU",
+        "Name": "EmailTableVFComponent",
+        "Markup": "<apex:component controller=\"EmailTableController\" access=\"global\">\n    \n    <!-- Attributes mapped to the Controller variables -->\n    <apex:attribute name=\"recordId\" type=\"Id\" description=\"Quote Id\" assignTo=\"{!quoteId}\" />\n    <apex:attribute name=\"templateContext\" type=\"String\" description=\"Email Template Context\" assignTo=\"{!templateName}\" />\n    \n    <!-- Error Message Panel -->\n    <apex:outputPanel rendered=\"{!hasError}\">\n        <p style=\"color: red; font-family: Arial, sans-serif;\">\n            {!errorMessage}\n        </p>\n    </apex:outputPanel>\n\n    <!-- Main Data Panel -->\n    <apex:outputPanel rendered=\"{!NOT(hasError)}\">\n        <apex:repeat value=\"{!groupedLines}\" var=\"group\">\n            \n            <!-- CONDITIONAL RENDER: Only shows if showTitle is true (i.e. it has a valid Group) -->\n            <apex:outputPanel rendered=\"{!group.showTitle}\">\n                <p style=\"margin-top: 15px; margin-bottom: 5px; font-family: Arial, sans-serif; font-size: 14px;\">\n                    <!-- The groupName now automatically holds the string \"Term 1: X\" -->\n                    <strong>{!group.groupName}</strong>\n                </p>\n            </apex:outputPanel>\n            \n            <!-- Data Table -->\n            <table style=\"width:100%; border-collapse:collapse; border: 1px solid #dddddd; font-family: Arial, sans-serif; margin-bottom: 15px; font-size: 13px;\">\n                \n                <!-- Table Headers -->\n                <tr style=\"background-color: #f2f2f2;\">\n                    <apex:repeat value=\"{!columns}\" var=\"col\">\n                        <th style=\"padding: 8px; border: 1px solid #dddddd; text-align: left;\">\n                            {!col.header}\n                        </th>\n                    </apex:repeat>\n                </tr>\n                \n                <!-- Table Rows (Automatically sorted Parent -> Child) -->\n                <apex:repeat value=\"{!group.rows}\" var=\"row\">\n                    <tr>\n                        <apex:repeat value=\"{!row.cellValues}\" var=\"cell\">\n                            <td style=\"padding: 8px; border: 1px solid #dddddd;\">\n                                {!cell}\n                            </td>\n                        </apex:repeat>\n                    </tr>\n                </apex:repeat>\n                \n            </table>\n            \n        </apex:repeat>\n    </apex:outputPanel>\n</apex:component>",
+        "LastModifiedDate": "2026-08-19T07:18:04.000+0000"
+      }
+    ],
+    "totalSize": 1,
+    "done": true
+  },
+  "warnings": []
+}

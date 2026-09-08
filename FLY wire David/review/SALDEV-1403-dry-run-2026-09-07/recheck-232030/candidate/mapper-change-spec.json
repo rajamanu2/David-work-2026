@@ -1,0 +1,93 @@
+{
+  "story": "SALDEV-1403",
+  "targetOrg": "FlywirePartial",
+  "verifiedOrgId": "00DhG0000000jOXUAY",
+  "deploy": false,
+  "activate": false,
+  "status": "LOCAL CANDIDATE - native validation pending",
+  "sourceSha256": "30dbb94556b5d7773869b0c1b1a53a281020b9a92c020ee1c6a87605cccf6e84",
+  "creates": [
+    {
+      "Name": "GetQuoteProposalDataSteppedUpPricing",
+      "OmniDataTransformationId": "0jIhG0000000GsnUAE",
+      "InputObjectName": "SBQQ__QuoteLineGroup__c",
+      "InputObjectQuerySequence": 2,
+      "InputFieldName": "",
+      "OutputFieldName": "SBQuote:QuoteLineGroup",
+      "OutputObjectName": "json",
+      "OutputCreationSequence": 0,
+      "FilterGroup": 0,
+      "FilterOperator": "ORDER BY",
+      "FilterValue": "SBQQ__StartDate__c ASC NULLS LAST, SBQQ__SubscriptionTerm__c DESC NULLS LAST, SBQQ__Number__c ASC",
+      "IsDisabled": false,
+      "GlobalKey": "f954608a-4966-59df-bf68-1cafe82800b4"
+    },
+    {
+      "Name": "GetQuoteProposalDataSteppedUpPricing",
+      "OmniDataTransformationId": "0jIhG0000000GsnUAE",
+      "InputObjectName": "SBQQ__QuoteLine__c",
+      "InputObjectQuerySequence": 3,
+      "InputFieldName": "",
+      "OutputFieldName": "SBQuote:QuoteLineGroup:QuoteLine",
+      "OutputObjectName": "json",
+      "OutputCreationSequence": 0,
+      "FilterGroup": 0,
+      "FilterOperator": "ORDER BY",
+      "FilterValue": "SBQQ__Number__c ASC",
+      "IsDisabled": false,
+      "GlobalKey": "ef0094f4-0d62-5df4-8ed9-8c6a47460228"
+    },
+    {
+      "Name": "GetQuoteProposalDataSteppedUpPricing",
+      "OmniDataTransformationId": "0jIhG0000000GsnUAE",
+      "InputObjectName": "SBQQ__QuoteLine__c",
+      "InputObjectQuerySequence": 5,
+      "InputFieldName": "",
+      "OutputFieldName": "SBQuote:UngroupedLine",
+      "OutputObjectName": "json",
+      "OutputCreationSequence": 0,
+      "FilterGroup": 0,
+      "FilterOperator": "ORDER BY",
+      "FilterValue": "SBQQ__Number__c ASC",
+      "IsDisabled": false,
+      "GlobalKey": "e5e1c4d9-c0dc-566c-9f8a-e667783ada31"
+    },
+    {
+      "Name": "GetQuoteProposalDataSteppedUpPricing",
+      "OmniDataTransformationId": "0jIhG0000000GsnUAE",
+      "InputFieldName": "SBQuote:QuoteLineGroup:SBQQ__SubscriptionTerm__c",
+      "OutputFieldName": "QuoteLineGroup:SubscriptionTerm",
+      "OutputObjectName": "json",
+      "OutputCreationSequence": 1,
+      "IsDisabled": false,
+      "GlobalKey": "482e2698-66a3-50b9-9744-1a9d21199dc2"
+    }
+  ],
+  "updates": [
+    {
+      "Id": "0kdhG0000002nUTQAY",
+      "GlobalKey": "e9298e6d-8180-437c-b7a7-3820c30aa4d3",
+      "Name": "CPQQuoteProposalDocumentSteppedUpPricing",
+      "field": "FormulaExpression",
+      "before": "IF(\n    QuoteLineGroup:QuoteLine:QuoteLineType = \"Cancellation\",\n    CONCAT(QuoteLineGroup:QuoteLine:LineDescription,\n    IF(\n        NOT(ISBLANK(QuoteLineGroup:QuoteLine:LineDescription)),\n        \" \",\n        \"\"\n    ),\n    \"(\", QuoteLineGroup:QuoteLine:QuoteLineType, \")\"),\n    IF(\n        QuoteLineGroup:QuoteLine:QuoteLineType = \"Quantity Increase\",\n        CONCAT(QuoteLineGroup:QuoteLine:LineDescription,\n        IF(\n            NOT(ISBLANK(QuoteLineGroup:QuoteLine:LineDescription)),\n            \" \",\n            \"\"\n        ),\n        \"(\", QuoteLineGroup:QuoteLine:QuoteLineType, \")\"),\n        IF(\n           QuoteLineGroup:QuoteLine:QuoteLineType = \"Quantity Reduction\",\n            CONCAT(QuoteLineGroup:QuoteLine:LineDescription, \n            IF(\n                NOT(ISBLANK(QuoteLineGroup:QuoteLine:LineDescription)),\n                \" \",\n                \"\"\n            ),\n            \"(\", QuoteLineGroup:QuoteLine:QuoteLineType, \")\"),\n            CONCAT(QuoteLineGroup:QuoteLine:LineDescription + \" \" + QuoteLineGroup:QuoteLine:RateDetails,\"\")\n        )\n    )\n)",
+      "after": "CONCAT(IF(ISBLANK(QuoteLineGroup:QuoteLine:LineDescription), \"\", QuoteLineGroup:QuoteLine:LineDescription), IF(ISBLANK(QuoteLineGroup:QuoteLine:RateDetails), \"\", CONCAT(IF(ISBLANK(QuoteLineGroup:QuoteLine:LineDescription), \"\", \" \"), QuoteLineGroup:QuoteLine:RateDetails)), IF(QuoteLineGroup:QuoteLine:QuoteLineType = \"Cancellation\", CONCAT(IF(ISBLANK(QuoteLineGroup:QuoteLine:LineDescription), IF(ISBLANK(QuoteLineGroup:QuoteLine:RateDetails), \"\", \" \"), \" \"), \"(\", QuoteLineGroup:QuoteLine:QuoteLineType, \")\"), IF(QuoteLineGroup:QuoteLine:QuoteLineType = \"Quantity Increase\", CONCAT(IF(ISBLANK(QuoteLineGroup:QuoteLine:LineDescription), IF(ISBLANK(QuoteLineGroup:QuoteLine:RateDetails), \"\", \" \"), \" \"), \"(\", QuoteLineGroup:QuoteLine:QuoteLineType, \")\"), IF(QuoteLineGroup:QuoteLine:QuoteLineType = \"Quantity Reduction\", CONCAT(IF(ISBLANK(QuoteLineGroup:QuoteLine:LineDescription), IF(ISBLANK(QuoteLineGroup:QuoteLine:RateDetails), \"\", \" \"), \" \"), \"(\", QuoteLineGroup:QuoteLine:QuoteLineType, \")\"), \"\"))))",
+      "preservedFormulaResultPath": "QuoteLineGroup:QuoteLine:LineDescriptionWithType"
+    },
+    {
+      "Id": "0kdhG0000002m5NQAQ",
+      "GlobalKey": "03c84861-b26d-4b50-86a1-36b12c2f034f",
+      "Name": "CPQQuoteProposalDocumentSteppedUpPricing",
+      "field": "FormulaExpression",
+      "before": "IF(\n    UngroupedLine:QuoteLineType = \"Cancellation\",\n    CONCAT(UngroupedLine:LineDescription,\n    IF(\n        NOT(ISBLANK(UngroupedLine:LineDescription)),\n        \" \",\n        \"\"\n    ),\n    \"(\", UngroupedLine:QuoteLineType, \")\"),\n    IF(\n        UngroupedLine:QuoteLineType = \"Quantity Increase\",\n        CONCAT(UngroupedLine:LineDescription,\n        IF(\n            NOT(ISBLANK(UngroupedLine:LineDescription)),\n            \" \",\n            \"\"\n        ),\n        \"(\", UngroupedLine:QuoteLineType, \")\"),\n        IF(\n            UngroupedLine:QuoteLineType = \"Quantity Reduction\",\n            CONCAT(UngroupedLine:LineDescription, \n            IF(\n                NOT(ISBLANK(UngroupedLine:LineDescription)),\n                \" \",\n                \"\"\n            ),\n            \"(\", UngroupedLine:QuoteLineType, \")\"),\n            CONCAT(UngroupedLine:LineDescription + \" \" + UngroupedLine:RateDetails,\"\")\n        )\n    )\n)",
+      "after": "CONCAT(IF(ISBLANK(UngroupedLine:LineDescription), \"\", UngroupedLine:LineDescription), IF(ISBLANK(UngroupedLine:RateDetails), \"\", CONCAT(IF(ISBLANK(UngroupedLine:LineDescription), \"\", \" \"), UngroupedLine:RateDetails)), IF(UngroupedLine:QuoteLineType = \"Cancellation\", CONCAT(IF(ISBLANK(UngroupedLine:LineDescription), IF(ISBLANK(UngroupedLine:RateDetails), \"\", \" \"), \" \"), \"(\", UngroupedLine:QuoteLineType, \")\"), IF(UngroupedLine:QuoteLineType = \"Quantity Increase\", CONCAT(IF(ISBLANK(UngroupedLine:LineDescription), IF(ISBLANK(UngroupedLine:RateDetails), \"\", \" \"), \" \"), \"(\", UngroupedLine:QuoteLineType, \")\"), IF(UngroupedLine:QuoteLineType = \"Quantity Reduction\", CONCAT(IF(ISBLANK(UngroupedLine:LineDescription), IF(ISBLANK(UngroupedLine:RateDetails), \"\", \" \"), \" \"), \"(\", UngroupedLine:QuoteLineType, \")\"), \"\"))))",
+      "preservedFormulaResultPath": "UngroupedLine:LineDescriptionWIthType"
+    }
+  ],
+  "exclusions": [
+    "SALDEV-1420",
+    "OmniScript activation",
+    "Business record updates",
+    "ContentVersion upload",
+    "Experimental Apex serializers"
+  ]
+}

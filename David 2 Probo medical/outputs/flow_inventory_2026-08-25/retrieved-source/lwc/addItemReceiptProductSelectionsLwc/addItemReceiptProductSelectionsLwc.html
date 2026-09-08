@@ -1,0 +1,56 @@
+<template>
+    <lightning-layout-item size=12>
+        <div>
+            <template if:true={selections.showModal}>
+                <c-oli-modal-lwc oncontinuedeselection={handleNewPRLIDeselection}  onclosemodal={handleModalClose}> </c-oli-modal-lwc>   
+            </template>
+        </div>
+        <div class="slds-table--header-fixed_container" style="height:300px; width: 1000px;">      
+            <div class="slds-scrollable_y" style="height:100%;">
+                <template if:true={newPRLIDataAvailable}>
+                <table class="slds-table slds-table_cell-buffer slds-table_bordered slds-table_fixed-layout th" style="empty-cells: show; width: 100%;">
+                    <thead>  
+                        <tr style="margin-bottom: 1%;">
+                            <th class="" scope="col" title="Deselect"><div class="slds-truncate slds-cell-fixed" title="Item Deselection">&nbsp;</div></th>
+                            <th class="" scope="col" title="Product Name"><div class="slds-truncate slds-cell-fixed" title="Product Name">Product Name</div></th>
+                            <th class="" scope="col" title="Part No"><div class="slds-truncate slds-cell-fixed" title="Part No">Part No</div></th>
+                            <th class="" scope="col" title="Lot No"><div class="slds-truncate slds-cell-fixed" title="Lot No">Lot No</div></th>
+                            <th class="" scope="col" title="Quantity Remaining"><div class="slds-truncate slds-cell-fixed" title="Quantity Remaining">Qty Remaining</div></th>
+                            <th class="" scope="col" title="Quantity"> <div class="slds-truncate slds-cell-fixed" title="Qty"> Quantity</div></th>
+                            
+                        </tr>  
+                    </thead>
+
+                    <tbody>
+                        <template for:each={newPRLIEditedData} for:item='item'>
+                                <tr class="slds-hint-parent" key={item.id}>
+                                    <td>
+                                        <lightning-button variant="destructive" label="Deselect" title="Deselect" value={item.id} onclick={handleModalOpen} class="slds-var-m-left_x-small"></lightning-button>
+                                    </td>
+                                    <td data-label="Product Name" style="min-width: 80px; max-width: none" class="slds-text-align_left">
+                                        <div class="slds-truncate" key={item.id}><lightning-formatted-text value='{item.data.Product_Name__c}'></lightning-formatted-text></div>
+                                    </td>
+                                    <td data-label="Part No" style="min-width: 80px; max-width: none" class="slds-text-align_left">
+                                        <div class="slds-truncate" key={item.id}><lightning-formatted-text value='{item.data.Part_Number__c}'></lightning-formatted-text></div>
+                                    </td>
+                                    <td data-label="Lot No" style="min-width: 80px; max-width: none" class="slds-text-align_left">
+                                        <div class="slds-truncate" key={item.id}><lightning-formatted-text value='{item.data.Lot_Number__c}'></lightning-formatted-text></div>
+                                    </td>
+                                    <td data-label="Quantity Remaining" style="min-width: 80px; max-width: none" class="slds-text-align_left">
+                                        <div class="slds-truncate" key={item.id}><lightning-formatted-number value='{item.data.Quantity_Remaining__c}'></lightning-formatted-number></div>
+                                    </td>
+                                    <td data-label="Quantity" style="min-width: 100px; max-width: 120px;" class="slds-text-align_left" title="quantity__c">
+                                                <div class="slds-truncate" key={item.id}><lightning-input type="number" value='{item.quantity}' data-key={item.id} onchange={handleQuantityChange}></lightning-input></div>
+                                    </td> 
+                                    
+                                    
+                                </tr>    
+                        </template>
+                    </tbody>  
+
+                </table>
+                </template>
+            </div>
+        </div>
+    </lightning-layout-item>
+</template>

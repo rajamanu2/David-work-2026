@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Account_LongID__c</fullName>
+    <description>Show the Full Account ID on Product Config so it can easily be referenced when creating Prod Config records and adding it to Admin/Mission Control.</description>
+    <externalId>false</externalId>
+    <formula>Account__r.AccountLongID__c</formula>
+    <inlineHelpText>Show the Full Account ID on Product Config so it can easily be referenced when creating Prod Config records and adding it to Admin/Mission Control.</inlineHelpText>
+    <label>Account LongID</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

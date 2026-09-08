@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Bank_Transfer_Provider__c</fullName>
+    <description>WPM Bank Transfer Provider</description>
+    <inlineHelpText>WPM Bank Transfer Provider</inlineHelpText>
+    <label>Bank Transfer Provider</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>CIBC</fullName>
+                <default>false</default>
+                <label>CIBC</label>
+            </value>
+            <value>
+                <fullName>Flywire</fullName>
+                <default>false</default>
+                <label>Flywire</label>
+            </value>
+            <value>
+                <fullName>N/A</fullName>
+                <default>false</default>
+                <label>N/A</label>
+            </value>
+            <value>
+                <fullName>None</fullName>
+                <default>false</default>
+                <label>None</label>
+            </value>
+            <value>
+                <fullName>TransferMate</fullName>
+                <default>false</default>
+                <label>TransferMate</label>
+            </value>
+            <value>
+                <fullName>WUBS</fullName>
+                <default>false</default>
+                <label>WUBS</label>
+            </value>
+            <value>
+                <fullName>Western Union Business Solutions</fullName>
+                <default>false</default>
+                <label>Western Union Business Solutions</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

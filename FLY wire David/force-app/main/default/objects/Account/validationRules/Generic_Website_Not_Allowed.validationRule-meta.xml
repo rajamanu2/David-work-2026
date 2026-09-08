@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Generic_Website_Not_Allowed</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND(
+$Profile.Name &lt;&gt; &quot;System Administrator&quot;,
+IF(
+CASE(Website_Domain_Capture__c,
+&apos;gmail.com&apos;, 1,
+&apos;yahoo.com&apos;, 1,
+&apos;xyz.com&apos;, 1,&apos;hotmail.co.uk&apos;, 1,
+&apos;aol.com&apos;, 1,&apos;hotmail.com&apos;, 1,
+&apos;hotmail.fr&apos;, 1,&apos;msn.com&apos;, 1,&apos;yahoo.fr&apos;, 1,&apos;wanadoo.fr&apos;, 1,&apos;orange.fr&apos;, 1,&apos;comcast.net&apos;, 1,&apos;outlook.com&apos;, 1,&apos;yahoo.co.uk&apos;, 1,&apos;yahoo.com.br&apos;, 1,&apos;yahoo.co.in&apos;, 1,&apos;live.com&apos;, 1,&apos;rediffmail.com&apos;, 1,&apos;free.fr&apos;, 1,&apos;gmx.de&apos;, 1,&apos;web.de&apos;, 1,&apos;yandex.ru&apos;, 1,
+&apos;ymail.com&apos;, 1,&apos;libero.it&apos;, 1,
+&apos;uol.com.br&apos;, 1,&apos;bol.com.br&apos;, 1,&apos;mail.ru&apos;, 1,&apos;cox.net&apos;, 1,&apos;hotmail.it&apos;, 1,&apos;sbcglobal.net&apos;, 1,&apos;sfr.fr&apos;, 1,&apos;live.fr&apos;, 1,&apos;verizon.net&apos;, 1,&apos;live.co.uk&apos;, 1,&apos;googlemail.com&apos;, 1,&apos;yahoo.es&apos;, 1,&apos;ig.com.br&apos;, 1,&apos;live.nl&apos;, 1,&apos;bigpond.com&apos;, 1,&apos;terra.com.br&apos;, 1,&apos;yahoo.it&apos;, 1,&apos;neuf.fr&apos;, 1,
+&apos;yahoo.de&apos;, 1,&apos;alice.it&apos;, 1,
+&apos;rocketmail.com&apos;, 1,&apos;att.net&apos;, 1,&apos;laposte.net&apos;, 1,&apos;bellsouth.net&apos;, 1,&apos;yahoo.in&apos;, 1,&apos;hotmail.es&apos;, 1,&apos;charter.net&apos;, 1,&apos;yahoo.ca&apos;, 1,&apos;yahoo.com.au&apos;, 1,&apos;rambler.ru&apos;, 1,&apos;hotmail.de&apos;, 1,&apos;tiscali.it&apos;, 1,&apos;shaw.ca&apos;, 1,&apos;yahoo.co.jp&apos;, 1,&apos;sky.com&apos;, 1,&apos;earthlink.net&apos;, 1,&apos;optonline.net&apos;, 1,&apos;freenet.de&apos;, 1,
+&apos;t-online.de&apos;, 1,&apos;aliceadsl.fr&apos;, 1,
+&apos;home.nl&apos;, 1,&apos;virgilio.it&apos;, 1,&apos;qq.com&apos;, 1,&apos;telenet.be&apos;, 1,&apos;me.com&apos;, 1,&apos;mac.com&apos;, 1,&apos;icloud.com&apos;, 1,&apos;yahoo.com.ar&apos;, 1,&apos;tiscali.co.uk&apos;, 1,&apos;yahoo.com.mx&apos;, 1,&apos;voila.fr&apos;, 1,&apos;gmx.net&apos;, 1,&apos;mail.com&apos;, 1,&apos;planet.nl&apos;, 1,&apos;tin.it&apos;, 1,&apos;live.it&apos;, 1,&apos;ntlworld.com&apos;, 1,&apos;arcor.de&apos;, 1,
+&apos;yahoo.co.id&apos;, 1,&apos;frontiernet.net&apos;, 1,
+&apos;hetnet.nl&apos;, 1,&apos;live.com.au&apos;, 1,&apos;yahoo.com.sg&apos;, 1,&apos;zonnet.nl&apos;, 1,&apos;club-internet.fr&apos;, 1,&apos;juno.com&apos;, 1,&apos;optusnet.com.au&apos;, 1,&apos;blueyonder.co.uk&apos;, 1,&apos;bluewin.ch&apos;, 1,&apos;skynet.be&apos;, 1,&apos;sympatico.ca&apos;, 1,&apos;windstream.net&apos;, 1,&apos;centurytel.net&apos;, 1,&apos;chello.nl&apos;, 1,&apos;live.ca&apos;, 1,&apos;aim.com&apos;, 1,&apos;bigpond.net.au&apos;, 1,&apos;email.com&apos;, 1,
+&apos;mail.com&apos;, 1,&apos;usa.com&apos;, 1,
+&apos;post.com&apos;, 1,&apos;consultant.com&apos;, 1,&apos;asia.com&apos;, 1,&apos;engineer.com&apos;, 1,&apos;engineer.com&apos;, 1,&apos;europe.com&apos;, 1,&apos;myself.com&apos;, 1,&apos;proton.me&apos;, 1,&apos;@protonmail.com&apos;, 1,&apos;@pm.me&apos;, 1,&apos;protonmail.ch&apos;, 1,&apos;yandex.com&apos;, 1,&apos;gmx.com&apos;, 1,&apos;tutanota.com&apos;, 1,&apos;hubspot.com&apos;, 1,&apos;zoho.com&apos;, 1,&apos;titan.email&apos;, 1,&apos;aim.com&apos;, 1,
+&apos;yahoo.com&apos;, 1,
+0) =1 ,
+TRUE,
+FALSE)
+)
+&amp;&amp; Acc_Val_Bypass__c = false</errorConditionFormula>
+    <errorDisplayField>Website</errorDisplayField>
+    <errorMessage>Generic website domains are not allowed (e.g. gmail.com, yahoo.com, xyz.com, msn.com, etc). Please update the website field with the Account&apos;s website address.</errorMessage>
+</ValidationRule>

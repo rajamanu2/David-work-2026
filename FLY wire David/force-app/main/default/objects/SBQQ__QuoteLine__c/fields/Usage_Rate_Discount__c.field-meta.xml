@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Usage_Rate_Discount__c</fullName>
+    <description>Field used to calculate the Usage Discount Percentage, regardless of whether the usage is specified as an amount or a percentage. This is used on the approval email templates</description>
+    <formula>IF(NOT(ISBLANK(Adjusted_Rate_Percent__c)), (1-(Adjusted_Rate_Percent__c / Usage_Rate__c)), (1-(Adjusted_Rate_Amount__c / Usage_Rate_Amt__c)))</formula>
+    <inlineHelpText>Usage Discount Percentage, regardless of whether the usage is specified as an amount or a percentage.</inlineHelpText>
+    <label>Usage Rate Discount</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>2</scale>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Percent</type>
+</CustomField>

@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>66.0</apiVersion>
+    <areMetricsLoggedToDataCloud>false</areMetricsLoggedToDataCloud>
+    <assignments>
+        <name>Build_Location_String</name>
+        <label>Build Location String</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <assignmentItems>
+            <assignToReference>Concatenated_Location</assignToReference>
+            <operator>Add</operator>
+            <value>
+                <elementReference>Loop_Through_Loaner_Assets.Loaner_Location__c</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>Concatenated_Location</assignToReference>
+            <operator>Add</operator>
+            <value>
+                <stringValue> </stringValue>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Loop_Through_Loaner_Assets</targetReference>
+        </connector>
+    </assignments>
+    <decisions>
+        <name>Loaner_Is_Null_Check</name>
+        <label>Loaner Is Null Check</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Is_Not_Null</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Loaner__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Get_Remaining_Loaner_Assets_of_Loaner</targetReference>
+            </connector>
+            <label>Is Not Null</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Skip_If_Duplicate</name>
+        <label>Skip If Duplicate</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <defaultConnector>
+            <targetReference>Build_Location_String</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Not Duplicate</defaultConnectorLabel>
+        <rules>
+            <name>Is_Duplicate</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>Is_Location_In_String</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Loop_Through_Loaner_Assets</targetReference>
+            </connector>
+            <label>Is Duplicate</label>
+        </rules>
+    </decisions>
+    <description>06/03/26 (GD) – Replaces DLRS Loaner_Assets_Location rule. Re-concatenates remaining Loaner_Asset__c.Loaner_Location__c values (space-delimited) onto Loaner__c.Loaner_Location__c before a Loaner Asset is deleted. Excludes the record being deleted from the query. Loaner_Is_Null_Check prevents SOQL when Loaner__c is blank.</description>
+    <environments>Default</environments>
+    <formulas>
+        <name>Is_Location_In_String</name>
+        <dataType>Boolean</dataType>
+        <expression>CONTAINS(&quot; &quot; &amp; {!Concatenated_Location} &amp; &quot; &quot;, &quot; &quot; &amp; {!Loop_Through_Loaner_Assets.Loaner_Location__c} &amp; &quot; &quot;)</expression>
+    </formulas>
+    <formulas>
+        <name>Trimmed_Location</name>
+        <dataType>String</dataType>
+        <expression>IF(RIGHT({!Concatenated_Location}, 1) = &quot; &quot;, LEFT({!Concatenated_Location}, LEN({!Concatenated_Location}) - 1), {!Concatenated_Location})</expression>
+    </formulas>
+    <interviewLabel>Loaner Asset | Before Delete, Loaner Location Roll Up {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Loaner Asset | Before Delete, Loaner Location Roll Up</label>
+    <loops>
+        <name>Loop_Through_Loaner_Assets</name>
+        <label>Loop Through Loaner Assets</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <collectionReference>Get_Remaining_Loaner_Assets_of_Loaner</collectionReference>
+        <iterationOrder>Asc</iterationOrder>
+        <nextValueConnector>
+            <targetReference>Skip_If_Duplicate</targetReference>
+        </nextValueConnector>
+        <noMoreValuesConnector>
+            <targetReference>Update_Loaner</targetReference>
+        </noMoreValuesConnector>
+    </loops>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <recordLookups>
+        <name>Get_Remaining_Loaner_Assets_of_Loaner</name>
+        <label>Get Remaining Loaner Assets of Loaner</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Loop_Through_Loaner_Assets</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Loaner__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>$Record.Loaner__c</elementReference>
+            </value>
+        </filters>
+        <filters>
+            <field>Id</field>
+            <operator>NotEqualTo</operator>
+            <value>
+                <elementReference>$Record.Id</elementReference>
+            </value>
+        </filters>
+        <getFirstRecordOnly>false</getFirstRecordOnly>
+        <object>Loaner_Asset__c</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordUpdates>
+        <name>Update_Loaner</name>
+        <label>Update Loaner</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>$Record.Loaner__c</elementReference>
+            </value>
+        </filters>
+        <inputAssignments>
+            <field>Loaner_Location__c</field>
+            <value>
+                <elementReference>Trimmed_Location</elementReference>
+            </value>
+        </inputAssignments>
+        <object>Loaner__c</object>
+    </recordUpdates>
+    <start>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Loaner_Is_Null_Check</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Loaner__c</field>
+            <operator>IsNull</operator>
+            <value>
+                <booleanValue>false</booleanValue>
+            </value>
+        </filters>
+        <object>Loaner_Asset__c</object>
+        <recordTriggerType>Delete</recordTriggerType>
+        <triggerType>RecordBeforeDelete</triggerType>
+    </start>
+    <status>Active</status>
+    <variables>
+        <name>Concatenated_Location</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+</Flow>

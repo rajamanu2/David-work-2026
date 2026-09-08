@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <encodingKey>UTF-8</encodingKey>
+    <name>Website_Payments Assessment_Travel.Auto Responder - NEW</name>
+    <style>none</style>
+    <subject>Thanks for requesting a payments assessment from Flywire!</subject>
+    <textOnly>{{lead.First Name:default=Friend}},
+
+
+
+
+Thank you for you requesting a payments assessment from Flywire. We look forward to speaking with you soon!
+
+
+
+
+We&apos;ll be in touch shortly to discuss your current payment solutions and how you may be able to save money. In the meantime, please visit our resources page &lt;[[https://www.flywire.com/resources?categories=travel]]&gt; for case studies, best practices, articles, and more.
+
+
+
+
+Best, 
+
+The Flywire Team
+Flywire Global Headquarters
+ 141 Tremont Street, Boston, MA 02111
+ United States
+Copyright ©Flywire. 2011-2020 All rights reserved.
+
+ Flywire is a trademark of Flywire Corporation.
+Privacy Policy &lt;[[#]]&gt;   
+|   
+Unsubscribe &lt;[[{{system.unsubscribeLink}}]]&gt;  
+|   
+Forward to friend &lt;[[{{system.forwardToFriendLink}}]]&gt;</textOnly>
+    <type>custom</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

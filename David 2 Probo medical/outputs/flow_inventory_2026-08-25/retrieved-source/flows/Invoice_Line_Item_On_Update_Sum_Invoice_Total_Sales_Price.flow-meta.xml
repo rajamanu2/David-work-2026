@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>63.0</apiVersion>
+    <areMetricsLoggedToDataCloud>false</areMetricsLoggedToDataCloud>
+    <assignments>
+        <name>Add_Amount_to_Total</name>
+        <label>Add Amount to Total</label>
+        <locationX>440</locationX>
+        <locationY>647</locationY>
+        <assignmentItems>
+            <assignToReference>varInvoiceTotalSalesPrice</assignToReference>
+            <operator>Add</operator>
+            <value>
+                <elementReference>Loop_Through_Invoice_Line_Items.Total_Price__c</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Loop_Through_Invoice_Line_Items</targetReference>
+        </connector>
+    </assignments>
+    <decisions>
+        <description>006Ro00000dZWctIAG is the Opportunity ID for the &quot;Generic Opportunity for DRP&quot;.</description>
+        <name>Disaster_Recovery_Project_Check</name>
+        <label>Disaster Recovery Project Check</label>
+        <locationX>176</locationX>
+        <locationY>323</locationY>
+        <defaultConnector>
+            <targetReference>Get_All_Related_Invoice_Line_Items</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Invoice_Related_to_DRP_Opportunity</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Invoice__r.Opportunity__r.Id</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>006Ro00000dZWctIAG</stringValue>
+                </rightValue>
+            </conditions>
+            <label>Invoice Related to DRP Opportunity</label>
+        </rules>
+    </decisions>
+    <description>24/07/2026 - Excluding the calculation for &quot;Total Sales Price&quot; when Invoices are made for Disaster Record Projects (related to the Opportunity named &quot;Generic Opportunity for DRP&quot;).</description>
+    <environments>Default</environments>
+    <interviewLabel>Invoice Line Item | On Update | Sum Invoice Total Sales Price {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Invoice Line Item | On Update | Sum Invoice Total Sales Price</label>
+    <loops>
+        <name>Loop_Through_Invoice_Line_Items</name>
+        <label>Loop Through Invoice Line Items</label>
+        <locationX>352</locationX>
+        <locationY>539</locationY>
+        <collectionReference>Get_All_Related_Invoice_Line_Items</collectionReference>
+        <iterationOrder>Asc</iterationOrder>
+        <nextValueConnector>
+            <targetReference>Add_Amount_to_Total</targetReference>
+        </nextValueConnector>
+        <noMoreValuesConnector>
+            <targetReference>Update_Invoice_Total_Sales_Price</targetReference>
+        </noMoreValuesConnector>
+    </loops>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <recordLookups>
+        <name>Get_All_Related_Invoice_Line_Items</name>
+        <label>Get All Related Invoice Line Items</label>
+        <locationX>352</locationX>
+        <locationY>431</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Loop_Through_Invoice_Line_Items</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Invoice__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>$Record.Invoice__c</elementReference>
+            </value>
+        </filters>
+        <getFirstRecordOnly>false</getFirstRecordOnly>
+        <object>Invoice_Line_Item__c</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordUpdates>
+        <name>Update_Invoice_Total_Sales_Price</name>
+        <label>Update Invoice Total Sales Price</label>
+        <locationX>352</locationX>
+        <locationY>839</locationY>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>$Record.Invoice__c</elementReference>
+            </value>
+        </filters>
+        <inputAssignments>
+            <field>Total_Sales_Price__c</field>
+            <value>
+                <elementReference>varInvoiceTotalSalesPrice</elementReference>
+            </value>
+        </inputAssignments>
+        <object>Invoice__c</object>
+    </recordUpdates>
+    <start>
+        <locationX>50</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Disaster_Recovery_Project_Check</targetReference>
+        </connector>
+        <object>Invoice_Line_Item__c</object>
+        <recordTriggerType>CreateAndUpdate</recordTriggerType>
+        <triggerType>RecordAfterSave</triggerType>
+    </start>
+    <status>Active</status>
+    <variables>
+        <name>varInvoiceTotalSalesPrice</name>
+        <dataType>Currency</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+        <scale>2</scale>
+        <value>
+            <numberValue>0.0</numberValue>
+        </value>
+    </variables>
+</Flow>

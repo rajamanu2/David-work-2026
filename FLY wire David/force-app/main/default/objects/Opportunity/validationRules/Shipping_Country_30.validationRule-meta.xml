@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Shipping_Country_30</fullName>
+    <active>true</active>
+    <description>Address must be filled in at 30% or higher – Consider moving to 10% now that we have Discovery stage.
+BOPI-600 updated to prevent auto renewals from stopping</description>
+    <errorConditionFormula>AND(
+    $Profile.Name &lt;&gt; &quot;System Administrator&quot;,
+    $Profile.Name &lt;&gt; &quot;B - Looker&quot;,
+    $User.Alias &lt;&gt; &quot;Workato&quot;,
+    Pricebook2.Name &lt;&gt; &quot;CPQ&quot;,
+    Probability &gt;=0.30,
+    ISBLANK(Account.ShippingCountry),
+    NOT(ISPICKVAL(Type, &quot;Auto Renewal&quot;))
+)
+&amp;&amp; Opp_Val_Bypass__c = false</errorConditionFormula>
+    <errorMessage>** Go to Account Record and add Shipping Country **</errorMessage>
+</ValidationRule>

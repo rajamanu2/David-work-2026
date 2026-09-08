@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Inbound_Type__c</fullName>
+    <description>11/06/2025 (BW) - Operations uses this to understand what to do next with this work order</description>
+    <label>Inbound Type</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Labor &amp; Travel</fullName>
+                <default>false</default>
+                <label>Labor &amp; Travel</label>
+            </value>
+            <value>
+                <fullName>Send Part for Repair</fullName>
+                <default>false</default>
+                <label>Send Part for Repair</label>
+            </value>
+            <value>
+                <fullName>Probe Evaluation</fullName>
+                <default>false</default>
+                <label>Probe Evaluation</label>
+            </value>
+            <value>
+                <fullName>System Install</fullName>
+                <default>false</default>
+                <label>System Install</label>
+            </value>
+            <value>
+                <fullName>Preventative Maintenance</fullName>
+                <default>false</default>
+                <label>Preventative Maintenance</label>
+            </value>
+            <value>
+                <fullName>Parts Request</fullName>
+                <default>false</default>
+                <label>Parts Request</label>
+            </value>
+            <value>
+                <fullName>Quote Request</fullName>
+                <default>false</default>
+                <label>Quote Request</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

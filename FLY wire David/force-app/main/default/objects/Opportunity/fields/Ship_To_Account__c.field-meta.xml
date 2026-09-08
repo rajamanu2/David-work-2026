@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Ship_To_Account__c</fullName>
+    <deleteConstraint>SetNull</deleteConstraint>
+    <description>For HC Partners. When Account (Contract) is with Partner, fill in what HC account this opportunity is for. BOPI-451 Filled in by User, used in Flow to auto fill in Quote Line Ship To Account field.</description>
+    <inlineHelpText>Equals the Opp Account, unless the Opp is contracted with a Partner, in which case it&apos;s the serviced Account</inlineHelpText>
+    <label>Ship To Account</label>
+    <referenceTo>Account</referenceTo>
+    <relationshipLabel>Opportunities (Ship To Account)</relationshipLabel>
+    <relationshipName>Opportunities2</relationshipName>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Lookup</type>
+</CustomField>

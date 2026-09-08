@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>60.0</apiVersion>
+    <areMetricsLoggedToDataCloud>false</areMetricsLoggedToDataCloud>
+    <description>Update Account KYC Status and KYC&apos;d By/On when new KYC Application is created. Updated 11/06/2024 to set account status when the application is &apos;IN_REVIEW&apos;</description>
+    <environments>Default</environments>
+    <formulas>
+        <name>OutcomeUserDate</name>
+        <dataType>String</dataType>
+        <expression>CASE({!$Record.Status__c},&quot;APPLIED&quot;, &quot;Applied&quot;, &quot;APPROVED&quot;, &quot;Approved&quot;,&quot;REJECTED&quot;,&quot;Rejected&quot;,&quot;IN_REVIEW&quot;,&quot;In Review&quot;,&quot;&quot;)
+&amp; &quot;: &quot; &amp; {!$Record.KYC_Assignee__c} &amp; &quot; &quot; &amp; Text(TODAY())</expression>
+    </formulas>
+    <formulas>
+        <name>StatusValue</name>
+        <dataType>String</dataType>
+        <expression>CASE({!$Record.Status__c},&quot;APPLIED&quot;, &quot;Applied&quot;, &quot;APPROVED&quot;, &quot;Approved&quot;,&quot;REJECTED&quot;,&quot;Rejected&quot;,&quot;IN_REVIEW&quot;,&quot;Approved&quot;,&quot;&quot;)</expression>
+    </formulas>
+    <interviewLabel>KYC Record Created {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>(KYC_APP) KYC Record Created</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <recordUpdates>
+        <name>Update_Account</name>
+        <label>Update Account</label>
+        <locationX>176</locationX>
+        <locationY>323</locationY>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>$Record.Account__c</elementReference>
+            </value>
+        </filters>
+        <inputAssignments>
+            <field>Acc_Bypass_DateTime__c</field>
+            <value>
+                <elementReference>$Flow.CurrentDateTime</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>KYC_By_On__c</field>
+            <value>
+                <elementReference>OutcomeUserDate</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>KYC_Status__c</field>
+            <value>
+                <elementReference>StatusValue</elementReference>
+            </value>
+        </inputAssignments>
+        <object>Account</object>
+    </recordUpdates>
+    <start>
+        <locationX>50</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Update_Account</targetReference>
+        </connector>
+        <object>KYC_Application__c</object>
+        <recordTriggerType>Create</recordTriggerType>
+        <triggerType>RecordAfterSave</triggerType>
+    </start>
+    <status>Active</status>
+</Flow>

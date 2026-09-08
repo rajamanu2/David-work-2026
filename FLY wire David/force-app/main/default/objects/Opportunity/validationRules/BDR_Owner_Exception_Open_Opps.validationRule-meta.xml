@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>BDR_Owner_Exception_Open_Opps</fullName>
+    <active>true</active>
+    <description>Users eligible for the BDR Owner on open opportunities - SAL-3204
+BOPI-600 updated to prevent auto renewals from stopping</description>
+    <errorConditionFormula>AND(
+    $Profile.Name &lt;&gt; &quot;B - Looker&quot;,
+    $Profile.Name &lt;&gt; &apos;System Administrator&apos;,
+    $User.Alias &lt;&gt; &quot;Workato&quot;,
+    IsClosed = false,
+    NOT(
+    OR(
+BDR_Owner__r.Flow_Full_Name__c = &quot;Javier Fontoba&quot;,
+BDR_Owner__r.Flow_Full_Name__c = &quot;Anne-Sophie Kadjo&quot;,
+BDR_Owner__r.Flow_Full_Name__c = &quot;Minori Nishioka&quot;,
+BDR_Owner__r.Flow_Full_Name__c = &quot;Charlie Dreher&quot;,
+BDR_Owner__r.Flow_Full_Name__c = &quot;Caitlin Cowdrey&quot;,
+BDR_Owner__r.Flow_Full_Name__c = &quot;Sabrina Alam&quot;,
+BDR_Owner__r.Flow_Full_Name__c = &quot;Alex Godfrey&quot;,
+BDR_Owner__r.Flow_Full_Name__c = &quot;John Quinn&quot;,
+BDR_Owner__r.Flow_Full_Name__c = &quot;Chloe Engle&quot;,
+BDR_Owner__r.Flow_Full_Name__c = &quot;Leah Prigmore&quot;,
+BDR_Owner__r.Flow_Full_Name__c = &quot;Sophie Brockbank&quot;,
+BDR_Owner__r.Flow_Full_Name__c = &quot;Mubz Rahman&quot;,
+BDR_Owner__r.Flow_Full_Name__c = &quot;Gustavo Ruiz-Esteller&quot;,
+BDR_Owner__r.Flow_Full_Name__c = &quot;Lloyd Ng&quot;,
+BDR_Owner__r.Flow_Full_Name__c = &quot;Sherlyn Yang&quot;,
+BDR_Owner__r.Flow_Full_Name__c = &quot;Kaila Decarvalho&quot;,
+BDR_Owner__r.Flow_Full_Name__c = &quot;Kelsey Fikkert&quot;,
+BDR_Owner__r.Flow_Full_Name__c = &quot;Ellis Croce&quot;,
+BDR_Owner__r.Flow_Full_Name__c = &quot;Yui Takahashi&quot;,
+BDR_Owner__r.Flow_Full_Name__c = &quot;Patrick Stacy&quot;,
+BDR_Owner__r.Flow_Full_Name__c = &quot;Praveen Vivinthas&quot;,
+ISBLANK( BDR_Owner__c )
+        )
+    ),
+    NOT(ISPICKVAL(Type, &quot;Auto Renewal&quot;))
+)
+&amp;&amp; Opp_Val_Bypass__c = false</errorConditionFormula>
+    <errorDisplayField>BDR_Owner__c</errorDisplayField>
+    <errorMessage>This field is for BDRs only. If you are entering the name of a new BDR, please submit a ticket to Salesforce Admin so they can be added. This field should not be filled in for other purposes, or people in other roles.</errorMessage>
+</ValidationRule>

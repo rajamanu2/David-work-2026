@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Account_in_Sales_Console__c</fullName>
+    <description>Used for the Account Planning app to easily switch between apps</description>
+    <externalId>false</externalId>
+    <formula>HYPERLINK(&quot;/lightning/app/standard__LightningSalesConsole/r/Account__c/&quot; &amp; Id &amp; &quot;/view&quot;, &quot;Sales Console&quot;, &quot;_blank&quot;)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <inlineHelpText>Click to go to the full Account page in Sales Console App.</inlineHelpText>
+    <label>Account in Sales Console</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

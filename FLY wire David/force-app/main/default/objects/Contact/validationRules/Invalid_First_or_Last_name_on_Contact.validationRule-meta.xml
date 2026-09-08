@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Invalid_First_or_Last_name_on_Contact</fullName>
+    <active>true</active>
+    <description>Created for SALDEV-1118</description>
+    <errorConditionFormula>OR(
+		  Lower(FirstName) = &quot;dummy&quot;,
+				Contains(Lower(FirstName), &quot;do not&quot;),
+				Contains(Lower(LastName), &quot;do not&quot;),
+				Contains(Lower(FirstName), &quot;wrong&quot;),
+				Contains(Lower(LastName), &quot;wrong&quot;),
+				Contains(Lower(FirstName), &quot;not anymore&quot;),
+				Contains(Lower(LastName), &quot;not anymore&quot;),
+				Contains(Lower(FirstName), &quot;no longer&quot;),
+				Contains(Lower(LastName), &quot;no longer&quot;),
+				Lower(FirstName) = &quot;contact&quot;,
+				Contains(Lower(LastName), &quot;contact&quot;),
+				Contains(Lower(FirstName), &quot;inactive&quot;),
+				Contains(Lower(LastName), &quot;inactive&quot;),
+				Contains(Lower(FirstName), &quot;not provided&quot;),
+				Contains(Lower(LastName), &quot;not provided&quot;),
+				Contains(Lower(FirstName), &quot;deceased&quot;),
+				Contains(Lower(LastName), &quot;deceased&quot;))
+				
+			&amp;&amp;	Contact_Automation_Bypassed__c = false</errorConditionFormula>
+    <errorMessage>You have entered a First or Last name that is not valid. Please update the name and save again.</errorMessage>
+</ValidationRule>

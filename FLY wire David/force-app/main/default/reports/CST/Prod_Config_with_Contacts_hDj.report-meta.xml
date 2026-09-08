@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>Product_Configuration__c$Name</field>
+    </columns>
+    <columns>
+        <field>Product_Configuration__c.Custom_Related_Contacts__r$Name</field>
+    </columns>
+    <columns>
+        <field>Product_Configuration__c$Account__c</field>
+    </columns>
+    <columns>
+        <field>Product_Configuration__c.Custom_Related_Contacts__r$Contact__c</field>
+    </columns>
+    <columns>
+        <field>Product_Configuration__c.Custom_Related_Contacts__r$Contact__c.Id</field>
+    </columns>
+    <columns>
+        <field>Product_Configuration__c$ProdConfigLongID__c</field>
+    </columns>
+    <currency>USD</currency>
+    <description>Prod Config Records and their Custom Contacts</description>
+    <format>Summary</format>
+    <groupingsDown>
+        <aggregateType>RowCount</aggregateType>
+        <dateGranularity>Day</dateGranularity>
+        <field>Product_Configuration__c$Name__c</field>
+        <sortByName>RowCount</sortByName>
+        <sortOrder>Asc</sortOrder>
+        <sortType>Aggregate</sortType>
+    </groupingsDown>
+    <name>Prod Config with Contacts</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>Prod_Config_and_Custom_Contacts__c</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <showGrandTotal>true</showGrandTotal>
+    <showSubTotals>true</showSubTotals>
+    <timeFrameFilter>
+        <dateColumn>Product_Configuration__c$CreatedDate</dateColumn>
+        <interval>INTERVAL_CURRENT</interval>
+    </timeFrameFilter>
+</Report>

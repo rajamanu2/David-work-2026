@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Strategic_Partner_Cant_Use_Flywire_Paper</fullName>
+    <active>true</active>
+    <description>BOPI-727 This validation rule prevents users from defaulting the contract paper factor to &apos;Flywire&apos; when the ship-to account is a Strategic Partner</description>
+    <errorConditionFormula>AND(
+    $Profile.Name &lt;&gt; &quot;B - Looker&quot;,
+    $User.Alias &lt;&gt; &quot;Workato&quot;,
+    Account.RecordType.DeveloperName = &quot;Strategic_Partner&quot;,
+    RecordType.DeveloperName = &quot;Healthcare&quot;,
+    ISPICKVAL(Contract_Paper__c, &quot;Flywire&quot;),
+    ISCHANGED(Probability)
+)</errorConditionFormula>
+    <errorDisplayField>Contract_Paper__c</errorDisplayField>
+    <errorMessage>Please update the contract paper to the corresponding partner</errorMessage>
+</ValidationRule>

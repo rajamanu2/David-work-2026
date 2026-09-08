@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Cant_update_Flywire_Legal_Entity</fullName>
+    <active>true</active>
+    <description>Stops users from updating the Flywire Legal Entity on Amendment or Renewal Quotes. Created for BOPI-770</description>
+    <errorConditionFormula>AND(
+OR(ISPICKVAL(SBQQ__Type__c, &apos;Amendment&apos;),
+ISPICKVAL(SBQQ__Type__c, &apos;Renewal&apos;)),
+ISCHANGED(Flywire_Entity__c))</errorConditionFormula>
+    <errorMessage>The Flywire Entity cannot be edited on amendments or renewals. Please cancel this Contract and create a new one with the revised value instead</errorMessage>
+</ValidationRule>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Prod_Config_Partner_Code</fullName>
+    <columns>NAME</columns>
+    <columns>Code__c</columns>
+    <columns>Partner_Code__c</columns>
+    <columns>Integration_Partner__c</columns>
+    <columns>Configuration_Type__c</columns>
+    <columns>Product_Status__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>RECORDTYPE</field>
+        <operation>equals</operation>
+        <value>Product_Configuration__c.Portal</value>
+    </filters>
+    <filters>
+        <field>Partner_Code__c</field>
+        <operation>notEqual</operation>
+    </filters>
+    <label>Prod Config Partner Code</label>
+</ListView>

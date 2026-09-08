@@ -1,0 +1,33 @@
+<apex:page standardController="SBQQ__Quote__c" extensions="QuoteDeleteController" lightningStylesheets="true">
+
+    <apex:pageMessages id="pageMessages" />
+
+    <apex:form >
+        <apex:actionFunction name="tryDelete" action="{!tryDelete}" reRender="pageMessages,scriptPanel" oncomplete="showToast();"/>
+    </apex:form>
+
+    <apex:outputPanel id="scriptPanel">
+        <script>
+            var message = "{!toastMessage}";
+            var type = "{!toastType}";
+        </script>
+    </apex:outputPanel>
+
+    <script>
+        window.onload = function() {
+            tryDelete();
+        };
+
+        function showToast() {
+            sforce.one.showToast({
+                "message": message,
+                "type": type,
+                "mode": "dismissible"
+            });
+        }
+        
+        setTimeout(function() {
+            window.history.back();
+        }, 100);
+    </script>
+</apex:page>

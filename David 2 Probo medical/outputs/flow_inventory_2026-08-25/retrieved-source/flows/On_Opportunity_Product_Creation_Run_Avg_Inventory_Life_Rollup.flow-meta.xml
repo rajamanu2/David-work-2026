@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionCalls>
+        <name>Run_Avg_Inventory_Life_Rollup</name>
+        <label>Run Avg Inventory Life Rollup</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <actionName>dlrs__RollupActionCalculate</actionName>
+        <actionType>apex</actionType>
+        <flowTransactionModel>Automatic</flowTransactionModel>
+        <inputParameters>
+            <name>ParentId</name>
+            <value>
+                <elementReference>$Record.OpportunityId</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>RollupSummaryUniqueName</name>
+            <value>
+                <stringValue>Avg_Inventory_Life_Opp_Product</stringValue>
+            </value>
+        </inputParameters>
+        <nameSegment>dlrs__RollupActionCalculate</nameSegment>
+        <offset>0</offset>
+    </actionCalls>
+    <apiVersion>66.0</apiVersion>
+    <areMetricsLoggedToDataCloud>false</areMetricsLoggedToDataCloud>
+    <description>04/23/2026 (BW) - Runs the Avg Inventory Life Rollup</description>
+    <environments>Default</environments>
+    <interviewLabel>On Opportunity Product Creation, Run Avg Inventory Life Rollup {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>On Opportunity Product Creation, Run Avg Inventory Life Rollup</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <start>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <object>OpportunityLineItem</object>
+        <recordTriggerType>Create</recordTriggerType>
+        <scheduledPaths>
+            <connector>
+                <targetReference>Run_Avg_Inventory_Life_Rollup</targetReference>
+            </connector>
+            <pathType>AsyncAfterCommit</pathType>
+        </scheduledPaths>
+        <triggerType>RecordAfterSave</triggerType>
+    </start>
+    <status>Obsolete</status>
+</Flow>

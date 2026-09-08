@@ -1,0 +1,91 @@
+                                                                                                                         DRAFT      
+                                                                                                                                    
+                                                                                                                                    
+                                                                                                                                    
+        We    considered     multiple    implementation         approaches      for  migration                                      
+                                                                                                                                    
+                                                                                                           RECOMMENDED              
+                                                                                                                                    
+             By  Persona            By Capability           By Business             By Region                By Org                 
+                                                                                                                                    
+                                                                                                                                    
+                                                                                                                                    
+         Ex: Sales, RevOps, Customer Success, Ex: Marketing, Sales, CPQ/Q2C, CLM Ex: EDU, Healthcare, Travel, B2B, Ex: North America, EMEA, APAC, Flywire, Sertifi, Invoiced
+               Implementation                                  Hospitality           LatAm, AMIA                                    
+         • Smooth transition for personas • Can establish commercial • Easier debugging and • Prioritization of high impact • Cleanest architecture
+           as all capabilities will be business processes with maintenance as processes are regions are possible; could de- boundary of any approach
+   s       available to them      minimal rework         isolated               risk region specific issues • Preserves org-specific business
+   o                                                                                                                                
+   r                                                   • Matches how Flywire sells and                  logic during transition, enabling
+   P                                                                                                                                
+                                                         reports today                                  a clean cutover rather than 
+                                                                                                        fragmenting any one org mid-
+                                                                                                        migration                   
+         • Flywire’s personas span • Risks leaving verticals partially • Verticals don’t map cleanly to • Most capabilities (and • Possibility of having rework for
+           verticals and orgs, most migrated for a long stretch. orgs; this would require challenges) overlap across alignment to commercial
+   s       capabilities overlap across • Sequencing by capability risks touching multiple orgs regions, implementation is processes as orgs come
+   n                                                                                                                                
+   o       personas, so this doesn’t building on three different, simultaneously for partial challenging together                   
+   C                                                                                                                                
+           reduce the build       still-unreconciled data models capability sets, adding                                            
+                                                         integration complexity                                                     
+                                                       • No natural single-customer                                                 
+                                                         view improvement mid roll-out                                              
+    s    Personas that span multiple orgs: Capability maturity example: Verticals/clients that could span Pain points requiring region- Active Users per org:
+  t n t n • Sales               Quote-to-Cash:         multiple orgs:         specific system architecture: • Flywire – 54          
+  a v i o P • RevOps            • Flywire – CPQ but with flaws • Travel - Experiential/Flywire vs. • None • Sertifi – 96            
+  e                                                                                                                                 
+  le                                                                                                                                
+  R                                                                                                                                 
+    a                                                                                                                               
+    t a                                                                                                                             
+         •                                                                                                                          
+         •                                                                                                                          
+           C                                                                                                                        
+           M                                                                                                                        
+           u                                                                                                                        
+            a                                                                                                                       
+            s                                                                                                                       
+            r                                                                                                                       
+             t                                                                                                                      
+             k                                                                                                                      
+             o                                                                                                                      
+              e                                                                                                                     
+              m                                                                                                                     
+              ti                                                                                                                    
+               e                                                                                                                    
+               n                                                                                                                    
+                r                                                                                                                   
+                g                                                                                                                   
+                Success         • S                                                                                                 
+                                  a                                                                                                 
+                                  e                                                                                                 
+                                  p                                                                                                 
+                                   r                                                                                                
+                                   p                                                                                                
+                                    t                                                                                               
+                                    r                                                                                               
+                                    if                                                                                              
+                                    o                                                                                               
+                                     i                                                                                              
+                                     v                                                                                              
+                                     –                                                                                              
+                                      a l                                                                                           
+                                      n                                                                                             
+                                       w                                                                                            
+                                       o                                                                                            
+                                        o                                                                                           
+                                        C                                                                                           
+                                         r                                                                                          
+                                         P                                                                                          
+                                         k                                                                                          
+                                          Q                                                                                         
+                                          flo                                                                                       
+                                           , n                                                                                      
+                                           w                                                                                        
+                                            o price book, no Hospitality/Sertifi                      • Invoiced – 23               
+    D    • Finance/Deal Desk    • Invoiced – majority web                                                                           
+                                  transactions                                                                                      
+    We recommend   migrating By Org because it's the only approach that migrates cleanly along Flywire's existing technical seams, letting us
+                                 harmonize commercial processes deliberately, after each org lands safely.                          
+  20                                                                                                                                

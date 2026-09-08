@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>All_Integrations</fullName>
+    <columns>NAME</columns>
+    <columns>Account__c</columns>
+    <columns>Integration_Type__c</columns>
+    <columns>Owner__c</columns>
+    <columns>Partner_Account__c</columns>
+    <columns>Project_Kick_Off_Date__c</columns>
+    <columns>Integration_Stage__c</columns>
+    <columns>Est_Live_Date__c</columns>
+    <columns>Actual_Go_live_Date__c</columns>
+    <columns>Integration_Status__c</columns>
+    <columns>Product_Configuration__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>RECORDTYPE</field>
+        <operation>equals</operation>
+        <value>Integration__c.Incoming_Payment_Portal</value>
+    </filters>
+    <filters>
+        <field>Integration_Type__c</field>
+        <operation>equals</operation>
+        <value>Intelligent Link,SFTP</value>
+    </filters>
+    <label>All Integrations</label>
+</ListView>

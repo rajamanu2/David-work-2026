@@ -1,0 +1,41 @@
+                                                                                                                         DRAFT      
+                                                                                                                                    
+                                                                                                                                    
+                                                                                                                                    
+        Assuming      Flywire   as  the  master    org,  we   developed      a set  of  recommendations          on                 
+                                                                                                                                    
+        how    to simplify    architecture                                                                                          
+                                                                                                                                    
+                                                                                                                                    
+                  C U R R E N T S TAT E A R C H I T E C T U R E             F U T U R E S TA T E A R C H I T E C T U R E            
+                                                                                                                                    
+                                                                                                                                    
+                                                                                                                                    
+                                                                                                                                    
+                                                                                                                                    
+                                                                                                                                    
+                                                                                                                                    
+                                                                                                                                    
+                                                                                                                                    
+                                                                                                                                    
+                                                                                                                                    
+                                                                                                                                    
+                                                                                                                                    
+                                                                                                               To view each architecture, view the
+                                                                                                               appendix Architecture
+                                                                                                                                    
+                                                     W  H A T I S D I F F E R E N T                                                 
+                                                                                                                                    
+    •  Single Experience / Access layer through Flywire CRM providing one navigation model, one identity/SSO footprint, and one customer view across all three legacy business lines
+                                                                                                                                    
+       (Flywire, Sertifi, Invoiced), regardless of which org originally owned the record                                            
+    •  Single E2E quote-to-cash workflow with one quoting engine, defined owners at each stage, standardized approval routing, and one process model applied across all three product
+       lines instead of three parallel configurations                                                                               
+    •  Governed master data model with standardized entity definitions, parent-child hierarchy support across the combined customer base, a single reconciled pricing/product catalog, and
+       an active deduplication strategy applied during migration and on an ongoing basis - not just cleanup once                    
+    •  Simplified release & operational overhead - One release calendar, one sandbox/testing strategy, and one admin function instead of three independently managed org lifecycles.
+    •  Standardized, documented integration architecture consolidating today's point-to-point connections onto one platform (Workato, already in place) with automated end-to-end
+       handoffs, no manual re-entry, and reusable patterns across every downstream Finance, Marketing, and Support system           
+    •  Unified analytics & reporting layer - One governed data platform (Flywire-only BigQuery) replacing Smartsheet/Excel/Google Sheets patchwork sitting alongside it
+    •  Backup, recovery, and business continuity coverage extended to the full consolidated org from day one — not the Flywire-only coverage that exists today
+  18                                                                                                                                

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Is_Amendment__c</fullName>
+    <description>BOPI-573 Field used on the Record Page to conditionally show the Prevent Redundat Opps flow</description>
+    <formula>NOT(ISBLANK(SBQQ__AmendedContract__c))</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Is Amendment</label>
+    <trackHistory>false</trackHistory>
+    <type>Checkbox</type>
+</CustomField>

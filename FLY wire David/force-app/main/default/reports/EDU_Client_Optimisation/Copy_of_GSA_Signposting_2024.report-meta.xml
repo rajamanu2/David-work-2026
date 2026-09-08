@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>PARENT.NAME</field>
+    </columns>
+    <columns>
+        <field>ACCOUNT.NAME</field>
+    </columns>
+    <columns>
+        <field>Account.Relationship_Manager__c</field>
+    </columns>
+    <columns>
+        <field>ADDRESS2_COUNTRY</field>
+    </columns>
+    <columns>
+        <aggregateTypes>Sum</aggregateTypes>
+        <field>Account.Signposting_Health__c</field>
+    </columns>
+    <columns>
+        <field>Account.Signposting_process_flow__c</field>
+    </columns>
+    <columns>
+        <field>RATING</field>
+    </columns>
+    <columns>
+        <field>Account.CS_Specialist__c</field>
+    </columns>
+    <columns>
+        <field>URL</field>
+    </columns>
+    <currency>USD</currency>
+    <description>GSA Accounts with Signposting score</description>
+    <filter>
+        <criteriaItems>
+            <column>Account.Account_Industry__c</column>
+            <columnToColumn>false</columnToColumn>
+            <isUnlocked>true</isUnlocked>
+            <operator>equals</operator>
+            <value>Education</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>PARENT.NAME</column>
+            <columnToColumn>false</columnToColumn>
+            <isUnlocked>true</isUnlocked>
+            <operator>equals</operator>
+            <value>Galileo Global Education,Kaplan Language Group,Hult International Business School,Navitas Global,Nord Anglia Education,EF Group,Oxford International Education Group,Kaplan Professional Education,Sommet Education,EHL Hospitality Business School SA,Navitas Canada,Le Cordon Bleu Peru,Kaplan International,Kaplan International Pathways,Le Cordon Bleu Group,Galileo Global Education Germany,Oxford International Education and Travel ltd,QA Higher Education,Shorelight Education,Study Group,Swiss Education Group,Navitas Pathways Australia</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Account.Account_Status__c</column>
+            <columnToColumn>false</columnToColumn>
+            <isUnlocked>true</isUnlocked>
+            <operator>equals</operator>
+            <value>Active (Product Live)</value>
+        </criteriaItems>
+    </filter>
+    <format>Tabular</format>
+    <name>Copy of GSA Signposting 2024</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>AccountList</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <showGrandTotal>true</showGrandTotal>
+    <showSubTotals>true</showSubTotals>
+    <sortColumn>PARENT.NAME</sortColumn>
+    <sortOrder>Asc</sortOrder>
+    <timeFrameFilter>
+        <dateColumn>CREATED_DATE</dateColumn>
+        <interval>INTERVAL_CUSTOM</interval>
+    </timeFrameFilter>
+</Report>

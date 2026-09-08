@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Number_of_New_Quote_Lines__c</fullName>
+    <description>SALDEV-1368: Rollup summary to count how many Quote Line Type = New in the Quote. Used for the Desired Go Live Date validation rule on opportunity</description>
+    <inlineHelpText>Number of New Quote Line Types for this Quote</inlineHelpText>
+    <label>Number of New Quote Lines</label>
+    <summaryFilterItems>
+        <field>SBQQ__QuoteLine__c.Quote_Line_Type_background__c</field>
+        <operation>equals</operation>
+        <value>New</value>
+    </summaryFilterItems>
+    <summaryForeignKey>SBQQ__QuoteLine__c.SBQQ__Quote__c</summaryForeignKey>
+    <summaryOperation>count</summaryOperation>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Summary</type>
+</CustomField>

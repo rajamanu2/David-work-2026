@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>Account.AccountLongID__c</field>
+    </columns>
+    <columns>
+        <field>ADDRESS2_STATE_CODE</field>
+    </columns>
+    <columns>
+        <field>ADDRESS2_COUNTRY_CODE</field>
+    </columns>
+    <currency>USD</currency>
+    <filter>
+        <booleanFilter>1 AND (2 OR 3 OR 4 OR 5 OR 6)</booleanFilter>
+        <criteriaItems>
+            <column>RECORDTYPE</column>
+            <columnToColumn>false</columnToColumn>
+            <isUnlocked>true</isUnlocked>
+            <operator>equals</operator>
+            <value>Account.Healthcare</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>ACCOUNT.NAME</column>
+            <columnToColumn>false</columnToColumn>
+            <isUnlocked>true</isUnlocked>
+            <operator>equals</operator>
+            <value>Adair County Health System,Allen County Hospital,Animas Surgical Hospital,Anthony Medical Center,ARUP Laboratories,Ashland Health Center,Bakersfield Heart Hospital,Beaver Valley Hospital,Benewah Community Hospital,Blue Mountain Hospital District,Boone County Health Center,Boulder City Hospital,Brodstone Memorial Hospital,Brown County Hospital,Butler County Health Care Center,Callaway District Hospital,Caribou Memorial Hospital,Casa Colina Hospital,Center for Orthopaedic Reconstruction and Excellence,Central Community Hospital,Central Valley Medical Center,Chase County Community Hospital,Cheyenne County Hospital,Children&apos;s of Alabama,Chinese Hospital,Cibola General Hospital,Clara Barton Hospital,Clay County Medical Center,Cleveland Area Hospital,College Medical Center,Columbia Memorial Hospital,Community HealthCare System,Copper Queen Community Hospital,Coquille Valley Hospital,Coulee Medical Center,Crook County Medical Services District,Culinary Health Center,Cullman Regional Medical Center,D.W. McMillan Memorial Hospital,Davis County Hospital,Decatur County Hospital,Drumright Regional Hospital,Eastern Plumas Health Care,El Centro,Ellinwood District Hospital,Ellsworth County Hospital,Escambia County Heatlhcare Authority</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>ACCOUNT.NAME</column>
+            <columnToColumn>false</columnToColumn>
+            <isUnlocked>true</isUnlocked>
+            <operator>equals</operator>
+            <value>Fairchild Medical,Family Health West (Colorado Canyons),Faulkton Area Medical Center,Fillmore County Hospital,Franklin General Hospital,Fredonia Regional Hospital,George L. Mee Memorial Hospital,Gerald Champion Regional Medical Center,Good Samaritan Hospital,Gothenburg Memorial Hospital,Great Plains Health Alliance,Green Valley Hospital,Greene County Hospital,Grisell Memorial Hospital,Hancock County Health System,Hansen Family Hospital,Hawaii Health,Healdsburg District Hospital,Horn Memorial Hospital,Humboldt General Hospital,Huntington Hospital,Huron Regional Medical Center,Hutchinson Regional,Jefferson Community Health &amp; Life,Jewell County Hospital,Johnson County Hospital,Kahuku Medical Center,Kane County Hospital,Kansas Medical Center,Kearney County Health Services,Kiowa County Memorial Hospital,Kiowa District Hospital,Kittitas Valley Healthcare,Knoxville Community Hospitals &amp; Clinics,Kossuth Regional Health Center,Kuakini,Lake Health District,Lane County Hospital,Las Cruces Regional Medical Center LLC,Last Frontier Healthcare District d.b.a. Modoc Medical Center,Legacy Health,Lexington Regional Health Center,Lincoln Community Hospital and Nursing Home,Little Colorado Medical Center,Loma Linda University,Madison County Health Care System</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>ACCOUNT.NAME</column>
+            <columnToColumn>false</columnToColumn>
+            <isUnlocked>true</isUnlocked>
+            <operator>equals</operator>
+            <value>Madison Memorial Hospital,Madison Valley Medical Center,Mammoth Hospital,Marcus Daly Memorial Hospital,Mason General Hospital,Mayers Memorial Hospital District,Medical Associates Clinic,Medicine Lodge Memorial Hospital,Memorial Community Health Inc.,Memorial Hospital of Carbon County,MemorialCare,Mercy Hospital,Mercy New Hampton,Mid-Valley Hospital,Midwest Surgical Hospital,Miners&apos; Colfax Medical Center,Minimally Invasive Surgery Hospital,Minneola District Hospital,Mitchell County Hospital Health Systems,Mobridge Regional Hospital,Monroe County Hospital,Montgomery County Memorial Hospital,Morton County Health Systems,Inc.,Morton General Hospital,Muscogee (Creek) Nation Community Hospital,Muscogee (Creek) Nation Department of Health,Muscogee (Creek) Nation Medical Center,Muscogee (Creek) Nation Physical Rehabilitation Center,Nebraska Orthopedic Hospital,Nemaha Valley Community Hospital,Neosho Memorial Regional Medical Center,North Canyon Medical Center,Northeastern Health System,Northern Inyo Healthcare District,Norton County Hospital,Odessa Memorial Healthcare,Okanogan County Public Hospital District No 4 d/b/a North Valley Hospital District,Oklahoma Heart,Oklahoma Surgical Hospital,Osborne County Memorial Hospital,Osmond General Hospital,Ottawa County Health Center</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>ACCOUNT.NAME</column>
+            <columnToColumn>false</columnToColumn>
+            <isUnlocked>true</isUnlocked>
+            <operator>equals</operator>
+            <value>Pagosa Springs Medical Center,Palo Alto County Health System,Patterson Health Center,Pawhuska Hospital,Pawnee County Memorial Hospital,Phillips County Hospital,Pickens County Medical Center,Pioneers Memorial HealthCare District,Plumas District Hospital,Providence Medical Center,Regional Health,Regional Medical Center,Rehabilitation Hospital of the Pacific,Republic County Hospital,Rock County Hospital,Sabetha Community Hospital,Salina Surgical Center,San Joaquin General Hospital,San Juan Health Services,Satanta District Hospital,Seneca Healthcare District Hospital,Sequoyah Memorial Hospital (Northeastern Health System),Sheridan Memorial,Sitka Community Hospital,Skyline Hospital,Smith County Memorial Hospital,SMP Health - St. Aloisius,SMP Health - St. Andrew,SMP Health - St. Kateri,Southwest Health System,Inc.,St. Francis Memorial Hospital,St. John&apos;s Medical Center,Stafford District Hospital,Stevens County Hospital,Sumner Regional Medical Center,Sunnyside Community Hospital (Regional Health),Syracuse Area Health,Syringa Hospital &amp; Clinics,Thayer County Health Services,Toppenish Community Hospital (Regional Health),Torrance Memorial,Trego County-Lemke Memorial Hospital,Tri-City Medical Center,Tulare Regional Medical Center,Uintah Basin Healthcare,University of Kansas</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>ACCOUNT.NAME</column>
+            <columnToColumn>false</columnToColumn>
+            <isUnlocked>true</isUnlocked>
+            <operator>equals</operator>
+            <value>UW Medicine,Van Diest Medical Center,Webster County Community Hospital,West Kauai Medical Center,Wichita County Health Center,Wilson Medical Center,Wishek Community Hospital,Yakima Regional Medical &amp; Cardiac Center (Regional Health),Yukon-Kuskokwim,Yuma District Hospital</value>
+        </criteriaItems>
+    </filter>
+    <format>Summary</format>
+    <groupingsDown>
+        <dateGranularity>Day</dateGranularity>
+        <field>ACCOUNT.NAME</field>
+        <sortOrder>Asc</sortOrder>
+    </groupingsDown>
+    <groupingsDown>
+        <dateGranularity>Day</dateGranularity>
+        <field>USERS.NAME</field>
+        <sortOrder>Asc</sortOrder>
+    </groupingsDown>
+    <name>2025 Oracle CommunityWx Forum Accounts</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>AccountList</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <showGrandTotal>true</showGrandTotal>
+    <showSubTotals>true</showSubTotals>
+    <timeFrameFilter>
+        <dateColumn>CREATED_DATE</dateColumn>
+        <interval>INTERVAL_CUSTOM</interval>
+    </timeFrameFilter>
+</Report>

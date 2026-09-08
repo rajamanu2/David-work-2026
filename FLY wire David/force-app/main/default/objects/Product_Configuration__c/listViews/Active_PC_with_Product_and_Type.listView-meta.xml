@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Active_PC_with_Product_and_Type</fullName>
+    <columns>NAME</columns>
+    <columns>Product__c</columns>
+    <columns>Portal_Type__c</columns>
+    <columns>Product_Status__c</columns>
+    <columns>Opportunity__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Product_Status__c</field>
+        <operation>equals</operation>
+        <value>Active (Product Live)</value>
+    </filters>
+    <filters>
+        <field>RECORDTYPE</field>
+        <operation>notEqual</operation>
+        <value>Product_Configuration__c.Bank_PSP_Partner</value>
+    </filters>
+    <filters>
+        <field>Portal_Type__c</field>
+        <operation>equals</operation>
+        <value>DOM - Same Currency Domestic Payments</value>
+    </filters>
+    <label>Active PC with Product and Type</label>
+</ListView>

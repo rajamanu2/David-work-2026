@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>49.0</apiVersion>
+    <areMetricsLoggedToDataCloud>false</areMetricsLoggedToDataCloud>
+    <assignments>
+        <name>Assign_New_Lead_to_Queue</name>
+        <label>Assign New Lead to Queue</label>
+        <locationX>457</locationX>
+        <locationY>198</locationY>
+        <assignmentItems>
+            <assignToReference>NewLead.OwnerId</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>ExistingAccountQueue</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Update_New_Lead</targetReference>
+        </connector>
+    </assignments>
+    <constants>
+        <name>ExistingAccountQueue</name>
+        <dataType>String</dataType>
+        <value>
+            <stringValue>00G4O0000049Wvz</stringValue>
+        </value>
+    </constants>
+    <decisions>
+        <description>Checks if a value was found for an account with the same name</description>
+        <name>Does_Dupe_Account_Exist</name>
+        <label>Does Dupe Account Exist?</label>
+        <locationX>298</locationX>
+        <locationY>198</locationY>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Account_Exists</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>AccountNameDupeID</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Assign_New_Lead_to_Queue</targetReference>
+            </connector>
+            <label>Account Exists</label>
+        </rules>
+        <rules>
+            <name>Account_Does_Not_Exist</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>AccountNameDupeID</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <label>Account Does Not Exist</label>
+        </rules>
+    </decisions>
+    <description>Checks a new lead against existing accounts via Account Name</description>
+    <interviewLabel>Lead - Check for existing Account - Account Name {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Lead - Check for existing Account - Account Name</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <recordLookups>
+        <name>Search_Accounts_for_Company_Name</name>
+        <label>Search Accounts for Company Name</label>
+        <locationX>305</locationX>
+        <locationY>49</locationY>
+        <assignNullValuesIfNoRecordsFound>true</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Does_Dupe_Account_Exist</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Name</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>NewLead.Company</elementReference>
+            </value>
+        </filters>
+        <object>Account</object>
+        <outputAssignments>
+            <assignToReference>AccountNameDupeID</assignToReference>
+            <field>Id</field>
+        </outputAssignments>
+        <sortField>Id</sortField>
+        <sortOrder>Asc</sortOrder>
+    </recordLookups>
+    <recordUpdates>
+        <name>Update_New_Lead</name>
+        <label>Update New Lead</label>
+        <locationX>610</locationX>
+        <locationY>198</locationY>
+        <inputReference>NewLead</inputReference>
+    </recordUpdates>
+    <start>
+        <locationX>50</locationX>
+        <locationY>50</locationY>
+        <connector>
+            <targetReference>Search_Accounts_for_Company_Name</targetReference>
+        </connector>
+    </start>
+    <status>Active</status>
+    <variables>
+        <name>AccountNameDupeID</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <name>ContactEmailDupeID</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <name>ContactPhoneDupeID</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>true</isOutput>
+    </variables>
+    <variables>
+        <description>Holds the new lead passed in by process builder</description>
+        <name>NewLead</name>
+        <dataType>SObject</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>true</isOutput>
+        <objectType>Lead</objectType>
+    </variables>
+</Flow>

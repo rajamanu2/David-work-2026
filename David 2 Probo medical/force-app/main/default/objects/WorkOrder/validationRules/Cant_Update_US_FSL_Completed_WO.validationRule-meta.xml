@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Cant_Update_US_FSL_Completed_WO</fullName>
+    <active>true</active>
+    <description>No allowance of updates to completed FSL US Work Orders</description>
+    <errorConditionFormula>!ISCHANGED(Status)
+&amp;&amp;
+ISPICKVAL(Status,&quot;Completed WO&quot;)
+&amp;&amp;
+(RecordTypeId == &quot;012Ro000001eDqnIAE&quot; || RecordTypeId == &quot;012Ro000001eDqn&quot;)
+&amp;&amp;
+Country == &quot;United States&quot;
+&amp;&amp;
+!($Profile.Name == &quot;System Administrator&quot;) &amp;&amp;
+!($Profile.Name == &quot;System Administrator Custom&quot;) &amp;&amp;
+!($User.LastName == &quot;Bender&quot;) &amp;&amp; 
+!($User.LastName == &quot;Madson&quot;) &amp;&amp; 
+!($User.LastName == &quot;Hironimus&quot;)</errorConditionFormula>
+    <errorMessage>Can not edit completed work orders</errorMessage>
+</ValidationRule>

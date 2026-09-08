@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>54.0</apiVersion>
+    <areMetricsLoggedToDataCloud>false</areMetricsLoggedToDataCloud>
+    <decisions>
+        <name>Close_Out</name>
+        <label>Probe Sales</label>
+        <locationX>690</locationX>
+        <locationY>444</locationY>
+        <defaultConnector>
+            <targetReference>Part_Sales</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Close_Out_Probe_Sales</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.RecordType.DeveloperName</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Probe Sales Opportunity</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.CloseDate</leftValueReference>
+                <operator>LessThanOrEqualTo</operator>
+                <rightValue>
+                    <elementReference>TenDaysAgo</elementReference>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Close_Opp</targetReference>
+            </connector>
+            <label>Close Out Probe Sales</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Part_Sales</name>
+        <label>Part Sales</label>
+        <locationX>822</locationX>
+        <locationY>564</locationY>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Close_Out_Part_Sales</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.RecordType.DeveloperName</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Part Sales Opportunity</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.CloseDate</leftValueReference>
+                <operator>LessThanOrEqualTo</operator>
+                <rightValue>
+                    <elementReference>ThreeDaysAgo</elementReference>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Close_Opp</targetReference>
+            </connector>
+            <label>Close Out Part Sales</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>System_Sales_Opp</name>
+        <label>System Sales Opp</label>
+        <locationX>528</locationX>
+        <locationY>320</locationY>
+        <defaultConnector>
+            <targetReference>Close_Out</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Close_Out_System_Sales_Opp</name>
+            <conditionLogic>(1 OR 2) AND 3</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.RecordType.DeveloperName</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Sales Opportunity</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.RecordType.DeveloperName</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>System Sales Opportunity</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.CloseDate</leftValueReference>
+                <operator>LessThanOrEqualTo</operator>
+                <rightValue>
+                    <elementReference>ThirtyDaysAgo</elementReference>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Close_Opp</targetReference>
+            </connector>
+            <label>Close Out System Sales Opp</label>
+        </rules>
+    </decisions>
+    <formulas>
+        <name>Oppnotes</name>
+        <dataType>String</dataType>
+        <expression>{!$Record.Description__c} + &apos;; Opp Closed Lost through Flow&apos;</expression>
+    </formulas>
+    <formulas>
+        <name>TenDaysAgo</name>
+        <dataType>Date</dataType>
+        <expression>{!$Flow.CurrentDate} - 10</expression>
+    </formulas>
+    <formulas>
+        <name>ThirtyDaysAgo</name>
+        <dataType>Date</dataType>
+        <expression>{!$Flow.CurrentDate} - 30</expression>
+    </formulas>
+    <formulas>
+        <name>ThreeDaysAgo</name>
+        <dataType>Date</dataType>
+        <expression>{!$Flow.CurrentDate} - 3</expression>
+    </formulas>
+    <interviewLabel>Auto Close Opps {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Auto Close Opps</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>FREE_FORM_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <recordUpdates>
+        <name>Close_Opp</name>
+        <label>Close Opp</label>
+        <locationX>539</locationX>
+        <locationY>514</locationY>
+        <inputAssignments>
+            <field>Description__c</field>
+            <value>
+                <elementReference>Oppnotes</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Reason_Lost__c</field>
+            <value>
+                <stringValue>Customer became unresponsive</stringValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>StageName</field>
+            <value>
+                <stringValue>Closed Lost</stringValue>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <start>
+        <locationX>410</locationX>
+        <locationY>48</locationY>
+        <connector>
+            <targetReference>System_Sales_Opp</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>StageName</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>Proposal/Price Quote</stringValue>
+            </value>
+        </filters>
+        <object>Opportunity</object>
+        <schedule>
+            <frequency>Daily</frequency>
+            <startDate>2022-03-05</startDate>
+            <startTime>01:00:00.000Z</startTime>
+        </schedule>
+        <triggerType>Scheduled</triggerType>
+    </start>
+    <status>Active</status>
+</Flow>

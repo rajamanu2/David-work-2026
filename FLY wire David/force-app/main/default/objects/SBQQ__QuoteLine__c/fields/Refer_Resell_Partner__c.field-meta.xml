@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Refer_Resell_Partner__c</fullName>
+    <deleteConstraint>SetNull</deleteConstraint>
+    <description>Partner related to this product who is referring/reselling or providing the service. Use the Partner Type field to specify our relationship. BOPI-512</description>
+    <inlineHelpText>Partner related to this product who is referring/reselling or providing the service. Use the Partner Type field to specify our relationship.</inlineHelpText>
+    <label>Refer/Resell Partner</label>
+    <lookupFilter>
+        <active>true</active>
+        <errorMessage>Make sure you are choosing a Strategic Partner.</errorMessage>
+        <filterItems>
+            <field>Account.RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Strategic Partner</value>
+        </filterItems>
+        <infoMessage>Search for the Strategic Partner.</infoMessage>
+        <isOptional>false</isOptional>
+    </lookupFilter>
+    <referenceTo>Account</referenceTo>
+    <relationshipLabel>Quote Lines (Refer/Resell Partner)</relationshipLabel>
+    <relationshipName>Partner_Product</relationshipName>
+    <required>false</required>
+    <trackHistory>true</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Lookup</type>
+</CustomField>

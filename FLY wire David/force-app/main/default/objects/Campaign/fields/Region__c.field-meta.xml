@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Region__c</fullName>
+    <description>Region supported by the event.</description>
+    <inlineHelpText>Enter the primary region supported by the event, usually the event location.</inlineHelpText>
+    <label>Region</label>
+    <required>false</required>
+    <type>MultiselectPicklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>APAC</fullName>
+                <default>false</default>
+                <label>APAC</label>
+            </value>
+            <value>
+                <fullName>EMEA</fullName>
+                <default>false</default>
+                <label>EMEA</label>
+            </value>
+            <value>
+                <fullName>LATAM</fullName>
+                <default>false</default>
+                <label>LATAM</label>
+            </value>
+            <value>
+                <fullName>GLOBAL</fullName>
+                <default>false</default>
+                <label>GLOBAL</label>
+            </value>
+            <value>
+                <fullName>NAMER</fullName>
+                <default>false</default>
+                <label>NAMER</label>
+            </value>
+            <value>
+                <fullName>AUS</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>AUS</label>
+            </value>
+            <value>
+                <fullName>CANADA</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>CANADA</label>
+            </value>
+            <value>
+                <fullName>South Africa</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>SOUTH AFRICA</label>
+            </value>
+            <value>
+                <fullName>UK</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>UK</label>
+            </value>
+            <value>
+                <fullName>US</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>US</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+    <visibleLines>4</visibleLines>
+</CustomField>

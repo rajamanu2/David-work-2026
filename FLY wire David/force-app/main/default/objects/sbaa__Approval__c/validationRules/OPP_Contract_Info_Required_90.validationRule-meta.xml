@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>OPP_Contract_Info_Required_90</fullName>
+    <active>true</active>
+    <description>BOPI-700 Ensures the CPQ opportunities can&apos;t be closed/won if the contract start date or URL are missing</description>
+    <errorConditionFormula>AND(
+    $Profile.Name &lt;&gt; &quot;B - Looker&quot;,
+    $User.Alias &lt;&gt; &quot;Workato&quot;,
+    NOT(ISBLANK(sbaa__Opportunity__c)),
+    sbaa__RecordField__c = &quot;sbaa__Opportunity__c&quot;,
+    sbaa__Opportunity__r.Pricebook2.Name = &quot;CPQ&quot;,
+    sbaa__ApprovalStep__c = 2,
+    OR(
+    ISBLANK(sbaa__Opportunity__r.Contract_Start_Date__c),
+    ISBLANK(sbaa__Opportunity__r.Contract_URL__c)
+    ),
+    ISPICKVAL(sbaa__Status__c, &quot;Approved&quot;)
+)</errorConditionFormula>
+    <errorMessage>The contract Start Date and URL are required to close the Opportunity.</errorMessage>
+</ValidationRule>

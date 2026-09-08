@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Product Configuration</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Product Configuration</value>
+    </caseValues>
+    <fieldSets>
+        <label><!-- Payor Support --></label>
+        <name>Payor_Support</name>
+    </fieldSets>
+    <recordTypes>
+        <description><!-- Bank/PSP Partner Child Records to hold Bank Account specifics. --></description>
+        <label><!-- Bank/PSP Partner --></label>
+        <name>Bank_PSP_Partner</name>
+    </recordTypes>
+    <recordTypes>
+        <description><!-- Configuration Record for Portals (e.g. ITP, Commercial, Healthcare IP, etc) --></description>
+        <label><!-- Portal --></label>
+        <name>Portal</name>
+    </recordTypes>
+    <startsWith>Consonant</startsWith>
+    <validationRules>
+        <errorMessage><!-- You can not create a Prod Config with Status Active. You must create it in another Status and then update it after record creation. Be sure the status date is correct before moving to Active. --></errorMessage>
+        <name>Cant_create_as_Active</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Must include what Product on the Opportunity this Prod Config record is for. --></errorMessage>
+        <name>PC_Must_Have_Product</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- For CRS clients with Flywire support you must list if Authorized to Cancel Plan, Cancel Installment, Void Installments. --></errorMessage>
+        <name>Payor_Support_Authorized</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- For SFS clients, you must select whether Flywire is providing support for this product or not. --></errorMessage>
+        <name>Payor_Support_CRS</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Please use the Activation button to activate the product. Press cancel and then go to the &quot;Activate Product&quot; button in the upper right corner. Follow the screen prompts to confirm the product status date. --></errorMessage>
+        <name>Product_Activation</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Other Trade Timing must be filled in if Trade Timing is Other. --></errorMessage>
+        <name>Trade_Timing_Other</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Must include the 3 letter Portal Code to go live. Please verify the code is the same as in Admin. --></errorMessage>
+        <name>XB_PC_Must_Have_Code</name>
+    </validationRules>
+    <webLinks>
+        <label><!-- New_Prod_Config --></label>
+        <name>New_Prod_Config</name>
+    </webLinks>
+</CustomObjectTranslation>

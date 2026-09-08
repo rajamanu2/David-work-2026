@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Contract_Paper__c</fullName>
+    <description>BOPI-30 Choice of paper for HC ARR calculations</description>
+    <inlineHelpText>Select contract paper for this opportunity</inlineHelpText>
+    <label>Contract Paper</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Flywire</fullName>
+                <default>true</default>
+                <label>Flywire</label>
+            </value>
+            <value>
+                <fullName>Oracle</fullName>
+                <default>false</default>
+                <label>Oracle</label>
+            </value>
+            <value>
+                <fullName>FinThrive</fullName>
+                <default>false</default>
+                <label>FinThrive</label>
+            </value>
+            <value>
+                <fullName>CommWX</fullName>
+                <default>false</default>
+                <label>CommWX</label>
+            </value>
+            <value>
+                <fullName>FinVi Ontario Systems</fullName>
+                <default>false</default>
+                <label>FinVi Ontario Systems</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

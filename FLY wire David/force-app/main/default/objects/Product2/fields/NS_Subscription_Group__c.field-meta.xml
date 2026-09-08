@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>NS_Subscription_Group__c</fullName>
+    <description>Groups Products according to requirements for creating separate NS subscriptions. Twins from Product to Quote Line to be used for order splitting via the &quot;Order By&quot; field. Check with Finance before making any changes  BOPI-449</description>
+    <inlineHelpText>Separate CPQ Orders will be created based upon this field value on Quote Lines</inlineHelpText>
+    <label>NS Subscription Group</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetName>NS_Subscription_Group</valueSetName>
+    </valueSet>
+</CustomField>

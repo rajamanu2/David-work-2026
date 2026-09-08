@@ -1,0 +1,30 @@
+<template>
+  <lightning-card title={title}>
+    <div class="slds-p-horizontal_small slds-p-top_small">
+
+      <div class="slds-text-body_small slds-text-color_weak slds-m-bottom_x-small">
+        {selectedCount} selected
+      </div>
+
+      <lightning-datatable
+        key-field="Id"
+        data={data}
+        columns={columns}
+        draft-values={draftValues}
+        selected-rows={selectedIds}
+        oncellchange={handleCellChange}
+        onsave={handleSave}
+        onrowselection={handleRowSelection}
+        errors={datatableErrors}
+        max-row-selection={maxRowSelectionNum}>
+      </lightning-datatable>
+
+      <template if:true={showErrorBanner}>
+        <div class="slds-notify slds-notify_alert slds-alert_error slds-m-top_small">
+          <h2>{errorBannerText}</h2>
+        </div>
+      </template>
+
+    </div>
+  </lightning-card>
+</template>

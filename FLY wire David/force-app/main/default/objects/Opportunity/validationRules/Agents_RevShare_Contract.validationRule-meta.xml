@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Agents_RevShare_Contract</fullName>
+    <active>false</active>
+    <description>If the Revenue Share Agreement at the Account is checked, Contract record field cannot be blank. Must require of a Contract record.</description>
+    <errorConditionFormula>AND(
+$Profile.Name &lt;&gt; &quot;System Administrator&quot;,
+$Profile.Name &lt;&gt; &quot;B - Looker&quot;,
+RecordType.Name = &quot;Agents&quot;,
+Probability &gt;0.90,
+ISBLANK(ContractId),
+OR(
+Account.Revenue_Share_Agreement__c = TRUE,
+Contract_Not_Required__c = False),
+OR(
+ISBLANK(Contract.ActivatedDate),
+ISBLANK(TEXT(Contract.OBS_Flywire_Entity__c)),
+ISBLANK(Contract.StartDate),
+ISBLANK(Contract.EndDate)
+)
+)</errorConditionFormula>
+    <errorMessage>Account has Rev. Share Agreement, provide a Contract record. If Contract is not Required check *Contract Not Required*.</errorMessage>
+</ValidationRule>

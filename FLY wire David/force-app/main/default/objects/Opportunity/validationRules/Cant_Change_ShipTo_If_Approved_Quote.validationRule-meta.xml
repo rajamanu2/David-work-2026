@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Cant_Change_ShipTo_If_Approved_Quote</fullName>
+    <active>true</active>
+    <description>BOPI-604 Opportunity and Quote Ship To Account should stay in sync.</description>
+    <errorConditionFormula>AND(
+  $Profile.Name &lt;&gt; &apos;System Administrator&apos;,
+  $Profile.Name &lt;&gt; &quot;B - Looker&quot;,
+  $User.Alias &lt;&gt; &quot;Workato&quot;,
+  NOT(ISBLANK(SBQQ__PrimaryQuote__c)),
+  ISPICKVAL(SBQQ__PrimaryQuote__r.ApprovalStatus__c, &apos;Approved&apos;),
+  ISCHANGED(Ship_To_Account__c)
+)</errorConditionFormula>
+    <errorDisplayField>Ship_To_Account__c</errorDisplayField>
+    <errorMessage>You can&apos;t change the Ship To Account for an Opportunity with an Approved Quote. Please create a new quote using the &apos;New Quote&apos; button</errorMessage>
+</ValidationRule>

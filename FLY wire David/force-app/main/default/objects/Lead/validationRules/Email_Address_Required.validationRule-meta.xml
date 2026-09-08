@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Email_Address_Required</fullName>
+    <active>true</active>
+    <description>Email address required to create new record. Created to keep the database clean in the event of potential workarounds or API integrations.</description>
+    <errorConditionFormula>AND(
+ISNEW(),
+ISBLANK(Email)
+)
+&amp;&amp; Lead_Val_Bypass__c = False</errorConditionFormula>
+    <errorMessage>Email address required to create new record.</errorMessage>
+</ValidationRule>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Account_cant_be_changed_primary_quote</fullName>
+    <active>true</active>
+    <description>Account cannot be changed as it has primary quote.</description>
+    <errorConditionFormula>AND(ISCHANGED(AccountId),
+NOT(ISBLANK(SBQQ__PrimaryQuote__c)))</errorConditionFormula>
+    <errorDisplayField>AccountId</errorDisplayField>
+    <errorMessage>To change the Account related to this Opportunity. If needed, you will need to start the quoting process over. Go to the Primary Quote and uncheck &quot;Primary&quot;. Then update the Account for this Opportunity. Create a new Quote record by clicking &quot;New Quote&quot;</errorMessage>
+</ValidationRule>

@@ -1,0 +1,226 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>63.0</apiVersion>
+    <areMetricsLoggedToDataCloud>false</areMetricsLoggedToDataCloud>
+    <decisions>
+        <name>Decide_Type</name>
+        <label>Decide Type</label>
+        <locationX>314</locationX>
+        <locationY>695</locationY>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Type_is_Break_Fix</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.WorkTypeId</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>08qRo0000000JnRIAU</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Update_Break_Fix_Icon</targetReference>
+            </connector>
+            <label>Type is Break Fix</label>
+        </rules>
+        <rules>
+            <name>Type_Is_PPM</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.WorkTypeId</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>08qRo0000000JttIAE</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Update_PPM_Icon</targetReference>
+            </connector>
+            <label>Type Is PPM</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Gantt_Icon_Blank</name>
+        <label>Gantt Icon Blank</label>
+        <locationX>578</locationX>
+        <locationY>587</locationY>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Icon_Blank_or_Appt_Type_Changed</name>
+            <conditionLogic>or</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.FSL__GanttIcon__c</leftValueReference>
+                <operator>IsBlank</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Appointment_Type__c</leftValueReference>
+                <operator>IsChanged</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Decide_Type</targetReference>
+            </connector>
+            <label>Icon Blank or Appt Type Changed</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Gantt_Label_Blank</name>
+        <label>Gantt Label Blank</label>
+        <locationX>578</locationX>
+        <locationY>287</locationY>
+        <defaultConnector>
+            <targetReference>Gantt_Icon_Blank</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>No</defaultConnectorLabel>
+        <rules>
+            <name>Yes</name>
+            <conditionLogic>or</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.FSL__GanttLabel__c</leftValueReference>
+                <operator>IsBlank</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.City</leftValueReference>
+                <operator>IsChanged</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Update_Gantt_Label</targetReference>
+            </connector>
+            <label>Yes</label>
+        </rules>
+    </decisions>
+    <description>03/10/2025 - Kyle/Delegate - Keep Gantt label Updated
+03/12/2025 - Kyle/Delegate - Adding Gantt Icon updates
+04/24/2025 - Kyle/Delegate - Adding Tentative Time block title info</description>
+    <environments>Default</environments>
+    <formulas>
+        <description>SA Number + City</description>
+        <name>GanttLabel</name>
+        <dataType>String</dataType>
+        <expression>IF(
+{!$Record.Tentative_SA_Time_Block__c}=TRUE, 
+(IF(NOT(ISBLANK({!$Record.City})), &quot;TENTATIVE: &quot;&amp;{!$Record.AppointmentNumber}&amp;&quot; - &quot;&amp;{!$Record.City}, &quot;TENTATIVE: &quot;&amp;{!$Record.AppointmentNumber})), 
+(IF(NOT(ISBLANK({!$Record.City})), {!$Record.AppointmentNumber}&amp;&quot; - &quot;&amp;{!$Record.City}, {!$Record.AppointmentNumber})))</expression>
+    </formulas>
+    <interviewLabel>Service Appointment - Trigger - Update Gantt Label {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Service Appointment - Trigger - Update Gantt Label</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <recordUpdates>
+        <name>Update_Break_Fix_Icon</name>
+        <label>Update Break Fix Icon</label>
+        <locationX>50</locationX>
+        <locationY>803</locationY>
+        <inputAssignments>
+            <field>FSL__GanttIcon__c</field>
+            <value>
+                <stringValue>https://probomedical--c.vf.force.com/resource/1745846671000/BreakFixIcon</stringValue>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>Update_Gantt_Label</name>
+        <label>Update Gantt Label</label>
+        <locationX>446</locationX>
+        <locationY>395</locationY>
+        <connector>
+            <targetReference>Gantt_Icon_Blank</targetReference>
+        </connector>
+        <inputAssignments>
+            <field>FSL__GanttLabel__c</field>
+            <value>
+                <elementReference>GanttLabel</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>Update_PPM_Icon</name>
+        <label>Update PPM Icon</label>
+        <locationX>314</locationX>
+        <locationY>803</locationY>
+        <inputAssignments>
+            <field>FSL__GanttIcon__c</field>
+            <value>
+                <stringValue>https://probomedical--c.vf.force.com/resource/1745847848000/PPMIcon?</stringValue>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <start>
+        <locationX>452</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Gantt_Label_Blank</targetReference>
+        </connector>
+        <filterLogic>or</filterLogic>
+        <filters>
+            <field>FSL__GanttLabel__c</field>
+            <operator>IsNull</operator>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </filters>
+        <filters>
+            <field>City</field>
+            <operator>IsChanged</operator>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </filters>
+        <filters>
+            <field>Appointment_Type__c</field>
+            <operator>IsChanged</operator>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </filters>
+        <filters>
+            <field>Appointment_Type__c</field>
+            <operator>IsNull</operator>
+            <value>
+                <booleanValue>false</booleanValue>
+            </value>
+        </filters>
+        <filters>
+            <field>FSL__GanttIcon__c</field>
+            <operator>IsNull</operator>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </filters>
+        <object>ServiceAppointment</object>
+        <recordTriggerType>CreateAndUpdate</recordTriggerType>
+        <triggerType>RecordBeforeSave</triggerType>
+    </start>
+    <status>Active</status>
+</Flow>

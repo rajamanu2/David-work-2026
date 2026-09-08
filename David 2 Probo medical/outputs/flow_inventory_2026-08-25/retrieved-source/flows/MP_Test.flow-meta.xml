@@ -1,0 +1,895 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>62.0</apiVersion>
+    <areMetricsLoggedToDataCloud>false</areMetricsLoggedToDataCloud>
+    <assignments>
+        <name>Assign_Final_Asset_Fields</name>
+        <label>Assign Final Asset Fields</label>
+        <locationX>314</locationX>
+        <locationY>600</locationY>
+        <assignmentItems>
+            <assignToReference>varFinalAsset.Check_In_Type__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>Purchase</stringValue>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>varFinalAsset.Coils__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>$Record.Asset_Requested__r.Coils__c</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>varFinalAsset.Cosmetic_Notes__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>$Record.Asset_Requested__r.Cosmetic_Notes__c</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>varFinalAsset.Cosmetic_Rating__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>$Record.Asset_Requested__r.Cosmetic_Rating__c</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>varFinalAsset.Date_of_Manufacture__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>$Record.Asset_Requested__r.Date_of_Manufacture__c</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>varFinalAsset.Designated_For__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>formulaSalesOrHarvest</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>varFinalAsset.Helium_Level_at_Inspection_Date__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>$Record.Asset_Requested__r.Helium_Level_at_Inspection_Date__c</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>varFinalAsset.Other_Notes__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>$Record.Asset_Requested__r.Other_Notes__c</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>varFinalAsset.Previous_asset_with_same_serial_number__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>$Record.Asset_Requested__r.Id</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>varFinalAsset.Purchasing_Opportunity__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>$Record.Internal_Purchase__r.Id</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>varFinalAsset.RecordTypeId</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>$Record.Asset_Requested__r.RecordType.Id</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>varFinalAsset.Related_Project__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>$Record.Asset_Requested__r.Related_Project__r.Id</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>varFinalAsset.Serial_No__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>$Record.Asset_Requested__r.Serial_No__c</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>varFinalAsset.System_Options__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>$Record.Asset_Requested__r.System_Options__c</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>varFinalAsset.System_Software__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>$Record.Asset_Requested__r.System_Software__c</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>varFinalAsset.OwnerId__NotFound</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Get_Transfer_To_Account_Owner_2.Owner.Id</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>varFinalAsset.Product_Name__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>$Record.Asset_Requested__r.Product_Name__c</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>varFinalAsset.Helium_Level_on_Inspection__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>$Record.Asset_Requested__r.Helium_Level_on_Inspection__c</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>varFinalAsset.Original_Condition_New__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>$Record.Asset_Requested__r.Original_Condition_New__c</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Create_Final_Asset</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Assign_Sales_Opportunity_Fields</name>
+        <label>Assign Sales Opportunity Fields</label>
+        <locationX>50</locationX>
+        <locationY>276</locationY>
+        <assignmentItems>
+            <assignToReference>varInternalSalesOpportunity.AccountId</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>formulaTransferToAccountID</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>varInternalSalesOpportunity.CloseDate</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>$Record.Need_by_Date__c</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>varInternalSalesOpportunity.Shipping_FROM_Location__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>$Record.Asset_Requested__r.Owner:User__NotFound.00N0B00000679qK</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>varInternalSalesOpportunity.Sales_Lead_Source__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>House Account</stringValue>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>varInternalSalesOpportunity.CurrencyIsoCode</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>formulaOpportunityCurrencies</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>varInternalSalesOpportunity.OwnerId</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>$Record.Asset_Requested__r.Owner:User__NotFound.Id</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>varInternalSalesOpportunity.Modality__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>$Record.Asset_Requested__r.Modality__c</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>varInternalSalesOpportunity.StageName</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>Verbal Acceptance</stringValue>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>varInternalSalesOpportunity.Warranty_Length__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>AS-IS</stringValue>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>varInternalSalesOpportunity.Name</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>{!formulaInternalOpportunityName} - SALE</stringValue>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>varInternalSalesOpportunity.Ship_Type__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>formulaShipType</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>varInternalSalesOpportunity.RecordTypeId</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>formulaInternalSalesOpportunityRecordId</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Get_Transfer_To_Account_Owner</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Assing_Purchase_Opportunity_Fields</name>
+        <label>Assing Purchase Opportunity Fields</label>
+        <locationX>50</locationX>
+        <locationY>600</locationY>
+        <assignmentItems>
+            <assignToReference>varInternalPurchaseOpportunity.AccountId</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>formulaPurchaseOpportunityAccountID</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>varInternalPurchaseOpportunity.Warranty__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>AS-IS</stringValue>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>varInternalPurchaseOpportunity.Purchasing_Opportunity_Type__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>Inventory Purchases</stringValue>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>varInternalPurchaseOpportunity.CurrencyIsoCode</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>formulaOpportunityCurrencies</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>varInternalPurchaseOpportunity.CloseDate</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>$Record.Need_by_Date__c</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>varInternalPurchaseOpportunity.Shipping_TO_Location__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>$Record.Ship_to_Account__r.Owner.Location__c</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>varInternalPurchaseOpportunity.Ship_Type__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>varInternalSalesOpportunity.Ship_Type__c</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>varInternalPurchaseOpportunity.OwnerId</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Get_Transfer_To_Account_Owner.OwnerId</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>varInternalPurchaseOpportunity.RecordTypeId</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Get_Purchasing_Opportunity_Record_ID.Id</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>varInternalPurchaseOpportunity.StageName</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>Proposal/Price Quote</stringValue>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>varInternalPurchaseOpportunity.Name</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>{!formulaInternalOpportunityName} - PURCHASE</stringValue>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>varInternalPurchaseOpportunity.Inspection_Type__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>formulaInspectionType</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>varInternalPurchaseOpportunity.Business_Unit_Select__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>formulaBusinessUnitSelect</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Create_Internal_Sale</targetReference>
+        </connector>
+    </assignments>
+    <description>V12 - Includes the Intercompany Transaction = True and Variables for Asset creation.
+V13 - Updating for all varFinalAsset Assignments
+V14 - Reducing number of fields for Assignments
+V25- Added formulaInternalSalesOpportunityRecordId
+V15 - Amending Accounts to be based off &quot;Transfer To&quot; and &quot;Ship To&quot; fields</description>
+    <environments>Default</environments>
+    <formulas>
+        <description>This adds 15% to the Initial/Requested Asset&apos;s Cost.</description>
+        <name>formulaAssetSalesPrice</name>
+        <dataType>Number</dataType>
+        <expression>{!$Record.Asset_Requested__r.Cost__c} * 1.15</expression>
+        <scale>2</scale>
+    </formulas>
+    <formulas>
+        <name>formulaBusinessUnitSelect</name>
+        <dataType>String</dataType>
+        <expression>CASE(
+    $Record.Asset_Requested__r.Product_Family__c,
+    &quot;Part&quot;, &quot;Part Sales&quot;,
+    &quot;Ultrasound Probe&quot;, &quot;Ultrasound Probes&quot;,
+    &quot;Ultrasound System&quot;, &quot;Ultrasound Systems&quot;,
+    &quot;Radiology&quot;
+)</expression>
+    </formulas>
+    <formulas>
+        <description>This returns the following:
+Modality Contains Ultrasound = Inspected
+Else = As-Is</description>
+        <name>formulaInspectionType</name>
+        <dataType>String</dataType>
+        <expression>IF(
+  CONTAINS({!$Record.Asset_Requested__r.Modality__c}, &quot;Ultrasound&quot;),
+  &quot;Inspected&quot;,
+  &quot;As-Is&quot;
+)</expression>
+    </formulas>
+    <formulas>
+        <description>Ths is for the Opportunity Name, &quot; - PURCHASE&quot; and &quot; - SALE&quot; is added in the relative Assignment element.</description>
+        <name>formulaInternalOpportunityName</name>
+        <dataType>String</dataType>
+        <expression>&quot;INTERNAL - &quot; &amp; {!$Record.Asset_Requested__r.Name} &amp; &quot; - &quot; &amp; {!$Record.Asset_Requested__r.Ownership__c} &amp; &quot; TO &quot; &amp; TEXT({!$Record.Transfer_To__c})</expression>
+    </formulas>
+    <formulas>
+        <description>Part = Part Sales Opportunity
+Ultrasound System = System Sales Opportunity
+Ultrasound Probe = Probe Sales Opportunity
+Else Big Iron Sales Opportunity</description>
+        <name>formulaInternalSalesOpportunityRecordId</name>
+        <dataType>String</dataType>
+        <expression>CASE(
+    {!$Record.Asset_Requested__r.RecordTypeId},
+    &quot;0125b000000LWcIAAW&quot;, &quot;0124O000000tE33QAE&quot;,
+    &quot;0125b000000LWcLAAW&quot;, &quot;0124O000000tE2tQAE&quot;,
+    &quot;0125b000000LWcKAAW&quot;, &quot;0124O000000tE2yQAE&quot;,
+    &quot;0124O0000001xpSQAQ&quot;
+)</expression>
+    </formulas>
+    <formulas>
+        <name>formulaOpportunityCurrencies</name>
+        <dataType>String</dataType>
+        <expression>CASE(
+    {!$Record.Asset_Requested__r.Ownership__c},
+    &quot;PROBO-SAS&quot;, &quot;EUR&quot;,
+    &quot;PROBO-UK&quot;,  &quot;GBP&quot;,
+    &quot;PROBO-US&quot;,  &quot;USD&quot;,
+    &quot;&quot;
+)</expression>
+    </formulas>
+    <formulas>
+        <name>formulaPurchaseOpportunityAccountID</name>
+        <dataType>String</dataType>
+        <expression>CASE(
+    {!$Record.Asset_Requested__r.Ownership__c},
+    &quot;PROBO-SAS&quot;, &quot;0010B00001lqFQRQA2&quot;,
+    &quot;PROBO-UK&quot;,  &quot;001U000000pNlWPIA0&quot;,
+    &quot;PROBO-US&quot;,  &quot;001U000001VNxN6IAL&quot;,
+    &quot;&quot;
+)</expression>
+    </formulas>
+    <formulas>
+        <name>formulaRequestingEntity</name>
+        <dataType>String</dataType>
+        <expression>IF(
+  OR(
+    CONTAINS({!$Record.Ship_to_Account__r.Name}, &quot;Tampa&quot;),
+    CONTAINS({!$Record.Ship_to_Account__r.Name}, &quot;Indy&quot;)
+  ),
+  &quot;PROBO-US&quot;,
+  IF(
+    CONTAINS({!$Record.Ship_to_Account__r.Name}, &quot;UK&quot;),
+    &quot;PROBO-UK&quot;,
+    IF(
+      CONTAINS({!$Record.Ship_to_Account__r.Name}, &quot;SAS&quot;),
+      &quot;PROBO-SAS&quot;,
+      &quot;&quot;
+    )
+  )
+)</expression>
+    </formulas>
+    <formulas>
+        <name>formulaSalesOrHarvest</name>
+        <dataType>String</dataType>
+        <expression>IF(
+OR(
+TEXT({!$Record.Procurement_Purpose__c}) = &apos;Sales - Wholesale&apos;,
+TEXT({!$Record.Procurement_Purpose__c}) = &apos;Sales - Retail&apos;
+),
+&apos;Sales&apos;,
+&apos; US Harvest&apos;
+)</expression>
+    </formulas>
+    <formulas>
+        <description>This returns the following:
+If the Requested Asset&apos;s Product has a Product Family of Part or Ultrasound Probe, then DHL - Express
+Else Shipping Arranged by Probo Medical</description>
+        <name>formulaShipType</name>
+        <dataType>String</dataType>
+        <expression>IF(
+OR(
+{!$Record.Asset_Requested__r.Product_Family__c} = &quot;Part&quot;,
+{!$Record.Asset_Requested__r.Product_Family__c} = &quot;Ultrasound Probe&quot;
+),
+&quot;DHL - EXPRESS&quot;,
+&quot;Shipping Arranged by Probo Medical&quot;
+)</expression>
+    </formulas>
+    <formulas>
+        <name>formulaTransferToAccountID</name>
+        <dataType>String</dataType>
+        <expression>CASE(
+    {!$Record.Transfer_To__c},
+    &quot;PROBO-SAS&quot;, &quot;0010B00001lqFQRQA2&quot;,
+    &quot;PROBO-UK&quot;,  &quot;001U000000pNlWPIA0&quot;,
+    &quot;PROBO-US&quot;,  &quot;001U000001VNxN6IAL&quot;,
+    &quot;&quot;
+)</expression>
+    </formulas>
+    <formulas>
+        <name>formulaTransferToAccountName</name>
+        <dataType>String</dataType>
+        <expression>CASE(
+    {!$Record.Transfer_To__c},
+    &quot;PROBO-SAS&quot;, &quot;Probo Medical SAS (IMAX Medical)&quot;,
+    &quot;PROBO-UK&quot;,  &quot;Probo Medical LTD (UK)&quot;,
+    &quot;PROBO-US&quot;,  &quot;Probo Medical - Indy&quot;,
+    &quot;&quot;
+)</expression>
+    </formulas>
+    <interviewLabel>MP Test {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Intercompany Transaction</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <recordCreates>
+        <name>Create_Final_Asset</name>
+        <label>Create Final Asset</label>
+        <locationX>314</locationX>
+        <locationY>708</locationY>
+        <connector>
+            <targetReference>Update_Interco_Request</targetReference>
+        </connector>
+        <inputReference>varFinalAsset</inputReference>
+    </recordCreates>
+    <recordCreates>
+        <name>Create_Internal_Purchase</name>
+        <label>Create Internal Purchase</label>
+        <locationX>50</locationX>
+        <locationY>1140</locationY>
+        <connector>
+            <targetReference>Update_Interco_Request_With_Opportunities</targetReference>
+        </connector>
+        <inputReference>varInternalPurchaseOpportunity</inputReference>
+    </recordCreates>
+    <recordCreates>
+        <name>Create_Internal_Sale</name>
+        <label>Create Internal Sale</label>
+        <locationX>50</locationX>
+        <locationY>708</locationY>
+        <connector>
+            <targetReference>Get_Price_Book_Entry_Sale</targetReference>
+        </connector>
+        <inputReference>varInternalSalesOpportunity</inputReference>
+    </recordCreates>
+    <recordCreates>
+        <name>Create_Purchase_Product</name>
+        <label>Create Purchase Product</label>
+        <locationX>314</locationX>
+        <locationY>492</locationY>
+        <connector>
+            <targetReference>Assign_Final_Asset_Fields</targetReference>
+        </connector>
+        <inputAssignments>
+            <field>Enable_Manual_Cost_Assignment__c</field>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>OpportunityId</field>
+            <value>
+                <elementReference>$Record.Internal_Purchase__r.Id</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>PricebookEntryId</field>
+            <value>
+                <elementReference>Get_Price_Book_Entry_Sale_2.Id</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Probo_s_Offer__c</field>
+            <value>
+                <elementReference>formulaAssetSalesPrice</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Quantity</field>
+            <value>
+                <numberValue>1.0</numberValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>TotalPrice</field>
+            <value>
+                <elementReference>formulaAssetSalesPrice</elementReference>
+            </value>
+        </inputAssignments>
+        <object>OpportunityLineItem</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordCreates>
+    <recordCreates>
+        <name>Create_Sales_Product</name>
+        <label>Create Sales Product</label>
+        <locationX>50</locationX>
+        <locationY>924</locationY>
+        <connector>
+            <targetReference>Update_Initial_Asset_With_Sales_Opportunity</targetReference>
+        </connector>
+        <inputAssignments>
+            <field>Asset_No__c</field>
+            <value>
+                <elementReference>$Record.Asset_Requested__r.Name</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Enable_Manual_Cost_Assignment__c</field>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>OpportunityId</field>
+            <value>
+                <elementReference>varInternalSalesOpportunity.Id</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>PricebookEntryId</field>
+            <value>
+                <elementReference>Get_Price_Book_Entry_Sale.Id</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Product2Id</field>
+            <value>
+                <elementReference>$Record.Asset_Requested__r.Product_Name__r.Id</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>ProductItem__c</field>
+            <value>
+                <elementReference>$Record.Asset_Requested__c</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Quantity</field>
+            <value>
+                <numberValue>1.0</numberValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>UnitPrice</field>
+            <value>
+                <elementReference>formulaAssetSalesPrice</elementReference>
+            </value>
+        </inputAssignments>
+        <object>OpportunityLineItem</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordCreates>
+    <recordLookups>
+        <name>Get_Price_Book_Entry_Sale</name>
+        <label>Get Price Book Entry (Sale)</label>
+        <locationX>50</locationX>
+        <locationY>816</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Create_Sales_Product</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Product2Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>$Record.Asset_Requested__r.Product_Name__r.Id</elementReference>
+            </value>
+        </filters>
+        <filters>
+            <field>CurrencyIsoCode</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>$Record.Asset_Requested__r.CurrencyIsoCode</elementReference>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>PricebookEntry</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordLookups>
+        <name>Get_Price_Book_Entry_Sale_2</name>
+        <label>Get Price Book Entry (Sale) 2</label>
+        <locationX>314</locationX>
+        <locationY>384</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Create_Purchase_Product</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Product2Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>$Record.Asset_Requested__r.Product_Name__r.Id</elementReference>
+            </value>
+        </filters>
+        <filters>
+            <field>CurrencyIsoCode</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>$Record.Asset_Requested__r.CurrencyIsoCode</elementReference>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>PricebookEntry</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordLookups>
+        <name>Get_Purchasing_Opportunity_Record_ID</name>
+        <label>Get Purchasing Opportunity Record ID</label>
+        <locationX>50</locationX>
+        <locationY>492</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Assing_Purchase_Opportunity_Fields</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>DeveloperName</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>Purchasing_Opportunity</stringValue>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>RecordType</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordLookups>
+        <name>Get_Transfer_To_Account_Owner</name>
+        <label>Get Transfer To Account Owner</label>
+        <locationX>50</locationX>
+        <locationY>384</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Get_Purchasing_Opportunity_Record_ID</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Name</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>formulaTransferToAccountName</elementReference>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>Account</object>
+        <queriedFields>Id</queriedFields>
+        <queriedFields>OwnerId</queriedFields>
+        <queriedFields>CurrencyIsoCode</queriedFields>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordLookups>
+        <name>Get_Transfer_To_Account_Owner_2</name>
+        <label>Get Transfer To Account Owner 2</label>
+        <locationX>314</locationX>
+        <locationY>276</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Get_Price_Book_Entry_Sale_2</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Name</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>formulaTransferToAccountName</elementReference>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>Account</object>
+        <queriedFields>Id</queriedFields>
+        <queriedFields>CurrencyIsoCode</queriedFields>
+        <queriedFields>OwnerId</queriedFields>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordUpdates>
+        <name>Update_Final_Asset_Currency</name>
+        <label>Update Final Asset Currency</label>
+        <locationX>314</locationX>
+        <locationY>924</locationY>
+        <inputAssignments>
+            <field>CurrencyIsoCode</field>
+            <value>
+                <elementReference>Get_Transfer_To_Account_Owner_2.CurrencyIsoCode</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record.New_Transferred_Asset__r</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>Update_Initial_Asset_With_Sales_Opportunity</name>
+        <label>Update Initial Asset With Sales Opportunity</label>
+        <locationX>50</locationX>
+        <locationY>1032</locationY>
+        <connector>
+            <targetReference>Create_Internal_Purchase</targetReference>
+        </connector>
+        <inputAssignments>
+            <field>Sales_Opportunity__c</field>
+            <value>
+                <elementReference>varInternalSalesOpportunity.Id</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record.Asset_Requested__r</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>Update_Interco_Request</name>
+        <label>Update Interco Request</label>
+        <locationX>314</locationX>
+        <locationY>816</locationY>
+        <connector>
+            <targetReference>Update_Final_Asset_Currency</targetReference>
+        </connector>
+        <inputAssignments>
+            <field>New_Transferred_Asset__c</field>
+            <value>
+                <elementReference>varFinalAsset.Id</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>Update_Interco_Request_With_Opportunities</name>
+        <label>Update Interco Request With Opportunities</label>
+        <locationX>50</locationX>
+        <locationY>1248</locationY>
+        <inputAssignments>
+            <field>Internal_Purchase__c</field>
+            <value>
+                <elementReference>varInternalPurchaseOpportunity.Id</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Internal_Sale__c</field>
+            <value>
+                <elementReference>varInternalSalesOpportunity.Id</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <start>
+        <locationX>56</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Assign_Sales_Opportunity_Fields</targetReference>
+        </connector>
+        <doesRequireRecordChangedToMeetCriteria>true</doesRequireRecordChangedToMeetCriteria>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Approval_Status__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>Accepted</stringValue>
+            </value>
+        </filters>
+        <object>Intercompany_Transfer__c</object>
+        <recordTriggerType>Update</recordTriggerType>
+        <scheduledPaths>
+            <connector>
+                <targetReference>Get_Transfer_To_Account_Owner_2</targetReference>
+            </connector>
+            <pathType>AsyncAfterCommit</pathType>
+        </scheduledPaths>
+        <triggerType>RecordAfterSave</triggerType>
+    </start>
+    <status>Obsolete</status>
+    <variables>
+        <name>varFinalAsset</name>
+        <dataType>SObject</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+        <objectType>ProductItem__c</objectType>
+    </variables>
+    <variables>
+        <name>varInternalPurchaseOpportunity</name>
+        <dataType>SObject</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+        <objectType>Opportunity</objectType>
+    </variables>
+    <variables>
+        <description>This is to set the Opportunity and Asset Owner as the following:
+US Purchase and Asset: 005Ro00000ELHNZIA5 (System Admin)
+UK Purchase and Asset: 0055b00000REnyEAAT (Sacha Pearce)
+French Purchase and Asset: 0055b00000P5YKIAA3 (Admin Probo Medical SAS)</description>
+        <name>varInternalPurchaseOpportunityAndAssetOwner</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <name>varInternalSalesOpportunity</name>
+        <dataType>SObject</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+        <objectType>Opportunity</objectType>
+    </variables>
+</Flow>

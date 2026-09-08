@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Last_name_required</fullName>
+    <active>true</active>
+    <description>Last name is required to create and save the lead record. Created to keep the database clean in the event of potential workarounds or API integrations.</description>
+    <errorConditionFormula>AND(
+ISNEW(),
+ISBLANK(LastName)
+)
+&amp;&amp; Lead_Val_Bypass__c = False</errorConditionFormula>
+    <errorMessage>Last name is required to create and save the lead record.</errorMessage>
+</ValidationRule>

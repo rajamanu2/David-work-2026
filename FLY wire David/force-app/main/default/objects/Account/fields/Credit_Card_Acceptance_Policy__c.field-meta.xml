@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Credit_Card_Acceptance_Policy__c</fullName>
+    <inlineHelpText>For RM&apos;s - enter the clients CC acceptance policy.</inlineHelpText>
+    <label>Credit Card Acceptance Policy</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>MultiselectPicklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Accepted - Student Pays Fees</fullName>
+                <default>false</default>
+                <label>Accepted - Student Pays Fees</label>
+            </value>
+            <value>
+                <fullName>Accepted - School Pays Fees</fullName>
+                <default>false</default>
+                <label>Accepted - School Pays Fees</label>
+            </value>
+            <value>
+                <fullName>Accepted - Grads Only</fullName>
+                <default>false</default>
+                <label>Accepted - Grads Only</label>
+            </value>
+            <value>
+                <fullName>Accepted - Admissions Only</fullName>
+                <default>false</default>
+                <label>Accepted - Admissions Only</label>
+            </value>
+            <value>
+                <fullName>Not Accepted</fullName>
+                <default>false</default>
+                <label>Not Accepted</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+    <visibleLines>5</visibleLines>
+</CustomField>

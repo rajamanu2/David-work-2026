@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Return_to_Address__c</fullName>
+    <externalId>false</externalId>
+    <formula>TRIM(IF(NOT(ISBLANK(Return_to_Address_Override__c)), Return_to_Address_Override__c, 
+if(ISBLANK(Return_to_Account__r.ShippingStreet), &apos;&apos;, Return_to_Account__r.ShippingStreet &amp; &apos; &apos;) 
+&amp;
+if(ISBLANK(Return_to_Account__r.ShippingCity), &apos;&apos;, Return_to_Account__r.ShippingCity &amp; &apos;, &apos;)
+&amp;
+if(ISBLANK(Return_to_Account__r.ShippingState), &apos;&apos;, Return_to_Account__r.ShippingState &amp; &apos; &apos;)
+&amp;
+if(ISBLANK(Return_to_Account__r.ShippingPostalCode), &apos;&apos;, Return_to_Account__r.ShippingPostalCode)
+)
+)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Return to Address</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

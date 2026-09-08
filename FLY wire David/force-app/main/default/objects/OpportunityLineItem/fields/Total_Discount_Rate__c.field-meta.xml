@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Total_Discount_Rate__c</fullName>
+    <description>Created for BOPI-309</description>
+    <formula>SBQQ__QuoteLine__r.SBQQ__TotalDiscountRate__c</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <inlineHelpText>Used to pull the Total Discount (%) from Quote Line to Opp Product</inlineHelpText>
+    <label>Total Discount (%)</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>2</scale>
+    <type>Percent</type>
+</CustomField>

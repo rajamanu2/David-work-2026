@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Intercompany_to_Harrisburg</fullName>
+    <columns>NAME</columns>
+    <columns>Opportunity_Name__c</columns>
+    <columns>Date_shipped__c</columns>
+    <columns>ProductItem__c</columns>
+    <columns>RMA_Item_Serial_Number__c</columns>
+    <columns>RMA_Type__c</columns>
+    <columns>Shipping_FROM_Location__c</columns>
+    <columns>RECORDTYPE</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Shipping_TO_Location__c</field>
+        <operation>contains</operation>
+        <value>Harrisburg</value>
+    </filters>
+    <filters>
+        <field>Date_RMA_Item_Received__c</field>
+        <operation>equals</operation>
+    </filters>
+    <label>Trisonics - Intercompany to Harrisburg</label>
+    <sharedTo>
+        <allInternalUsers></allInternalUsers>
+    </sharedTo>
+</ListView>

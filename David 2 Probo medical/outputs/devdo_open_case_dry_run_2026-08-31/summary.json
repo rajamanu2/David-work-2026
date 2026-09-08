@@ -1,0 +1,102 @@
+{
+  "GeneratedAt": "2026-08-31T21:40:56.3763932+05:30",
+  "CaseCount": 113,
+  "ActiveFlowDefinitions": 525,
+  "TotalFlowDefinitions": 716,
+  "ActiveValidationRules": 265,
+  "TotalValidationRules": 338,
+  "ApexTriggers": 200,
+  "ApexClasses": 3378,
+  "LwcBundles": 317,
+  "AuraBundles": 368,
+  "PermissionSets": 579,
+  "EmailTemplates": 522,
+  "Reports": 19351,
+  "Dashboards": 911,
+  "Buckets": [
+    {
+      "Name": "Metadata configuration / automation",
+      "Count": 43
+    },
+    {
+      "Name": "Defect investigation",
+      "Count": 22
+    },
+    {
+      "Name": "Integration / managed package",
+      "Count": 14
+    },
+    {
+      "Name": "Access / validation",
+      "Count": 11
+    },
+    {
+      "Name": "Reports / dashboards / notifications",
+      "Count": 9
+    },
+    {
+      "Name": "Data correction / migration",
+      "Count": 8
+    },
+    {
+      "Name": "Clarification / cross-object",
+      "Count": 6
+    }
+  ],
+  "Readiness": [
+    {
+      "Name": "Buildable in Dev after representative test data is created",
+      "Count": 43
+    },
+    {
+      "Name": "Reproducible in Dev after sanitized records and exact steps are created",
+      "Count": 22
+    },
+    {
+      "Name": "Partial in Dev - sandbox endpoint or vendor support required",
+      "Count": 14
+    },
+    {
+      "Name": "Buildable in Dev after exact persona and acceptance criteria are confirmed",
+      "Count": 11
+    },
+    {
+      "Name": "Buildable in Dev with representative data and folder-sharing personas",
+      "Count": 9
+    },
+    {
+      "Name": "Rehearse in Dev; final production data action requires separate approval",
+      "Count": 8
+    },
+    {
+      "Name": "Blocked until target object and acceptance criteria are confirmed",
+      "Count": 6
+    }
+  ],
+  "HighPriorityCases": [
+    {
+      "CaseNumber": "00008361",
+      "Subject": "FSL - No calendar appointment generated in coordinator mailbox for some time after dispatch (long delay)",
+      "DevWorkBucket": "Defect investigation",
+      "DevReadiness": "Reproducible in Dev after sanitized records and exact steps are created"
+    },
+    {
+      "CaseNumber": "00009312",
+      "Subject": "FSL - can the SA details be visible on clicking the appointment ie \"reason for return visit\" as it currently brings up the WO as opposed to SA",
+      "DevWorkBucket": "Metadata configuration / automation",
+      "DevReadiness": "Buildable in Dev after representative test data is created"
+    },
+    {
+      "CaseNumber": "00009704",
+      "Subject": "00061816 reopened when RMA completed in stores",
+      "DevWorkBucket": "Defect investigation",
+      "DevReadiness": "Reproducible in Dev after sanitized records and exact steps are created"
+    },
+    {
+      "CaseNumber": "00010409",
+      "Subject": "New SA Button",
+      "DevWorkBucket": "Metadata configuration / automation",
+      "DevReadiness": "Buildable in Dev after representative test data is created"
+    }
+  ]
+}

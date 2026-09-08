@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Account_FullAddress_90</fullName>
+    <active>false</active>
+    <description>Full Address must be filled in to &gt;=90%</description>
+    <errorConditionFormula>AND(
+        $Profile.Name &lt;&gt; &quot;System Administrator&quot;,
+        $Profile.Name &lt;&gt; &quot;B - Looker&quot;,
+        IsClosed = False,
+        Probability &gt;=0.90,
+   OR(
+        ISBLANK(Account.ShippingCountry),
+        ISBLANK(Account.ShippingStreet)
+    ) 
+)
+&amp;&amp; Opp_Val_Bypass__c = false</errorConditionFormula>
+    <errorMessage>**  Go to Account Record and add full Shipping Address  **</errorMessage>
+</ValidationRule>

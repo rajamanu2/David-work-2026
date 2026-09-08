@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>ApprovalsArchived__c</fullName>
+    <description>The formula must return a value of 1 in order for the approval records to be archived in the Approvals Related List of the subject record.  Any other returned value will not archive the approval records. 
+
+If a value of 1 has been returned, once a record is resubmitted for approval, expect the &quot;Archived&quot; Boolean on previous approval records to update to &apos;true&apos;. 
+
+https://help.salesforce.com/s/articleView?id=000383934&amp;type=1</description>
+    <externalId>false</externalId>
+    <formula>1</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <inlineHelpText>By default in Advanced Approvals, all approval records associated to a given record are deleted if the original record is recalled for approval and then submitted again.  In order to retain approval records from previous submissions, make use of the ApprovalsArchived Special Field.</inlineHelpText>
+    <label>ApprovalsArchived</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>0</scale>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Number</type>
+    <unique>false</unique>
+</CustomField>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Stage_Regressed__c</fullName>
+    <description>Formula to mark if Stage has gone backward. Uses Previous Stage Field which is filled in via WF.</description>
+    <formula>CASE( StageName ,
+&quot;Prospecting&quot;,1,
+&quot;Meeting Held - Interested&quot;,2,
+&quot;Awaiting RFP&quot;,3,
+&quot;Active RFP&quot;,4,
+&quot;Building Support From Stakeholders&quot;,5,
+&quot;Verbal Selection&quot;,6,
+&quot;Legal&quot;,7,
+&quot;Client Signed&quot;,8,
+&quot;Closed Won&quot;,9,
+&quot;Closed Lost&quot;,9,0)
+&lt;
+CASE( Previous_Stage__c ,
+&quot;Prospecting&quot;,1,
+&quot;Meeting Held - Interested&quot;,2,
+&quot;Awaiting RFP&quot;,3,
+&quot;Active RFP&quot;,4,
+&quot;Building Support From Stakeholders&quot;,5,
+&quot;Verbal Selection&quot;,6,
+&quot;Legal&quot;,7,
+&quot;Client Signed&quot;,8,
+&quot;Closed Won&quot;,9,
+&quot;Closed Lost&quot;,9,0)</formula>
+    <inlineHelpText>Formula to mark if Stage has gone backward. Uses Previous Stage Field which is filled in via WF.</inlineHelpText>
+    <label>Stage Regressed</label>
+    <trackHistory>false</trackHistory>
+    <type>Checkbox</type>
+</CustomField>

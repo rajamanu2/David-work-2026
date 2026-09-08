@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Asset_Must_Be_a_Customer_Repair_on_RMA</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND(
+NOT(ISBLANK(ProductItem__c)),
+NOT(ISPICKVAL(ProductItem__r.Check_In_Type__c, &quot;Customer Repair&quot;)),
+NOT(ISPICKVAL(ProductItem__r.Check_In_Type__c, &quot;Core Exchange&quot;)),
+NOT(ISPICKVAL(ProductItem__r.Check_In_Type__c, &quot;Vet – Customer Repair&quot;)),
+RecordType.Name = &quot;Customer Repair Evaluation&quot;,
+OR(ISBLANK(ProductItem__r.Purchasing_Opportunity__c),
+Repair_turned_to_Exchange__c = FALSE), 
+DATEVALUE(CreatedDate) &gt; DATE(2024, 2, 6)
+)</errorConditionFormula>
+    <errorDisplayField>ProductItem__c</errorDisplayField>
+    <errorMessage>Assets checked in on Customer Repair RMA Types MUST HAVE Check In Type of &quot;Customer Repair&quot;. Please change the asset Check In Type to Customer Repair or add Purchasing Opportunity to asset before changing to &quot;Purchase&quot; Check In Type.</errorMessage>
+</ValidationRule>

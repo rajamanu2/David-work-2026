@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Beta_Product_Discount__c</fullName>
+    <description>Created as part of BOPI-130</description>
+    <inlineHelpText>Displays whether a Beta Product is included in a Quote Line with a Discount given</inlineHelpText>
+    <label>Beta Product Discount</label>
+    <summaryFilterItems>
+        <field>SBQQ__QuoteLine__c.Status__c</field>
+        <operation>equals</operation>
+        <value>Beta</value>
+    </summaryFilterItems>
+    <summaryFilterItems>
+        <field>SBQQ__QuoteLine__c.SBQQ__AdditionalDiscount__c</field>
+        <operation>equals</operation>
+        <value>0</value>
+    </summaryFilterItems>
+    <summaryForeignKey>SBQQ__QuoteLine__c.SBQQ__Quote__c</summaryForeignKey>
+    <summaryOperation>count</summaryOperation>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Summary</type>
+</CustomField>

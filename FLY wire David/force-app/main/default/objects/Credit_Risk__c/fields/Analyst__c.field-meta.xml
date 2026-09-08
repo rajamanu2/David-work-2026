@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Analyst__c</fullName>
+    <deleteConstraint>SetNull</deleteConstraint>
+    <description>Credit risk team member who is the analyst for this record.</description>
+    <inlineHelpText>Name of Analyst</inlineHelpText>
+    <label>Analyst</label>
+    <referenceTo>User</referenceTo>
+    <relationshipName>Credit_Risk_Analyst</relationshipName>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Lookup</type>
+</CustomField>

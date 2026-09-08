@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Quote_Approval_Req_Rev_Share_Details</fullName>
+    <active>false</active>
+    <description>Quote approval status cannot be &quot;Approved&quot; if there are one or more Rev Share products and the Rev Share Details field on Opp has not been filled out.
+
+BOPI-581 ByPass added to skip validations when syncing quote with account changes</description>
+    <errorConditionFormula>AND(
+				 Number_of_Rev_Share_Products__c  &gt;= 1,  
+				SBQQ__Opportunity2__r.Revenue_Share_Details__c = &quot;&quot;,
+			ISPICKVAL(ApprovalStatus__c, &quot;Approved&quot;))
+&amp;&amp; Quote_Val_Bypass__c = false</errorConditionFormula>
+    <errorMessage>Cannot move Quote to approved until the Revenue Share Details field has been filled out</errorMessage>
+</ValidationRule>

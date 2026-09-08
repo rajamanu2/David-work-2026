@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Refer_Resell_Partner__c</fullName>
+    <deleteConstraint>SetNull</deleteConstraint>
+    <description>SALDEV-754 Twins to Quote Line, to display in QLE drawer</description>
+    <inlineHelpText>Select the strategic partner account to be set by default when quoting this product</inlineHelpText>
+    <label>Refer/Resell Partner</label>
+    <referenceTo>Account</referenceTo>
+    <relationshipLabel>Products</relationshipLabel>
+    <relationshipName>Products</relationshipName>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <type>Lookup</type>
+</CustomField>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Integration_Partner__c</fullName>
+    <deleteConstraint>SetNull</deleteConstraint>
+    <description>Created for Strategic Partner SAL-4483
+Integration Partner for Commercial Deals</description>
+    <inlineHelpText>Search for the Partner we will integrate with. If you can&apos;t find the Account notify your verticals Partner specialist.</inlineHelpText>
+    <label>Integration Partner</label>
+    <referenceTo>Account</referenceTo>
+    <relationshipLabel>Accounts (Integration Partner)</relationshipLabel>
+    <relationshipName>Accounts</relationshipName>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Lookup</type>
+</CustomField>

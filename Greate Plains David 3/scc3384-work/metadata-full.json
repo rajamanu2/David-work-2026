@@ -1,0 +1,3563 @@
+{
+  "fields": {
+    "Service_Type__c": {
+      "api_name": "Service_Type__c",
+      "label": "Service Type",
+      "type": "Picklist",
+      "required": "false",
+      "length": null,
+      "visible_lines": null,
+      "restricted": "true",
+      "controlling_field": null,
+      "value_count": 8,
+      "values": [
+        {
+          "name": "Circuit",
+          "label": "Circuit",
+          "default": "false"
+        },
+        {
+          "name": "Internet",
+          "label": "Internet",
+          "default": "false"
+        },
+        {
+          "name": "Voice",
+          "label": "Voice",
+          "default": "false"
+        },
+        {
+          "name": "Video",
+          "label": "Video",
+          "default": "false"
+        },
+        {
+          "name": "Wireless",
+          "label": "Wireless",
+          "default": "false"
+        },
+        {
+          "name": "Other",
+          "label": "Other",
+          "default": "false"
+        },
+        {
+          "name": "Locate",
+          "label": "Locate",
+          "default": "false"
+        },
+        {
+          "name": "Fixed Wireless",
+          "label": "Fixed Wireless",
+          "default": "false"
+        }
+      ],
+      "dependency_count": 0,
+      "dependencies": []
+    },
+    "Service_Address__c": {
+      "api_name": "Service_Address__c",
+      "label": "Service Address",
+      "type": "Address",
+      "required": null,
+      "length": null,
+      "visible_lines": null,
+      "restricted": null,
+      "controlling_field": null,
+      "value_count": 0,
+      "values": [],
+      "dependency_count": 0,
+      "dependencies": []
+    },
+    "Priority__c": {
+      "api_name": "Priority__c",
+      "label": "Priority",
+      "type": "Picklist",
+      "required": "false",
+      "length": null,
+      "visible_lines": null,
+      "restricted": "true",
+      "controlling_field": null,
+      "value_count": 3,
+      "values": [
+        {
+          "name": "Low",
+          "label": "Low",
+          "default": "false"
+        },
+        {
+          "name": "Med",
+          "label": "Med",
+          "default": "false"
+        },
+        {
+          "name": "High",
+          "label": "High",
+          "default": "false"
+        }
+      ],
+      "dependency_count": 0,
+      "dependencies": []
+    },
+    "Subscriber_Report__c": {
+      "api_name": "Subscriber_Report__c",
+      "label": "Subscriber Report",
+      "type": "Picklist",
+      "required": "false",
+      "length": null,
+      "visible_lines": null,
+      "restricted": null,
+      "controlling_field": null,
+      "value_count": 72,
+      "values": [
+        {
+          "name": "Circuit Running Errors",
+          "label": "Circuit Running Errors",
+          "default": "false"
+        },
+        {
+          "name": "All Plume Related Sub Reports",
+          "label": "All Plume Related Sub Reports",
+          "default": "false"
+        },
+        {
+          "name": "All Pods Not Connecting",
+          "label": "All Pods Not Connecting",
+          "default": "false"
+        },
+        {
+          "name": "All Services Out",
+          "label": "All Services Out",
+          "default": "false"
+        },
+        {
+          "name": "Analog Channels Out of Service",
+          "label": "Analog Channels Out of Service",
+          "default": "false"
+        },
+        {
+          "name": "Audio Problems",
+          "label": "Audio Problems",
+          "default": "false"
+        },
+        {
+          "name": "Camera Trouble",
+          "label": "Camera Trouble",
+          "default": "false"
+        },
+        {
+          "name": "Can't Connect",
+          "label": "Can't Connect",
+          "default": "false"
+        },
+        {
+          "name": "Can't Loop NIU",
+          "label": "Can't Loop NIU",
+          "default": "false"
+        },
+        {
+          "name": "Channel Buffering",
+          "label": "Channel Buffering",
+          "default": "false"
+        },
+        {
+          "name": "Channel Buffering - GPC iTV",
+          "label": "Channel Buffering - GPC iTV",
+          "default": "false"
+        },
+        {
+          "name": "Channels Out",
+          "label": "Channels Out",
+          "default": "false"
+        },
+        {
+          "name": "Channels Out - GPC iTV",
+          "label": "Channels Out - GPC iTV",
+          "default": "false"
+        },
+        {
+          "name": "Circuit Down",
+          "label": "Circuit Down",
+          "default": "false"
+        },
+        {
+          "name": "Communication Trouble",
+          "label": "Communication Trouble",
+          "default": "false"
+        },
+        {
+          "name": "Cross Talk",
+          "label": "Cross Talk",
+          "default": "false"
+        },
+        {
+          "name": "Cut Cable",
+          "label": "Cut Cable",
+          "default": "false"
+        },
+        {
+          "name": "Cut Cable Or Drop",
+          "label": "Cut Cable Or Drop",
+          "default": "false"
+        },
+        {
+          "name": "Damage Claim",
+          "label": "Damage Claim",
+          "default": "false"
+        },
+        {
+          "name": "Drop Or Wiring",
+          "label": "Drop Or Wiring",
+          "default": "false"
+        },
+        {
+          "name": "Elite WiFi Trbl",
+          "label": "Elite WiFi Trbl",
+          "default": "false"
+        },
+        {
+          "name": "Email Settings Or Set Up",
+          "label": "Email Settings Or Set Up",
+          "default": "false"
+        },
+        {
+          "name": "E-Mail Trouble",
+          "label": "E-Mail Trouble",
+          "default": "false"
+        },
+        {
+          "name": "Equipment Failure",
+          "label": "Equipment Failure",
+          "default": "false"
+        },
+        {
+          "name": "Failed To Test",
+          "label": "Failed To Test",
+          "default": "false"
+        },
+        {
+          "name": "Features Not Working",
+          "label": "Features Not Working",
+          "default": "false"
+        },
+        {
+          "name": "Fixed Wireless Trbl",
+          "label": "Fixed Wireless Trbl",
+          "default": "false"
+        },
+        {
+          "name": "Gigacenter - Not Working",
+          "label": "Gigacenter - Not Working",
+          "default": "false"
+        },
+        {
+          "name": "Gigacenter - Slow Speeds",
+          "label": "Gigacenter - Slow Speeds",
+          "default": "false"
+        },
+        {
+          "name": "GPC Declared Outage",
+          "label": "GPC Declared Outage",
+          "default": "false"
+        },
+        {
+          "name": "GPC iTV Declared Outage",
+          "label": "GPC iTV Declared Outage",
+          "default": "false"
+        },
+        {
+          "name": "GPC iTV Username/Password",
+          "label": "GPC iTV Username/Password",
+          "default": "false"
+        },
+        {
+          "name": "Hosted-Features",
+          "label": "Hosted-Features",
+          "default": "false"
+        },
+        {
+          "name": "Jack/Ext Issues",
+          "label": "Jack/Ext Issues",
+          "default": "false"
+        },
+        {
+          "name": "Kandy App Update",
+          "label": "Kandy App Update",
+          "default": "false"
+        },
+        {
+          "name": "Keypad Problem",
+          "label": "Keypad Problem",
+          "default": "false"
+        },
+        {
+          "name": "Latency/Jitter",
+          "label": "Latency/Jitter",
+          "default": "false"
+        },
+        {
+          "name": "Locate",
+          "label": "Locate",
+          "default": "false"
+        },
+        {
+          "name": "LSS Trouble",
+          "label": "LSS Trouble",
+          "default": "false"
+        },
+        {
+          "name": "Migration",
+          "label": "Migration",
+          "default": "false"
+        },
+        {
+          "name": "Missing Channels",
+          "label": "Missing Channels",
+          "default": "false"
+        },
+        {
+          "name": "NBR Trouble",
+          "label": "NBR Trouble",
+          "default": "false"
+        },
+        {
+          "name": "Network Connection - GPC iTV",
+          "label": "Network Connection - GPC iTV",
+          "default": "false"
+        },
+        {
+          "name": "No Dial Tone",
+          "label": "No Dial Tone",
+          "default": "false"
+        },
+        {
+          "name": "No Light On Modem",
+          "label": "No Light On Modem",
+          "default": "false"
+        },
+        {
+          "name": "Noisy Phone",
+          "label": "Noisy Phone",
+          "default": "false"
+        },
+        {
+          "name": "Non-Pay/Perm Disc",
+          "label": "Non-Pay/Perm Disc",
+          "default": "false"
+        },
+        {
+          "name": "Not Connecting To ITV - GPC iTV",
+          "label": "Not Connecting To ITV - GPC iTV",
+          "default": "false"
+        },
+        {
+          "name": "Other & Misc - Int",
+          "label": "Other & Misc - Int",
+          "default": "false"
+        },
+        {
+          "name": "Other & Misc - TV",
+          "label": "Other & Misc - TV",
+          "default": "false"
+        },
+        {
+          "name": "Other & Misc - Voice",
+          "label": "Other & Misc - Voice",
+          "default": "false"
+        },
+        {
+          "name": "Outage",
+          "label": "Outage",
+          "default": "false"
+        },
+        {
+          "name": "Password Reset",
+          "label": "Password Reset",
+          "default": "false"
+        },
+        {
+          "name": "Plume - One Pod Not Connecting",
+          "label": "Plume - One Pod Not Connecting",
+          "default": "false"
+        },
+        {
+          "name": "Plume - Slow/Intermittent",
+          "label": "Plume - Slow/Intermittent",
+          "default": "false"
+        },
+        {
+          "name": "Plume Device Not Connecting",
+          "label": "Plume Device Not Connecting",
+          "default": "false"
+        },
+        {
+          "name": "Poor Picture Quality",
+          "label": "Poor Picture Quality",
+          "default": "false"
+        },
+        {
+          "name": "PRI",
+          "label": "PRI",
+          "default": "false"
+        },
+        {
+          "name": "Referred To Billing",
+          "label": "Referred To Billing",
+          "default": "false"
+        },
+        {
+          "name": "Referred to NOC/UC",
+          "label": "Referred to NOC/UC",
+          "default": "false"
+        },
+        {
+          "name": "Remote Control Trouble",
+          "label": "Remote Control Trouble",
+          "default": "false"
+        },
+        {
+          "name": "Sensor Problem",
+          "label": "Sensor Problem",
+          "default": "false"
+        },
+        {
+          "name": "Slow Speeds",
+          "label": "Slow Speeds",
+          "default": "false"
+        },
+        {
+          "name": "STB Trouble",
+          "label": "STB Trouble",
+          "default": "false"
+        },
+        {
+          "name": "Total Connect",
+          "label": "Total Connect",
+          "default": "false"
+        },
+        {
+          "name": "Trouble Making Calls",
+          "label": "Trouble Making Calls",
+          "default": "false"
+        },
+        {
+          "name": "Trouble Receiving Calls",
+          "label": "Trouble Receiving Calls",
+          "default": "false"
+        },
+        {
+          "name": "Unified",
+          "label": "Unified",
+          "default": "false"
+        },
+        {
+          "name": "Webpage Will Not Load",
+          "label": "Webpage Will Not Load",
+          "default": "false"
+        },
+        {
+          "name": "WiFi - Modem",
+          "label": "WiFi - Modem",
+          "default": "false"
+        },
+        {
+          "name": "WiFi - Rukus",
+          "label": "WiFi - Rukus",
+          "default": "false"
+        },
+        {
+          "name": "WiFi - Ubiquiti",
+          "label": "WiFi - Ubiquiti",
+          "default": "false"
+        }
+      ],
+      "dependency_count": 0,
+      "dependencies": []
+    },
+    "Primary_Resolution__c": {
+      "api_name": "Primary_Resolution__c",
+      "label": "Primary Resolution",
+      "type": "Picklist",
+      "required": "false",
+      "length": null,
+      "visible_lines": null,
+      "restricted": "true",
+      "controlling_field": "Subscriber_Report__c",
+      "value_count": 0,
+      "values": [],
+      "dependency_count": 60,
+      "dependencies": [
+        {
+          "controlling_values": [
+            "Kandy App Update",
+            "Damage Claim",
+            "Outage",
+            "Cut Cable",
+            "Poor Picture Quality",
+            "Audio Problems",
+            "Equipment Failure",
+            "Drop Or Wiring",
+            "All Pods Not Connecting",
+            "Plume - One Pod Not Connecting",
+            "Plume Device Not Connecting",
+            "Referred To Billing",
+            "Password Reset",
+            "Email Settings Or Set Up",
+            "Elite WiFi Trbl",
+            "Gigacenter - Not Working",
+            "Gigacenter - Slow Speeds",
+            "Circuit Running Errors",
+            "Can't Loop NIU",
+            "Latency/Jitter",
+            "Circuit Down",
+            "Slow Speeds",
+            "Can't Connect",
+            "Webpage Will Not Load",
+            "No Light On Modem",
+            "E-Mail Trouble",
+            "Missing Channels",
+            "STB Trouble",
+            "All Services Out",
+            "Remote Control Trouble",
+            "Non-Pay/Perm Disc",
+            "Locate",
+            "Plume - Slow/Intermittent",
+            "All Plume Related Sub Reports",
+            "WiFi - Modem",
+            "Analog Channels Out of Service",
+            "WiFi - Rukus",
+            "Channel Buffering",
+            "WiFi - Ubiquiti",
+            "Channel Buffering - GPC iTV",
+            "Jack/Ext Issues",
+            "Channels Out",
+            "Camera Trouble",
+            "Communication Trouble",
+            "Failed To Test",
+            "Keypad Problem",
+            "Channels Out - GPC iTV",
+            "Fixed Wireless Trbl",
+            "GPC Declared Outage",
+            "GPC iTV Declared Outage",
+            "LSS Trouble",
+            "GPC iTV Username/Password",
+            "NBR Trouble",
+            "Hosted-Features",
+            "Sensor Problem",
+            "Network Connection - GPC iTV",
+            "Total Connect",
+            "Not Connecting To ITV - GPC iTV",
+            "Cross Talk",
+            "Other & Misc - Int",
+            "Cut Cable Or Drop",
+            "Other & Misc - TV",
+            "Migration",
+            "No Dial Tone",
+            "Noisy Phone",
+            "Trouble Receiving Calls",
+            "Other & Misc - Voice",
+            "Referred to NOC/UC",
+            "Trouble Making Calls",
+            "Features Not Working",
+            "PRI",
+            "Unified"
+          ],
+          "value": "Cleared Without Repair"
+        },
+        {
+          "controlling_values": [
+            "Kandy App Update",
+            "Damage Claim",
+            "Outage",
+            "Cut Cable",
+            "Poor Picture Quality",
+            "Audio Problems",
+            "Equipment Failure",
+            "Drop Or Wiring",
+            "All Pods Not Connecting",
+            "Plume - One Pod Not Connecting",
+            "Plume Device Not Connecting",
+            "Referred To Billing",
+            "Password Reset",
+            "Email Settings Or Set Up",
+            "Elite WiFi Trbl",
+            "Gigacenter - Not Working",
+            "Gigacenter - Slow Speeds",
+            "Circuit Running Errors",
+            "Can't Loop NIU",
+            "Latency/Jitter",
+            "Circuit Down",
+            "Slow Speeds",
+            "Can't Connect",
+            "Webpage Will Not Load",
+            "No Light On Modem",
+            "E-Mail Trouble",
+            "Missing Channels",
+            "STB Trouble",
+            "All Services Out",
+            "Remote Control Trouble",
+            "Non-Pay/Perm Disc",
+            "Locate",
+            "Plume - Slow/Intermittent",
+            "All Plume Related Sub Reports",
+            "WiFi - Modem",
+            "Analog Channels Out of Service",
+            "WiFi - Rukus",
+            "Channel Buffering",
+            "WiFi - Ubiquiti",
+            "Channel Buffering - GPC iTV",
+            "Jack/Ext Issues",
+            "Channels Out",
+            "Camera Trouble",
+            "Communication Trouble",
+            "Failed To Test",
+            "Keypad Problem",
+            "Channels Out - GPC iTV",
+            "Fixed Wireless Trbl",
+            "GPC Declared Outage",
+            "GPC iTV Declared Outage",
+            "LSS Trouble",
+            "GPC iTV Username/Password",
+            "NBR Trouble",
+            "Hosted-Features",
+            "Sensor Problem",
+            "Network Connection - GPC iTV",
+            "Total Connect",
+            "Not Connecting To ITV - GPC iTV",
+            "Cross Talk",
+            "Other & Misc - Int",
+            "Cut Cable Or Drop",
+            "Other & Misc - TV",
+            "Migration",
+            "No Dial Tone",
+            "Noisy Phone",
+            "Trouble Receiving Calls",
+            "Other & Misc - Voice",
+            "Referred to NOC/UC",
+            "Trouble Making Calls",
+            "Features Not Working",
+            "PRI",
+            "Unified"
+          ],
+          "value": "Assigned To Correct Acct"
+        },
+        {
+          "controlling_values": [
+            "Kandy App Update",
+            "Damage Claim",
+            "Outage",
+            "Cut Cable",
+            "Poor Picture Quality",
+            "Audio Problems",
+            "Equipment Failure",
+            "Drop Or Wiring",
+            "All Pods Not Connecting",
+            "Plume - One Pod Not Connecting",
+            "Plume Device Not Connecting",
+            "Referred To Billing",
+            "Password Reset",
+            "Email Settings Or Set Up",
+            "Elite WiFi Trbl",
+            "Gigacenter - Not Working",
+            "Gigacenter - Slow Speeds",
+            "Circuit Running Errors",
+            "Can't Loop NIU",
+            "Latency/Jitter",
+            "Circuit Down",
+            "Slow Speeds",
+            "Can't Connect",
+            "Webpage Will Not Load",
+            "No Light On Modem",
+            "E-Mail Trouble",
+            "Missing Channels",
+            "STB Trouble",
+            "All Services Out",
+            "Remote Control Trouble",
+            "Non-Pay/Perm Disc",
+            "Locate",
+            "Plume - Slow/Intermittent",
+            "All Plume Related Sub Reports",
+            "WiFi - Modem",
+            "Analog Channels Out of Service",
+            "WiFi - Rukus",
+            "Channel Buffering",
+            "WiFi - Ubiquiti",
+            "Channel Buffering - GPC iTV",
+            "Jack/Ext Issues",
+            "Channels Out",
+            "Camera Trouble",
+            "Communication Trouble",
+            "Failed To Test",
+            "Keypad Problem",
+            "Channels Out - GPC iTV",
+            "Fixed Wireless Trbl",
+            "GPC Declared Outage",
+            "GPC iTV Declared Outage",
+            "LSS Trouble",
+            "GPC iTV Username/Password",
+            "NBR Trouble",
+            "Hosted-Features",
+            "Sensor Problem",
+            "Network Connection - GPC iTV",
+            "Total Connect",
+            "Not Connecting To ITV - GPC iTV",
+            "Cross Talk",
+            "Other & Misc - Int",
+            "Cut Cable Or Drop",
+            "Other & Misc - TV",
+            "Migration",
+            "No Dial Tone",
+            "Noisy Phone",
+            "Trouble Receiving Calls",
+            "Other & Misc - Voice",
+            "Referred to NOC/UC",
+            "Trouble Making Calls",
+            "Features Not Working",
+            "PRI",
+            "Unified"
+          ],
+          "value": "Built Missing Service"
+        },
+        {
+          "controlling_values": [
+            "Kandy App Update",
+            "Damage Claim",
+            "Outage",
+            "Cut Cable",
+            "Poor Picture Quality",
+            "Audio Problems",
+            "Equipment Failure",
+            "Drop Or Wiring",
+            "All Pods Not Connecting",
+            "Plume - One Pod Not Connecting",
+            "Plume Device Not Connecting",
+            "Referred To Billing",
+            "Password Reset",
+            "Email Settings Or Set Up",
+            "Elite WiFi Trbl",
+            "Gigacenter - Not Working",
+            "Gigacenter - Slow Speeds",
+            "Circuit Running Errors",
+            "Can't Loop NIU",
+            "Latency/Jitter",
+            "Circuit Down",
+            "Slow Speeds",
+            "Can't Connect",
+            "Webpage Will Not Load",
+            "No Light On Modem",
+            "E-Mail Trouble",
+            "Missing Channels",
+            "STB Trouble",
+            "All Services Out",
+            "Remote Control Trouble",
+            "Non-Pay/Perm Disc",
+            "Locate",
+            "Plume - Slow/Intermittent",
+            "All Plume Related Sub Reports",
+            "WiFi - Modem",
+            "Analog Channels Out of Service",
+            "WiFi - Rukus",
+            "Channel Buffering",
+            "WiFi - Ubiquiti",
+            "Channel Buffering - GPC iTV",
+            "Jack/Ext Issues",
+            "Channels Out",
+            "Camera Trouble",
+            "Communication Trouble",
+            "Failed To Test",
+            "Keypad Problem",
+            "Channels Out - GPC iTV",
+            "Fixed Wireless Trbl",
+            "GPC Declared Outage",
+            "GPC iTV Declared Outage",
+            "LSS Trouble",
+            "GPC iTV Username/Password",
+            "NBR Trouble",
+            "Hosted-Features",
+            "Sensor Problem",
+            "Network Connection - GPC iTV",
+            "Total Connect",
+            "Not Connecting To ITV - GPC iTV",
+            "Cross Talk",
+            "Other & Misc - Int",
+            "Cut Cable Or Drop",
+            "Other & Misc - TV",
+            "Migration",
+            "No Dial Tone",
+            "Noisy Phone",
+            "Trouble Receiving Calls",
+            "Other & Misc - Voice",
+            "Referred to NOC/UC",
+            "Trouble Making Calls",
+            "Features Not Working",
+            "PRI",
+            "Unified"
+          ],
+          "value": "Corrected Plant Records"
+        },
+        {
+          "controlling_values": [
+            "Kandy App Update",
+            "Damage Claim",
+            "Outage",
+            "Cut Cable",
+            "Poor Picture Quality",
+            "Audio Problems",
+            "Equipment Failure",
+            "Drop Or Wiring",
+            "All Pods Not Connecting",
+            "Plume - One Pod Not Connecting",
+            "Plume Device Not Connecting",
+            "Referred To Billing",
+            "Password Reset",
+            "Email Settings Or Set Up",
+            "Elite WiFi Trbl",
+            "Gigacenter - Not Working",
+            "Gigacenter - Slow Speeds",
+            "Circuit Running Errors",
+            "Can't Loop NIU",
+            "Latency/Jitter",
+            "Circuit Down",
+            "Slow Speeds",
+            "Can't Connect",
+            "Webpage Will Not Load",
+            "No Light On Modem",
+            "E-Mail Trouble",
+            "Missing Channels",
+            "STB Trouble",
+            "All Services Out",
+            "Remote Control Trouble",
+            "Non-Pay/Perm Disc",
+            "Locate",
+            "Plume - Slow/Intermittent",
+            "All Plume Related Sub Reports",
+            "WiFi - Modem",
+            "Analog Channels Out of Service",
+            "WiFi - Rukus",
+            "Channel Buffering",
+            "WiFi - Ubiquiti",
+            "Channel Buffering - GPC iTV",
+            "Jack/Ext Issues",
+            "Channels Out",
+            "Camera Trouble",
+            "Communication Trouble",
+            "Failed To Test",
+            "Keypad Problem",
+            "Channels Out - GPC iTV",
+            "Fixed Wireless Trbl",
+            "GPC Declared Outage",
+            "GPC iTV Declared Outage",
+            "LSS Trouble",
+            "GPC iTV Username/Password",
+            "NBR Trouble",
+            "Hosted-Features",
+            "Sensor Problem",
+            "Network Connection - GPC iTV",
+            "Total Connect",
+            "Not Connecting To ITV - GPC iTV",
+            "Cross Talk",
+            "Other & Misc - Int",
+            "Cut Cable Or Drop",
+            "Other & Misc - TV",
+            "Migration",
+            "No Dial Tone",
+            "Noisy Phone",
+            "Trouble Receiving Calls",
+            "Other & Misc - Voice",
+            "Referred to NOC/UC",
+            "Trouble Making Calls",
+            "Features Not Working",
+            "PRI",
+            "Unified"
+          ],
+          "value": "Corrected Service Type"
+        },
+        {
+          "controlling_values": [
+            "Kandy App Update",
+            "Damage Claim",
+            "Outage",
+            "Cut Cable",
+            "Poor Picture Quality",
+            "Audio Problems",
+            "Equipment Failure",
+            "Drop Or Wiring",
+            "All Pods Not Connecting",
+            "Plume - One Pod Not Connecting",
+            "Plume Device Not Connecting",
+            "Referred To Billing",
+            "Password Reset",
+            "Email Settings Or Set Up",
+            "Elite WiFi Trbl",
+            "Gigacenter - Not Working",
+            "Gigacenter - Slow Speeds",
+            "Circuit Running Errors",
+            "Can't Loop NIU",
+            "Latency/Jitter",
+            "Circuit Down",
+            "Slow Speeds",
+            "Can't Connect",
+            "Webpage Will Not Load",
+            "No Light On Modem",
+            "E-Mail Trouble",
+            "Missing Channels",
+            "STB Trouble",
+            "All Services Out",
+            "Remote Control Trouble",
+            "Non-Pay/Perm Disc",
+            "Locate",
+            "Plume - Slow/Intermittent",
+            "All Plume Related Sub Reports",
+            "WiFi - Modem",
+            "Analog Channels Out of Service",
+            "WiFi - Rukus",
+            "Channel Buffering",
+            "WiFi - Ubiquiti",
+            "Channel Buffering - GPC iTV",
+            "Jack/Ext Issues",
+            "Channels Out",
+            "Camera Trouble",
+            "Communication Trouble",
+            "Failed To Test",
+            "Keypad Problem",
+            "Channels Out - GPC iTV",
+            "Fixed Wireless Trbl",
+            "GPC Declared Outage",
+            "GPC iTV Declared Outage",
+            "LSS Trouble",
+            "GPC iTV Username/Password",
+            "NBR Trouble",
+            "Hosted-Features",
+            "Sensor Problem",
+            "Network Connection - GPC iTV",
+            "Total Connect",
+            "Not Connecting To ITV - GPC iTV",
+            "Cross Talk",
+            "Other & Misc - Int",
+            "Cut Cable Or Drop",
+            "Other & Misc - TV",
+            "Migration",
+            "No Dial Tone",
+            "Noisy Phone",
+            "Trouble Receiving Calls",
+            "Other & Misc - Voice",
+            "Referred to NOC/UC",
+            "Trouble Making Calls",
+            "Features Not Working",
+            "PRI",
+            "Unified"
+          ],
+          "value": "Corrected VLAN/EVC"
+        },
+        {
+          "controlling_values": [
+            "Kandy App Update",
+            "Damage Claim",
+            "Outage",
+            "Cut Cable",
+            "Poor Picture Quality",
+            "Audio Problems",
+            "Equipment Failure",
+            "Drop Or Wiring",
+            "All Pods Not Connecting",
+            "Plume - One Pod Not Connecting",
+            "Plume Device Not Connecting",
+            "Referred To Billing",
+            "Password Reset",
+            "Email Settings Or Set Up",
+            "Elite WiFi Trbl",
+            "Gigacenter - Not Working",
+            "Gigacenter - Slow Speeds",
+            "Circuit Running Errors",
+            "Can't Loop NIU",
+            "Latency/Jitter",
+            "Circuit Down",
+            "Slow Speeds",
+            "Can't Connect",
+            "Webpage Will Not Load",
+            "No Light On Modem",
+            "E-Mail Trouble",
+            "Missing Channels",
+            "STB Trouble",
+            "All Services Out",
+            "Remote Control Trouble",
+            "Non-Pay/Perm Disc",
+            "Locate",
+            "Plume - Slow/Intermittent",
+            "All Plume Related Sub Reports",
+            "WiFi - Modem",
+            "Analog Channels Out of Service",
+            "WiFi - Rukus",
+            "Channel Buffering",
+            "WiFi - Ubiquiti",
+            "Channel Buffering - GPC iTV",
+            "Jack/Ext Issues",
+            "Channels Out",
+            "Camera Trouble",
+            "Communication Trouble",
+            "Failed To Test",
+            "Keypad Problem",
+            "Channels Out - GPC iTV",
+            "Fixed Wireless Trbl",
+            "GPC Declared Outage",
+            "GPC iTV Declared Outage",
+            "LSS Trouble",
+            "GPC iTV Username/Password",
+            "NBR Trouble",
+            "Hosted-Features",
+            "Sensor Problem",
+            "Network Connection - GPC iTV",
+            "Total Connect",
+            "Not Connecting To ITV - GPC iTV",
+            "Cross Talk",
+            "Other & Misc - Int",
+            "Cut Cable Or Drop",
+            "Other & Misc - TV",
+            "Migration",
+            "No Dial Tone",
+            "Noisy Phone",
+            "Trouble Receiving Calls",
+            "Other & Misc - Voice",
+            "Referred to NOC/UC",
+            "Trouble Making Calls",
+            "Features Not Working",
+            "PRI",
+            "Unified"
+          ],
+          "value": "Cust Caused - No Chg"
+        },
+        {
+          "controlling_values": [
+            "Kandy App Update",
+            "Damage Claim",
+            "Outage",
+            "Cut Cable",
+            "Poor Picture Quality",
+            "Audio Problems",
+            "Equipment Failure",
+            "Drop Or Wiring",
+            "All Pods Not Connecting",
+            "Plume - One Pod Not Connecting",
+            "Plume Device Not Connecting",
+            "Referred To Billing",
+            "Password Reset",
+            "Email Settings Or Set Up",
+            "Elite WiFi Trbl",
+            "Gigacenter - Not Working",
+            "Gigacenter - Slow Speeds",
+            "Circuit Running Errors",
+            "Can't Loop NIU",
+            "Latency/Jitter",
+            "Circuit Down",
+            "Slow Speeds",
+            "Can't Connect",
+            "Webpage Will Not Load",
+            "No Light On Modem",
+            "E-Mail Trouble",
+            "Missing Channels",
+            "STB Trouble",
+            "All Services Out",
+            "Remote Control Trouble",
+            "Non-Pay/Perm Disc",
+            "Locate",
+            "Plume - Slow/Intermittent",
+            "All Plume Related Sub Reports",
+            "WiFi - Modem",
+            "Analog Channels Out of Service",
+            "WiFi - Rukus",
+            "Channel Buffering",
+            "WiFi - Ubiquiti",
+            "Channel Buffering - GPC iTV",
+            "Jack/Ext Issues",
+            "Channels Out",
+            "Camera Trouble",
+            "Communication Trouble",
+            "Failed To Test",
+            "Keypad Problem",
+            "Channels Out - GPC iTV",
+            "Fixed Wireless Trbl",
+            "GPC Declared Outage",
+            "GPC iTV Declared Outage",
+            "LSS Trouble",
+            "GPC iTV Username/Password",
+            "NBR Trouble",
+            "Hosted-Features",
+            "Sensor Problem",
+            "Network Connection - GPC iTV",
+            "Total Connect",
+            "Not Connecting To ITV - GPC iTV",
+            "Cross Talk",
+            "Other & Misc - Int",
+            "Cut Cable Or Drop",
+            "Other & Misc - TV",
+            "Migration",
+            "No Dial Tone",
+            "Noisy Phone",
+            "Trouble Receiving Calls",
+            "Other & Misc - Voice",
+            "Referred to NOC/UC",
+            "Trouble Making Calls",
+            "Features Not Working",
+            "PRI",
+            "Unified"
+          ],
+          "value": "Cust Caused - Trip Chg"
+        },
+        {
+          "controlling_values": [
+            "Kandy App Update",
+            "Damage Claim",
+            "Outage",
+            "Cut Cable",
+            "Poor Picture Quality",
+            "Audio Problems",
+            "Equipment Failure",
+            "Drop Or Wiring",
+            "All Pods Not Connecting",
+            "Plume - One Pod Not Connecting",
+            "Plume Device Not Connecting",
+            "Referred To Billing",
+            "Password Reset",
+            "Email Settings Or Set Up",
+            "Elite WiFi Trbl",
+            "Gigacenter - Not Working",
+            "Gigacenter - Slow Speeds",
+            "Circuit Running Errors",
+            "Can't Loop NIU",
+            "Latency/Jitter",
+            "Circuit Down",
+            "Slow Speeds",
+            "Can't Connect",
+            "Webpage Will Not Load",
+            "No Light On Modem",
+            "E-Mail Trouble",
+            "Missing Channels",
+            "STB Trouble",
+            "All Services Out",
+            "Remote Control Trouble",
+            "Non-Pay/Perm Disc",
+            "Locate",
+            "Plume - Slow/Intermittent",
+            "All Plume Related Sub Reports",
+            "WiFi - Modem",
+            "Analog Channels Out of Service",
+            "WiFi - Rukus",
+            "Channel Buffering",
+            "WiFi - Ubiquiti",
+            "Channel Buffering - GPC iTV",
+            "Jack/Ext Issues",
+            "Channels Out",
+            "Camera Trouble",
+            "Communication Trouble",
+            "Failed To Test",
+            "Keypad Problem",
+            "Channels Out - GPC iTV",
+            "Fixed Wireless Trbl",
+            "GPC Declared Outage",
+            "GPC iTV Declared Outage",
+            "LSS Trouble",
+            "GPC iTV Username/Password",
+            "NBR Trouble",
+            "Hosted-Features",
+            "Sensor Problem",
+            "Network Connection - GPC iTV",
+            "Total Connect",
+            "Not Connecting To ITV - GPC iTV",
+            "Cross Talk",
+            "Other & Misc - Int",
+            "Cut Cable Or Drop",
+            "Other & Misc - TV",
+            "Migration",
+            "No Dial Tone",
+            "Noisy Phone",
+            "Trouble Receiving Calls",
+            "Other & Misc - Voice",
+            "Referred to NOC/UC",
+            "Trouble Making Calls",
+            "Features Not Working",
+            "PRI",
+            "Unified"
+          ],
+          "value": "Customer Canceled Ticket"
+        },
+        {
+          "controlling_values": [
+            "Kandy App Update",
+            "Damage Claim",
+            "Outage",
+            "Cut Cable",
+            "Poor Picture Quality",
+            "Audio Problems",
+            "Equipment Failure",
+            "Drop Or Wiring",
+            "All Pods Not Connecting",
+            "Plume - One Pod Not Connecting",
+            "Plume Device Not Connecting",
+            "Referred To Billing",
+            "Password Reset",
+            "Email Settings Or Set Up",
+            "Elite WiFi Trbl",
+            "Gigacenter - Not Working",
+            "Gigacenter - Slow Speeds",
+            "Circuit Running Errors",
+            "Can't Loop NIU",
+            "Latency/Jitter",
+            "Circuit Down",
+            "Slow Speeds",
+            "Can't Connect",
+            "Webpage Will Not Load",
+            "No Light On Modem",
+            "E-Mail Trouble",
+            "Missing Channels",
+            "STB Trouble",
+            "All Services Out",
+            "Remote Control Trouble",
+            "Non-Pay/Perm Disc",
+            "Locate",
+            "Plume - Slow/Intermittent",
+            "All Plume Related Sub Reports",
+            "WiFi - Modem",
+            "Analog Channels Out of Service",
+            "WiFi - Rukus",
+            "Channel Buffering",
+            "WiFi - Ubiquiti",
+            "Channel Buffering - GPC iTV",
+            "Jack/Ext Issues",
+            "Channels Out",
+            "Camera Trouble",
+            "Communication Trouble",
+            "Failed To Test",
+            "Keypad Problem",
+            "Channels Out - GPC iTV",
+            "Fixed Wireless Trbl",
+            "GPC Declared Outage",
+            "GPC iTV Declared Outage",
+            "LSS Trouble",
+            "GPC iTV Username/Password",
+            "NBR Trouble",
+            "Hosted-Features",
+            "Sensor Problem",
+            "Network Connection - GPC iTV",
+            "Total Connect",
+            "Not Connecting To ITV - GPC iTV",
+            "Cross Talk",
+            "Other & Misc - Int",
+            "Cut Cable Or Drop",
+            "Other & Misc - TV",
+            "Migration",
+            "No Dial Tone",
+            "Noisy Phone",
+            "Trouble Receiving Calls",
+            "Other & Misc - Voice",
+            "Referred to NOC/UC",
+            "Trouble Making Calls",
+            "Features Not Working",
+            "PRI",
+            "Unified"
+          ],
+          "value": "Customer Education"
+        },
+        {
+          "controlling_values": [
+            "Kandy App Update",
+            "Damage Claim",
+            "Outage",
+            "Cut Cable",
+            "Poor Picture Quality",
+            "Audio Problems",
+            "Equipment Failure",
+            "Drop Or Wiring",
+            "All Pods Not Connecting",
+            "Plume - One Pod Not Connecting",
+            "Plume Device Not Connecting",
+            "Referred To Billing",
+            "Password Reset",
+            "Email Settings Or Set Up",
+            "Elite WiFi Trbl",
+            "Gigacenter - Not Working",
+            "Gigacenter - Slow Speeds",
+            "Circuit Running Errors",
+            "Can't Loop NIU",
+            "Latency/Jitter",
+            "Circuit Down",
+            "Slow Speeds",
+            "Can't Connect",
+            "Webpage Will Not Load",
+            "No Light On Modem",
+            "E-Mail Trouble",
+            "Missing Channels",
+            "STB Trouble",
+            "All Services Out",
+            "Remote Control Trouble",
+            "Non-Pay/Perm Disc",
+            "Locate",
+            "Plume - Slow/Intermittent",
+            "All Plume Related Sub Reports",
+            "WiFi - Modem",
+            "Analog Channels Out of Service",
+            "WiFi - Rukus",
+            "Channel Buffering",
+            "WiFi - Ubiquiti",
+            "Channel Buffering - GPC iTV",
+            "Jack/Ext Issues",
+            "Channels Out",
+            "Camera Trouble",
+            "Communication Trouble",
+            "Failed To Test",
+            "Keypad Problem",
+            "Channels Out - GPC iTV",
+            "Fixed Wireless Trbl",
+            "GPC Declared Outage",
+            "GPC iTV Declared Outage",
+            "LSS Trouble",
+            "GPC iTV Username/Password",
+            "NBR Trouble",
+            "Hosted-Features",
+            "Sensor Problem",
+            "Network Connection - GPC iTV",
+            "Total Connect",
+            "Not Connecting To ITV - GPC iTV",
+            "Cross Talk",
+            "Other & Misc - Int",
+            "Cut Cable Or Drop",
+            "Other & Misc - TV",
+            "Migration",
+            "No Dial Tone",
+            "Noisy Phone",
+            "Trouble Receiving Calls",
+            "Other & Misc - Voice",
+            "Referred to NOC/UC",
+            "Trouble Making Calls",
+            "Features Not Working",
+            "PRI",
+            "Unified"
+          ],
+          "value": "Duplicate Ticket"
+        },
+        {
+          "controlling_values": [
+            "Kandy App Update",
+            "Damage Claim",
+            "Outage",
+            "Cut Cable",
+            "Poor Picture Quality",
+            "Audio Problems",
+            "Equipment Failure",
+            "Drop Or Wiring",
+            "All Pods Not Connecting",
+            "Plume - One Pod Not Connecting",
+            "Plume Device Not Connecting",
+            "Referred To Billing",
+            "Password Reset",
+            "Email Settings Or Set Up",
+            "Elite WiFi Trbl",
+            "Gigacenter - Not Working",
+            "Gigacenter - Slow Speeds",
+            "Circuit Running Errors",
+            "Can't Loop NIU",
+            "Latency/Jitter",
+            "Circuit Down",
+            "Slow Speeds",
+            "Can't Connect",
+            "Webpage Will Not Load",
+            "No Light On Modem",
+            "E-Mail Trouble",
+            "Missing Channels",
+            "STB Trouble",
+            "All Services Out",
+            "Remote Control Trouble",
+            "Non-Pay/Perm Disc",
+            "Locate",
+            "Plume - Slow/Intermittent",
+            "All Plume Related Sub Reports",
+            "WiFi - Modem",
+            "Analog Channels Out of Service",
+            "WiFi - Rukus",
+            "Channel Buffering",
+            "WiFi - Ubiquiti",
+            "Channel Buffering - GPC iTV",
+            "Jack/Ext Issues",
+            "Channels Out",
+            "Camera Trouble",
+            "Communication Trouble",
+            "Failed To Test",
+            "Keypad Problem",
+            "Channels Out - GPC iTV",
+            "Fixed Wireless Trbl",
+            "GPC Declared Outage",
+            "GPC iTV Declared Outage",
+            "LSS Trouble",
+            "GPC iTV Username/Password",
+            "NBR Trouble",
+            "Hosted-Features",
+            "Sensor Problem",
+            "Network Connection - GPC iTV",
+            "Total Connect",
+            "Not Connecting To ITV - GPC iTV",
+            "Cross Talk",
+            "Other & Misc - Int",
+            "Cut Cable Or Drop",
+            "Other & Misc - TV",
+            "Migration",
+            "No Dial Tone",
+            "Noisy Phone",
+            "Trouble Receiving Calls",
+            "Other & Misc - Voice",
+            "Referred to NOC/UC",
+            "Trouble Making Calls",
+            "Features Not Working",
+            "PRI",
+            "Unified"
+          ],
+          "value": "Hardware Reset"
+        },
+        {
+          "controlling_values": [
+            "Kandy App Update",
+            "Damage Claim",
+            "Outage",
+            "Cut Cable",
+            "Poor Picture Quality",
+            "Audio Problems",
+            "Equipment Failure",
+            "Drop Or Wiring",
+            "All Pods Not Connecting",
+            "Plume - One Pod Not Connecting",
+            "Plume Device Not Connecting",
+            "Referred To Billing",
+            "Password Reset",
+            "Email Settings Or Set Up",
+            "Elite WiFi Trbl",
+            "Gigacenter - Not Working",
+            "Gigacenter - Slow Speeds",
+            "Circuit Running Errors",
+            "Can't Loop NIU",
+            "Latency/Jitter",
+            "Circuit Down",
+            "Slow Speeds",
+            "Can't Connect",
+            "Webpage Will Not Load",
+            "No Light On Modem",
+            "E-Mail Trouble",
+            "Missing Channels",
+            "STB Trouble",
+            "All Services Out",
+            "Remote Control Trouble",
+            "Non-Pay/Perm Disc",
+            "Locate",
+            "Plume - Slow/Intermittent",
+            "All Plume Related Sub Reports",
+            "WiFi - Modem",
+            "Analog Channels Out of Service",
+            "WiFi - Rukus",
+            "Channel Buffering",
+            "WiFi - Ubiquiti",
+            "Channel Buffering - GPC iTV",
+            "Jack/Ext Issues",
+            "Channels Out",
+            "Camera Trouble",
+            "Communication Trouble",
+            "Failed To Test",
+            "Keypad Problem",
+            "Channels Out - GPC iTV",
+            "Fixed Wireless Trbl",
+            "GPC Declared Outage",
+            "GPC iTV Declared Outage",
+            "LSS Trouble",
+            "GPC iTV Username/Password",
+            "NBR Trouble",
+            "Hosted-Features",
+            "Sensor Problem",
+            "Network Connection - GPC iTV",
+            "Total Connect",
+            "Not Connecting To ITV - GPC iTV",
+            "Cross Talk",
+            "Other & Misc - Int",
+            "Cut Cable Or Drop",
+            "Other & Misc - TV",
+            "Migration",
+            "No Dial Tone",
+            "Noisy Phone",
+            "Trouble Receiving Calls",
+            "Other & Misc - Voice",
+            "Referred to NOC/UC",
+            "Trouble Making Calls",
+            "Features Not Working",
+            "PRI",
+            "Unified"
+          ],
+          "value": "No Trouble Found"
+        },
+        {
+          "controlling_values": [
+            "Kandy App Update",
+            "Damage Claim",
+            "Outage",
+            "Cut Cable",
+            "Poor Picture Quality",
+            "Audio Problems",
+            "Equipment Failure",
+            "Drop Or Wiring",
+            "All Pods Not Connecting",
+            "Plume - One Pod Not Connecting",
+            "Plume Device Not Connecting",
+            "Referred To Billing",
+            "Password Reset",
+            "Email Settings Or Set Up",
+            "Elite WiFi Trbl",
+            "Gigacenter - Not Working",
+            "Gigacenter - Slow Speeds",
+            "Circuit Running Errors",
+            "Can't Loop NIU",
+            "Latency/Jitter",
+            "Circuit Down",
+            "Slow Speeds",
+            "Can't Connect",
+            "Webpage Will Not Load",
+            "No Light On Modem",
+            "E-Mail Trouble",
+            "Missing Channels",
+            "STB Trouble",
+            "All Services Out",
+            "Remote Control Trouble",
+            "Non-Pay/Perm Disc",
+            "Locate",
+            "Plume - Slow/Intermittent",
+            "All Plume Related Sub Reports",
+            "WiFi - Modem",
+            "Analog Channels Out of Service",
+            "WiFi - Rukus",
+            "Channel Buffering",
+            "WiFi - Ubiquiti",
+            "Channel Buffering - GPC iTV",
+            "Jack/Ext Issues",
+            "Channels Out",
+            "Camera Trouble",
+            "Communication Trouble",
+            "Failed To Test",
+            "Keypad Problem",
+            "Channels Out - GPC iTV",
+            "Fixed Wireless Trbl",
+            "GPC Declared Outage",
+            "GPC iTV Declared Outage",
+            "LSS Trouble",
+            "GPC iTV Username/Password",
+            "NBR Trouble",
+            "Hosted-Features",
+            "Sensor Problem",
+            "Network Connection - GPC iTV",
+            "Total Connect",
+            "Not Connecting To ITV - GPC iTV",
+            "Cross Talk",
+            "Other & Misc - Int",
+            "Cut Cable Or Drop",
+            "Other & Misc - TV",
+            "Migration",
+            "No Dial Tone",
+            "Noisy Phone",
+            "Trouble Receiving Calls",
+            "Other & Misc - Voice",
+            "Referred to NOC/UC",
+            "Trouble Making Calls",
+            "Features Not Working",
+            "PRI",
+            "Unified"
+          ],
+          "value": "Referred To Billing/CRC"
+        },
+        {
+          "controlling_values": [
+            "Kandy App Update",
+            "Damage Claim",
+            "Outage",
+            "Cut Cable",
+            "Poor Picture Quality",
+            "Audio Problems",
+            "Equipment Failure",
+            "Drop Or Wiring",
+            "All Pods Not Connecting",
+            "Plume - One Pod Not Connecting",
+            "Plume Device Not Connecting",
+            "Referred To Billing",
+            "Password Reset",
+            "Email Settings Or Set Up",
+            "Elite WiFi Trbl",
+            "Gigacenter - Not Working",
+            "Gigacenter - Slow Speeds",
+            "Circuit Running Errors",
+            "Can't Loop NIU",
+            "Latency/Jitter",
+            "Circuit Down",
+            "Slow Speeds",
+            "Can't Connect",
+            "Webpage Will Not Load",
+            "No Light On Modem",
+            "E-Mail Trouble",
+            "Missing Channels",
+            "STB Trouble",
+            "All Services Out",
+            "Remote Control Trouble",
+            "Non-Pay/Perm Disc",
+            "Locate",
+            "Plume - Slow/Intermittent",
+            "All Plume Related Sub Reports",
+            "WiFi - Modem",
+            "Analog Channels Out of Service",
+            "WiFi - Rukus",
+            "Channel Buffering",
+            "WiFi - Ubiquiti",
+            "Channel Buffering - GPC iTV",
+            "Jack/Ext Issues",
+            "Channels Out",
+            "Camera Trouble",
+            "Communication Trouble",
+            "Failed To Test",
+            "Keypad Problem",
+            "Channels Out - GPC iTV",
+            "Fixed Wireless Trbl",
+            "GPC Declared Outage",
+            "GPC iTV Declared Outage",
+            "LSS Trouble",
+            "GPC iTV Username/Password",
+            "NBR Trouble",
+            "Hosted-Features",
+            "Sensor Problem",
+            "Network Connection - GPC iTV",
+            "Total Connect",
+            "Not Connecting To ITV - GPC iTV",
+            "Cross Talk",
+            "Other & Misc - Int",
+            "Cut Cable Or Drop",
+            "Other & Misc - TV",
+            "Migration",
+            "No Dial Tone",
+            "Noisy Phone",
+            "Trouble Receiving Calls",
+            "Other & Misc - Voice",
+            "Referred to NOC/UC",
+            "Trouble Making Calls",
+            "Features Not Working",
+            "PRI",
+            "Unified"
+          ],
+          "value": "Unable To Reach Customer"
+        },
+        {
+          "controlling_values": [
+            "Kandy App Update",
+            "Damage Claim",
+            "Outage",
+            "Cut Cable",
+            "Poor Picture Quality",
+            "Audio Problems",
+            "Equipment Failure",
+            "Drop Or Wiring",
+            "All Pods Not Connecting",
+            "Plume - One Pod Not Connecting",
+            "Plume Device Not Connecting",
+            "Referred To Billing",
+            "Password Reset",
+            "Email Settings Or Set Up",
+            "Elite WiFi Trbl",
+            "Gigacenter - Not Working",
+            "Gigacenter - Slow Speeds",
+            "Circuit Running Errors",
+            "Can't Loop NIU",
+            "Latency/Jitter",
+            "Circuit Down",
+            "Slow Speeds",
+            "Can't Connect",
+            "Webpage Will Not Load",
+            "No Light On Modem",
+            "E-Mail Trouble",
+            "Missing Channels",
+            "STB Trouble",
+            "All Services Out",
+            "Remote Control Trouble",
+            "Non-Pay/Perm Disc",
+            "Locate",
+            "Plume - Slow/Intermittent",
+            "All Plume Related Sub Reports",
+            "WiFi - Modem",
+            "Analog Channels Out of Service",
+            "WiFi - Rukus",
+            "Channel Buffering",
+            "WiFi - Ubiquiti",
+            "Channel Buffering - GPC iTV",
+            "Jack/Ext Issues",
+            "Channels Out",
+            "Camera Trouble",
+            "Communication Trouble",
+            "Failed To Test",
+            "Keypad Problem",
+            "Channels Out - GPC iTV",
+            "Fixed Wireless Trbl",
+            "GPC Declared Outage",
+            "GPC iTV Declared Outage",
+            "LSS Trouble",
+            "GPC iTV Username/Password",
+            "NBR Trouble",
+            "Hosted-Features",
+            "Sensor Problem",
+            "Network Connection - GPC iTV",
+            "Total Connect",
+            "Not Connecting To ITV - GPC iTV",
+            "Cross Talk",
+            "Other & Misc - Int",
+            "Cut Cable Or Drop",
+            "Other & Misc - TV",
+            "Migration",
+            "No Dial Tone",
+            "Noisy Phone",
+            "Trouble Receiving Calls",
+            "Other & Misc - Voice",
+            "Referred to NOC/UC",
+            "Trouble Making Calls",
+            "Features Not Working",
+            "PRI",
+            "Unified"
+          ],
+          "value": "Username/Password Reset"
+        },
+        {
+          "controlling_values": [
+            "Damage Claim"
+          ],
+          "value": "Clear - No Trip"
+        },
+        {
+          "controlling_values": [
+            "Damage Claim",
+            "Slow Speeds",
+            "Can't Connect",
+            "No Light On Modem",
+            "All Services Out",
+            "Fixed Wireless Trbl"
+          ],
+          "value": "Equipment Outage Repaired"
+        },
+        {
+          "controlling_values": [
+            "Damage Claim",
+            "Cut Cable",
+            "Cut Cable Or Drop"
+          ],
+          "value": "Line Is Other Carriers"
+        },
+        {
+          "controlling_values": [
+            "Damage Claim",
+            "Outage",
+            "Elite WiFi Trbl",
+            "Slow Speeds",
+            "Can't Connect",
+            "No Light On Modem",
+            "E-Mail Trouble",
+            "All Services Out",
+            "Channel Buffering",
+            "Not Connecting To ITV - GPC iTV",
+            "Other & Misc - Int",
+            "Other & Misc - Voice"
+          ],
+          "value": "Maintenance Completed"
+        },
+        {
+          "controlling_values": [
+            "Damage Claim",
+            "Outage",
+            "Equipment Failure",
+            "Elite WiFi Trbl",
+            "Circuit Down",
+            "Slow Speeds",
+            "Can't Connect",
+            "No Light On Modem",
+            "All Services Out",
+            "Camera Trouble",
+            "Communication Trouble",
+            "Sensor Problem",
+            "Other & Misc - Int",
+            "Cut Cable Or Drop",
+            "Other & Misc - TV",
+            "No Dial Tone",
+            "Noisy Phone",
+            "Features Not Working"
+          ],
+          "value": "Ped Replaced/Repaired"
+        },
+        {
+          "controlling_values": [
+            "Damage Claim"
+          ],
+          "value": "Reimbursed Customer"
+        },
+        {
+          "controlling_values": [
+            "Damage Claim"
+          ],
+          "value": "Repaired Yard/Landscaping"
+        },
+        {
+          "controlling_values": [
+            "Outage",
+            "Cut Cable",
+            "Equipment Failure",
+            "Elite WiFi Trbl",
+            "Circuit Down",
+            "Slow Speeds",
+            "Can't Connect",
+            "No Light On Modem",
+            "E-Mail Trouble",
+            "All Services Out",
+            "Channels Out",
+            "Fixed Wireless Trbl",
+            "GPC Declared Outage",
+            "No Dial Tone",
+            "Trouble Receiving Calls",
+            "Other & Misc - Voice",
+            "Trouble Making Calls"
+          ],
+          "value": "Outage Resolved"
+        },
+        {
+          "controlling_values": [
+            "Outage",
+            "Cut Cable",
+            "Equipment Failure",
+            "Drop Or Wiring",
+            "Elite WiFi Trbl",
+            "Slow Speeds",
+            "Can't Connect",
+            "No Light On Modem",
+            "All Services Out",
+            "Communication Trouble",
+            "Network Connection - GPC iTV",
+            "Cross Talk",
+            "Other & Misc - Int",
+            "Cut Cable Or Drop",
+            "No Dial Tone",
+            "Noisy Phone",
+            "Trouble Receiving Calls",
+            "Trouble Making Calls",
+            "Features Not Working"
+          ],
+          "value": "Repaired Open/Ground/Short"
+        },
+        {
+          "controlling_values": [
+            "Outage",
+            "Equipment Failure",
+            "Elite WiFi Trbl",
+            "Can't Connect",
+            "No Light On Modem",
+            "All Services Out",
+            "Communication Trouble",
+            "Network Connection - GPC iTV",
+            "Other & Misc - Int",
+            "No Dial Tone",
+            "Features Not Working"
+          ],
+          "value": "Replaced ONT"
+        },
+        {
+          "controlling_values": [
+            "Outage",
+            "Equipment Failure",
+            "Elite WiFi Trbl",
+            "Circuit Down",
+            "Slow Speeds",
+            "Can't Connect",
+            "No Light On Modem",
+            "All Services Out",
+            "Camera Trouble",
+            "Communication Trouble",
+            "Sensor Problem",
+            "Other & Misc - Int",
+            "Other & Misc - TV",
+            "Features Not Working"
+          ],
+          "value": "Replaced Power Supply"
+        },
+        {
+          "controlling_values": [
+            "Cut Cable",
+            "Equipment Failure",
+            "Elite WiFi Trbl",
+            "Circuit Down",
+            "Slow Speeds",
+            "Can't Connect",
+            "No Light On Modem",
+            "E-Mail Trouble",
+            "All Services Out",
+            "Channels Out",
+            "Fixed Wireless Trbl",
+            "GPC Declared Outage",
+            "No Dial Tone",
+            "Trouble Receiving Calls",
+            "Trouble Making Calls"
+          ],
+          "value": "Cust Owned Equipment"
+        },
+        {
+          "controlling_values": [
+            "Cut Cable",
+            "Poor Picture Quality",
+            "Audio Problems",
+            "Equipment Failure",
+            "Drop Or Wiring",
+            "Missing Channels",
+            "STB Trouble",
+            "All Services Out",
+            "Remote Control Trouble",
+            "Channel Buffering",
+            "Channels Out",
+            "GPC iTV Declared Outage",
+            "GPC iTV Username/Password",
+            "Network Connection - GPC iTV",
+            "Not Connecting To ITV - GPC iTV",
+            "Other & Misc - TV"
+          ],
+          "value": "Mobi Outage"
+        },
+        {
+          "controlling_values": [
+            "Audio Problems",
+            "Equipment Failure",
+            "Elite WiFi Trbl",
+            "Circuit Down",
+            "Can't Connect",
+            "No Light On Modem",
+            "All Services Out",
+            "WiFi - Modem",
+            "Jack/Ext Issues",
+            "Camera Trouble",
+            "Communication Trouble",
+            "Keypad Problem",
+            "Fixed Wireless Trbl",
+            "Sensor Problem",
+            "Cross Talk",
+            "Other & Misc - Int",
+            "Other & Misc - TV",
+            "No Dial Tone",
+            "Trouble Receiving Calls",
+            "Trouble Making Calls",
+            "Features Not Working"
+          ],
+          "value": "Inside Wiring Repaired"
+        },
+        {
+          "controlling_values": [
+            "Audio Problems",
+            "Equipment Failure",
+            "STB Trouble",
+            "All Services Out",
+            "Remote Control Trouble",
+            "Channels Out"
+          ],
+          "value": "Replaced/Repaired STB"
+        },
+        {
+          "controlling_values": [
+            "Audio Problems",
+            "Equipment Failure",
+            "Circuit Running Errors",
+            "Can't Loop NIU",
+            "Latency/Jitter",
+            "Circuit Down",
+            "Can't Connect",
+            "Analog Channels Out of Service",
+            "Channel Buffering",
+            "Channels Out"
+          ],
+          "value": "TAP (Trouble Analysis Proced)"
+        },
+        {
+          "controlling_values": [
+            "Audio Problems",
+            "Communication Trouble",
+            "Hosted-Features",
+            "No Dial Tone",
+            "Other & Misc - Voice",
+            "Features Not Working",
+            "Unified"
+          ],
+          "value": "User Info Modified"
+        },
+        {
+          "controlling_values": [
+            "Equipment Failure",
+            "Communication Trouble",
+            "Hosted-Features",
+            "No Dial Tone",
+            "Trouble Receiving Calls",
+            "Trouble Making Calls",
+            "Features Not Working",
+            "Unified"
+          ],
+          "value": "Call Routing Change"
+        },
+        {
+          "controlling_values": [
+            "Equipment Failure",
+            "Slow Speeds",
+            "Can't Connect",
+            "No Light On Modem",
+            "All Services Out",
+            "All Plume Related Sub Reports",
+            "Other & Misc - Int"
+          ],
+          "value": "CGNAT Conv Issue Resolved"
+        },
+        {
+          "controlling_values": [
+            "Equipment Failure",
+            "All Pods Not Connecting",
+            "Elite WiFi Trbl",
+            "Slow Speeds",
+            "Can't Connect",
+            "All Services Out",
+            "Plume - Slow/Intermittent",
+            "WiFi - Modem",
+            "Channel Buffering",
+            "Channels Out",
+            "Other & Misc - Int"
+          ],
+          "value": "Device Reset/Firmware"
+        },
+        {
+          "controlling_values": [
+            "Equipment Failure",
+            "Drop Or Wiring",
+            "Slow Speeds",
+            "Can't Connect",
+            "No Light On Modem",
+            "All Services Out",
+            "Cross Talk",
+            "Other & Misc - Int",
+            "Cut Cable Or Drop",
+            "No Dial Tone",
+            "Noisy Phone",
+            "Trouble Receiving Calls",
+            "Trouble Making Calls"
+          ],
+          "value": "Repaired/Repalced Drop"
+        },
+        {
+          "controlling_values": [
+            "Equipment Failure",
+            "Remote Control Trouble",
+            "Camera Trouble",
+            "Communication Trouble",
+            "Keypad Problem",
+            "Sensor Problem"
+          ],
+          "value": "Replaced Batteries"
+        },
+        {
+          "controlling_values": [
+            "Equipment Failure",
+            "Missing Channels",
+            "STB Trouble",
+            "Remote Control Trouble",
+            "Other & Misc - TV"
+          ],
+          "value": "Replaced Remote"
+        },
+        {
+          "controlling_values": [
+            "Equipment Failure",
+            "Camera Trouble",
+            "Communication Trouble",
+            "Keypad Problem",
+            "Sensor Problem"
+          ],
+          "value": "Replaced/Repaired Sensor"
+        },
+        {
+          "controlling_values": [
+            "All Pods Not Connecting",
+            "Plume - One Pod Not Connecting",
+            "Plume Device Not Connecting",
+            "Referred To Billing",
+            "Password Reset",
+            "Email Settings Or Set Up",
+            "Elite WiFi Trbl",
+            "Gigacenter - Not Working",
+            "Gigacenter - Slow Speeds",
+            "Slow Speeds",
+            "Can't Connect",
+            "Webpage Will Not Load",
+            "E-Mail Trouble",
+            "All Services Out",
+            "Non-Pay/Perm Disc",
+            "Plume - Slow/Intermittent",
+            "WiFi - Modem",
+            "WiFi - Rukus",
+            "WiFi - Ubiquiti",
+            "Other & Misc - Int"
+          ],
+          "value": "Cable Rehab Completed"
+        },
+        {
+          "controlling_values": [
+            "All Pods Not Connecting",
+            "Plume - One Pod Not Connecting",
+            "Plume Device Not Connecting",
+            "Referred To Billing",
+            "Elite WiFi Trbl",
+            "Can't Connect",
+            "Missing Channels",
+            "All Services Out",
+            "Plume - Slow/Intermittent",
+            "WiFi - Modem",
+            "Fixed Wireless Trbl",
+            "Other & Misc - Int",
+            "No Dial Tone",
+            "Features Not Working",
+            "Unified"
+          ],
+          "value": "Configuration Error"
+        },
+        {
+          "controlling_values": [
+            "All Pods Not Connecting",
+            "Plume - One Pod Not Connecting",
+            "Plume Device Not Connecting",
+            "Referred To Billing",
+            "Plume - Slow/Intermittent",
+            "WiFi - Modem"
+          ],
+          "value": "Additional/New Pod Needed"
+        },
+        {
+          "controlling_values": [
+            "All Pods Not Connecting",
+            "Can't Connect",
+            "All Services Out",
+            "WiFi - Modem"
+          ],
+          "value": "Assigned Static IP/CGNAT"
+        },
+        {
+          "controlling_values": [
+            "Plume - One Pod Not Connecting",
+            "Plume Device Not Connecting",
+            "Elite WiFi Trbl",
+            "Circuit Down",
+            "Can't Connect",
+            "Plume - Slow/Intermittent"
+          ],
+          "value": "Hardware Replacement"
+        },
+        {
+          "controlling_values": [
+            "Email Settings Or Set Up",
+            "E-Mail Trouble"
+          ],
+          "value": "Email Retirement"
+        },
+        {
+          "controlling_values": [
+            "Email Settings Or Set Up",
+            "E-Mail Trouble"
+          ],
+          "value": "Email Settings"
+        },
+        {
+          "controlling_values": [
+            "Elite WiFi Trbl",
+            "Slow Speeds",
+            "Can't Connect",
+            "No Light On Modem",
+            "All Services Out",
+            "Channel Buffering",
+            "Other & Misc - Int",
+            "Other & Misc - TV"
+          ],
+          "value": "Rogue ONT"
+        },
+        {
+          "controlling_values": [
+            "Circuit Running Errors",
+            "Can't Loop NIU",
+            "Latency/Jitter",
+            "Circuit Down",
+            "Trouble Receiving Calls",
+            "Other & Misc - Voice",
+            "Trouble Making Calls"
+          ],
+          "value": "Other Carrier Resolution"
+        },
+        {
+          "controlling_values": [
+            "Slow Speeds",
+            "Can't Connect",
+            "All Services Out",
+            "Other & Misc - Int"
+          ],
+          "value": "Re Provisioned For Correct Speed"
+        },
+        {
+          "controlling_values": [
+            "Can't Connect",
+            "All Services Out"
+          ],
+          "value": "Rebuilt ONT"
+        },
+        {
+          "controlling_values": [
+            "STB Trouble",
+            "Channel Buffering",
+            "Channels Out"
+          ],
+          "value": "Network Outage"
+        },
+        {
+          "controlling_values": [
+            "All Services Out",
+            "Non-Pay/Perm Disc"
+          ],
+          "value": "Reconnected/Provisioned"
+        },
+        {
+          "controlling_values": [
+            "Locate"
+          ],
+          "value": "Clear - Trip"
+        },
+        {
+          "controlling_values": [
+            "Locate"
+          ],
+          "value": "Locate Complete"
+        },
+        {
+          "controlling_values": [
+            "Channel Buffering",
+            "Channels Out",
+            "Network Connection - GPC iTV",
+            "Not Connecting To ITV - GPC iTV"
+          ],
+          "value": "Mobi Programming"
+        },
+        {
+          "controlling_values": [
+            "Channel Buffering",
+            "Channels Out",
+            "Network Connection - GPC iTV",
+            "Not Connecting To ITV - GPC iTV"
+          ],
+          "value": "Replaced Firestick"
+        },
+        {
+          "controlling_values": [
+            "Communication Trouble",
+            "Hosted-Features",
+            "Features Not Working",
+            "Unified"
+          ],
+          "value": "Greeting Recording Chg/Modif"
+        },
+        {
+          "controlling_values": [
+            "Communication Trouble",
+            "Unified"
+          ],
+          "value": "UC Corrected Provisioning"
+        },
+        {
+          "controlling_values": [
+            "Trouble Receiving Calls",
+            "Other & Misc - Voice",
+            "Referred to NOC/UC",
+            "Trouble Making Calls",
+            "Features Not Working"
+          ],
+          "value": "Term Toll / LCR"
+        }
+      ]
+    },
+    "Secondary_Resolution__c": {
+      "api_name": "Secondary_Resolution__c",
+      "label": "Secondary Resolution",
+      "type": "MultiselectPicklist",
+      "required": "false",
+      "length": null,
+      "visible_lines": "4",
+      "restricted": "true",
+      "controlling_field": null,
+      "value_count": 0,
+      "values": [],
+      "dependency_count": 0,
+      "dependencies": []
+    },
+    "Resolution_Detail__c": {
+      "api_name": "Resolution_Detail__c",
+      "label": "Resolution Detail",
+      "type": "LongTextArea",
+      "required": null,
+      "length": "32768",
+      "visible_lines": "3",
+      "restricted": null,
+      "controlling_field": null,
+      "value_count": 0,
+      "values": [],
+      "dependency_count": 0,
+      "dependencies": []
+    },
+    "Problem_Occurred_Date__c": {
+      "api_name": "Problem_Occurred_Date__c",
+      "label": "Problem Occurred Date",
+      "type": "Date",
+      "required": "false",
+      "length": null,
+      "visible_lines": null,
+      "restricted": null,
+      "controlling_field": null,
+      "value_count": 0,
+      "values": [],
+      "dependency_count": 0,
+      "dependencies": []
+    },
+    "Problem_Reported_Date__c": {
+      "api_name": "Problem_Reported_Date__c",
+      "label": "Problem Reported Date",
+      "type": "Date",
+      "required": "false",
+      "length": null,
+      "visible_lines": null,
+      "restricted": null,
+      "controlling_field": null,
+      "value_count": 0,
+      "values": [],
+      "dependency_count": 0,
+      "dependencies": []
+    },
+    "Repair_Date__c": {
+      "api_name": "Repair_Date__c",
+      "label": "Repair Date",
+      "type": "Date",
+      "required": "false",
+      "length": null,
+      "visible_lines": null,
+      "restricted": null,
+      "controlling_field": null,
+      "value_count": 0,
+      "values": [],
+      "dependency_count": 0,
+      "dependencies": []
+    },
+    "Pending_Customer_Start__c": {
+      "api_name": "Pending_Customer_Start__c",
+      "label": "Pending Customer Start",
+      "type": "DateTime",
+      "required": "false",
+      "length": null,
+      "visible_lines": null,
+      "restricted": null,
+      "controlling_field": null,
+      "value_count": 0,
+      "values": [],
+      "dependency_count": 0,
+      "dependencies": []
+    },
+    "Pending_Customer_End__c": {
+      "api_name": "Pending_Customer_End__c",
+      "label": "Pending Customer End",
+      "type": "DateTime",
+      "required": "false",
+      "length": null,
+      "visible_lines": null,
+      "restricted": null,
+      "controlling_field": null,
+      "value_count": 0,
+      "values": [],
+      "dependency_count": 0,
+      "dependencies": []
+    },
+    "In_Progress_Date__c": {
+      "api_name": "In_Progress_Date__c",
+      "label": "In-Progress Date",
+      "type": "Date",
+      "required": "false",
+      "length": null,
+      "visible_lines": null,
+      "restricted": null,
+      "controlling_field": null,
+      "value_count": 0,
+      "values": [],
+      "dependency_count": 0,
+      "dependencies": []
+    },
+    "Completed_Date__c": {
+      "api_name": "Completed_Date__c",
+      "label": "Completed Date",
+      "type": "Date",
+      "required": "false",
+      "length": null,
+      "visible_lines": null,
+      "restricted": null,
+      "controlling_field": null,
+      "value_count": 0,
+      "values": [],
+      "dependency_count": 0,
+      "dependencies": []
+    }
+  },
+  "record_type": {
+    "active": "true",
+    "label": "Trouble Ticket",
+    "business_process": "vlocity_cmt__Billing",
+    "picklists": {
+      "Contact_Preference__c": [
+        {
+          "name": "Call Before Arrival",
+          "default": "false"
+        },
+        {
+          "name": "Email",
+          "default": "false"
+        },
+        {
+          "name": "Home Phone",
+          "default": "false"
+        },
+        {
+          "name": "Mobile Phone",
+          "default": "false"
+        },
+        {
+          "name": "No Contact - Proceed to Site",
+          "default": "false"
+        },
+        {
+          "name": "Text Before Arrival",
+          "default": "false"
+        },
+        {
+          "name": "Text Message",
+          "default": "false"
+        },
+        {
+          "name": "Work Phone",
+          "default": "false"
+        }
+      ],
+      "Customer_Comment_Notification_Channel__c": [
+        {
+          "name": "Email",
+          "default": "false"
+        },
+        {
+          "name": "Email %28Text Preference Fallback%29",
+          "default": "false"
+        },
+        {
+          "name": "Not Sent - Email Opt Out",
+          "default": "false"
+        },
+        {
+          "name": "Not Sent - No Contact",
+          "default": "false"
+        },
+        {
+          "name": "Not Sent - No Email Address",
+          "default": "false"
+        }
+      ],
+      "Origin": [
+        {
+          "name": "Email",
+          "default": "false"
+        },
+        {
+          "name": "Phone",
+          "default": "false"
+        },
+        {
+          "name": "Web",
+          "default": "false"
+        }
+      ],
+      "Primary_Resolution__c": [
+        {
+          "name": "Cleared Without Repair",
+          "default": "false"
+        }
+      ],
+      "Priority": [
+        {
+          "name": "High",
+          "default": "false"
+        },
+        {
+          "name": "Low",
+          "default": "false"
+        },
+        {
+          "name": "Medium",
+          "default": "true"
+        }
+      ],
+      "Priority__c": [
+        {
+          "name": "High",
+          "default": "false"
+        },
+        {
+          "name": "Low",
+          "default": "false"
+        },
+        {
+          "name": "Med",
+          "default": "false"
+        }
+      ],
+      "Reason": [
+        {
+          "name": "Complex functionality",
+          "default": "false"
+        },
+        {
+          "name": "Existing problem",
+          "default": "false"
+        },
+        {
+          "name": "Instructions not clear",
+          "default": "false"
+        },
+        {
+          "name": "New problem",
+          "default": "false"
+        },
+        {
+          "name": "User didn%27t attend training",
+          "default": "false"
+        }
+      ],
+      "Secondary_Resolution__c": [
+        {
+          "name": "Cleared Without Repair",
+          "default": "false"
+        }
+      ],
+      "Service_Type__c": [
+        {
+          "name": "Circuit",
+          "default": "false"
+        },
+        {
+          "name": "Internet",
+          "default": "false"
+        },
+        {
+          "name": "Locate",
+          "default": "false"
+        },
+        {
+          "name": "Other",
+          "default": "false"
+        },
+        {
+          "name": "Video",
+          "default": "false"
+        },
+        {
+          "name": "Voice",
+          "default": "false"
+        },
+        {
+          "name": "Wireless",
+          "default": "false"
+        }
+      ],
+      "Subscriber_Report__c": [
+        {
+          "name": "All Plume Related Sub Reports",
+          "default": "false"
+        },
+        {
+          "name": "All Pods Not Connecting",
+          "default": "false"
+        },
+        {
+          "name": "All Services Out",
+          "default": "false"
+        },
+        {
+          "name": "Analog Channels Out of Service",
+          "default": "false"
+        },
+        {
+          "name": "Audio Problems",
+          "default": "false"
+        },
+        {
+          "name": "Camera Trouble",
+          "default": "false"
+        },
+        {
+          "name": "Can%27t Connect",
+          "default": "false"
+        },
+        {
+          "name": "Can%27t Loop NIU",
+          "default": "false"
+        },
+        {
+          "name": "Channel Buffering",
+          "default": "false"
+        },
+        {
+          "name": "Channel Buffering - GPC iTV",
+          "default": "false"
+        },
+        {
+          "name": "Channels Out",
+          "default": "false"
+        },
+        {
+          "name": "Channels Out - GPC iTV",
+          "default": "false"
+        },
+        {
+          "name": "Circuit Down",
+          "default": "false"
+        },
+        {
+          "name": "Circuit Running Errors",
+          "default": "false"
+        },
+        {
+          "name": "Communication Trouble",
+          "default": "false"
+        },
+        {
+          "name": "Cross Talk",
+          "default": "false"
+        },
+        {
+          "name": "Cut Cable",
+          "default": "false"
+        },
+        {
+          "name": "Cut Cable Or Drop",
+          "default": "false"
+        },
+        {
+          "name": "Damage Claim",
+          "default": "false"
+        },
+        {
+          "name": "Drop Or Wiring",
+          "default": "false"
+        },
+        {
+          "name": "E-Mail Trouble",
+          "default": "false"
+        },
+        {
+          "name": "Elite WiFi Trbl",
+          "default": "false"
+        },
+        {
+          "name": "Email Settings Or Set Up",
+          "default": "false"
+        },
+        {
+          "name": "Equipment Failure",
+          "default": "false"
+        },
+        {
+          "name": "Failed To Test",
+          "default": "false"
+        },
+        {
+          "name": "Features Not Working",
+          "default": "false"
+        },
+        {
+          "name": "Fixed Wireless Trbl",
+          "default": "false"
+        },
+        {
+          "name": "GPC Declared Outage",
+          "default": "false"
+        },
+        {
+          "name": "GPC iTV Declared Outage",
+          "default": "false"
+        },
+        {
+          "name": "GPC iTV Username%2FPassword",
+          "default": "false"
+        },
+        {
+          "name": "Gigacenter - Not Working",
+          "default": "false"
+        },
+        {
+          "name": "Gigacenter - Slow Speeds",
+          "default": "false"
+        },
+        {
+          "name": "Hosted-Features",
+          "default": "false"
+        },
+        {
+          "name": "Jack%2FExt Issues",
+          "default": "false"
+        },
+        {
+          "name": "Kandy App Update",
+          "default": "false"
+        },
+        {
+          "name": "Keypad Problem",
+          "default": "false"
+        },
+        {
+          "name": "LSS Trouble",
+          "default": "false"
+        },
+        {
+          "name": "Latency%2FJitter",
+          "default": "false"
+        },
+        {
+          "name": "Locate",
+          "default": "false"
+        },
+        {
+          "name": "Migration",
+          "default": "false"
+        },
+        {
+          "name": "Missing Channels",
+          "default": "false"
+        },
+        {
+          "name": "NBR Trouble",
+          "default": "false"
+        },
+        {
+          "name": "Network Connection - GPC iTV",
+          "default": "false"
+        },
+        {
+          "name": "No Dial Tone",
+          "default": "false"
+        },
+        {
+          "name": "No Light On Modem",
+          "default": "false"
+        },
+        {
+          "name": "Noisy Phone",
+          "default": "false"
+        },
+        {
+          "name": "Non-Pay%2FPerm Disc",
+          "default": "false"
+        },
+        {
+          "name": "Not Connecting To ITV - GPC iTV",
+          "default": "false"
+        },
+        {
+          "name": "Other %26 Misc - Int",
+          "default": "false"
+        },
+        {
+          "name": "Other %26 Misc - TV",
+          "default": "false"
+        },
+        {
+          "name": "Other %26 Misc - Voice",
+          "default": "false"
+        },
+        {
+          "name": "Outage",
+          "default": "false"
+        },
+        {
+          "name": "PRI",
+          "default": "false"
+        },
+        {
+          "name": "Password Reset",
+          "default": "false"
+        },
+        {
+          "name": "Plume - One Pod Not Connecting",
+          "default": "false"
+        },
+        {
+          "name": "Plume - Slow%2FIntermittent",
+          "default": "false"
+        },
+        {
+          "name": "Plume Device Not Connecting",
+          "default": "false"
+        },
+        {
+          "name": "Poor Picture Quality",
+          "default": "false"
+        },
+        {
+          "name": "Referred To Billing",
+          "default": "false"
+        },
+        {
+          "name": "Referred to NOC%2FUC",
+          "default": "false"
+        },
+        {
+          "name": "Remote Control Trouble",
+          "default": "false"
+        },
+        {
+          "name": "STB Trouble",
+          "default": "false"
+        },
+        {
+          "name": "Sensor Problem",
+          "default": "false"
+        },
+        {
+          "name": "Slow Speeds",
+          "default": "false"
+        },
+        {
+          "name": "Total Connect",
+          "default": "false"
+        },
+        {
+          "name": "Trouble Making Calls",
+          "default": "false"
+        },
+        {
+          "name": "Trouble Receiving Calls",
+          "default": "false"
+        },
+        {
+          "name": "Unified",
+          "default": "false"
+        },
+        {
+          "name": "Webpage Will Not Load",
+          "default": "false"
+        },
+        {
+          "name": "WiFi - Modem",
+          "default": "false"
+        },
+        {
+          "name": "WiFi - Rukus",
+          "default": "false"
+        },
+        {
+          "name": "WiFi - Ubiquiti",
+          "default": "false"
+        }
+      ],
+      "Type": [
+        {
+          "name": "Feature Request",
+          "default": "false"
+        },
+        {
+          "name": "Problem",
+          "default": "false"
+        },
+        {
+          "name": "Question",
+          "default": "false"
+        }
+      ],
+      "vlocity_cmt__Reason__c": [
+        {
+          "name": "Account info in blacklist removal request",
+          "default": "false"
+        },
+        {
+          "name": "Account requires credit evaluation exception",
+          "default": "false"
+        },
+        {
+          "name": "Adress does not have pre-feasibility",
+          "default": "false"
+        },
+        {
+          "name": "Change of mobile due to malfunction",
+          "default": "false"
+        },
+        {
+          "name": "General complaint",
+          "default": "false"
+        },
+        {
+          "name": "Generate a bill copy",
+          "default": "false"
+        },
+        {
+          "name": "Generate consumption details",
+          "default": "false"
+        },
+        {
+          "name": "Inquiry about campaign",
+          "default": "false"
+        },
+        {
+          "name": "Inquiry about plan details",
+          "default": "false"
+        },
+        {
+          "name": "Inquiry about promotion details",
+          "default": "false"
+        },
+        {
+          "name": "Inquiry service pre-feasibility",
+          "default": "false"
+        },
+        {
+          "name": "Problem creating account",
+          "default": "false"
+        },
+        {
+          "name": "Problem receiving bill",
+          "default": "false"
+        },
+        {
+          "name": "Problem with CPE",
+          "default": "false"
+        },
+        {
+          "name": "Problem with IMEI",
+          "default": "false"
+        },
+        {
+          "name": "Problem with SIM unlock",
+          "default": "false"
+        },
+        {
+          "name": "Problem with SMS",
+          "default": "false"
+        },
+        {
+          "name": "Problem with activation",
+          "default": "false"
+        },
+        {
+          "name": "Problem with add-on creation",
+          "default": "false"
+        },
+        {
+          "name": "Problem with add-on registration",
+          "default": "false"
+        },
+        {
+          "name": "Problem with automatic payment configuration",
+          "default": "false"
+        },
+        {
+          "name": "Problem with bill adjustment and refunds",
+          "default": "false"
+        },
+        {
+          "name": "Problem with bill explanation",
+          "default": "false"
+        },
+        {
+          "name": "Problem with bill payment receipt",
+          "default": "false"
+        },
+        {
+          "name": "Problem with change of MSISDN",
+          "default": "false"
+        },
+        {
+          "name": "Problem with change of SIM",
+          "default": "false"
+        },
+        {
+          "name": "Problem with change of billing cycle",
+          "default": "false"
+        },
+        {
+          "name": "Problem with change of customer information",
+          "default": "false"
+        },
+        {
+          "name": "Problem with change of mobile phone",
+          "default": "false"
+        },
+        {
+          "name": "Problem with change of ownership",
+          "default": "false"
+        },
+        {
+          "name": "Problem with change of plan",
+          "default": "false"
+        },
+        {
+          "name": "Problem with change to retention plan",
+          "default": "false"
+        },
+        {
+          "name": "Problem with credit card",
+          "default": "false"
+        },
+        {
+          "name": "Problem with data",
+          "default": "false"
+        },
+        {
+          "name": "Problem with delivery",
+          "default": "false"
+        },
+        {
+          "name": "Problem with friends and family number configuration",
+          "default": "false"
+        },
+        {
+          "name": "Problem with impairment accessibility",
+          "default": "false"
+        },
+        {
+          "name": "Problem with installation",
+          "default": "false"
+        },
+        {
+          "name": "Problem with managing users",
+          "default": "false"
+        },
+        {
+          "name": "Problem with mobile configuration",
+          "default": "false"
+        },
+        {
+          "name": "Problem with port-in",
+          "default": "false"
+        },
+        {
+          "name": "Problem with port-out",
+          "default": "false"
+        },
+        {
+          "name": "Problem with recurring discounts",
+          "default": "false"
+        },
+        {
+          "name": "Problem with repair pick up",
+          "default": "false"
+        },
+        {
+          "name": "Problem with roaming",
+          "default": "false"
+        },
+        {
+          "name": "Problem with service consumption details",
+          "default": "false"
+        },
+        {
+          "name": "Problem with service restoration",
+          "default": "false"
+        },
+        {
+          "name": "Problem with suspensions",
+          "default": "false"
+        },
+        {
+          "name": "Problem with termination",
+          "default": "false"
+        },
+        {
+          "name": "Problem with top up registration",
+          "default": "false"
+        },
+        {
+          "name": "Problem with top-up creation",
+          "default": "false"
+        },
+        {
+          "name": "Problem with transferring credit between accounts",
+          "default": "false"
+        },
+        {
+          "name": "Problem with usage thresholds",
+          "default": "false"
+        },
+        {
+          "name": "Problem with voice",
+          "default": "false"
+        },
+        {
+          "name": "Problem with voluntary suspension",
+          "default": "false"
+        },
+        {
+          "name": "Request change plan terms and conditions",
+          "default": "false"
+        },
+        {
+          "name": "Request for adjustments",
+          "default": "false"
+        },
+        {
+          "name": "Request mobile on loan while repair",
+          "default": "false"
+        },
+        {
+          "name": "Request supervisor",
+          "default": "false"
+        },
+        {
+          "name": "Require assistance with self service portal",
+          "default": "false"
+        },
+        {
+          "name": "Suggestions",
+          "default": "false"
+        },
+        {
+          "name": "Unacknowledged change of plan",
+          "default": "false"
+        },
+        {
+          "name": "Unacknowledged purchase",
+          "default": "false"
+        },
+        {
+          "name": "Unacknowledged termination",
+          "default": "false"
+        }
+      ],
+      "vlocity_cmt__Severity__c": [
+        {
+          "name": "Critical",
+          "default": "false"
+        },
+        {
+          "name": "Major",
+          "default": "true"
+        },
+        {
+          "name": "Minor",
+          "default": "false"
+        }
+      ]
+    }
+  },
+  "layout": {
+    "sections": [
+      {
+        "label": "Case Information",
+        "style": "TwoColumnsTopToBottom",
+        "columns": [
+          [
+            {
+              "field": "OwnerId",
+              "behavior": "Edit",
+              "custom_link": null
+            },
+            {
+              "field": "CaseNumber",
+              "behavior": "Readonly",
+              "custom_link": null
+            },
+            {
+              "field": "AccountId",
+              "behavior": "Readonly",
+              "custom_link": null
+            },
+            {
+              "field": "Order__c",
+              "behavior": "Edit",
+              "custom_link": null
+            },
+            {
+              "field": "Lead__c",
+              "behavior": "Edit",
+              "custom_link": null
+            },
+            {
+              "field": "Premise__c",
+              "behavior": "Edit",
+              "custom_link": null
+            },
+            {
+              "field": "vlocity_cmt__PremisesId__c",
+              "behavior": "Edit",
+              "custom_link": null
+            },
+            {
+              "field": "Status",
+              "behavior": "Required",
+              "custom_link": null
+            },
+            {
+              "field": "Lead_Address__c",
+              "behavior": "Edit",
+              "custom_link": null
+            },
+            {
+              "field": "Service_Address__c",
+              "behavior": "Edit",
+              "custom_link": null
+            },
+            {
+              "field": "Priority__c",
+              "behavior": "Edit",
+              "custom_link": null
+            },
+            {
+              "field": "Subscriber_Report__c",
+              "behavior": "Edit",
+              "custom_link": null
+            }
+          ],
+          [
+            {
+              "field": "ParentId",
+              "behavior": "Edit",
+              "custom_link": null
+            },
+            {
+              "field": "Service_Type__c",
+              "behavior": "Edit",
+              "custom_link": null
+            },
+            {
+              "field": "ContactId",
+              "behavior": "Edit",
+              "custom_link": null
+            },
+            {
+              "field": "ContactPhone",
+              "behavior": "Readonly",
+              "custom_link": null
+            },
+            {
+              "field": "ContactEmail",
+              "behavior": "Readonly",
+              "custom_link": null
+            },
+            {
+              "field": "RecordTypeId",
+              "behavior": "Edit",
+              "custom_link": null
+            },
+            {
+              "field": "Assigned_To__c",
+              "behavior": "Edit",
+              "custom_link": null
+            },
+            {
+              "field": "Requested_By__c",
+              "behavior": "Edit",
+              "custom_link": null
+            },
+            {
+              "field": "In_Progress_Date__c",
+              "behavior": "Edit",
+              "custom_link": null
+            },
+            {
+              "field": "Completed_Date__c",
+              "behavior": "Edit",
+              "custom_link": null
+            }
+          ]
+        ]
+      },
+      {
+        "label": "Critical Dates",
+        "style": "TwoColumnsLeftToRight",
+        "columns": [
+          [
+            {
+              "field": "Problem_Occurred_Date__c",
+              "behavior": "Edit",
+              "custom_link": null
+            },
+            {
+              "field": "Problem_Reported_Date__c",
+              "behavior": "Edit",
+              "custom_link": null
+            },
+            {
+              "field": "CreatedById",
+              "behavior": "Readonly",
+              "custom_link": null
+            }
+          ],
+          [
+            {
+              "field": "MTTR__c",
+              "behavior": "Readonly",
+              "custom_link": null
+            },
+            {
+              "field": "Repair_Date__c",
+              "behavior": "Edit",
+              "custom_link": null
+            },
+            {
+              "field": "ClosedDate",
+              "behavior": "Readonly",
+              "custom_link": null
+            },
+            {
+              "field": "CreatedDate",
+              "behavior": "Readonly",
+              "custom_link": null
+            }
+          ]
+        ]
+      },
+      {
+        "label": "Resolution Details",
+        "style": "TwoColumnsLeftToRight",
+        "columns": [
+          [
+            {
+              "field": "Primary_Resolution__c",
+              "behavior": "Edit",
+              "custom_link": null
+            },
+            {
+              "field": "Resolution_Detail__c",
+              "behavior": "Edit",
+              "custom_link": null
+            }
+          ],
+          [
+            {
+              "field": "Secondary_Resolution__c",
+              "behavior": "Edit",
+              "custom_link": null
+            }
+          ]
+        ]
+      },
+      {
+        "label": "Additional Information",
+        "style": "TwoColumnsLeftToRight",
+        "columns": [
+          [
+            {
+              "field": "Origin",
+              "behavior": "Required",
+              "custom_link": null
+            },
+            {
+              "field": "Priority",
+              "behavior": "Edit",
+              "custom_link": null
+            }
+          ],
+          [
+            {
+              "field": "Type",
+              "behavior": "Edit",
+              "custom_link": null
+            },
+            {
+              "field": "Reason",
+              "behavior": "Edit",
+              "custom_link": null
+            }
+          ]
+        ]
+      },
+      {
+        "label": "Description Information",
+        "style": "OneColumn",
+        "columns": [
+          [
+            {
+              "field": "Subject",
+              "behavior": "Edit",
+              "custom_link": null
+            },
+            {
+              "field": "Description",
+              "behavior": "Edit",
+              "custom_link": null
+            },
+            {
+              "field": "Comments",
+              "behavior": "Edit",
+              "custom_link": null
+            }
+          ]
+        ]
+      },
+      {
+        "label": "Field Technician Context",
+        "style": "OneColumn",
+        "columns": [
+          [
+            {
+              "field": "Contact_Preference__c",
+              "behavior": "Edit",
+              "custom_link": null
+            },
+            {
+              "field": "Special_Instructions__c",
+              "behavior": "Edit",
+              "custom_link": null
+            },
+            {
+              "field": "Tier_2_Notes__c",
+              "behavior": "Edit",
+              "custom_link": null
+            },
+            {
+              "field": "Equipment_Information__c",
+              "behavior": "Edit",
+              "custom_link": null
+            },
+            {
+              "field": "Related_Outage__c",
+              "behavior": "Edit",
+              "custom_link": null
+            }
+          ]
+        ]
+      },
+      {
+        "label": "Web Information",
+        "style": "TwoColumnsTopToBottom",
+        "columns": [
+          [
+            {
+              "field": "SuppliedEmail",
+              "behavior": "Readonly",
+              "custom_link": null
+            },
+            {
+              "field": "SuppliedName",
+              "behavior": "Readonly",
+              "custom_link": null
+            }
+          ],
+          [
+            {
+              "field": "SuppliedCompany",
+              "behavior": "Readonly",
+              "custom_link": null
+            },
+            {
+              "field": "SuppliedPhone",
+              "behavior": "Readonly",
+              "custom_link": null
+            }
+          ]
+        ]
+      },
+      {
+        "label": "System Information",
+        "style": "TwoColumnsTopToBottom",
+        "columns": [
+          [],
+          [
+            {
+              "field": "LastModifiedById",
+              "behavior": "Readonly",
+              "custom_link": null
+            }
+          ]
+        ]
+      },
+      {
+        "label": "Custom Links",
+        "style": "CustomLinks",
+        "columns": [
+          [],
+          [],
+          []
+        ]
+      }
+    ]
+  },
+  "flow": {
+    "status": "Active",
+    "process_type": "AutoLaunchedFlow",
+    "object": "Case",
+    "trigger_type": "RecordBeforeSave",
+    "record_trigger_type": "CreateAndUpdate",
+    "filter_formula": null,
+    "assignment_labels": [
+      "Assign Completed date",
+      "Assign in progress date"
+    ],
+    "decision_labels": [
+      "Check for case status"
+    ],
+    "formulas": [],
+    "raw_text": "63.0 false Assign_Completed_date Assign Completed date 314 395 $Record.Completed_Date__c Assign $Flow.CurrentDate Assign_in_progress_date Assign in progress date 50 395 $Record.In_Progress_Date__c Assign $Flow.CurrentDate Check_for_case_status Check for case status 314 287 Default Outcome Is_InProgress and $Record.Status EqualTo In-Progress Assign_in_progress_date true Is InProgress is_Completed and $Record.Status EqualTo Completed Assign_Completed_date true is Completed Default Case Date Update based on status changes {!$Flow.CurrentDateTime} Case Date Update based on status changes BuilderType LightningFlowBuilder CanvasMode AUTO_LAYOUT_CANVAS OriginBuilderType LightningFlowBuilder AutoLaunchedFlow 188 0 Check_for_case_status 1 AND ( 2 OR 3) Status IsChanged true Status EqualTo In-Progress Status EqualTo Completed Case CreateAndUpdate RecordBeforeSave Active"
+  },
+  "permission_set": {
+    "label": "NOC Incident Case Relationship",
+    "object_permissions": [
+      {
+        "allowCreate": "true",
+        "allowDelete": "false",
+        "allowEdit": "true",
+        "allowRead": "true",
+        "modifyAllRecords": "false",
+        "object": "Case",
+        "viewAllFields": "false",
+        "viewAllRecords": "false"
+      },
+      {
+        "allowCreate": "true",
+        "allowDelete": "false",
+        "allowEdit": "true",
+        "allowRead": "true",
+        "modifyAllRecords": "false",
+        "object": "Incident",
+        "viewAllFields": "false",
+        "viewAllRecords": "false"
+      }
+    ],
+    "case_field_permissions": [
+      {
+        "editable": "true",
+        "field": "Case.ParentId",
+        "readable": "true"
+      },
+      {
+        "editable": "true",
+        "field": "Case.Priority__c",
+        "readable": "true"
+      },
+      {
+        "editable": "true",
+        "field": "Case.Related_Outage__c",
+        "readable": "true"
+      }
+    ],
+    "record_type_visibilities": [
+      {
+        "recordType": "Case.Trouble_Ticket",
+        "visible": "true"
+      }
+    ]
+  },
+  "validation_rules": [
+    {
+      "name": "Child_Must_Be_Trouble_Ticket",
+      "active": "true",
+      "formula": "AND(\n    NOT(ISBLANK(ParentId)),\n    Parent.RecordType.DeveloperName = \"Trouble_Ticket\",\n    RecordType.DeveloperName <> \"Trouble_Ticket\"\n)",
+      "message": "Child cases of a Trouble Ticket must use the Trouble Ticket record type."
+    },
+    {
+      "name": "Prevent_Circular_Parent_Case",
+      "active": "true",
+      "formula": "AND(\n    NOT(ISBLANK(ParentId)),\n    OR(\n        AND(NOT(ISNEW()), ParentId = Id),\n        AND(NOT(ISBLANK(Parent.ParentId)), Parent.ParentId = Id)\n    )\n)",
+      "message": "A case cannot be the parent of itself, and two cases cannot be parents of each other."
+    }
+  ]
+}

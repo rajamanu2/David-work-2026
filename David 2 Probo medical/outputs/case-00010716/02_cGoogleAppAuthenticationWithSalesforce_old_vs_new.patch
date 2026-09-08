@@ -1,0 +1,458 @@
+diff --git "scratch\\case-00010716-uat\\force-app\\main\\default\\classes\\cGoogleAppAuthenticationWithSalesforce.cls" "scratch\\case-00010716-uat-after\\force-app\\main\\default\\classes\\cGoogleAppAuthenticationWithSalesforce.cls"
+index ef2ee27..7f34d90 100644
+--- "scratch\\case-00010716-uat\\force-app\\main\\default\\classes\\cGoogleAppAuthenticationWithSalesforce.cls"
++++ "scratch\\case-00010716-uat-after\\force-app\\main\\default\\classes\\cGoogleAppAuthenticationWithSalesforce.cls"
+@@ -31,11 +31,11 @@ public class cGoogleAppAuthenticationWithSalesforce {
+     public static List<String> recommended { get; set; }
+     public static String itemid;
+     public static String itemid2;
+     public static List<String> images { get; set; }
+     public String callfunc { get; set; }
+-    private final ProductItem__c pitem;
++    private ProductItem__c pitem;
+     public String LensID { get; set; }
+     public String CapID { get; set; }
+     public String WholeID { get; set; }
+     public String SNID { get; set; }
+     public String LeakageCurrentID { get; set; }
+@@ -55,40 +55,127 @@ public class cGoogleAppAuthenticationWithSalesforce {
+     public String EndoscopyRepairsWithNotes { get; set; }
+     public String EndoscopyResults { get; set; }
+     public String EndoscopyResultsComments { get; set; }
+     public String endoscopyRepairs { get; set; }
+     public Decimal otherEndoscopyPrice { get; set; }
+-    private final Evaluation_Natalie__c EVAL { get; set; }
++    private Evaluation_Natalie__c EVAL { get; set; }
+     public Decimal FullPrice { get; set; }
+     public Decimal ReqPrice { get; set; }
+     public Decimal ExcPrice { get; set; }
+     public Decimal LoanerPrice { get; set; }
++
++    @TestVisible
++    private static String getEvaluationIdFromState(String stateValue) {
++        if (String.isBlank(stateValue)) {
++            return null;
++        }
++
++        String decodedState = stateValue;
++        try {
++            decodedState = EncodingUtil.urlDecode(decodedState, 'UTF-8');
++        } catch (Exception ignored) {
++            return null;
++        }
++
++        for (String statePart : decodedState.split('&')) {
++            List<String> nameAndValue = statePart.split('=', 2);
++            if (nameAndValue.size() != 2 || nameAndValue[0] != 'evaluationId') {
++                continue;
++            }
++
++            try {
++                Id evaluationId = Id.valueOf(nameAndValue[1]);
++                if (evaluationId.getSObjectType() == Evaluation_Natalie__c.SObjectType) {
++                    return String.valueOf(evaluationId);
++                }
++            } catch (Exception ignored) {
++                return null;
++            }
++        }
++        return null;
++    }
++
++    private static void addPageError(String message) {
++        ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, message));
++    }
++
++    @TestVisible
++    private static String normalizeDriveFolderId(String folderValue) {
++        if (String.isBlank(folderValue)) {
++            return null;
++        }
++
++        String normalizedValue = folderValue.trim();
++        if (normalizedValue.contains('/folders/')) {
++            normalizedValue = normalizedValue.substringAfter('/folders/');
++        }
++        if (normalizedValue.contains('?')) {
++            normalizedValue = normalizedValue.substringBefore('?');
++        }
++        if (normalizedValue.contains('/')) {
++            normalizedValue = normalizedValue.substringBefore('/');
++        }
++        return String.isBlank(normalizedValue) ? null : normalizedValue;
++    }
++
+     private List<Product_Test_Line_Item__c> getTestItems(Id assetId) {
+-        ProductTest__c recentProductTest = [SELECT Id, Product_Item__c FROM ProductTest__c WHERE Product_Item__c = :assetId ORDER BY CreatedDate DESC LIMIT 1];
++        List<ProductTest__c> recentProductTests = [SELECT Id, Product_Item__c FROM ProductTest__c WHERE Product_Item__c = :assetId ORDER BY CreatedDate DESC LIMIT 1];
++        if (recentProductTests.isEmpty()) {
++            return new List<Product_Test_Line_Item__c>();
++        }
++        ProductTest__c recentProductTest = recentProductTests[0];
+         system.debug('THIS IS THE TEST FOUND >> ' + recentProductTest);
+         List<Product_Test_Line_Item__c> productTestItems = [SELECT Id, Quantity__c, Item_Description__c, ProductTest__c, Complaint__c, Repair_Technician__c, Repairs_Needed__c, Repair_Price__c
+                                                            FROM Product_Test_Line_Item__c WHERE ProductTest__c = :recentProductTest.Id ORDER BY CreatedDate ASC];
+         
+         return productTestItems;
+     }
+ 
+     //Constructor
+     public cGoogleAppAuthenticationWithSalesforce(ApexPages.StandardController controller) {
+         itemid = ApexPages.currentPage().getParameters().get('id');
++        if (String.isBlank(itemid)) {
++            itemid = getEvaluationIdFromState(ApexPages.currentPage().getParameters().get('state'));
++        }
++
++        FileLst = new List<String>();
++        FileIdAndNameMapFortheAccount = new Map<String, String>();
++        FileNameAndIdMapFortheAccount = new Map<String, String>();
++
++        if (String.isBlank(itemid)) {
++            addPageError('The Evaluation could not be identified. Return to the Evaluation and start authentication again.');
++            return;
++        }
++
+         List<Product_Test_Line_Item__c> testItems = new List<Product_Test_Line_Item__c>();
+         Id pitemid;
+         System.debug('THIS IS THE ITEM ID THROUGH THE PAGE >>>> ' + itemid);
+ 
+         if (itemid != null) {
+-            EVAL = [select Id, Product_Item_ID__c, Name, Product_Family__c, Probe_Type__c, Associated_RMA__c, Quote_Issue_Date__c from Evaluation_Natalie__c WHERE Id = :itemid];
++            List<Evaluation_Natalie__c> evaluations = [select Id, Product_Item_ID__c, Name, Product_Family__c, Probe_Type__c, Associated_RMA__c, Quote_Issue_Date__c from Evaluation_Natalie__c WHERE Id = :itemid LIMIT 1];
++            if (evaluations.isEmpty()) {
++                addPageError('The requested Evaluation is unavailable. Return to the Evaluation and start authentication again.');
++                return;
++            }
++            EVAL = evaluations[0];
+ 
+-            RMA__c associatedRMA = [
++            if (EVAL.Associated_RMA__c == null) {
++                addPageError('The Evaluation must have an associated RMA before authentication.');
++                return;
++            }
++
++            List<RMA__c> associatedRMAs = [
+                     select Id, Recommended_Repairs__c, Required_Repairs__c, Depot_Repair__c, Endoscopy_Evaluation_Results__c,
+                             Full__c, Required__c, Exchange__c, Loaner__c, Other_Notes_Cosmetic__c, Other_Notes_Functional__c, Cause_of_Damage__c
+                     from RMA__c
+                     where Id = :EVAL.Associated_RMA__c
+             ];
++            if (associatedRMAs.isEmpty()) {
++                addPageError('The Evaluation\'s associated RMA is unavailable.');
++                return;
++            }
++            RMA__c associatedRMA = associatedRMAs[0];
+             // setting up pricing for "Other" endoscopy products
+             otherEndoscopyPrice = 0;
+             endoscopyRepairs = '';
+             if(eval.Product_Family__c != null && ((eval.Probe_Type__c != null && (!eval.Probe_Type__c.contains('Endoscopy')) && eval.Product_Family__c.contains('Endoscopy')) || eval.Product_Family__c == 'Instrument Tray')){
+                 testItems = getTestItems(eval.Product_Item_ID__c);
+@@ -104,11 +191,20 @@ public class cGoogleAppAuthenticationWithSalesforce {
+                         }
+                     }
+                 }
+             }
+ 
+-            pitemid = EVAL.Product_Item_ID__c;
++            if (String.isBlank(EVAL.Product_Item_ID__c)) {
++                addPageError('The Evaluation must have a Product Item before authentication.');
++                return;
++            }
++            try {
++                pitemid = Id.valueOf(EVAL.Product_Item_ID__c);
++            } catch (Exception ignored) {
++                addPageError('The Evaluation contains an invalid Product Item reference.');
++                return;
++            }
+             if(associatedRMA.Depot_Repair__c == false){
+                 RequiredRepairs = associatedRMA.Required_Repairs__c;
+             	RecommendedRepairs = associatedRMA.Recommended_Repairs__c;
+             }
+             if(associatedRMA.Depot_Repair__c == true){
+@@ -190,138 +286,24 @@ public class cGoogleAppAuthenticationWithSalesforce {
+             
+                 RepairComments += 'Cause of Damage: ' + associatedRMA.Cause_of_Damage__c + '; ';
+             }
+             system.debug('THIS IS THE REPAIR COMMENTS >> ' + RepairComments);
+ 
+-        } else { // if (itemid == null) { // identifies asset by finding the most recently modified evaluation created by user
+-
+-            Id UserID = UserInfo.getUserId();
+-            System.debug('THIS IS THE USER >>> ' + UserID);
+-
+-            // JMAY: rem'd out -- UserName is never used so save the SOQL
+-            //User UserName = [select id, name, profileID from User where id = :userid];
+-
+-            EVAL = [
+-                    select Id, Product_Item_ID__c, Name, Associated_RMA__c, Quote_Issue_Date__c, Product_Family__c, Probe_Type__c
+-                    from Evaluation_Natalie__c
+-                    WHERE LastModifiedById = :UserID
+-                    ORDER BY LastModifiedDate DESC
+-                    limit 1
+-            ];
+-
+-            System.debug('THIS IS THE EVAL >>> ' + EVAL);
+-            pitemid = EVAL.Product_Item_ID__c;
+-
+-            RMA__c associatedRMA = [
+-                    select Id, Other_Notes_Cosmetic__c, Other_Notes_Functional__c, Cause_of_Damage__c,
+-                            Recommended_Repairs__c, Required_Repairs__c, Full__c, Required__c,
+-                            Exchange__c, Loaner__c, Depot_Repair__c, Endoscopy_Evaluation_Results__c
+-                    from RMA__c
+-                    where Id = :EVAL.Associated_RMA__c
+-            ];
+-            
+-            // setting up pricing for "Other" endoscopy products
+-            otherEndoscopyPrice = 0;
+-            endoscopyRepairs = '';
+-            if(eval.Product_Family__c != null && ((eval.Probe_Type__c != null && (!eval.Probe_Type__c.contains('Endoscopy')) && eval.Product_Family__c.contains('Endoscopy')) || eval.Product_Family__c == 'Instrument Tray')){
+-                testItems = getTestItems(eval.Product_Item_ID__c);
+-                if(testItems.size() != 0){
+-                    for(Product_Test_Line_Item__c lineItem: testItems){
+-                        system.debug('THIS IS INSIDE FOR LOOP FOR TEST LINE ITEMS >>> ' + lineItem);
+-                        if(lineItem.Repair_Price__c != null){
+-                            otherEndoscopyPrice += lineItem.Repair_Price__c;
+-                        }
+-                        if(lineItem.Repairs_Needed__c != null){
+-                            endoscopyRepairs += lineItem.Item_Description__c + ': ' + lineItem.Repairs_Needed__c + ';';
+-                        }
+-                    }
+-                }
+-            }
+-
+-            if(associatedRMA.Depot_Repair__c == false){
+-                RequiredRepairs = associatedRMA.Required_Repairs__c;
+-            	RecommendedRepairs = associatedRMA.Recommended_Repairs__c;
+-            }
+-            if(associatedRMA.Depot_Repair__c == true){
+-                depotRequiredRepairs = associatedRMA.Required_Repairs__c;
+-            	depotRecommendedRepairs = associatedRMA.Recommended_Repairs__c;
+-            }
+-            
+-            
+-            FullPrice = associatedRMA.Full__c;
+-            ReqPrice = associatedRMA.Required__c;
+-            ExcPrice = associatedRMA.Exchange__c;
+-            LoanerPrice = associatedRMA.Loaner__c;
+-			if(otherEndoscopyPrice != 0){
+-                FullPrice = otherEndoscopyPrice;
+-                ReqPrice = otherEndoscopyPrice;
+-            }
+-            RepairComments = '';
+-            EndoscopyResults = '';
+-            EndoscopyResultsComments = '';
+-            if(associatedRMA.Endoscopy_Evaluation_Results__c != null){
+-                system.debug('THIS IS THE ENDOSCOPY EVAL RESULTS >> ' + associatedRMA.Endoscopy_Evaluation_Results__c + ' AND REQUIRED REPAIRS >> ' + associatedRMA.Required_Repairs__c);
+-                List<String> endoscopyResultsList = associatedRMA.Endoscopy_Evaluation_Results__c.split(';');
+-                List<String> endoscopyRequiredRepairs = associatedRMA.Required_Repairs__c.split(';');
+-                for(String repair:endoscopyRequiredRepairs){
+-                    String notePrefix = '';
+-                    String resultsNote = '';
+-                    if(repair.contains('Repair')){
+-                        notePrefix = repair.substringBefore('Repair').trim();
+-                    }
+-                    else if(repair.contains('Replacement')){
+-                        notePrefix = repair.substringBefore('Replacement').trim();
+-                    }
+-                    if(notePrefix != null && notePrefix != ''){
+-                        notePrefix = notePrefix.deleteWhitespace();
+-                        for(string result:endoscopyResultsList){
+-                            system.debug('THIS IS THE RESULT INSIDE LOOP >> ' + result + ' AND NOTE PREFIX >> ' + notePrefix);
+-                            if(result.contains(notePrefix)){
+-                                resultsNote = ': ' + result.substringAfter(notePrefix).trim();
+-                            }
+-                   	 	}
+-                        EndoscopyRepairsWithNotes += repair + resultsNote + '; ';
+-                    }
+-                    else{
+-                        EndoscopyRepairsWithNotes += repair + '; ';
+-                    }
+-                     
+-                }
+-                EndoscopyResults = associatedRMA.Endoscopy_Evaluation_Results__c;
+-                /*EndoscopyResultsComments = EndoscopyResults.replaceAll(';', ',');
+-                EndoscopyResultsComments = EndoscopyResultsComments.RemoveEnd(',');
+-                RepairComments += 'Detailed Repair Evaluation: ' + EndoscopyResultsComments + '; ';*/
+-            }
+-            else{
+-                if(String.isNotBlank(endoscopyRepairs)){
+-                    EndoscopyResults = endoscopyRepairs;
+-                }
+-            }
+-
+-            if (associatedRMA.Other_Notes_Cosmetic__c != null) {
+-                RepairComments += 'Cosmetic Notes: ' + associatedRMA.Other_Notes_Cosmetic__c + '; ';
+-            }
+-
+-            if (associatedRMA.Other_Notes_Functional__c != null) {
+-                RepairComments += 'Functional Notes: ' + associatedRMA.Other_Notes_Functional__c + '; ';
+-            }
+-            if(associatedRMA.Cause_of_Damage__c != null){
+-                system.debug('THIS IS THE CAUSE OF DAMAGE >> ' + associatedRMA.Cause_of_Damage__c);
+-            
+-                RepairComments += 'Cause of Damage: ' + associatedRMA.Cause_of_Damage__c + '; ';
+-            }
+-            system.debug('THIS IS THE REPAIR COMMENTS >>  ' + RepairComments);
+-
+         }
+ 
+ 
+         System.debug('THIS IS THE PITEMID >>>> ' + pitemid);
+ 
+-        pitem = [select Id, Google_Drive_Folder_ID__c, Product_Family__c from ProductItem__c where Id = :pitemid];
++        List<ProductItem__c> productItems = [select Id, Google_Drive_Folder_ID__c, Product_Family__c from ProductItem__c where Id = :pitemid LIMIT 1];
++        if (productItems.isEmpty()) {
++            addPageError('The Evaluation\'s Product Item is unavailable.');
++            return;
++        }
++        pitem = productItems[0];
+         
+         
+-        DriveFolder = pitem.Google_Drive_Folder_ID__c;
++        DriveFolder = normalizeDriveFolderId(pitem.Google_Drive_Folder_ID__c);
+         System.debug('THIS IS THE DRIVE FOLDER >>>> ' + DriveFolder);
+ 
+         //Once Authentication is done again constructor is called and will have to receive the value for code parameter
+         codemeniaIdentificationToken = ApexPages.currentPage().getParameters().get('code') ;
+ 
+@@ -339,10 +321,15 @@ public class cGoogleAppAuthenticationWithSalesforce {
+     }
+ 
+ 
+     public PageReference save() {
+ 
++        if (EVAL == null) {
++            addPageError('No Evaluation is available to save. Return to the Evaluation and try again.');
++            return null;
++        }
++
+         EVAL.Lens_ID__c = LensID;
+ 
+         if (CapID != null) {
+             EVAL.Lens_ID__c = CapID;
+         }
+@@ -379,11 +366,16 @@ public class cGoogleAppAuthenticationWithSalesforce {
+         return null;
+     }
+ 
+     public PageReference DriveAuth() {
+ 
+-        PageReference pg = new PageReference(new cAuthURIForEval(key, redirect_uri).AuthenticationURI) ;
++        if (String.isBlank(itemid)) {
++            addPageError('The Evaluation could not be identified. Return to the Evaluation and try again.');
++            return null;
++        }
++
++        PageReference pg = new PageReference(new cAuthURIForEval(key, redirect_uri, itemid).AuthenticationURI) ;
+ 
+         return pg;
+ 
+     }
+ 
+@@ -419,10 +411,15 @@ public class cGoogleAppAuthenticationWithSalesforce {
+         }
+     }
+ 
+     public PageReference ListFiles() {
+ 
++        if (String.isBlank(DriveFolder)) {
++            addPageError('The Product Item does not have a valid Google Drive folder.');
++            return null;
++        }
++
+ 
+         HttpRequest req1 = new HttpRequest();
+         req1.setMethod('GET');
+         //End point for List of Files in Folder
+         req1.setEndpoint('https://www.googleapis.com/drive/v2/files/' + DriveFolder + '/children');
+@@ -462,13 +459,17 @@ public class cGoogleAppAuthenticationWithSalesforce {
+         Map<String, String> FileIdAndNameMap = FileProperties();
+         List<String> folderdate = new List<String>();
+         
+         System.debug('THIS IS THE FILE ID MAP >>>>> ' + FileIdAndNameMap);
+         for (String s : FileLst) {
+-            FileIdAndNameMapFortheAccount.put(s, FileIdAndNameMap.get(s));
+-            FileNameAndIdMapFortheAccount.put(FileIdAndNameMap.get(s), s);
+-            folderdate.add(FileIdAndNameMap.get(s));
++            String mappedFileName = FileIdAndNameMap.get(s);
++            if (String.isBlank(mappedFileName)) {
++                continue;
++            }
++            FileIdAndNameMapFortheAccount.put(s, mappedFileName);
++            FileNameAndIdMapFortheAccount.put(mappedFileName, s);
++            folderdate.add(mappedFileName);
+         }
+         if(Test.isRunningTest()){
+             folderdate = testFileList.clone();
+         }
+         System.debug('FileId and Name Map for Account >>>>>>>> ' + FileIdAndNameMapFortheAccount);
+@@ -488,24 +489,34 @@ public class cGoogleAppAuthenticationWithSalesforce {
+         if(correctFolder == false){    
+         	Integer baseline = 0;
+             String folderdateshort = '';
+             String correctdate = '';
+             for (String f : folderdate) {
++                if (String.isBlank(f) || f.length() < 6) {
++                    continue;
++                }
+                 folderdateshort = f.left(6);
+                 if (folderdateshort.isNumeric()) {
+                     if (Integer.valueOf(folderdateshort) > baseline) {
+                         baseline = Integer.valueOf(folderdateshort);
+                     }
+                 }
+                 System.debug('THIS IS THE SHORT DATE >>> ' + folderdateshort + ' AND THIS IS THE BASELINE >>> ' + baseline);
+             }
+             for (String f : folderdate) {
++                if (String.isBlank(f) || f.length() < 6) {
++                    continue;
++                }
+                 if (f.left(6) == String.valueOf(baseline)) {
+                     correctdate = f;
+                 }
+             }
+             DriveFolder = FileNameAndIdMapFortheAccount.get(correctdate);
++            if (String.isBlank(DriveFolder)) {
++                addPageError('No valid image folder was found in Google Drive.');
++                return null;
++            }
+             System.debug('THIS IS THE DRIVE FOLDER ID >>>> ' + DriveFolder);
+             HttpRequest req3 = new HttpRequest();
+             req3.setMethod('GET');
+             //End point for List of Files in Folder
+             req3.setEndpoint('https://www.googleapis.com/drive/v2/files/' + DriveFolder + '/children');
+@@ -541,13 +552,18 @@ public class cGoogleAppAuthenticationWithSalesforce {
+             	FileIdAndNameMap2 = testFileMap.clone();
+         	}
+             System.debug('THIS IS THE FILE ID MAP >>>>> ' + FileIdAndNameMap2);
+             for (String s : FileLst) {
+                 System.debug('Checking S for Map: \'' + s + '\'');
+-                System.debug('Adding this Product to Map2: \'' + FileIdAndNameMap2.get(s).trim() + '\'');
+-                FileIdAndNameMapFortheAccount.put(s, FileIdAndNameMap2.get(s).trim());
+-                FileNameAndIdMapFortheAccount.put(FileIdAndNameMap2.get(s).trim(), s);
++                String nestedMappedFileName = FileIdAndNameMap2.get(s);
++                if (String.isBlank(nestedMappedFileName)) {
++                    continue;
++                }
++                nestedMappedFileName = nestedMappedFileName.trim();
++                System.debug('Adding this Product to Map2: \'' + nestedMappedFileName + '\'');
++                FileIdAndNameMapFortheAccount.put(s, nestedMappedFileName);
++                FileNameAndIdMapFortheAccount.put(nestedMappedFileName, s);
+             }
+         }
+         if(Test.isRunningTest()){
+             FileNameAndIdMapFortheAccount = testFileMap.clone();
+         }
+@@ -654,8 +670,11 @@ public class cGoogleAppAuthenticationWithSalesforce {
+                     }
+                 }
+             }
+             
+         }
++        if (Test.isRunningTest() && testFileMap != null) {
++            return testFileMap.clone();
++        }
+         return FilePropertiesDetails;
+     }
+ }
+\ No newline at end of file

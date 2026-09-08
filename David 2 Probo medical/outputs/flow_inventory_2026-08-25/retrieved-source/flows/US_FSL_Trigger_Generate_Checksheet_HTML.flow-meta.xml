@@ -1,0 +1,1554 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>65.0</apiVersion>
+    <areMetricsLoggedToDataCloud>false</areMetricsLoggedToDataCloud>
+    <assignments>
+        <name>Assign_Electric_Test_Values</name>
+        <label>Assign Electric Test Values</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <assignmentItems>
+            <assignToReference>VarElectricTests</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>USElectricTestsHTMLTotal</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Get_ALL_Transducers</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Assign_Findings_Values</name>
+        <label>Assign Findings Values</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <assignmentItems>
+            <assignToReference>varFindings</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>USTrophonFindingsHTML</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Update_Service_Appointment_for_Trophon</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Assign_Peripheral_HTML</name>
+        <label>Assign Peripheral HTML</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <assignmentItems>
+            <assignToReference>VarPeripheralRowsHTML</assignToReference>
+            <operator>Add</operator>
+            <value>
+                <elementReference>USPeripheralRowHTML</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Loop_Through_Peripherals_to_Assign_HTML</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Assign_Prelim_Trophon_Values</name>
+        <label>Assign Prelim Trophon Values</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <assignmentItems>
+            <assignToReference>VarPrelimChecks</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>USTrophonPrelimHTMLTotal</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>varTrophonComments</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>USTrophonComments</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Get_Trophon_Findings</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Assign_Prelim_Values</name>
+        <label>Assign Prelim Values</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <assignmentItems>
+            <assignToReference>VarPrelimChecks</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>USPrelimFormHTMLTotal</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Get_Electric_Test</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Assign_Test_Equipment_HTML</name>
+        <label>Assign Test Equipment HTML</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <assignmentItems>
+            <assignToReference>VarTestEquipmentRowsHTML</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>USTestEquipmentRowHTML</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Loop_Through_Test_Equipment_to_Assign_HTML</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Assign_Transducer_HTML</name>
+        <label>Assign Transducer HTML</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <assignmentItems>
+            <assignToReference>VarTransducerRowsHTML</assignToReference>
+            <operator>Add</operator>
+            <value>
+                <elementReference>USTransducerRowHTML</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Loop_Through_Transducers_to_Assign_HTML</targetReference>
+        </connector>
+    </assignments>
+    <decisions>
+        <name>PPM</name>
+        <label>PPM</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>US_PPM_Trophon</name>
+            <conditionLogic>1 AND (2 OR 3)</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.WorkTypeId</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>08qRo0000000JttIAE</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>varWOMakeModel</leftValueReference>
+                <operator>Contains</operator>
+                <rightValue>
+                    <stringValue>Trophon</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>varWOMakeModel</leftValueReference>
+                <operator>Contains</operator>
+                <rightValue>
+                    <stringValue>trophon</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Get_Prelim_Trophon_Checks</targetReference>
+            </connector>
+            <label>US PPM Trophon</label>
+        </rules>
+        <rules>
+            <name>US_PPM</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.WorkTypeId</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>08qRo0000000JttIAE</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Get_Prelim_Checks</targetReference>
+            </connector>
+            <label>US PPM</label>
+        </rules>
+    </decisions>
+    <description>03/23/2026 (BW) - Adding a node to have the output checklist also update the Work Order for the FSL Template
+04/08/2026 - MPB - Adding Trophon PM flow
+05/18/2026 - MPB - Adding Trophon Comments to HTML</description>
+    <environments>Default</environments>
+    <formulas>
+        <name>CorrectiveActionHTML</name>
+        <dataType>String</dataType>
+        <expression>&quot;&lt;br/&gt;&lt;table border=&apos;1&apos; cellpadding=&apos;6&apos; cellspacing=&apos;0&apos; &quot; &amp;
+&quot;style=&apos;border-collapse:collapse; width:100%; font-family:Verdana, sans-serif; font-size:10px;&apos;&gt;&quot; &amp;
+
+&quot;&lt;tr&gt;&quot; &amp;
+&quot;&lt;td style=&apos;white-space:nowrap;&apos;&gt;&lt;b&gt;Corrective Action Required?&lt;/b&gt;&lt;/td&gt;&quot; &amp;
+&quot;&lt;td&gt;&quot; &amp;
+IF(
+  ISBLANK({!Get_Corrective_Action.Corrective_Action_Required__c}),
+  &quot;—&quot;,
+  {!Get_Corrective_Action.Corrective_Action_Required__c}
+) &amp;
+&quot;&lt;/td&gt;&quot; &amp;
+&quot;&lt;/tr&gt;&quot; &amp;
+
+&quot;&lt;tr&gt;&quot; &amp;
+&quot;&lt;td style=&apos;white-space:nowrap;&apos;&gt;&lt;b&gt;If Yes, please describe:&lt;/b&gt;&lt;/td&gt;&quot; &amp;
+&quot;&lt;td&gt;&quot; &amp;
+IF(
+  {!Get_Corrective_Action.Corrective_Action_Required__c} = &quot;Yes&quot;,
+  IF(
+    ISBLANK({!Get_Corrective_Action.If_Yes_Please_Describe__c}),
+    &quot;—&quot;,
+    {!Get_Corrective_Action.If_Yes_Please_Describe__c}
+  ),
+  &quot;—&quot;
+) &amp;
+&quot;&lt;/td&gt;&quot; &amp;
+&quot;&lt;/tr&gt;&quot; &amp;
+
+&quot;&lt;/table&gt;&quot;</expression>
+    </formulas>
+    <formulas>
+        <name>PeripheralFooterHTML</name>
+        <dataType>String</dataType>
+        <expression>&quot;&lt;tr&gt;&quot; &amp;
+&quot;&lt;td colspan=&apos;6&apos; style=&apos;padding-top:10px;&apos;&gt;&quot; &amp;
+&quot;&lt;b&gt;Corrective Action Required?&lt;/b&gt; &quot; &amp;
+{!Get_Corrective_Action.Corrective_Action_Required__c} &amp;
+&quot;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&quot; &amp;
+&quot;&lt;b&gt;If so, please describe:&lt;/b&gt; &quot; &amp;
+IF(
+  ISBLANK({!Get_Corrective_Action.If_Yes_Please_Describe__c}),
+  &quot;—&quot;,
+  {!Get_Corrective_Action.If_Yes_Please_Describe__c}
+) &amp;
+&quot;&lt;/td&gt;&quot; &amp;
+&quot;&lt;/tr&gt;&quot;</expression>
+    </formulas>
+    <formulas>
+        <name>USElectricTestsHTMLBody</name>
+        <dataType>String</dataType>
+        <expression>&quot;&lt;tr&gt;&quot; &amp;
+&quot;&lt;th colspan=&apos;3&apos;&gt;Normal Polarity Test (Power ON)&lt;/th&gt;&quot; &amp;
+&quot;&lt;th colspan=&apos;3&apos;&gt;Reverse Polarity Test (Power ON)&lt;/th&gt;&quot; &amp;
+
+&quot;&lt;td&gt;Lead Leakage (Normal)&lt;/td&gt;&quot; &amp;
+&quot;&lt;td&gt;&quot; &amp;
+IF(
+  ISBLANK({!Get_Electric_Test.Test_Lead_Leakage_Normal_Condition_A__c}),
+  &quot;-&quot;,
+  TEXT({!Get_Electric_Test.Test_Lead_Leakage_Normal_Condition_A__c})
+) &amp;
+&quot;&lt;/td&gt;&quot; &amp;
+&quot;&lt;td&gt;&quot; &amp;
+IF(
+  ISBLANK({!Get_Electric_Test.Test_Lead_Leakage_Normal_Condition_PF__c}),
+  &quot;&quot;,
+  {!Get_Electric_Test.Test_Lead_Leakage_Normal_Condition_PF__c}
+) &amp;
+&quot;&lt;/td&gt;&quot; &amp;
+&quot;&lt;/tr&gt;&quot; &amp;
+
+&quot;&lt;tr&gt;&quot; &amp;
+&quot;&lt;td&gt;Ground Open&lt;/td&gt;&quot; &amp;
+&quot;&lt;td&gt;&quot; &amp;
+IF(
+  ISBLANK({!Get_Electric_Test.Norm_Polarity_Test_P_On_G_Open_A__c}),
+  &quot;-&quot;,
+  TEXT({!Get_Electric_Test.Norm_Polarity_Test_P_On_G_Open_A__c})
+) &amp;
+&quot;&lt;/td&gt;&lt;td&gt;uA&lt;/td&gt;&quot; &amp;
+
+&quot;&lt;td&gt;Ground Open&lt;/td&gt;&quot; &amp;
+&quot;&lt;td&gt;&quot; &amp;
+IF(
+  ISBLANK({!Get_Electric_Test.Rev_Polarity_Test_P_On_G_Open_A__c}),
+  &quot;-&quot;,
+  TEXT({!Get_Electric_Test.Rev_Polarity_Test_P_On_G_Open_A__c})
+) &amp;
+&quot;&lt;/td&gt;&lt;td&gt;uA&lt;/td&gt;&quot; &amp;
+
+&quot;&lt;td&gt;Lead Isolation&lt;/td&gt;&quot; &amp;
+&quot;&lt;td&gt;&quot; &amp;
+IF(
+  ISBLANK({!Get_Electric_Test.Test_Lead_Isolation_A__c}),
+  &quot;-&quot;,
+  TEXT({!Get_Electric_Test.Test_Lead_Isolation_A__c})
+) &amp;
+&quot;&lt;/td&gt;&quot; &amp;
+&quot;&lt;td&gt;&quot; &amp;
+IF(
+  ISBLANK({!Get_Electric_Test.Test_Lead_Isolation_P_F__c}),
+  &quot;&quot;,
+  {!Get_Electric_Test.Test_Lead_Isolation_P_F__c}
+) &amp;
+&quot;&lt;/td&gt;&quot; &amp;
+&quot;&lt;/tr&gt;&quot; &amp;
+
+&quot;&lt;tr&gt;&quot; &amp;
+&quot;&lt;td&gt;Ground Closed&lt;/td&gt;&quot; &amp;
+&quot;&lt;td&gt;&quot; &amp;
+IF(
+  ISBLANK({!Get_Electric_Test.Norm_Polarity_Test_P_On_G_Close_A__c}),
+  &quot;-&quot;,
+  TEXT({!Get_Electric_Test.Norm_Polarity_Test_P_On_G_Close_A__c})
+) &amp;
+&quot;&lt;/td&gt;&lt;td&gt;uA&lt;/td&gt;&quot; &amp;
+
+&quot;&lt;td&gt;Ground Closed&lt;/td&gt;&quot; &amp;
+&quot;&lt;td&gt;&quot; &amp;
+IF(
+  ISBLANK({!Get_Electric_Test.Rev_Polarity_Test_P_On_G_Close_A__c}),
+  &quot;-&quot;,
+  TEXT({!Get_Electric_Test.Rev_Polarity_Test_P_On_G_Close_A__c})
+) &amp;
+&quot;&lt;/td&gt;&lt;td&gt;uA&lt;/td&gt;&quot; &amp;
+
+&quot;&lt;td&gt;&lt;/td&gt;&lt;td&gt;&lt;/td&gt;&lt;td&gt;&lt;/td&gt;&quot; &amp;
+&quot;&lt;/tr&gt;&quot;</expression>
+    </formulas>
+    <formulas>
+        <name>USElectricTestsHTMLFooter</name>
+        <dataType>String</dataType>
+        <expression>&quot;&lt;/table&gt;&quot;</expression>
+    </formulas>
+    <formulas>
+        <name>USElectricTestsHTMLHeader</name>
+        <dataType>String</dataType>
+        <expression>&quot;&lt;table border=&apos;1&apos; cellpadding=&apos;6&apos; cellspacing=&apos;0&apos; style=&apos;width:100%; border-collapse:collapse; font-family:Arial; font-size:12px;&apos;&gt;&quot; &amp;
+
+&quot;&lt;tr&gt;&quot; &amp;
+&quot;&lt;th colspan=&apos;6&apos; style=&apos;text-align:center;&apos;&gt;Electrical Safety Tests&lt;/th&gt;&quot; &amp;
+&quot;&lt;th colspan=&apos;3&apos; style=&apos;text-align:center;&apos;&gt;ECG Leakage Tests&lt;/th&gt;&quot; &amp;
+&quot;&lt;/tr&gt;&quot; &amp;
+
+&quot;&lt;tr&gt;&quot; &amp;
+&quot;&lt;td colspan=&apos;2&apos;&gt;&lt;b&gt;Line Voltage (V):&lt;/b&gt; &quot; &amp;
+IF(ISBLANK({!Get_Electric_Test.Line_Voltage_V__c}), &quot;-&quot;, TEXT({!Get_Electric_Test.Line_Voltage_V__c})) &amp;
+&quot;&lt;/td&gt;&quot; &amp;
+
+&quot;&lt;td colspan=&apos;2&apos;&gt;&lt;b&gt;Device Current (A):&lt;/b&gt; &quot; &amp;
+IF(ISBLANK({!Get_Electric_Test.Device_Current_A__c}), &quot;-&quot;, TEXT({!Get_Electric_Test.Device_Current_A__c})) &amp;
+&quot;&lt;/td&gt;&quot; &amp;
+
+&quot;&lt;td colspan=&apos;2&apos;&gt;&lt;b&gt;Power Cord Resistance (mOhm):&lt;/b&gt; &quot; &amp;
+IF(ISBLANK({!Get_Electric_Test.Power_Cord_Resistance_m__c}), &quot;-&quot;, TEXT({!Get_Electric_Test.Power_Cord_Resistance_m__c})) &amp;
+&quot;&lt;/td&gt;&quot; &amp;
+
+&quot;&lt;th&gt;Test&lt;/th&gt;&lt;th&gt;Value&lt;/th&gt;&lt;th&gt;P/F&lt;/th&gt;&quot; &amp;
+&quot;&lt;/tr&gt;&quot;</expression>
+    </formulas>
+    <formulas>
+        <name>USElectricTestsHTMLTotal</name>
+        <dataType>String</dataType>
+        <expression>{!USElectricTestsHTMLHeader} &amp;
+{!USElectricTestsHTMLBody} &amp;
+{!USElectricTestsHTMLFooter}</expression>
+    </formulas>
+    <formulas>
+        <name>USPeripheralAndEquipmentSideBySideHTML</name>
+        <dataType>String</dataType>
+        <expression>&quot;&lt;table style=&apos;width:100%; border-collapse:collapse; font-family:Verdana, sans-serif; font-size:10px;&apos;&gt;&quot; &amp;
+  &quot;&lt;tr&gt;&quot; &amp;
+
+    /* Left cell: Peripherals table */
+    &quot;&lt;td style=&apos;width:50%; vertical-align:top; padding-right:6px;&apos;&gt;&quot; &amp;
+      &quot;&lt;table style=&apos;width:100%; border-collapse:collapse;&apos; border=&apos;1&apos; cellpadding=&apos;6&apos;&gt;&quot; &amp;
+        &quot;&lt;tr&gt;&quot; &amp;
+          &quot;&lt;th style=&apos;text-align:left;&apos;&gt;Peripheral&lt;/th&gt;&quot; &amp;
+          &quot;&lt;th style=&apos;text-align:left;&apos;&gt;Serial Number&lt;/th&gt;&quot; &amp;
+          &quot;&lt;th style=&apos;text-align:center; width:40px;&apos;&gt;P/F&lt;/th&gt;&quot; &amp;
+        &quot;&lt;/tr&gt;&quot; &amp;
+        IF(
+          ISBLANK({!VarPeripheralRowsHTML}),
+          &quot;&lt;tr&gt;&lt;td&gt;&amp;nbsp;&lt;/td&gt;&lt;td&gt;&lt;/td&gt;&lt;td&gt;&lt;/td&gt;&lt;/tr&gt;&quot;,
+          {!VarPeripheralRowsHTML}
+        ) &amp;
+      &quot;&lt;/table&gt;&quot; &amp;
+    &quot;&lt;/td&gt;&quot; &amp;
+
+    /* Right cell: Test Equipment table */
+    &quot;&lt;td style=&apos;width:50%; vertical-align:top; padding-left:6px;&apos;&gt;&quot; &amp;
+      &quot;&lt;table style=&apos;width:100%; border-collapse:collapse;&apos; border=&apos;1&apos; cellpadding=&apos;6&apos;&gt;&quot; &amp;
+        &quot;&lt;tr&gt;&quot; &amp;
+          &quot;&lt;th style=&apos;text-align:left;&apos;&gt;Test Equipment Model&lt;/th&gt;&quot; &amp;
+          &quot;&lt;th style=&apos;text-align:left;&apos;&gt;Test Equipment Serial Number&lt;/th&gt;&quot; &amp;
+          &quot;&lt;th style=&apos;text-align:left;&apos;&gt;Calibration Date&lt;/th&gt;&quot; &amp;
+        &quot;&lt;/tr&gt;&quot; &amp;
+        IF(
+          ISBLANK({!VarTestEquipmentRowsHTML}),
+          &quot;&lt;tr&gt;&lt;td&gt;&amp;nbsp;&lt;/td&gt;&lt;td&gt;&lt;/td&gt;&lt;td&gt;&lt;/td&gt;&lt;/tr&gt;&quot;,
+          {!VarTestEquipmentRowsHTML}
+        ) &amp;
+      &quot;&lt;/table&gt;&quot; &amp;
+    &quot;&lt;/td&gt;&quot; &amp;
+
+  &quot;&lt;/tr&gt;&quot; &amp;
+&quot;&lt;/table&gt;&quot; &amp;
+
+/* Corrective Action block below BOTH */
+IF(
+  ISBLANK({!PeripheralFooterHTML}),
+  &quot;&quot;,
+  &quot;&lt;div style=&apos;margin-top:6px;&apos;&gt;&quot; &amp;
+    &quot;&lt;table style=&apos;width:100%; border-collapse:collapse; font-family:Verdana, sans-serif; font-size:10px;&apos; border=&apos;1&apos; cellpadding=&apos;6&apos;&gt;&quot; &amp;
+      {!PeripheralFooterHTML} &amp;
+    &quot;&lt;/table&gt;&quot; &amp;
+  &quot;&lt;/div&gt;&quot;
+)</expression>
+    </formulas>
+    <formulas>
+        <name>USPeripheralRowHTML</name>
+        <dataType>String</dataType>
+        <expression>&quot;&lt;tr&gt;&quot; &amp;
+  &quot;&lt;td&gt;&quot; &amp; {!Loop_Through_Peripherals_to_Assign_HTML.Peripheral_Name__c} &amp; &quot;&lt;/td&gt;&quot; &amp;
+  &quot;&lt;td&gt;&quot; &amp; {!Loop_Through_Peripherals_to_Assign_HTML.Peripheral_Serial_Number__c} &amp; &quot;&lt;/td&gt;&quot; &amp;
+  &quot;&lt;td style=&apos;text-align:center;&apos;&gt;&quot; &amp;
+    CASE(
+      TEXT({!Loop_Through_Peripherals_to_Assign_HTML.Peripheral_P_F__c}),
+      &quot;Pass&quot;, &quot;P&quot;,
+      &quot;Fail&quot;, &quot;F&quot;,
+      &quot;Not Applicable&quot;, &quot;N/A&quot;,
+      &quot;No Selection&quot;, &quot;&quot;,
+      &quot;&quot;
+    ) &amp;
+  &quot;&lt;/td&gt;&quot; &amp;
+&quot;&lt;/tr&gt;&quot;</expression>
+    </formulas>
+    <formulas>
+        <name>USPeripheralTableHTML</name>
+        <dataType>String</dataType>
+        <expression>&quot;&lt;table style=&apos;width:100%; border-collapse:collapse; font-family:Arial; font-size:12px;&apos; border=&apos;1&apos;&gt;&quot; &amp;
+&quot;&lt;tr&gt;&quot; &amp;
+&quot;&lt;th&gt;Peripheral&lt;/th&gt;&quot; &amp;
+&quot;&lt;th&gt;Serial Number&lt;/th&gt;&quot; &amp;
+&quot;&lt;th&gt;P/F&lt;/th&gt;&quot; &amp;
+&quot;&lt;/tr&gt;&quot; &amp;
+{!VarPeripheralRowsHTML} &amp;
+&quot;&lt;/table&gt;&quot;</expression>
+    </formulas>
+    <formulas>
+        <name>USPrelimFormHTMLBody1</name>
+        <dataType>String</dataType>
+        <expression>/* Row 1 */
+&quot;&lt;tr&gt;&quot; &amp;
+&quot;&lt;td style=&apos;text-align:center;&apos;&gt;&quot; &amp;
+  CASE({!Get_Prelim_Checks.Discuss_Customer_Concerns__c},
+    &quot;Pass&quot;,&quot;P&quot;,&quot;Fail&quot;,&quot;F&quot;,&quot;Not Applicable&quot;,&quot;N/A&quot;,&quot;No Selection&quot;,&quot;&quot;,
+    &quot;&quot;
+  ) &amp;
+&quot;&lt;/td&gt;&lt;td&gt;Discuss Customer Concerns&lt;/td&gt;&quot; &amp;
+
+&quot;&lt;td style=&apos;text-align:center;&apos;&gt;&quot; &amp;
+  CASE({!varChemCheck},
+    &quot;Pass&quot;,&quot;P&quot;,&quot;Fail&quot;,&quot;F&quot;,&quot;Not Applicable&quot;,&quot;N/A&quot;,&quot;No Selection&quot;,&quot;&quot;,
+    &quot;&quot;
+  ) &amp;
+&quot;&lt;/td&gt;&lt;td&gt;Clean and inspect system interior&lt;/td&gt;&quot; &amp;
+
+&quot;&lt;td style=&apos;text-align:center;&apos;&gt;&quot; &amp;
+  CASE({!Get_Prelim_Checks.Check_Control_Panel_Keyboard__c},
+    &quot;Pass&quot;,&quot;P&quot;,&quot;Fail&quot;,&quot;F&quot;,&quot;Not Applicable&quot;,&quot;N/A&quot;,&quot;No Selection&quot;,&quot;&quot;,
+    &quot;&quot;
+  ) &amp;
+&quot;&lt;/td&gt;&lt;td&gt;Check Control Panel / Keyboard&lt;/td&gt;&quot; &amp;
+&quot;&lt;/tr&gt;&quot; &amp;
+
+/* Row 2 */
+&quot;&lt;tr&gt;&quot; &amp;
+&quot;&lt;td style=&apos;text-align:center;&apos;&gt;&quot; &amp;
+  CASE({!Get_Prelim_Checks.Verify_Power_Up__c},
+    &quot;Pass&quot;,&quot;P&quot;,&quot;Fail&quot;,&quot;F&quot;,&quot;Not Applicable&quot;,&quot;N/A&quot;,&quot;No Selection&quot;,&quot;&quot;,
+    &quot;&quot;
+  ) &amp;
+&quot;&lt;/td&gt;&lt;td&gt;Verify Power Up&lt;/td&gt;&quot; &amp;
+
+&quot;&lt;td style=&apos;text-align:center;&apos;&gt;&quot; &amp;
+  CASE({!Get_Prelim_Checks.Check_Systems_Fans__c},
+    &quot;Pass&quot;,&quot;P&quot;,&quot;Fail&quot;,&quot;F&quot;,&quot;Not Applicable&quot;,&quot;N/A&quot;,&quot;No Selection&quot;,&quot;&quot;,
+    &quot;&quot;
+  ) &amp;
+&quot;&lt;/td&gt;&lt;td&gt;Check system fans&lt;/td&gt;&quot; &amp;
+
+&quot;&lt;td style=&apos;text-align:center;&apos;&gt;&quot; &amp;
+  CASE({!Get_Prelim_Checks.Check_ECG_Cable_Signal__c},
+    &quot;Pass&quot;,&quot;P&quot;,&quot;Fail&quot;,&quot;F&quot;,&quot;Not Applicable&quot;,&quot;N/A&quot;,&quot;No Selection&quot;,&quot;&quot;,
+    &quot;&quot;
+  ) &amp;
+&quot;&lt;/td&gt;&lt;td&gt;Check ECG Cable / Signal&lt;/td&gt;&quot; &amp;
+&quot;&lt;/tr&gt;&quot; &amp;
+
+/* Row 3 */
+&quot;&lt;tr&gt;&quot; &amp;
+&quot;&lt;td style=&apos;text-align:center;&apos;&gt;&quot; &amp;
+  CASE({!Get_Prelim_Checks.Verify_Boot_Up_Process__c},
+    &quot;Pass&quot;,&quot;P&quot;,&quot;Fail&quot;,&quot;F&quot;,&quot;Not Applicable&quot;,&quot;N/A&quot;,&quot;No Selection&quot;,&quot;&quot;,
+    &quot;&quot;
+  ) &amp;
+&quot;&lt;/td&gt;&lt;td&gt;Verify Boot Process&lt;/td&gt;&quot; &amp;
+
+&quot;&lt;td style=&apos;text-align:center;&apos;&gt;&quot; &amp;
+  CASE({!Get_Prelim_Checks.Clean_Systems_Filters__c},
+    &quot;Pass&quot;,&quot;P&quot;,&quot;Fail&quot;,&quot;F&quot;,&quot;Not Applicable&quot;,&quot;N/A&quot;,&quot;No Selection&quot;,&quot;&quot;,
+    &quot;&quot;
+  ) &amp;
+&quot;&lt;/td&gt;&lt;td&gt;Clean system filters&lt;/td&gt;&quot; &amp;
+
+&quot;&lt;td style=&apos;text-align:center;&apos;&gt;&quot; &amp;
+  CASE({!Get_Prelim_Checks.Check_System_Battery__c},
+    &quot;Pass&quot;,&quot;P&quot;,&quot;Fail&quot;,&quot;F&quot;,&quot;Not Applicable&quot;,&quot;N/A&quot;,&quot;No Selection&quot;,&quot;&quot;,
+    &quot;&quot;
+  ) &amp;
+&quot;&lt;/td&gt;&lt;td&gt;Check System Battery&lt;/td&gt;&quot; &amp;
+&quot;&lt;/tr&gt;&quot; &amp;
+
+/* Row 4 */
+&quot;&lt;tr&gt;&quot; &amp;
+&quot;&lt;td style=&apos;text-align:center;&apos;&gt;&quot; &amp;
+  CASE({!Get_Prelim_Checks.Backup_Preset_Network_Settings__c},
+    &quot;Pass&quot;,&quot;P&quot;,&quot;Fail&quot;,&quot;F&quot;,&quot;Not Applicable&quot;,&quot;N/A&quot;,&quot;No Selection&quot;,&quot;&quot;,
+    &quot;&quot;
+  ) &amp;
+&quot;&lt;/td&gt;&lt;td&gt;Backup Preset &amp;amp; Network Settings&lt;/td&gt;&quot; &amp;
+
+&quot;&lt;td style=&apos;text-align:center;&apos;&gt;&quot; &amp;
+  CASE({!Get_Prelim_Checks.Clean_System_Monitor_Touch_Panel__c},
+    &quot;Pass&quot;,&quot;P&quot;,&quot;Fail&quot;,&quot;F&quot;,&quot;Not Applicable&quot;,&quot;N/A&quot;,&quot;No Selection&quot;,&quot;&quot;,
+    &quot;&quot;
+  ) &amp;
+&quot;&lt;/td&gt;&lt;td&gt;Clean system monitor / touch panel&lt;/td&gt;&quot; &amp;
+
+&quot;&lt;td style=&apos;text-align:center;&apos;&gt;&quot; &amp;
+  CASE({!Get_Prelim_Checks.Check_Network_Functionality__c},
+    &quot;Pass&quot;,&quot;P&quot;,&quot;Fail&quot;,&quot;F&quot;,&quot;Not Applicable&quot;,&quot;N/A&quot;,&quot;No Selection&quot;,&quot;&quot;,
+    &quot;&quot;
+  ) &amp;
+&quot;&lt;/td&gt;&lt;td&gt;Check Network functionality&lt;/td&gt;&quot; &amp;
+&quot;&lt;/tr&gt;&quot; &amp;
+&quot;&quot;</expression>
+    </formulas>
+    <formulas>
+        <name>USPrelimFormHTMLBody2</name>
+        <dataType>String</dataType>
+        <expression>/* Row 5 */
+&quot;&lt;tr&gt;&quot; &amp;
+&quot;&lt;td style=&apos;text-align:center;&apos;&gt;&quot; &amp;
+  CASE({!Get_Prelim_Checks.Verify_Remote_Diagnostics_If_Applicable__c},
+    &quot;Pass&quot;,&quot;P&quot;,&quot;Fail&quot;,&quot;F&quot;,&quot;Not Applicable&quot;,&quot;N/A&quot;,&quot;No Selection&quot;,&quot;&quot;,
+    &quot;&quot;
+  ) &amp;
+&quot;&lt;/td&gt;&lt;td&gt;Verify Remote Diagnostics if applicable&lt;/td&gt;&quot; &amp;
+
+&quot;&lt;td style=&apos;text-align:center;&apos;&gt;&quot; &amp;
+  CASE({!Get_Prelim_Checks.Clean_Trackball__c},
+    &quot;Pass&quot;,&quot;P&quot;,&quot;Fail&quot;,&quot;F&quot;,&quot;Not Applicable&quot;,&quot;N/A&quot;,&quot;No Selection&quot;,&quot;&quot;,
+    &quot;&quot;
+  ) &amp;
+&quot;&lt;/td&gt;&lt;td&gt;Clean trackball&lt;/td&gt;&quot; &amp;
+
+&quot;&lt;td style=&apos;text-align:center;&apos;&gt;&quot; &amp;
+  CASE({!Get_Prelim_Checks.Check_2D_PW_Color_Incl_Angio_Power__c},
+    &quot;Pass&quot;,&quot;P&quot;,&quot;Fail&quot;,&quot;F&quot;,&quot;Not Applicable&quot;,&quot;N/A&quot;,&quot;No Selection&quot;,&quot;&quot;,
+    &quot;&quot;
+  ) &amp;
+&quot;&lt;/td&gt;&lt;td&gt;Check 2D, PW, Color (Incl. Angio, Power Doppler)&lt;/td&gt;&quot; &amp;
+&quot;&lt;/tr&gt;&quot; &amp;
+
+/* Row 6 */
+&quot;&lt;tr&gt;&quot; &amp;
+&quot;&lt;td style=&apos;text-align:center;&apos;&gt;&quot; &amp;
+  CASE({!Get_Prelim_Checks.Review_Error_Logs_If_Applicable__c},
+    &quot;Pass&quot;,&quot;P&quot;,&quot;Fail&quot;,&quot;F&quot;,&quot;Not Applicable&quot;,&quot;N/A&quot;,&quot;No Selection&quot;,&quot;&quot;,
+    &quot;&quot;
+  ) &amp;
+&quot;&lt;/td&gt;&lt;td&gt;Review Error Logs if applicable&lt;/td&gt;&quot; &amp;
+
+&quot;&lt;td style=&apos;text-align:center;&apos;&gt;&quot; &amp;
+  CASE({!Get_Prelim_Checks.Hospital_Grade_Plug__c},
+    &quot;Pass&quot;,&quot;P&quot;,&quot;Fail&quot;,&quot;F&quot;,&quot;Not Applicable&quot;,&quot;N/A&quot;,&quot;No Selection&quot;,&quot;&quot;,
+    &quot;&quot;
+  ) &amp;
+&quot;&lt;/td&gt;&lt;td&gt;Hospital grade plug&lt;/td&gt;&quot; &amp;
+
+&quot;&lt;td style=&apos;text-align:center;&apos;&gt;&quot; &amp;
+  CASE({!Get_Prelim_Checks.Check_CW_Doppler__c},
+    &quot;Pass&quot;,&quot;P&quot;,&quot;Fail&quot;,&quot;F&quot;,&quot;Not Applicable&quot;,&quot;N/A&quot;,&quot;No Selection&quot;,&quot;&quot;,
+    &quot;&quot;
+  ) &amp;
+&quot;&lt;/td&gt;&lt;td&gt;Check CW Doppler&lt;/td&gt;&quot; &amp;
+&quot;&lt;/tr&gt;&quot; &amp;
+
+/* Row 7 */
+&quot;&lt;tr&gt;&quot; &amp;
+&quot;&lt;td style=&apos;text-align:center;&apos;&gt;&quot; &amp;
+  CASE({!Get_Prelim_Checks.Run_System_Diagnostics_If_Applicable__c},
+    &quot;Pass&quot;,&quot;P&quot;,&quot;Fail&quot;,&quot;F&quot;,&quot;Not Applicable&quot;,&quot;N/A&quot;,&quot;No Selection&quot;,&quot;&quot;,
+    &quot;&quot;
+  ) &amp;
+&quot;&lt;/td&gt;&lt;td&gt;Run System Diagnostics if available&lt;/td&gt;&quot; &amp;
+
+&quot;&lt;td style=&apos;text-align:center;&apos;&gt;&quot; &amp;
+  CASE({!Get_Prelim_Checks.Inspect_Acc_Periph_Security__c},
+    &quot;Pass&quot;,&quot;P&quot;,&quot;Fail&quot;,&quot;F&quot;,&quot;Not Applicable&quot;,&quot;N/A&quot;,&quot;No Selection&quot;,&quot;&quot;,
+    &quot;&quot;
+  ) &amp;
+&quot;&lt;/td&gt;&lt;td&gt;Inspect accessories, peripherals for proper security&lt;/td&gt;&quot; &amp;
+
+&quot;&lt;td style=&apos;text-align:center;&apos;&gt;&quot; &amp;
+  CASE({!Get_Prelim_Checks.Check_3D_4D__c},
+    &quot;Pass&quot;,&quot;P&quot;,&quot;Fail&quot;,&quot;F&quot;,&quot;Not Applicable&quot;,&quot;N/A&quot;,&quot;No Selection&quot;,&quot;&quot;,
+    &quot;&quot;
+  ) &amp;
+&quot;&lt;/td&gt;&lt;td&gt;Check 3D / 4D&lt;/td&gt;&quot; &amp;
+&quot;&lt;/tr&gt;&quot; &amp;
+
+/* Row 8 */
+&quot;&lt;tr&gt;&quot; &amp;
+&quot;&lt;td style=&apos;text-align:center;&apos;&gt;&quot; &amp;
+  CASE({!Get_Prelim_Checks.Verify_Database__c},
+    &quot;Pass&quot;,&quot;P&quot;,&quot;Fail&quot;,&quot;F&quot;,&quot;Not Applicable&quot;,&quot;N/A&quot;,&quot;No Selection&quot;,&quot;&quot;,
+    &quot;&quot;
+  ) &amp;
+&quot;&lt;/td&gt;&lt;td&gt;Verify Database&lt;/td&gt;&quot; &amp;
+
+&quot;&lt;td style=&apos;text-align:center;&apos;&gt;&quot; &amp;
+  CASE({!Get_Prelim_Checks.Wheels_Securely_Attached_Rotate_Proper__c},
+    &quot;Pass&quot;,&quot;P&quot;,&quot;Fail&quot;,&quot;F&quot;,&quot;Not Applicable&quot;,&quot;N/A&quot;,&quot;No Selection&quot;,&quot;&quot;,
+    &quot;&quot;
+  ) &amp;
+&quot;&lt;/td&gt;&lt;td&gt;Wheels securely attached and rotate properly&lt;/td&gt;&quot; &amp;
+
+&quot;&lt;td style=&apos;text-align:center;&apos;&gt;&quot; &amp;
+  CASE({!Get_Prelim_Checks.Check_Optimize_Monitor__c},
+    &quot;Pass&quot;,&quot;P&quot;,&quot;Fail&quot;,&quot;F&quot;,&quot;Not Applicable&quot;,&quot;N/A&quot;,&quot;No Selection&quot;,&quot;&quot;,
+    &quot;&quot;
+  ) &amp;
+&quot;&lt;/td&gt;&lt;td&gt;Check / optimize monitor&lt;/td&gt;&quot; &amp;
+&quot;&lt;/tr&gt;&quot; &amp;
+&quot;&quot;</expression>
+    </formulas>
+    <formulas>
+        <name>USPrelimFormHTMLFooter</name>
+        <dataType>String</dataType>
+        <expression>/* Row 9 */
+&quot;&lt;tr&gt;&quot; &amp;
+&quot;&lt;td style=&apos;text-align:center;&apos;&gt;&quot; &amp;
+  CASE({!Get_Prelim_Checks.Perform_Hard_Drive_Maintenance__c},
+    &quot;Pass&quot;,&quot;P&quot;,&quot;Fail&quot;,&quot;F&quot;,&quot;Not Applicable&quot;,&quot;N/A&quot;,&quot;No Selection&quot;,&quot;&quot;,
+    &quot;&quot;
+  ) &amp;
+&quot;&lt;/td&gt;&lt;td&gt;Perform hard drive maintenance&lt;/td&gt;&quot; &amp;
+
+&quot;&lt;td style=&apos;text-align:center;&apos;&gt;&quot; &amp;
+  CASE({!Get_Prelim_Checks.Wheel_Locks_Functional__c},
+    &quot;Pass&quot;,&quot;P&quot;,&quot;Fail&quot;,&quot;F&quot;,&quot;Not Applicable&quot;,&quot;N/A&quot;,&quot;No Selection&quot;,&quot;&quot;,
+    &quot;&quot;
+  ) &amp;
+&quot;&lt;/td&gt;&lt;td&gt;Wheel locks functional&lt;/td&gt;&quot; &amp;
+
+&quot;&lt;td style=&apos;text-align:center;&apos;&gt;&quot; &amp;
+  CASE({!Get_Prelim_Checks.Checked_Basic_Measurements__c},
+    &quot;Pass&quot;,&quot;P&quot;,&quot;Fail&quot;,&quot;F&quot;,&quot;Not Applicable&quot;,&quot;N/A&quot;,&quot;No Selection&quot;,&quot;&quot;,
+    &quot;&quot;
+  ) &amp;
+&quot;&lt;/td&gt;&lt;td&gt;Checked basic measurements&lt;/td&gt;&quot; &amp;
+&quot;&lt;/tr&gt;&quot; &amp;
+
+
+/* Row 10 */
+&quot;&lt;tr&gt;&quot; &amp;
+&quot;&lt;td style=&apos;text-align:center;&apos;&gt;&quot; &amp;
+  CASE({!Get_Prelim_Checks.Transducers_Cleaned_After_Each_Use__c},
+    &quot;Pass&quot;,&quot;P&quot;,&quot;Fail&quot;,&quot;F&quot;,&quot;Not Applicable&quot;,&quot;N/A&quot;,&quot;No Selection&quot;,&quot;&quot;,
+    &quot;&quot;
+  ) &amp;
+&quot;&lt;/td&gt;&lt;td&gt;Transducers cleaned after each use&lt;/td&gt;&quot; &amp;
+
+&quot;&lt;td style=&apos;text-align:center;&apos;&gt;&quot; &amp;
+  CASE({!Get_Prelim_Checks.All_Cords_and_Cables_Intact_No_Frays__c},
+    &quot;Pass&quot;,&quot;P&quot;,&quot;Fail&quot;,&quot;F&quot;,&quot;Not Applicable&quot;,&quot;N/A&quot;,&quot;No Selection&quot;,&quot;&quot;,
+    &quot;&quot;
+  ) &amp;
+&quot;&lt;/td&gt;&lt;td&gt;All cords and cables intact (no frays)&lt;/td&gt;&quot; &amp;
+
+&quot;&lt;td style=&apos;text-align:center;&apos;&gt;&quot; &amp;
+  CASE({!Get_Prelim_Checks.Check_Calibrate_Power_Supplies__c},
+    &quot;Pass&quot;,&quot;P&quot;,&quot;Fail&quot;,&quot;F&quot;,&quot;Not Applicable&quot;,&quot;N/A&quot;,&quot;No Selection&quot;,&quot;&quot;,
+    &quot;&quot;
+  ) &amp;
+&quot;&lt;/td&gt;&lt;td&gt;Check / calibrate power supplies&lt;/td&gt;&quot; &amp;
+&quot;&lt;/tr&gt;&quot; &amp;
+
+
+/* Row 11 (Preliminary blank column preserved) */
+&quot;&lt;tr&gt;&quot; &amp;
+&quot;&lt;td&gt;&lt;/td&gt;&lt;td&gt;&lt;/td&gt;&quot; &amp;
+
+&quot;&lt;td style=&apos;text-align:center;&apos;&gt;&quot; &amp;
+  CASE({!Get_Prelim_Checks.System_Articulations_Monitor_User_Inte__c},
+    &quot;Pass&quot;,&quot;P&quot;,&quot;Fail&quot;,&quot;F&quot;,&quot;Not Applicable&quot;,&quot;N/A&quot;,&quot;No Selection&quot;,&quot;&quot;,
+    &quot;&quot;
+  ) &amp;
+&quot;&lt;/td&gt;&lt;td&gt;System articulations (monitor, UI, etc.)&lt;/td&gt;&quot; &amp;
+
+&quot;&lt;td style=&apos;text-align:center;&apos;&gt;&quot; &amp;
+  CASE({!Get_Prelim_Checks.Unit_Inspected_and_Tested_Per_OEM_Servic__c},
+    &quot;Pass&quot;,&quot;P&quot;,&quot;Fail&quot;,&quot;F&quot;,&quot;Not Applicable&quot;,&quot;N/A&quot;,&quot;No Selection&quot;,&quot;&quot;,
+    &quot;&quot;
+  ) &amp;
+&quot;&lt;/td&gt;&lt;td&gt;Unit inspected and tested per OEM service manual&lt;/td&gt;&quot; &amp;
+&quot;&lt;/tr&gt;&quot; &amp;
+
+&quot;&lt;/table&gt;&quot;</expression>
+    </formulas>
+    <formulas>
+        <name>USPrelimFormHTMLHeader</name>
+        <dataType>String</dataType>
+        <expression>&quot;&lt;table border=&apos;1&apos; cellpadding=&apos;6&apos; cellspacing=&apos;0&apos; &quot; &amp;
+&quot;style=&apos;border-collapse:collapse; width:100%; font-family:Verdana, sans-serif; font-size:10px;&apos;&gt;&quot; &amp;
+
+&quot;&lt;tr&gt;&quot; &amp;
+&quot;&lt;th colspan=&apos;2&apos; style=&apos;font-size:13px; text-align:center;&apos;&gt;Preliminary&lt;/th&gt;&quot; &amp;
+&quot;&lt;th colspan=&apos;2&apos; style=&apos;font-size:13px; text-align:center;&apos;&gt;Inspection and Cleaning&lt;/th&gt;&quot; &amp;
+&quot;&lt;th colspan=&apos;2&apos; style=&apos;font-size:13px; text-align:center;&apos;&gt;Verification&lt;/th&gt;&quot; &amp;
+&quot;&lt;/tr&gt;&quot; &amp;
+
+&quot;&lt;tr&gt;&quot; &amp;
+&quot;&lt;th style=&apos;width:34px; text-align:center;&apos;&gt;P&lt;/th&gt;&lt;th style=&apos;text-align:left;&apos;&gt;Item&lt;/th&gt;&quot; &amp;
+&quot;&lt;th style=&apos;width:34px; text-align:center;&apos;&gt;P&lt;/th&gt;&lt;th style=&apos;text-align:left;&apos;&gt;Item&lt;/th&gt;&quot; &amp;
+&quot;&lt;th style=&apos;width:34px; text-align:center;&apos;&gt;P&lt;/th&gt;&lt;th style=&apos;text-align:left;&apos;&gt;Item&lt;/th&gt;&quot; &amp;
+&quot;&lt;/tr&gt;&quot;</expression>
+    </formulas>
+    <formulas>
+        <name>USPrelimFormHTMLTotal</name>
+        <dataType>String</dataType>
+        <expression>{!USPrelimFormHTMLHeader} &amp;
+{!USPrelimFormHTMLBody1} &amp;
+{!USPrelimFormHTMLBody2} &amp;
+{!USPrelimFormHTMLFooter}</expression>
+    </formulas>
+    <formulas>
+        <name>USTestEquipmentRowHTML</name>
+        <dataType>String</dataType>
+        <expression>&quot;&lt;tr&gt;&quot; &amp;
+  &quot;&lt;td&gt;&quot; &amp; {!Loop_Through_Test_Equipment_to_Assign_HTML.Test_Equipment_Model_Name__c} &amp; &quot;&lt;/td&gt;&quot; &amp;
+  &quot;&lt;td&gt;&quot; &amp; {!Loop_Through_Test_Equipment_to_Assign_HTML.Test_Equipment_Serial_Number__c} &amp; &quot;&lt;/td&gt;&quot; &amp;
+  &quot;&lt;td&gt;&quot; &amp;
+    IF(
+      ISBLANK({!Loop_Through_Test_Equipment_to_Assign_HTML.Test_Equipment_Calibration_Date__c}),
+      &quot;&quot;,
+      TEXT({!Loop_Through_Test_Equipment_to_Assign_HTML.Test_Equipment_Calibration_Date__c})
+    ) &amp;
+  &quot;&lt;/td&gt;&quot; &amp;
+&quot;&lt;/tr&gt;&quot;</expression>
+    </formulas>
+    <formulas>
+        <name>USTransducerRowHTML</name>
+        <dataType>String</dataType>
+        <expression>&quot;&lt;tr&gt;&quot; &amp;
+
+&quot;&lt;td&gt;&quot; &amp; {!Loop_Through_Transducers_to_Assign_HTML.Transducer_Model__c} &amp; &quot;&lt;/td&gt;&quot; &amp;
+
+&quot;&lt;td&gt;&quot; &amp; {!Loop_Through_Transducers_to_Assign_HTML.Transducer_S_N__c} &amp; &quot;&lt;/td&gt;&quot; &amp;
+
+&quot;&lt;td&gt;&quot; &amp; {!Loop_Through_Transducers_to_Assign_HTML.Transducer_Max_Depth__c} &amp; &quot;&lt;/td&gt;&quot; &amp;
+
+&quot;&lt;td&gt;&quot; &amp; {!Loop_Through_Transducers_to_Assign_HTML.AVG_Brightness_Across_Image__c} &amp; &quot;&lt;/td&gt;&quot; &amp;
+
+&quot;&lt;td&gt;&quot; &amp; {!Loop_Through_Transducers_to_Assign_HTML.No_Shadows_Caused_by_Dropout__c} &amp; &quot;&lt;/td&gt;&quot; &amp;
+
+&quot;&lt;td&gt;&quot; &amp; {!Loop_Through_Transducers_to_Assign_HTML.No_Brightness_Transitions__c} &amp; &quot;&lt;/td&gt;&quot; &amp;
+
+&quot;&lt;td&gt;&quot; &amp; {!Loop_Through_Transducers_to_Assign_HTML.Without_Cracks_or_Delamination__c} &amp; &quot;&lt;/td&gt;&quot; &amp;
+
+&quot;&lt;td&gt;&quot; &amp;
+IF(
+  ISBLANK({!Loop_Through_Transducers_to_Assign_HTML.Leak_Value_GND_Open_A__c}),
+  &quot;—&quot;,
+  TEXT(ROUND({!Loop_Through_Transducers_to_Assign_HTML.Leak_Value_GND_Open_A__c}, 2))
+) &amp;
+&quot;&lt;/td&gt;&quot; &amp;
+
+&quot;&lt;td&gt;&quot; &amp; TEXT({!Loop_Through_Transducers_to_Assign_HTML.P_F__c}) &amp; &quot;&lt;/td&gt;&quot; &amp;
+
+&quot;&lt;/tr&gt;&quot;</expression>
+    </formulas>
+    <formulas>
+        <name>USTransducerTableHTML</name>
+        <dataType>String</dataType>
+        <expression>&quot;&lt;table style=&apos;width:100%; border-collapse:collapse; font-family:Arial; font-size:12px;&apos; border=&apos;1&apos; cellpadding=&apos;6&apos;&gt;&quot; &amp;
+
+&quot;&lt;tr&gt;&quot; &amp;
+  &quot;&lt;th colspan=&apos;4&apos; style=&apos;text-align:center;&apos;&gt;&quot; &amp;
+    &quot;SYSTEM SENSITIVITY (Max. Depth)&quot; &amp;
+    &quot;&lt;br/&gt;&quot; &amp;
+    &quot;Turn off image enhancements. Within system sensitivity set up for visualizing echogenicity as deep as possible; select the maximum depth you can visualize the background echographic pattern.&quot; &amp;
+  &quot;&lt;/th&gt;&quot; &amp;
+  &quot;&lt;th colspan=&apos;5&apos; style=&apos;text-align:center;&apos;&gt;&quot; &amp;
+    &quot;UNIFORMITY&quot; &amp;
+    &quot;&lt;br/&gt;&quot; &amp;
+    &quot;Set up Main and TGC gain to obtain an uniform image, freeze the image and select the appropriate answer. If 1 Agree 2 Disagree, slight non uniformities present 3 Disagree, major non uniformities present.&quot; &amp;
+  &quot;&lt;/th&gt;&quot; &amp;
+&quot;&lt;/tr&gt;&quot; &amp;
+
+&quot;&lt;tr&gt;&quot; &amp;
+  &quot;&lt;th&gt;Transducer&lt;br/&gt;Model&lt;/th&gt;&quot; &amp;
+  &quot;&lt;th&gt;Transducer&lt;br/&gt;S/N&lt;/th&gt;&quot; &amp;
+  &quot;&lt;th&gt;Max.&lt;br/&gt;Depth (cm)&lt;/th&gt;&quot; &amp;
+  &quot;&lt;th&gt;Average Brightness is the same throughout image&lt;/th&gt;&quot; &amp;
+  &quot;&lt;th&gt;No vertical or radial shadows caused by dropout&lt;/th&gt;&quot; &amp;
+  &quot;&lt;th&gt;No brightness transitions between focal zones&lt;/th&gt;&quot; &amp;
+  &quot;&lt;th&gt;Intact (no cracks or delamination)&lt;/th&gt;&quot; &amp;
+  &quot;&lt;th&gt;Leakage Value GND Open (µA)&lt;/th&gt;&quot; &amp;
+  &quot;&lt;th&gt;P/F&lt;/th&gt;&quot; &amp;
+&quot;&lt;/tr&gt;&quot; &amp;
+
+{!VarTransducerRowsHTML} &amp;
+
+&quot;&lt;/table&gt;&quot;</expression>
+    </formulas>
+    <formulas>
+        <description>Comments saved in Trophon checklist</description>
+        <name>USTrophonComments</name>
+        <dataType>String</dataType>
+        <expression>
+&quot;&lt;table border=&apos;1&apos; cellpadding=&apos;6&apos; cellspacing=&apos;0&apos; &quot; &amp;
+&quot;style=&apos;border-collapse:collapse; width:100%; font-family:Verdana, sans-serif; font-size:10px;&apos;&gt;&quot; &amp;
+&quot;&lt;tr&gt;&lt;th colspan=&apos;1&apos; style=&apos;font-size:13px; text-align:center;&apos;&gt;Comments&lt;/th&gt;&lt;/tr&gt;&quot; &amp;
+
+&quot;&lt;tr&gt;&lt;td style=&apos;width:34px&apos;&gt;&quot; &amp; {!Get_Prelim_Trophon_Checks.Trophon_Comments__c} &amp; &quot;&lt;/td&gt;&lt;/tr&gt;&quot;</expression>
+    </formulas>
+    <formulas>
+        <name>USTrophonFindingsHTML</name>
+        <dataType>String</dataType>
+        <expression>&quot;&lt;table border=&apos;1&apos; cellpadding=&apos;6&apos; cellspacing=&apos;0&apos; &quot; &amp;
+&quot;style=&apos;border-collapse:collapse; width:100%; font-family:Verdana, sans-serif; font-size:10px;&apos;&gt;&quot; &amp;
+&quot;&lt;tr&gt;&lt;th colspan=&apos;4&apos; style=&apos;font-size:13px; text-align:center;&apos;&gt;Findings&lt;/th&gt;&lt;/tr&gt;&quot; &amp;
+
+&quot;&lt;tr&gt;&lt;td style=&apos;width:100px&apos;&gt;Cycle Count: &lt;/td&gt;&lt;td style=&apos;width:34px&apos;&gt;&quot; &amp; TEXT({!Get_Trophon_Findings.Cycle_Count__c}) &amp; &quot;&lt;/td&gt;&quot; &amp;
+&quot;&lt;td style=&apos;width:100px&apos;&gt;Neb Fan Min: &lt;/td&gt;&lt;td style=&apos;width:34px&apos;&gt;&quot; &amp; TEXT({!Get_Trophon_Findings.Neb_Fan_Min__c}) &amp; &quot;&lt;/td&gt;&lt;/tr&gt;&quot; &amp;
+
+&quot;&lt;tr&gt;&lt;td&gt;Strength: &lt;/td&gt;&lt;td&gt;&quot; &amp; TEXT({!Get_Trophon_Findings.Nebulizer_drive_strength__c}) &amp; &quot;&lt;/td&gt;&quot; &amp;
+&quot;&lt;td&gt;Neb Fan Max: &lt;/td&gt;&lt;td&gt;&quot; &amp; TEXT({!Get_Trophon_Findings.Neb_Fan_Max__c}) &amp; &quot;&lt;/td&gt;&lt;/tr&gt;&quot; &amp;
+
+&quot;&lt;tr&gt;&lt;td&gt;Dosage: &lt;/td&gt;&lt;td&gt;&quot; &amp; TEXT({!Get_Trophon_Findings.Trophon_Dosage__c}) &amp; &quot;&lt;/td&gt;&quot; &amp;
+&quot;&lt;td&gt;Destruct Fan Min: &lt;/td&gt;&lt;td&gt;&quot; &amp; TEXT({!Get_Trophon_Findings.Destruct_Fan_Min__c}) &amp; &quot;&lt;/td&gt;&lt;/tr&gt;&quot; &amp;
+
+&quot;&lt;tr&gt;&lt;td&gt;&lt;/td&gt;&lt;td&gt;&lt;/td&gt;&quot; &amp;
+&quot;&lt;td&gt;Destruct Fan Max: &lt;/td&gt;&lt;td&gt;&quot; &amp; TEXT({!Get_Trophon_Findings.Destruct_Fan_Max__c}) &amp; &quot;&lt;/td&gt;&lt;/tr&gt;&quot;  &amp;
+&quot;&lt;/table&gt;&quot;</expression>
+    </formulas>
+    <formulas>
+        <name>USTrophonPrelimHTMLBody1</name>
+        <dataType>String</dataType>
+        <expression>/* Row 1 */
+&quot;&lt;tr&gt;&quot; &amp;
+&quot;&lt;td style=&apos;text-align:center;&apos;&gt;&quot; &amp;
+  CASE({!Get_Prelim_Trophon_Checks.Operating_Environment__c},
+    &quot;Pass&quot;,&quot;P&quot;,&quot;Fail&quot;,&quot;F&quot;,&quot;Not Applicable&quot;,&quot;N/A&quot;,&quot;No Selection&quot;,&quot;&quot;,
+    &quot;&quot;
+  ) &amp;
+&quot;&lt;/td&gt;&lt;td&gt;Operating environments meets specs&lt;/td&gt;&quot; &amp;
+
+&quot;&lt;td style=&apos;text-align:center;&apos;&gt;&quot; &amp;
+  CASE({!Get_Prelim_Trophon_Checks.Check_Chemical_Leakage__c},
+    &quot;Pass&quot;,&quot;P&quot;,&quot;Fail&quot;,&quot;F&quot;,&quot;Not Applicable&quot;,&quot;N/A&quot;,&quot;No Selection&quot;,&quot;&quot;,
+    &quot;&quot;
+  ) &amp;
+&quot;&lt;/td&gt;&lt;td&gt;Inspect for any internal or external chemical leakage&lt;/td&gt;&quot; &amp;
+
+&quot;&lt;td style=&apos;text-align:center;&apos;&gt;&quot; &amp;
+  CASE({!Get_Prelim_Trophon_Checks.Run_disinfection_cycle__c},
+    &quot;Pass&quot;,&quot;P&quot;,&quot;Fail&quot;,&quot;F&quot;,&quot;Not Applicable&quot;,&quot;N/A&quot;,&quot;No Selection&quot;,&quot;&quot;,
+    &quot;&quot;
+  ) &amp;
+&quot;&lt;/td&gt;&lt;td&gt;Run disinfection cycle and verify test indicator&lt;/td&gt;&quot; &amp;
+&quot;&lt;/tr&gt;&quot; &amp;
+
+/* Row 2 */
+&quot;&lt;tr&gt;&quot; &amp;
+&quot;&lt;td style=&apos;text-align:center;&apos;&gt;&quot; &amp;
+  CASE({!Get_Prelim_Trophon_Checks.Self_Test__c},
+    &quot;Pass&quot;,&quot;P&quot;,&quot;Fail&quot;,&quot;F&quot;,&quot;Not Applicable&quot;,&quot;N/A&quot;,&quot;No Selection&quot;,&quot;&quot;,
+    &quot;&quot;
+  ) &amp;
+&quot;&lt;/td&gt;&lt;td&gt;Run self test&lt;/td&gt;&quot; &amp;
+
+&quot;&lt;td style=&apos;text-align:center;&apos;&gt;&quot; &amp;
+  CASE({!Get_Prelim_Trophon_Checks.Inspect_Tubing__c},
+    &quot;Pass&quot;,&quot;P&quot;,&quot;Fail&quot;,&quot;F&quot;,&quot;Not Applicable&quot;,&quot;N/A&quot;,&quot;No Selection&quot;,&quot;&quot;,
+    &quot;&quot;
+  ) &amp;
+&quot;&lt;/td&gt;&lt;td&gt;Inspect tubing for kinks, anchoring issues, and leakage&lt;/td&gt;&quot; &amp;
+
+&quot;&lt;td style=&apos;text-align:center;&apos;&gt;&quot; &amp;
+  CASE({!Get_Prelim_Trophon_Checks.Verify_Printer_Functionality__c},
+    &quot;Pass&quot;,&quot;P&quot;,&quot;Fail&quot;,&quot;F&quot;,&quot;Not Applicable&quot;,&quot;N/A&quot;,&quot;No Selection&quot;,&quot;&quot;,
+    &quot;&quot;
+  ) &amp;
+&quot;&lt;/td&gt;&lt;td&gt;Verify printer functionality&lt;/td&gt;&quot; &amp;
+&quot;&lt;/tr&gt;&quot; &amp;
+
+/* Row 3 (Preliminary blank column preserved) */
+&quot;&lt;tr&gt;&quot; &amp;
+&quot;&lt;td&gt;&lt;/td&gt;&lt;td&gt;&lt;/td&gt;&quot; &amp;
+
+&quot;&lt;td style=&apos;text-align:center;&apos;&gt;&quot; &amp;
+  CASE({!Get_Prelim_Trophon_Checks.Inspect_Board_and_Cable__c},
+    &quot;Pass&quot;,&quot;P&quot;,&quot;Fail&quot;,&quot;F&quot;,&quot;Not Applicable&quot;,&quot;N/A&quot;,&quot;No Selection&quot;,&quot;&quot;,
+    &quot;&quot;
+  ) &amp;
+&quot;&lt;/td&gt;&lt;td&gt;Inspect all board and cable connections&lt;/td&gt;&quot; &amp;
+
+&quot;&lt;td style=&apos;text-align:center;&apos;&gt;&quot; &amp;
+  CASE({!Get_Prelim_Trophon_Checks.Reset_PM_Date__c},
+    &quot;Pass&quot;,&quot;P&quot;,&quot;Fail&quot;,&quot;F&quot;,&quot;Not Applicable&quot;,&quot;N/A&quot;,&quot;No Selection&quot;,&quot;&quot;,
+    &quot;&quot;
+  ) &amp;
+&quot;&lt;/td&gt;&lt;td&gt;Reset PM date&lt;/td&gt;&quot; &amp;
+&quot;&lt;/tr&gt;&quot; &amp;
+
+/* Row 4 (Preliminary blank column preserved) */
+&quot;&lt;tr&gt;&quot; &amp;
+&quot;&lt;td&gt;&lt;/td&gt;&lt;td&gt;&lt;/td&gt;&quot; &amp;
+
+&quot;&lt;td style=&apos;text-align:center;&apos;&gt;&quot; &amp;
+  CASE({!Get_Prelim_Trophon_Checks.Inspect_chamber_door_lock__c},
+    &quot;Pass&quot;,&quot;P&quot;,&quot;Fail&quot;,&quot;F&quot;,&quot;Not Applicable&quot;,&quot;N/A&quot;,&quot;No Selection&quot;,&quot;&quot;,
+    &quot;&quot;
+  ) &amp;
+&quot;&lt;/td&gt;&lt;td&gt;Inspect chamber door locking mechanism&lt;/td&gt;&quot; &amp;
+
+&quot;&lt;td&gt;&lt;/td&gt;&lt;td&gt;&lt;/td&gt;&quot; &amp;
+&quot;&lt;/tr&gt;&quot; &amp;
+&quot;&quot;</expression>
+    </formulas>
+    <formulas>
+        <name>USTrophonPrelimHTMLBody2</name>
+        <dataType>String</dataType>
+        <expression>/* Row 5 */
+&quot;&lt;tr&gt;&lt;td&gt;&lt;/td&gt;&lt;td&gt;&lt;/td&gt;&quot; &amp;
+
+&quot;&lt;td style=&apos;text-align:center;&apos;&gt;&quot; &amp;
+  CASE({!Get_Prelim_Trophon_Checks.Inspect_chamber_door_lock__c},
+    &quot;Pass&quot;,&quot;P&quot;,&quot;Fail&quot;,&quot;F&quot;,&quot;Not Applicable&quot;,&quot;N/A&quot;,&quot;No Selection&quot;,&quot;&quot;,
+    &quot;&quot;
+  ) &amp;
+&quot;&lt;/td&gt;&lt;td&gt;Verify chamber door and handle functions properly&lt;/td&gt;&quot; &amp;
+
+&quot;&lt;td&gt;&lt;/td&gt;&lt;td&gt;&lt;/td&gt;&lt;/tr&gt;&quot; &amp;
+
+/* Row 6 */
+&quot;&lt;tr&gt;&lt;td&gt;&lt;/td&gt;&lt;td&gt;&lt;/td&gt;&quot; &amp;
+
+&quot;&lt;td style=&apos;text-align:center;&apos;&gt;&quot; &amp;
+  CASE({!Get_Prelim_Trophon_Checks.Clean_Waste_Tray_and_Panels__c},
+    &quot;Pass&quot;,&quot;P&quot;,&quot;Fail&quot;,&quot;F&quot;,&quot;Not Applicable&quot;,&quot;N/A&quot;,&quot;No Selection&quot;,&quot;&quot;,
+    &quot;&quot;
+  ) &amp;
+&quot;&lt;/td&gt;&lt;td&gt;Clean the waste tray and exterior panels&lt;/td&gt;&quot; &amp;
+
+&quot;&lt;td&gt;&lt;/td&gt;&lt;td&gt;&lt;/td&gt;&lt;/tr&gt;&quot; &amp;
+
+/* Row 7 */
+&quot;&lt;tr&gt;&lt;td&gt;&lt;/td&gt;&lt;td&gt;&lt;/td&gt;&quot; &amp;
+
+&quot;&lt;td style=&apos;text-align:center;&apos;&gt;&quot; &amp;
+  CASE({!Get_Prelim_Trophon_Checks.Inspect_Chamber_seal_probe_clamp_etc__c},
+    &quot;Pass&quot;,&quot;P&quot;,&quot;Fail&quot;,&quot;F&quot;,&quot;Not Applicable&quot;,&quot;N/A&quot;,&quot;No Selection&quot;,&quot;&quot;,
+    &quot;&quot;
+  ) &amp;
+&quot;&lt;/td&gt;&lt;td&gt;Inspect chamber seal, probe clamp, gland seal, loom sheath&lt;/td&gt;&quot; &amp;
+
+&quot;&lt;td&gt;&lt;/td&gt;&lt;td&gt;&lt;/td&gt;&lt;/tr&gt;&quot; &amp;
+
+/* Row 8 */
+&quot;&lt;tr&gt;&lt;td&gt;&lt;/td&gt;&lt;td&gt;&lt;/td&gt;&quot; &amp;
+
+&quot;&lt;td style=&apos;text-align:center;&apos;&gt;&quot; &amp;
+  CASE({!Get_Prelim_Trophon_Checks.Inspect_Chamber_Air_Path__c},
+    &quot;Pass&quot;,&quot;P&quot;,&quot;Fail&quot;,&quot;F&quot;,&quot;Not Applicable&quot;,&quot;N/A&quot;,&quot;No Selection&quot;,&quot;&quot;,
+    &quot;&quot;
+  ) &amp;
+&quot;&lt;/td&gt;&lt;td&gt;Inspect and clean the chamber air path, if needed&lt;/td&gt;&quot; &amp;
+
+&quot;&lt;td&gt;&lt;/td&gt;&lt;td&gt;&lt;/td&gt;&lt;/tr&gt;&quot; &amp;
+&quot;&lt;/table&gt;&quot;</expression>
+    </formulas>
+    <formulas>
+        <name>USTrophonPrelimHTMLHeader</name>
+        <dataType>String</dataType>
+        <expression>&quot;&lt;table border=&apos;1&apos; cellpadding=&apos;6&apos; cellspacing=&apos;0&apos; &quot; &amp;
+&quot;style=&apos;border-collapse:collapse; width:100%; font-family:Verdana, sans-serif; font-size:10px;&apos;&gt;&quot; &amp;
+
+&quot;&lt;tr&gt;&quot; &amp;
+&quot;&lt;th colspan=&apos;2&apos; style=&apos;font-size:13px; text-align:center;&apos;&gt;Preliminary&lt;/th&gt;&quot; &amp;
+&quot;&lt;th colspan=&apos;2&apos; style=&apos;font-size:13px; text-align:center;&apos;&gt;Inspection and Cleaning&lt;/th&gt;&quot; &amp;
+&quot;&lt;th colspan=&apos;2&apos; style=&apos;font-size:13px; text-align:center;&apos;&gt;Verification&lt;/th&gt;&quot; &amp;
+&quot;&lt;/tr&gt;&quot; &amp;
+
+&quot;&lt;tr&gt;&quot; &amp;
+&quot;&lt;th style=&apos;width:34px; text-align:center;&apos;&gt;P/F&lt;/th&gt;&lt;th style=&apos;text-align:left;&apos;&gt;Item&lt;/th&gt;&quot; &amp;
+&quot;&lt;th style=&apos;width:34px; text-align:center;&apos;&gt;P/F&lt;/th&gt;&lt;th style=&apos;text-align:left;&apos;&gt;Item&lt;/th&gt;&quot; &amp;
+&quot;&lt;th style=&apos;width:34px; text-align:center;&apos;&gt;P/F&lt;/th&gt;&lt;th style=&apos;text-align:left;&apos;&gt;Item&lt;/th&gt;&quot; &amp;
+&quot;&lt;/tr&gt;&quot;</expression>
+    </formulas>
+    <formulas>
+        <name>USTrophonPrelimHTMLTotal</name>
+        <dataType>String</dataType>
+        <expression>{!USTrophonPrelimHTMLHeader} &amp;
+{!USTrophonPrelimHTMLBody1} &amp;
+{!USTrophonPrelimHTMLBody2}</expression>
+    </formulas>
+    <formulas>
+        <name>VarTestEquipmentTableHTML</name>
+        <dataType>String</dataType>
+        <expression>&quot;&lt;table style=&apos;width:100%; border-collapse:collapse; font-family:Arial; font-size:12px;&apos; border=&apos;1&apos;&gt;&quot; &amp;
+&quot;&lt;tr&gt;&quot; &amp;
+&quot;&lt;th&gt;Test Equipment Model&lt;/th&gt;&quot; &amp;
+&quot;&lt;th&gt;Serial Number&lt;/th&gt;&quot; &amp;
+&quot;&lt;th&gt;Calibration Date&lt;/th&gt;&quot; &amp;
+&quot;&lt;/tr&gt;&quot; &amp;
+{!VarTestEquipmentRowsHTML} &amp;
+&quot;&lt;/table&gt;&quot;</expression>
+    </formulas>
+    <interviewLabel>US FSL - Trigger - Generate Checksheet HTML {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>US FSL - Trigger - Generate Checksheet HTML</label>
+    <loops>
+        <name>Loop_Through_Peripherals_to_Assign_HTML</name>
+        <label>Loop Through Peripherals to Assign HTML</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <collectionReference>Get_ALL_Peripherals</collectionReference>
+        <iterationOrder>Asc</iterationOrder>
+        <nextValueConnector>
+            <targetReference>Assign_Peripheral_HTML</targetReference>
+        </nextValueConnector>
+        <noMoreValuesConnector>
+            <targetReference>Get_Corrective_Action</targetReference>
+        </noMoreValuesConnector>
+    </loops>
+    <loops>
+        <name>Loop_Through_Test_Equipment_to_Assign_HTML</name>
+        <label>Loop Through Test Equipment to Assign HTML</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <collectionReference>Get_ALL_Test_Equipment</collectionReference>
+        <iterationOrder>Asc</iterationOrder>
+        <nextValueConnector>
+            <targetReference>Assign_Test_Equipment_HTML</targetReference>
+        </nextValueConnector>
+        <noMoreValuesConnector>
+            <targetReference>Update_Service_Appointment</targetReference>
+        </noMoreValuesConnector>
+    </loops>
+    <loops>
+        <name>Loop_Through_Transducers_to_Assign_HTML</name>
+        <label>Loop Through Transducers to Assign HTML</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <collectionReference>Get_ALL_Transducers</collectionReference>
+        <iterationOrder>Asc</iterationOrder>
+        <nextValueConnector>
+            <targetReference>Assign_Transducer_HTML</targetReference>
+        </nextValueConnector>
+        <noMoreValuesConnector>
+            <targetReference>Get_ALL_Peripherals</targetReference>
+        </noMoreValuesConnector>
+    </loops>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <recordLookups>
+        <name>Get_ALL_Peripherals</name>
+        <label>Get ALL Peripherals</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Loop_Through_Peripherals_to_Assign_HTML</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Type__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>Peripheral</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>Service_Appointment__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>Get_Service_Appointment.Id</elementReference>
+            </value>
+        </filters>
+        <getFirstRecordOnly>false</getFirstRecordOnly>
+        <object>Maintenance_Item__c</object>
+        <sortField>CreatedDate</sortField>
+        <sortOrder>Desc</sortOrder>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordLookups>
+        <name>Get_ALL_Test_Equipment</name>
+        <label>Get ALL Test Equipment</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Loop_Through_Test_Equipment_to_Assign_HTML</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Type__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>Test Equipment</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>Service_Appointment__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>Get_Service_Appointment.Id</elementReference>
+            </value>
+        </filters>
+        <getFirstRecordOnly>false</getFirstRecordOnly>
+        <object>Maintenance_Item__c</object>
+        <sortField>CreatedDate</sortField>
+        <sortOrder>Desc</sortOrder>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordLookups>
+        <name>Get_ALL_Transducers</name>
+        <label>Get ALL Transducers</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Loop_Through_Transducers_to_Assign_HTML</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Type__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>Transducer</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>Service_Appointment__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>$Record.Id</elementReference>
+            </value>
+        </filters>
+        <getFirstRecordOnly>false</getFirstRecordOnly>
+        <object>Maintenance_Item__c</object>
+        <sortField>CreatedDate</sortField>
+        <sortOrder>Desc</sortOrder>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordLookups>
+        <name>Get_Corrective_Action</name>
+        <label>Get Corrective Action</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Get_ALL_Test_Equipment</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Type__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>Corrective Action Note</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>Service_Appointment__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>Get_Service_Appointment.Id</elementReference>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>Maintenance_Item__c</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordLookups>
+        <name>Get_Electric_Test</name>
+        <label>Get Electric Test</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Assign_Electric_Test_Values</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Type__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>Electric Tests</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>Service_Appointment__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>$Record.Id</elementReference>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>Maintenance_Item__c</object>
+        <sortField>CreatedDate</sortField>
+        <sortOrder>Desc</sortOrder>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordLookups>
+        <name>Get_Prelim_Checks</name>
+        <label>Get Prelim Checks</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Assign_Prelim_Values</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Type__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>Preliminary Checks</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>Service_Appointment__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>$Record.Id</elementReference>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>Maintenance_Item__c</object>
+        <sortField>CreatedDate</sortField>
+        <sortOrder>Desc</sortOrder>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordLookups>
+        <name>Get_Prelim_Trophon_Checks</name>
+        <label>Get Prelim Trophon Checks</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Assign_Prelim_Trophon_Values</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Type__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>Preliminary  Trophon</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>Service_Appointment__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>$Record.Id</elementReference>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>Maintenance_Item__c</object>
+        <sortField>CreatedDate</sortField>
+        <sortOrder>Desc</sortOrder>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordLookups>
+        <name>Get_Service_Appointment</name>
+        <label>Get Service Appointment</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Get_Work_Order</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>$Record.Id</elementReference>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>ServiceAppointment</object>
+        <sortField>CreatedDate</sortField>
+        <sortOrder>Desc</sortOrder>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordLookups>
+        <name>Get_Trophon_Findings</name>
+        <label>Get Trophon Findings</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Assign_Findings_Values</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Type__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>Findings</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>Service_Appointment__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>$Record.Id</elementReference>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>Maintenance_Item__c</object>
+        <sortField>CreatedDate</sortField>
+        <sortOrder>Desc</sortOrder>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordLookups>
+        <name>Get_Work_Order</name>
+        <label>Get Work Order</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <assignNullValuesIfNoRecordsFound>true</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>PPM</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>$Record.Work_Order__c</elementReference>
+            </value>
+        </filters>
+        <object>WorkOrder</object>
+        <outputAssignments>
+            <assignToReference>varWOMakeModel</assignToReference>
+            <field>Make_Model__c</field>
+        </outputAssignments>
+    </recordLookups>
+    <recordUpdates>
+        <name>Update_Service_Appointment</name>
+        <label>Update Service Appointment</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Update_Work_Order_with_Output</targetReference>
+        </connector>
+        <inputAssignments>
+            <field>Checklist_Output_HTML_Tables__c</field>
+            <value>
+                <elementReference>USvarTextTemplateFinalHTML</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Generate_Service_Report_HTML__c</field>
+            <value>
+                <booleanValue>false</booleanValue>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>Update_Service_Appointment_for_Trophon</name>
+        <label>Update Service Appointment for Trophon</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Update_Work_Order_with_Trophon_Output</targetReference>
+        </connector>
+        <inputAssignments>
+            <field>Checklist_Output_HTML_Tables__c</field>
+            <value>
+                <elementReference>USvarTrophonTextFinalHTML</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Generate_Service_Report_HTML__c</field>
+            <value>
+                <booleanValue>false</booleanValue>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>Update_Work_Order_with_Output</name>
+        <label>Update Work Order with Output</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <inputAssignments>
+            <field>Checklist_Output_HTML_Tables__c</field>
+            <value>
+                <elementReference>USvarTextTemplateFinalHTML</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record.Work_Order__r</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>Update_Work_Order_with_Trophon_Output</name>
+        <label>Update Work Order with Trophon Output</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <inputAssignments>
+            <field>Checklist_Output_HTML_Tables__c</field>
+            <value>
+                <elementReference>USvarTrophonTextFinalHTML</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record.Work_Order__r</inputReference>
+    </recordUpdates>
+    <start>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Get_Service_Appointment</targetReference>
+        </connector>
+        <filterLogic>1 AND 2 AND (3 OR 4 OR 5)</filterLogic>
+        <filters>
+            <field>Generate_Service_Report_HTML__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </filters>
+        <filters>
+            <field>Generate_Service_Report_HTML__c</field>
+            <operator>IsChanged</operator>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </filters>
+        <filters>
+            <field>Country</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>United States</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>Country</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>US</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>Country</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>USA</stringValue>
+            </value>
+        </filters>
+        <object>ServiceAppointment</object>
+        <recordTriggerType>Update</recordTriggerType>
+        <triggerType>RecordAfterSave</triggerType>
+    </start>
+    <status>Active</status>
+    <textTemplates>
+        <name>USvarTextTemplateFinalHTML</name>
+        <isViewedAsPlainText>false</isViewedAsPlainText>
+        <text>&lt;p&gt;{!VarPrelimChecks}&lt;/p&gt;&lt;p&gt;{!VarElectricTests}&lt;/p&gt;&lt;p&gt;{!USTransducerTableHTML}&lt;/p&gt;&lt;p&gt;{!USPeripheralAndEquipmentSideBySideHTML}&lt;/p&gt;</text>
+    </textTemplates>
+    <textTemplates>
+        <name>USvarTrophonTextFinalHTML</name>
+        <isViewedAsPlainText>false</isViewedAsPlainText>
+        <text>&lt;p&gt;{!VarPrelimChecks}{!varFindings}{!varTrophonComments}&lt;/p&gt;</text>
+    </textTemplates>
+    <variables>
+        <name>varChemCheck</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>true</isOutput>
+    </variables>
+    <variables>
+        <name>VarElectricTests</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>true</isOutput>
+    </variables>
+    <variables>
+        <name>varFindings</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>true</isOutput>
+    </variables>
+    <variables>
+        <name>VarPeripheralRowsHTML</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <name>VarPrelimChecks</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>true</isOutput>
+    </variables>
+    <variables>
+        <name>VarTestEquipmentRowsHTML</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <name>VarTransducerRowsHTML</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <name>varTrophonComments</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>true</isOutput>
+    </variables>
+    <variables>
+        <name>varWOMakeModel</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+</Flow>

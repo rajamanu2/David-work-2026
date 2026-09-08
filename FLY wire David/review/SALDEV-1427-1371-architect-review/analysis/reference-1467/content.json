@@ -1,0 +1,463 @@
+{
+  "source": "C:\\Users\\LIKKI\\Documents\\ChatGPT\\david\\output\\documents\\SALDEV-1467-architect-review.docx",
+  "sha256": "171d761675ed3346307f26cbb0688dcb2c5e285bf4a788b0c6094ca188e1c644",
+  "sections": 1,
+  "paragraphs": [
+    {
+      "index": 0,
+      "style": "Normal",
+      "text": "ARCHITECT REVIEW"
+    },
+    {
+      "index": 1,
+      "style": "Normal",
+      "text": "SALDEV-1467 | Resolve Apex Error on Opportunity Line ID Flow"
+    },
+    {
+      "index": 2,
+      "style": "Normal",
+      "text": "FlywirePartial | Read-only implementation review and check-only validation"
+    },
+    {
+      "index": 5,
+      "style": "Heading 1",
+      "text": "Acceptance outcome"
+    },
+    {
+      "index": 8,
+      "style": "Heading 1",
+      "text": "Runtime-risk path"
+    },
+    {
+      "index": 9,
+      "style": "Normal",
+      "text": "The obsolete Flow removes one writer, but the replacement OLI after-insert trigger still performs cross-object DML on SBQQ__QuoteLine__c and can re-enter CPQ after-update processing."
+    },
+    {
+      "index": 11,
+      "style": "Normal",
+      "text": "Figure 1. SALDEV-1467 current OLI-to-Quote-Line execution path"
+    },
+    {
+      "index": 14,
+      "style": "Heading 1",
+      "text": "Detailed review findings"
+    },
+    {
+      "index": 15,
+      "style": "Heading 2",
+      "text": "1. Check-only validation evidence"
+    },
+    {
+      "index": 17,
+      "style": "Heading 2",
+      "text": "2. Exact approval blockers"
+    },
+    {
+      "index": 19,
+      "style": "Heading 2",
+      "text": "3. Code and test-quality findings"
+    },
+    {
+      "index": 22,
+      "style": "Heading 1",
+      "text": "Safe replacement and proof model"
+    },
+    {
+      "index": 23,
+      "style": "Normal",
+      "text": "The fix should establish identifiers before CPQ-managed after-update work, make mapping deterministic for duplicate bundle structures, surface partial DML failures, and test every lifecycle outcome explicitly."
+    },
+    {
+      "index": 25,
+      "style": "Normal",
+      "text": "Figure 2. SALDEV-1467 acceptance-evidence gap and required scenario matrix"
+    },
+    {
+      "index": 26,
+      "style": "Normal",
+      "text": "Architect interpretation: the implementation is not release-ready. Passing tests show executable code, but the failed coverage gate and unchanged cross-object DML pattern leave both deployment and runtime acceptance unresolved."
+    },
+    {
+      "index": 28,
+      "style": "Heading 1",
+      "text": "Required approval gates"
+    },
+    {
+      "index": 30,
+      "style": "Heading 1",
+      "text": "Ready-to-paste architect response"
+    },
+    {
+      "index": 32,
+      "style": "Heading 2",
+      "text": "Evidence boundary"
+    },
+    {
+      "index": 33,
+      "style": "Normal",
+      "text": "This assessment uses the SALDEV-1467 ticket text, read-only FlywirePartial identity verification, scoped metadata retrieval, focused Apex tests, source inspection, and a check-only validation. No records, deployment, activation, quick deploy, or org metadata changes were performed."
+    }
+  ],
+  "tables": [
+    [
+      {
+        "row": 0,
+        "cells": [
+          "Source",
+          "FlywirePartial | Sandbox org 00DhG0000000jOXUAY"
+        ]
+      },
+      {
+        "row": 1,
+        "cells": [
+          "Scope",
+          "1 obsolete Flow | 3 triggers | 6 Apex classes/tests"
+        ]
+      },
+      {
+        "row": 2,
+        "cells": [
+          "Review date",
+          "28 August 2026"
+        ]
+      },
+      {
+        "row": 3,
+        "cells": [
+          "Check-only",
+          "Failed | Job 0AfhG000001ZTplSAG | 10/10 components, 16/16 tests"
+        ]
+      },
+      {
+        "row": 4,
+        "cells": [
+          "Decision",
+          "NO-GO - Changes Requested before QA or promotion"
+        ]
+      },
+      {
+        "row": 5,
+        "cells": [
+          "Boundary",
+          "No records, deployment, activation, or org metadata were changed"
+        ]
+      }
+    ],
+    [
+      {
+        "row": 0,
+        "cells": [
+          "ARCHITECT DECISION\nDo not approve SALDEV-1467. The scoped package compiles and all specified tests pass, but check-only validation fails coverage gates and the replacement retains the original cross-object Quote Line DML risk from an OLI after-insert context."
+        ]
+      }
+    ],
+    [
+      {
+        "row": 0,
+        "cells": [
+          "#",
+          "Scope",
+          "Result",
+          "Evidence"
+        ]
+      },
+      {
+        "row": 1,
+        "cells": [
+          "1",
+          "Original Flow",
+          "Verified",
+          "copying_of_Opportunity_Line_Id_unique_identifier has status Obsolete in FlywirePartial."
+        ]
+      },
+      {
+        "row": 2,
+        "cells": [
+          "2",
+          "Stepped products",
+          "Partial",
+          "Mapping logic exists, but tests prove only non-null/fallback values rather than exact cross-group identity for all bundle slots."
+        ]
+      },
+      {
+        "row": 3,
+        "cells": [
+          "3",
+          "Price-change clone",
+          "Not proven",
+          "The amendment method is invoked, but no assertion confirms the cloned line retains the source Opportunity Line ID."
+        ]
+      },
+      {
+        "row": 4,
+        "cells": [
+          "4",
+          "Other clone",
+          "Not proven",
+          "No test proves an ordinary clone receives a new Opportunity Line ID or remains independent of the source line."
+        ]
+      },
+      {
+        "row": 5,
+        "cells": [
+          "5",
+          "New / Amend / Renew",
+          "Gap",
+          "Fixtures mention these contexts, but end-to-end cloning outcomes are not asserted for each lifecycle path."
+        ]
+      },
+      {
+        "row": 6,
+        "cells": [
+          "6",
+          "Error-free quoting",
+          "Blocked",
+          "Synthetic tests pass; no representative bundle test proves the CPQ async collision is eliminated."
+        ]
+      }
+    ],
+    [
+      {
+        "row": 0,
+        "cells": [
+          "DESIGN READING\nGreen is verified. Amber needs stronger evidence. Red blocks approval or can recreate the original failure mode."
+        ]
+      }
+    ],
+    [
+      {
+        "row": 0,
+        "cells": [
+          "Metric",
+          "Result",
+          "Evidence"
+        ]
+      },
+      {
+        "row": 1,
+        "cells": [
+          "Validation job",
+          "Failed",
+          "0AfhG000001ZTplSAG; checkOnly=true; rollbackOnError=true; no component or test errors."
+        ]
+      },
+      {
+        "row": 2,
+        "cells": [
+          "Payload",
+          "10 components",
+          "1 Flow, 3 triggers, 6 Apex classes/tests; all 10 compiled successfully."
+        ]
+      },
+      {
+        "row": 3,
+        "cells": [
+          "Specified tests",
+          "16 passed",
+          "OpportunityLineItemTriggerHandlerTest (2), QuoteLineTriggerHandleTest (8), QuoteLineGroupTriggerTest (6)."
+        ]
+      },
+      {
+        "row": 4,
+        "cells": [
+          "Coverage gates",
+          "Failed",
+          "QuoteLineTrigger 69.70%; QuoteLineGroupAsyncHelper 7.69%; each selected component requires at least 75%."
+        ]
+      },
+      {
+        "row": 5,
+        "cells": [
+          "Focused test run",
+          "Passed",
+          "Job 707hG00000LhjKT; 100% pass rate; org-wide coverage 30%."
+        ]
+      }
+    ],
+    [
+      {
+        "row": 0,
+        "cells": [
+          "Blocker",
+          "Impact",
+          "Exact evidence"
+        ]
+      },
+      {
+        "row": 1,
+        "cells": [
+          "Deployment coverage",
+          "Hard fail",
+          "QuoteLineTrigger has 33 executable locations with 10 uncovered; helper has 13 with 12 uncovered."
+        ]
+      },
+      {
+        "row": 2,
+        "cells": [
+          "Cross-object DML",
+          "Runtime risk",
+          "OLI after insert calls Database.update on Quote Lines, re-entering the managed SBQQ after-update lifecycle."
+        ]
+      },
+      {
+        "row": 3,
+        "cells": [
+          "Silent failure handling",
+          "Data risk",
+          "Database.update(..., false) SaveResults are ignored; guard reset is not protected by finally."
+        ]
+      }
+    ],
+    [
+      {
+        "row": 0,
+        "cells": [
+          "Area",
+          "Status",
+          "Evidence / required action"
+        ]
+      },
+      {
+        "row": 1,
+        "cells": [
+          "Fallback overload",
+          "Defect",
+          "When relationship data is absent, processOliIdSync(List) adds Quote Line IDs to the quote-ID set; its test asserts only true."
+        ]
+      },
+      {
+        "row": 2,
+        "cells": [
+          "Ramp key design",
+          "Risk",
+          "Before-insert mapping keys only quote plus product and uses ordered slots; repeated products in multiple bundles can be ambiguous."
+        ]
+      },
+      {
+        "row": 3,
+        "cells": [
+          "Exception handling",
+          "Risk",
+          "copyOpportunityLineIdOnRamp catches all exceptions and only debugs, allowing quoting to continue with missing IDs."
+        ]
+      },
+      {
+        "row": 4,
+        "cells": [
+          "Acceptance assertions",
+          "Missing",
+          "No exact ID equality/inequality assertions for price-change clones, ordinary clones, and all New/Amend/Renew paths."
+        ]
+      },
+      {
+        "row": 5,
+        "cells": [
+          "SALDEV-1427 overlap",
+          "Unscoped",
+          "The ticket says part of SALDEV-1427 is covered, but the promoted component/test boundary and ownership are not defined."
+        ]
+      }
+    ],
+    [
+      {
+        "row": 0,
+        "cells": [
+          "Gate",
+          "Required action",
+          "Owner",
+          "Evidence needed"
+        ]
+      },
+      {
+        "row": 1,
+        "cells": [
+          "1",
+          "Remove re-entry risk",
+          "Developer / CPQ architect",
+          "Redesign the OLI-to-Quote-Line sync so the fix does not issue Quote Line DML from OLI after insert in the CPQ transaction."
+        ]
+      },
+      {
+        "row": 2,
+        "cells": [
+          "2",
+          "Clear coverage gates",
+          "Developer",
+          "Raise QuoteLineTrigger and QuoteLineGroupAsyncHelper to at least 75% in the exact deployment payload."
+        ]
+      },
+      {
+        "row": 3,
+        "cells": [
+          "3",
+          "Assert acceptance rules",
+          "Developer / QA",
+          "Add exact same-ID and new-ID assertions for stepped, price-change, and ordinary clones across New, Amend, and Renew."
+        ]
+      },
+      {
+        "row": 4,
+        "cells": [
+          "4",
+          "Exercise CPQ scale",
+          "CPQ QA",
+          "Run representative large bundles and confirm no AsyncException, recursion, SOQL 101, or silent SaveResult failures."
+        ]
+      },
+      {
+        "row": 5,
+        "cells": [
+          "5",
+          "Bound SALDEV-1427",
+          "Product owner / Architect",
+          "Document which ramp-ID behavior belongs to SALDEV-1467 versus SALDEV-1427 and deploy/test them as one controlled dependency set."
+        ]
+      },
+      {
+        "row": 6,
+        "cells": [
+          "6",
+          "Revalidate and QA",
+          "Release manager / QA",
+          "Require a clean 10/10 check-only result, then execute named New/Amend/Renew scenarios with field-level evidence."
+        ]
+      }
+    ],
+    [
+      {
+        "row": 0,
+        "cells": [
+          "STORY COMMENT\nArchitect review completed for SALDEV-1467 in FlywirePartial. Changes Requested / NO-GO. The original Flow is Obsolete and the scoped Apex compiles, but check-only job 0AfhG000001ZTplSAG failed: all 10 components compiled and all 16 specified test methods passed, yet QuoteLineTrigger is only 69.70% covered and QuoteLineGroupAsyncHelper is 7.69%, below the 75% requirement. More importantly, FWOpportunityLineItemTrigger still runs after insert and OpportunityLineItemTriggerHandler performs Database.update on SBQQ__QuoteLine__c, so the replacement retains the same CPQ after-update re-entry pattern implicated in the original AsyncException. SaveResults are not inspected, one fallback path treats a Quote Line ID as a Quote ID, and the tests do not assert the required same-ID/new-ID outcomes across New, Amendment, and Renewal cloning. Redesign the cross-object sync, fix coverage, add exact lifecycle assertions, clarify the SALDEV-1427 dependency, and repeat check-only plus representative CPQ bundle QA before approval."
+        ]
+      }
+    ]
+  ],
+  "inline_shapes": 2,
+  "package_media": [
+    {
+      "part": "word/media/image1.png",
+      "file": "C:\\Users\\LIKKI\\Documents\\ChatGPT\\david\\review\\SALDEV-1427-1371-architect-review\\analysis\\reference-1467\\media\\image1.png",
+      "bytes": 129304,
+      "sha256": "5ee197dc80e3c77ae87f1fa3bb5d6c82596d78ba973aeb12d7100e2f8621e568"
+    },
+    {
+      "part": "word/media/image2.png",
+      "file": "C:\\Users\\LIKKI\\Documents\\ChatGPT\\david\\review\\SALDEV-1427-1371-architect-review\\analysis\\reference-1467\\media\\image2.png",
+      "bytes": 115020,
+      "sha256": "ab70d28d2a17d0076875664908b514af4d1efc91baef87779b4b83dae41032f6"
+    },
+    {
+      "part": "word/media/image3.png",
+      "file": "C:\\Users\\LIKKI\\Documents\\ChatGPT\\david\\review\\SALDEV-1427-1371-architect-review\\analysis\\reference-1467\\media\\image3.png",
+      "bytes": 107611,
+      "sha256": "a622e63739fc102cbddaea2e7aa3bd9e773fd7ddd748ec372eefc3a59104ee49"
+    },
+    {
+      "part": "word/media/image4.png",
+      "file": "C:\\Users\\LIKKI\\Documents\\ChatGPT\\david\\review\\SALDEV-1427-1371-architect-review\\analysis\\reference-1467\\media\\image4.png",
+      "bytes": 96819,
+      "sha256": "01a111921bb0d9f44b6f36c620ee5b35b6d8a2a81aef8103a39bb2863e5f9cfb"
+    }
+  ]
+}

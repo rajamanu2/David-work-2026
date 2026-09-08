@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Tax_ID_Value_Restrictions</fullName>
+    <active>true</active>
+    <description>Created for ticket SALDEV-958</description>
+    <errorConditionFormula>AND(
+ $Profile.Name  &lt;&gt; &quot;System Administrator&quot;,
+OR(
+REGEX( Tax_Id__c , &quot;.*-.*&quot;), 
+REGEX(Tax_Id__c, &quot;^0+$&quot;)
+)
+)</errorConditionFormula>
+    <errorDisplayField>Tax_Id__c</errorDisplayField>
+    <errorMessage>Your Tax Id can not contain a &quot;-&quot; or only 0&apos;s. Please adjust.
+If you believe this account truly doesn&apos;t have a Tax / VAT / GST / etc Id, please submit Salesforce Jira ticket</errorMessage>
+</ValidationRule>

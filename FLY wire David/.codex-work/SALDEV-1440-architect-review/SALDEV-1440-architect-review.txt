@@ -1,0 +1,71 @@
+FILE: C:\Users\LIKKI\Documents\ChatGPT\david\output\documents\SALDEV-1440-architect-review.docx
+PARAGRAPHS: 34
+TABLES: 9
+P1 [Normal]: ARCHITECT REVIEW
+P2 [Normal]: SALDEV-1440 | Distinguish Stepped-Up and Standard Quote Groups
+P3 [Normal]: Flywire Partial | Architect verification and check-only readiness assessment
+P6 [Heading 1]: Acceptance outcome
+P9 [Heading 1]: Deployment readiness path
+P10 [Normal]: The live Partial configuration and local story source now align. The scoped dry run passed unchanged; promotion to another org still requires its own package and validation.
+P12 [Normal]: Figure 1. SALDEV-1440 Partial verification path
+P15 [Heading 1]: Detailed dry-run findings
+P16 [Heading 2]: 1. Check-only deployment evidence
+P18 [Heading 2]: 2. Exact configuration evidence
+P20 [Heading 2]: 3. Scope boundaries and follow-ups
+P23 [Heading 1]: Quote group classification architecture
+P24 [Normal]: The user-visible checkbox selects the group use case while the shared field set and permission set expose the control consistently in the Quote Line Editor.
+P26 [Normal]: Figure 2. SALDEV-1440 quote group classification and control model
+P27 [Normal]: Architect interpretation: the classification control is fully exposed in Partial. Ramped and standard paths share the same QLE and permission foundation, while deeper duplicate behavior remains linked to SALDEV-1404.
+P29 [Heading 1]: Required handoff gates
+P31 [Heading 1]: Ready-to-paste architect response
+P33 [Heading 2]: Evidence boundary
+P34 [Normal]: This assessment combines the SALDEV-1440 ticket export, scoped live metadata retrieval, local source comparison, and a FlywirePartial check-only validation. No records, deployment, activation, quick deploy, or org metadata changes were performed.
+TABLE 1 (6x2)
+R1: Source | FlywirePartial | Org 00DhG0000000jOXUAY
+R2: Local source | DX source synchronized from FlywirePartial
+R3: Review date | 26 August 2026
+R4: Check-only | Succeeded | Job 0AfhG000001XgKrSAK | 1/1 validated
+R5: Decision | GO - Close in Partial; validate separately before promotion
+R6: Boundary | Read-only retrieval and check-only validation; no deployment or activation
+TABLE 2 (1x1)
+R1: ARCHITECT DECISION Approve SALDEV-1440 for closure in Partial. The checkbox, Line Editor visibility, and sales permissions are present, and the scoped field-set dry run passed unchanged. Keep SALDEV-1404 testing and cloning observations as linked follow-up scope.
+TABLE 3 (7x4)
+R1: # | Scope | Result | Evidence
+R2: 1 | Backend indicator | Pass | Allow Product Ramping exists on SBQQ__QuoteLineGroup__c as a checkbox with default false.
+R3: 2 | QLE visibility | Pass | SBQQ__LineEditor displays the checkbox with effective start, subscription term, and effective end.
+R4: 3 | Sales access | Pass | CPQ Sales Permissions grants readable=true and editable=true for the indicator.
+R5: 4 | Ramped cloning | Pass | Partial review confirmed cloning saves once the groups cover the full contract timeframe.
+R6: 5 | Standard grouping | Pass | Different products and the same product with different Ship To locations were confirmed.
+R7: 6 | Scope separation | Scoped pass | SALDEV-1404 owns deeper duplicate testing; fee carry-over and later-group roll-down are separate observations.
+TABLE 4 (1x1)
+R1: DESIGN READING Green is verified in Partial. Blue is synchronized source. Amber remains linked follow-up scope.
+TABLE 5 (6x3)
+R1: Metric | Result | Evidence
+R2: Job | 0AfhG000001XgKrSAK | checkOnly=true; rollbackOnError=true; NoTestRun
+R3: Payload | 1 component / 3 files | FieldSet: SBQQ__QuoteLineGroup__c.SBQQ__LineEditor
+R4: Validated | 1 | The field set validated successfully and was reported unchanged against FlywirePartial.
+R5: Failed | 0 | No component failures or warnings were returned.
+R6: Tests | 0 | Metadata-only dry run; no Apex or record writes were in scope.
+TABLE 6 (4x3)
+R1: Configuration | Result | Live evidence
+R2: Backend indicator | Verified | Allow Product Ramping is a checkbox, defaults false, and identifies stepped-up groups.
+R3: Line Editor field set | Verified | Displayed fields include the indicator, effective dates, and subscription term.
+R4: Sales permission | Verified | CPQ Sales Permissions grants both read and edit access to the indicator.
+TABLE 7 (6x3)
+R1: Area | Status | Evidence / action
+R2: Current Partial org | Ready | Field, field-set placement, and permission access are present in the live sandbox.
+R3: Local source sync | Completed | The missing SBQQ__LineEditor metadata was added locally and exactly matches the live retrieval.
+R4: Duplicate matrix | Linked | SALDEV-1404 owns detailed New Business, Amendment, and Renewal duplicate validation.
+R5: Clone observations | Separate | One-time fee carry-over and no automatic later-group product roll-down should be tracked separately.
+R6: Promotion target | Not assessed | No destination org was supplied; repeat the scoped retrieve and check-only validation before promotion.
+TABLE 8 (7x4)
+R1: Gate | Required action | Owner | Evidence needed
+R2: 1 | Close SALDEV-1440 in Partial | Product owner | Attach the architect response and move the story from Unresolved after approval.
+R3: 2 | Maintain SALDEV-1404 linkage | QA / Developer | Complete the duplicate matrix for New Business, Amendment, and Renewal.
+R4: 3 | Log cloning observations | Product owner | Track one-time fee carry-over and later-group product roll-down outside this story.
+R5: 4 | Promote scoped metadata | Release manager | Include the checkbox field, Line Editor field set, and CPQ Sales Permissions only.
+R6: 5 | Validate destination org | Release manager | Require a clean three-component check-only result before deployment approval.
+R7: 6 | Execute business smoke test | Sales Ops / QA | Test ramped cloning, standard groups, and same-product groups with different Ship To values.
+TABLE 9 (1x1)
+R1: STORY COMMENT Architect review completed for SALDEV-1440 in FlywirePartial. GO for closure in Partial: Allow Product Ramping exists, is visible in the Quote Line Editor, and is editable through CPQ Sales Permissions. The scoped field-set dry run succeeded unchanged (job 0AfhG000001XgKrSAK, 1 of 1 component, no deployment). Partial review evidence covers ramped cloning, standard groups, and same products with different Ship To locations. SALDEV-1404 remains responsible for the deeper duplicate matrix; one-time fee carry-over and later-group product roll-down should be tracked separately. Before promotion, deploy only the three story components, validate the destination org, and execute the business smoke tests.
+SECTION 1 FOOTER: FlywirePartial review  |  Page 1

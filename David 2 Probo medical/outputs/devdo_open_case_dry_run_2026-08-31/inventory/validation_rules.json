@@ -1,0 +1,4062 @@
+{
+  "records": [
+    {
+      "attributes": {
+        "type": "ValidationRule",
+        "url": "/services/data/v67.0/tooling/sobjects/ValidationRule/03dRo000000BumtIAC"
+      },
+      "Id": "03dRo000000BumtIAC",
+      "ValidationName": "Absence_Color_HEX_Format",
+      "Active": true,
+      "EntityDefinitionId": "ResourceAbsence",
+      "Description": null,
+      "ErrorMessage": "Gantt color must be in hexadecimal format: (for example: #ffffff)"
+    },
+    {
+      "attributes": {
+        "type": "ValidationRule",
+        "url": "/services/data/v67.0/tooling/sobjects/ValidationRule/03d5b0000019Ma5AAE"
+      },
+      "Id": "03d5b0000019Ma5AAE",
+      "ValidationName": "Account_MUST_Match_Bill_To_Account",
+      "Active": true,
+      "EntityDefinitionId": "Opportunity",
+      "Description": "Account MUST Match Bill To Account in order to check the FSR Attached checkbox!",
+      "ErrorMessage": "Account MUST Match Bill To Account in order to check the FSR Attached checkbox!"
+    },
+    {
+      "attributes": {
+        "type": "ValidationRule",
+        "url": "/services/data/v67.0/tooling/sobjects/ValidationRule/03dRo000000Eo3NIAS"
+      },
+      "Id": "03dRo000000Eo3NIAS",
+      "ValidationName": "Account_Name_Character_Limit",
+      "Active": true,
+      "EntityDefinitionId": "Account",
+      "Description": null,
+      "ErrorMessage": "Account Names are Limited to 50 characters."
+    },
+    {
+      "attributes": {
+        "type": "ValidationRule",
+        "url": "/services/data/v67.0/tooling/sobjects/ValidationRule/03d4O000000E7UXQA0"
+      },
+      "Id": "03d4O000000E7UXQA0",
+      "ValidationName": "Account_named_unknown",
+      "Active": true,
+      "EntityDefinitionId": "Account",
+      "Description": null,
+      "ErrorMessage": "You cannot have an Account with the name of Unknown, change it to a real company first."
+    },
+    {
+      "attributes": {
+        "type": "ValidationRule",
+        "url": "/services/data/v67.0/tooling/sobjects/ValidationRule/03d4O00000066bzQAA"
+      },
+      "Id": "03d4O00000066bzQAA",
+      "ValidationName": "Account_on_Credit_Hold",
+      "Active": true,
+      "EntityDefinitionId": "Opportunity",
+      "Description": null,
+      "ErrorMessage": "The account is on credit hold and the opportunity cannot be closed won."
+    },
+    {
+      "attributes": {
+        "type": "ValidationRule",
+        "url": "/services/data/v67.0/tooling/sobjects/ValidationRule/03d4O000000kWKdQAM"
+      },
+      "Id": "03d4O000000kWKdQAM",
+      "ValidationName": "Accounting_Contact_Email_Required",
+      "Active": false,
+      "EntityDefinitionId": "Opportunity",
+      "Description": null,
+      "ErrorMessage": "Accounting Contact Email is required to Close Won this Opportunity"
+    },
+    {
+      "attributes": {
+        "type": "ValidationRule",
+        "url": "/services/data/v67.0/tooling/sobjects/ValidationRule/03dRo000000IfG1IAK"
+      },
+      "Id": "03dRo000000IfG1IAK",
+      "ValidationName": "Actual_Removal_Date_Not_Future",
+      "Active": true,
+      "EntityDefinitionId": "Opportunity",
+      "Description": "This is used to stop users entering an Actual Removal Date that's in the future.",
+      "ErrorMessage": "Actual Removal Dates cannot be in the future."
+    },
+    {
+      "attributes": {
+        "type": "ValidationRule",
+        "url": "/services/data/v67.0/tooling/sobjects/ValidationRule/03dRo000000GcsXIAS"
+      },
+      "Id": "03dRo000000GcsXIAS",
+      "ValidationName": "Approved_Purchase_no_cost_edits",
+      "Active": false,
+      "EntityDefinitionId": "01IU0000000oYvo",
+      "Description": null,
+      "ErrorMessage": "Purchase has been approved, you cannot edit the cost."
+    },
+    {
+      "attributes": {
+        "type": "ValidationRule",
+        "url": "/services/data/v67.0/tooling/sobjects/ValidationRule/03d0B000000V6oxQAC"
+      },
+      "Id": "03d0B000000V6oxQAC",
+      "ValidationName": "Approving_repairs_that_cannot_be_done",
+      "Active": true,
+      "EntityDefinitionId": "01IU0000000omZU",
+      "Description": null,
+      "ErrorMessage": "You are trying to approve a repair that cannot be done."
+    },
+    {
+      "attributes": {
+        "type": "ValidationRule",
+        "url": "/services/data/v67.0/tooling/sobjects/ValidationRule/03d0B000000V8uiQAC"
+      },
+      "Id": "03d0B000000V8uiQAC",
+      "ValidationName": "Array_carriage_replacement",
+      "Active": true,
+      "EntityDefinitionId": "Product2",
+      "Description": null,
+      "ErrorMessage": "Only System Administrators and Sales Managers can add or remove repair capabilities."
+    },
+    {
+      "attributes": {
+        "type": "ValidationRule",
+        "url": "/services/data/v67.0/tooling/sobjects/ValidationRule/03d0B000000V8vgQAC"
+      },
+      "Id": "03d0B000000V8vgQAC",
+      "ValidationName": "Array_drive_switch_or_board_replacement",
+      "Active": false,
+      "EntityDefinitionId": "Product2",
+      "Description": null,
+      "ErrorMessage": "Only System Administrators and Sales Managers can add or remove repair capabilities."
+    },
+    {
+      "attributes": {
+        "type": "ValidationRule",
+        "url": "/services/data/v67.0/tooling/sobjects/ValidationRule/03d0B000000V8vlQAC"
+      },
+      "Id": "03d0B000000V8vlQAC",
+      "ValidationName": "Array_drive_system_replacement",
+      "Active": false,
+      "EntityDefinitionId": "Product2",
+      "Description": null,
+      "ErrorMessage": "Only System Administrators and Sales Managers can add or remove repair capabilities."
+    },
+    {
+      "attributes": {
+        "type": "ValidationRule",
+        "url": "/services/data/v67.0/tooling/sobjects/ValidationRule/03d0B000000V8tuQAC"
+      },
+      "Id": "03d0B000000V8tuQAC",
+      "ValidationName": "Array_replacement",
+      "Active": true,
+      "EntityDefinitionId": "Product2",
+      "Description": null,
+      "ErrorMessage": "Only System Administrators and Sales Managers can add or remove repair capabilities."
+    },
+    {
+      "attributes": {
+        "type": "ValidationRule",
+        "url": "/services/data/v67.0/tooling/sobjects/ValidationRule/03dRo0000002Fe5IAE"
+      },
+      "Id": "03dRo0000002Fe5IAE",
+      "ValidationName": "Asset_Must_Be_a_Customer_Repair_on_RMA",
+      "Active": true,
+      "EntityDefinitionId": "01IU0000000omZU",
+      "Description": null,
+      "ErrorMessage": "Assets checked in on Customer Repair RMA Types MUST HAVE Check In Type of \"Customer Repair\". Please change the asset Check In Type to Customer Repair or add Purchasing Opportunity to asset before changing to \"Purchase\" Check In Type."
+    },
+    {
+      "attributes": {
+        "type": "ValidationRule",
+        "url": "/services/data/v67.0/tooling/sobjects/ValidationRule/03dRo000001LEozIAG"
+      },
+      "Id": "03dRo000001LEozIAG",
+      "ValidationName": "Asset_must_be_purchasing_approved",
+      "Active": true,
+      "EntityDefinitionId": "WorkOrderLineItem",
+      "Description": "Prevents the User from creating a Work Order Line Item record if the \"Purchasing Approved\" checkbox on the related Asset is not TRUE.",
+      "ErrorMessage": "The Asset needs to be marked \"Purchasing Approved\" before creating the Work Order Line Item."
+    },
+    {
+      "attributes": {
+        "type": "ValidationRule",
+        "url": "/services/data/v67.0/tooling/sobjects/ValidationRule/03dU00000009vmVIAQ"
+      },
+      "Id": "03dU00000009vmVIAQ",
+      "ValidationName": "Asset_No_to_be_returned_is_not_blank",
+      "Active": true,
+      "EntityDefinitionId": "01IU0000000omZU",
+      "Description": null,
+      "ErrorMessage": "ProductItem can't be blank"
+    },
+    {
+      "attributes": {
+        "type": "ValidationRule",
+        "url": "/services/data/v67.0/tooling/sobjects/ValidationRule/03d5b000000Lfz7AAC"
+      },
+      "Id": "03d5b000000Lfz7AAC",
+      "ValidationName": "Availability_cannot_be_more_than_100",
+      "Active": true,
+      "EntityDefinitionId": "01I5b000000VH9C",
+      "Description": "Validation to ensure availability",
+      "ErrorMessage": "Availability must be in between 0 and 100"
+    },
+    {
+      "attributes": {
+        "type": "ValidationRule",
+        "url": "/services/data/v67.0/tooling/sobjects/ValidationRule/03d0B000000V8v7QAC"
+      },
+      "Id": "03d0B000000V8v7QAC",
+      "ValidationName": "Bending_rubber_glue_beads_replacement",
+      "Active": true,
+      "EntityDefinitionId": "Product2",
+      "Description": null,
+      "ErrorMessage": "Only System Administrators and Sales Managers can add or remove repair capabilities."
+    },
+    {
+      "attributes": {
+        "type": "ValidationRule",
+        "url": "/services/data/v67.0/tooling/sobjects/ValidationRule/03d4O000000kWKYQA2"
+      },
+      "Id": "03d4O000000kWKYQA2",
+      "ValidationName": "Bill_and_Ship_Address_Req_for_Closed_Won",
+      "Active": true,
+      "EntityDefinitionId": "Opportunity",
+      "Description": null,
+      "ErrorMessage": "Shipping and Billing Addresses must be fully filled out to Close Won this Opportunity"
+    },
+    {
+      "attributes": {
+        "type": "ValidationRule",
+        "url": "/services/data/v67.0/tooling/sobjects/ValidationRule/03d4O00000066bQQAQ"
+      },
+      "Id": "03d4O00000066bQQAQ",
+      "ValidationName": "Billing_and_Shipping_State_Length",
+      "Active": false,
+      "EntityDefinitionId": "01I4O000000neT3",
+      "Description": null,
+      "ErrorMessage": "Billing and shipping state must be 2 letter abbreviations."
+    },
+    {
+      "attributes": {
+        "type": "ValidationRule",
+        "url": "/services/data/v67.0/tooling/sobjects/ValidationRule/03d4O00000066bLQAQ"
+      },
+      "Id": "03d4O00000066bLQAQ",
+      "ValidationName": "Billing_and_Shipping_State_Length",
+      "Active": false,
+      "EntityDefinitionId": "Opportunity",
+      "Description": null,
+      "ErrorMessage": "Billing and shipping state must be 2 letter abbreviations."
+    },
+    {
+      "attributes": {
+        "type": "ValidationRule",
+        "url": "/services/data/v67.0/tooling/sobjects/ValidationRule/03d4O00000066bGQAQ"
+      },
+      "Id": "03d4O00000066bGQAQ",
+      "ValidationName": "Billing_and_Shipping_State_Length",
+      "Active": false,
+      "EntityDefinitionId": "Account",
+      "Description": null,
+      "ErrorMessage": "Billing and shipping state must be 2 letter abbreviations."
+    },
+    {
+      "attributes": {
+        "type": "ValidationRule",
+        "url": "/services/data/v67.0/tooling/sobjects/ValidationRule/03dRo0000003JpJIAU"
+      },
+      "Id": "03dRo0000003JpJIAU",
+      "ValidationName": "BIPO_Stage_Closed_Lost",
+      "Active": false,
+      "EntityDefinitionId": "Opportunity",
+      "Description": "Cannot move stage of opportunity when closed lost",
+      "ErrorMessage": "Cannot change stage once purchasing opportunity has been Closed Lost"
+    },
+    {
+      "attributes": {
+        "type": "ValidationRule",
+        "url": "/services/data/v67.0/tooling/sobjects/ValidationRule/03d4O000000OJLVQA4"
+      },
+      "Id": "03d4O000000OJLVQA4",
+      "ValidationName": "Block_inactive_PR_transaction_types",
+      "Active": true,
+      "EntityDefinitionId": "01I4O000000neRT",
+      "Description": null,
+      "ErrorMessage": "Transaction Type is not allowed."
+    },
+    {
+      "attributes": {
+        "type": "ValidationRule",
+        "url": "/services/data/v67.0/tooling/sobjects/ValidationRule/03dRo0000002DHJIA2"
+      },
+      "Id": "03dRo0000002DHJIA2",
+      "ValidationName": "Business_Line_Must_Be_Filled_Out",
+      "Active": true,
+      "EntityDefinitionId": "Opportunity",
+      "Description": "The Business Line field must be filled out before you may submit this opportunity for approval.",
+      "ErrorMessage": "You MUST choose a Business Line before submitting the opportunity for approval or moving any System Sales Opportunity to Verbal Acceptance or PO Received. If you don't know which to choose, please contact your manager."
+    },
+    {
+      "attributes": {
+        "type": "ValidationRule",
+        "url": "/services/data/v67.0/tooling/sobjects/ValidationRule/03d0B000000V8swQAC"
+      },
+      "Id": "03d0B000000V8swQAC",
+      "ValidationName": "Cable_advanced_whitening",
+      "Active": true,
+      "EntityDefinitionId": "Product2",
+      "Description": null,
+      "ErrorMessage": "Only System Administrators and Sales Managers can add or remove repair capabilities."
+    },
+    {
+      "attributes": {
+        "type": "ValidationRule",
+        "url": "/services/data/v67.0/tooling/sobjects/ValidationRule/03d0B000000V8smQAC"
+      },
+      "Id": "03d0B000000V8smQAC",
+      "ValidationName": "Cable_jacket_refurb",
+      "Active": true,
+      "EntityDefinitionId": "Product2",
+      "Description": null,
+      "ErrorMessage": "Only System Administrators and Sales Managers can add or remove repair capabilities."
+    },
+    {
+      "attributes": {
+        "type": "ValidationRule",
+        "url": "/services/data/v67.0/tooling/sobjects/ValidationRule/03d0B000000V8t1QAC"
+      },
+      "Id": "03d0B000000V8t1QAC",
+      "ValidationName": "Cable_jacket_splice",
+      "Active": true,
+      "EntityDefinitionId": "Product2",
+      "Description": null,
+      "ErrorMessage": "Only System Administrators and Sales Managers can add or remove repair capabilities."
+    },
+    {
+      "attributes": {
+        "type": "ValidationRule",
+        "url": "/services/data/v67.0/tooling/sobjects/ValidationRule/03d0B000000V8IeQAK"
+      },
+      "Id": "03d0B000000V8IeQAK",
+      "ValidationName": "Cable_length_must_not_be_blank",
+      "Active": true,
+      "EntityDefinitionId": "01IU0000000ofKb",
+      "Description": null,
+      "ErrorMessage": "You must enter a cable length."
+    },
+    {
+      "attributes": {
+        "type": "ValidationRule",
+        "url": "/services/data/v67.0/tooling/sobjects/ValidationRule/03d0B000000V8tzQAC"
+      },
+      "Id": "03d0B000000V8tzQAC",
+      "ValidationName": "Cable_replacement",
+      "Active": true,
+      "EntityDefinitionId": "Product2",
+      "Description": null,
+      "ErrorMessage": "Only System Administrators and Sales Managers can add or remove repair capabilities."
+    },
+    {
+      "attributes": {
+        "type": "ValidationRule",
+        "url": "/services/data/v67.0/tooling/sobjects/ValidationRule/03d5b000000Leo4AAC"
+      },
+      "Id": "03d5b000000Leo4AAC",
+      "ValidationName": "Can_Not_Close_Won_Sales_Opp",
+      "Active": true,
+      "EntityDefinitionId": "Opportunity",
+      "Description": null,
+      "ErrorMessage": "Can not close win sales opportunities, please change the record type of this opportunity"
+    },
+    {
+      "attributes": {
+        "type": "ValidationRule",
+        "url": "/services/data/v67.0/tooling/sobjects/ValidationRule/03d0B000000VAUrQAO"
+      },
+      "Id": "03d0B000000VAUrQAO",
+      "ValidationName": "Cannot_add_from_AMB_to_international_opp",
+      "Active": false,
+      "EntityDefinitionId": "OpportunityLineItem",
+      "Description": null,
+      "ErrorMessage": "You cannot add an asset from Ambassador to an international account opportunity."
+    },
+    {
+      "attributes": {
+        "type": "ValidationRule",
+        "url": "/services/data/v67.0/tooling/sobjects/ValidationRule/03d5b000000LfllAAC"
+      },
+      "Id": "03d5b000000LfllAAC",
+      "ValidationName": "Cannot_Change_Asset_Owner",
+      "Active": false,
+      "EntityDefinitionId": "01IU0000000oYvo",
+      "Description": null,
+      "ErrorMessage": "Cannot Change Asset Ownership - Please Contact Your Admin."
+    },
+    {
+      "attributes": {
+        "type": "ValidationRule",
+        "url": "/services/data/v67.0/tooling/sobjects/ValidationRule/03d0B000000VAdeQAG"
+      },
+      "Id": "03d0B000000VAdeQAG",
+      "ValidationName": "Cannot_change_cost_once_marked_sold",
+      "Active": true,
+      "EntityDefinitionId": "01IU0000000oYvo",
+      "Description": "07/11/2025 (BW) - Updating this to allow Venn to change as it's being changed to reflect what is in intacct",
+      "ErrorMessage": "You cannot change the cost once the asset has been marked as sold."
+    },
+    {
+      "attributes": {
+        "type": "ValidationRule",
+        "url": "/services/data/v67.0/tooling/sobjects/ValidationRule/03d0B000000V8OXQA0"
+      },
+      "Id": "03d0B000000V8OXQA0",
+      "ValidationName": "Cannot_change_from_customer_loan_to_ship",
+      "Active": true,
+      "EntityDefinitionId": "01IU0000000t8fI",
+      "Description": null,
+      "ErrorMessage": "This is already in customer loan/demo. You cannot change it to shipping."
+    },
+    {
+      "attributes": {
+        "type": "ValidationRule",
+        "url": "/services/data/v67.0/tooling/sobjects/ValidationRule/03dRo0000005trtIAA"
+      },
+      "Id": "03dRo0000005trtIAA",
+      "ValidationName": "Cannot_Change_Monthly_Charge",
+      "Active": true,
+      "EntityDefinitionId": "Opportunity",
+      "Description": "Only certain people can change the Monthly Charge amount!",
+      "ErrorMessage": "Only certain people can change the Monthly Charge amount! Please contact Terry with any questions!"
+    },
+    {
+      "attributes": {
+        "type": "ValidationRule",
+        "url": "/services/data/v67.0/tooling/sobjects/ValidationRule/03d5b0000005Ht4AAE"
+      },
+      "Id": "03d5b0000005Ht4AAE",
+      "ValidationName": "Cannot_Change_Original_Time_Warranty",
+      "Active": false,
+      "EntityDefinitionId": "01IU0000000omZU",
+      "Description": "Cannot Change Original Time Warranty/Loaner Action Approved field once its approved.",
+      "ErrorMessage": "You cannot change the Original Time Warranty/Loaner Action Approved field after its been set!"
+    },
+    {
+      "attributes": {
+        "type": "ValidationRule",
+        "url": "/services/data/v67.0/tooling/sobjects/ValidationRule/03d4O00000066bkQAA"
+      },
+      "Id": "03d4O00000066bkQAA",
+      "ValidationName": "Cannot_change_PO_stage",
+      "Active": false,
+      "EntityDefinitionId": "Opportunity",
+      "Description": null,
+      "ErrorMessage": "The PO must be approved to change stages."
+    },
+    {
+      "attributes": {
+        "type": "ValidationRule",
+        "url": "/services/data/v67.0/tooling/sobjects/ValidationRule/03d0B000000V9q3QAC"
+      },
+      "Id": "03d0B000000V9q3QAC",
+      "ValidationName": "Cannot_change_price_after_invoicing",
+      "Active": true,
+      "EntityDefinitionId": "OpportunityLineItem",
+      "Description": null,
+      "ErrorMessage": "You cannot change the price after invoicing has been completed."
+    },
+    {
+      "attributes": {
+        "type": "ValidationRule",
+        "url": "/services/data/v67.0/tooling/sobjects/ValidationRule/03d0B000000V9ptQAC"
+      },
+      "Id": "03d0B000000V9ptQAC",
+      "ValidationName": "Cannot_change_price_after_invoicing",
+      "Active": false,
+      "EntityDefinitionId": "Opportunity",
+      "Description": null,
+      "ErrorMessage": "You cannot change the price after an invoice number has been added."
+    },
+    {
+      "attributes": {
+        "type": "ValidationRule",
+        "url": "/services/data/v67.0/tooling/sobjects/ValidationRule/03d0B000000VAfzQAG"
+      },
+      "Id": "03d0B000000VAfzQAG",
+      "ValidationName": "Cannot_change_price_in_eval_once_sent",
+      "Active": false,
+      "EntityDefinitionId": "01I0B000000xN30",
+      "Description": null,
+      "ErrorMessage": "You cannot change the price of an eval that has already been sent."
+    },
+    {
+      "attributes": {
+        "type": "ValidationRule",
+        "url": "/services/data/v67.0/tooling/sobjects/ValidationRule/03dRo000001YhZpIAK"
+      },
+      "Id": "03dRo000001YhZpIAK",
+      "ValidationName": "Cannot_Change_RMA_Type_After_Received",
+      "Active": false,
+      "EntityDefinitionId": "01IU0000000omZU",
+      "Description": "Prevents changing the RMA Record Type (RMA Type) once Date RMA Item Received has been filled out.",
+      "ErrorMessage": "Cannot change the RMA Type after the Date RMA Item Received has been set."
+    },
+    {
+      "attributes": {
+        "type": "ValidationRule",
+        "url": "/services/data/v67.0/tooling/sobjects/ValidationRule/03d4O000000kWKiQAM"
+      },
+      "Id": "03d4O000000kWKiQAM",
+      "ValidationName": "Cannot_change_shipping_info_once_shipped",
+      "Active": true,
+      "EntityDefinitionId": "01I4O000000neo6",
+      "Description": null,
+      "ErrorMessage": "You cannot change the shipping information once the loaner has shipped."
+    },
+    {
+      "attributes": {
+        "type": "ValidationRule",
+        "url": "/services/data/v67.0/tooling/sobjects/ValidationRule/03d4O000000kWKjQAM"
+      },
+      "Id": "03d4O000000kWKjQAM",
+      "ValidationName": "Cannot_change_shipping_info_once_shipped",
+      "Active": false,
+      "EntityDefinitionId": "Opportunity",
+      "Description": null,
+      "ErrorMessage": "You cannot change shipping information once the opportunity has shipped."
+    },
+    {
+      "attributes": {
+        "type": "ValidationRule",
+        "url": "/services/data/v67.0/tooling/sobjects/ValidationRule/03d0B000000V9dYQAS"
+      },
+      "Id": "03d0B000000V9dYQAS",
+      "ValidationName": "Cannot_change_status_once_approved",
+      "Active": true,
+      "EntityDefinitionId": "01IU0000000omZU",
+      "Description": null,
+      "ErrorMessage": "You cannot change the action or status once it has been approved."
+    },
+    {
+      "attributes": {
+        "type": "ValidationRule",
+        "url": "/services/data/v67.0/tooling/sobjects/ValidationRule/03dRo0000008BG1IAM"
+      },
+      "Id": "03dRo0000008BG1IAM",
+      "ValidationName": "Cannot_Change_Status_Once_Closed",
+      "Active": true,
+      "EntityDefinitionId": "01I4O000000ney3",
+      "Description": null,
+      "ErrorMessage": "You CANNOT Change the W/O Status Field Once Work Order is Closed!"
+    },
+    {
+      "attributes": {
+        "type": "ValidationRule",
+        "url": "/services/data/v67.0/tooling/sobjects/ValidationRule/03d0B000000V8MCQA0"
+      },
+      "Id": "03d0B000000V8MCQA0",
+      "ValidationName": "Cannot_close_out_if_3D_probe_not_tested",
+      "Active": false,
+      "EntityDefinitionId": "OpportunityLineItem",
+      "Description": null,
+      "ErrorMessage": "Each 3D/4D probe needs to be tested within the last 2 weeks. Please submit a work order for the probe to be tested."
+    },
+    {
+      "attributes": {
+        "type": "ValidationRule",
+        "url": "/services/data/v67.0/tooling/sobjects/ValidationRule/03d4O000000kWsaQAE"
+      },
+      "Id": "03d4O000000kWsaQAE",
+      "ValidationName": "Cannot_close_win_if_part_is_WIP",
+      "Active": true,
+      "EntityDefinitionId": "OpportunityLineItem",
+      "Description": "Excludes if purchasing opp name has \"Sourcing\"",
+      "ErrorMessage": "You cannot close win this opportunity because the part is not in finished goods."
+    },
+    {
+      "attributes": {
+        "type": "ValidationRule",
+        "url": "/services/data/v67.0/tooling/sobjects/ValidationRule/03dRo0000007Rt7IAE"
+      },
+      "Id": "03dRo0000007Rt7IAE",
+      "ValidationName": "CANNOT_DELETE_ITEM_RECEIPTS",
+      "Active": true,
+      "EntityDefinitionId": "01I4O000000netG",
+      "Description": null,
+      "ErrorMessage": "Only users with an Administrator profile can delete Item Receipt records. Please reach out to your administrator!"
+    },
+    {
+      "attributes": {
+        "type": "ValidationRule",
+        "url": "/services/data/v67.0/tooling/sobjects/ValidationRule/03dRo0000007USnIAM"
+      },
+      "Id": "03dRo0000007USnIAM",
+      "ValidationName": "Cannot_Edit_Item_Receipt_that_has_Synced",
+      "Active": false,
+      "EntityDefinitionId": "01I4O000000netG",
+      "Description": null,
+      "ErrorMessage": "Once an Item Receipt is synched to Intacct, you cannot change the Item Receipt amount! Please contact the AP Team to discuss next steps."
+    },
+    {
+      "attributes": {
+        "type": "ValidationRule",
+        "url": "/services/data/v67.0/tooling/sobjects/ValidationRule/03dRo000000JUNNIA4"
+      },
+      "Id": "03dRo000000JUNNIA4",
+      "ValidationName": "Cannot_edit_restock_fees",
+      "Active": true,
+      "EntityDefinitionId": "01I4O000000net6",
+      "Description": null,
+      "ErrorMessage": "Restock fees cannot be edit once synced to Intacct"
+    },
+    {
+      "attributes": {
+        "type": "ValidationRule",
+        "url": "/services/data/v67.0/tooling/sobjects/ValidationRule/03d4O000000kWNNQA2"
+      },
+      "Id": "03d4O000000kWNNQA2",
+      "ValidationName": "Cannot_have_price_on_Sales_Opportunity",
+      "Active": false,
+      "EntityDefinitionId": "Opportunity",
+      "Description": "Cannot have price > $0 on record type of \"Sales Opportunity\" and ship date filled in",
+      "ErrorMessage": "You cannot change the price on a shipped opportunity with this record type. Please change the record type to update the price."
+    },
+    {
+      "attributes": {
+        "type": "ValidationRule",
+        "url": "/services/data/v67.0/tooling/sobjects/ValidationRule/03d0B000000V8CbQAK"
+      },
+      "Id": "03d0B000000V8CbQAK",
+      "ValidationName": "Cannot_make_mold_on_nongeneric_asset",
+      "Active": true,
+      "EntityDefinitionId": "01IU0000000CWz8",
+      "Description": null,
+      "ErrorMessage": "You cannot create a make mold repair activity if the asset is not generic."
+    },
+    {
+      "attributes": {
+        "type": "ValidationRule",
+        "url": "/services/data/v67.0/tooling/sobjects/ValidationRule/03d4O000000E7VVQA0"
+      },
+      "Id": "03d4O000000E7VVQA0",
+      "ValidationName": "Cannot_move_backwards_in_stage",
+      "Active": true,
+      "EntityDefinitionId": "Opportunity",
+      "Description": null,
+      "ErrorMessage": "You cannot move backwards in stages, please contact a System Admin or Sales Manager for an exception."
+    },
+    {
+      "attributes": {
+        "type": "ValidationRule",
+        "url": "/services/data/v67.0/tooling/sobjects/ValidationRule/03dRo000000C2sTIAS"
+      },
+      "Id": "03dRo000000C2sTIAS",
+      "ValidationName": "Cannot_move_stage_without_PO",
+      "Active": true,
+      "EntityDefinitionId": "Opportunity",
+      "Description": null,
+      "ErrorMessage": "You must enter a Customer PO # or Confirmation to move the opportunity"
+    },
+    {
+      "attributes": {
+        "type": "ValidationRule",
+        "url": "/services/data/v67.0/tooling/sobjects/ValidationRule/03d0B000000V7cOQAS"
+      },
+      "Id": "03d0B000000V7cOQAS",
+      "ValidationName": "Cannot_move_without_verifying_numbers",
+      "Active": false,
+      "EntityDefinitionId": "01IU0000000oYvo",
+      "Description": null,
+      "ErrorMessage": "You cannot move to shipping without first verifying that the asset numbers and serial numbers match (in the Product Test)."
+    },
+    {
+      "attributes": {
+        "type": "ValidationRule",
+        "url": "/services/data/v67.0/tooling/sobjects/ValidationRule/03d0B000000V7cJQAS"
+      },
+      "Id": "03d0B000000V7cJQAS",
+      "ValidationName": "Cannot_ship_without_verified_checkbox",
+      "Active": false,
+      "EntityDefinitionId": "Opportunity",
+      "Description": null,
+      "ErrorMessage": "You must verify that the asset numbers and serial numbers match before you can ship."
+    },
+    {
+      "attributes": {
+        "type": "ValidationRule",
+        "url": "/services/data/v67.0/tooling/sobjects/ValidationRule/03d4O000000OKZRQA4"
+      },
+      "Id": "03d4O000000OKZRQA4",
+      "ValidationName": "Cannot_submit_to_shipping_without_asset",
+      "Active": true,
+      "EntityDefinitionId": "01I4O000000neo6",
+      "Description": "On the Loaner Record, cannot submit to shipping without a loaner asset being added by Sales Operations",
+      "ErrorMessage": "An asset must be added to the Loaner Record to Submit to Shipping"
+    },
+    {
+      "attributes": {
+        "type": "ValidationRule",
+        "url": "/services/data/v67.0/tooling/sobjects/ValidationRule/03dRo000000AuaPIAS"
+      },
+      "Id": "03dRo000000AuaPIAS",
+      "ValidationName": "Cannot_Sync_Acquisition_IRs",
+      "Active": true,
+      "EntityDefinitionId": "01I4O000000netG",
+      "Description": null,
+      "ErrorMessage": "You CANNT Sync Aquisition Upload IR's to Intacct"
+    },
+    {
+      "attributes": {
+        "type": "ValidationRule",
+        "url": "/services/data/v67.0/tooling/sobjects/ValidationRule/03d4O00000066c9QAA"
+      },
+      "Id": "03d4O00000066c9QAA",
+      "ValidationName": "Cannot_uncheck_Submit_Item_Receipt",
+      "Active": true,
+      "EntityDefinitionId": "01I4O000000netG",
+      "Description": null,
+      "ErrorMessage": "You cannot unsubmit an Item Receipt"
+    },
+    {
+      "attributes": {
+        "type": "ValidationRule",
+        "url": "/services/data/v67.0/tooling/sobjects/ValidationRule/03d4O0000005zDqQAI"
+      },
+      "Id": "03d4O0000005zDqQAI",
+      "ValidationName": "Cannot_use_non_purchasing_approved_part",
+      "Active": true,
+      "EntityDefinitionId": "01IU0000000CWz8",
+      "Description": null,
+      "ErrorMessage": "You cannot use a part that has not been purchasing approved."
+    },
+    {
+      "attributes": {
+        "type": "ValidationRule",
+        "url": "/services/data/v67.0/tooling/sobjects/ValidationRule/03dRo000001gFOgIAM"
+      },
+      "Id": "03dRo000001gFOgIAM",
+      "ValidationName": "Cant_Change_Item_Receipt_Once_Synced",
+      "Active": true,
+      "EntityDefinitionId": "01I4O000000netG",
+      "Description": null,
+      "ErrorMessage": "Once an item receipt is synced to Intacct, you cannot change its amounts or key details. Please submit a Salesforce Case if you need to make a change and we will action it."
+    },
+    {
+      "attributes": {
+        "type": "ValidationRule",
+        "url": "/services/data/v67.0/tooling/sobjects/ValidationRule/03dRo0000017h7hIAA"
+      },
+      "Id": "03dRo0000017h7hIAA",
+      "ValidationName": "Cant_Change_Opp_Once_Synced",
+      "Active": true,
+      "EntityDefinitionId": "Opportunity",
+      "Description": "You can not change the pricing of an opportunity once it has been synced or marked as not needing sync",
+      "ErrorMessage": "Once an opportunity is synced to Intacct, you can not change it's amounts. Please submit a ticket with Salesforce Support if you need to make a change and we will action it quickly."
+    },
+    {
+      "attributes": {
+        "type": "ValidationRule",
+        "url": "/services/data/v67.0/tooling/sobjects/ValidationRule/03dRo000001SYZFIA4"
+      },
+      "Id": "03dRo000001SYZFIA4",
+      "ValidationName": "Cant_Change_Shipping_Account_Billing",
+      "Active": true,
+      "EntityDefinitionId": "Opportunity",
+      "Description": null,
+      "ErrorMessage": "You can't change the Shipping Account to Bill from Probo Medical if there is not a Customer Shipping Account provided."
+    },
+    {
+      "attributes": {
+        "type": "ValidationRule",
+        "url": "/services/data/v67.0/tooling/sobjects/ValidationRule/03d0B000000VBd8QAG"
+      },
+      "Id": "03d0B000000VBd8QAG",
+      "ValidationName": "Cant_create_contacts_on_Trisonics",
+      "Active": false,
+      "EntityDefinitionId": "Contact",
+      "Description": null,
+      "ErrorMessage": "You cannot create or edit contacts on Trisonics Accounts"
+    },
+    {
+      "attributes": {
+        "type": "ValidationRule",
+        "url": "/services/data/v67.0/tooling/sobjects/ValidationRule/03d0B000000VBd3QAG"
+      },
+      "Id": "03d0B000000VBd3QAG",
+      "ValidationName": "Cant_Create_Opp_on_Trisonics_Accounts",
+      "Active": false,
+      "EntityDefinitionId": "Opportunity",
+      "Description": null,
+      "ErrorMessage": "You cannot create or edit Opps on Trisonics Accounts."
+    },
+    {
+      "attributes": {
+        "type": "ValidationRule",
+        "url": "/services/data/v67.0/tooling/sobjects/ValidationRule/03d5b000000LfQcAAK"
+      },
+      "Id": "03d5b000000LfQcAAK",
+      "ValidationName": "Cant_Do_Business_in_Country_List",
+      "Active": true,
+      "EntityDefinitionId": "Account",
+      "Description": null,
+      "ErrorMessage": "Can't do business with accounts in Russia, Ukraine, Cuba, Iran, North Korea, Syria, Lebanon, Libya, Sudan, or Somalia."
+    },
+    {
+      "attributes": {
+        "type": "ValidationRule",
+        "url": "/services/data/v67.0/tooling/sobjects/ValidationRule/03d0B000000VBcyQAG"
+      },
+      "Id": "03d0B000000VBcyQAG",
+      "ValidationName": "Cant_Edit_Trisonics_Accounts",
+      "Active": false,
+      "EntityDefinitionId": "Account",
+      "Description": null,
+      "ErrorMessage": "You cannot edit this account, it is a new Trisonics account we are working on merging in.  Please find the correct Probo version of the account."
+    },
+    {
+      "attributes": {
+        "type": "ValidationRule",
+        "url": "/services/data/v67.0/tooling/sobjects/ValidationRule/03dRo000000AmwDIAS"
+      },
+      "Id": "03dRo000000AmwDIAS",
+      "ValidationName": "Cant_leave_date_blank",
+      "Active": true,
+      "EntityDefinitionId": "ContractLineItem",
+      "Description": null,
+      "ErrorMessage": "You need to fill out the 'Date Notified of Removal' and 'Credit Value' if removing the system from contract"
+    },
+    {
+      "attributes": {
+        "type": "ValidationRule",
+        "url": "/services/data/v67.0/tooling/sobjects/ValidationRule/03d5b000000LfTRAA0"
+      },
+      "Id": "03d5b000000LfTRAA0",
+      "ValidationName": "Cant_ship_to_banned_countries",
+      "Active": false,
+      "EntityDefinitionId": "Opportunity",
+      "Description": null,
+      "ErrorMessage": "Can't do business in Russia, Ukraine, Cuba, Iran, North Korea, Syria, Lebanon, Libya, Sudan, or Somalia"
+    },
+    {
+      "attributes": {
+        "type": "ValidationRule",
+        "url": "/services/data/v67.0/tooling/sobjects/ValidationRule/03d5b0000019MXsAAM"
+      },
+      "Id": "03d5b0000019MXsAAM",
+      "ValidationName": "Cant_Submit_for_Approval",
+      "Active": true,
+      "EntityDefinitionId": "01I5b000001lpYt",
+      "Description": "Can't Submit for Approval unless all Refurb Part Requests are either set to \"Completed\" or \"No Longer Needed\"",
+      "ErrorMessage": "Can't Submit for Approval unless all Refurb Part Requests are either set to \"Completed\" or \"No Longer Needed\" - Please complete all Refurb Repairs before Submitting for Approval!"
+    },
+    {
+      "attributes": {
+        "type": "ValidationRule",
+        "url": "/services/data/v67.0/tooling/sobjects/ValidationRule/03d5b000000LeLgAAK"
+      },
+      "Id": "03d5b000000LeLgAAK",
+      "ValidationName": "Cant_submit_to_shipping_without_location",
+      "Active": true,
+      "EntityDefinitionId": "01I4O000000neo6",
+      "Description": null,
+      "ErrorMessage": "You cannot submit to shipping without a shipping from location."
+    },
+    {
+      "attributes": {
+        "type": "ValidationRule",
+        "url": "/services/data/v67.0/tooling/sobjects/ValidationRule/03d5b000000LeLlAAK"
+      },
+      "Id": "03d5b000000LeLlAAK",
+      "ValidationName": "Cant_submit_to_shipping_without_location",
+      "Active": true,
+      "EntityDefinitionId": "WorkOrder",
+      "Description": null,
+      "ErrorMessage": "You cannot submit to shipping without shipping from location."
+    },
+    {
+      "attributes": {
+        "type": "ValidationRule",
+        "url": "/services/data/v67.0/tooling/sobjects/ValidationRule/03dRo000001N4n7IAC"
+      },
+      "Id": "03dRo000001N4n7IAC",
+      "ValidationName": "Cant_Update_US_FSL_Completed_WO",
+      "Active": true,
+      "EntityDefinitionId": "WorkOrder",
+      "Description": "No allowance of updates to completed FSL US Work Orders",
+      "ErrorMessage": "Can not edit completed work orders"
+    },
+    {
+      "attributes": {
+        "type": "ValidationRule",
+        "url": "/services/data/v67.0/tooling/sobjects/ValidationRule/03d0B000000V8srQAC"
+      },
+      "Id": "03d0B000000V8srQAC",
+      "ValidationName": "Cap_refurb",
+      "Active": true,
+      "EntityDefinitionId": "Product2",
+      "Description": null,
+      "ErrorMessage": "Only System Administrators and Sales Managers can add or remove repair capabilities."
+    },
+    {
+      "attributes": {
+        "type": "ValidationRule",
+        "url": "/services/data/v67.0/tooling/sobjects/ValidationRule/03d0B000000V8usQAC"
+      },
+      "Id": "03d0B000000V8usQAC",
+      "ValidationName": "Cap_replacement_with_oil_fill",
+      "Active": true,
+      "EntityDefinitionId": "Product2",
+      "Description": null,
+      "ErrorMessage": "Only System Administrators and Sales Managers can add or remove repair capabilities."
+    },
+    {
+      "attributes": {
+        "type": "ValidationRule",
+        "url": "/services/data/v67.0/tooling/sobjects/ValidationRule/03dRo000000Bun9IAC"
+      },
+      "Id": "03dRo000000Bun9IAC",
+      "ValidationName": "Capacity_Resource_of_Type_Crew",
+      "Active": true,
+      "EntityDefinitionId": "ServiceResource",
+      "Description": null,
+      "ErrorMessage": "Capacity Resource Can't Be of Type Crew"
+    },
+    {
+      "attributes": {
+        "type": "ValidationRule",
+        "url": "/services/data/v67.0/tooling/sobjects/ValidationRule/03d0B000000V8unQAC"
+      },
+      "Id": "03d0B000000V8unQAC",
+      "ValidationName": "Carriage_drive_cable_replacement",
+      "Active": true,
+      "EntityDefinitionId": "Product2",
+      "Description": null,
+      "ErrorMessage": "Only System Administrators and Sales Managers can add or remove repair capabilities."
+    },
+    {
+      "attributes": {
+        "type": "ValidationRule",
+        "url": "/services/data/v67.0/tooling/sobjects/ValidationRule/03d4O000000OJLIQA4"
+      },
+      "Id": "03d4O000000OJLIQA4",
+      "ValidationName": "Check_Default_Payment_Method_for_PC",
+      "Active": true,
+      "EntityDefinitionId": "01I4O000000neRE",
+      "Description": null,
+      "ErrorMessage": "Default Payment Method for Payment Console must be available."
+    },
+    {
+      "attributes": {
+        "type": "ValidationRule",
+        "url": "/services/data/v67.0/tooling/sobjects/ValidationRule/03d4O000000OJLJQA4"
+      },
+      "Id": "03d4O000000OJLJQA4",
+      "ValidationName": "Check_Default_Payment_Method_for_PR",
+      "Active": true,
+      "EntityDefinitionId": "01I4O000000neRE",
+      "Description": null,
+      "ErrorMessage": "Default Payment Method for Payment Request must be available."
+    },
+    {
+      "attributes": {
+        "type": "ValidationRule",
+        "url": "/services/data/v67.0/tooling/sobjects/ValidationRule/03dRo000000Hq73IAC"
+      },
+      "Id": "03dRo000000Hq73IAC",
+      "ValidationName": "Check_In_Type",
+      "Active": true,
+      "EntityDefinitionId": "01IU0000000oYvo",
+      "Description": null,
+      "ErrorMessage": "Check in Type cannot be changed to \"Loaner Pool\", \"Rental inventory\", \"Vet - Loaner Pool\", \"Vet - Rental Inventory\", or \"Demo Pool\". Reach out to Jace Gentil, James Bevan-Jones, Derek Smith, Matt Mooney Or Delegate to make the change."
+    },
+    {
+      "attributes": {
+        "type": "ValidationRule",
+        "url": "/services/data/v67.0/tooling/sobjects/ValidationRule/03dRo000000BunJIAS"
+      },
+      "Id": "03dRo000000BunJIAS",
+      "ValidationName": "Check_time_rule",
+      "Active": true,
+      "EntityDefinitionId": "01IRo000002CkYL",
+      "Description": "If record type is Time_Rule_Service, Service_Schedule_Time_Property__c is SchedEndTime, then Service_Time_Operator__c must be \"Before or Equal to\"",
+      "ErrorMessage": "Time Operator should be 'Before or Equal To' when Service Schedule Time Property is 'SchedEndTime'"
+    },
+    {
+      "attributes": {
+        "type": "ValidationRule",
+        "url": "/services/data/v67.0/tooling/sobjects/ValidationRule/03d4O000000E7TUQA0"
+      },
+      "Id": "03d4O000000E7TUQA0",
+      "ValidationName": "CheckUltimate_Consignee_Type",
+      "Active": true,
+      "EntityDefinitionId": "01I4O000001MAax",
+      "Description": null,
+      "ErrorMessage": "Please select option"
+    },
+    {
+      "attributes": {
+        "type": "ValidationRule",
+        "url": "/services/data/v67.0/tooling/sobjects/ValidationRule/03dRo000000Md2jIAC"
+      },
+      "Id": "03dRo000000Md2jIAC",
+      "ValidationName": "Close_Vet_EndoOpp_without_Approval",
+      "Active": true,
+      "EntityDefinitionId": "Opportunity",
+      "Description": "This validation rules stops users from moving the opp stage to Sold but not Shipped without being approved.",
+      "ErrorMessage": "You must complete the approval process to move the opportunity to Sold but not Shipped, Verbal Acceptance, Sourcing, or Closed Won!"
+    },
+    {
+      "attributes": {
+        "type": "ValidationRule",
+        "url": "/services/data/v67.0/tooling/sobjects/ValidationRule/03d0B000000VAVVQA4"
+      },
+      "Id": "03d0B000000VAVVQA4",
+      "ValidationName": "Close_Won_Without_Shipping_From_Location",
+      "Active": true,
+      "EntityDefinitionId": "Opportunity",
+      "Description": null,
+      "ErrorMessage": "You must enter the shipping from location to close the opportunity."
+    },
+    {
+      "attributes": {
+        "type": "ValidationRule",
+        "url": "/services/data/v67.0/tooling/sobjects/ValidationRule/03d4O000000kVpfQAE"
+      },
+      "Id": "03d4O000000kVpfQAE",
+      "ValidationName": "Closed_Won_Address_Info_OLD",
+      "Active": false,
+      "EntityDefinitionId": "Opportunity",
+      "Description": null,
+      "ErrorMessage": "Billing and Shipping Addresses MUST be fully filled out."
+    },
+    {
+      "attributes": {
+        "type": "ValidationRule",
+        "url": "/services/data/v67.0/tooling/sobjects/ValidationRule/03d4O000000kSMaQAM"
+      },
+      "Id": "03d4O000000kSMaQAM",
+      "ValidationName": "Closed_Won_Prepay_Needs_Confirmation",
+      "Active": false,
+      "EntityDefinitionId": "Opportunity",
+      "Description": "This is to prevent prepay sales opportunities from moving to closed won",
+      "ErrorMessage": "Please enter a confirmation number to close won the opportunity."
+    },
+    {
+      "attributes": {
+        "type": "ValidationRule",
+        "url": "/services/data/v67.0/tooling/sobjects/ValidationRule/03d0B000000V6ydQAC"
+      },
+      "Id": "03d0B000000V6ydQAC",
+      "ValidationName": "Closed_Won_without_Payment",
+      "Active": false,
+      "EntityDefinitionId": "Opportunity",
+      "Description": null,
+      "ErrorMessage": "You must enter a payment method or customer PO to close win an opportunity."
+    },
+    {
+      "attributes": {
+        "type": "ValidationRule",
+        "url": "/services/data/v67.0/tooling/sobjects/ValidationRule/03d0B000000V7dCQAS"
+      },
+      "Id": "03d0B000000V7dCQAS",
+      "ValidationName": "Closed_Won_without_Payment2",
+      "Active": false,
+      "EntityDefinitionId": "Opportunity",
+      "Description": null,
+      "ErrorMessage": "You must enter a PO to move a purchasing opportunity to \"Verbal Acceptance\" or \"Closed Won.\""
+    },
+    {
+      "attributes": {
+        "type": "ValidationRule",
+        "url": "/services/data/v67.0/tooling/sobjects/ValidationRule/03dRo000000BumrIAC"
+      },
+      "Id": "03dRo000000BumrIAC",
+      "ValidationName": "Color_Level_validation",
+      "Active": true,
+      "EntityDefinitionId": "01IRo000002CkXl",
+      "Description": null,
+      "ErrorMessage": "Color level value cannot be less than 4 or greater than 15"
+    },
+    {
+      "attributes": {
+        "type": "ValidationRule",
+        "url": "/services/data/v67.0/tooling/sobjects/ValidationRule/03d0B000000V8vvQAC"
+      },
+      "Id": "03d0B000000V8vvQAC",
+      "ValidationName": "Connector_boards_replacement",
+      "Active": true,
+      "EntityDefinitionId": "Product2",
+      "Description": null,
+      "ErrorMessage": "Only System Administrators and Sales Managers can add or remove repair capabilities."
+    },
+    {
+      "attributes": {
+        "type": "ValidationRule",
+        "url": "/services/data/v67.0/tooling/sobjects/ValidationRule/03d0B000000V8t6QAC"
+      },
+      "Id": "03d0B000000V8t6QAC",
+      "ValidationName": "Connector_housing_paint",
+      "Active": true,
+      "EntityDefinitionId": "Product2",
+      "Description": null,
+      "ErrorMessage": "Only System Administrators and Sales Managers can add or remove repair capabilities."
+    },
+    {
+      "attributes": {
+        "type": "ValidationRule",
+        "url": "/services/data/v67.0/tooling/sobjects/ValidationRule/03d0B000000V8tBQAS"
+      },
+      "Id": "03d0B000000V8tBQAS",
+      "ValidationName": "Connector_housing_replacement",
+      "Active": true,
+      "EntityDefinitionId": "Product2",
+      "Description": null,
+      "ErrorMessage": "Only System Administrators and Sales Managers can add or remove repair capabilities."
+    },
+    {
+      "attributes": {
+        "type": "ValidationRule",
+        "url": "/services/data/v67.0/tooling/sobjects/ValidationRule/03d0B000000V8w0QAC"
+      },
+      "Id": "03d0B000000V8w0QAC",
+      "ValidationName": "Connector_overhaul",
+      "Active": true,
+      "EntityDefinitionId": "Product2",
+      "Description": null,
+      "ErrorMessage": "Only System Administrators and Sales Managers can add or remove repair capabilities."
+    },
+    {
+      "attributes": {
+        "type": "ValidationRule",
+        "url": "/services/data/v67.0/tooling/sobjects/ValidationRule/03d0B000000V8tGQAS"
+      },
+      "Id": "03d0B000000V8tGQAS",
+      "ValidationName": "Connector_refurbishment",
+      "Active": true,
+      "EntityDefinitionId": "Product2",
+      "Description": null,
+      "ErrorMessage": "Only System Administrators and Sales Managers can add or remove repair capabilities."
+    },
+    {
+      "attributes": {
+        "type": "ValidationRule",
+        "url": "/services/data/v67.0/tooling/sobjects/ValidationRule/03d0B000000V8u4QAC"
+      },
+      "Id": "03d0B000000V8u4QAC",
+      "ValidationName": "Connector_repair",
+      "Active": true,
+      "EntityDefinitionId": "Product2",
+      "Description": null,
+      "ErrorMessage": "Only System Administrators and Sales Managers can add or remove repair capabilities."
+    },
+    {
+      "attributes": {
+        "type": "ValidationRule",
+        "url": "/services/data/v67.0/tooling/sobjects/ValidationRule/03d4O000000E8CtQAK"
+      },
+      "Id": "03d4O000000E8CtQAK",
+      "ValidationName": "Contract_and_Contract_Line_Items_Match",
+      "Active": false,
+      "EntityDefinitionId": "ServiceContract",
+      "Description": "This is to ensure that contract total and contract line items total for items on the contract match for reporting/tracking purposes.",
+      "ErrorMessage": "Adjust the service contract total or contract line items total as the total amounts do not match."
+    },
+    {
+      "attributes": {
+        "type": "ValidationRule",
+        "url": "/services/data/v67.0/tooling/sobjects/ValidationRule/03d0B000000V8vqQAC"
+      },
+      "Id": "03d0B000000V8vqQAC",
+      "ValidationName": "Control_housing_overhaul",
+      "Active": true,
+      "EntityDefinitionId": "Product2",
+      "Description": null,
+      "ErrorMessage": "Only System Administrators and Sales Managers can add or remove repair capabilities."
+    },
+    {
+      "attributes": {
+        "type": "ValidationRule",
+        "url": "/services/data/v67.0/tooling/sobjects/ValidationRule/03d0B000000V8vCQAS"
+      },
+      "Id": "03d0B000000V8vCQAS",
+      "ValidationName": "Control_housing_polish",
+      "Active": true,
+      "EntityDefinitionId": "Product2",
+      "Description": null,
+      "ErrorMessage": "Only System Administrators and Sales Managers can add or remove repair capabilities."
+    },
+    {
+      "attributes": {
+        "type": "ValidationRule",
+        "url": "/services/data/v67.0/tooling/sobjects/ValidationRule/03d4O000000E7UcQAK"
+      },
+      "Id": "03d4O000000E7UcQAK",
+      "ValidationName": "Convert_Unknown",
+      "Active": true,
+      "EntityDefinitionId": "Lead",
+      "Description": null,
+      "ErrorMessage": "You cannot convert a Lead until you enter a correct Company Name"
+    },
+    {
+      "attributes": {
+        "type": "ValidationRule",
+        "url": "/services/data/v67.0/tooling/sobjects/ValidationRule/03d5b000000LeMAAA0"
+      },
+      "Id": "03d5b000000LeMAAA0",
+      "ValidationName": "Credit_Memo_Notes_Required",
+      "Active": true,
+      "EntityDefinitionId": "01I4O000000net1",
+      "Description": null,
+      "ErrorMessage": "Credit Memo Notes required to submit a credit memo"
+    },
+    {
+      "attributes": {
+        "type": "ValidationRule",
+        "url": "/services/data/v67.0/tooling/sobjects/ValidationRule/03dRo000000E40XIAS"
+      },
+      "Id": "03dRo000000E40XIAS",
+      "ValidationName": "Credit_Value_Greater_than_CLI_value",
+      "Active": true,
+      "EntityDefinitionId": "ContractLineItem",
+      "Description": null,
+      "ErrorMessage": "Credit Value cannot exceed Line Item Value"
+    },
+    {
+      "attributes": {
+        "type": "ValidationRule",
+        "url": "/services/data/v67.0/tooling/sobjects/ValidationRule/03d4O000000OJNJQA4"
+      },
+      "Id": "03d4O000000OJNJQA4",
+      "ValidationName": "Custom_Rental_Term_needs_Value",
+      "Active": true,
+      "EntityDefinitionId": "Opportunity",
+      "Description": null,
+      "ErrorMessage": "Please enter an amount in the rental term custom amount field."
+    },
+    {
+      "attributes": {
+        "type": "ValidationRule",
+        "url": "/services/data/v67.0/tooling/sobjects/ValidationRule/03d4O000000OJLNQA4"
+      },
+      "Id": "03d4O000000OJLNQA4",
+      "ValidationName": "Customer_IP_Validation",
+      "Active": true,
+      "EntityDefinitionId": "01I4O000000neRN",
+      "Description": null,
+      "ErrorMessage": "Invalid Customer IP"
+    },
+    {
+      "attributes": {
+        "type": "ValidationRule",
+        "url": "/services/data/v67.0/tooling/sobjects/ValidationRule/03d0B000000V6yYQAS"
+      },
+      "Id": "03d0B000000V6yYQAS",
+      "ValidationName": "D_system_test",
+      "Active": true,
+      "EntityDefinitionId": "01IU0000000ofKb",
+      "Description": null,
+      "ErrorMessage": "You must complete the -D System Test field for the this probe"
+    },
+    {
+      "attributes": {
+        "type": "ValidationRule",
+        "url": "/services/data/v67.0/tooling/sobjects/ValidationRule/03d4O000000OJz3QAG"
+      },
+      "Id": "03d4O000000OJz3QAG",
+      "ValidationName": "Deal_Type_Match_Opportunity_Record_CARM",
+      "Active": false,
+      "EntityDefinitionId": "Opportunity",
+      "Description": null,
+      "ErrorMessage": "Please select the correct record type for the products added."
+    },
+    {
+      "attributes": {
+        "type": "ValidationRule",
+        "url": "/services/data/v67.0/tooling/sobjects/ValidationRule/03d4O000000OJytQAG"
+      },
+      "Id": "03d4O000000OJytQAG",
+      "ValidationName": "Deal_Type_Match_Opportunity_Record_Parts",
+      "Active": false,
+      "EntityDefinitionId": "Opportunity",
+      "Description": null,
+      "ErrorMessage": "Please select the correct record type for the products added."
+    },
+    {
+      "attributes": {
+        "type": "ValidationRule",
+        "url": "/services/data/v67.0/tooling/sobjects/ValidationRule/03d4O000000OJyyQAG"
+      },
+      "Id": "03d4O000000OJyyQAG",
+      "ValidationName": "Deal_Type_Match_Opportunity_Record_Syste",
+      "Active": false,
+      "EntityDefinitionId": "Opportunity",
+      "Description": null,
+      "ErrorMessage": "Please select the correct record type for the products added."
+    },
+    {
+      "attributes": {
+        "type": "ValidationRule",
+        "url": "/services/data/v67.0/tooling/sobjects/ValidationRule/03d4O000000OJyoQAG"
+      },
+      "Id": "03d4O000000OJyoQAG",
+      "ValidationName": "Deal_Type_Match_Opportunity_Record_Type",
+      "Active": false,
+      "EntityDefinitionId": "Opportunity",
+      "Description": null,
+      "ErrorMessage": "Please select the correct record type for the products added."
+    },
+    {
+      "attributes": {
+        "type": "ValidationRule",
+        "url": "/services/data/v67.0/tooling/sobjects/ValidationRule/03d5b000000Lfz9AAC"
+      },
+      "Id": "03d5b000000Lfz9AAC",
+      "ValidationName": "Default_Availability_btwn_1_to_100",
+      "Active": true,
+      "EntityDefinitionId": "01I5b000000VH9D",
+      "Description": "The default availability should be between 0 to 100",
+      "ErrorMessage": "The default availability should be between 0 to 100"
+    },
+    {
+      "attributes": {
+        "type": "ValidationRule",
+        "url": "/services/data/v67.0/tooling/sobjects/ValidationRule/03dRo000000BumwIAC"
+      },
+      "Id": "03dRo000000BumwIAC",
+      "ValidationName": "Deny_Objectives_Negative_Weight",
+      "Active": true,
+      "EntityDefinitionId": "01IRo000002CkY8",
+      "Description": null,
+      "ErrorMessage": "Policy objectives weight can not be negative"
+    },
+    {
+      "attributes": {
+        "type": "ValidationRule",
+        "url": "/services/data/v67.0/tooling/sobjects/ValidationRule/03dRo000000BunEIAS"
+      },
+      "Id": "03dRo000000BunEIAS",
+      "ValidationName": "Dependency_Is_Required",
+      "Active": true,
+      "EntityDefinitionId": "01IRo000002CkYE",
+      "Description": null,
+      "ErrorMessage": "Select a dependency type."
+    },
+    {
+      "attributes": {
+        "type": "ValidationRule",
+        "url": "/services/data/v67.0/tooling/sobjects/ValidationRule/03dRo000001X2X7IAK"
+      },
+      "Id": "03dRo000001X2X7IAK",
+      "ValidationName": "Designated_For_Rental_Rule",
+      "Active": false,
+      "EntityDefinitionId": "01IU0000000oYvo",
+      "Description": "This is to ensure that \"Designated For\" can only be set to \"Rental\" when the \"Check In Type\" is also \"Rental inventory\"",
+      "ErrorMessage": "Designated For \"Rental\" is only allowed when the Check In Type is \"Rental inventory\"."
+    },
+    {
+      "attributes": {
+        "type": "ValidationRule",
+        "url": "/services/data/v67.0/tooling/sobjects/ValidationRule/03d4O00000066b7QAA"
+      },
+      "Id": "03d4O00000066b7QAA",
+      "ValidationName": "Disable_Edit_Option",
+      "Active": true,
+      "EntityDefinitionId": "01I4O000000tROI",
+      "Description": null,
+      "ErrorMessage": "This certificate is invalid. Please create a new certificate."
+    },
+    {
+      "attributes": {
+        "type": "ValidationRule",
+        "url": "/services/data/v67.0/tooling/sobjects/ValidationRule/03dRo000000BumxIAC"
+      },
+      "Id": "03dRo000000BumxIAC",
+      "ValidationName": "Dont_allow_scheduled_or_dispatched",
+      "Active": true,
+      "EntityDefinitionId": "ServiceAppointment",
+      "Description": "Don't allow creation of service with status scheduled or  dispatched",
+      "ErrorMessage": "New service appointment cannot be created in scheduled or  dispatched statuses."
+    },
+    {
+      "attributes": {
+        "type": "ValidationRule",
+        "url": "/services/data/v67.0/tooling/sobjects/ValidationRule/03d0B000000V77zQAC"
+      },
+      "Id": "03d0B000000V77zQAC",
+      "ValidationName": "Dont_move_nonpurchasing_approved_probe",
+      "Active": false,
+      "EntityDefinitionId": "01IU0000000t8fI",
+      "Description": null,
+      "ErrorMessage": "You cannot move a probe that has not been purchasing approved."
+    },
+    {
+      "attributes": {
+        "type": "ValidationRule",
+        "url": "/services/data/v67.0/tooling/sobjects/ValidationRule/03d0B000000V8u9QAC"
+      },
+      "Id": "03d0B000000V8u9QAC",
+      "ValidationName": "Electrical",
+      "Active": true,
+      "EntityDefinitionId": "Product2",
+      "Description": null,
+      "ErrorMessage": "Only System Administrators and Sales Managers can add or remove repair capabilities."
+    },
+    {
+      "attributes": {
+        "type": "ValidationRule",
+        "url": "/services/data/v67.0/tooling/sobjects/ValidationRule/03d4O00000066b1QAA"
+      },
+      "Id": "03d4O00000066b1QAA",
+      "ValidationName": "EnityUseCodeNameValidation",
+      "Active": true,
+      "EntityDefinitionId": "01I4O000000tRO4",
+      "Description": null,
+      "ErrorMessage": "Duplicate records not allowed for Entity Use Code"
+    },
+    {
+      "attributes": {
+        "type": "ValidationRule",
+        "url": "/services/data/v67.0/tooling/sobjects/ValidationRule/03d5b000000LdtcAAC"
+      },
+      "Id": "03d5b000000LdtcAAC",
+      "ValidationName": "Entity_Location_Error",
+      "Active": true,
+      "EntityDefinitionId": "01I4O000000neT3",
+      "Description": null,
+      "ErrorMessage": "Physical Location is incorrect, please change to one of the allowed locations before syncing."
+    },
+    {
+      "attributes": {
+        "type": "ValidationRule",
+        "url": "/services/data/v67.0/tooling/sobjects/ValidationRule/03d5b000000LfzvAAC"
+      },
+      "Id": "03d5b000000LfzvAAC",
+      "ValidationName": "Error_Type_Cant_be_Blank_if_Error",
+      "Active": true,
+      "EntityDefinitionId": "Case",
+      "Description": null,
+      "ErrorMessage": "You Must Enter an Error Message if the Classification is \"Salesforce Error\""
+    },
+    {
+      "attributes": {
+        "type": "ValidationRule",
+        "url": "/services/data/v67.0/tooling/sobjects/ValidationRule/03d0B000000V7AeQAK"
+      },
+      "Id": "03d0B000000V7AeQAK",
+      "ValidationName": "Expected_delivery_date_on_purchasing_opp",
+      "Active": false,
+      "EntityDefinitionId": "Opportunity",
+      "Description": null,
+      "ErrorMessage": "You must enter an expected delivery date."
+    },
+    {
+      "attributes": {
+        "type": "ValidationRule",
+        "url": "/services/data/v67.0/tooling/sobjects/ValidationRule/03d4O000000E7TYQA0"
+      },
+      "Id": "03d4O000000E7TYQA0",
+      "ValidationName": "filed_check",
+      "Active": false,
+      "EntityDefinitionId": "01I4O000001MAax",
+      "Description": null,
+      "ErrorMessage": "'UPS filled' option is not supported."
+    },
+    {
+      "attributes": {
+        "type": "ValidationRule",
+        "url": "/services/data/v67.0/tooling/sobjects/ValidationRule/03d0B000000VAW4QAO"
+      },
+      "Id": "03d0B000000VAW4QAO",
+      "ValidationName": "Fill_out_complaint",
+      "Active": false,
+      "EntityDefinitionId": "01IU0000000omZU",
+      "Description": null,
+      "ErrorMessage": "You must fill out the customer complaint in the quality issue fields."
+    },
+    {
+      "attributes": {
+        "type": "ValidationRule",
+        "url": "/services/data/v67.0/tooling/sobjects/ValidationRule/03d0B000000V7AoQAK"
+      },
+      "Id": "03d0B000000V7AoQAK",
+      "ValidationName": "Fill_out_customer_expectation",
+      "Active": true,
+      "EntityDefinitionId": "01IU0000000omZU",
+      "Description": null,
+      "ErrorMessage": "You must fill out the customer expectation field."
+    },
+    {
+      "attributes": {
+        "type": "ValidationRule",
+        "url": "/services/data/v67.0/tooling/sobjects/ValidationRule/03d5b000000Lfz8AAC"
+      },
+      "Id": "03d5b000000Lfz8AAC",
+      "ValidationName": "Fiscal_Year_format_as_FYXX",
+      "Active": true,
+      "EntityDefinitionId": "01I5b000000VH9C",
+      "Description": null,
+      "ErrorMessage": "Fiscal Year must be in the format of FYXX"
+    },
+    {
+      "attributes": {
+        "type": "ValidationRule",
+        "url": "/services/data/v67.0/tooling/sobjects/ValidationRule/03d5b0000019MWLAA2"
+      },
+      "Id": "03d5b0000019MWLAA2",
+      "ValidationName": "FSR_Datestamp_Cannot_Be_Before_Ship_Date",
+      "Active": true,
+      "EntityDefinitionId": "Opportunity",
+      "Description": "FSR_Datestamp_Cannot_Be_Before_Ship_Date",
+      "ErrorMessage": "FSR Attached Date CANNOT Be Before Ship Date. Please contact Sales Ops/FSE Ops for assistance!"
+    },
+    {
+      "attributes": {
+        "type": "ValidationRule",
+        "url": "/services/data/v67.0/tooling/sobjects/ValidationRule/03dRo000000LU6LIAW"
+      },
+      "Id": "03dRo000000LU6LIAW",
+      "ValidationName": "GE_DISTRIBUTION_PRODUCTS",
+      "Active": true,
+      "EntityDefinitionId": "01IU0000000oYvo",
+      "Description": null,
+      "ErrorMessage": "You can only use \"DISTRIBUTION\" product names for NEW GE Equipment purchased through GE Distributorship from \"GE Healthcare\" - Use the normal product without \" - DISTRIBUTION\"!"
+    },
+    {
+      "attributes": {
+        "type": "ValidationRule",
+        "url": "/services/data/v67.0/tooling/sobjects/ValidationRule/03dRo0000005RNlIAM"
+      },
+      "Id": "03dRo0000005RNlIAM",
+      "ValidationName": "Generic_Assets_CANNOT_Have_Cost",
+      "Active": true,
+      "EntityDefinitionId": "01IU0000000oYvo",
+      "Description": "You CANNOT Add COST to Generic Items. Please follow our processes correctly. If you have questions, please reach out to your manager.",
+      "ErrorMessage": "You CANNOT Add COST to Generic Items. Please follow our processes correctly. If you have questions, please reach out to your manager."
+    },
+    {
+      "attributes": {
+        "type": "ValidationRule",
+        "url": "/services/data/v67.0/tooling/sobjects/ValidationRule/03d4O00000067BJQAY"
+      },
+      "Id": "03d4O00000067BJQAY",
+      "ValidationName": "GL_Posting_Date_Required_to_Submit",
+      "Active": true,
+      "EntityDefinitionId": "01I4O000000net1",
+      "Description": null,
+      "ErrorMessage": "A GL Posting Date is required to submit this Credit Memo"
+    },
+    {
+      "attributes": {
+        "type": "ValidationRule",
+        "url": "/services/data/v67.0/tooling/sobjects/ValidationRule/03dRo000000BunKIAS"
+      },
+      "Id": "03dRo000000BunKIAS",
+      "ValidationName": "Greater_than_zero",
+      "Active": true,
+      "EntityDefinitionId": "01IRo000002CkYL",
+      "Description": null,
+      "ErrorMessage": "Duration must be positive"
+    },
+    {
+      "attributes": {
+        "type": "ValidationRule",
+        "url": "/services/data/v67.0/tooling/sobjects/ValidationRule/03d0B000000V8vHQAS"
+      },
+      "Id": "03d0B000000V8vHQAS",
+      "ValidationName": "Grommet_replacement",
+      "Active": true,
+      "EntityDefinitionId": "Product2",
+      "Description": null,
+      "ErrorMessage": "Only System Administrators and Sales Managers can add or remove repair capabilities."
+    },
+    {
+      "attributes": {
+        "type": "ValidationRule",
+        "url": "/services/data/v67.0/tooling/sobjects/ValidationRule/03d5b000000Lfz5AAC"
+      },
+      "Id": "03d5b000000Lfz5AAC",
+      "ValidationName": "Hours_Cant_be_negative",
+      "Active": true,
+      "EntityDefinitionId": "01I5b000000VH9B",
+      "Description": null,
+      "ErrorMessage": "Actual hours worked cannot be negative numbers"
+    },
+    {
+      "attributes": {
+        "type": "ValidationRule",
+        "url": "/services/data/v67.0/tooling/sobjects/ValidationRule/03d5b000000Lg0AAAS"
+      },
+      "Id": "03d5b000000Lg0AAAS",
+      "ValidationName": "Hours_to_Complete_Cant_be_Empty",
+      "Active": true,
+      "EntityDefinitionId": "01I5b000000VH9E",
+      "Description": null,
+      "ErrorMessage": "You must enter the amount of time (in hours) this task took to complete before closing the PMT Task."
+    },
+    {
+      "attributes": {
+        "type": "ValidationRule",
+        "url": "/services/data/v67.0/tooling/sobjects/ValidationRule/03dRo000000AqDRIA0"
+      },
+      "Id": "03dRo000000AqDRIA0",
+      "ValidationName": "HWO_Cost_Cannot_Exceed_SWO_Value",
+      "Active": true,
+      "EntityDefinitionId": "01I4O000000ney2",
+      "Description": null,
+      "ErrorMessage": "HWO Cost CANNOT Exceed SWO Cost"
+    },
+    {
+      "attributes": {
+        "type": "ValidationRule",
+        "url": "/services/data/v67.0/tooling/sobjects/ValidationRule/03dRo0000016k1BIAQ"
+      },
+      "Id": "03dRo0000016k1BIAQ",
+      "ValidationName": "ICO001_Account_Name_Contains_Probo",
+      "Active": true,
+      "EntityDefinitionId": "01IRo0000041dmb",
+      "Description": "Account Name must include Probo for internal transactions.",
+      "ErrorMessage": "Ship To Account must be a Probo entity."
+    },
+    {
+      "attributes": {
+        "type": "ValidationRule",
+        "url": "/services/data/v67.0/tooling/sobjects/ValidationRule/03dRo0000016k1CIAQ"
+      },
+      "Id": "03dRo0000016k1CIAQ",
+      "ValidationName": "ICO002_Asset_Entity_Matches_Ship_To",
+      "Active": true,
+      "EntityDefinitionId": "01IRo0000041dmb",
+      "Description": null,
+      "ErrorMessage": "Asset is already owned by this entity (Asset entity matches the Ship To Account owner's entity)."
+    },
+    {
+      "attributes": {
+        "type": "ValidationRule",
+        "url": "/services/data/v67.0/tooling/sobjects/ValidationRule/03dRo0000016k1DIAQ"
+      },
+      "Id": "03dRo0000016k1DIAQ",
+      "ValidationName": "ICO003_Change_Assets_After_Completion",
+      "Active": true,
+      "EntityDefinitionId": "01IRo0000041dmb",
+      "Description": "This stops users from changing Assets after the New Transferred Asset has been filled in.",
+      "ErrorMessage": "Requested and Transferred Assets cannot be changed after the Transferred Asset has been created."
+    },
+    {
+      "attributes": {
+        "type": "ValidationRule",
+        "url": "/services/data/v67.0/tooling/sobjects/ValidationRule/03d0B000000V9kKQAS"
+      },
+      "Id": "03d0B000000V9kKQAS",
+      "ValidationName": "Identify_equipment_number_used_for_mold",
+      "Active": true,
+      "EntityDefinitionId": "01IU0000000CWz8",
+      "Description": null,
+      "ErrorMessage": "You must enter the equipment number for the mold."
+    },
+    {
+      "attributes": {
+        "type": "ValidationRule",
+        "url": "/services/data/v67.0/tooling/sobjects/ValidationRule/03dRo000000G4vhIAC"
+      },
+      "Id": "03dRo000000G4vhIAC",
+      "ValidationName": "If_Canceled_You_Must_Enter_Date",
+      "Active": false,
+      "EntityDefinitionId": "ServiceContract",
+      "Description": null,
+      "ErrorMessage": "When Changing the Contract Status to \"Canceled\" you MUST enter a date into the \"Contract Canceled\" field."
+    },
+    {
+      "attributes": {
+        "type": "ValidationRule",
+        "url": "/services/data/v67.0/tooling/sobjects/ValidationRule/03d5b000000Lfz1AAC"
+      },
+      "Id": "03d5b000000Lfz1AAC",
+      "ValidationName": "InitialStartDate_should_be_less",
+      "Active": true,
+      "EntityDefinitionId": "01I5b000000VH9A",
+      "Description": "Initial Start date must be less than the Initial End date",
+      "ErrorMessage": "Initial End date must be after Initial Start date."
+    },
+    {
+      "attributes": {
+        "type": "ValidationRule",
+        "url": "/services/data/v67.0/tooling/sobjects/ValidationRule/03d0B000000V8w5QAC"
+      },
+      "Id": "03d0B000000V8w5QAC",
+      "ValidationName": "Insertion_tube_replacement",
+      "Active": true,
+      "EntityDefinitionId": "Product2",
+      "Description": null,
+      "ErrorMessage": "Only System Administrators and Sales Managers can add or remove repair capabilities."
+    },
+    {
+      "attributes": {
+        "type": "ValidationRule",
+        "url": "/services/data/v67.0/tooling/sobjects/ValidationRule/03d5b000000LdtXAAS"
+      },
+      "Id": "03d5b000000LdtXAAS",
+      "ValidationName": "Intacct_Submission_Date_Error",
+      "Active": true,
+      "EntityDefinitionId": "01I4O000000neT3",
+      "Description": "Throws an Error if the Intacct Submission Date is likely in a closed period",
+      "ErrorMessage": "Intacct Invoice Submission Date must be in either this month or last month"
+    },
+    {
+      "attributes": {
+        "type": "ValidationRule",
+        "url": "/services/data/v67.0/tooling/sobjects/ValidationRule/03d0B000000VAVGQA4"
+      },
+      "Id": "03d0B000000VAVGQA4",
+      "ValidationName": "Inter_company_opp_must_have_ship_to_loca",
+      "Active": true,
+      "EntityDefinitionId": "Opportunity",
+      "Description": null,
+      "ErrorMessage": "You must fill in the shipping to location field."
+    },
+    {
+      "attributes": {
+        "type": "ValidationRule",
+        "url": "/services/data/v67.0/tooling/sobjects/ValidationRule/03d5b000000LdthAAC"
+      },
+      "Id": "03d5b000000LdthAAC",
+      "ValidationName": "Invoice_Must_Have_Products_to_Sync",
+      "Active": false,
+      "EntityDefinitionId": "01I4O000000neT3",
+      "Description": null,
+      "ErrorMessage": "Invoice MUST have products to sync with Intacct"
+    },
+    {
+      "attributes": {
+        "type": "ValidationRule",
+        "url": "/services/data/v67.0/tooling/sobjects/ValidationRule/03d5b000000LfUKAA0"
+      },
+      "Id": "03d5b000000LfUKAA0",
+      "ValidationName": "Invoice_Not_Open_For_Sync",
+      "Active": true,
+      "EntityDefinitionId": "01I4O000000neT3",
+      "Description": null,
+      "ErrorMessage": "Can not submit invoice to Intact until you press the submit invoice button"
+    },
+    {
+      "attributes": {
+        "type": "ValidationRule",
+        "url": "/services/data/v67.0/tooling/sobjects/ValidationRule/03dRo000000Bun4IAC"
+      },
+      "Id": "03dRo000000Bun4IAC",
+      "ValidationName": "isDueDateExist",
+      "Active": false,
+      "EntityDefinitionId": "ServiceAppointment",
+      "Description": "Check if DueDate field exist on service appointment.",
+      "ErrorMessage": "DueDate field is required"
+    },
+    {
+      "attributes": {
+        "type": "ValidationRule",
+        "url": "/services/data/v67.0/tooling/sobjects/ValidationRule/03dRo000000Bun5IAC"
+      },
+      "Id": "03dRo000000Bun5IAC",
+      "ValidationName": "isDurationExist",
+      "Active": true,
+      "EntityDefinitionId": "ServiceAppointment",
+      "Description": "Check if Duration field exist on service appointment.",
+      "ErrorMessage": "Duration field is required"
+    },
+    {
+      "attributes": {
+        "type": "ValidationRule",
+        "url": "/services/data/v67.0/tooling/sobjects/ValidationRule/03dRo000000Bun6IAC"
+      },
+      "Id": "03dRo000000Bun6IAC",
+      "ValidationName": "isEarliestStartTimeExist",
+      "Active": false,
+      "EntityDefinitionId": "ServiceAppointment",
+      "Description": "Check if EarliestStartTime field exist on service appointment.",
+      "ErrorMessage": "EarliestStartTime field is required"
+    },
+    {
+      "attributes": {
+        "type": "ValidationRule",
+        "url": "/services/data/v67.0/tooling/sobjects/ValidationRule/03dRo0000007YEfIAM"
+      },
+      "Id": "03dRo0000007YEfIAM",
+      "ValidationName": "Item_Receipt_Amount_CANNOT_Exceed_Total",
+      "Active": false,
+      "EntityDefinitionId": "Opportunity",
+      "Description": null,
+      "ErrorMessage": "Total Item Receipt Amount CANNOT Exceed Probo Offer Total!"
+    },
+    {
+      "attributes": {
+        "type": "ValidationRule",
+        "url": "/services/data/v67.0/tooling/sobjects/ValidationRule/03d5b0000005HQjAAM"
+      },
+      "Id": "03d5b0000005HQjAAM",
+      "ValidationName": "Key_Cannot_be_Blank",
+      "Active": true,
+      "EntityDefinitionId": "01I5b0000003JKQ",
+      "Description": null,
+      "ErrorMessage": "Key cannot be blank"
+    },
+    {
+      "attributes": {
+        "type": "ValidationRule",
+        "url": "/services/data/v67.0/tooling/sobjects/ValidationRule/03d5b000000Lfz0AAC"
+      },
+      "Id": "03d5b000000Lfz0AAC",
+      "ValidationName": "Kickoff_before_deadline",
+      "Active": true,
+      "EntityDefinitionId": "01I5b000000VH98",
+      "Description": "Phase Start date must be earlier than end date",
+      "ErrorMessage": "Phase End Date must be after Phase Start date."
+    },
+    {
+      "attributes": {
+        "type": "ValidationRule",
+        "url": "/services/data/v67.0/tooling/sobjects/ValidationRule/03d0B000000V8tLQAS"
+      },
+      "Id": "03d0B000000V8tLQAS",
+      "ValidationName": "Knob_replacement",
+      "Active": true,
+      "EntityDefinitionId": "Product2",
+      "Description": null,
+      "ErrorMessage": "Only System Administrators and Sales Managers can add or remove repair capabilities."
+    },
+    {
+      "attributes": {
+        "type": "ValidationRule",
+        "url": "/services/data/v67.0/tooling/sobjects/ValidationRule/03d0B000000V8uYQAS"
+      },
+      "Id": "03d0B000000V8uYQAS",
+      "ValidationName": "Laser_stripping",
+      "Active": true,
+      "EntityDefinitionId": "Product2",
+      "Description": null,
+      "ErrorMessage": "Only System Administrators and Sales Managers can add or remove repair capabilities."
+    },
+    {
+      "attributes": {
+        "type": "ValidationRule",
+        "url": "/services/data/v67.0/tooling/sobjects/ValidationRule/03d0B000000V8J3QAK"
+      },
+      "Id": "03d0B000000V8J3QAK",
+      "ValidationName": "Last_4_SN_must_not_be_blank",
+      "Active": true,
+      "EntityDefinitionId": "01IU0000000ofKb",
+      "Description": null,
+      "ErrorMessage": "You must enter the last four characters of the serial number."
+    },
+    {
+      "attributes": {
+        "type": "ValidationRule",
+        "url": "/services/data/v67.0/tooling/sobjects/ValidationRule/03d5b000000LeexAAC"
+      },
+      "Id": "03d5b000000LeexAAC",
+      "ValidationName": "Lead_Source_and_Detail_Change",
+      "Active": true,
+      "EntityDefinitionId": "Lead",
+      "Description": null,
+      "ErrorMessage": "You can not change lead source or lead source detail once they are set. If you need to make a change for any reason, please contact the salesforce support desk to make the change."
+    },
+    {
+      "attributes": {
+        "type": "ValidationRule",
+        "url": "/services/data/v67.0/tooling/sobjects/ValidationRule/03d4O000000VGGiQAO"
+      },
+      "Id": "03d4O000000VGGiQAO",
+      "ValidationName": "Lead_Source_Detail_for_New_Account",
+      "Active": false,
+      "EntityDefinitionId": "Opportunity",
+      "Description": null,
+      "ErrorMessage": "Please enter the Sales Lead Source Detail"
+    },
+    {
+      "attributes": {
+        "type": "ValidationRule",
+        "url": "/services/data/v67.0/tooling/sobjects/ValidationRule/03d0B000000V89NQAS"
+      },
+      "Id": "03d0B000000V89NQAS",
+      "ValidationName": "Leakage_current_cannot_equal_zero",
+      "Active": true,
+      "EntityDefinitionId": "01IU0000000ofKb",
+      "Description": null,
+      "ErrorMessage": "Leakage current cannot equal 0. Retest leakage current."
+    },
+    {
+      "attributes": {
+        "type": "ValidationRule",
+        "url": "/services/data/v67.0/tooling/sobjects/ValidationRule/03d0B000000V8tQQAS"
+      },
+      "Id": "03d0B000000V8tQQAS",
+      "ValidationName": "Lens_refurbishment",
+      "Active": true,
+      "EntityDefinitionId": "Product2",
+      "Description": null,
+      "ErrorMessage": "Only System Administrators and Sales Managers can add or remove repair capabilities."
+    },
+    {
+      "attributes": {
+        "type": "ValidationRule",
+        "url": "/services/data/v67.0/tooling/sobjects/ValidationRule/03d0B000000V8tVQAS"
+      },
+      "Id": "03d0B000000V8tVQAS",
+      "ValidationName": "Lens_relens",
+      "Active": true,
+      "EntityDefinitionId": "Product2",
+      "Description": null,
+      "ErrorMessage": "Only System Administrators and Sales Managers can add or remove repair capabilities."
+    },
+    {
+      "attributes": {
+        "type": "ValidationRule",
+        "url": "/services/data/v67.0/tooling/sobjects/ValidationRule/03d0B000000V8vMQAS"
+      },
+      "Id": "03d0B000000V8vMQAS",
+      "ValidationName": "Lens_remove_coating_RTV_seal_replacement",
+      "Active": true,
+      "EntityDefinitionId": "Product2",
+      "Description": null,
+      "ErrorMessage": "Only System Administrators and Sales Managers can add or remove repair capabilities."
+    },
+    {
+      "attributes": {
+        "type": "ValidationRule",
+        "url": "/services/data/v67.0/tooling/sobjects/ValidationRule/03dRo000000BunBIAS"
+      },
+      "Id": "03dRo000000BunBIAS",
+      "ValidationName": "Limit_STM_End_Date",
+      "Active": true,
+      "EntityDefinitionId": "ServiceTerritoryMember",
+      "Description": null,
+      "ErrorMessage": "End Date must be within 3 years from today"
+    },
+    {
+      "attributes": {
+        "type": "ValidationRule",
+        "url": "/services/data/v67.0/tooling/sobjects/ValidationRule/03dU00000005qNNIAY"
+      },
+      "Id": "03dU00000005qNNIAY",
+      "ValidationName": "Location_not_editable",
+      "Active": false,
+      "EntityDefinitionId": "01IU0000000oYvo",
+      "Description": null,
+      "ErrorMessage": "Location field is not  editable"
+    },
+    {
+      "attributes": {
+        "type": "ValidationRule",
+        "url": "/services/data/v67.0/tooling/sobjects/ValidationRule/03d4O00000066b8QAA"
+      },
+      "Id": "03d4O00000066b8QAA",
+      "ValidationName": "Lock_Avalara_Certificate_Id_field",
+      "Active": true,
+      "EntityDefinitionId": "01I4O000000tROI",
+      "Description": null,
+      "ErrorMessage": "Please do not edit this value"
+    },
+    {
+      "attributes": {
+        "type": "ValidationRule",
+        "url": "/services/data/v67.0/tooling/sobjects/ValidationRule/03dRo000000EPbFIAW"
+      },
+      "Id": "03dRo000000EPbFIAW",
+      "ValidationName": "Lost_Reason_on_Sales_Opps",
+      "Active": true,
+      "EntityDefinitionId": "Opportunity",
+      "Description": null,
+      "ErrorMessage": "You MUST enter a \"Reason Lost\" when close losing a Sales Opportunity"
+    },
+    {
+      "attributes": {
+        "type": "ValidationRule",
+        "url": "/services/data/v67.0/tooling/sobjects/ValidationRule/03dRo000000BunLIAS"
+      },
+      "Id": "03dRo000000BunLIAS",
+      "ValidationName": "Maximum_Travel_Must_Be_Positive",
+      "Active": true,
+      "EntityDefinitionId": "01IRo000002CkYL",
+      "Description": null,
+      "ErrorMessage": "Maximum Travel from Home must be positive."
+    },
+    {
+      "attributes": {
+        "type": "ValidationRule",
+        "url": "/services/data/v67.0/tooling/sobjects/ValidationRule/03dRo000000BunMIAS"
+      },
+      "Id": "03dRo000000BunMIAS",
+      "ValidationName": "Minimum_Gap_Positive",
+      "Active": true,
+      "EntityDefinitionId": "01IRo000002CkYL",
+      "Description": "Resource availability, min gap shouldn't be negative",
+      "ErrorMessage": "Minimum gap should not be negative"
+    },
+    {
+      "attributes": {
+        "type": "ValidationRule",
+        "url": "/services/data/v67.0/tooling/sobjects/ValidationRule/03d5b0000005HskAAE"
+      },
+      "Id": "03d5b0000005HskAAE",
+      "ValidationName": "Modality_Field_Must_Be_Filled_Out",
+      "Active": false,
+      "EntityDefinitionId": "Lead",
+      "Description": "The modality field must be filled out when qualifying a Lead",
+      "ErrorMessage": "When qualifying a Lead you must choose a Modality in the Modality Field!"
+    },
+    {
+      "attributes": {
+        "type": "ValidationRule",
+        "url": "/services/data/v67.0/tooling/sobjects/ValidationRule/03d0B000000V8uEQAS"
+      },
+      "Id": "03d0B000000V8uEQAS",
+      "ValidationName": "Motor_Repair",
+      "Active": true,
+      "EntityDefinitionId": "Product2",
+      "Description": null,
+      "ErrorMessage": "Only System Administrators and Sales Managers can add or remove repair capabilities."
+    },
+    {
+      "attributes": {
+        "type": "ValidationRule",
+        "url": "/services/data/v67.0/tooling/sobjects/ValidationRule/03d0B000000V8FkQAK"
+      },
+      "Id": "03d0B000000V8FkQAK",
+      "ValidationName": "Must_be_equal_to_product1",
+      "Active": true,
+      "EntityDefinitionId": "01IU0000000ofKb",
+      "Description": null,
+      "ErrorMessage": "You cannot change a product test setting."
+    },
+    {
+      "attributes": {
+        "type": "ValidationRule",
+        "url": "/services/data/v67.0/tooling/sobjects/ValidationRule/03d0B000000V8GdQAK"
+      },
+      "Id": "03d0B000000V8GdQAK",
+      "ValidationName": "Must_be_equal_to_product10",
+      "Active": true,
+      "EntityDefinitionId": "01IU0000000ofKb",
+      "Description": null,
+      "ErrorMessage": "You cannot change a product test setting."
+    },
+    {
+      "attributes": {
+        "type": "ValidationRule",
+        "url": "/services/data/v67.0/tooling/sobjects/ValidationRule/03d0B000000VAvKQAW"
+      },
+      "Id": "03d0B000000VAvKQAW",
+      "ValidationName": "Must_be_equal_to_product11",
+      "Active": true,
+      "EntityDefinitionId": "01IU0000000ofKb",
+      "Description": null,
+      "ErrorMessage": "You cannot change a product test setting."
+    },
+    {
+      "attributes": {
+        "type": "ValidationRule",
+        "url": "/services/data/v67.0/tooling/sobjects/ValidationRule/03d0B000000V8GsQAK"
+      },
+      "Id": "03d0B000000V8GsQAK",
+      "ValidationName": "Must_be_equal_to_product12",
+      "Active": true,
+      "EntityDefinitionId": "01IU0000000ofKb",
+      "Description": null,
+      "ErrorMessage": "You cannot change a product test setting."
+    },
+    {
+      "attributes": {
+        "type": "ValidationRule",
+        "url": "/services/data/v67.0/tooling/sobjects/ValidationRule/03d0B000000V8GxQAK"
+      },
+      "Id": "03d0B000000V8GxQAK",
+      "ValidationName": "Must_be_equal_to_product13",
+      "Active": true,
+      "EntityDefinitionId": "01IU0000000ofKb",
+      "Description": null,
+      "ErrorMessage": "You cannot change a product test setting."
+    },
+    {
+      "attributes": {
+        "type": "ValidationRule",
+        "url": "/services/data/v67.0/tooling/sobjects/ValidationRule/03d0B000000V8H2QAK"
+      },
+      "Id": "03d0B000000V8H2QAK",
+      "ValidationName": "Must_be_equal_to_product14",
+      "Active": true,
+      "EntityDefinitionId": "01IU0000000ofKb",
+      "Description": null,
+      "ErrorMessage": "You cannot change a product test setting."
+    },
+    {
+      "attributes": {
+        "type": "ValidationRule",
+        "url": "/services/data/v67.0/tooling/sobjects/ValidationRule/03d0B000000V8H7QAK"
+      },
+      "Id": "03d0B000000V8H7QAK",
+      "ValidationName": "Must_be_equal_to_product15",
+      "Active": true,
+      "EntityDefinitionId": "01IU0000000ofKb",
+      "Description": null,
+      "ErrorMessage": "You cannot change a product test setting."
+    },
+    {
+      "attributes": {
+        "type": "ValidationRule",
+        "url": "/services/data/v67.0/tooling/sobjects/ValidationRule/03d0B000000V8HCQA0"
+      },
+      "Id": "03d0B000000V8HCQA0",
+      "ValidationName": "Must_be_equal_to_product16",
+      "Active": true,
+      "EntityDefinitionId": "01IU0000000ofKb",
+      "Description": null,
+      "ErrorMessage": "You cannot change a product test setting."
+    },
+    {
+      "attributes": {
+        "type": "ValidationRule",
+        "url": "/services/data/v67.0/tooling/sobjects/ValidationRule/03d0B000000V8HHQA0"
+      },
+      "Id": "03d0B000000V8HHQA0",
+      "ValidationName": "Must_be_equal_to_product17",
+      "Active": true,
+      "EntityDefinitionId": "01IU0000000ofKb",
+      "Description": null,
+      "ErrorMessage": "You cannot change a product test setting."
+    },
+    {
+      "attributes": {
+        "type": "ValidationRule",
+        "url": "/services/data/v67.0/tooling/sobjects/ValidationRule/03d0B000000V8HMQA0"
+      },
+      "Id": "03d0B000000V8HMQA0",
+      "ValidationName": "Must_be_equal_to_product18",
+      "Active": true,
+      "EntityDefinitionId": "01IU0000000ofKb",
+      "Description": null,
+      "ErrorMessage": "You cannot change a product test setting."
+    },
+    {
+      "attributes": {
+        "type": "ValidationRule",
+        "url": "/services/data/v67.0/tooling/sobjects/ValidationRule/03d0B000000V8IZQA0"
+      },
+      "Id": "03d0B000000V8IZQA0",
+      "ValidationName": "Must_be_equal_to_product19",
+      "Active": true,
+      "EntityDefinitionId": "01IU0000000ofKb",
+      "Description": null,
+      "ErrorMessage": "You cannot change a product test setting."
+    },
+    {
+      "attributes": {
+        "type": "ValidationRule",
+        "url": "/services/data/v67.0/tooling/sobjects/ValidationRule/03d0B000000V8FuQAK"
+      },
+      "Id": "03d0B000000V8FuQAK",
+      "ValidationName": "Must_be_equal_to_product2",
+      "Active": true,
+      "EntityDefinitionId": "01IU0000000ofKb",
+      "Description": null,
+      "ErrorMessage": "You cannot change a product test setting."
+    },
+    {
+      "attributes": {
+        "type": "ValidationRule",
+        "url": "/services/data/v67.0/tooling/sobjects/ValidationRule/03d0B000000V8FzQAK"
+      },
+      "Id": "03d0B000000V8FzQAK",
+      "ValidationName": "Must_be_equal_to_product3",
+      "Active": true,
+      "EntityDefinitionId": "01IU0000000ofKb",
+      "Description": null,
+      "ErrorMessage": "You cannot change a product test setting."
+    },
+    {
+      "attributes": {
+        "type": "ValidationRule",
+        "url": "/services/data/v67.0/tooling/sobjects/ValidationRule/03d0B000000V8G9QAK"
+      },
+      "Id": "03d0B000000V8G9QAK",
+      "ValidationName": "Must_be_equal_to_product4",
+      "Active": true,
+      "EntityDefinitionId": "01IU0000000ofKb",
+      "Description": null,
+      "ErrorMessage": "You cannot change a product test setting."
+    },
+    {
+      "attributes": {
+        "type": "ValidationRule",
+        "url": "/services/data/v67.0/tooling/sobjects/ValidationRule/03d0B000000V8GEQA0"
+      },
+      "Id": "03d0B000000V8GEQA0",
+      "ValidationName": "Must_be_equal_to_product5",
+      "Active": true,
+      "EntityDefinitionId": "01IU0000000ofKb",
+      "Description": null,
+      "ErrorMessage": "You cannot change a product test setting."
+    },
+    {
+      "attributes": {
+        "type": "ValidationRule",
+        "url": "/services/data/v67.0/tooling/sobjects/ValidationRule/03d0B000000VAvLQAW"
+      },
+      "Id": "03d0B000000VAvLQAW",
+      "ValidationName": "Must_be_equal_to_product6",
+      "Active": true,
+      "EntityDefinitionId": "01IU0000000ofKb",
+      "Description": null,
+      "ErrorMessage": "You cannot change a product test setting."
+    },
+    {
+      "attributes": {
+        "type": "ValidationRule",
+        "url": "/services/data/v67.0/tooling/sobjects/ValidationRule/03d0B000000V8GOQA0"
+      },
+      "Id": "03d0B000000V8GOQA0",
+      "ValidationName": "Must_be_equal_to_product7",
+      "Active": true,
+      "EntityDefinitionId": "01IU0000000ofKb",
+      "Description": null,
+      "ErrorMessage": "You cannot change a product test setting."
+    },
+    {
+      "attributes": {
+        "type": "ValidationRule",
+        "url": "/services/data/v67.0/tooling/sobjects/ValidationRule/03d0B000000V8GTQA0"
+      },
+      "Id": "03d0B000000V8GTQA0",
+      "ValidationName": "Must_be_equal_to_product8",
+      "Active": true,
+      "EntityDefinitionId": "01IU0000000ofKb",
+      "Description": null,
+      "ErrorMessage": "You cannot change a product test setting."
+    },
+    {
+      "attributes": {
+        "type": "ValidationRule",
+        "url": "/services/data/v67.0/tooling/sobjects/ValidationRule/03d0B000000V8GYQA0"
+      },
+      "Id": "03d0B000000V8GYQA0",
+      "ValidationName": "Must_be_equal_to_product9",
+      "Active": true,
+      "EntityDefinitionId": "01IU0000000ofKb",
+      "Description": null,
+      "ErrorMessage": "You cannot change a product test setting."
+    },
+    {
+      "attributes": {
+        "type": "ValidationRule",
+        "url": "/services/data/v67.0/tooling/sobjects/ValidationRule/03dRo0000006jiPIAQ"
+      },
+      "Id": "03dRo0000006jiPIAQ",
+      "ValidationName": "Must_Calculate_Shipping",
+      "Active": true,
+      "EntityDefinitionId": "Opportunity",
+      "Description": null,
+      "ErrorMessage": "YOU MUST CALCULATE SHIPPING BEFORE SUBMITTING FOR APPROVAL OR CLOSE WINNING!"
+    },
+    {
+      "attributes": {
+        "type": "ValidationRule",
+        "url": "/services/data/v67.0/tooling/sobjects/ValidationRule/03dRo0000019rPVIAY"
+      },
+      "Id": "03dRo0000019rPVIAY",
+      "ValidationName": "Must_contain_a_Reason_Canceled",
+      "Active": true,
+      "EntityDefinitionId": "ServiceContract",
+      "Description": null,
+      "ErrorMessage": "Must contain a reason canceled."
+    },
+    {
+      "attributes": {
+        "type": "ValidationRule",
+        "url": "/services/data/v67.0/tooling/sobjects/ValidationRule/03d5b000000LfSiAAK"
+      },
+      "Id": "03d5b000000LfSiAAK",
+      "ValidationName": "Must_Enter_Customer_PO_Info_To_Move_POR",
+      "Active": true,
+      "EntityDefinitionId": "Opportunity",
+      "Description": null,
+      "ErrorMessage": "You must enter Customer PO Number in Customer PO # field in order to move Equipment Removal Op to \"PO Received\""
+    },
+    {
+      "attributes": {
+        "type": "ValidationRule",
+        "url": "/services/data/v67.0/tooling/sobjects/ValidationRule/03d5b000000WsT1AAK"
+      },
+      "Id": "03d5b000000WsT1AAK",
+      "ValidationName": "Must_Enter_Hours_and_Comments_to_Close",
+      "Active": false,
+      "EntityDefinitionId": "Case",
+      "Description": "Must enter Hours and Comments in order to close a case",
+      "ErrorMessage": "Must enter Hours and Comments in order to close a case! You can put 0 if you did not solve the case."
+    },
+    {
+      "attributes": {
+        "type": "ValidationRule",
+        "url": "/services/data/v67.0/tooling/sobjects/ValidationRule/03d4O00000066arQAA"
+      },
+      "Id": "03d4O00000066arQAA",
+      "ValidationName": "Must_Enter_Shipping_Cost",
+      "Active": false,
+      "EntityDefinitionId": "Opportunity",
+      "Description": null,
+      "ErrorMessage": "Please enter a Shipping Cost."
+    },
+    {
+      "attributes": {
+        "type": "ValidationRule",
+        "url": "/services/data/v67.0/tooling/sobjects/ValidationRule/03d4O00000066asQAA"
+      },
+      "Id": "03d4O00000066asQAA",
+      "ValidationName": "Must_enter_shipping_cost",
+      "Active": true,
+      "EntityDefinitionId": "01I4O000000net6",
+      "Description": null,
+      "ErrorMessage": "Must enter a shipping cost to ship an asset."
+    },
+    {
+      "attributes": {
+        "type": "ValidationRule",
+        "url": "/services/data/v67.0/tooling/sobjects/ValidationRule/03d0B000000V9YYQA0"
+      },
+      "Id": "03d0B000000V9YYQA0",
+      "ValidationName": "Must_explain_cap_failure",
+      "Active": true,
+      "EntityDefinitionId": "01IU0000000CWz8",
+      "Description": null,
+      "ErrorMessage": "You must select a reason from the drop down list for why the cap repair failed."
+    },
+    {
+      "attributes": {
+        "type": "ValidationRule",
+        "url": "/services/data/v67.0/tooling/sobjects/ValidationRule/03d0B000000V7AAQA0"
+      },
+      "Id": "03d0B000000V7AAQA0",
+      "ValidationName": "Must_explain_failure",
+      "Active": true,
+      "EntityDefinitionId": "01IU0000000CWz8",
+      "Description": null,
+      "ErrorMessage": "You must explain why this repair failed."
+    },
+    {
+      "attributes": {
+        "type": "ValidationRule",
+        "url": "/services/data/v67.0/tooling/sobjects/ValidationRule/03d0B000000V9eMQAS"
+      },
+      "Id": "03d0B000000V9eMQAS",
+      "ValidationName": "Must_explain_lens_failure",
+      "Active": true,
+      "EntityDefinitionId": "01IU0000000CWz8",
+      "Description": null,
+      "ErrorMessage": "You must select a reason from the drop down list for why the lens repair failed."
+    },
+    {
+      "attributes": {
+        "type": "ValidationRule",
+        "url": "/services/data/v67.0/tooling/sobjects/ValidationRule/03d0B000000V9eRQAS"
+      },
+      "Id": "03d0B000000V9eRQAS",
+      "ValidationName": "Must_explain_SR_failure",
+      "Active": true,
+      "EntityDefinitionId": "01IU0000000CWz8",
+      "Description": null,
+      "ErrorMessage": "You must select a reason from the drop down list for why the SR repair failed."
+    },
+    {
+      "attributes": {
+        "type": "ValidationRule",
+        "url": "/services/data/v67.0/tooling/sobjects/ValidationRule/03d0B000000V6ZEQA0"
+      },
+      "Id": "03d0B000000V6ZEQA0",
+      "ValidationName": "Must_fill_out_notes_for_no_longer_needed",
+      "Active": true,
+      "EntityDefinitionId": "01IU0000000CWz8",
+      "Description": null,
+      "ErrorMessage": "You must give a reason for why this repair is no longer needed"
+    },
+    {
+      "attributes": {
+        "type": "ValidationRule",
+        "url": "/services/data/v67.0/tooling/sobjects/ValidationRule/03d0B000000V79gQAC"
+      },
+      "Id": "03d0B000000V79gQAC",
+      "ValidationName": "Must_fill_out_quality_issue_notes",
+      "Active": true,
+      "EntityDefinitionId": "01IU0000000omZU",
+      "Description": null,
+      "ErrorMessage": "You must fill out the quality issue notes for warranties and return from sales."
+    },
+    {
+      "attributes": {
+        "type": "ValidationRule",
+        "url": "/services/data/v67.0/tooling/sobjects/ValidationRule/03d0B000000V74RQAS"
+      },
+      "Id": "03d0B000000V74RQAS",
+      "ValidationName": "Must_give_description_of_electrical",
+      "Active": true,
+      "EntityDefinitionId": "01IU0000000CWz8",
+      "Description": null,
+      "ErrorMessage": "You must enter repair notes with a description of the electrical repair."
+    },
+    {
+      "attributes": {
+        "type": "ValidationRule",
+        "url": "/services/data/v67.0/tooling/sobjects/ValidationRule/03d0B000000V9dxQAC"
+      },
+      "Id": "03d0B000000V9dxQAC",
+      "ValidationName": "Must_give_reason_for_cancelling",
+      "Active": true,
+      "EntityDefinitionId": "01I0B000000xOR8",
+      "Description": null,
+      "ErrorMessage": "You must fill out the \"reason why work order was cancelled\" to cancel a work order."
+    },
+    {
+      "attributes": {
+        "type": "ValidationRule",
+        "url": "/services/data/v67.0/tooling/sobjects/ValidationRule/03d4O000000kWKkQAM"
+      },
+      "Id": "03d4O000000kWKkQAM",
+      "ValidationName": "Must_have_repair_technician_if_complete",
+      "Active": true,
+      "EntityDefinitionId": "01IU0000000CWz8",
+      "Description": "If repair date is filled in, the repair technician field must also be filled in",
+      "ErrorMessage": "You must enter a repair technician with the repair date."
+    },
+    {
+      "attributes": {
+        "type": "ValidationRule",
+        "url": "/services/data/v67.0/tooling/sobjects/ValidationRule/03dRo0000015S4jIAE"
+      },
+      "Id": "03dRo0000015S4jIAE",
+      "ValidationName": "Must_Have_Ship_Type",
+      "Active": true,
+      "EntityDefinitionId": "Opportunity",
+      "Description": "You must have the \"Ship Type\" field filled out before changing to stage Closed Won or Repair Declined.",
+      "ErrorMessage": "You must have the \"Ship Type\" field filled out before changing to stage Closed Won or Repair Declined."
+    },
+    {
+      "attributes": {
+        "type": "ValidationRule",
+        "url": "/services/data/v67.0/tooling/sobjects/ValidationRule/03d5b000000LedfAAC"
+      },
+      "Id": "03d5b000000LedfAAC",
+      "ValidationName": "Must_include_RGBP_Category",
+      "Active": false,
+      "EntityDefinitionId": "Account",
+      "Description": null,
+      "ErrorMessage": "You must fill out the RGBP Category field to save a new account."
+    },
+    {
+      "attributes": {
+        "type": "ValidationRule",
+        "url": "/services/data/v67.0/tooling/sobjects/ValidationRule/03dRo0000006wFpIAI"
+      },
+      "Id": "03dRo0000006wFpIAI",
+      "ValidationName": "Must_Select_Business_Unit",
+      "Active": true,
+      "EntityDefinitionId": "Opportunity",
+      "Description": null,
+      "ErrorMessage": "Must select at least ONE Business Unit before Close winning"
+    },
+    {
+      "attributes": {
+        "type": "ValidationRule",
+        "url": "/services/data/v67.0/tooling/sobjects/ValidationRule/03d5b000000LfzqAAC"
+      },
+      "Id": "03d5b000000LfzqAAC",
+      "ValidationName": "Must_Select_Delegate_Resource_Assigned",
+      "Active": true,
+      "EntityDefinitionId": "01I5b000000VH9E",
+      "Description": null,
+      "ErrorMessage": "Must Select which Delegate Resource is Assigned"
+    },
+    {
+      "attributes": {
+        "type": "ValidationRule",
+        "url": "/services/data/v67.0/tooling/sobjects/ValidationRule/03d5b000000LeJzAAK"
+      },
+      "Id": "03d5b000000LeJzAAK",
+      "ValidationName": "Need_customer_expectation_for_warranty",
+      "Active": true,
+      "EntityDefinitionId": "01IU0000000omZU",
+      "Description": null,
+      "ErrorMessage": "You must enter a customer expectation for warranty claims."
+    },
+    {
+      "attributes": {
+        "type": "ValidationRule",
+        "url": "/services/data/v67.0/tooling/sobjects/ValidationRule/03d5b000000LeIwAAK"
+      },
+      "Id": "03d5b000000LeIwAAK",
+      "ValidationName": "Need_Warranty_Length_to_Close_Win",
+      "Active": true,
+      "EntityDefinitionId": "Opportunity",
+      "Description": null,
+      "ErrorMessage": "You must enter a warranty length to close win an opportunity."
+    },
+    {
+      "attributes": {
+        "type": "ValidationRule",
+        "url": "/services/data/v67.0/tooling/sobjects/ValidationRule/03d5b000000LfUPAA0"
+      },
+      "Id": "03d5b000000LfUPAA0",
+      "ValidationName": "New_Credit_Memo",
+      "Active": true,
+      "EntityDefinitionId": "01I4O000000net1",
+      "Description": null,
+      "ErrorMessage": "Only Specific Users can create credit memos."
+    },
+    {
+      "attributes": {
+        "type": "ValidationRule",
+        "url": "/services/data/v67.0/tooling/sobjects/ValidationRule/03d5b000000WsPuAAK"
+      },
+      "Id": "03d5b000000WsPuAAK",
+      "ValidationName": "Next_Invoice_Date_Must_Be_on_Rental_Ops",
+      "Active": true,
+      "EntityDefinitionId": "Opportunity",
+      "Description": "You must fill out the Next Invoice Date field before moving an opportunity stage to \"On Rental\"",
+      "ErrorMessage": "You must fill out the Next Invoice Date field before moving an opportunity stage to \"On Rental\"!"
+    },
+    {
+      "attributes": {
+        "type": "ValidationRule",
+        "url": "/services/data/v67.0/tooling/sobjects/ValidationRule/03djR00000019sTQAQ"
+      },
+      "Id": "03djR00000019sTQAQ",
+      "ValidationName": "Next_Invoice_Date_Required",
+      "Active": true,
+      "EntityDefinitionId": "Opportunity",
+      "Description": null,
+      "ErrorMessage": "Please enter a Next Invoice Date before progressing to Verbal Acceptance."
+    },
+    {
+      "attributes": {
+        "type": "ValidationRule",
+        "url": "/services/data/v67.0/tooling/sobjects/ValidationRule/03d5b0000005ImrAAE"
+      },
+      "Id": "03d5b0000005ImrAAE",
+      "ValidationName": "No_Confirmation_Number_on_Rental_Opps",
+      "Active": true,
+      "EntityDefinitionId": "Opportunity",
+      "Description": null,
+      "ErrorMessage": "Rental Opportunities CANNOT Ship without Confirmation Number"
+    },
+    {
+      "attributes": {
+        "type": "ValidationRule",
+        "url": "/services/data/v67.0/tooling/sobjects/ValidationRule/03d5b000000LfRBAA0"
+      },
+      "Id": "03d5b000000LfRBAA0",
+      "ValidationName": "No_Sync_if_UK",
+      "Active": false,
+      "EntityDefinitionId": "Opportunity",
+      "Description": null,
+      "ErrorMessage": "Can't Sync UK to Intacct Yet"
+    },
+    {
+      "attributes": {
+        "type": "ValidationRule",
+        "url": "/services/data/v67.0/tooling/sobjects/ValidationRule/03d4O000000OKYxQAO"
+      },
+      "Id": "03d4O000000OKYxQAO",
+      "ValidationName": "Not_42",
+      "Active": true,
+      "EntityDefinitionId": "01I4O000000nfEw",
+      "Description": null,
+      "ErrorMessage": "The answer is not 42!"
+    },
+    {
+      "attributes": {
+        "type": "ValidationRule",
+        "url": "/services/data/v67.0/tooling/sobjects/ValidationRule/03dRo000000BumvIAC"
+      },
+      "Id": "03dRo000000BumvIAC",
+      "ValidationName": "Not_Zero",
+      "Active": true,
+      "EntityDefinitionId": "01IRo000002CkY6",
+      "Description": null,
+      "ErrorMessage": "Weight can't have zero value"
+    },
+    {
+      "attributes": {
+        "type": "ValidationRule",
+        "url": "/services/data/v67.0/tooling/sobjects/ValidationRule/03d0B000000V8uxQAC"
+      },
+      "Id": "03d0B000000V8uxQAC",
+      "ValidationName": "Oil_bladder_replacement",
+      "Active": true,
+      "EntityDefinitionId": "Product2",
+      "Description": null,
+      "ErrorMessage": "Only System Administrators and Sales Managers can add or remove repair capabilities."
+    },
+    {
+      "attributes": {
+        "type": "ValidationRule",
+        "url": "/services/data/v67.0/tooling/sobjects/ValidationRule/03d0B000000V8v2QAC"
+      },
+      "Id": "03d0B000000V8v2QAC",
+      "ValidationName": "Oil_fill",
+      "Active": true,
+      "EntityDefinitionId": "Product2",
+      "Description": null,
+      "ErrorMessage": "Only System Administrators and Sales Managers can add or remove repair capabilities."
+    },
+    {
+      "attributes": {
+        "type": "ValidationRule",
+        "url": "/services/data/v67.0/tooling/sobjects/ValidationRule/03dRo000000AuddIAC"
+      },
+      "Id": "03dRo000000AuddIAC",
+      "ValidationName": "Only_Certain_People_Can_Check_Acq_IR_Box",
+      "Active": true,
+      "EntityDefinitionId": "01I4O000000netG",
+      "Description": null,
+      "ErrorMessage": "Only Jamey Schofield and Derek Smith Can Check the 'Acquisition Upload' IR Checkbox!"
+    },
+    {
+      "attributes": {
+        "type": "ValidationRule",
+        "url": "/services/data/v67.0/tooling/sobjects/ValidationRule/03d5b000000Lg05AAC"
+      },
+      "Id": "03d5b000000Lg05AAC",
+      "ValidationName": "Other_Description_Cant_Be_Blank",
+      "Active": true,
+      "EntityDefinitionId": "01I5b000000VH9M",
+      "Description": null,
+      "ErrorMessage": "If Category = \"Other\", \"Reason for Other\" field cannot be blank. You must explain why you chose other."
+    },
+    {
+      "attributes": {
+        "type": "ValidationRule",
+        "url": "/services/data/v67.0/tooling/sobjects/ValidationRule/03d4O000000kWMPQA2"
+      },
+      "Id": "03d4O000000kWMPQA2",
+      "ValidationName": "OwnerCannotBeAQueueForClosedCase",
+      "Active": false,
+      "EntityDefinitionId": "Case",
+      "Description": "This will ensure a case has to have a user as an owner in order to close.",
+      "ErrorMessage": "Please accept ownership of this case before closing it."
+    },
+    {
+      "attributes": {
+        "type": "ValidationRule",
+        "url": "/services/data/v67.0/tooling/sobjects/ValidationRule/03dRo000001A80XIAS"
+      },
+      "Id": "03dRo000001A80XIAS",
+      "ValidationName": "Part_Condition_must_be_selected",
+      "Active": false,
+      "EntityDefinitionId": "01IU0000000oYvo",
+      "Description": "A Part_Condition_must_be_selected when in the record type = Part and the Review Status = Finished Goods.",
+      "ErrorMessage": "Part Condition must be selected when Review Status is Finished Goods."
+    },
+    {
+      "attributes": {
+        "type": "ValidationRule",
+        "url": "/services/data/v67.0/tooling/sobjects/ValidationRule/03d4O00000066cYQAQ"
+      },
+      "Id": "03d4O00000066cYQAQ",
+      "ValidationName": "Part_product_must_have_modality",
+      "Active": false,
+      "EntityDefinitionId": "Product2",
+      "Description": null,
+      "ErrorMessage": "Part Product must have modality filled in."
+    },
+    {
+      "attributes": {
+        "type": "ValidationRule",
+        "url": "/services/data/v67.0/tooling/sobjects/ValidationRule/03d5b000000Lfz2AAC"
+      },
+      "Id": "03d5b000000Lfz2AAC",
+      "ValidationName": "Path_to_Green_should_be_blank",
+      "Active": true,
+      "EntityDefinitionId": "01I5b000000VH9A",
+      "Description": "Path to Green field should be used only for Late, At Risk or On Hold projects. Please use Health Comment for On Track projects",
+      "ErrorMessage": "Path to Green field should be used only for Late, At Risk or On Hold projects. Please use Health Comment for On Track projects"
+    },
+    {
+      "attributes": {
+        "type": "ValidationRule",
+        "url": "/services/data/v67.0/tooling/sobjects/ValidationRule/03d4O000000OJLOQA4"
+      },
+      "Id": "03d4O000000OJLOQA4",
+      "ValidationName": "Payment_Account_Required",
+      "Active": true,
+      "EntityDefinitionId": "01I4O000000neRN",
+      "Description": "When the Accounting Seed integration is on, an Account is required.",
+      "ErrorMessage": "You must enter an Account for the Accounting Seed integration to work with Chargent payment processing for salesforce."
+    },
+    {
+      "attributes": {
+        "type": "ValidationRule",
+        "url": "/services/data/v67.0/tooling/sobjects/ValidationRule/03d4O000000OJLPQA4"
+      },
+      "Id": "03d4O000000OJLPQA4",
+      "ValidationName": "Payment_Count_Check",
+      "Active": true,
+      "EntityDefinitionId": "01I4O000000neRN",
+      "Description": null,
+      "ErrorMessage": "You must enter a value for \"Payment Count\" if you wish to stop after a certain number of recurring transactions"
+    },
+    {
+      "attributes": {
+        "type": "ValidationRule",
+        "url": "/services/data/v67.0/tooling/sobjects/ValidationRule/03d4O000000OJLQQA4"
+      },
+      "Id": "03d4O000000OJLQQA4",
+      "ValidationName": "Payment_Count_Value_Check",
+      "Active": true,
+      "EntityDefinitionId": "01I4O000000neRN",
+      "Description": null,
+      "ErrorMessage": "Payment Count should be positive numeric"
+    },
+    {
+      "attributes": {
+        "type": "ValidationRule",
+        "url": "/services/data/v67.0/tooling/sobjects/ValidationRule/03d4O000000OJLRQA4"
+      },
+      "Id": "03d4O000000OJLRQA4",
+      "ValidationName": "Payment_Date_Check",
+      "Active": true,
+      "EntityDefinitionId": "01I4O000000neRN",
+      "Description": null,
+      "ErrorMessage": "You must specify an End Date for the recurring transaction schedule"
+    },
+    {
+      "attributes": {
+        "type": "ValidationRule",
+        "url": "/services/data/v67.0/tooling/sobjects/ValidationRule/03d4O000000OJLSQA4"
+      },
+      "Id": "03d4O000000OJLSQA4",
+      "ValidationName": "Payment_End_Date_Check",
+      "Active": true,
+      "EntityDefinitionId": "01I4O000000neRN",
+      "Description": null,
+      "ErrorMessage": "Payment End Date should be greater or equal to Payment Start Date"
+    },
+    {
+      "attributes": {
+        "type": "ValidationRule",
+        "url": "/services/data/v67.0/tooling/sobjects/ValidationRule/03d4O000000OJLTQA4"
+      },
+      "Id": "03d4O000000OJLTQA4",
+      "ValidationName": "Payment_Start_Date_Check",
+      "Active": true,
+      "EntityDefinitionId": "01I4O000000neRN",
+      "Description": null,
+      "ErrorMessage": "You must choose a Start Date to begin a new recurring transaction schedule"
+    },
+    {
+      "attributes": {
+        "type": "ValidationRule",
+        "url": "/services/data/v67.0/tooling/sobjects/ValidationRule/03d4O000000OJLUQA4"
+      },
+      "Id": "03d4O000000OJLUQA4",
+      "ValidationName": "Payment_Status_Check",
+      "Active": true,
+      "EntityDefinitionId": "01I4O000000neRN",
+      "Description": null,
+      "ErrorMessage": "You must choose a payment status of \"Recurring\" and a payment frequency to begin a new recurring transaction schedule"
+    },
+    {
+      "attributes": {
+        "type": "ValidationRule",
+        "url": "/services/data/v67.0/tooling/sobjects/ValidationRule/03dRo000000DpRJIA0"
+      },
+      "Id": "03dRo000000DpRJIA0",
+      "ValidationName": "Phantom_Info_must_be_completed",
+      "Active": true,
+      "EntityDefinitionId": "Opportunity",
+      "Description": null,
+      "ErrorMessage": "You MUST enter Phantom Information for this modality"
+    },
+    {
+      "attributes": {
+        "type": "ValidationRule",
+        "url": "/services/data/v67.0/tooling/sobjects/ValidationRule/03d4O00000067CvQAI"
+      },
+      "Id": "03d4O00000067CvQAI",
+      "ValidationName": "PO_field_needs_to_contain_PO",
+      "Active": false,
+      "EntityDefinitionId": "Opportunity",
+      "Description": null,
+      "ErrorMessage": "PO field needs to contain \"PO-\""
+    },
+    {
+      "attributes": {
+        "type": "ValidationRule",
+        "url": "/services/data/v67.0/tooling/sobjects/ValidationRule/03d4O000000E7VBQA0"
+      },
+      "Id": "03d4O000000E7VBQA0",
+      "ValidationName": "PO_Received_Manually_Changed",
+      "Active": false,
+      "EntityDefinitionId": "Opportunity",
+      "Description": "For system deals, users cannot manually change the stage to PO received.  They must either upload the signed PO or complete automatically through PandaDoc.  This is controlled by a hidden \"Signature Type\" field that must be filled but the user can't see.",
+      "ErrorMessage": "The stage can only be changed to PO received by PandaDoc or by using the Upload Signed Document button."
+    },
+    {
+      "attributes": {
+        "type": "ValidationRule",
+        "url": "/services/data/v67.0/tooling/sobjects/ValidationRule/03dRo000000BumsIAC"
+      },
+      "Id": "03dRo000000BumsIAC",
+      "ValidationName": "Polygon_Color_HEX_Format",
+      "Active": true,
+      "EntityDefinitionId": "01IRo000002CkY2",
+      "Description": null,
+      "ErrorMessage": "Polygon color must be in hexadecimal format: (for example: #ffffff)"
+    },
+    {
+      "attributes": {
+        "type": "ValidationRule",
+        "url": "/services/data/v67.0/tooling/sobjects/ValidationRule/03d4O000000kVJKQA2"
+      },
+      "Id": "03d4O000000kVJKQA2",
+      "ValidationName": "Prepay_and_No_Confirmation_Number",
+      "Active": true,
+      "EntityDefinitionId": "Opportunity",
+      "Description": null,
+      "ErrorMessage": "The account is listed as Pre-pay and have not been invoiced correctly. Please process payment before Close Winning the opportunity."
+    },
+    {
+      "attributes": {
+        "type": "ValidationRule",
+        "url": "/services/data/v67.0/tooling/sobjects/ValidationRule/03dRo000000FKODIA4"
+      },
+      "Id": "03dRo000000FKODIA4",
+      "ValidationName": "prevent_adjustment_amount_change",
+      "Active": true,
+      "EntityDefinitionId": "01I4O000000tRNL",
+      "Description": null,
+      "ErrorMessage": "Inventory adjustment amount cannot be changed"
+    },
+    {
+      "attributes": {
+        "type": "ValidationRule",
+        "url": "/services/data/v67.0/tooling/sobjects/ValidationRule/03dRo000001G1vdIAC"
+      },
+      "Id": "03dRo000001G1vdIAC",
+      "ValidationName": "Prevent_Change_to_Confirmation_Number",
+      "Active": true,
+      "EntityDefinitionId": "Opportunity",
+      "Description": "Prevents non-permitted users from changing the \"Confirmation Number\" field, after the Opportunity record has been created.",
+      "ErrorMessage": "You do not have permission to change the Confirmation Number."
+    },
+    {
+      "attributes": {
+        "type": "ValidationRule",
+        "url": "/services/data/v67.0/tooling/sobjects/ValidationRule/03dRo000001UDFNIA4"
+      },
+      "Id": "03dRo000001UDFNIA4",
+      "ValidationName": "Prevent_Closed_Won_Without_PO_Approval",
+      "Active": true,
+      "EntityDefinitionId": "Opportunity",
+      "Description": "This validation rule prevents UK or French Purchasing Opportunities being moved to \"Closed Won\" until they have had their \"PO Approval Status\" field set to either \"Approved or \"Auto Apprvoed\".",
+      "ErrorMessage": "Approval is required before marking this Purchasing Opportunity Closed Won."
+    },
+    {
+      "attributes": {
+        "type": "ValidationRule",
+        "url": "/services/data/v67.0/tooling/sobjects/ValidationRule/03dRo000001X0yLIAS"
+      },
+      "Id": "03dRo000001X0yLIAS",
+      "ValidationName": "Prevent_Creation_If_Asset_Is_Sold",
+      "Active": true,
+      "EntityDefinitionId": "01I4O000000ney3",
+      "Description": null,
+      "ErrorMessage": "You can't create a System Work Order on a sold Asset."
+    },
+    {
+      "attributes": {
+        "type": "ValidationRule",
+        "url": "/services/data/v67.0/tooling/sobjects/ValidationRule/03dRo000000Bun8IAC"
+      },
+      "Id": "03dRo000000Bun8IAC",
+      "ValidationName": "Prevent_Crew_Allocation_For_Contractors",
+      "Active": true,
+      "EntityDefinitionId": "ServiceCrewMember",
+      "Description": null,
+      "ErrorMessage": "Capacity Based Service Resource Cannot Have Crew Member Allocations"
+    },
+    {
+      "attributes": {
+        "type": "ValidationRule",
+        "url": "/services/data/v67.0/tooling/sobjects/ValidationRule/03dRo000000FcGHIA0"
+      },
+      "Id": "03dRo000000FcGHIA0",
+      "ValidationName": "prevent_debit_amount_change",
+      "Active": true,
+      "EntityDefinitionId": "01I4O000000netB",
+      "Description": null,
+      "ErrorMessage": "Debit Memo Amount must be the same as the Purchasing Return Amount"
+    },
+    {
+      "attributes": {
+        "type": "ValidationRule",
+        "url": "/services/data/v67.0/tooling/sobjects/ValidationRule/03dRo000001ULuTIAW"
+      },
+      "Id": "03dRo000001ULuTIAW",
+      "ValidationName": "Prevent_Ship_Date_Before_Closed_Won",
+      "Active": true,
+      "EntityDefinitionId": "Opportunity",
+      "Description": "This validation rule prevents the \"Ship Date\" being entered before the Opportunity is set to the \"Closed Won\" stage. Currently is is limited to Big Iron, Parts, Probe, and System Sales Opportunities with the \"Entity\" field as \"Probo-UK\" or \"Probo-SAS\".",
+      "ErrorMessage": "Ship Date can only be entered when the Opportunity is Closed Won."
+    },
+    {
+      "attributes": {
+        "type": "ValidationRule",
+        "url": "/services/data/v67.0/tooling/sobjects/ValidationRule/03d0B000000V8taQAC"
+      },
+      "Id": "03d0B000000V8taQAC",
+      "ValidationName": "Probe_handle_refurbishment",
+      "Active": true,
+      "EntityDefinitionId": "Product2",
+      "Description": null,
+      "ErrorMessage": "Only System Administrators and Sales Managers can add or remove repair capabilities."
+    },
+    {
+      "attributes": {
+        "type": "ValidationRule",
+        "url": "/services/data/v67.0/tooling/sobjects/ValidationRule/03d0B000000V8uOQAS"
+      },
+      "Id": "03d0B000000V8uOQAS",
+      "ValidationName": "Probe_handle_replacement",
+      "Active": true,
+      "EntityDefinitionId": "Product2",
+      "Description": null,
+      "ErrorMessage": "Only System Administrators and Sales Managers can add or remove repair capabilities."
+    },
+    {
+      "attributes": {
+        "type": "ValidationRule",
+        "url": "/services/data/v67.0/tooling/sobjects/ValidationRule/03d0B000000V8uJQAS"
+      },
+      "Id": "03d0B000000V8uJQAS",
+      "ValidationName": "Probe_handle_reverse",
+      "Active": true,
+      "EntityDefinitionId": "Product2",
+      "Description": null,
+      "ErrorMessage": "Only System Administrators and Sales Managers can add or remove repair capabilities."
+    },
+    {
+      "attributes": {
+        "type": "ValidationRule",
+        "url": "/services/data/v67.0/tooling/sobjects/ValidationRule/03dRo000001OosjIAC"
+      },
+      "Id": "03dRo000001OosjIAC",
+      "ValidationName": "Product_Required",
+      "Active": false,
+      "EntityDefinitionId": "01I5b000000VGik",
+      "Description": null,
+      "ErrorMessage": "Pricing Requests must have a Product entered into the Product to Price field."
+    },
+    {
+      "attributes": {
+        "type": "ValidationRule",
+        "url": "/services/data/v67.0/tooling/sobjects/ValidationRule/03dRo000001Oor7IAC"
+      },
+      "Id": "03dRo000001Oor7IAC",
+      "ValidationName": "Product_Required",
+      "Active": false,
+      "EntityDefinitionId": "01I0B000000xQTp",
+      "Description": null,
+      "ErrorMessage": "Sourcing Request Items must have a Product entered into the Product Name field."
+    },
+    {
+      "attributes": {
+        "type": "ValidationRule",
+        "url": "/services/data/v67.0/tooling/sobjects/ValidationRule/03d5b000000LflWAAS"
+      },
+      "Id": "03d5b000000LflWAAS",
+      "ValidationName": "Product_Type_Needed",
+      "Active": false,
+      "EntityDefinitionId": "Lead",
+      "Description": "Ensures a product type is entered before a lead is converted",
+      "ErrorMessage": "Please enter a Product Type before converting the Lead"
+    },
+    {
+      "attributes": {
+        "type": "ValidationRule",
+        "url": "/services/data/v67.0/tooling/sobjects/ValidationRule/03d5b0000019MfRAAU"
+      },
+      "Id": "03d5b0000019MfRAAU",
+      "ValidationName": "Purchase_Assets_MUST_Have_Purchasing_Opp",
+      "Active": false,
+      "EntityDefinitionId": "01IU0000000oYvo",
+      "Description": null,
+      "ErrorMessage": "Assets with Check-In Type of \"Purchase\" MUST have an associated Purchasing Opportunity and PO Number"
+    },
+    {
+      "attributes": {
+        "type": "ValidationRule",
+        "url": "/services/data/v67.0/tooling/sobjects/ValidationRule/03d5b000000LfKZAA0"
+      },
+      "Id": "03d5b000000LfKZAA0",
+      "ValidationName": "RAMs_Date_Required_if_RAMs_are_Needed",
+      "Active": false,
+      "EntityDefinitionId": "Opportunity",
+      "Description": null,
+      "ErrorMessage": "RAMs Saved/Submitted date must be entered if RAMs are required for this job"
+    },
+    {
+      "attributes": {
+        "type": "ValidationRule",
+        "url": "/services/data/v67.0/tooling/sobjects/ValidationRule/03d5b000000LfRaAAK"
+      },
+      "Id": "03d5b000000LfRaAAK",
+      "ValidationName": "Reason_Dropped_Cant_Be_Blank",
+      "Active": true,
+      "EntityDefinitionId": "ContractLineItem",
+      "Description": null,
+      "ErrorMessage": "Have to provide a reason why the Contract Line Item was removed from the contract. If you do not see the appropriate \"Reason Removed\" value, please contact your administrator."
+    },
+    {
+      "attributes": {
+        "type": "ValidationRule",
+        "url": "/services/data/v67.0/tooling/sobjects/ValidationRule/03d4O000000E8CyQAK"
+      },
+      "Id": "03d4O000000E8CyQAK",
+      "ValidationName": "Reason_Lost_on_Rental_Opps",
+      "Active": true,
+      "EntityDefinitionId": "Opportunity",
+      "Description": "Validation rule for rental opportunities to enter a reason lost when stage= closed lost",
+      "ErrorMessage": "Please select a Reason Lost."
+    },
+    {
+      "attributes": {
+        "type": "ValidationRule",
+        "url": "/services/data/v67.0/tooling/sobjects/ValidationRule/03d4O000000VGGTQA4"
+      },
+      "Id": "03d4O000000VGGTQA4",
+      "ValidationName": "Reason_Lost_on_Sales_Opportunities",
+      "Active": true,
+      "EntityDefinitionId": "Opportunity",
+      "Description": null,
+      "ErrorMessage": "Please complete the Reason Lost Notes field to Close Lose this Opportunity."
+    },
+    {
+      "attributes": {
+        "type": "ValidationRule",
+        "url": "/services/data/v67.0/tooling/sobjects/ValidationRule/03d4O000000OJLKQA4"
+      },
+      "Id": "03d4O000000OJLKQA4",
+      "ValidationName": "Recurring_Profiles_Record_Type_Check",
+      "Active": true,
+      "EntityDefinitionId": "01I4O000000neRE",
+      "Description": null,
+      "ErrorMessage": "Error! “PayFlow Use Recurring Profiles” can be used with Payflow Pro (PayPal) gateway only."
+    },
+    {
+      "attributes": {
+        "type": "ValidationRule",
+        "url": "/services/data/v67.0/tooling/sobjects/ValidationRule/03d4O000000OJLLQA4"
+      },
+      "Id": "03d4O000000OJLLQA4",
+      "ValidationName": "Recurring_Profiles_Tokenization_Check",
+      "Active": true,
+      "EntityDefinitionId": "01I4O000000neRE",
+      "Description": null,
+      "ErrorMessage": "Error! “PayFlow Use Recurring Profiles” can be used with Tokenization enabled only."
+    },
+    {
+      "attributes": {
+        "type": "ValidationRule",
+        "url": "/services/data/v67.0/tooling/sobjects/ValidationRule/03dRo000000BumyIAC"
+      },
+      "Id": "03dRo000000BumyIAC",
+      "ValidationName": "Related_Service_with_time_dependency",
+      "Active": false,
+      "EntityDefinitionId": "ServiceAppointment",
+      "Description": "If related service is not empty then time dependency is not empty",
+      "ErrorMessage": "Select a valid dependency type. If the appointments must be assigned to the same resource, the dependency type can’t be Same Start."
+    },
+    {
+      "attributes": {
+        "type": "ValidationRule",
+        "url": "/services/data/v67.0/tooling/sobjects/ValidationRule/03dRo0000002BgvIAE"
+      },
+      "Id": "03dRo0000002BgvIAE",
+      "ValidationName": "Rental_Start_and_End_Dates_Cant_Be_Blank",
+      "Active": false,
+      "EntityDefinitionId": "01I4O000000neT3",
+      "Description": null,
+      "ErrorMessage": "Rental Start Date and End Date fields MUST BE filled out when creating an Invoice for a Rental Opportunity, if you have questions, please contact your manager."
+    },
+    {
+      "attributes": {
+        "type": "ValidationRule",
+        "url": "/services/data/v67.0/tooling/sobjects/ValidationRule/03dU0000000DsrIIAS"
+      },
+      "Id": "03dU0000000DsrIIAS",
+      "ValidationName": "Repair_Date_Validation_Rule",
+      "Active": true,
+      "EntityDefinitionId": "01IU0000000CWz8",
+      "Description": "Repair date must not be in future.",
+      "ErrorMessage": "Repair Date cannot be in future."
+    },
+    {
+      "attributes": {
+        "type": "ValidationRule",
+        "url": "/services/data/v67.0/tooling/sobjects/ValidationRule/03d0B000000V6ZFQA0"
+      },
+      "Id": "03d0B000000V6ZFQA0",
+      "ValidationName": "Repair_Time_in_15_minute_intervals",
+      "Active": true,
+      "EntityDefinitionId": "01IU0000000CWz8",
+      "Description": null,
+      "ErrorMessage": "Actual Repair Time must be in intervals of 15 minutes (0.25 hrs)"
+    },
+    {
+      "attributes": {
+        "type": "ValidationRule",
+        "url": "/services/data/v67.0/tooling/sobjects/ValidationRule/03dRo0000001jSvIAI"
+      },
+      "Id": "03dRo0000001jSvIAI",
+      "ValidationName": "Repair_Time_Must_be_Greater_or_Equal_10",
+      "Active": true,
+      "EntityDefinitionId": "01IU0000000CWz8",
+      "Description": null,
+      "ErrorMessage": "Repair Time MUST BE Less than 10 Hours. Are you sure this is the correct amount of time this repair took to complete?"
+    },
+    {
+      "attributes": {
+        "type": "ValidationRule",
+        "url": "/services/data/v67.0/tooling/sobjects/ValidationRule/03dRo000001RjbZIAS"
+      },
+      "Id": "03dRo000001RjbZIAS",
+      "ValidationName": "Require_Change_Controller_Before_Leaving",
+      "Active": true,
+      "EntityDefinitionId": "01IRo000007hMVt",
+      "Description": null,
+      "ErrorMessage": "Please enter a Change Controller before moving past the Submitted status."
+    },
+    {
+      "attributes": {
+        "type": "ValidationRule",
+        "url": "/services/data/v67.0/tooling/sobjects/ValidationRule/03d4O000000E7TVQA0"
+      },
+      "Id": "03d4O000000E7TVQA0",
+      "ValidationName": "Requires_the_Exemption_Legend_Check",
+      "Active": true,
+      "EntityDefinitionId": "01I4O000001MAax",
+      "Description": null,
+      "ErrorMessage": "Please select option"
+    },
+    {
+      "attributes": {
+        "type": "ValidationRule",
+        "url": "/services/data/v67.0/tooling/sobjects/ValidationRule/03d4O000000E7TWQA0"
+      },
+      "Id": "03d4O000000E7TWQA0",
+      "ValidationName": "Requires_the_ITN_Check",
+      "Active": true,
+      "EntityDefinitionId": "01I4O000001MAax",
+      "Description": null,
+      "ErrorMessage": "Please fill field"
+    },
+    {
+      "attributes": {
+        "type": "ValidationRule",
+        "url": "/services/data/v67.0/tooling/sobjects/ValidationRule/03dRo000000BunDIAS"
+      },
+      "Id": "03dRo000000BunDIAS",
+      "ValidationName": "Resource_Priority_Not_Null",
+      "Active": true,
+      "EntityDefinitionId": "01IRo000002CkYA",
+      "Description": "Resource priority objective's resource property Field cannot be null",
+      "ErrorMessage": "Resource Priority Field should not be empty"
+    },
+    {
+      "attributes": {
+        "type": "ValidationRule",
+        "url": "/services/data/v67.0/tooling/sobjects/ValidationRule/03dRo000000BunAIAS"
+      },
+      "Id": "03dRo000000BunAIAS",
+      "ValidationName": "Resource_travel",
+      "Active": true,
+      "EntityDefinitionId": "ServiceResource",
+      "Description": null,
+      "ErrorMessage": "Resource travel speed must be greater than 0."
+    },
+    {
+      "attributes": {
+        "type": "ValidationRule",
+        "url": "/services/data/v67.0/tooling/sobjects/ValidationRule/03dRo000001I86bIAC"
+      },
+      "Id": "03dRo000001I86bIAC",
+      "ValidationName": "restrict_changing_entity",
+      "Active": true,
+      "EntityDefinitionId": "Opportunity",
+      "Description": null,
+      "ErrorMessage": "Entity cannot be changed once asset have been added. Please remove all Products before changing the Entity and ensure you have the proper permissions."
+    },
+    {
+      "attributes": {
+        "type": "ValidationRule",
+        "url": "/services/data/v67.0/tooling/sobjects/ValidationRule/03dRo000001KjJlIAK"
+      },
+      "Id": "03dRo000001KjJlIAK",
+      "ValidationName": "Restrict_Rejected_Status_for_Refurb_Life",
+      "Active": true,
+      "EntityDefinitionId": "01I5b000001lpYt",
+      "Description": null,
+      "ErrorMessage": "This record is locked. Changes are not allowed once the Status has been set to \"Completed\" or \"Rejected\". Please raise a Salesforce Case if any modifications are required."
+    },
+    {
+      "attributes": {
+        "type": "ValidationRule",
+        "url": "/services/data/v67.0/tooling/sobjects/ValidationRule/03d0B000000V8uTQAS"
+      },
+      "Id": "03d0B000000V8uTQAS",
+      "ValidationName": "Retermination",
+      "Active": true,
+      "EntityDefinitionId": "Product2",
+      "Description": null,
+      "ErrorMessage": "Only System Administrators and Sales Managers can add or remove repair capabilities."
+    },
+    {
+      "attributes": {
+        "type": "ValidationRule",
+        "url": "/services/data/v67.0/tooling/sobjects/ValidationRule/03dU00000005qNSIAY"
+      },
+      "Id": "03dU00000005qNSIAY",
+      "ValidationName": "Review_Status_not_editable",
+      "Active": false,
+      "EntityDefinitionId": "01IU0000000oYvo",
+      "Description": null,
+      "ErrorMessage": "Review Status field is not editable"
+    },
+    {
+      "attributes": {
+        "type": "ValidationRule",
+        "url": "/services/data/v67.0/tooling/sobjects/ValidationRule/03d5b000000LepRAAS"
+      },
+      "Id": "03d5b000000LepRAAS",
+      "ValidationName": "RGBP_Required_On_Account",
+      "Active": false,
+      "EntityDefinitionId": "Opportunity",
+      "Description": null,
+      "ErrorMessage": "Please go to the Account and fill out the RGBP Category before moving this opportunity to Closed Won."
+    },
+    {
+      "attributes": {
+        "type": "ValidationRule",
+        "url": "/services/data/v67.0/tooling/sobjects/ValidationRule/03dRo000000BunFIAS"
+      },
+      "Id": "03dRo000000BunFIAS",
+      "ValidationName": "Root_Is_Required",
+      "Active": true,
+      "EntityDefinitionId": "01IRo000002CkYE",
+      "Description": null,
+      "ErrorMessage": "We couldn't create a dependency between the service appointments. Ask your Salesforce admin to give you permissions for all of the Time Dependency custom object fields."
+    },
+    {
+      "attributes": {
+        "type": "ValidationRule",
+        "url": "/services/data/v67.0/tooling/sobjects/ValidationRule/03d5b000000LfzAAAS"
+      },
+      "Id": "03d5b000000LfzAAAS",
+      "ValidationName": "RP_Years_in_advance_greater_than_0",
+      "Active": true,
+      "EntityDefinitionId": "01I5b000000VH9D",
+      "Description": "Resource planning years in advance should be greater than 0",
+      "ErrorMessage": "Resource planning years in advance should be greater than 0"
+    },
+    {
+      "attributes": {
+        "type": "ValidationRule",
+        "url": "/services/data/v67.0/tooling/sobjects/ValidationRule/03d0B000000V8vRQAS"
+      },
+      "Id": "03d0B000000V8vRQAS",
+      "ValidationName": "RTV_seal_replacement",
+      "Active": true,
+      "EntityDefinitionId": "Product2",
+      "Description": null,
+      "ErrorMessage": "Only System Administrators and Sales Managers can add or remove repair capabilities."
+    },
+    {
+      "attributes": {
+        "type": "ValidationRule",
+        "url": "/services/data/v67.0/tooling/sobjects/ValidationRule/03d4O000000VGGdQAO"
+      },
+      "Id": "03d4O000000VGGdQAO",
+      "ValidationName": "Sales_Lead_Source_for_Lead_Source_Detail",
+      "Active": false,
+      "EntityDefinitionId": "Opportunity",
+      "Description": null,
+      "ErrorMessage": "Please enter the Sales Lead Source Detail"
+    },
+    {
+      "attributes": {
+        "type": "ValidationRule",
+        "url": "/services/data/v67.0/tooling/sobjects/ValidationRule/03dRo000000BunGIAS"
+      },
+      "Id": "03dRo000000BunGIAS",
+      "ValidationName": "Same_Resource_Required",
+      "Active": true,
+      "EntityDefinitionId": "01IRo000002CkYE",
+      "Description": null,
+      "ErrorMessage": "Immediately Follow dependency requires Same Resource"
+    },
+    {
+      "attributes": {
+        "type": "ValidationRule",
+        "url": "/services/data/v67.0/tooling/sobjects/ValidationRule/03dRo000000BumzIAC"
+      },
+      "Id": "03dRo000000BumzIAC",
+      "ValidationName": "Same_Resource_Same_Start",
+      "Active": true,
+      "EntityDefinitionId": "ServiceAppointment",
+      "Description": "Can't be same start and same reosurce",
+      "ErrorMessage": "Resource dependency is invalid. Time Dependency can't be Same Start when same resource is required."
+    },
+    {
+      "attributes": {
+        "type": "ValidationRule",
+        "url": "/services/data/v67.0/tooling/sobjects/ValidationRule/03dRo000000Bun0IAC"
+      },
+      "Id": "03dRo000000Bun0IAC",
+      "ValidationName": "Schedule_End_Required",
+      "Active": true,
+      "EntityDefinitionId": "ServiceAppointment",
+      "Description": null,
+      "ErrorMessage": "Both scheduled start and end are required"
+    },
+    {
+      "attributes": {
+        "type": "ValidationRule",
+        "url": "/services/data/v67.0/tooling/sobjects/ValidationRule/03dRo000000Bun1IAC"
+      },
+      "Id": "03dRo000000Bun1IAC",
+      "ValidationName": "Schedule_Start_Required",
+      "Active": true,
+      "EntityDefinitionId": "ServiceAppointment",
+      "Description": null,
+      "ErrorMessage": "Both scheduled start and end are required"
+    },
+    {
+      "attributes": {
+        "type": "ValidationRule",
+        "url": "/services/data/v67.0/tooling/sobjects/ValidationRule/03dRo000000BunCIAS"
+      },
+      "Id": "03dRo000000BunCIAS",
+      "ValidationName": "Secondary_STM",
+      "Active": true,
+      "EntityDefinitionId": "ServiceTerritoryMember",
+      "Description": null,
+      "ErrorMessage": "Cannot save Service Territory Member of type secondary with Operating Hours or Address"
+    },
+    {
+      "attributes": {
+        "type": "ValidationRule",
+        "url": "/services/data/v67.0/tooling/sobjects/ValidationRule/03d5b000000Lfz6AAC"
+      },
+      "Id": "03d5b000000Lfz6AAC",
+      "ValidationName": "Self_update_hours",
+      "Active": true,
+      "EntityDefinitionId": "01I5b000000VH9B",
+      "Description": null,
+      "ErrorMessage": "Hours can only be self updated"
+    },
+    {
+      "attributes": {
+        "type": "ValidationRule",
+        "url": "/services/data/v67.0/tooling/sobjects/ValidationRule/03dRo000000BunHIAS"
+      },
+      "Id": "03dRo000000BunHIAS",
+      "ValidationName": "Service_Appointment_2_Is_Required",
+      "Active": true,
+      "EntityDefinitionId": "01IRo000002CkYE",
+      "Description": null,
+      "ErrorMessage": "Service appointment 2 is required."
+    },
+    {
+      "attributes": {
+        "type": "ValidationRule",
+        "url": "/services/data/v67.0/tooling/sobjects/ValidationRule/03dRo000000BunIIAS"
+      },
+      "Id": "03dRo000000BunIIAS",
+      "ValidationName": "Service_Appointment_2_Not_Changed",
+      "Active": true,
+      "EntityDefinitionId": "01IRo000002CkYE",
+      "Description": null,
+      "ErrorMessage": "It is not allowed to change any of the service appointments in the relationship"
+    },
+    {
+      "attributes": {
+        "type": "ValidationRule",
+        "url": "/services/data/v67.0/tooling/sobjects/ValidationRule/03dRo000000Bun2IAC"
+      },
+      "Id": "03dRo000000Bun2IAC",
+      "ValidationName": "Service_Color_HEX_Format",
+      "Active": true,
+      "EntityDefinitionId": "ServiceAppointment",
+      "Description": null,
+      "ErrorMessage": "Gantt color must be in hexadecimal format: (for example: #ffffff)"
+    },
+    {
+      "attributes": {
+        "type": "ValidationRule",
+        "url": "/services/data/v67.0/tooling/sobjects/ValidationRule/03d5b0000005IuGAAU"
+      },
+      "Id": "03d5b0000005IuGAAU",
+      "ValidationName": "Service_Product_received_More_than_Today",
+      "Active": true,
+      "EntityDefinitionId": "Opportunity",
+      "Description": "Service/Product Received field MUST be in this month or in the past",
+      "ErrorMessage": "Cannot Enter Future Date"
+    },
+    {
+      "attributes": {
+        "type": "ValidationRule",
+        "url": "/services/data/v67.0/tooling/sobjects/ValidationRule/03d4O000000kWL7QAM"
+      },
+      "Id": "03d4O000000kWL7QAM",
+      "ValidationName": "Ship_Country_Filled_On_Opp",
+      "Active": false,
+      "EntityDefinitionId": "Opportunity",
+      "Description": null,
+      "ErrorMessage": "Opportunity MUST have a Ship Country to be Closed Won"
+    },
+    {
+      "attributes": {
+        "type": "ValidationRule",
+        "url": "/services/data/v67.0/tooling/sobjects/ValidationRule/03d4O000000E6z0QAC"
+      },
+      "Id": "03d4O000000E6z0QAC",
+      "ValidationName": "Ship_Date_Only_in_Correct_Stage",
+      "Active": true,
+      "EntityDefinitionId": "Opportunity",
+      "Description": "This validation rule only allows a value to be added to the ship date if the opportunity is in one of the correct stages",
+      "ErrorMessage": "You cannot enter a ship date unless the current Opportunity stage is Probe Loan, Repair Evaluation, Closed Won, or Equipment Rental"
+    },
+    {
+      "attributes": {
+        "type": "ValidationRule",
+        "url": "/services/data/v67.0/tooling/sobjects/ValidationRule/03d4O000000E7TXQA0"
+      },
+      "Id": "03d4O000000E7TXQA0",
+      "ValidationName": "Shipper_filed_check",
+      "Active": true,
+      "EntityDefinitionId": "01I4O000001MAax",
+      "Description": null,
+      "ErrorMessage": "Please choose option"
+    },
+    {
+      "attributes": {
+        "type": "ValidationRule",
+        "url": "/services/data/v67.0/tooling/sobjects/ValidationRule/03dRo000001SgyDIAS"
+      },
+      "Id": "03dRo000001SgyDIAS",
+      "ValidationName": "Shipping_Account_Preference_Control",
+      "Active": true,
+      "EntityDefinitionId": "01IU0000000omZU",
+      "Description": null,
+      "ErrorMessage": "Can't be Customer's Fedex Account if the customer does not have Fedex Account Number listed"
+    },
+    {
+      "attributes": {
+        "type": "ValidationRule",
+        "url": "/services/data/v67.0/tooling/sobjects/ValidationRule/03dRo000001SgmvIAC"
+      },
+      "Id": "03dRo000001SgmvIAC",
+      "ValidationName": "Shipping_Account_Preference_Control",
+      "Active": true,
+      "EntityDefinitionId": "Account",
+      "Description": null,
+      "ErrorMessage": "Default can't be Customer's Fedex Account if the customer does not have Fedex Account Number listed"
+    },
+    {
+      "attributes": {
+        "type": "ValidationRule",
+        "url": "/services/data/v67.0/tooling/sobjects/ValidationRule/03dRo000001Sgq9IAC"
+      },
+      "Id": "03dRo000001Sgq9IAC",
+      "ValidationName": "Shipping_Account_Preference_Control",
+      "Active": true,
+      "EntityDefinitionId": "WorkOrder",
+      "Description": "SP - 09/06/2026 - Excluded UK Preventative Maintenance Work Orders",
+      "ErrorMessage": "Can't be Customer's Fedex Account if the customer does not have Fedex Account Number listed"
+    },
+    {
+      "attributes": {
+        "type": "ValidationRule",
+        "url": "/services/data/v67.0/tooling/sobjects/ValidationRule/03dRo000001SgrlIAC"
+      },
+      "Id": "03dRo000001SgrlIAC",
+      "ValidationName": "Shipping_Account_Preference_Control",
+      "Active": true,
+      "EntityDefinitionId": "Opportunity",
+      "Description": null,
+      "ErrorMessage": "Can't be Customer's Fedex Account if the customer does not have Fedex Account Number listed"
+    },
+    {
+      "attributes": {
+        "type": "ValidationRule",
+        "url": "/services/data/v67.0/tooling/sobjects/ValidationRule/03dRo000001SgtNIAS"
+      },
+      "Id": "03dRo000001SgtNIAS",
+      "ValidationName": "Shipping_Account_Preference_Control",
+      "Active": true,
+      "EntityDefinitionId": "01I4O000000neo6",
+      "Description": null,
+      "ErrorMessage": "Can't be Customer's Fedex Account if the customer does not have Fedex Account Number listed"
+    },
+    {
+      "attributes": {
+        "type": "ValidationRule",
+        "url": "/services/data/v67.0/tooling/sobjects/ValidationRule/03dRo000001Sh33IAC"
+      },
+      "Id": "03dRo000001Sh33IAC",
+      "ValidationName": "Shipping_Account_Preference_Control",
+      "Active": true,
+      "EntityDefinitionId": "01I4O000000net6",
+      "Description": null,
+      "ErrorMessage": "Can't be Customer's Fedex Account if the customer does not have Fedex Account Number listed"
+    },
+    {
+      "attributes": {
+        "type": "ValidationRule",
+        "url": "/services/data/v67.0/tooling/sobjects/ValidationRule/03dRo000001Sh1RIAS"
+      },
+      "Id": "03dRo000001Sh1RIAS",
+      "ValidationName": "Shipping_Account_Preference_Control",
+      "Active": true,
+      "EntityDefinitionId": "ServiceAppointment",
+      "Description": null,
+      "ErrorMessage": "Can't be Customer's Fedex Account if the customer does not have Fedex Account Number listed"
+    },
+    {
+      "attributes": {
+        "type": "ValidationRule",
+        "url": "/services/data/v67.0/tooling/sobjects/ValidationRule/03d4O000000E7VCQA0"
+      },
+      "Id": "03d4O000000E7VCQA0",
+      "ValidationName": "Skip_Stages_to_Closed_Won",
+      "Active": true,
+      "EntityDefinitionId": "Opportunity",
+      "Description": "This validation rule prevents the user from skipping to closed won on system deals.",
+      "ErrorMessage": "You can only change to Stage \"Closed Won\" from Stage \"Sold but not Shipped\""
+    },
+    {
+      "attributes": {
+        "type": "ValidationRule",
+        "url": "/services/data/v67.0/tooling/sobjects/ValidationRule/03d4O000000E7VDQA0"
+      },
+      "Id": "03d4O000000E7VDQA0",
+      "ValidationName": "SoldbutnotShipped_without_Approval",
+      "Active": true,
+      "EntityDefinitionId": "Opportunity",
+      "Description": "This validation rules stops users from moving the opp stage to Sold but not Shipped without being approved.",
+      "ErrorMessage": "You must complete the approval process to move the opportunity to Sold but not Shipped."
+    },
+    {
+      "attributes": {
+        "type": "ValidationRule",
+        "url": "/services/data/v67.0/tooling/sobjects/ValidationRule/03d5b000000Lfz3AAC"
+      },
+      "Id": "03d5b000000Lfz3AAC",
+      "ValidationName": "SOX_Comment_Blank_SOX_Impact_unchecked",
+      "Active": true,
+      "EntityDefinitionId": "01I5b000000VH9A",
+      "Description": null,
+      "ErrorMessage": "SOX Comment should be blank if SOX Impact is not checked"
+    },
+    {
+      "attributes": {
+        "type": "ValidationRule",
+        "url": "/services/data/v67.0/tooling/sobjects/ValidationRule/03d5b000000Lfz4AAC"
+      },
+      "Id": "03d5b000000Lfz4AAC",
+      "ValidationName": "SOX_comment_not_null_when_SOX_checked",
+      "Active": true,
+      "EntityDefinitionId": "01I5b000000VH9A",
+      "Description": null,
+      "ErrorMessage": "SOX Comment should not be blank if SOX Impact is checked"
+    },
+    {
+      "attributes": {
+        "type": "ValidationRule",
+        "url": "/services/data/v67.0/tooling/sobjects/ValidationRule/03d5b000000LfzBAAS"
+      },
+      "Id": "03d5b000000LfzBAAS",
+      "ValidationName": "Start_Month_between_1_and_12",
+      "Active": true,
+      "EntityDefinitionId": "01I5b000000VH9D",
+      "Description": "Start month for fiscal year setting should be in between 1 and 12",
+      "ErrorMessage": "Start month for fiscal year setting should be in between 1 and 12"
+    },
+    {
+      "attributes": {
+        "type": "ValidationRule",
+        "url": "/services/data/v67.0/tooling/sobjects/ValidationRule/03dRo000000BunNIAS"
+      },
+      "Id": "03dRo000000BunNIAS",
+      "ValidationName": "Start_Of_Day_Time_Format",
+      "Active": true,
+      "EntityDefinitionId": "01IRo000002CkYL",
+      "Description": null,
+      "ErrorMessage": "Time must be in the following format: HH:MM"
+    },
+    {
+      "attributes": {
+        "type": "ValidationRule",
+        "url": "/services/data/v67.0/tooling/sobjects/ValidationRule/03d5b000000LfSYAA0"
+      },
+      "Id": "03d5b000000LfSYAA0",
+      "ValidationName": "Starting_Max_QA_Designation_Cant_Be_Null",
+      "Active": true,
+      "EntityDefinitionId": "01IU0000000oYvo",
+      "Description": null,
+      "ErrorMessage": "Max Bid, QA Required, and Designated Fields cannot be blank after submission to Commercial."
+    },
+    {
+      "attributes": {
+        "type": "ValidationRule",
+        "url": "/services/data/v67.0/tooling/sobjects/ValidationRule/03dRo000000BumuIAC"
+      },
+      "Id": "03dRo000000BumuIAC",
+      "ValidationName": "startShouldPrecedeEnd",
+      "Active": true,
+      "EntityDefinitionId": "ResourceAbsence",
+      "Description": null,
+      "ErrorMessage": "The Start Time must be earlier than the End Time."
+    },
+    {
+      "attributes": {
+        "type": "ValidationRule",
+        "url": "/services/data/v67.0/tooling/sobjects/ValidationRule/03dRo000000Bun7IAC"
+      },
+      "Id": "03dRo000000Bun7IAC",
+      "ValidationName": "startTimeShouldPrecedeEndTime",
+      "Active": false,
+      "EntityDefinitionId": "ServiceAppointment",
+      "Description": null,
+      "ErrorMessage": "The Scheduled Start must be earlier than the Scheduled End."
+    },
+    {
+      "attributes": {
+        "type": "ValidationRule",
+        "url": "/services/data/v67.0/tooling/sobjects/ValidationRule/03d4O000000OJLMQA4"
+      },
+      "Id": "03d4O000000OJLMQA4",
+      "ValidationName": "Static_Charge_Amount_Check",
+      "Active": true,
+      "EntityDefinitionId": "01I4O000000neRE",
+      "Description": "CHARD-167",
+      "ErrorMessage": "The Static Charge Amount is NULL or has a negative amount. Please review the record making the value positive."
+    },
+    {
+      "attributes": {
+        "type": "ValidationRule",
+        "url": "/services/data/v67.0/tooling/sobjects/ValidationRule/03d0B000000V8wAQAS"
+      },
+      "Id": "03d0B000000V8wAQAS",
+      "ValidationName": "Steering_cable_adjustment",
+      "Active": true,
+      "EntityDefinitionId": "Product2",
+      "Description": null,
+      "ErrorMessage": "Only System Administrators and Sales Managers can add or remove repair capabilities."
+    },
+    {
+      "attributes": {
+        "type": "ValidationRule",
+        "url": "/services/data/v67.0/tooling/sobjects/ValidationRule/03d0B000000V8wFQAS"
+      },
+      "Id": "03d0B000000V8wFQAS",
+      "ValidationName": "Steering_cable_replacement",
+      "Active": true,
+      "EntityDefinitionId": "Product2",
+      "Description": null,
+      "ErrorMessage": "Only System Administrators and Sales Managers can add or remove repair capabilities."
+    },
+    {
+      "attributes": {
+        "type": "ValidationRule",
+        "url": "/services/data/v67.0/tooling/sobjects/ValidationRule/03d0B000000V8tfQAC"
+      },
+      "Id": "03d0B000000V8tfQAC",
+      "ValidationName": "Strain_relief_refurbishment",
+      "Active": true,
+      "EntityDefinitionId": "Product2",
+      "Description": null,
+      "ErrorMessage": "Only System Administrators and Sales Managers can add or remove repair capabilities."
+    },
+    {
+      "attributes": {
+        "type": "ValidationRule",
+        "url": "/services/data/v67.0/tooling/sobjects/ValidationRule/03d0B000000V8tpQAC"
+      },
+      "Id": "03d0B000000V8tpQAC",
+      "ValidationName": "Strain_relief_replacement",
+      "Active": true,
+      "EntityDefinitionId": "Product2",
+      "Description": null,
+      "ErrorMessage": "Only System Administrators and Sales Managers can add or remove repair capabilities."
+    },
+    {
+      "attributes": {
+        "type": "ValidationRule",
+        "url": "/services/data/v67.0/tooling/sobjects/ValidationRule/03d5b000000LfRVAA0"
+      },
+      "Id": "03d5b000000LfRVAA0",
+      "ValidationName": "Subcontracted_Through_Cant_Be_Empty",
+      "Active": true,
+      "EntityDefinitionId": "ContractLineItem",
+      "Description": null,
+      "ErrorMessage": "Must declare who the Contract Line Item coverage is being contracted through"
+    },
+    {
+      "attributes": {
+        "type": "ValidationRule",
+        "url": "/services/data/v67.0/tooling/sobjects/ValidationRule/03dRo000001Ab5lIAC"
+      },
+      "Id": "03dRo000001Ab5lIAC",
+      "ValidationName": "SubmitToShippingReqShipFromLoc",
+      "Active": true,
+      "EntityDefinitionId": "ServiceAppointment",
+      "Description": null,
+      "ErrorMessage": "You MUST add a shipping from location before submitting to shipping"
+    },
+    {
+      "attributes": {
+        "type": "ValidationRule",
+        "url": "/services/data/v67.0/tooling/sobjects/ValidationRule/03d5b000000LfzCAAS"
+      },
+      "Id": "03d5b000000LfzCAAS",
+      "ValidationName": "Task_On_hold_Reason_not_null_if_On_Hold",
+      "Active": true,
+      "EntityDefinitionId": "01I5b000000VH9E",
+      "Description": "Task On hold Reason Mandatory if Task Status is 'On Hold'",
+      "ErrorMessage": "On Hold Reason should not be Blank if Status is 'On Hold'."
+    },
+    {
+      "attributes": {
+        "type": "ValidationRule",
+        "url": "/services/data/v67.0/tooling/sobjects/ValidationRule/03d5b000000LfzDAAS"
+      },
+      "Id": "03d5b000000LfzDAAS",
+      "ValidationName": "Task_start_date_less_than_end_date",
+      "Active": true,
+      "EntityDefinitionId": "01I5b000000VH9E",
+      "Description": "Task Start date must be less than the Task End date",
+      "ErrorMessage": "End Date must be after Start Date."
+    },
+    {
+      "attributes": {
+        "type": "ValidationRule",
+        "url": "/services/data/v67.0/tooling/sobjects/ValidationRule/03d0B000000V9xnQAC"
+      },
+      "Id": "03d0B000000V9xnQAC",
+      "ValidationName": "TEE_probes_must_complete_full_test",
+      "Active": true,
+      "EntityDefinitionId": "01IU0000000ofKb",
+      "Description": null,
+      "ErrorMessage": "You must fill out all product tests fields to save the test."
+    },
+    {
+      "attributes": {
+        "type": "ValidationRule",
+        "url": "/services/data/v67.0/tooling/sobjects/ValidationRule/03dRo000000Bun3IAC"
+      },
+      "Id": "03dRo000000Bun3IAC",
+      "ValidationName": "Time_dependency_with_related_service",
+      "Active": true,
+      "EntityDefinitionId": "ServiceAppointment",
+      "Description": null,
+      "ErrorMessage": "Please select Related Service."
+    },
+    {
+      "attributes": {
+        "type": "ValidationRule",
+        "url": "/services/data/v67.0/tooling/sobjects/ValidationRule/03dRo000000BunOIAS"
+      },
+      "Id": "03dRo000000BunOIAS",
+      "ValidationName": "Time_Format",
+      "Active": true,
+      "EntityDefinitionId": "01IRo000002CkYL",
+      "Description": null,
+      "ErrorMessage": "Time must be in the following format: HH:MM"
+    },
+    {
+      "attributes": {
+        "type": "ValidationRule",
+        "url": "/services/data/v67.0/tooling/sobjects/ValidationRule/03d0B000000V8vWQAS"
+      },
+      "Id": "03d0B000000V8vWQAS",
+      "ValidationName": "Tip_lens_film_removal",
+      "Active": true,
+      "EntityDefinitionId": "Product2",
+      "Description": null,
+      "ErrorMessage": "Only System Administrators and Sales Managers can add or remove repair capabilities."
+    },
+    {
+      "attributes": {
+        "type": "ValidationRule",
+        "url": "/services/data/v67.0/tooling/sobjects/ValidationRule/03d0B000000V8wKQAS"
+      },
+      "Id": "03d0B000000V8wKQAS",
+      "ValidationName": "Tip_overhaul",
+      "Active": true,
+      "EntityDefinitionId": "Product2",
+      "Description": null,
+      "ErrorMessage": "Only System Administrators and Sales Managers can add or remove repair capabilities."
+    },
+    {
+      "attributes": {
+        "type": "ValidationRule",
+        "url": "/services/data/v67.0/tooling/sobjects/ValidationRule/03d0B000000V8vbQAC"
+      },
+      "Id": "03d0B000000V8vbQAC",
+      "ValidationName": "Tip_polish",
+      "Active": true,
+      "EntityDefinitionId": "Product2",
+      "Description": null,
+      "ErrorMessage": "Only System Administrators and Sales Managers can add or remove repair capabilities."
+    },
+    {
+      "attributes": {
+        "type": "ValidationRule",
+        "url": "/services/data/v67.0/tooling/sobjects/ValidationRule/03dRo0000009fYbIAI"
+      },
+      "Id": "03dRo0000009fYbIAI",
+      "ValidationName": "Tube_Usage_Fields_Must_be_Present",
+      "Active": false,
+      "EntityDefinitionId": "01IU0000000oYvo",
+      "Description": null,
+      "ErrorMessage": "You MUST enter the DOM and Usage fields for Tube Part Types!"
+    },
+    {
+      "attributes": {
+        "type": "ValidationRule",
+        "url": "/services/data/v67.0/tooling/sobjects/ValidationRule/03d5b000000LfKaAAK"
+      },
+      "Id": "03d5b000000LfKaAAK",
+      "ValidationName": "UK_Big_Iron_Purchasing_Op_Unique_Name",
+      "Active": true,
+      "EntityDefinitionId": "Opportunity",
+      "Description": null,
+      "ErrorMessage": "Please name the opportunity a unique name. Cannot be \"Enter the name here\""
+    },
+    {
+      "attributes": {
+        "type": "ValidationRule",
+        "url": "/services/data/v67.0/tooling/sobjects/ValidationRule/03d5b000000WsXXAA0"
+      },
+      "Id": "03d5b000000WsXXAA0",
+      "ValidationName": "UK_Big_Iron_Removal_Opp_Cannot_be_Closed",
+      "Active": true,
+      "EntityDefinitionId": "Opportunity",
+      "Description": "Must have a contact and customer PO number to close the removal opportunity",
+      "ErrorMessage": "Must enter a Contact and Customer PO # to Close Win this Opportunity"
+    },
+    {
+      "attributes": {
+        "type": "ValidationRule",
+        "url": "/services/data/v67.0/tooling/sobjects/ValidationRule/03d5b0000005IfrAAE"
+      },
+      "Id": "03d5b0000005IfrAAE",
+      "ValidationName": "UK_Close_win_wo_S_P_Rec_date",
+      "Active": true,
+      "EntityDefinitionId": "Opportunity",
+      "Description": null,
+      "ErrorMessage": "Fill in Service/Product Received Date before Close Win"
+    },
+    {
+      "attributes": {
+        "type": "ValidationRule",
+        "url": "/services/data/v67.0/tooling/sobjects/ValidationRule/03d5b000000LfNOAA0"
+      },
+      "Id": "03d5b000000LfNOAA0",
+      "ValidationName": "UK_Closed_Work_Order_Must_Have_End_Date",
+      "Active": true,
+      "EntityDefinitionId": "WorkOrder",
+      "Description": null,
+      "ErrorMessage": "You cannot Close a Work Order without having the End Date field completed. The End Date and time must come after the Start Date and time."
+    },
+    {
+      "attributes": {
+        "type": "ValidationRule",
+        "url": "/services/data/v67.0/tooling/sobjects/ValidationRule/03d5b000000LfUoAAK"
+      },
+      "Id": "03d5b000000LfUoAAK",
+      "ValidationName": "UK_DD_Required_and_ERD_Required",
+      "Active": false,
+      "EntityDefinitionId": "Opportunity",
+      "Description": null,
+      "ErrorMessage": "Data Deletion Requirement is mandatory in order to Move to stage from \"Inspection\""
+    },
+    {
+      "attributes": {
+        "type": "ValidationRule",
+        "url": "/services/data/v67.0/tooling/sobjects/ValidationRule/03d5b000000LfKbAAK"
+      },
+      "Id": "03d5b000000LfKbAAK",
+      "ValidationName": "UK_Purchase_Commercial_Approval_Fields",
+      "Active": true,
+      "EntityDefinitionId": "Opportunity",
+      "Description": null,
+      "ErrorMessage": "To move from \"Quoting\" to \"Negotiating\" stage, Starting Bid, Max Bid, and QA Required fields must be filled out."
+    },
+    {
+      "attributes": {
+        "type": "ValidationRule",
+        "url": "/services/data/v67.0/tooling/sobjects/ValidationRule/03d5b000000LfKcAAK"
+      },
+      "Id": "03d5b000000LfKcAAK",
+      "ValidationName": "UK_Purchase_Expected_Removal",
+      "Active": true,
+      "EntityDefinitionId": "Opportunity",
+      "Description": null,
+      "ErrorMessage": "To move from \"Inspection\" to \"Quoting\" stage, Expected Removal Date and Data Deletion Requirement fields must be filled out."
+    },
+    {
+      "attributes": {
+        "type": "ValidationRule",
+        "url": "/services/data/v67.0/tooling/sobjects/ValidationRule/03d5b000000LfKdAAK"
+      },
+      "Id": "03d5b000000LfKdAAK",
+      "ValidationName": "UK_Purchase_QA_Scheduled",
+      "Active": true,
+      "EntityDefinitionId": "Opportunity",
+      "Description": null,
+      "ErrorMessage": "Scheduled QA Date must be filled out in order to move stage from \"Evaluation\" to \"QA Booked\""
+    },
+    {
+      "attributes": {
+        "type": "ValidationRule",
+        "url": "/services/data/v67.0/tooling/sobjects/ValidationRule/03d5b000000LfKeAAK"
+      },
+      "Id": "03d5b000000LfKeAAK",
+      "ValidationName": "UK_Purchase_Removal_Date",
+      "Active": true,
+      "EntityDefinitionId": "Opportunity",
+      "Description": null,
+      "ErrorMessage": "Actual Removal Date must be entered moving Stage from \"Finalize Transaction\" to \"Removal Completed\", AND Mechanical Services Engineers must be assigned."
+    },
+    {
+      "attributes": {
+        "type": "ValidationRule",
+        "url": "/services/data/v67.0/tooling/sobjects/ValidationRule/03d5b000000LfM1AAK"
+      },
+      "Id": "03d5b000000LfM1AAK",
+      "ValidationName": "UK_QA_Date_must_be_filled_out_before_pro",
+      "Active": true,
+      "EntityDefinitionId": "Opportunity",
+      "Description": null,
+      "ErrorMessage": "The Scheduled QA Date must be filled out in order to progress to the next stage!"
+    },
+    {
+      "attributes": {
+        "type": "ValidationRule",
+        "url": "/services/data/v67.0/tooling/sobjects/ValidationRule/03d5b000000LfMQAA0"
+      },
+      "Id": "03d5b000000LfMQAA0",
+      "ValidationName": "UK_QA_Docs_to_move_to_QA_Approval",
+      "Active": false,
+      "EntityDefinitionId": "Opportunity",
+      "Description": null,
+      "ErrorMessage": "QA Documents Received Checkbox Must Be Checked to Move Stage to QA Approval!"
+    },
+    {
+      "attributes": {
+        "type": "ValidationRule",
+        "url": "/services/data/v67.0/tooling/sobjects/ValidationRule/03d5b000000LfQ8AAK"
+      },
+      "Id": "03d5b000000LfQ8AAK",
+      "ValidationName": "UK_Sales_Op_Must_Be_Approved_to_Close_Wi",
+      "Active": false,
+      "EntityDefinitionId": "Opportunity",
+      "Description": null,
+      "ErrorMessage": "All Sales Ops must have Sales AND Finance approval before being \"Closed Won\" and shipping."
+    },
+    {
+      "attributes": {
+        "type": "ValidationRule",
+        "url": "/services/data/v67.0/tooling/sobjects/ValidationRule/03d5b000000LfHuAAK"
+      },
+      "Id": "03d5b000000LfHuAAK",
+      "ValidationName": "UK_Service_Contract_Reason_Lost_Req",
+      "Active": false,
+      "EntityDefinitionId": "Opportunity",
+      "Description": null,
+      "ErrorMessage": "Reason Lost and  Reason Lost Notes must be filled out. If you do not see an applicable value, please reach out to your manager."
+    },
+    {
+      "attributes": {
+        "type": "ValidationRule",
+        "url": "/services/data/v67.0/tooling/sobjects/ValidationRule/03d5b000000LfLwAAK"
+      },
+      "Id": "03d5b000000LfLwAAK",
+      "ValidationName": "UK_Verbal_Acceptance_without_Approval",
+      "Active": true,
+      "EntityDefinitionId": "Opportunity",
+      "Description": null,
+      "ErrorMessage": "Opportunity must have Commercial Approval before moving stage to \"Negotiating\" or \"Verbal Acceptance\" stages."
+    },
+    {
+      "attributes": {
+        "type": "ValidationRule",
+        "url": "/services/data/v67.0/tooling/sobjects/ValidationRule/03dRo000001Got7IAC"
+      },
+      "Id": "03dRo000001Got7IAC",
+      "ValidationName": "Unqualified_Reason_Required",
+      "Active": true,
+      "EntityDefinitionId": "Lead",
+      "Description": null,
+      "ErrorMessage": "Select an Unqualified Reason to set the Lead Status to Unqalified"
+    },
+    {
+      "attributes": {
+        "type": "ValidationRule",
+        "url": "/services/data/v67.0/tooling/sobjects/ValidationRule/03d4O00000066b6QAA"
+      },
+      "Id": "03d4O00000066b6QAA",
+      "ValidationName": "Validate_AvaTax_Exemption_Customer_ID",
+      "Active": true,
+      "EntityDefinitionId": "Account",
+      "Description": null,
+      "ErrorMessage": "Please do not edit this field value"
+    },
+    {
+      "attributes": {
+        "type": "ValidationRule",
+        "url": "/services/data/v67.0/tooling/sobjects/ValidationRule/03d4O000000E7VEQA0"
+      },
+      "Id": "03d4O000000E7VEQA0",
+      "ValidationName": "Verbal_Acceptance_Without_Approval",
+      "Active": true,
+      "EntityDefinitionId": "Opportunity",
+      "Description": "This validation rules stops users from moving the opp stage to  Verbal Acceptance without being approved.",
+      "ErrorMessage": "You must complete the approval process to move the opportunity to Verbal Acceptance."
+    },
+    {
+      "attributes": {
+        "type": "ValidationRule",
+        "url": "/services/data/v67.0/tooling/sobjects/ValidationRule/03d0B000000V8udQAC"
+      },
+      "Id": "03d0B000000V8udQAC",
+      "ValidationName": "Wire_Splice",
+      "Active": true,
+      "EntityDefinitionId": "Product2",
+      "Description": null,
+      "ErrorMessage": "Only System Administrators and Sales Managers can add or remove repair capabilities."
+    },
+    {
+      "attributes": {
+        "type": "ValidationRule",
+        "url": "/services/data/v67.0/tooling/sobjects/ValidationRule/03d0B000000VAliQAG"
+      },
+      "Id": "03d0B000000VAliQAG",
+      "ValidationName": "You_cannot_check_in_a_loaner_turned_sale",
+      "Active": true,
+      "EntityDefinitionId": "01IU0000000omZU",
+      "Description": null,
+      "ErrorMessage": "You cannot check in a loaner turned to sale."
+    }
+  ],
+  "totalSize": 338,
+  "done": true
+}

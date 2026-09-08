@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>57.0</apiVersion>
+    <areMetricsLoggedToDataCloud>false</areMetricsLoggedToDataCloud>
+    <decisions>
+        <description>Has the &quot;Mgmt Shadowed&quot; Checkbox been checked or cleared</description>
+        <name>Mgmt_Shadow_Clear_or_Check</name>
+        <label>Mgmt Shadow Clear or Check?</label>
+        <locationX>314</locationX>
+        <locationY>311</locationY>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Shadow_Checked</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Mgmt_Shadowed__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Shadow_Box_Checked</targetReference>
+            </connector>
+            <label>Shadow Checked</label>
+        </rules>
+        <rules>
+            <name>Shadow_Cleared</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Mgmt_Shadowed__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Shadowed_Box_Cleared_by</targetReference>
+            </connector>
+            <label>Shadow Cleared</label>
+        </rules>
+    </decisions>
+    <description>Capture Who checked the Credit Risk Mgmt Shadowed checkbox and when.</description>
+    <environments>Default</environments>
+    <formulas>
+        <description>Concatenate User Name and Today&apos;s Date</description>
+        <name>CheckedUserDate</name>
+        <dataType>String</dataType>
+        <expression>&quot;Checked By: &quot; &amp; {!$User.Flow_Full_Name__c} &amp; &quot; &quot; &amp; Text(TODAY())</expression>
+    </formulas>
+    <formulas>
+        <description>Concatenate User Name and Today&apos;s Date</description>
+        <name>ClearedUserDate</name>
+        <dataType>String</dataType>
+        <expression>&quot;Cleared By: &quot; &amp; {!$User.Flow_Full_Name__c}  &amp; &quot; &quot; &amp; Text(TODAY())</expression>
+    </formulas>
+    <interviewLabel>(CR) Mgmt Shadow Audit {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>(CR) Mgmt Shadow Audit</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <recordUpdates>
+        <description>Who clicked the Mgmt Shadowed Checkbox and when</description>
+        <name>Shadow_Box_Checked</name>
+        <label>Shadow Box Checked</label>
+        <locationX>50</locationX>
+        <locationY>431</locationY>
+        <inputAssignments>
+            <field>Shadowed_ByOn__c</field>
+            <value>
+                <elementReference>CheckedUserDate</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <description>Capture who / when the Mgmt Shadowed Checkbox was cleared</description>
+        <name>Shadowed_Box_Cleared_by</name>
+        <label>Shadowed Box Cleared by</label>
+        <locationX>314</locationX>
+        <locationY>431</locationY>
+        <inputAssignments>
+            <field>Shadowed_ByOn__c</field>
+            <value>
+                <elementReference>ClearedUserDate</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <start>
+        <locationX>188</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Mgmt_Shadow_Clear_or_Check</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Mgmt_Shadowed__c</field>
+            <operator>IsChanged</operator>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </filters>
+        <object>Credit_Risk__c</object>
+        <recordTriggerType>Update</recordTriggerType>
+        <triggerType>RecordBeforeSave</triggerType>
+    </start>
+    <status>Active</status>
+</Flow>

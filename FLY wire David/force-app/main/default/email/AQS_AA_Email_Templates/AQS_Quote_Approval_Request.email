@@ -1,0 +1,64 @@
+<messaging:emailTemplate subject="Quote Approval - REQUESTED: {!relatedTo.AQS_Quote__r.Name} for {!relatedTo.AQS_Quote__r.SBQQ__Opportunity2__r.Name}"
+   recipientType="User"
+   relatedToType="sbaa__Approval__c">
+   <messaging:HtmlEmailBody >
+      <html>
+         <body>
+            <!-- <apex:image value="{!LEFT($Api.Enterprise_Server_URL_300, FIND('/services',$Api.Enterprise_Server_URL_300))}/servlet/servlet.ImageServer?id={!$Setup.AQS_AA_Enablement_IDs__c.AQS_Approval_Email_Logo_ID__c}&oid={!$Organization.Id}" 
+                alt="Approval Email Logo" /> -->
+            <!-- <b></b> 
+            <p><br/></p> -->
+            Hello {!recipient.name},
+            <p>{!relatedTo.AQS_Quote__r.Owner.Name} is requesting your approval for a Quote, please see below.<br/></p>
+            <p>
+               <b>Quote Name: </b>&nbsp;
+               <apex:outputLink value="{!LEFT($Api.Enterprise_Server_URL_300, FIND('/services',$Api.Enterprise_Server_URL_300))}/{!relatedTo.AQS_Quote__r.Id}" >{!relatedTo.AQS_Quote__r.Name}</apex:outputLink>
+               <br/>
+               <b>Opportunity Name: </b>&nbsp;
+               <apex:outputLink value="{!LEFT($Api.Enterprise_Server_URL_300, FIND('/services',$Api.Enterprise_Server_URL_300))}/{!relatedTo.AQS_Quote__r.SBQQ__Opportunity2__r.Id}" >{!relatedTo.AQS_Quote__r.SBQQ__Opportunity2__r.Name}</apex:outputLink>
+               <br/>
+               <b>Opportunity Owner: </b>{!relatedTo.AQS_Quote__r.SBQQ__Opportunity2__r.Owner.Name}<br/>
+               <b>Exclusivity:</b> {!relatedTo.AQS_Quote__r.Exclusivity__c}<br/>
+               <b>Termination:</b> {!relatedTo.AQS_Quote__r.Termination__c}<br/>
+               <b>Subscription Term (months):</b> {!relatedTo.AQS_Quote__r.SBQQ__SubscriptionTerm__c}<br/>
+               <b>Revenue Share present: </b>
+               <apex:outputText rendered="{!relatedTo.AQS_Quote__r.Requires_Revenue_Approval__c = true}">
+                    Yes
+               </apex:outputText>
+               <apex:outputText rendered="{!relatedTo.AQS_Quote__r.Requires_Revenue_Approval__c = false}">
+                    No
+               </apex:outputText>
+               <br/>
+               <apex:outputPanel rendered="{!relatedTo.AQS_Quote__r.SBQQ__Account__c != relatedTo.AQS_Quote__r.Ship_To_Account__c}">
+                    <b>Bill To Account: </b>{!relatedTo.AQS_Quote__r.SBQQ__Account__r.Name}<br/>
+                    <b>Billiing To Address: </b>{!relatedTo.AQS_Quote__r.SBQQ__Account__r.BillingStreet}, {!relatedTo.AQS_Quote__r.SBQQ__Account__r.BillingCity}, {!relatedTo.AQS_Quote__r.SBQQ__Account__r.BillingState}, {!relatedTo.AQS_Quote__r.SBQQ__Account__r.BillingPostalCode}, {!relatedTo.AQS_Quote__r.SBQQ__Account__r.BillingCountry} <br/>
+               </apex:outputPanel>
+               <b>Ship To Account: </b>{!relatedTo.AQS_Quote__r.Ship_To_Account__r.Name}<br/>
+               <b>Shipping Address: </b>{!relatedTo.AQS_Quote__r.Ship_To_Account__r.ShippingStreet}, {!relatedTo.AQS_Quote__r.Ship_To_Account__r.ShippingCity}, {!relatedTo.AQS_Quote__r.Ship_To_Account__r.ShippingState}, {!relatedTo.AQS_Quote__r.Ship_To_Account__r.ShippingPostalCode}, {!relatedTo.AQS_Quote__r.Ship_To_Account__r.ShippingCountry} <br/>
+               <p>
+               <apex:outputPanel rendered="{!relatedTo.AQS_Quote__r.Non_Standard_Terms__c != null}">
+                  <b>Non-Standard Terms: </b>{!relatedTo.AQS_Quote__r.Non_Standard_Terms__c}<br/>
+               </apex:outputPanel>
+                  <b>Next Step:</b> To approve or reject this request, click on one of these links:&nbsp;&nbsp;
+                  <apex:outputLink value="{!LEFT($Api.Partner_Server_URL_140,FIND('.com',$Api.Partner_Server_URL_140)+4)+'apex/SBAA__Approve?id='+relatedTo.Id}">Approve</apex:outputLink>
+                  &nbsp;&nbsp;&nbsp;
+                  <apex:outputLink value="{!LEFT($Api.Partner_Server_URL_140,FIND('.com',$Api.Partner_Server_URL_140)+4)+'apex/SBAA__Reject?id='+relatedTo.Id}">Reject</apex:outputLink>
+                  <br/>
+               </p>
+            </p>
+            <p>
+               <b>Approvals:</b><br/>
+               <sbaa:relatedList rendered="{!relatedTo.AQS_Quote__c != null}" recordId="{!relatedTo.AQS_Quote__c}" relationshipName="AQS_AA_Approvals__r" fieldSetName="AQS_Approval_Request"/>
+            </p>
+            <p>
+               <b>Quote Line Items:</b><br/>
+               <sbaa:relatedList rendered="{!AND(relatedTo.AQS_Quote__c != null, relatedTo.AQS_Quote__r.Multiple_Ship_to_Accounts__c == 'No')}" recordId="{!relatedTo.AQS_Quote__c}" relationshipName="SBQQ__LineItems__r" fieldSetName="AQS_Approval_Request"/>
+               <sbaa:relatedList rendered="{!AND(relatedTo.AQS_Quote__c != null, relatedTo.AQS_Quote__r.Multiple_Ship_to_Accounts__c == 'Yes')}" recordId="{!relatedTo.AQS_Quote__c}" relationshipName="SBQQ__LineItems__r" fieldSetName="AQS_Approval_Request_with_Ship_To_Acc"/>
+            </p>
+            <p style="color:white">
+               <apex:outputText value="{!relatedTo.Id}"/>
+            </p>
+         </body>
+      </html>
+   </messaging:HtmlEmailBody>
+</messaging:emailTemplate>

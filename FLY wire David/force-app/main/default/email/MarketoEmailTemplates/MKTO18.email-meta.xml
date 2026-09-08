@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <encodingKey>UTF-8</encodingKey>
+    <name>Website_Demo Request_Travel_OTAs.Auto Responder - NEW</name>
+    <style>none</style>
+    <subject>Your Flywire demo is on the way!</subject>
+    <textOnly>{{lead.First Name:default=Friend}},
+
+
+
+
+Thank you for your interest in Flywire&apos;s payment solutions. We look forward to speaking with you more!
+
+
+
+
+We&apos;ll be in touch shortly to discuss your needs and schedule your custom demo. In the meantime, please visit our resources page &lt;[[https://www.flywire.com/resources]]&gt; for case studies, best practices, articles, and more.
+
+
+
+
+Best, 
+
+The Flywire Team
+Flywire Global Headquarters
+ 141 Tremont Street, Boston, MA 02111
+ United States
+Copyright ©Flywire. 2011-2020 All rights reserved.
+
+ Flywire is a trademark of Flywire Corporation.
+Privacy Policy &lt;[[#]]&gt;   
+|   
+Unsubscribe &lt;[[{{system.unsubscribeLink}}]]&gt;  
+|   
+Forward to friend &lt;[[{{system.forwardToFriendLink}}]]&gt;</textOnly>
+    <type>custom</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

@@ -1,0 +1,382 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>59.0</apiVersion>
+    <areMetricsLoggedToDataCloud>false</areMetricsLoggedToDataCloud>
+    <decisions>
+        <name>Check_if_Asset_Currency_is_same_as_Opportunity_Currency</name>
+        <label>Check if Asset Currency is same as Opportunity Currency</label>
+        <locationX>314</locationX>
+        <locationY>431</locationY>
+        <defaultConnector>
+            <targetReference>Set_Initial_Credit_Memo_Amount</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Yes_the_same</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.ProductItem__r.CurrencyIsoCode</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <elementReference>$Record.Opportunity.CurrencyIsoCode</elementReference>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Mirror_Cost_International</targetReference>
+            </connector>
+            <label>Yes, the same</label>
+        </rules>
+        <rules>
+            <name>Different</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.ProductItem__r.CurrencyIsoCode</leftValueReference>
+                <operator>NotEqualTo</operator>
+                <rightValue>
+                    <elementReference>$Record.Opportunity.CurrencyIsoCode</elementReference>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Get_Dated_Asset_Of_Current_Currency</targetReference>
+            </connector>
+            <label>Different</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Intercompany</name>
+        <label>Intercompany</label>
+        <locationX>666</locationX>
+        <locationY>323</locationY>
+        <defaultConnector>
+            <targetReference>Set_Initial_Credit_Memo_Amount</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>International_Yes</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Opportunity.Account.Inter_Company_Transfer__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Opportunity.Account.Internal_Accounting_Book_Number__c</leftValueReference>
+                <operator>NotEqualTo</operator>
+                <rightValue>
+                    <elementReference>$Record.Opportunity.Entity_Location__c</elementReference>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Opportunity.RecordType.Name</leftValueReference>
+                <operator>NotEqualTo</operator>
+                <rightValue>
+                    <stringValue>Probe Repair Opportunity</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Enable_Manual_Cost_Assignment__c</leftValueReference>
+                <operator>NotEqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Check_if_Asset_Currency_is_same_as_Opportunity_Currency</targetReference>
+            </connector>
+            <label>International Yes</label>
+        </rules>
+        <rules>
+            <name>Yes</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Opportunity.Account.Inter_Company_Transfer__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Product2Id</leftValueReference>
+                <operator>NotEqualTo</operator>
+                <rightValue>
+                    <stringValue>01tVA000007uiGrYAI</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Opportunity.RecordType.Name</leftValueReference>
+                <operator>NotEqualTo</operator>
+                <rightValue>
+                    <stringValue>Probe Repair Opportunity</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Enable_Manual_Cost_Assignment__c</leftValueReference>
+                <operator>NotEqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Mirror_Cost</targetReference>
+            </connector>
+            <label>Yes</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Set_Initial_Credit_Memo_Amount</name>
+        <label>Set Initial Credit Memo Amount</label>
+        <locationX>666</locationX>
+        <locationY>1031</locationY>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Credit_Memo_Value_Updated</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Credit_Memo__c</leftValueReference>
+                <operator>IsChanged</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Credit_Memo__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Update_Credit_Memo_Amount_for_Line</targetReference>
+            </connector>
+            <label>Credit Memo Value Updated</label>
+        </rules>
+    </decisions>
+    <description>8/12/26 - Updating to take the larger of entered sales price and 15% markup on cost.</description>
+    <environments>Default</environments>
+    <formulas>
+        <name>form_CostAndInternationalUplift</name>
+        <dataType>Currency</dataType>
+        <expression>Max({!$Record.UnitPrice}, ({!formInternationalUnitPricePlusReplairs}*{!var_ExchangeRate})*1.15)</expression>
+        <scale>2</scale>
+    </formulas>
+    <formulas>
+        <name>Form_GetDestinationExchangeRate</name>
+        <dataType>Number</dataType>
+        <expression>((({!formInternationalUnitPricePlusReplairs}*1.15)/
+IF(ISNULL({!Get_Dated_Asset_Of_Current_Currency.ConversionRate}),1,{!Get_Dated_Asset_Of_Current_Currency.ConversionRate})
+)*
+IF(ISNULL({!Get_Opportunity_Destination_Exchange_Rate.ConversionRate}),1,{!Get_Opportunity_Destination_Exchange_Rate.ConversionRate}))</expression>
+        <scale>2</scale>
+    </formulas>
+    <formulas>
+        <name>formInternationalUnitPricePlusReplairs</name>
+        <dataType>Currency</dataType>
+        <expression>IF(!ISBLANK({!$Record.ProductItem__r.Cost__c}) &amp;&amp; !ISBLANK({!$Record.ProductItem__r.Total_Cost_of_Assets_Used_in_Repair__c}),
+{!$Record.ProductItem__r.Cost__c}+{!$Record.ProductItem__r.Total_Cost_of_Assets_Used_in_Repair__c},
+IF(!ISBLANK({!$Record.ProductItem__r.Cost__c}),
+{!$Record.ProductItem__r.Cost__c},
+IF(!ISBLANK({!$Record.ProductItem__r.Total_Cost_of_Assets_Used_in_Repair__c}),
+{!$Record.ProductItem__r.Total_Cost_of_Assets_Used_in_Repair__c},
+0
+)
+)
+)</expression>
+        <scale>2</scale>
+    </formulas>
+    <formulas>
+        <name>formUnitPricePlusRepairs</name>
+        <dataType>Currency</dataType>
+        <expression>IF(!ISBLANK({!$Record.ProductItem__r.Cost__c}) &amp;&amp; !ISBLANK({!$Record.ProductItem__r.Total_Cost_of_Assets_Used_in_Repair__c}),
+{!$Record.ProductItem__r.Cost__c}+{!$Record.ProductItem__r.Total_Cost_of_Assets_Used_in_Repair__c},
+IF(!ISBLANK({!$Record.ProductItem__r.Cost__c}),
+{!$Record.ProductItem__r.Cost__c},
+IF(!ISBLANK({!$Record.ProductItem__r.Total_Cost_of_Assets_Used_in_Repair__c}),
+{!$Record.ProductItem__r.Total_Cost_of_Assets_Used_in_Repair__c},
+0
+)
+)
+)</expression>
+        <scale>2</scale>
+    </formulas>
+    <interviewLabel>Update Credit Memo Amount with Line Items {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Set Interco Price and Credit Memo Amount for Opportunity Products</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <recordLookups>
+        <name>Get_Dated_Asset_Of_Current_Currency</name>
+        <label>Get Dated Asset Of Current Currency</label>
+        <locationX>314</locationX>
+        <locationY>539</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Get_Opportunity_Destination_Exchange_Rate</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>StartDate</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>$Flow.CurrentDate</elementReference>
+            </value>
+        </filters>
+        <filters>
+            <field>IsoCode</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>$Record.ProductItem__r.CurrencyIsoCode</elementReference>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>DatedConversionRate</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordLookups>
+        <name>Get_Opportunity_Destination_Exchange_Rate</name>
+        <label>Get Opportunity Destination Exchange Rate</label>
+        <locationX>314</locationX>
+        <locationY>647</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Update_Cost_Using_Destination_Exchange_Rate</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>StartDate</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>$Flow.CurrentDate</elementReference>
+            </value>
+        </filters>
+        <filters>
+            <field>IsoCode</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>$Record.Opportunity.CurrencyIsoCode</elementReference>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>DatedConversionRate</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordUpdates>
+        <name>Mirror_Cost</name>
+        <label>Mirror Cost</label>
+        <locationX>754</locationX>
+        <locationY>431</locationY>
+        <connector>
+            <targetReference>Set_Initial_Credit_Memo_Amount</targetReference>
+        </connector>
+        <inputAssignments>
+            <field>UnitPrice</field>
+            <value>
+                <elementReference>formUnitPricePlusRepairs</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>Mirror_Cost_International</name>
+        <label>Mirror Cost International</label>
+        <locationX>50</locationX>
+        <locationY>539</locationY>
+        <connector>
+            <targetReference>Set_Initial_Credit_Memo_Amount</targetReference>
+        </connector>
+        <inputAssignments>
+            <field>UnitPrice</field>
+            <value>
+                <elementReference>form_CostAndInternationalUplift</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>Update_Cost_Using_Destination_Exchange_Rate</name>
+        <label>Update Cost Using Destination Exchange Rate</label>
+        <locationX>314</locationX>
+        <locationY>755</locationY>
+        <connector>
+            <targetReference>Set_Initial_Credit_Memo_Amount</targetReference>
+        </connector>
+        <inputAssignments>
+            <field>UnitPrice</field>
+            <value>
+                <elementReference>Form_GetDestinationExchangeRate</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>Update_Credit_Memo_Amount_for_Line</name>
+        <label>Update Credit Memo Amount</label>
+        <locationX>534</locationX>
+        <locationY>1139</locationY>
+        <inputAssignments>
+            <field>Credit_Memo_Amount__c</field>
+            <value>
+                <elementReference>$Record.UnitPrice</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <start>
+        <locationX>540</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Intercompany</targetReference>
+        </connector>
+        <object>OpportunityLineItem</object>
+        <recordTriggerType>CreateAndUpdate</recordTriggerType>
+        <triggerType>RecordAfterSave</triggerType>
+    </start>
+    <status>Active</status>
+    <variables>
+        <name>CreditMemoTotal</name>
+        <dataType>Currency</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+        <scale>2</scale>
+        <value>
+            <numberValue>0.0</numberValue>
+        </value>
+    </variables>
+    <variables>
+        <name>CreditMemoToUpdate</name>
+        <dataType>SObject</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+        <objectType>Credit_Memo__c</objectType>
+    </variables>
+    <variables>
+        <name>var_ExchangeRate</name>
+        <dataType>Number</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+        <scale>7</scale>
+        <value>
+            <numberValue>1.0</numberValue>
+        </value>
+    </variables>
+</Flow>

@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>Lead$FirstName</field>
+    </columns>
+    <columns>
+        <field>Lead$LastName</field>
+    </columns>
+    <columns>
+        <field>Lead$Email</field>
+    </columns>
+    <columns>
+        <field>Lead$Name</field>
+    </columns>
+    <columns>
+        <field>Lead$Account__c.Website_Domain_Capture__c</field>
+    </columns>
+    <columns>
+        <field>Lead$Account__c.Website_Email_Domain__c</field>
+    </columns>
+    <columns>
+        <field>Lead$Email_Domain_Capture__c</field>
+    </columns>
+    <columns>
+        <aggregateTypes>Sum</aggregateTypes>
+        <field>Lead$Account__c.Open_Opportunities__c</field>
+    </columns>
+    <columns>
+        <aggregateTypes>Sum</aggregateTypes>
+        <field>Lead$Account__c.Won_Opportunity_Count__c</field>
+    </columns>
+    <columns>
+        <field>Lead$Company</field>
+    </columns>
+    <columns>
+        <field>Lead$Account__c</field>
+    </columns>
+    <columns>
+        <field>Lead$Website</field>
+    </columns>
+    <columns>
+        <field>Lead$Account__c.Secondary_Email_Domain__c</field>
+    </columns>
+    <columns>
+        <field>Lead$Website_Email_Domain__c</field>
+    </columns>
+    <columns>
+        <field>Lead$Owner</field>
+    </columns>
+    <columns>
+        <field>Lead$Account_Owner__c</field>
+    </columns>
+    <currency>USD</currency>
+    <filter>
+        <booleanFilter>1 AND 2 AND 3 AND (4 OR 5 OR 6 OR 7 OR 8 OR 9 OR 10 OR 11 OR 12 OR 13 OR 14)</booleanFilter>
+        <criteriaItems>
+            <column>Lead$Lead_Industry__c</column>
+            <columnToColumn>false</columnToColumn>
+            <isUnlocked>true</isUnlocked>
+            <operator>equals</operator>
+            <value>Accommodations,DMC,Travel,Travel Operator</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Lead$IsConverted</column>
+            <columnToColumn>false</columnToColumn>
+            <isUnlocked>true</isUnlocked>
+            <operator>equals</operator>
+            <value>0</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Lead$Lead_Person_Status__c</column>
+            <columnToColumn>false</columnToColumn>
+            <isUnlocked>true</isUnlocked>
+            <operator>equals</operator>
+            <value>Engaged,MQL (Marketing Qualified Lead),Nurture,Unverified</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Lead$Company</column>
+            <columnToColumn>false</columnToColumn>
+            <isUnlocked>true</isUnlocked>
+            <operator>equals</operator>
+            <value>Pacific World Malaysia - TUI,TUI - Pacific World Singapore,Sunset Hill Resort,Niseko Wow,MnK Niseko,Kamalaya,The Ski Instructor Training (SITCo),Windows to Japan,Niseko Portfolio,The Traveller DMC Pte Ltd,Rising Sun Guides,Niseko Photography &amp; Guiding,Hokkaido Ski Club,Hokkaido Tourism Management HTM,Cove,Snow Country Instructors,MyStay International Pty Ltd,Bill&apos;s Trips,Look-Asia,TUI - Destination Service - InterCruises SG,Homestead Properties Pte. Ltd.,Oxfordcaps,Yu Hing PD Ltd,Soteria HSE,Penbrothers International Inc.,Institute of Personal Care Science,Wildfire Entertainment,ICC Academy,SingExpress,Singex,Cogent Realty Capital Pte. Ltd - Assemblage-,ST Residences,Homestead Holland Pte. Ltd.,International Center for Research &amp; Development,Niseko Black,Homestead College Housing Pte. Ltd.,Holiday Niseko,Heartland Japan,The Hakuba Collection,Narudo Inc,Japan Ski Experience,Snow and Flow,Rhythm Japan,Bycroft Consulting,Southern Crossings Australia,SkyStation (YK Wise Factory Corporation),Inspiring Villas,SOPL 1 Pte Ltd,The Traveller Malaysia,Powderhounds,Peak Niseko Car Rental,Irodori Factory,Beyond Academy,Rhythm Hakuba,Schools and Agents,International Rural Exchange,Canada Homestay Network,MID Properties</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Lead$Company</column>
+            <columnToColumn>false</columnToColumn>
+            <isUnlocked>true</isUnlocked>
+            <operator>equals</operator>
+            <value>National School Language Camps (National School of Language),HotelsCombined Korean Hotels,HotelsCombined - Scandinavian Hotels,HotelsCombined Japanese Hotels,Plan B Immigration,Twin Tracks Expeditions,Motodreamer Global Moto Tours,Waybird Travel,Far &amp; Wild Travel,Discovery Tours Ltd.,Timbuktu Travel,Spain Savvy,My Ideal Traveling,New African Safaris,The Little Orange,Safari Africa Travel,Rainforest Cruises,Cape Town,South Africa,Travel &amp; Concierge Company,My Private Villas,Andean Experience Peru,VOYAGES HUB TOURS,Explorer X,Fresh Tracks Canada,Check-in-London,OnTop Mountaineering,Blaycation Travel Ltd,Discover Iceland,Panorama Glass Lodge,Hidden Iceland,Fresh Adventures,Anam Croí Ireland Tours,To Stays Inc.,BESPOQE TRAVEL,Exclusively Italy - Destination Specialist,VIT 4 Travel,Moments DMC,Mikrotour,Majolica DMC,Essence of Sicily,Spain Top,Galavanta,The Platinum Services,EPIC Group DMC Mexico,Tailored Spain,Icaterina - Italian Luxury DMC,Global Educational Guardians,Northwest Homestay,Cambridge Guardian Angels,American International Recruitment Council (AIR-C),Exploration Summer Programs,The Intern Group,Living Learning English,Journal Student Living,Scape Accommodation,Fieldwork Education Ltd,IALC,Quest Guardians Ltd</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Lead$Company</column>
+            <columnToColumn>false</columnToColumn>
+            <isUnlocked>true</isUnlocked>
+            <operator>equals</operator>
+            <value>Canadian Society of Immigration Consultants - CAD,Summer Discovery,English UK,Powder Guides Ski Adventures Inc,Stepwest,K3 Cat Ski,Diamond Vérité Canada,Arctic Kingdom,Keefer Lake Lodge Catskiing,Camplife LTD/Eagles Landing Camps,Sorcerer Lodge,Uniqutor,Bright World,James-Lee Consultancy,Academic Families,My Guardians,RUYANG Guardian Service &amp; Educational Consultancy Ltd,Which Independent Schools Ltd.,Overseas Personal Development Services,Gabbitas Education,Pippa&apos;s Guardians,Quest Guardians Ltd,Altitude Ecole De Ski Et Snowboard SARL,Living Learning English,Scottish Overseas Guardianship Association,Gamut Ventures Inc,Golden Alpine Holidays,Tailormade Andalucia,Commercial People,D-Toxd,Hilton Vilamoura - Mourastock - Investimentos Turisticos e Hoteleiros SA,PFI HRIS &amp; IMMIGRATION LTD,Made for Spain,Valesa Cultural Services,Tours For You</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Lead$Company</column>
+            <columnToColumn>false</columnToColumn>
+            <isUnlocked>true</isUnlocked>
+            <operator>equals</operator>
+            <value>Slotrips,Dragso Camping,Fauna Vista LLP,Madrid &amp; Beyond,Movis Private Tours,Nordic Luxury,The Hungry Cyclist Lodge,Mavros Safaris,Verbier Ski,Secret Dalmatia,Mandarin Consulting USA,Ethical Travel Portal,Cartology Travel,Chalets Pardiski,Mandarin Consulting,CEPA Europe,ECDL,The Ocean Week,Keystone Academic Solutions,World 2 Meet.,Harbour Club,Dunkeld House Lodges Club,Craigendarroch Owners Club,Craigendarroch Suites Members Association,Borgo Alle Vigne Fractional Owners Association,Comunidad de Propietarios Fuerteventura Beach Club,Coylumbridge Highland Lodges Club,the tempest two,Discover Access (A2L),Pure Germany,EA Heli,Leonidas Travel Europe,Prestigious Travel UK Ltd,Catavino Tours,Dare To Explore,Luxury Beyond AB (Ltd.),Access Italy INC,Escales Signature,Forest Cat,Terra Nova,World Sea Explorers,Italy My Way,AM STOP BILBAO,Seez Travel,Petar &amp; Julia Travel,Charme&amp;Adventure Srl,Essence of Italy,Curated and Bespoke,Italy Charme,In Rome Cooking,Lufthansa City Center DMC,Italy with Class,Your Trip To Spain &amp; Portugal,Blu Cove Greece INC,Bluebird Travel</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Lead$Company</column>
+            <columnToColumn>false</columnToColumn>
+            <isUnlocked>true</isUnlocked>
+            <operator>equals</operator>
+            <value>Sila Greenland,Adventure Slovenia,Jaunt Mexico,Wanderlux,Metropolitan Touring Peru,Maroc Travel Experiences,Exclusive Spain,TravelTailors,The Affluence Ltd,Adler &amp; Marlow,Taste Dalmatia,Sicily DMC &amp; Travel Design,Paul Klein Travel Services,Enigma,I.D.I Travel,Journey 2 Croatia,Travellab - Viagens e Turismo,Lda,Rising Tide Travel,Visit My Mallorca,Calvados Club Luxury Travel,Brownell Travel,Fun Travel Iceland,AliKats Mountain Holidays,Iceland Travel,Nordic Visitor,Beyond Traveller,IHWO,Iceland Encounter,Access Italy SRL,Adventure Teaching,J&amp;T Concierge,PASA APF,CAPOW,360 Private Travel,Casa Toronto,Canadian Powder Adventures,Silvertip Lodge,Adventure Travel Trade Association,Free Rein Ranch,Virtuoso,Blue Marble Private,The Think Tank Creative,Nimmo Bay,Snowwater Heliskiing,Diana Lake Lodge,White Desert,Our Home Boston,Tropical Birding,Eagle Eye Tours,Last Frontier Heliskiing,Bella Coola Heli Sports,Marina Snyder RCIC,Ireland Walk Hike Bike,International Academic Competitions,Pelorus Yachting Ltd.,Expedition Engineering,Babine Norlakes Steelhead Camp,The Polar Travel Company,Wayfairer Travel Inc.,Curiosity France,Skeena Cat Skiing Inc,Walks Inside Rome,Wildroutes Adventures,Arctic Yeti,Gole Soccer Tours,Ride &amp; More Travel</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Lead$Company</column>
+            <columnToColumn>false</columnToColumn>
+            <isUnlocked>true</isUnlocked>
+            <operator>equals</operator>
+            <value>Portugal Trails,Go2Africa,Maple Leaf Adventures,Trufflepig Travel Inc,Pelorus Adventures Ltd.,Aggressor Adventures,Ice Axe Expeditions,The Polar Adventure Company Ltd.,Pandion,AndAdventure Croatia,Active Travel Group,Nuba,Trans Tasmania Mtb,Amazonas Explorer,Indus Travel,Terra Explorer,Ice Tracks Expeditions,Trans BC,Mabey Ski,Trans NZ,WhiteWorth Chalet,Blanton Turner,Haven Coliving,Zap Auto Export,Educational Resource Development Trust,Salento Bici Tour,OceanSky Cruises,Sawback Alpine Adventures,Portuguese Ways,Galangal Travel,Southern Visions Travel,Dolomite Mountains,Sheldon Chalet,UThrive LTD.,BikeTours.com,Core Ski Camps,Valdez Heli Ski Guides,Selkirk Snowcat Skiing,Finisterra Travel,Weber Arctic,Black Sheep Adventures,Jim Zuckerman Photo Tours,South Nahanni Outfitters,Italy Luxury Tours</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Lead$Company</column>
+            <columnToColumn>false</columnToColumn>
+            <isUnlocked>true</isUnlocked>
+            <operator>equals</operator>
+            <value>Heli.life,Purcell Heli-Skiing,Crescent Spur,Retallack,MS Homestays,Northern Escape Heli Skiing,The Union,Big Red Cats Cat Skiing,Vagabond Adventure Tours of Ireland,HeliCat Canada,Ski Safari,Alpine Adventures,Mills and Honey Cycling,Vetta Mountain Guides,Cruise Norway,Ian Taylor Trekking,Alltracks Academy,Alaska Backcountry Guides,White Grizzly Cat Skiing,Norwegian Adventures AS,Viva Wyndham Resorts / Club Viva,Futurismo Azores Adventures,Queen of Clubs Lifestyle Luxury Services,Yukon Alpine Heliskiing,Saddle Skedaddle,Student Beehive,Great Canadian Heli Skiing,Villa Collective,Londonist Student Accommodations,Icefall Lodge,Bordeaux Excellence,Top Bike tours Portugal,Quintessentially Travel,Great Bear Heli,Black Sheep Adventure Sports,Altus Mountain Guides,Tuscany Now &amp; More,Arctic Running,Hosted Villas,CD Villas,Kexgill,Maple Homestay Network,NH Concierge Services Lda.,5 Star Homestay,Nuitee Travel,Farewell Harbour Lodge,Phantom Heli,Making Trax Ltd.,Ski Bespoke,Decouvertes DMC France,Tempo-VIP DMC Portugal,JapanQuest Journeys,Grupo Viajabien Spain,Temprano Capital Partners,Portugal A2Z,Albion Voyages,BookoHotel,Departure Lounge,Encubate Inc.,Bayridge Housing,Protocolo Tours,Chartered Professors,ISX Canada,Nonstop Adventure Limited</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Lead$Company</column>
+            <columnToColumn>false</columnToColumn>
+            <isUnlocked>true</isUnlocked>
+            <operator>equals</operator>
+            <value>Nonstop Adventure Limited,Eagle Nook Wilderness Resort,International Sports Training Camp,Milton Lake Lodge,rkheliski,Rick Macci Tennis Academy,Peak Ski Racing Academy,Hilton US Properties,Expedia,Snow Country Travel LLC,Mustang Powder,Wild Women Expeditions,Reel Obsession,Alpine Luxury Tours,Pacific Business KK,Arinara Resort,Tengu Asset Management KK,The Luxe Nomad,Discover Orient Holidays Sdn Bhd,Tengu Travel,Cocolo Travel,Vacation Niseko,DreamBig Events,Ski Japan,Luxury Villas &amp; Homes,Hakuba Ski Concierge,Blue Sky Escapes,The Adventure Academy,Ominent Sdn Bhd,Elite Havens,Bryden,Garage Society,Invade Workspace,Invade Industry,Humming Homes Pte. Ltd.,Garden City Management Pte Ltd,AddedSport,Big 3 Media,Global Experience,Aroha Tours,Haka Tours,Blued Japan,Hakuba Lodge Co-op,Mint Tours,Hokkaido Tracks,Big Corridor Sdn. Bhd.,Contented Livings,Sticky Rice Travel,Travel Escapes Maldives,Pure Hokkaido,Seasonz,Pacific Asia Travel Association (PATA),Remote Lands,EXO Travel Group,Arcadia Expeditions,Italian Allure Travel,Aava Resort &amp; Spa,Alpha Maldives,OV Holidays,Neoscapes Maldives,Hulhule Island Hotel,Viluxur Holidays,Alpine Luxury Tours Limited,Inspired Journeys Australia,Asia Consolidated DMC</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Lead$Company</column>
+            <columnToColumn>false</columnToColumn>
+            <isUnlocked>true</isUnlocked>
+            <operator>equals</operator>
+            <value>Lagoon View Maldives,Trails of IndoChina,Samurai Tours,Ski Hakuba,Hanazono Residences UOA,Midtown Niseko,Southern Crossings NZ,Snowlines Lodge,English For Life (Commercial),Epic Private Journeys,Piranha Divers Okinawa,Hilda Loe Associates Pte. Ltd.,The Luxury Signature,Hakuba Happo Accommodation,Numbers Management,Gakuto Management KK,Hokkaido Collective,Lets Go Maldives,Koi Management (Koi Mgmt.),Milchel,Zeldiva Luxury,Hokkaido Nomad Car Rental KK,Discover Winter,Smiling Albino,Annalink (Commercial),Milan Housing,Niseko Freedom Inn,Australia Homestay Providers Network,Insider Divers,Australia Accommodation Network,Go Beyond (Thailand),Globe Holiday,Sun Leisure World,Wanna Tours Thailand,The Tuk Tuk Club,Expique,Bangkok Biking,UniLodge,Pacific Cycle Tours,Our Jungle House,ICS Travel Group Thailand,Mangosteen Resort &amp; Spa,Our Jungle Camp,Charlotte Travel,Spice Roads Cycling,Colona Liveaboards,The Junk Liveaboards,Diethelm Travel Singapore,Diethelm Travel Maldives,Perfect Travel Group,Scuba Tours Worldwide,Paresa Resorts,AECC Global,Bawah Reserve,Hong Thai Travel,Asia Exotica,Amazing New Zealand Itineraries,Aohua International,Golfsavers Thailand,Red Elephant Reps,Discovery Collective,Golfsavers Singapore,Easy Day Thailand</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Lead$Company</column>
+            <columnToColumn>false</columnToColumn>
+            <isUnlocked>true</isUnlocked>
+            <operator>equals</operator>
+            <value>Master Liveaboards,ICS Travel Group Thailand,Arcanum Maldives,ICS Travel Group Singapore,Travel Wander,AceVentures OMT,Atoll Discovery,Inspiring Properties Ltd,Travel Connection,Intro Travel Limited,Intro Travel Australia,DK Student Services,Blue Horizon,Luxury Asia Lifestyles,Great Learning,Go Beyond (Thailand),Studynet Commercial,WCoding,River Junkie,Hummingbird Travel,Tiger Marine Charter,Jay Berry Japan KK,Morino Lodge,Diethelm Travel (Thailand),Tweet World Travel,Abercrombie &amp; Kent SE Asia,Uniagents,the white travel company,Aku Hotels,Be Good Japan KK,AYA Niseko,Powder Holidays Pty Ltd,OHARAJUKU,NEOLD Private Homes,Hakuba Springs Hotel,Taiga Niseko,Phoenix Japan,Douoh Kotsu,Japan Powder Culture Tours,Japan Guides Group,Zekkei Collection,JIC Travel Center,TOKYO WAY,Adventure Hokkaido,The J Team,Hidden Japan Travel,H2 Group,Lotus Cycle,Tabitto Travel Kagoshima,Deneb,PANDA TRAVEL AGENCY LTD,The Hakuba Company,J WORLD TRAVEL CO.,LTD,Triangle Japan DMC,Green Tomato,Samurai Snow,Shikoku Tours,Niseko Academy,GK ASA,Yes Hokkaido,Shiki Group,Arkadia Kanzai,Japan Private Tour,Kingfisher Japan KK,Local Travel Partners,Nozawa Hotel View Shimataya,Next Japan Travel (Necusto Co Ltd),Nozawa Management GK,Gakuto Villas KK,Aspire Heavenly Holidays</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Lead$Company</column>
+            <columnToColumn>false</columnToColumn>
+            <isUnlocked>true</isUnlocked>
+            <operator>equals</operator>
+            <value>Wadano Forest Hotel,Chateau Lausanne,Arigato Japan Food Tours,Stay Rusutsu,Eighty Days Inc,Hokkaido Backcountry Club,Beauty of Japan Inc,Luxury Travel Japan,Ski Japan Holidays,Nozawa Hospitality,Koharu Resort Hotel KK,The Niseko Company,J&amp;F Plaza Co.Ltd,KK JFF,Hokkaido Access Network Co.Ltd,Hachise KK</value>
+        </criteriaItems>
+    </filter>
+    <format>Tabular</format>
+    <name>Active Clients - Leads to Convert 2 new</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>Leads_with_Account__c</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <showGrandTotal>true</showGrandTotal>
+    <showSubTotals>true</showSubTotals>
+    <sortColumn>Lead$Website_Email_Domain__c</sortColumn>
+    <sortOrder>Asc</sortOrder>
+    <timeFrameFilter>
+        <dateColumn>Lead$CreatedDate</dateColumn>
+        <interval>INTERVAL_CUSTOM</interval>
+    </timeFrameFilter>
+</Report>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Addtnl_Account__c</fullName>
+    <deleteConstraint>SetNull</deleteConstraint>
+    <inlineHelpText>Link Prod Config to Additional Account. For 529s this is the School the portal is for.</inlineHelpText>
+    <label>Addtnl Account</label>
+    <referenceTo>Account</referenceTo>
+    <relationshipLabel>Addtnl Prod Config - Indirect</relationshipLabel>
+    <relationshipName>Addtnl_Product_Configuration</relationshipName>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <type>Lookup</type>
+</CustomField>

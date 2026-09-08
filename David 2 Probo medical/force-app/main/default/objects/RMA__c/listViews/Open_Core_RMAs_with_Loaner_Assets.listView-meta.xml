@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Open_Core_RMAs_with_Loaner_Assets</fullName>
+    <columns>NAME</columns>
+    <columns>Location__c</columns>
+    <columns>Days_since_RMA_created__c</columns>
+    <columns>Date_Opportunity_Item_Shipped__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Date_RMA_Item_Received__c</field>
+        <operation>equals</operation>
+    </filters>
+    <filters>
+        <field>Location__c</field>
+        <operation>contains</operation>
+        <value>Customer Loan</value>
+    </filters>
+    <filters>
+        <field>RMA_Type__c</field>
+        <operation>contains</operation>
+        <value>Core</value>
+    </filters>
+    <label>Open Core RMAs with Loaner Assets</label>
+    <sharedTo>
+        <allInternalUsers></allInternalUsers>
+    </sharedTo>
+</ListView>

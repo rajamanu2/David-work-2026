@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>Campaign$Name</field>
+    </columns>
+    <columns>
+        <field>Campaign$Owner</field>
+    </columns>
+    <columns>
+        <field>Campaign.CampaignMembers$Contact.Account.Name</field>
+    </columns>
+    <columns>
+        <field>Campaign.CampaignMembers$Contact</field>
+    </columns>
+    <columns>
+        <field>Campaign.CampaignMembers$Email</field>
+    </columns>
+    <columns>
+        <field>Campaign$StartDate</field>
+    </columns>
+    <columns>
+        <field>Campaign$EndDate</field>
+    </columns>
+    <columns>
+        <field>Campaign.CampaignMembers$Contact.WPM_Events__c</field>
+    </columns>
+    <columns>
+        <field>Campaign.CampaignMembers$Contact.WPM_Education_Training__c</field>
+    </columns>
+    <columns>
+        <field>Campaign.CampaignMembers$Contact.Payment_Security_Role__c</field>
+    </columns>
+    <columns>
+        <field>Campaign.CampaignMembers$Contact.Payment_Security_Training__c</field>
+    </columns>
+    <columns>
+        <field>Campaign$Status</field>
+    </columns>
+    <columns>
+        <field>Campaign$Type</field>
+    </columns>
+    <columns>
+        <aggregateTypes>Sum</aggregateTypes>
+        <field>Campaign.CampaignMembers$Contact.Inactive__c</field>
+    </columns>
+    <columns>
+        <field>Campaign.CampaignMembers*CampaignMember$bizible2__Touchpoint_Status_Lead__c</field>
+    </columns>
+    <columns>
+        <field>Campaign.CampaignMembers*CampaignMember$Lead_Status__c</field>
+    </columns>
+    <columns>
+        <field>Campaign.CampaignMembers$Contact.Contact_Status__c</field>
+    </columns>
+    <columns>
+        <field>Campaign.CampaignMembers$Lead.Lead_Person_Status__c</field>
+    </columns>
+    <currency>USD</currency>
+    <description>Training under Flywire (All) 2024</description>
+    <filter>
+        <booleanFilter>1 OR 2 OR 3 OR 4 OR 5 OR 6 OR 7 OR 8 OR 9 OR 10 OR 11</booleanFilter>
+        <criteriaItems>
+            <column>Campaign$Parent</column>
+            <columnToColumn>false</columnToColumn>
+            <isUnlocked>true</isUnlocked>
+            <operator>equals</operator>
+            <value>Webinar_EDU_PS Practitioner_2024</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Campaign$Parent</column>
+            <columnToColumn>false</columnToColumn>
+            <isUnlocked>true</isUnlocked>
+            <operator>equals</operator>
+            <value>Webinar_EDU_PS Foundation_2024</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Campaign$Parent</column>
+            <columnToColumn>false</columnToColumn>
+            <isUnlocked>true</isUnlocked>
+            <operator>equals</operator>
+            <value>Webinar_EDU_AML&amp;Fraud Foundation_2024</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Campaign$Parent</column>
+            <columnToColumn>false</columnToColumn>
+            <isUnlocked>true</isUnlocked>
+            <operator>equals</operator>
+            <value>Webinar_EDU_PS Internal Auditor_2024</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Campaign$Parent</column>
+            <columnToColumn>false</columnToColumn>
+            <isUnlocked>true</isUnlocked>
+            <operator>equals</operator>
+            <value>Webinar_EDU_PS Masterclass_2024</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Campaign$Name</column>
+            <columnToColumn>false</columnToColumn>
+            <isUnlocked>true</isUnlocked>
+            <operator>equals</operator>
+            <value>Flywire Hosted_EDU_WPM Annual Conference_March 2024</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Campaign$Parent</column>
+            <columnToColumn>false</columnToColumn>
+            <isUnlocked>true</isUnlocked>
+            <operator>equals</operator>
+            <value>Webinar_EDU_UK_Nigeria Coffee Chats 2024</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Campaign$Name</column>
+            <columnToColumn>false</columnToColumn>
+            <isUnlocked>true</isUnlocked>
+            <operator>equals</operator>
+            <value>Flywire Hosted_EDU_WPM Payment Security and Compliance Conference_June_2024</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Campaign$Parent</column>
+            <columnToColumn>false</columnToColumn>
+            <isUnlocked>true</isUnlocked>
+            <operator>equals</operator>
+            <value>Webinar_EDU_UK_PS Monthly Meeting 2024</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Campaign$Parent</column>
+            <columnToColumn>false</columnToColumn>
+            <isUnlocked>true</isUnlocked>
+            <operator>equals</operator>
+            <value>Webinar_EDU_UK_AML SIG 2024</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Campaign$Name</column>
+            <columnToColumn>false</columnToColumn>
+            <isUnlocked>true</isUnlocked>
+            <operator>equals</operator>
+            <value>Webinar_EDU_UK_third party service providers</value>
+        </criteriaItems>
+    </filter>
+    <format>Summary</format>
+    <groupingsDown>
+        <dateGranularity>Day</dateGranularity>
+        <field>Campaign$Parent</field>
+        <sortOrder>Asc</sortOrder>
+    </groupingsDown>
+    <name>Jo EDU Training 2024</name>
+    <params>
+        <name>scopeid</name>
+        <value></value>
+    </params>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>Campaigns_with_Members_C__c</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <showGrandTotal>true</showGrandTotal>
+    <showSubTotals>true</showSubTotals>
+    <timeFrameFilter>
+        <dateColumn>Campaign$CreatedDate</dateColumn>
+        <interval>INTERVAL_CUSTOM</interval>
+    </timeFrameFilter>
+</Report>

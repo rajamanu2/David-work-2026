@@ -1,0 +1,34 @@
+<apex:page standardController="Evaluation_Natalie__c" extensions="cGoogleAppAuthenticationWithSalesforce"  lightningstylesheets="true">
+<apex:form >
+    
+    <apex:commandbutton action="{!DriveAuth}" value="Authenticate" ></apex:commandbutton>
+    <apex:includeScript value="{!$Resource.JqueryMin}"/>
+         <apex:includeScript value="{!$Resource.BootstrapJs}"/>
+    <script type="text/javascript">
+
+		function closeWin() {
+
+         	window.close();   // Closes the new window
+
+        }
+
+    </script>
+
+   <apex:commandbutton action="{!save}" value="Save" oncomplete="closeWin();"  ></apex:commandbutton>
+    
+    
+    </apex:form>
+    
+    
+    
+    <!--<apex:form >        
+    <apex:pageBlock >
+                     <div class="buttonSection"> 
+                         <apex:commandButton title="Authenticate" value="Authenticate" styleClass="btn btn-default" action="{!DriveAuth}"/>
+                         <apex:commandButton title="Evaluation Form" value="Evaluation Form" styleClass="btn btn-default" action="/apex/EvaluationNatalie"/>
+                     </div>
+                     
+
+        </apex:pageBlock>
+    </apex:form>-->
+</apex:page>

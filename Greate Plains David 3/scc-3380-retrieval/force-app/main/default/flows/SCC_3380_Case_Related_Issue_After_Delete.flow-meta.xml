@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>66.0</apiVersion>
+    <areMetricsLoggedToDataCloud>false</areMetricsLoggedToDataCloud>
+    <decisions>
+        <description>SCC-3380: Only clear Related Outage when the deleted Case Related Issue pointed at an Incident.</description>
+        <name>Was_Incident_Relationship</name>
+        <label>Was Incident Relationship</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <defaultConnectorLabel>Not an Incident</defaultConnectorLabel>
+        <rules>
+            <name>Deleted_Incident_Link</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.RelatedEntityType</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Incident</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Clear_Related_Outage_On_Case</targetReference>
+            </connector>
+            <label>Deleted Incident Link</label>
+        </rules>
+    </decisions>
+    <description>SCC-3380: When an agent unlinks a child Trouble Ticket by deleting the Case Related Issue record, clears Related Outage if it still points at that Incident.</description>
+    <environments>Default</environments>
+    <interviewLabel>SCC-3380 Case Related Issue After Delete {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>SCC-3380 Case Related Issue After Delete</label>
+    <processType>AutoLaunchedFlow</processType>
+    <recordUpdates>
+        <description>SCC-3380: Clears Related Outage only when it still matches the unlinked Incident, so a newer link is not wiped.</description>
+        <name>Clear_Related_Outage_On_Case</name>
+        <label>Clear Related Outage On Case</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>$Record.CaseId</elementReference>
+            </value>
+        </filters>
+        <filters>
+            <field>Related_Outage__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>$Record.RelatedIssueId</elementReference>
+            </value>
+        </filters>
+        <inputAssignments>
+            <field>Related_Outage__c</field>
+        </inputAssignments>
+        <object>Case</object>
+    </recordUpdates>
+    <start>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Was_Incident_Relationship</targetReference>
+        </connector>
+        <object>CaseRelatedIssue</object>
+        <recordTriggerType>Delete</recordTriggerType>
+        <triggerType>RecordBeforeDelete</triggerType>
+    </start>
+    <status>Active</status>
+</Flow>

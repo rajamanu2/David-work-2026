@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionCalls>
+        <name>Email_Post_Repair_Eval</name>
+        <label>Email Post Repair Eval</label>
+        <locationX>242</locationX>
+        <locationY>708</locationY>
+        <actionName>EmailPostRepairEvalPDF</actionName>
+        <actionType>apex</actionType>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
+        <inputParameters>
+            <name>ccMail</name>
+            <value>
+                <elementReference>Get_Related_Opportunity.Owner.Email</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>currentRecordId</name>
+            <value>
+                <elementReference>$Record.Id</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>ebody</name>
+            <value>
+                <elementReference>EmailBody</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>eMail</name>
+            <value>
+                <elementReference>Get_Contact_Role_from_Opp.Contact.Email</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>eSubject</name>
+            <value>
+                <elementReference>EmailSubject</elementReference>
+            </value>
+        </inputParameters>
+        <nameSegment>EmailPostRepairEvalPDF</nameSegment>
+        <offset>0</offset>
+    </actionCalls>
+    <apiVersion>63.0</apiVersion>
+    <areMetricsLoggedToDataCloud>false</areMetricsLoggedToDataCloud>
+    <decisions>
+        <name>Only_proceed_if_account_is_set_to_always_send_post_repair_eval</name>
+        <label>Only proceed if account is set to always send post repair eval</label>
+        <locationX>374</locationX>
+        <locationY>600</locationY>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Account_set_to_always_send_post_repair_eval</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>Get_Related_Opportunity.Account.Always_Send_Post_Repair_Evaluation__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Email_Post_Repair_Eval</targetReference>
+            </connector>
+            <label>Account set to always send post repair eval</label>
+        </rules>
+    </decisions>
+    <environments>Default</environments>
+    <formulas>
+        <name>EmailBody</name>
+        <dataType>String</dataType>
+        <expression>&quot;Thank you for choosing Probo Medical.  Please find the post repair evaluation for (&quot; +  {!Get_Related_RMA.ProductItem__r.Product2_Name__c} + &quot; / SN: &quot; + {!Get_Related_RMA.ProductItem__r.Serial_No__c} + &quot; / PO: &quot; + {!Get_Related_Opportunity.PO__c} + &quot; / RMA: &quot; + {!Get_Related_RMA.Name} + &quot;) attached.&quot; + BR() + BR() +
+&quot;Ship date: &quot; + TEXT({!Get_Related_Opportunity.Ship_Date__c}) + BR() +
+&quot;Method: &quot; + TEXT({!Get_Related_Opportunity.Ship_Type__c} ) + BR() + 
+&quot;Tracking #: &quot; + {!Get_Related_Opportunity.Tracking__c} + BR() + BR() + 
+IF(ISBLANK({!Get_Related_RMA.Loaner_RMA__c}), &quot;&quot;, (&quot;Our records indicate the following loaner is associated with this repair. Please return this within 5 business days to avoid any fees.&quot; + BR() + 
+&quot;Loaner SN: &quot; + {!Get_Related_RMA.Loaner_Asset_Number__r.Serial_No__c} + BR() + 
+&quot;Loaner RMA: &quot; + {!Get_Related_RMA.Loaner_RMA__r.Name} + BR() + 
+&quot;Ship to Address: &quot; + {!FacilityAddress}))</expression>
+    </formulas>
+    <formulas>
+        <name>EmailSubject</name>
+        <dataType>String</dataType>
+        <expression>&quot;Your Repair Has Shipped! Post Repair Evaluation and Tracking Information Enclosed&quot;</expression>
+    </formulas>
+    <formulas>
+        <name>FacilityAddress</name>
+        <dataType>String</dataType>
+        <expression>IF(TEXT({!Get_Related_Opportunity.Shipping_FROM_Location__c}) = &quot;Tulsa, OK&quot;, &quot;9433 E 51st Street Suite (i), &quot; + BR() + &quot;Tulsa, OK 74145&quot;, &quot;9715 Kincaid Dr #1000, &quot; + BR() + &quot;Fishers, IN 46037&quot;)</expression>
+    </formulas>
+    <interviewLabel>Send Post Repair Evaluation Email {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Send Post Repair Evaluation Email</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <recordLookups>
+        <name>Get_Contact_Role_from_Opp</name>
+        <label>Get Contact Role from Opp</label>
+        <locationX>374</locationX>
+        <locationY>492</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Only_proceed_if_account_is_set_to_always_send_post_repair_eval</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>OpportunityId</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>Get_Related_Opportunity.Id</elementReference>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>OpportunityContactRole</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordLookups>
+        <name>Get_Related_Opportunity</name>
+        <label>Get Related Opportunity</label>
+        <locationX>374</locationX>
+        <locationY>384</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Get_Contact_Role_from_Opp</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>Get_Related_RMA.Opportunity__r.Id</elementReference>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>Opportunity</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordLookups>
+        <name>Get_Related_RMA</name>
+        <label>Get Related RMA</label>
+        <locationX>374</locationX>
+        <locationY>276</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Get_Related_Opportunity</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>$Record.Associated_RMA__r.Id</elementReference>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>RMA__c</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <start>
+        <locationX>50</locationX>
+        <locationY>0</locationY>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Post_Repair_Evaluation__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </filters>
+        <object>Evaluation_Natalie__c</object>
+        <recordTriggerType>Create</recordTriggerType>
+        <scheduledPaths>
+            <name>Delay</name>
+            <connector>
+                <targetReference>Get_Related_RMA</targetReference>
+            </connector>
+            <label>Delay</label>
+            <offsetNumber>1</offsetNumber>
+            <offsetUnit>Minutes</offsetUnit>
+            <timeSource>RecordTriggerEvent</timeSource>
+        </scheduledPaths>
+        <triggerType>RecordAfterSave</triggerType>
+    </start>
+    <status>Active</status>
+</Flow>

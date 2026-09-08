@@ -1,0 +1,94 @@
+{
+  "generatedAt": "2026-08-17T19:28:42.399Z",
+  "targetOrg": {
+    "alias": "ProboMedical",
+    "orgId": "00DU0000000LaKoMAK",
+    "name": "Probo Medical",
+    "isSandbox": false,
+    "username": "dokolo@probomedical.com"
+  },
+  "operation": {
+    "object": "ProductItem__c",
+    "sourceRows": 5404,
+    "uniqueTargetRecords": 5219,
+    "targetInventoryCountDate": "2026-08-04",
+    "targetStockCheckedRecords": 5216,
+    "preservedLaterStockCheckedRecords": 3
+  },
+  "jobs": [
+    {
+      "scope": "pilot",
+      "jobId": "750jR0000004cbOQAQ",
+      "processed": 10,
+      "successful": 10,
+      "failed": 0
+    },
+    {
+      "scope": "main_remaining",
+      "jobId": "750jR0000004PKpQAM",
+      "processed": 5199,
+      "successful": 5199,
+      "failed": 0
+    },
+    {
+      "scope": "future_date_corrections",
+      "jobId": "750jR0000004iaLQAQ",
+      "processed": 7,
+      "successful": 7,
+      "failed": 0
+    },
+    {
+      "scope": "preserve_later_stock",
+      "jobId": "750jR0000004ignQAA",
+      "processed": 3,
+      "successful": 3,
+      "failed": 0
+    }
+  ],
+  "verification": {
+    "expectedRecords": 5219,
+    "foundRecords": 5219,
+    "missingRecords": [],
+    "stockCheckedMismatches": [],
+    "inventoryCountDateMismatches": [],
+    "passed": true,
+    "preservedLaterRecords": [
+      {
+        "id": "a06Ro00000FOY4lIAH",
+        "assetNo": "375967",
+        "stockChecked": "2026-08-12",
+        "inventoryCountDate": "2026-08-04"
+      },
+      {
+        "id": "a06Ro00000GPN3RIAX",
+        "assetNo": "383119",
+        "stockChecked": "2026-08-12",
+        "inventoryCountDate": "2026-08-04"
+      },
+      {
+        "id": "a06Ro00000H5P8sIAF",
+        "assetNo": "387668",
+        "stockChecked": "2026-08-12",
+        "inventoryCountDate": "2026-08-04"
+      }
+    ],
+    "locationCounts": [
+      [
+        "Salt Lake City, UT",
+        5176
+      ],
+      [
+        "Shipping",
+        40
+      ],
+      [
+        "Consumed",
+        2
+      ],
+      [
+        "Scrap",
+        1
+      ]
+    ]
+  }
+}

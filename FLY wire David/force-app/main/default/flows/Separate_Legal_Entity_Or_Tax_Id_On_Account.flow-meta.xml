@@ -1,0 +1,331 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>61.0</apiVersion>
+    <areMetricsLoggedToDataCloud>false</areMetricsLoggedToDataCloud>
+    <assignments>
+        <name>GetThe_AccountId</name>
+        <label>GetThe AccountId</label>
+        <locationX>270</locationX>
+        <locationY>755</locationY>
+        <assignmentItems>
+            <assignToReference>AcclistRecord.Id</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>For_Each_Quote_Line.Ship_To_Account__r.Id</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>AccCollectionRecord</assignToReference>
+            <operator>Add</operator>
+            <value>
+                <elementReference>AcclistRecord</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>For_Each_Quote_Line</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>GetTheAccoutIds</name>
+        <label>GetTheAccoutIds</label>
+        <locationX>534</locationX>
+        <locationY>863</locationY>
+        <assignmentItems>
+            <assignToReference>KYCAccountsList.Id</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>For_Each_Quote_Line.Ship_To_Account__r.Id</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>KYCAccountCollection</assignToReference>
+            <operator>Add</operator>
+            <value>
+                <elementReference>KYCAccountsList</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>For_Each_Quote_Line</targetReference>
+        </connector>
+    </assignments>
+    <customErrors>
+        <name>Kindly_get_the_KYC_for_Accounts</name>
+        <label>Kindly get the KYC for Accounts</label>
+        <locationX>50</locationX>
+        <locationY>1631</locationY>
+        <customErrorMessages>
+            <errorMessage>Kindly get the KYC done for all the ship to accounts related to the opportunity.</errorMessage>
+            <isFieldError>false</isFieldError>
+        </customErrorMessages>
+    </customErrors>
+    <customErrors>
+        <name>Update_the</name>
+        <label>Update the Separate Legal Entity/Tax ID?</label>
+        <locationX>50</locationX>
+        <locationY>1331</locationY>
+        <connector>
+            <targetReference>IF_KYC_Account_Exist</targetReference>
+        </connector>
+        <customErrorMessages>
+            <errorMessage>Please go to all the &apos;Ship To Account&apos; Record(s) and fill in the &quot;Separate Legal Entity/Tax ID?</errorMessage>
+            <isFieldError>false</isFieldError>
+        </customErrorMessages>
+    </customErrors>
+    <decisions>
+        <name>CheckForAccKYC</name>
+        <label>CheckForAccKYC</label>
+        <locationX>666</locationX>
+        <locationY>755</locationY>
+        <defaultConnector>
+            <targetReference>For_Each_Quote_Line</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>KYC_Required</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>For_Each_Quote_Line.Ship_To_Account__r.KYC_Status__c</leftValueReference>
+                <operator>NotEqualTo</operator>
+                <rightValue>
+                    <stringValue>Approved</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>For_Each_Quote_Line.Ship_To_Account__r.Separate_Legal_Entity_Tax_ID__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Yes</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>GetTheAccoutIds</targetReference>
+            </connector>
+            <label>KYC Required</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>CheckForSeparateLegalEntity</name>
+        <label>CheckForSeparateLegalEntity</label>
+        <locationX>468</locationX>
+        <locationY>647</locationY>
+        <defaultConnector>
+            <targetReference>CheckForAccKYC</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>IsSeparateLegalEntity_Checked</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>For_Each_Quote_Line.Ship_To_Account__r.Separate_Legal_Entity_Tax_ID__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>GetThe_AccountId</targetReference>
+            </connector>
+            <label>IsSeparateLegalEntity Checked</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>If_Account_Exist</name>
+        <label>If Account Exist</label>
+        <locationX>182</locationX>
+        <locationY>1223</locationY>
+        <defaultConnector>
+            <targetReference>IF_KYC_Account_Exist</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>If_Yes</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>AccCollectionRecord</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Update_the</targetReference>
+            </connector>
+            <label>If Yes</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>IF_KYC_Account_Exist</name>
+        <label>IF KYC Account Exist</label>
+        <locationX>182</locationX>
+        <locationY>1523</locationY>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Yes</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>KYCAccountCollection</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Kindly_get_the_KYC_for_Accounts</targetReference>
+            </connector>
+            <label>Yes</label>
+        </rules>
+    </decisions>
+    <description>Before Changing the Opportunity Stage to Legal , Check for Multiple Ship To&apos;s to Yes then Update the Separate Legal Entity/Tax Id On Account. BOPI-344.
+
+BOPI-525 Updated to include entry criteria and filter non CPQ opps</description>
+    <environments>Default</environments>
+    <interviewLabel>Separate Legal Entity Or Tax Id On Account {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Separate Legal Entity Or Tax Id On Account</label>
+    <loops>
+        <name>For_Each_Quote_Line</name>
+        <label>For Each Quote Line</label>
+        <locationX>182</locationX>
+        <locationY>539</locationY>
+        <collectionReference>Get_QuoteLine</collectionReference>
+        <iterationOrder>Asc</iterationOrder>
+        <nextValueConnector>
+            <targetReference>CheckForSeparateLegalEntity</targetReference>
+        </nextValueConnector>
+        <noMoreValuesConnector>
+            <targetReference>If_Account_Exist</targetReference>
+        </noMoreValuesConnector>
+    </loops>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <recordLookups>
+        <name>Get_QuoteLine</name>
+        <label>Get QuoteLine</label>
+        <locationX>182</locationX>
+        <locationY>431</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>For_Each_Quote_Line</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>SBQQ__Quote__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>GetQuote.Id</elementReference>
+            </value>
+        </filters>
+        <getFirstRecordOnly>false</getFirstRecordOnly>
+        <object>SBQQ__QuoteLine__c</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordLookups>
+        <name>GetQuote</name>
+        <label>GetQuote</label>
+        <locationX>182</locationX>
+        <locationY>323</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Get_QuoteLine</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>$Record.SBQQ__PrimaryQuote__c</elementReference>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>SBQQ__Quote__c</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <start>
+        <locationX>56</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>GetQuote</targetReference>
+        </connector>
+        <filterFormula>AND(
+    {!$Record.Pricebook2.Name} = &apos;CPQ&apos;,
+    NOT(ISPICKVAL({!$Record.Type},&apos;Statement of Work&apos;)),
+    {!$Record.RecordType.DeveloperName} != &apos;Agents&apos;,
+    {!$Record.RecordType.DeveloperName} != &apos;Healthcare&apos;,
+    {!$Record.RecordType.DeveloperName} != &apos;Healthcare_SOW&apos;,
+    {!$Record.RecordType.DeveloperName} != &apos;Bank_PSP_Partner&apos;,
+    {!$Record.RecordType.DeveloperName} != &apos;Strategic_Partner&apos;,
+    ISCHANGED({!$Record.StageName}),
+    ISPICKVAL({!$Record.StageName},&apos;Legal&apos;),
+    NOT(ISPICKVAL({!$Record.Type}, &quot;Auto Renewal&quot;)) 
+)</filterFormula>
+        <object>Opportunity</object>
+        <recordTriggerType>CreateAndUpdate</recordTriggerType>
+        <triggerType>RecordAfterSave</triggerType>
+    </start>
+    <status>Active</status>
+    <triggerOrder>105</triggerOrder>
+    <variables>
+        <name>AccCollectionRecord</name>
+        <dataType>SObject</dataType>
+        <isCollection>true</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+        <objectType>Account</objectType>
+    </variables>
+    <variables>
+        <name>AcclistRecord</name>
+        <dataType>SObject</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+        <objectType>Account</objectType>
+    </variables>
+    <variables>
+        <name>KYCAccountCollection</name>
+        <dataType>SObject</dataType>
+        <isCollection>true</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+        <objectType>Account</objectType>
+    </variables>
+    <variables>
+        <name>KYCAccountsList</name>
+        <dataType>SObject</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+        <objectType>Account</objectType>
+    </variables>
+    <variables>
+        <name>KYCMissingRecord</name>
+        <dataType>SObject</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+        <objectType>OpportunityLineItem</objectType>
+    </variables>
+    <variables>
+        <name>MultiKYCMissingOppRecords</name>
+        <dataType>SObject</dataType>
+        <isCollection>true</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+        <objectType>OpportunityLineItem</objectType>
+    </variables>
+</Flow>

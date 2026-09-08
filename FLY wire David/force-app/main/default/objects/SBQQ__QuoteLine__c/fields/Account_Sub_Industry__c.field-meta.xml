@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Account_Sub_Industry__c</fullName>
+    <description>This field is used in price rules to determine when the price must be set to 0 for Trolley Payables - FX Fixed Fee and Outgoing Payments - FX Fixed Fee</description>
+    <externalId>false</externalId>
+    <formula>TEXT(SBQQ__Quote__r.SBQQ__Account__r.Account_Sub_Industry__c)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Account Sub Industry</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

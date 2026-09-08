@@ -1,0 +1,41 @@
+{
+  "targetOrg": "FlywirePartial",
+  "deploy": false,
+  "purpose": "SALDEV-1403 stepped-up pricing proposal document",
+  "dataTransforms": [
+    {
+      "id": "0jIhG0000000HX7UAM",
+      "name": "CPQQuoteProposalDocumentSteppedUpPricing",
+      "version": 1,
+      "active": false,
+      "itemUpdates": [
+        {"id": "0kdhG0000002mWoQAI", "field": "FormulaExpression", "from": "IF(QuoteLineGroupsPresent = \"false\" , false, true)", "to": "IF(QuoteLineGroupsPresent = \"false\", true, false)"},
+        {"id": "0kdhG0000002nKnQAI", "field": "OutputFieldName", "from": "Group:ProductName", "to": "Group:Line:ProductName"},
+        {"id": "0kdhG0000002nMPQAY", "field": "OutputFieldName", "from": "Group:ShipToAccountName", "to": "Group:Line:ShipToAccountName"},
+        {"id": "0kdhG0000002nO1QAI", "field": "OutputFieldName", "from": "Group:Quantity", "to": "Group:Line:Quantity"},
+        {"id": "0kdhG0000002nPdQAI", "field": "OutputFieldName", "from": "Group:BillingFrequency", "to": "Group:Line:BillingFrequency"},
+        {"id": "0kdhG0000002nRFQAY", "field": "OutputFieldName", "from": "Group:LineDescription", "to": "Group:Line:LineDescription"},
+        {"id": "0kdhG0000002nSrQAI", "field": "OutputFieldName", "from": "Group:Price", "to": "Group:Line:Price"},
+        {"id": "0kdhG0000002nW5QAI", "field": "OutputFieldName", "from": "Group:RateDetails", "to": "Group:Line:RateDetails"},
+        {"id": "0kdhG0000002nXhQAI", "field": "OutputFieldName", "from": "Group:QuoteLineType", "to": "Group:Line:QuoteLineType"},
+        {"id": "0kdhG0000002nZJQAY", "field": "OutputFieldName", "from": "Group:LineDescriptionWithType", "to": "Group:Line:LineDescriptionWithType"}
+      ]
+    },
+    {
+      "id": "0jIhG0000000GsnUAE",
+      "name": "GetQuoteProposalDataSteppedUpPricing",
+      "version": 1,
+      "active": false,
+      "itemUpdates": [
+        {"id": "0kdhG0000002iubQAA", "field": "OutputFieldName", "from": "QutoeLineGroup:QuoteLine:AdjustedRatePercent", "to": "QuoteLineGroup:QuoteLine:AdjustedRatePercent"}
+      ]
+    }
+  ],
+  "excluded": [
+    "Activation of any OmniScript, Data Mapper, or DocumentTemplate",
+    "Any update to FlywirePartial records",
+    "SALDEV-1420 Visualforce email templates and Apex controller",
+    "Production deployment"
+  ]
+}
+

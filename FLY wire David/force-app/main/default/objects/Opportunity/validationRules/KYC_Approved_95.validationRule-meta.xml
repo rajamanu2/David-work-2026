@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>KYC_Approved_95</fullName>
+    <active>false</active>
+    <description>Opportunities can only be closed/won if the Account KYC Status is approved. SAL-4201 Healthcare excluded 06/28/2024</description>
+    <errorConditionFormula>AND(
+    $Profile.Name &lt;&gt; &apos;System Administrator&apos;,
+    $Profile.Name &lt;&gt; &quot;B - Looker&quot;,
+    RecordType.Name &lt;&gt; &quot;Bank-PSP Partner&quot;,
+    RecordType.Name &lt;&gt; &quot;Strategic Partner&quot;,
+    RecordType.Name &lt;&gt; &quot;Healthcare SOW&quot;,
+    RecordType.Name &lt;&gt; &quot;Healthcare&quot;,
+    Probability &gt; 0.95,
+    NOT(ISPICKVAL(Account.KYC_Status__c , &quot;Approved&quot;))
+)
+&amp;&amp; Opp_Val_Bypass__c = false</errorConditionFormula>
+    <errorMessage>KYC Status must be approved</errorMessage>
+</ValidationRule>

@@ -1,0 +1,318 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>61.0</apiVersion>
+    <areMetricsLoggedToDataCloud>false</areMetricsLoggedToDataCloud>
+    <decisions>
+        <name>Is_US_or_Canada</name>
+        <label>Is US or Canada</label>
+        <locationX>314</locationX>
+        <locationY>431</locationY>
+        <defaultConnector>
+            <targetReference>Update_Account_Address_no_state</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>No</defaultConnectorLabel>
+        <rules>
+            <name>Yes</name>
+            <conditionLogic>or</conditionLogic>
+            <conditions>
+                <leftValueReference>CountryName</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>United States</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>CountryName</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Canada</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Update_Account_Address</targetReference>
+            </connector>
+            <label>Yes</label>
+        </rules>
+    </decisions>
+    <description>Update 09/25/2024 set Billing instead of Shipping address</description>
+    <environments>Default</environments>
+    <formulas>
+        <name>StreetName</name>
+        <dataType>String</dataType>
+        <expression>{!$Record.Company_Registered_Route__c} + {!$Record.Company_Registered_Street_Number__c}</expression>
+    </formulas>
+    <formulas>
+        <name>US_Canada_StateName</name>
+        <dataType>String</dataType>
+        <expression>IF({!CountryName} = &apos;United States&apos;,
+    CASE({!$Record.Company_Registered_State__c}, 
+    &quot;Alaska&quot;, &quot;AK&quot;, 
+    &quot;Alabama&quot;, &quot;AL&quot;,
+    &quot;Arkansas&quot;, &quot;AR&quot;,
+    &quot;Arizona&quot;, &quot;AZ&quot;,
+    &quot;California&quot;, &quot;CA&quot;,
+    &quot;Colorado&quot;, &quot;CO&quot;,
+    &quot;Conneticut&quot;, &quot;CT&quot;,
+    &quot;DC&quot;, &quot;DC&quot;,
+    &quot;Delaware&quot;, &quot;DE&quot;,
+    &quot;Florida&quot;, &quot;FL&quot;,
+    &quot;Georgia&quot;, &quot;GA&quot;,
+    &quot;Guam&quot;, &quot;GU&quot;,
+    &quot;Hawaii&quot;, &quot;HI&quot;,
+    &quot;Iowa&quot;, &quot;IA&quot;,
+    &quot;Idaho&quot;, &quot;ID&quot;,
+    &quot;Illinois&quot;, &quot;IL&quot;,
+    &quot;Indiana&quot;, &quot;IN&quot;,
+    &quot;Kansas&quot;, &quot;KS&quot;,
+    &quot;Kentucky&quot;, &quot;KY&quot;,
+    &quot;Louisiana&quot;, &quot;LA&quot;,
+    &quot;Massachusetts&quot;, &quot;MA&quot;,
+    &quot;Maryland&quot;, &quot;MD&quot;,
+    &quot;Maine&quot;, &quot;ME&quot;,
+    &quot;Michigan&quot;, &quot;MI&quot;,
+    &quot;Minnesota&quot;, &quot;MN&quot;,
+    &quot;Missouri&quot;, &quot;MO&quot;,
+    &quot;Mississippi&quot;, &quot;MS&quot;,
+    &quot;Montana&quot;, &quot;MT&quot;,
+    &quot;North Carolina&quot;, &quot;NC&quot;,
+    &quot;North Dakota&quot;, &quot;ND&quot;,
+    &quot;Nebraska&quot;, &quot;NE&quot;,
+    &quot;New Hampshire&quot;, &quot;NH&quot;,
+    &quot;New Jersey&quot;, &quot;NJ&quot;,
+    &quot;New Mexico&quot;, &quot;NM&quot;,
+    &quot;Nevada&quot;, &quot;NV&quot;,
+    &quot;New York&quot;, &quot;NY&quot;,
+    &quot;Ohio&quot;, &quot;OH&quot;,
+    &quot;Oklahoma&quot;, &quot;OK&quot;,
+    &quot;Oregon&quot;, &quot;OR&quot;,
+    &quot;Pennsylvania&quot;, &quot;PA&quot;,
+    &quot;Rhode Island&quot;, &quot;RI&quot;,
+    &quot;South Carolina&quot;, &quot;SC&quot;,
+    &quot;South Dakota&quot;, &quot;SD&quot;,
+    &quot;Tennessee&quot;, &quot;TN&quot;,
+    &quot;Texas&quot;, &quot;TX&quot;,
+    &quot;Utah&quot;, &quot;UT&quot;,
+    &quot;Virginia&quot;, &quot;VA&quot;,
+    &quot;Vermont&quot;, &quot;VT&quot;,
+    &quot;Washington&quot;, &quot;WA&quot;,
+    &quot;Wisconsin&quot;, &quot;WI&quot;,
+    &quot;Wyoming&quot;, &quot;WY&quot;,
+    {!$Record.Company_Registered_State__c}),
+    (IF
+        ({!CountryName} = &apos;Canada&apos;,
+            CASE({!$Record.Company_Registered_State__c}, 
+                &quot;Alberta&quot;, &quot;AB&quot;,
+                &quot;British Columbia&quot;, &quot;BC&quot;,
+                &quot;Manitoba&quot;, &quot;MB&quot;,
+                &quot;New Brunswick&quot;, &quot;NB&quot;,
+                &quot;Newfoundland and Labrador&quot;, &quot;NL&quot;,
+                &quot;Northwest Territories&quot;, &quot;NS&quot;,
+                &quot;Nova Scotia&quot;, &quot;NT&quot;,
+                &quot;Nunavut&quot;, &quot;NU&quot;,
+                &quot;Ontario&quot;, &quot;ON&quot;,
+                &quot;Prince Edward Island&quot;, &quot;PEI&quot;,
+                &quot;Quebec&quot;, &quot;QC&quot;,
+                &quot;Saskatchewan&quot;, &quot;SK&quot;,
+                &quot;Yukon&quot;, &quot;YT&quot;,
+                {!$Record.Company_Registered_State__c}
+            ),
+        &quot;&quot;
+        )
+    )
+)</expression>
+    </formulas>
+    <interviewLabel>(KYC APP) Map Passfort address to Account address {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>(KYC APP) Map Passfort address to Account address</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <recordCreates>
+        <name>Create_Error_Log</name>
+        <label>Create Error Log</label>
+        <locationX>314</locationX>
+        <locationY>647</locationY>
+        <inputAssignments>
+            <field>Extracted_Profile_Id__c</field>
+            <value>
+                <elementReference>$Record.Account__r.Passfort_Profile_Id__c</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Message__c</field>
+            <value>
+                <elementReference>$Flow.FaultMessage</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Status__c</field>
+            <value>
+                <stringValue>Error</stringValue>
+            </value>
+        </inputAssignments>
+        <object>Passfort_Webhook_Log__c</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordCreates>
+    <recordLookups>
+        <description>The account region object has the 3 letter country code abbreviation</description>
+        <name>Get_Account_Region</name>
+        <label>Get Account Region</label>
+        <locationX>314</locationX>
+        <locationY>323</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Is_US_or_Canada</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>null__NotFound</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>$Record.Company_Registered_Country__c</elementReference>
+            </value>
+        </filters>
+        <outputAssignments>
+            <assignToReference>CountryName</assignToReference>
+            <field>null__NotFound</field>
+        </outputAssignments>
+    </recordLookups>
+    <recordUpdates>
+        <name>Update_Account_Address</name>
+        <label>Update Account Address with state</label>
+        <locationX>50</locationX>
+        <locationY>539</locationY>
+        <faultConnector>
+            <targetReference>Create_Error_Log</targetReference>
+        </faultConnector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>$Record.Account__c</elementReference>
+            </value>
+        </filters>
+        <inputAssignments>
+            <field>BillingCity</field>
+            <value>
+                <elementReference>$Record.Company_Registered_Locality__c</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>BillingCountry</field>
+            <value>
+                <elementReference>CountryName</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>BillingPostalCode</field>
+            <value>
+                <elementReference>$Record.Company_Registered_Postal_Code__c</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>BillingState</field>
+            <value>
+                <elementReference>US_Canada_StateName</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>BillingStreet</field>
+            <value>
+                <elementReference>StreetName</elementReference>
+            </value>
+        </inputAssignments>
+        <object>Account</object>
+    </recordUpdates>
+    <recordUpdates>
+        <name>Update_Account_Address_no_state</name>
+        <label>Update Account Address no state</label>
+        <locationX>578</locationX>
+        <locationY>539</locationY>
+        <faultConnector>
+            <isGoTo>true</isGoTo>
+            <targetReference>Create_Error_Log</targetReference>
+        </faultConnector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>$Record.Account__c</elementReference>
+            </value>
+        </filters>
+        <inputAssignments>
+            <field>BillingCity</field>
+            <value>
+                <elementReference>$Record.Company_Registered_Locality__c</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>BillingCountry</field>
+            <value>
+                <elementReference>CountryName</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>BillingPostalCode</field>
+            <value>
+                <elementReference>$Record.Company_Registered_Postal_Code__c</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>BillingStreet</field>
+            <value>
+                <elementReference>StreetName</elementReference>
+            </value>
+        </inputAssignments>
+        <object>Account</object>
+    </recordUpdates>
+    <start>
+        <locationX>188</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Get_Account_Region</targetReference>
+        </connector>
+        <filterLogic>or</filterLogic>
+        <filters>
+            <field>Company_Registered_Address__c</field>
+            <operator>IsChanged</operator>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </filters>
+        <filters>
+            <field>Company_Registered_Address__c</field>
+            <operator>IsNull</operator>
+            <value>
+                <booleanValue>false</booleanValue>
+            </value>
+        </filters>
+        <object>KYC_Application__c</object>
+        <recordTriggerType>CreateAndUpdate</recordTriggerType>
+        <triggerType>RecordAfterSave</triggerType>
+    </start>
+    <status>InvalidDraft</status>
+    <variables>
+        <name>CountryName</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+</Flow>

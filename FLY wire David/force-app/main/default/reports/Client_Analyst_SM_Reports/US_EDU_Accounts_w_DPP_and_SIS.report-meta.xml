@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>ACCOUNT.NAME</field>
+    </columns>
+    <columns>
+        <field>Account.Relationship_Manager__c</field>
+    </columns>
+    <columns>
+        <field>Account.Domestic_Payment_Processor__c</field>
+    </columns>
+    <columns>
+        <field>Account.Student_Information_System__c</field>
+    </columns>
+    <columns>
+        <field>Account.SIS_Migration_Plans__c</field>
+    </columns>
+    <columns>
+        <field>Account.New_SIS_Live__c</field>
+    </columns>
+    <currency>USD</currency>
+    <filter>
+        <criteriaItems>
+            <column>Account.Account_Status__c</column>
+            <columnToColumn>false</columnToColumn>
+            <isUnlocked>true</isUnlocked>
+            <operator>equals</operator>
+            <value>Active (Product Live),Client Signed</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Account.Relationship_Manager__c</column>
+            <columnToColumn>false</columnToColumn>
+            <isUnlocked>true</isUnlocked>
+            <operator>equals</operator>
+            <value>Shannon Firkins,Melissa King,Jenn OHearn,Amelia Patterson,Alexandria Pelczar,Tricia Oberg,Erin Guth,Becca Howell,Mandy Zapke,Gloria Cardoso,Cheri Gallagher,Hanna Hayden,Jacki Leon</value>
+        </criteriaItems>
+    </filter>
+    <format>Tabular</format>
+    <name>US EDU Accounts w/ DPP and SIS</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>AccountList</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <showGrandTotal>true</showGrandTotal>
+    <showSubTotals>true</showSubTotals>
+    <sortColumn>Account.Relationship_Manager__c</sortColumn>
+    <sortOrder>Asc</sortOrder>
+    <timeFrameFilter>
+        <dateColumn>CREATED_DATE</dateColumn>
+        <interval>INTERVAL_CUSTOM</interval>
+    </timeFrameFilter>
+</Report>

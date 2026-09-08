@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<FlowDefinition xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>Products in this calculation:
+Cross Border Payments - FWXB1000
+
+Migrated from the [Opp Product] Travel Calculator with Utilization process using multiple criteria.
+New Travel Calculator with Region, Industry and Utilization. Request in SAL-2006. SAL-3872 updated 04/04/2024. SAL-3822 updated 04/24/2024. Added ByPass to skip validation rules on Opportunity 05/14/2024. Update to make currency conversion and filter by product code; renewals should not generate ARR; use Ship_To_Account__r 07/24/2024. Use Quote_Line_Type__c instead of Opportunity.Type 07/26/2024. Utilization percentages EMEA Accommodation and APAC Travel modified SAL-4325. BOPI-511 Updated to calculate ARR when Quote Line Type not &apos;Cancellation&apos; or &apos;Renewal&apos;. BOPI-518 removing Opp criteria filters to let the flow run when renewals are created and the quote line fields are empty. BOPI-603 updated to set ARR to 0 for cancelled lines. BOPI-620 updated to set the ARR for cancelled lines to the original amount as a negative value</description>
+    <masterLabel>OBS_(Opp Product) Travel XB/DOM ARR Calculator</masterLabel>
+</FlowDefinition>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WebLink xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Send_RMA_Details_Email</fullName>
+    <availability>online</availability>
+    <displayType>button</displayType>
+    <linkType>javascript</linkType>
+    <masterLabel>Send RMA Details Email</masterLabel>
+    <openType>onClickJavaScript</openType>
+    <protected>false</protected>
+    <url>{!requireScript(&quot;/soap/ajax/32.0/connection.js&quot;)}
+var update_RMA = new sforce.SObject(&quot;RMA__c&quot;);
+update_RMA.Id = &quot;{!RMA__c.Id}&quot;;
+update_RMA.Send_RMA_Details_Email__c = true;
+sforce.connection.update([update_RMA]);
+window.location.reload();</url>
+</WebLink>

@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>WorkOrder$Name</field>
+    </columns>
+    <columns>
+        <field>WorkOrder$Opportunity__c</field>
+    </columns>
+    <columns>
+        <field>WorkOrder$ServiceContract</field>
+    </columns>
+    <columns>
+        <field>WorkOrder$Customer_PO_Number__c</field>
+    </columns>
+    <columns>
+        <field>WorkOrder$Ship_Date__c</field>
+    </columns>
+    <columns>
+        <field>WorkOrder$Asset_Serial_Number__c</field>
+    </columns>
+    <columns>
+        <field>WorkOrder.WorkOrderLineItems$Asset_Number__c</field>
+    </columns>
+    <columns>
+        <field>WorkOrder.WorkOrderLineItems$Part_Number__c</field>
+    </columns>
+    <columns>
+        <field>WorkOrder.WorkOrderLineItems$Part_Used__c.Product_Name__c</field>
+    </columns>
+    <columns>
+        <field>WorkOrder.WorkOrderLineItems$Description</field>
+    </columns>
+    <columns>
+        <field>WorkOrder.WorkOrderLineItems$Quantity</field>
+    </columns>
+    <columns>
+        <aggregateTypes>Sum</aggregateTypes>
+        <field>WorkOrder.WorkOrderLineItems$Part_Used__c.Cost__c</field>
+    </columns>
+    <columns>
+        <aggregateTypes>Sum</aggregateTypes>
+        <field>WorkOrder.WorkOrderLineItems$Part_Used__c.Total_Cost_of_Assets_Used_in_Repair__c</field>
+    </columns>
+    <currency>USD</currency>
+    <description>Tracks parts shipped against the six GE CPC opportunities by system serial, asset, part, quantity, and cost.</description>
+    <filter>
+        <booleanFilter>1 AND (2 OR 3)</booleanFilter>
+        <criteriaItems>
+            <column>WorkOrder$Account</column>
+            <columnToColumn>false</columnToColumn>
+            <isUnlocked>true</isUnlocked>
+            <operator>contains</operator>
+            <value>GE PRECISION HEALTHCARE LLC</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>WorkOrder$Opportunity__c</column>
+            <columnToColumn>false</columnToColumn>
+            <isUnlocked>true</isUnlocked>
+            <operator>contains</operator>
+            <value>CPC - PHILIPS EPIQ</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>WorkOrder$Customer_PO_Number__c</column>
+            <columnToColumn>false</columnToColumn>
+            <isUnlocked>true</isUnlocked>
+            <operator>equals</operator>
+            <value>302808083,302808091,302808107,302808142,302808182,302808186</value>
+        </criteriaItems>
+    </filter>
+    <format>Tabular</format>
+    <name>GE CPC Parts Shipped</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>Work_Orders_with_Work_Order_Line_items2__c</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <showGrandTotal>true</showGrandTotal>
+    <showSubTotals>true</showSubTotals>
+    <sortColumn>WorkOrder$Opportunity__c</sortColumn>
+    <sortOrder>Asc</sortOrder>
+    <timeFrameFilter>
+        <dateColumn>WorkOrder$Ship_Date__c</dateColumn>
+        <interval>INTERVAL_CURFY</interval>
+    </timeFrameFilter>
+</Report>

@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PathAssistant xmlns="http://soap.sforce.com/2006/04/metadata">
+    <active>true</active>
+    <entityName>Lead</entityName>
+    <fieldName>Lead_Person_Status__c</fieldName>
+    <masterLabel>Lead Person Status</masterLabel>
+    <pathAssistantSteps>
+        <fieldNames>Lead_Person_Status__c</fieldNames>
+        <info>&lt;p&gt;&lt;strong&gt;Churned&lt;/strong&gt;&lt;/p&gt;&lt;p&gt;The person belonged to a Flywire client account that has churned (is no longer a client). &lt;/p&gt;</info>
+        <picklistValueName>Churned</picklistValueName>
+    </pathAssistantSteps>
+    <pathAssistantSteps>
+        <fieldNames>Lead_Person_Status__c</fieldNames>
+        <info>&lt;p&gt;&lt;strong&gt;Customer &lt;/strong&gt;&lt;/p&gt;&lt;p&gt;The person has a direct relationship to an Account that is a customer in account status of Client Signed or Active (Product Live).&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;&lt;u&gt;Marketing Action:&lt;/u&gt;&lt;/p&gt;&lt;p&gt;The person receives general marketing outreach.&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;&lt;u&gt;Sales Action: &lt;/u&gt;&lt;/p&gt;&lt;p&gt;Contact Status is auto-updated when the contact has a direct relationship to an Account with an account status of Client Signed or Active (Product Live).&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;ul&gt;&lt;li&gt;If this contact should be related to a different Account, please update the Account field.&lt;/li&gt;&lt;li&gt;If the Contact belongs under multiple Accounts, please add the new relationship under &amp;#39;Related Accounts&amp;#39; and make sure the Direct Account is indicated with the appropriate checkbox. &lt;/li&gt;&lt;/ul&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;&lt;u&gt;Client Success: &lt;/u&gt;&lt;/p&gt;&lt;p&gt;On-going outreach, Account Strategy, &amp;amp; QBRs to be completed by Relationship Manager/Client Success Team. &lt;/p&gt;</info>
+        <picklistValueName>Customer</picklistValueName>
+    </pathAssistantSteps>
+    <pathAssistantSteps>
+        <fieldNames>Lead_Person_Status__c</fieldNames>
+        <info>&lt;p&gt;&lt;strong&gt;Disqualified &lt;/strong&gt;&lt;/p&gt;&lt;p&gt;The person does not meet qualification criteria and is not an influencer (e.g. Marketing Only status) at the account.&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;&lt;u&gt;Sales Action: &lt;/u&gt;&lt;/p&gt;&lt;p&gt;Update the status to Disqualified and select the Disqualification Reason.&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;ul&gt;&lt;li&gt;&lt;strong&gt;Account Not Qualified: &lt;/strong&gt;Flywire can not sell to the account &lt;/li&gt;&lt;li&gt;&lt;strong style=&quot;font-size: 13px;&quot;&gt;Bad Email Address:&lt;/strong&gt; Has an invalid email address; cannot receive emails&lt;/li&gt;&lt;li&gt;&lt;strong&gt;Competitor: &lt;/strong&gt;Works for competing org&lt;/li&gt;&lt;li&gt;&lt;strong&gt;Country:&lt;/strong&gt; Account is located in a country Flywire can not sell to&lt;/li&gt;&lt;li&gt;&lt;strong&gt;Data Missing: &lt;/strong&gt;Not enough info on record to assess&lt;/li&gt;&lt;li&gt;&lt;strong&gt;Marked Inactive: &lt;/strong&gt;No longer works for Account&lt;/li&gt;&lt;li&gt;&lt;strong&gt;No Response: &lt;/strong&gt;Sales attempted to contact at least 3 times with no response&lt;/li&gt;&lt;li&gt;&lt;strong&gt;Payer: &lt;/strong&gt;Payer looking for guidance &lt;/li&gt;&lt;li&gt;&lt;strong&gt;Account Too&lt;/strong&gt;&lt;/li&gt;&lt;/ul&gt;</info>
+        <picklistValueName>Disqualified</picklistValueName>
+    </pathAssistantSteps>
+    <pathAssistantSteps>
+        <fieldNames>Lead_Person_Status__c</fieldNames>
+        <info>&lt;p&gt;&lt;strong&gt;Engaged Status&lt;/strong&gt;&lt;/p&gt;&lt;p&gt;The person has engaged with Flywire through Marketing outreach and is in the process of being warmed up by Marketing. &lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;&lt;u&gt;Marketing Action:&lt;/u&gt;&lt;/p&gt;&lt;p&gt;Continue outreach to warm up the prospect.&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;&lt;u&gt;Sales Action: &lt;/u&gt;&lt;/p&gt;&lt;p&gt;No action needed unless you&amp;#39;d like to start working the prospect. If you do start working the prospect, set the Lead Person Status to Sales Working Lead (SWL).&lt;/p&gt;</info>
+        <picklistValueName>Engaged</picklistValueName>
+    </pathAssistantSteps>
+    <pathAssistantSteps>
+        <fieldNames>Lead_Person_Status__c</fieldNames>
+        <info>&lt;p&gt;&lt;strong&gt;Marketing Qualified Lead (MQL) Status&lt;/strong&gt;&lt;/p&gt;&lt;p&gt;A person that Marketing has qualified as a potential customer and has been passed over to Sales to attempt working.&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;&lt;u&gt;Marketing Action:&lt;/u&gt;&lt;/p&gt;&lt;p&gt;The person receives general marketing outreach.&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;&lt;u&gt;Sales Action: &lt;/u&gt;&lt;/p&gt;&lt;p&gt;Within 24 hours of the lead hitting MQL status – determine if the prospect is qualified for continued sales development.&lt;/p&gt;&lt;ul&gt;&lt;li&gt;If qualified, change the Lead Person Status to &lt;strong&gt;Sales Working Lead (SWL)&lt;/strong&gt;. &lt;/li&gt;&lt;li&gt;If the person is qualified but not interested in buying within the next 6 months, change the Lead Person Status to &lt;strong&gt;Nurture&lt;/strong&gt;. &lt;/li&gt;&lt;li&gt;If person is at an account but is not involved in the buying decision, change Lead Person Status to &lt;strong&gt;Marketing Only&lt;/strong&gt;. &lt;/li&gt;&lt;li&gt;If the person is not qualified set to &lt;strong&gt;Disqualified&lt;/strong&gt; and identify the Disqualification Reason.&lt;/li&gt;&lt;/ul&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;</info>
+        <picklistValueName>MQL (Marketing Qualified Lead)</picklistValueName>
+    </pathAssistantSteps>
+    <pathAssistantSteps>
+        <fieldNames>Lead_Person_Status__c</fieldNames>
+        <info>&lt;p&gt;&lt;strong&gt;Marketing Only&lt;/strong&gt; &lt;/p&gt;&lt;p&gt;The person belongs to an Account that Flywire can sell to but the person &lt;span style=&quot;font-size: 13px;&quot;&gt;will NOT be actively prospected by sales or involved in the sales process. &lt;/span&gt;In Marketing Only status, the person will continue to receive marketing communications but will no longer be considered a viable prospect for Sales to follow-up with.&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;&lt;u style=&quot;font-size: 13px;&quot;&gt;Marketing Action:&lt;/u&gt;&lt;/p&gt;&lt;p&gt;The person receives general marketing outreach only.&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;&lt;u style=&quot;font-size: 13px;&quot;&gt;Sales Action:&lt;/u&gt;&lt;span style=&quot;font-size: 13px;&quot;&gt; &lt;/span&gt;&lt;/p&gt;&lt;p&gt;Set prospect&amp;#39;s Lead Person Status to &amp;#39;Marketing Only&amp;#39; if person is at an account but is not involved in the buying decision.&lt;/p&gt;</info>
+        <picklistValueName>Marketing Only</picklistValueName>
+    </pathAssistantSteps>
+    <pathAssistantSteps>
+        <fieldNames>Lead_Person_Status__c</fieldNames>
+        <info>&lt;p&gt;&lt;strong&gt;Nurture&lt;/strong&gt;&lt;/p&gt;&lt;p&gt;The person is qualified for a future sales opportunity but is not interested in buying within the next 6 months. Sales or marketing can move the prospect to this status to warm them up for future sales outreach.  &lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;&lt;u&gt;Marketing Action:&lt;/u&gt;&lt;/p&gt;&lt;p&gt;Marketing send outreach to warm-up the prospect. &lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;&lt;u&gt;Sales Action: &lt;/u&gt;&lt;/p&gt;&lt;p&gt;No action needed unless you&amp;#39;d like to start working the prospect. If you do start working the prospect, set the Lead Person Status to Sales Working Lead (SWL).&lt;/p&gt;</info>
+        <picklistValueName>Nurture</picklistValueName>
+    </pathAssistantSteps>
+    <pathAssistantSteps>
+        <fieldNames>Lead_Person_Status__c</fieldNames>
+        <info>&lt;p&gt;&lt;strong&gt;Opportunity &lt;/strong&gt;&lt;/p&gt;&lt;p&gt;The person has been assigned as an Opportunity Contact Role in a &lt;strong&gt;New Business Opportunity&lt;/strong&gt;. &lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;&lt;u&gt;Marketing Action:&lt;/u&gt;&lt;/p&gt;&lt;p&gt;The person receives general marketing outreach.&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;&lt;u&gt;Sales Action: &lt;/u&gt;&lt;/p&gt;&lt;p&gt;Work the Open Opportunity. Contact Status is auto-updated when the contact is related to the New Business opportunity.&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;If this contact should be related to a New Business Opportunity, please add them as an Opportunity Contact Role under that record. &lt;/p&gt;</info>
+        <picklistValueName>Opportunity</picklistValueName>
+    </pathAssistantSteps>
+    <pathAssistantSteps>
+        <fieldNames>Lead_Person_Status__c</fieldNames>
+        <info>&lt;p&gt;&lt;strong&gt;Partner&lt;/strong&gt;&lt;/p&gt;&lt;p&gt;The person belongs to a Partner account. &lt;/p&gt;</info>
+        <picklistValueName>Partner</picklistValueName>
+    </pathAssistantSteps>
+    <pathAssistantSteps>
+        <fieldNames>Lead_Person_Status__c</fieldNames>
+        <info>&lt;p&gt;&lt;strong&gt;Renewal &lt;/strong&gt;&lt;/p&gt;&lt;p&gt;The person has been assigned as an Opportunity Contact Role in an open, &lt;strong&gt;Renewal Opportunity&lt;/strong&gt; at a Flywire Client Account. &lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;&lt;u&gt;Marketing Action:&lt;/u&gt;&lt;/p&gt;&lt;p&gt;The person receives general marketing outreach.&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;&lt;u&gt;Client Success Action:&lt;/u&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot;font-size: 13px;&quot;&gt;In some cases, CS will i&lt;/span&gt;dentify Account interest in new products/features, account health, and assist in renewal.&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;&lt;u&gt;Sales Action: &lt;/u&gt;&lt;/p&gt;&lt;p&gt;Work the Open Opportunity. Contact Status is auto-updated when the contact is related to an open, Renewal Opportunity.&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;If this contact should be related to a Renewal Opportunity, please add them as an Opportunity Contact Role under that record. &lt;/p&gt;</info>
+        <picklistValueName>Renewal</picklistValueName>
+    </pathAssistantSteps>
+    <pathAssistantSteps>
+        <fieldNames>Lead_Person_Status__c</fieldNames>
+        <info>&lt;p&gt;&lt;strong&gt;Sales Qualified Lead (SQL) Status&lt;/strong&gt;&lt;/p&gt;&lt;p&gt;Sales has confirmed buyer intent within the next 6 months &amp;amp; meets criteria for a First Meeting.&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;&lt;u&gt;Sales Action: &lt;/u&gt;&lt;/p&gt;&lt;p&gt;Have the First Meeting. Actively engage via trackable outreach activities (meetings, emails, tasks, calls) to confirm the fitness of the account for Opportunity. &lt;/p&gt;&lt;ul&gt;&lt;li&gt;If the person is qualified but not interested in buying within the next 6 months, change the Lead Person Status to &lt;strong&gt;Nurture&lt;/strong&gt;. &lt;/li&gt;&lt;li&gt;If account qualified, &lt;strong&gt;open a New Business Opportunity&lt;/strong&gt;. &lt;/li&gt;&lt;li&gt;If from an account but is not involved in the buying decision, change Lead Person Status to &lt;strong&gt;Marketing Only&lt;/strong&gt;. &lt;/li&gt;&lt;li&gt;If the person is not qualified set to &lt;strong&gt;Disqualified&lt;/strong&gt; and identify the Disqualification Reason.&lt;/li&gt;&lt;/ul&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;* The person will be sent to Nurture status if there is no sales activity after 60 days.&lt;/p&gt;</info>
+        <picklistValueName>SQL (Sales Qualified Lead)</picklistValueName>
+    </pathAssistantSteps>
+    <pathAssistantSteps>
+        <fieldNames>Lead_Person_Status__c</fieldNames>
+        <info>&lt;p&gt;&lt;strong&gt;Sales Working Lead (SWL) Status&lt;/strong&gt;&lt;/p&gt;&lt;p&gt;The person is actively worked by Sales to determine if they can be progressed into the opportunity process. &lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;&lt;u&gt;Sales Action: &lt;/u&gt;&lt;/p&gt;&lt;p&gt;Actively engage the prospect via trackable outreach activities (Yesware emails, Salesforce tasks &amp;amp; calls) to determine the fitness of the prospect for Opportunity.&lt;/p&gt;&lt;ul&gt;&lt;li&gt;If the person is qualified but not interested in buying within the next 6 months, change the Lead Person Status to &lt;strong&gt;Nurture&lt;/strong&gt;. &lt;/li&gt;&lt;li&gt;If qualified, change the Lead Person Status to &lt;strong&gt;Sales Qualified Lead (SQL)&lt;/strong&gt;. &lt;/li&gt;&lt;li&gt;If from an account but is not involved in the buying decision, change Lead Person Status to &lt;strong&gt;Marketing Only&lt;/strong&gt;. &lt;/li&gt;&lt;li&gt;If the person is not qualified set to Disqualified and identify the Disqualification Reason.&lt;/li&gt;&lt;/ul&gt;&lt;p&gt;* The person will be sent to Nurture status if there is no sales activity after 60 days.&lt;/p&gt;</info>
+        <picklistValueName>SWL (Sales Working Lead)</picklistValueName>
+    </pathAssistantSteps>
+    <pathAssistantSteps>
+        <fieldNames>Lead_Person_Status__c</fieldNames>
+        <info>&lt;p&gt;&lt;strong&gt;Unverified Status&lt;/strong&gt;&lt;/p&gt;&lt;p&gt;This status is the default when a new person record is created in Salesforce. This person has NOT engaged with Flywire.&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;&lt;em&gt;&lt;u&gt;Marketing Action:&lt;/u&gt;&lt;/em&gt;&lt;/p&gt;&lt;p&gt;Marketing begins outreach to warm up the prospect.&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;&lt;em&gt;&lt;u&gt;Sales Action:&lt;/u&gt; &lt;/em&gt;&lt;/p&gt;&lt;p&gt;No action needed unless you&amp;#39;d like to start working the prospect. If you do start working the prospect, set the Lead Person Status to Sales Working Lead (SWL).&lt;/p&gt;</info>
+        <picklistValueName>Unverified</picklistValueName>
+    </pathAssistantSteps>
+    <pathAssistantSteps>
+        <fieldNames>Lead_Person_Status__c</fieldNames>
+        <info>&lt;p&gt;&lt;strong&gt;Upsell&lt;/strong&gt;&lt;/p&gt;&lt;p&gt;The person has been assigned as an Opportunity Contact Role in an open, &lt;strong style=&quot;font-size: 13px;&quot;&gt;Existing Business Opportunity&lt;/strong&gt; at a Flywire Client Account. &lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;&lt;u&gt;Marketing Action:&lt;/u&gt;&lt;/p&gt;&lt;p&gt;The person receives general marketing outreach.&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;&lt;u&gt;Client Success Action:&lt;/u&gt;&lt;/p&gt;&lt;p&gt;In some cases, CS will identify Account interest in new products/features for upsell and bring AE into conversation.&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;&lt;u&gt;Sales Action: &lt;/u&gt;&lt;/p&gt;&lt;p&gt;Work the Open Opportunity. Contact Status is auto-updated when the contact is related to an open, Existing Business Opportunity.&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;If this contact should be related to a Existing Business Opportunity, please add them as an Opportunity Contact Role under that record. &lt;/p&gt;</info>
+        <picklistValueName>Upsell</picklistValueName>
+    </pathAssistantSteps>
+    <recordTypeName>__MASTER__</recordTypeName>
+</PathAssistant>

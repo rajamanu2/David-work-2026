@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>DefHC_Hierarchy__c</fullName>
+    <description>Formula to identify if this Account is a Parent Network, A Network or an Individual Hospital based on DefHC IDs.</description>
+    <externalId>false</externalId>
+    <formula>/* All IDs the same is Parent Network */
+IF(
+AND(
+texcellency__DefHC_Parent_NetworkID__c = texcellency__DefHC_NetworkID__c, texcellency__DefHC_NetworkID__c = texcellency__DefHC_HospitalID__c ),&quot;IsParentNetworkUltimate&quot;,
+
+/* Child Network - Parent Network ID is not Network ID, Network ID = ID */
+IF(
+AND(
+Not(ISNULL(texcellency__DefHC_Parent_NetworkID__c)),
+texcellency__DefHC_Parent_NetworkID__c != texcellency__DefHC_NetworkID__c,
+texcellency__DefHC_NetworkID__c =  texcellency__DefHC_HospitalID__c ),&quot;IsNetworkw/Parent&quot;,
+
+/* Ultimate Network - No Parent Network ID and Network ID = ID */
+IF(
+AND(
+ISNULL(texcellency__DefHC_Parent_NetworkID__c),
+texcellency__DefHC_NetworkID__c = texcellency__DefHC_HospitalID__c ),&quot;IsNetworkUltimate&quot;,
+
+/* Hospital with Network */
+IF(
+AND(
+Not(ISNULL(texcellency__DefHC_NetworkID__c)),
+texcellency__DefHC_NetworkID__c !=  texcellency__DefHC_HospitalID__c ),&quot;IsHospitalw/Parent&quot;,
+
+/* Hospital No Parent */
+IF(
+AND(
+ISNULL(texcellency__DefHC_Parent_NetworkID__c),
+ISNULL(texcellency__DefHC_NetworkID__c ),
+Not(ISNULL(texcellency__DefHC_HospitalID__c))),&quot;IsHospitalUltimate&quot;,
+
+&quot;N/A&quot;)))))</formula>
+    <inlineHelpText>Formula to identify if this Account is a Parent Network, A Network or an Individual Hospital based on DefHC IDs.</inlineHelpText>
+    <label>DefHC Hierarchy</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

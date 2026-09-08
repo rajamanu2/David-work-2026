@@ -1,0 +1,32 @@
+<messaging:emailTemplate subject="Opportunity Approval - LGL - REJECTED: {!relatedTo.sbaa__Opportunity__r.Name}"
+recipientType="User"
+relatedToType="sbaa__Approval__c">
+<messaging:HtmlEmailBody >
+<html>
+<body>
+
+<apex:image value="{!LEFT($Api.Enterprise_Server_URL_300, FIND('/services',$Api.Enterprise_Server_URL_300))}/servlet/servlet.ImageServer?id={!$Setup.AQS_AA_Enablement_IDs__c.AQS_Approval_Email_Logo_ID__c}&oid={!$Organization.Id}" 
+/>
+
+<b></b>
+<p></p><br/>
+
+Hello {!recipient.name}, 
+
+<p> Your Opportunity for customer {!relatedTo.sbaa__Opportunity__r.Account.Name} has been rejected for the below reason. Please revise the Opportunity as needed and re-submit for approval.
+</p>
+
+<b>Opportunity Rejected Comments:</b> {!relatedTo.sbaa__CommentsLong__c}
+
+<p><b></b> <br/>
+<b>Account: </b>&nbsp;<apex:outputLink value="{!LEFT($Api.Enterprise_Server_URL_300, FIND('/services',$Api.Enterprise_Server_URL_300))}/{!relatedTo.sbaa__Opportunity__r.Account.Id}" 
+>{!relatedTo.sbaa__Opportunity__r.Account.Name}</apex:outputLink><br/>
+<b>Opportunity: </b>&nbsp;<apex:outputLink value="{!LEFT($Api.Enterprise_Server_URL_300, FIND('/services',$Api.Enterprise_Server_URL_300))}/{!relatedTo.sbaa__Opportunity__r.Id}" 
+>{!relatedTo.sbaa__Opportunity__r.Name}</apex:outputLink><br/></p>
+
+<p style="color:white"><apex:outputText value="{!relatedTo.Id}"/></p>
+
+</body>
+</html>
+</messaging:HtmlEmailBody>
+</messaging:emailTemplate>

@@ -1,0 +1,411 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>66.0</apiVersion>
+    <areMetricsLoggedToDataCloud>false</areMetricsLoggedToDataCloud>
+    <assignments>
+        <description>SCC-3380: Closes the related Trouble Ticket and stamps Related Outage so the case keeps its own case number and details while reflecting the parent Incident close.</description>
+        <name>Set_Related_Case_Closed</name>
+        <label>Set Related Case Closed</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <assignmentItems>
+            <assignToReference>Current_Case.Id</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Loop_Related_Issue_Links.CaseId</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>Current_Case.Related_Outage__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>$Record.Id</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>Current_Case.Status</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>Closed</stringValue>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>Cases_To_Update</assignToReference>
+            <operator>Add</operator>
+            <value>
+                <elementReference>Current_Case</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Loop_Related_Issue_Links</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <description>SCC-3380: Pushes configurable Incident updates onto the related Trouble Ticket without overwriting case number, subject or description.</description>
+        <name>Set_Related_Case_Updates</name>
+        <label>Set Related Case Updates</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <assignmentItems>
+            <assignToReference>Current_Case.Id</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Loop_Related_Issue_Links_For_Sync.CaseId</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>Current_Case.Related_Outage__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>$Record.Id</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>Current_Case.Priority</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Mapped_Case_Priority</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>Current_Case.Priority__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Mapped_Case_Priority_Custom</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>Cases_To_Update</assignToReference>
+            <operator>Add</operator>
+            <value>
+                <elementReference>Current_Case</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Loop_Related_Issue_Links_For_Sync</targetReference>
+        </connector>
+    </assignments>
+    <decisions>
+        <description>SCC-3380: Bulk close of related Trouble Tickets requires the Close Related Trouble Tickets confirmation. Other Incident field changes can update the same related cases without closing them.</description>
+        <name>Check_Incident_Update_Type</name>
+        <label>Check Incident Update Type</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <defaultConnectorLabel>No Related Case Action</defaultConnectorLabel>
+        <rules>
+            <name>Close_Related_Cases_Confirmed</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Status</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Closed</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record__Prior.Status</leftValueReference>
+                <operator>NotEqualTo</operator>
+                <rightValue>
+                    <stringValue>Closed</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Close_Related_Trouble_Tickets__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Get_Related_Issue_Links</targetReference>
+            </connector>
+            <label>Close Related Cases Confirmed</label>
+        </rules>
+        <rules>
+            <name>Sync_Related_Cases</name>
+            <conditionLogic>or</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Status</leftValueReference>
+                <operator>NotEqualTo</operator>
+                <rightValue>
+                    <elementReference>$Record__Prior.Status</elementReference>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Priority</leftValueReference>
+                <operator>NotEqualTo</operator>
+                <rightValue>
+                    <elementReference>$Record__Prior.Priority</elementReference>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Estimated_Restoration_Hours__c</leftValueReference>
+                <operator>NotEqualTo</operator>
+                <rightValue>
+                    <elementReference>$Record__Prior.Estimated_Restoration_Hours__c</elementReference>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Affected_Area_Region__c</leftValueReference>
+                <operator>NotEqualTo</operator>
+                <rightValue>
+                    <elementReference>$Record__Prior.Affected_Area_Region__c</elementReference>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Get_Related_Issue_Links_For_Sync</targetReference>
+            </connector>
+            <label>Sync Related Cases</label>
+        </rules>
+    </decisions>
+    <description>SCC-3380: After an Incident is updated, syncs configurable fields to Trouble Tickets linked through Case Related Issue. When the Incident is closed and Close Related Trouble Tickets is checked, bulk-closes those related cases. Child cases keep their own case numbers and details.</description>
+    <environments>Default</environments>
+    <formulas>
+        <description>SCC-3380: Maps Incident Priority onto standard Case Priority without overwriting case-specific details.</description>
+        <name>Mapped_Case_Priority</name>
+        <dataType>String</dataType>
+        <expression>CASE(TEXT({!$Record.Priority}),
+    &quot;Critical&quot;, &quot;High&quot;,
+    &quot;High&quot;, &quot;High&quot;,
+    &quot;Moderate&quot;, &quot;Medium&quot;,
+    &quot;Low&quot;, &quot;Low&quot;,
+    &quot;Medium&quot;
+)</expression>
+    </formulas>
+    <formulas>
+        <description>SCC-3380: Maps Incident Priority onto the Trouble Ticket Priority__c values.</description>
+        <name>Mapped_Case_Priority_Custom</name>
+        <dataType>String</dataType>
+        <expression>CASE(TEXT({!$Record.Priority}),
+    &quot;Critical&quot;, &quot;High&quot;,
+    &quot;High&quot;, &quot;High&quot;,
+    &quot;Moderate&quot;, &quot;Med&quot;,
+    &quot;Low&quot;, &quot;Low&quot;,
+    &quot;Med&quot;
+)</expression>
+    </formulas>
+    <interviewLabel>Incident - After Update {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Incident - After Update</label>
+    <loops>
+        <description>SCC-3380: Walks Case Related Issue records to close each related Trouble Ticket.</description>
+        <name>Loop_Related_Issue_Links</name>
+        <label>Loop Related Issue Links</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <collectionReference>Get_Related_Issue_Links</collectionReference>
+        <iterationOrder>Asc</iterationOrder>
+        <nextValueConnector>
+            <targetReference>Set_Related_Case_Closed</targetReference>
+        </nextValueConnector>
+        <noMoreValuesConnector>
+            <targetReference>Update_Related_Cases_Closed</targetReference>
+        </noMoreValuesConnector>
+    </loops>
+    <loops>
+        <description>SCC-3380: Walks Case Related Issue records to apply Incident field updates to each related Trouble Ticket.</description>
+        <name>Loop_Related_Issue_Links_For_Sync</name>
+        <label>Loop Related Issue Links For Sync</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <collectionReference>Get_Related_Issue_Links_For_Sync</collectionReference>
+        <iterationOrder>Asc</iterationOrder>
+        <nextValueConnector>
+            <targetReference>Set_Related_Case_Updates</targetReference>
+        </nextValueConnector>
+        <noMoreValuesConnector>
+            <targetReference>Update_Related_Cases_Synced</targetReference>
+        </noMoreValuesConnector>
+    </loops>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <recordLookups>
+        <description>SCC-3380: Finds Trouble Tickets linked to this Incident through Case Related Issue for bulk close.</description>
+        <name>Get_Related_Issue_Links</name>
+        <label>Get Related Issue Links</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Loop_Related_Issue_Links</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>RelatedIssueId</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>$Record.Id</elementReference>
+            </value>
+        </filters>
+        <filters>
+            <field>RelatedEntityType</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>Incident</stringValue>
+            </value>
+        </filters>
+        <getFirstRecordOnly>false</getFirstRecordOnly>
+        <object>CaseRelatedIssue</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordLookups>
+        <description>SCC-3380: Finds Trouble Tickets linked to this Incident through Case Related Issue for field sync.</description>
+        <name>Get_Related_Issue_Links_For_Sync</name>
+        <label>Get Related Issue Links For Sync</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Loop_Related_Issue_Links_For_Sync</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>RelatedIssueId</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>$Record.Id</elementReference>
+            </value>
+        </filters>
+        <filters>
+            <field>RelatedEntityType</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>Incident</stringValue>
+            </value>
+        </filters>
+        <getFirstRecordOnly>false</getFirstRecordOnly>
+        <object>CaseRelatedIssue</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordUpdates>
+        <description>SCC-3380: Also closes Trouble Tickets linked only through Related Outage so both relationship paths stay in sync.</description>
+        <name>Close_Cases_By_Related_Outage</name>
+        <label>Close Cases By Related Outage</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Related_Outage__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>$Record.Id</elementReference>
+            </value>
+        </filters>
+        <filters>
+            <field>IsClosed</field>
+            <operator>EqualTo</operator>
+            <value>
+                <booleanValue>false</booleanValue>
+            </value>
+        </filters>
+        <inputAssignments>
+            <field>Status</field>
+            <value>
+                <stringValue>Closed</stringValue>
+            </value>
+        </inputAssignments>
+        <object>Case</object>
+    </recordUpdates>
+    <recordUpdates>
+        <description>SCC-3380: Also syncs priority onto Trouble Tickets linked only through Related Outage. Additional Incident-to-Case field mappings can be added here.</description>
+        <name>Sync_Cases_By_Related_Outage</name>
+        <label>Sync Cases By Related Outage</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Related_Outage__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>$Record.Id</elementReference>
+            </value>
+        </filters>
+        <filters>
+            <field>IsClosed</field>
+            <operator>EqualTo</operator>
+            <value>
+                <booleanValue>false</booleanValue>
+            </value>
+        </filters>
+        <inputAssignments>
+            <field>Priority</field>
+            <value>
+                <elementReference>Mapped_Case_Priority</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Priority__c</field>
+            <value>
+                <elementReference>Mapped_Case_Priority_Custom</elementReference>
+            </value>
+        </inputAssignments>
+        <object>Case</object>
+    </recordUpdates>
+    <recordUpdates>
+        <description>SCC-3380: Closes Trouble Tickets collected from Case Related Issue. Empty collection is a no-op.</description>
+        <name>Update_Related_Cases_Closed</name>
+        <label>Update Related Cases Closed</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Close_Cases_By_Related_Outage</targetReference>
+        </connector>
+        <inputReference>Cases_To_Update</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <description>SCC-3380: Saves Incident field updates onto Trouble Tickets collected from Case Related Issue. Empty collection is a no-op.</description>
+        <name>Update_Related_Cases_Synced</name>
+        <label>Update Related Cases Synced</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Sync_Cases_By_Related_Outage</targetReference>
+        </connector>
+        <inputReference>Cases_To_Update</inputReference>
+    </recordUpdates>
+    <start>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Check_Incident_Update_Type</targetReference>
+        </connector>
+        <object>Incident</object>
+        <recordTriggerType>Update</recordTriggerType>
+        <triggerType>RecordAfterSave</triggerType>
+    </start>
+    <status>Active</status>
+    <variables>
+        <description>SCC-3380: Trouble Tickets to update in a single DML from Case Related Issue.</description>
+        <name>Cases_To_Update</name>
+        <dataType>SObject</dataType>
+        <isCollection>true</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+        <objectType>Case</objectType>
+    </variables>
+    <variables>
+        <description>SCC-3380: Staging record used while looping Case Related Issue links.</description>
+        <name>Current_Case</name>
+        <dataType>SObject</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+        <objectType>Case</objectType>
+    </variables>
+</Flow>

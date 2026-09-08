@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Core_Exchanges_Not_Yet_Received</fullName>
+    <booleanFilter>1 AND 2 AND 3 AND 4 AND 5 AND 6</booleanFilter>
+    <columns>Account_Name__c</columns>
+    <columns>Opportunity_No__c</columns>
+    <columns>NAME</columns>
+    <columns>ProductItem__c</columns>
+    <columns>Opportunity_Owner__c</columns>
+    <columns>Customer_PO_Number__c</columns>
+    <columns>Date_shipped__c</columns>
+    <columns>CREATED_DATE</columns>
+    <columns>Invoice__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>RECORDTYPE</field>
+        <operation>equals</operation>
+        <value>RMA__c.Warranty_Claim</value>
+    </filters>
+    <filters>
+        <field>Date_RMA_Item_Received__c</field>
+        <operation>equals</operation>
+    </filters>
+    <filters>
+        <field>Customer_Paid_for_Damage_or_Outright_ex__c</field>
+        <operation>equals</operation>
+        <value>0</value>
+    </filters>
+    <filters>
+        <field>Opportunity_was_Lost__c</field>
+        <operation>equals</operation>
+        <value>0</value>
+    </filters>
+    <filters>
+        <field>Account_Name_for_customer_portal__c</field>
+        <operation>equals</operation>
+        <value>Lenard Healthcare Inc</value>
+    </filters>
+    <filters>
+        <field>CREATEDBY_USER.ALIAS</field>
+        <operation>notEqual</operation>
+    </filters>
+    <label>RMA 1. Core Exchanges Not Yet Received</label>
+    <sharedTo>
+        <allInternalUsers></allInternalUsers>
+    </sharedTo>
+</ListView>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Partner_Account__c</fullName>
+    <deleteConstraint>SetNull</deleteConstraint>
+    <description>Link to Partner Account to indicate when a product is linked to a partner. Example: reselling partner product, partner is reselling Flywire product. Partner referral fees, etc.</description>
+    <inlineHelpText>Link to Partner Account to indicate when a product is linked to a partner. Example: reselling partner product, partner is reselling Flywire product. Partner referral fees, etc.</inlineHelpText>
+    <label>Partner Account</label>
+    <referenceTo>Account</referenceTo>
+    <relationshipLabel>Opportunity Product (Partner Account)</relationshipLabel>
+    <relationshipName>Opportunity_PartnerProduct</relationshipName>
+    <required>false</required>
+    <type>Lookup</type>
+</CustomField>

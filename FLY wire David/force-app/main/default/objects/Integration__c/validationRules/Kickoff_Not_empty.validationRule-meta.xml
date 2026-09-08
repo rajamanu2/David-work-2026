@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Kickoff_Not_empty</fullName>
+    <active>true</active>
+    <description>If the Integration Stage is Project Kick-Off or higher then require Porject Kick Off Date</description>
+    <errorConditionFormula>AND(
+RecordType.Name != &apos;Payment Method&apos;,
+$Profile.Name &lt;&gt; &quot;System Administrator&quot;,
+ISNULL(Project_Kick_Off_Date__c),
+NOT(
+CASE(Integration_Stage__c, 
+&quot;Pre-Sales&quot;, 1, 
+&quot;Assessing Need&quot;, 1, 
+&quot;Awaiting Scheduling&quot;, 1,
+&quot;Discovery Call Complete&quot;, 1,
+0 ) = 1 ))</errorConditionFormula>
+    <errorMessage>You must fill in the Project Kick Off Date.</errorMessage>
+</ValidationRule>

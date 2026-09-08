@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Client_Invoice_Schedule__c</fullName>
+    <description>For B2B SAL-4518
+Used to determine how often/ when client is sending invoices to their customers. IE, 1st of each month, customer contract date, ad hoc etc...</description>
+    <inlineHelpText>How often/ when is the client sending invoices to their customers</inlineHelpText>
+    <label>Client Invoice Schedule</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>MultiselectPicklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Monthly</fullName>
+                <default>false</default>
+                <label>Monthly</label>
+            </value>
+            <value>
+                <fullName>Quarterly</fullName>
+                <default>false</default>
+                <label>Quarterly</label>
+            </value>
+            <value>
+                <fullName>Annually</fullName>
+                <default>false</default>
+                <label>Annually</label>
+            </value>
+            <value>
+                <fullName>Customer Contract Date</fullName>
+                <default>false</default>
+                <label>Customer Contract Date</label>
+            </value>
+            <value>
+                <fullName>Ad Hoc/ Order Date</fullName>
+                <default>false</default>
+                <label>Ad Hoc/ Order Date</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+    <visibleLines>4</visibleLines>
+</CustomField>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>AUS_Acct_Ownership_Reqd</fullName>
+    <active>false</active>
+    <description>If Opp record type is Higher Ed and Account revenue region is AUS then must identify ownership type at 30%.</description>
+    <errorConditionFormula>AND(
+$Profile.Name &lt;&gt; &quot;System Administrator&quot;,
+$Profile.Name &lt;&gt; &quot;B - Looker&quot;,
+RecordType.Name = &apos;Education&apos;,
+Probability &gt;=0.30,
+Account.Revenue_Region__c = &apos;AUS&apos;,
+ISPICKVAL(Account.Account_Sub_Industry__c, &apos;Higher Ed&apos;),
+ISBLANK(TEXT(Account.Ownership_Type__c))
+)
+&amp;&amp; Opp_Val_Bypass__c = false</errorConditionFormula>
+    <errorMessage>** Go to Account Record and select the Ownership Type. **</errorMessage>
+</ValidationRule>

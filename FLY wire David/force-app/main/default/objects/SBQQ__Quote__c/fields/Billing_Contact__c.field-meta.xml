@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Billing_Contact__c</fullName>
+    <deleteConstraint>SetNull</deleteConstraint>
+    <description>Created from JIRA ticket: BOPI-32.</description>
+    <inlineHelpText>Select a Billing Contact related to the Account Hierarchy</inlineHelpText>
+    <label>Billing Contact</label>
+    <lookupFilter>
+        <active>true</active>
+        <booleanFilter>(1 OR 2) AND 3 AND 4</booleanFilter>
+        <errorMessage>Contact must be active and marked as the Billing contact on their Contact record.</errorMessage>
+        <filterItems>
+            <field>Contact.AccountId</field>
+            <operation>equals</operation>
+            <valueField>$Source.SBQQ__Account__c</valueField>
+        </filterItems>
+        <filterItems>
+            <field>Contact.Account.ParentId</field>
+            <operation>equals</operation>
+            <valueField>$Source.SBQQ__Account__c</valueField>
+        </filterItems>
+        <filterItems>
+            <field>Contact.Billing_Contact__c</field>
+            <operation>equals</operation>
+            <value>True</value>
+        </filterItems>
+        <filterItems>
+            <field>Contact.Inactive__c</field>
+            <operation>notEqual</operation>
+            <value>True</value>
+        </filterItems>
+        <infoMessage>Select the Billing Contact for this Client. Contact must be active and marked as the Billing contact on their Contact record.</infoMessage>
+        <isOptional>false</isOptional>
+    </lookupFilter>
+    <referenceTo>Contact</referenceTo>
+    <relationshipLabel>Quotes (Billing Contact)</relationshipLabel>
+    <relationshipName>Quotes</relationshipName>
+    <required>false</required>
+    <trackHistory>true</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Lookup</type>
+</CustomField>

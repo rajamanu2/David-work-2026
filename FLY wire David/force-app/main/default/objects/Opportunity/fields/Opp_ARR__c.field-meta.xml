@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Opp_ARR__c</fullName>
+    <description>Created from JIRA ticket: BOPI-304.</description>
+    <inlineHelpText>This is the Estimated Opportunity Revenue in USD.  It is the total sum from all of the products added to the opportunity.</inlineHelpText>
+    <label>Opp ARR</label>
+    <summarizedField>OpportunityLineItem.Opp_Product_ARR__c</summarizedField>
+    <summaryFilterItems>
+        <field>OpportunityLineItem.Quote_Line_Type__c</field>
+        <operation>equals</operation>
+        <value>New</value>
+    </summaryFilterItems>
+    <summaryForeignKey>OpportunityLineItem.OpportunityId</summaryForeignKey>
+    <summaryOperation>sum</summaryOperation>
+    <trackHistory>false</trackHistory>
+    <type>Summary</type>
+</CustomField>

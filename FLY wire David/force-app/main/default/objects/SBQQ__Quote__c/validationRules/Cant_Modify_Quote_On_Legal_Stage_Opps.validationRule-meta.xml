@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Cant_Modify_Quote_On_Legal_Stage_Opps</fullName>
+    <active>true</active>
+    <description>BOPI-846</description>
+    <errorConditionFormula>AND(
+    $Profile.Name &lt;&gt; &quot;System Administrator&quot;,
+    $Profile.Name &lt;&gt; &quot;B - Looker&quot;,
+    $User.Alias &lt;&gt; &quot;Workato&quot;,
+    ISPICKVAL(SBQQ__Opportunity2__r.StageName, &quot;Legal&quot;),
+    NOT(ISNEW())
+)
+&amp;&amp; Quote_Val_Bypass__c = false</errorConditionFormula>
+    <errorMessage>You cannot update quotes on opportunities that are currently in the Legal stage. If an update is necessary, you must first recall the Opportunity approval and then revert the Opportunity&apos;s stage to &apos;Verbal Selection&apos;</errorMessage>
+</ValidationRule>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Opp_And_Quote_ShipTo_Must_Be_In_Sync</fullName>
+    <active>false</active>
+    <description>BOPI-604 Opportunity and Quote Ship To Account should stay in sync.
+Created By
+BOPI-600 updated to prevent auto renewals from stopping</description>
+    <errorConditionFormula>AND(
+  $Profile.Name &lt;&gt; &apos;System Administrator&apos;,
+  $Profile.Name &lt;&gt; &quot;B - Looker&quot;,
+  $User.Alias &lt;&gt; &quot;Workato&quot;,
+  Ship_To_Account__c &lt;&gt; SBQQ__Opportunity2__r.Ship_To_Account__c,
+  NOT(ISBLANK(Ship_To_Account__c)),
+  NOT(ISNEW()),
+  NOT(ISPICKVAL(SBQQ__Opportunity2__r.Type, &quot;Renewal&quot;))
+)</errorConditionFormula>
+    <errorDisplayField>Ship_To_Account__c</errorDisplayField>
+    <errorMessage>If the Ship to Account has changed, you must go back to your Opportunity and create a new quote using the &apos;New Quote&apos; button</errorMessage>
+</ValidationRule>

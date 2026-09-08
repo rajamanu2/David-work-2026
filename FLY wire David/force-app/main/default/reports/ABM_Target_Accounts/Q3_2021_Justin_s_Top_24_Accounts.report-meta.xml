@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>USERS.NAME</field>
+    </columns>
+    <columns>
+        <field>ACCOUNT.NAME</field>
+    </columns>
+    <columns>
+        <field>ADDRESS1_STATE</field>
+    </columns>
+    <columns>
+        <field>ADDRESS2_COUNTRY</field>
+    </columns>
+    <columns>
+        <field>URL</field>
+    </columns>
+    <currency>USD</currency>
+    <filter>
+        <criteriaItems>
+            <column>ACCOUNT.NAME</column>
+            <columnToColumn>false</columnToColumn>
+            <isUnlocked>true</isUnlocked>
+            <operator>equals</operator>
+            <value>Ardent (FKA Ardent Health Services),Atrium Health (FKA Carolinas HealthCare System),Augusta University Health (FKA Georgia Regents Health System),Cape Fear Valley Health System (FKA Cumberland County Hospital System),Childrens Healthcare of Atlanta,Childrens National Medical Center (AKA Childrens National Health System),Duke Health (AKA Duke University Health System),Grady Hospital,Huntsville Hospital System,Johns Hopkins Health System (AKA Johns Hopkins Medicine),Lifepoint Health,Mary Washington Healthcare,Medical University of South Carolina Health System (AKA MUSC Health),Prisma Health Upstate (FKA Greenville Health System),Sentara Healthcare,University of Maryland Medical System,University of Mississippi Healthcare,UNC Health (FKA UNC Health Care),University of South Alabama Medical Center,Vanderbilt University Medical Center System,Vidant Health (FKA University Health Services),WakeMed Health and Hospitals,WellStar Health System,WVU Medicine (AKA West Virginia University Health System)</value>
+        </criteriaItems>
+    </filter>
+    <format>Tabular</format>
+    <name>Q3 2021 - Justin&apos;s Top 24 Accounts</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>AccountList</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <showGrandTotal>true</showGrandTotal>
+    <showSubTotals>true</showSubTotals>
+    <sortColumn>ACCOUNT.NAME</sortColumn>
+    <sortOrder>Asc</sortOrder>
+    <timeFrameFilter>
+        <dateColumn>CREATED_DATE</dateColumn>
+        <interval>INTERVAL_CUSTOM</interval>
+    </timeFrameFilter>
+</Report>

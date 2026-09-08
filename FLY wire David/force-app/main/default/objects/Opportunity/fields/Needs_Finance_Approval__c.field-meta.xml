@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Needs_Finance_Approval__c</fullName>
+    <formula>OR(
+  SBQQ__PrimaryQuote__r.Product_Discount_10__c &gt;= 1,
+  AND (
+    Usage_Discount_10__c &gt;= 1,
+    SBQQ__PrimaryQuote__r.DOM_Discount_Requires_Approval__c = true
+  )
+)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Needs Revenue (Finance) Approval</label>
+    <trackHistory>false</trackHistory>
+    <type>Checkbox</type>
+</CustomField>

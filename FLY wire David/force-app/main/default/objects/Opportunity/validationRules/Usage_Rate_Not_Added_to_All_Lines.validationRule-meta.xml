@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Usage_Rate_Not_Added_to_All_Lines</fullName>
+    <active>true</active>
+    <description>Created for ticket BOPI-677</description>
+    <errorConditionFormula>AND(
+ ISPICKVAL(StageName, &quot;Legal&quot;), 
+ SBQQ__PrimaryQuote__r.Count_usage_field_values__c  &gt; 0 )</errorConditionFormula>
+    <errorMessage>You must recall Quote approval and enter an Adjusted Rate value for all usage products. Resubmit for approval when all lines have a rate entered.</errorMessage>
+</ValidationRule>

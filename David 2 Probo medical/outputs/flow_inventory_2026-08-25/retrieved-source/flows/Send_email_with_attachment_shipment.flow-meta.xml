@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionCalls>
+        <name>Email_label</name>
+        <label>Email label</label>
+        <locationX>647</locationX>
+        <locationY>433</locationY>
+        <actionName>invocableEmailAttachment</actionName>
+        <actionType>apex</actionType>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
+        <inputParameters>
+            <name>currentRecordId</name>
+            <value>
+                <elementReference>$Record.Id</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>ebody</name>
+            <value>
+                <elementReference>EmailBody</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>eMail</name>
+            <value>
+                <elementReference>$Record.RMA_Customer_Eval__r.Customer_Email__c</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>eSubject</name>
+            <value>
+                <stringValue>Label for RMA Shipment</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>sendAttachment</name>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </inputParameters>
+        <nameSegment>invocableEmailAttachment</nameSegment>
+    </actionCalls>
+    <actionCalls>
+        <name>UK_email_with_attachments</name>
+        <label>UK email with attachments</label>
+        <locationX>437</locationX>
+        <locationY>434</locationY>
+        <actionName>invocableEmailAttachmentUK</actionName>
+        <actionType>apex</actionType>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
+        <inputParameters>
+            <name>currentRecordId</name>
+            <value>
+                <elementReference>$Record.Id</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>ebody</name>
+            <value>
+                <elementReference>EmailBody</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>eMail</name>
+            <value>
+                <elementReference>$Record.RMA_Customer_Eval__r.Customer_Email__c</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>eSubject</name>
+            <value>
+                <stringValue>Label for RMA Shipment</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>sendAttachment</name>
+        </inputParameters>
+        <nameSegment>invocableEmailAttachmentUK</nameSegment>
+    </actionCalls>
+    <apiVersion>54.0</apiVersion>
+    <areMetricsLoggedToDataCloud>false</areMetricsLoggedToDataCloud>
+    <decisions>
+        <name>Probo_Site</name>
+        <label>Probo Site</label>
+        <locationX>527</locationX>
+        <locationY>340</locationY>
+        <defaultConnector>
+            <targetReference>Email_label</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>UK_Site</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.RMA_Customer_Eval__r.Customer_Return_Country__c</leftValueReference>
+                <operator>NotEqualTo</operator>
+                <rightValue>
+                    <stringValue>United States</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.RMA_Customer_Eval__r.Customer_Return_Country__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>UK_email_with_attachments</targetReference>
+            </connector>
+            <label>UK Site</label>
+        </rules>
+    </decisions>
+    <description>added UK option</description>
+    <environments>Default</environments>
+    <formulas>
+        <name>EmailSender</name>
+        <dataType>String</dataType>
+        <expression>IF(OR(ISBLANK({!$Record.RMA_Customer_Eval__r.Customer_Return_Country__c}), {!$Record.RMA_Customer_Eval__r.Customer_Return_Country__c} == &apos;United States&apos;), &apos;Matt Mooney, Vice President&apos;, &apos;Enrico Franchini&apos;)</expression>
+    </formulas>
+    <interviewLabel>Send email with attachment - shipment {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Send email with attachment - shipment</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>FREE_FORM_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <start>
+        <locationX>410</locationX>
+        <locationY>48</locationY>
+        <doesRequireRecordChangedToMeetCriteria>true</doesRequireRecordChangedToMeetCriteria>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>zkmulti__EmailMessage__c</field>
+            <operator>Contains</operator>
+            <value>
+                <stringValue>Customer Repair Evaluation Tool</stringValue>
+            </value>
+        </filters>
+        <object>zkmulti__MCShipment__c</object>
+        <recordTriggerType>CreateAndUpdate</recordTriggerType>
+        <scheduledPaths>
+            <name>Delay_1_minute</name>
+            <connector>
+                <targetReference>Probo_Site</targetReference>
+            </connector>
+            <label>Delay 1 minute</label>
+            <offsetNumber>1</offsetNumber>
+            <offsetUnit>Minutes</offsetUnit>
+            <timeSource>RecordTriggerEvent</timeSource>
+        </scheduledPaths>
+        <triggerType>RecordAfterSave</triggerType>
+    </start>
+    <status>Active</status>
+    <textTemplates>
+        <name>EmailBody</name>
+        <isViewedAsPlainText>true</isViewedAsPlainText>
+        <text>Thank you for using Probo Medical&apos;s Free Online Repair Evaluation Tool!
+
+Attached you will find a prepaid shipping label to send in your probe.
+
+Please keep the following information for your reference:
+RMA number: {!$Record.RMA_Customer_Eval__r.Name}
+Tracking Number: {!$Record.zkmulti__Tracking_Number__c}
+
+{!EmailSender}
+Probo Medical</text>
+    </textTemplates>
+</Flow>

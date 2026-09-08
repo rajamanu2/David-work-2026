@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>Account$Name</field>
+    </columns>
+    <columns>
+        <field>Account$Client_Legal_Entity_Name__c</field>
+    </columns>
+    <columns>
+        <field>Account.AccountContactRelations$FirstName</field>
+    </columns>
+    <columns>
+        <field>Account.AccountContactRelations$LastName</field>
+    </columns>
+    <columns>
+        <field>Account.AccountContactRelations$Email</field>
+    </columns>
+    <columns>
+        <field>Account.AccountContactRelations$Roles</field>
+    </columns>
+    <currency>USD</currency>
+    <filter>
+        <criteriaItems>
+            <column>Account$Account_Status__c</column>
+            <columnToColumn>false</columnToColumn>
+            <isUnlocked>true</isUnlocked>
+            <operator>equals</operator>
+            <value>Active (Product Live),Client Signed,On Hold</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Account$ShippingCountry</column>
+            <columnToColumn>false</columnToColumn>
+            <isUnlocked>true</isUnlocked>
+            <operator>equals</operator>
+            <value>Japan</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Account$Account_Sub_Industry__c</column>
+            <columnToColumn>false</columnToColumn>
+            <isUnlocked>true</isUnlocked>
+            <operator>equals</operator>
+            <value>Accommodation Agency,Concierge,Cultural Tours/Sightseeing,Cycling/Biking,DMC,Education Travel,Hiking &amp; Trekking,Luxury Accommodations,Skiing/Snowboarding,Student Accommodations,Wildlife Experiences</value>
+        </criteriaItems>
+    </filter>
+    <format>Summary</format>
+    <groupingsDown>
+        <dateGranularity>Day</dateGranularity>
+        <field>Account$Account_Sub_Industry__c</field>
+        <sortOrder>Asc</sortOrder>
+    </groupingsDown>
+    <name>Japan Contact list</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>Accounts_w_or_wo_related_contact__c</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <showGrandTotal>true</showGrandTotal>
+    <showSubTotals>true</showSubTotals>
+    <sortColumn>Account$Name</sortColumn>
+    <sortOrder>Asc</sortOrder>
+    <timeFrameFilter>
+        <dateColumn>Account$CreatedDate</dateColumn>
+        <interval>INTERVAL_CUSTOM</interval>
+    </timeFrameFilter>
+</Report>

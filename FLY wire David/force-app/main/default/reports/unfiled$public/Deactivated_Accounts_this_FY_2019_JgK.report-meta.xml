@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <buckets>
+        <bucketType>picklist</bucketType>
+        <developerName>BucketField_35719034</developerName>
+        <masterLabel>Vertical</masterLabel>
+        <nullTreatment>n</nullTreatment>
+        <sourceColumnName>Account.Account_Industry__c</sourceColumnName>
+        <useOther>false</useOther>
+        <values>
+            <sourceValues>
+                <sourceValue>Education</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>Education Agent</sourceValue>
+            </sourceValues>
+            <value>Edu</value>
+        </values>
+        <values>
+            <value>B2B</value>
+        </values>
+        <values>
+            <sourceValues>
+                <sourceValue>Accommodations</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>Business</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>DMC</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>Travel</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>Travel Operator</sourceValue>
+            </sourceValues>
+            <value>Travel</value>
+        </values>
+        <values>
+            <sourceValues>
+                <sourceValue>Healthcare</sourceValue>
+            </sourceValues>
+            <value>Healthcare</value>
+        </values>
+    </buckets>
+    <columns>
+        <field>ACCOUNT.NAME</field>
+    </columns>
+    <columns>
+        <field>Account.Account_Status_Date__c</field>
+    </columns>
+    <columns>
+        <field>BucketField_35719034</field>
+    </columns>
+    <currency>USD</currency>
+    <description>Running list of all deactivated accounts with Account Status showing why they have been deactivated.</description>
+    <filter>
+        <booleanFilter>1 AND 2</booleanFilter>
+        <criteriaItems>
+            <column>RECORDTYPE</column>
+            <columnToColumn>false</columnToColumn>
+            <isUnlocked>true</isUnlocked>
+            <operator>equals</operator>
+            <value>Account.Deactivated</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Account.Inactive_Reason__c</column>
+            <columnToColumn>false</columnToColumn>
+            <isUnlocked>true</isUnlocked>
+            <operator>notEqual</operator>
+            <value>Merger,Never a Client</value>
+        </criteriaItems>
+    </filter>
+    <format>Tabular</format>
+    <name>Deactivated Accounts Oct2021-Sep2022</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>AccountList</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <showGrandTotal>true</showGrandTotal>
+    <showSubTotals>true</showSubTotals>
+    <sortColumn>Account.Account_Status_Date__c</sortColumn>
+    <sortOrder>Asc</sortOrder>
+    <timeFrameFilter>
+        <dateColumn>Account.Account_Status_Date__c</dateColumn>
+        <endDate>2022-09-01</endDate>
+        <interval>INTERVAL_CUSTOM</interval>
+        <startDate>2021-10-01</startDate>
+    </timeFrameFilter>
+</Report>

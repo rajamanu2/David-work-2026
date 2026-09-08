@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Ship_Type_Formula__c</fullName>
+    <description>This is used to enable contains in the lightning UI page layout for ship types, ensuring future Fedex or alternate ship types get the banner presentation for not charging shipping</description>
+    <externalId>false</externalId>
+    <formula>TEXT( Ship_Type__c )</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <inlineHelpText>This is used to enable contains in the lightning UI page layout for ship types, ensuring future Fedex or alternate ship types get the banner presentation for not charging shipping</inlineHelpText>
+    <label>Ship Type Formula</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

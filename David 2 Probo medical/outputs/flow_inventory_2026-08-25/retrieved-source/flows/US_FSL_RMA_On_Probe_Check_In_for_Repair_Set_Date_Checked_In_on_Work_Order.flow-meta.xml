@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>65.0</apiVersion>
+    <areMetricsLoggedToDataCloud>false</areMetricsLoggedToDataCloud>
+    <decisions>
+        <name>Is_RMA_connected_to_an_Work_Order</name>
+        <label>Is RMA connected to an Work Order?</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Yes_Connected_to_FSL_Work_Order</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Opportunity__r.Related_Work_Order__c</leftValueReference>
+                <operator>IsBlank</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Is_that_work_order_a_US_FSL_Work_Order</targetReference>
+            </connector>
+            <label>Yes, Connected to FSL Work Order</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Is_that_work_order_a_US_FSL_Work_Order</name>
+        <label>Is that work order a US FSL Work Order?</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Yes_US_FSL_Work_Order</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Opportunity__r.Related_Work_Order__r.RecordTypeId</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>012Ro000001eDqnIAE</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Opportunity__r.Related_Work_Order__r.Country</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>United States</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Update_Work_Order_s_Probe_Received_Date</targetReference>
+            </connector>
+            <label>Yes, US FSL Work Order</label>
+        </rules>
+    </decisions>
+    <description>04/02/2026 (BW) - Updates to allow for Warranty Repair with Customer Expectation of Returning to change the Work Order to &quot;In Progress&quot; when the probe is received</description>
+    <environments>Default</environments>
+    <interviewLabel>US FSL RMA | On Probe Check-In for Repair, Set Date Checked-In on Work Order {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>US FSL RMA | On Probe Check-In for Repair, Set Date Checked-In on Work Order</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <recordUpdates>
+        <name>Update_Work_Order_s_Probe_Received_Date</name>
+        <label>Update Work Order&apos;s Probe Received Date</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <inputAssignments>
+            <field>Date_Probe_Received_for_Repair_Eval__c</field>
+            <value>
+                <elementReference>$Record.Date_RMA_Item_Received__c</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Status</field>
+            <value>
+                <stringValue>In Progress</stringValue>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record.Opportunity__r.Related_Work_Order__r</inputReference>
+    </recordUpdates>
+    <start>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <filterLogic>1 AND 2 AND (3 OR 4 OR (5 AND (6 OR 7)))</filterLogic>
+        <filters>
+            <field>Date_RMA_Item_Received__c</field>
+            <operator>IsChanged</operator>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </filters>
+        <filters>
+            <field>Date_RMA_Item_Received__c</field>
+            <operator>IsNull</operator>
+            <value>
+                <booleanValue>false</booleanValue>
+            </value>
+        </filters>
+        <filters>
+            <field>RecordTypeId</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>012U0000000A9CqIAK</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>RecordTypeId</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>012U0000000A9Cq</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>Customer_Expectation__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>Customer wants Equipment Back</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>RecordTypeId</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>0120B000000QxnDQAS</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>RecordTypeId</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>0120B000000QxnD</stringValue>
+            </value>
+        </filters>
+        <object>RMA__c</object>
+        <recordTriggerType>Update</recordTriggerType>
+        <scheduledPaths>
+            <connector>
+                <targetReference>Is_RMA_connected_to_an_Work_Order</targetReference>
+            </connector>
+            <pathType>AsyncAfterCommit</pathType>
+        </scheduledPaths>
+        <triggerType>RecordAfterSave</triggerType>
+    </start>
+    <status>Active</status>
+</Flow>

@@ -1,0 +1,130 @@
+<template>
+    <template if:false={hideSpinner}><lightning-spinner alternative-text="Loading"></lightning-spinner></template>
+    <template if:true={hideSpinner}>
+        <template if:true={messages.warningMessageAvailable}>
+                <c-add-product-warning-lwc header={messages.warningHeader} message={messages.warningMessage} cancel-label={messages.closeButtonLabel} show-confirm={messages.showConfirmationButton} onconfirmmessage={handleWarningConfirmation}  onclosemessage={handleCancel}></c-add-product-warning-lwc>
+            </template> 
+        <template if:false={messages.warningMessageAvailable}>   
+            <template if:true={messages.savePRLISuccessMessageAvailable}> 
+                    <div class="slds-grid slds-wrap slds-text-align_center"><div class="slds-col slds-size_1-of-1"><p class="slds-text-heading_medium" style="font-weight: bold"><lightning-formatted-text value='{messages.savePRLISuccessMessage}' class="slds-text-color_success" style="font-weight: bold"></lightning-formatted-text></p> </div></div>
+            </template>
+            
+            <lightning-card title="Add Product">
+                <div class="slds-var-m-around_medium" title="Selected Items to Swap" style="width: 1000px">
+                    <template if:true={selectedPRLIDataAvailable}> 
+                        <c-item-receipt-product-paginator-lwc prli-records={selectedPRLIData} onprevious={handlePrevious}  onnext={handleNext}> </c-item-receipt-product-paginator-lwc> 
+                    </template>
+                </div>
+                <div class="slds-grid  slds-wrap" style="display: flex; min-width: initial; max-width: 1000px">
+                        <div class="slds-col slds-size_1-of-3 slds-medium-size_1-of-1 slds-large-size_1-of-1" style="text-align: center">
+                               <!-- <template if:true={selectedPRLIDataAvailable}>
+                                    <lightning-button variant="brand" label="Swap" title="Swap" name="swapItems" onclick={handleSwap} class="slds-var-m-left_x-small"></lightning-button>
+                                </template>-->
+                                <lightning-button variant="brand" label="Save" title="Save" name="save"  onclick={handleSave} class="slds-var-m-left_x-small" disabled={selections.saveInProgress}></lightning-button>
+                                <lightning-button variant="brand" label="Save &amp; Close" title="Save and Close" name="saveAndClose"  onclick={handleSaveAndClose} class="slds-var-m-left_x-small" disabled={selections.saveInProgress}></lightning-button>
+                                <lightning-button variant="brand" label="Cancel" title="Cancel" name="cancelRemoval"  onclick={handleCancel} class="slds-var-m-left_x-small"></lightning-button>
+                        </div>
+                        <template if:true={messages.savePRLIErrorMessageAvailable}> 
+                                <div class="slds-grid slds-wrap" style="margin-left:2%"><div class="slds-col slds-size_1-of-1"><p class="slds-text-heading_medium" style="font-weight: bold"><lightning-formatted-text value='{messages.savePRLIErrorMessage}' class="slds-text-color_error" style="font-weight: bold"></lightning-formatted-text></p> </div> </div>
+                        </template>  
+                        <template if:true={messages.validationErrorMessageAvailable}> 
+                        <div class="slds-grid slds-wrap" style="margin-left:2%"><div class="slds-col slds-size_1-of-1"><p class="slds-text-heading_medium" style="font-weight: bold"><lightning-formatted-text value='{messages.validationErrorMessage}' class="slds-text-color_error" style="font-weight: bold"></lightning-formatted-text></p> </div> </div>
+                        </template>  
+                </div>
+                
+                    <lightning-layout multiple-rows="true">
+                            <lightning-layout-item padding="around-small" size="12"><lightning-input label="Search" value={searchTerm} onchange={handleSearchKeyChange} type="search" style="min-width: initial; max-width: 600px"></lightning-input></lightning-layout-item>
+                            
+                        <lightning-accordion allow-multiple-sections-open active-section-name={pageSettings.activeSections}>
+                            
+                            <lightning-accordion-section name="searchResults" label="Search Results">
+                                <lightning-layout-item size="12" flexibility="auto">
+                                    <div class="slds-grid slds-wrap">
+                                        <div class="slds-form-element"><lightning-formatted-number value='{selectedPRLICount}' id="text-input-selected-items-count"></lightning-formatted-number><label class="slds-form-element__label">&nbsp;item(s) selected</label></div>
+                                        <template if:true={selectedPRLIDataAvailable}>
+                                            <div class="slds-form-element">
+                                                &nbsp;&nbsp;<lightning-formatted-number value='{swapPRLICount}' id="text-input-swap-items-count"></lightning-formatted-number><label class="slds-form-element__label">&nbsp;item(s) swapped</label>
+                                            </div> 
+                                        </template>
+                                    </div>
+                                    <lightning-button class="slds-section__title-action" icon-position="left" variant="base" label="Search Results"></lightning-button>
+                                    <template if:true={messages.searchResultsMessageAvailable}> 
+                                        <div class="slds-grid slds-wrap" style="margin-left:2%"><div class="slds-col slds-size_1-of-1"><p class="slds-text-heading_small"><lightning-formatted-text value='{messages.searchResultsMessage}' class="slds-text-color_default"></lightning-formatted-text></p> </div> </div> 
+                                    </template>  
+                                    <div class="slds-table--header-fixed_container">      
+                                        <div class="slds-scrollable_y" style="height:100%;">
+                                            <template if:true={productDataAvailable}>
+                                            <table class="slds-table slds-table_cell-buffer slds-table_bordered slds-table--header-fixed" style="empty-cells: show; width: 100%;">
+                                            <thead>  
+                                                <tr class="slds-line-height_reset">
+                                                    <th class="slds-text-align_right" scope="col" style="width: 3.25rem;" title="Select">
+                                                        <div class="slds-truncate slds-cell-fixed" title="Item Selection">&nbsp;</div>
+                                                    </th>
+                                                    <th class="" scope="col" title="Product Name">
+                                                        <div class="slds-truncate slds-cell-fixed" title="Product Name">Product Name</div>
+                                                    </th>
+                                                    <th class="" scope="col" title="Part No">
+                                                        <div class="slds-truncate slds-cell-fixed" title="Part Number">Part No</div>
+                                                    </th>
+                                                    <th class="" scope="col" title="Lot No">
+                                                        <div class="slds-truncate slds-cell-fixed" title="Lot Number">Lot No</div>
+                                                    </th>
+                                                    <th class="" scope="col" title="Quantity Remaining">
+                                                        <div class="slds-truncate slds-cell-fixed" title="Quantity Remaining">Qty Remaining</div>
+                                                    </th>
+
+                                                    
+                                                </tr>
+                                                
+                                            </thead>
+                                            <tbody>
+                                                <template for:each={itemReceiptProductData} for:item='item'>
+                                                    <tr key={item.id}>
+                                                            
+                                                            <td class="slds-text-align_center" style="width: 3.25rem;">
+                                                                <lightning-input type="checkbox" value={item.Id} data-selection={item.id} onchange={handleNewPRLISelection} disabled={item.disableItem}></lightning-input>
+                                                            </td>
+                                                            
+                                                            <td data-label="Product Name" style="min-width: 80px; max-width: none" class="slds-text-align_left">
+                                                                <div class="slds-truncate" key={item.id}><lightning-formatted-text value='{item.data.Product_Name__c}' ></lightning-formatted-text></div>
+                                                            </td>
+                                                            <td data-label="Part No" style="min-width: 80px; max-width: none" class="slds-text-align_left">
+                                                                <div class="slds-truncate" key={item.id}><lightning-formatted-text value='{item.data.Part_Number__c}' ></lightning-formatted-text></div>
+                                                            </td>
+                                                            <td data-label="Lot No" style="min-width: 80px; max-width: none" class="slds-text-align_left">
+                                                                <div class="slds-truncate" key={item.id}><lightning-formatted-text value='{item.data.Lot_Number__c}' ></lightning-formatted-text></div>
+                                                            </td>
+                                                            <td data-label="Quantity Remaining" style="min-width: 80px; max-width: none" class="slds-text-align_left">
+                                                                <div class="slds-truncate" key={item.id}><lightning-formatted-number value='{item.data.Quantity_Remaining__c}' ></lightning-formatted-number></div>
+                                                            </td>
+                                                            
+                                                    </tr> 
+                                            </template>
+                                            </tbody>  
+
+                                            </table>
+                                            </template>
+                                        </div>
+                                    </div>
+                                   <!---- <div style="min-width: initial; max-width: 700px">
+                                        <c-oli-popover-lwc hover-record-id={currentHoverRecordId} top-margin={top} left-margin={left} permission-set-name={popOverPermissionSetName}></c-oli-popover-lwc>
+                                    </div>-->
+                                </lightning-layout-item>
+                            </lightning-accordion-section>
+                            <template if:true={selectedPRLIDataAvailable}>
+                                <lightning-accordion-section name="swappedItems" label="Swapped Items" style="min-width: initial; max-width: 1000px">
+                                    <c-swap-item-receipt-product-selections-lwc swap-records={swapPRLIRecords} item-count={swapPRLICount}></c-swap-item-receipt-product-selections-lwc>
+                                </lightning-accordion-section>
+                            </template>
+                            <lightning-accordion-section name="selectedItems" label="Selected Items" style="min-width: initial; max-width: 1000px">
+                                <c-add-item-receipt-product-selections-lwc prli-data-edited={newPRLIEditedData} item-count={selectedPRLICount} onquantitychange={handleQuantityChange} ondeselect={handleNewPRLIDeselection}></c-add-item-receipt-product-selections-lwc>
+                             </lightning-accordion-section>
+                            
+                        </lightning-accordion>
+                    </lightning-layout>
+                
+            </lightning-card>
+        </template>
+    </template>
+
+</template>

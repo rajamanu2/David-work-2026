@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Lock_Allow_Product_Ramping_Field</fullName>
+    <active>false</active>
+    <description>Prevent Editing Allow Product Ramping on Cloned Groups</description>
+    <errorConditionFormula>AND(
+    NOT(ISBLANK(SBQQ__Source__c)),
+    ISCHANGED(Allow_Product_Ramping__c),
+    PRIORVALUE(Allow_Product_Ramping__c) = TRUE,
+    Allow_Product_Ramping__c = FALSE
+)</errorConditionFormula>
+    <errorMessage>Allow Product Ramping cannot be modified on a cloned group</errorMessage>
+</ValidationRule>

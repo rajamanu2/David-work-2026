@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <aggregates>
+        <calculatedFormula>Activity.ywr__Yesware_Sent__c:SUM</calculatedFormula>
+        <datatype>number</datatype>
+        <developerName>FORMULA1</developerName>
+        <isActive>false</isActive>
+        <isCrossBlock>false</isCrossBlock>
+        <masterLabel># Sent</masterLabel>
+        <scale>0</scale>
+    </aggregates>
+    <aggregates>
+        <calculatedFormula>IF(
+ Activity.ywr__Yesware_Sent__c:SUM=0, 0,
+ IF( 
+(Activity.ywr__Yesware_Open__c:SUM*100)/Activity.ywr__Yesware_Sent__c:SUM &gt; 100, 100,
+ (Activity.ywr__Yesware_Open__c:SUM*100)/Activity.ywr__Yesware_Sent__c:SUM
+))</calculatedFormula>
+        <datatype>percent</datatype>
+        <developerName>FORMULA2</developerName>
+        <isActive>false</isActive>
+        <isCrossBlock>false</isCrossBlock>
+        <masterLabel>% Open</masterLabel>
+        <scale>0</scale>
+    </aggregates>
+    <aggregates>
+        <calculatedFormula>IF(Activity.ywr__Yesware_Sent__c:SUM = 0, 0,
+IF(
+
+IF( 
+ (Activity.ywr__Yesware_Open__c:SUM*100)/Activity.ywr__Yesware_Sent__c:SUM &gt; 100, 100,
+IF(
+ Activity.ywr__Yesware_Sent__c:SUM&lt;&gt;0,
+ (Activity.ywr__Yesware_Open__c:SUM*100)/Activity.ywr__Yesware_Sent__c:SUM,
+ 0
+))
+
+&lt;
+
+(Activity.ywr__Yesware_Reply__c:SUM*100/Activity.ywr__Yesware_Sent__c:SUM),
+
+IF( 
+ (Activity.ywr__Yesware_Open__c:SUM*100)/Activity.ywr__Yesware_Sent__c:SUM &gt; 100, 100,
+IF(
+ Activity.ywr__Yesware_Sent__c:SUM&lt;&gt;0,
+ (Activity.ywr__Yesware_Open__c:SUM*100)/Activity.ywr__Yesware_Sent__c:SUM,
+ 0
+)),
+
+IF( (Activity.ywr__Yesware_Reply__c:SUM*100/Activity.ywr__Yesware_Sent__c:SUM) &gt; 100, 100, (Activity.ywr__Yesware_Reply__c:SUM*100/Activity.ywr__Yesware_Sent__c:SUM)
+)))</calculatedFormula>
+        <datatype>percent</datatype>
+        <developerName>FORMULA3</developerName>
+        <isActive>false</isActive>
+        <isCrossBlock>false</isCrossBlock>
+        <masterLabel>% Reply</masterLabel>
+        <scale>0</scale>
+    </aggregates>
+    <chart>
+        <backgroundColor1>#FFFFFF</backgroundColor1>
+        <backgroundColor2>#FFFFFF</backgroundColor2>
+        <backgroundFadeDir>Diagonal</backgroundFadeDir>
+        <chartSummaries>
+            <aggregate>Sum</aggregate>
+            <axisBinding>y</axisBinding>
+            <column>Activity.ywr__Yesware_Sent__c</column>
+        </chartSummaries>
+        <chartType>HorizontalBar</chartType>
+        <enableHoverLabels>false</enableHoverLabels>
+        <expandOthers>true</expandOthers>
+        <groupingColumn>Activity.ywr__YeswareCampaignName__c</groupingColumn>
+        <location>CHART_BOTTOM</location>
+        <showAxisLabels>false</showAxisLabels>
+        <showPercentage>false</showPercentage>
+        <showTotal>false</showTotal>
+        <showValues>false</showValues>
+        <size>Medium</size>
+        <summaryAxisRange>Auto</summaryAxisRange>
+        <textColor>#000000</textColor>
+        <textSize>12</textSize>
+        <titleColor>#000000</titleColor>
+        <titleSize>18</titleSize>
+    </chart>
+    <columns>
+        <field>SUBJECT</field>
+    </columns>
+    <columns>
+        <aggregateTypes>Sum</aggregateTypes>
+        <field>Activity.ywr__Yesware_Sent__c</field>
+    </columns>
+    <columns>
+        <aggregateTypes>Sum</aggregateTypes>
+        <field>Activity.yw__YeswareOpens__c</field>
+    </columns>
+    <columns>
+        <aggregateTypes>Sum</aggregateTypes>
+        <field>Activity.yw__YeswareLinkClicks__c</field>
+    </columns>
+    <columns>
+        <aggregateTypes>Sum</aggregateTypes>
+        <field>Activity.yw__YeswareReplies__c</field>
+    </columns>
+    <currency>USD</currency>
+    <filter>
+        <criteriaItems>
+            <column>Activity.ywr__Yesware_ActivityType__c</column>
+            <columnToColumn>false</columnToColumn>
+            <isUnlocked>false</isUnlocked>
+            <operator>equals</operator>
+            <value>Sent,Open,Reply</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Activity.ywr__Yesware_Template__c</column>
+            <columnToColumn>false</columnToColumn>
+            <isUnlocked>true</isUnlocked>
+            <operator>equals</operator>
+            <value>1</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Activity.ywr__YeswareTemplateNames__c</column>
+            <columnToColumn>false</columnToColumn>
+            <isUnlocked>true</isUnlocked>
+            <operator>notEqual</operator>
+            <value></value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>ASSIGNED</column>
+            <columnToColumn>false</columnToColumn>
+            <isUnlocked>true</isUnlocked>
+            <operator>equals</operator>
+            <value>Caitlin Cowdrey,Charlie Dreher,Stefano Fontana,Anne-Sophie Kadjo</value>
+        </criteriaItems>
+    </filter>
+    <format>Summary</format>
+    <groupingsDown>
+        <dateGranularity>Day</dateGranularity>
+        <field>ASSIGNED</field>
+        <sortOrder>Asc</sortOrder>
+    </groupingsDown>
+    <groupingsDown>
+        <dateGranularity>Day</dateGranularity>
+        <field>Activity.ywr__YeswareCampaignName__c</field>
+        <sortOrder>Asc</sortOrder>
+    </groupingsDown>
+    <name>Yesware BDR Playing around</name>
+    <params>
+        <name>closed</name>
+        <value>closed</value>
+    </params>
+    <params>
+        <name>type</name>
+        <value>t</value>
+    </params>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>Activity</reportType>
+    <scope>team</scope>
+    <showDetails>false</showDetails>
+    <showGrandTotal>true</showGrandTotal>
+    <showSubTotals>true</showSubTotals>
+    <timeFrameFilter>
+        <dateColumn>CREATED_DATE</dateColumn>
+        <interval>INTERVAL_LAST30</interval>
+    </timeFrameFilter>
+</Report>

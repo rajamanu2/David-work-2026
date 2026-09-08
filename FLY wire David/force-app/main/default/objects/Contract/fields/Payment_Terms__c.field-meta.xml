@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Payment_Terms__c</fullName>
+    <description>Payment Terms per contract. This should be kept the same as Quote and Order picklist values.</description>
+    <inlineHelpText>How long does the client have to pay the invoice. Typically noted in contract as &quot;paid by Client within thirty (XX) days&quot;</inlineHelpText>
+    <label>Payment Terms</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Due on receipt</fullName>
+                <default>false</default>
+                <label>Due on receipt</label>
+            </value>
+            <value>
+                <fullName>Net 15</fullName>
+                <default>false</default>
+                <label>Net 15</label>
+            </value>
+            <value>
+                <fullName>Net 30</fullName>
+                <default>false</default>
+                <label>Net 30</label>
+            </value>
+            <value>
+                <fullName>Net 45</fullName>
+                <default>false</default>
+                <label>Net 45</label>
+            </value>
+            <value>
+                <fullName>Net 60</fullName>
+                <default>false</default>
+                <label>Net 60</label>
+            </value>
+            <value>
+                <fullName>Net 90</fullName>
+                <default>false</default>
+                <label>Net 90</label>
+            </value>
+            <value>
+                <fullName>No Billing on this Contract</fullName>
+                <default>false</default>
+                <label>No Billing on this Contract</label>
+            </value>
+            <value>
+                <fullName>Net30</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Net30</label>
+            </value>
+            <value>
+                <fullName>Net45</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Net45</label>
+            </value>
+            <value>
+                <fullName>Net60</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Net60</label>
+            </value>
+            <value>
+                <fullName>Net90</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Net90</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

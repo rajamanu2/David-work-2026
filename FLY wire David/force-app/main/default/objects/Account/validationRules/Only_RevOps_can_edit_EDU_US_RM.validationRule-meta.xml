@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Only_RevOps_can_edit_EDU_US_RM</fullName>
+    <active>true</active>
+    <description>Only SysAdmin, Carmen, &amp; Babita can change/edit relationship manager field on EDU accounts in the US. SAL-3521</description>
+    <errorConditionFormula>AND(
+$Profile.Name &lt;&gt; &apos;System Administrator&apos;,
+$User.User_LongID__c &lt;&gt; &apos;0058W00000ErGiZQAV&apos;, /*carmen*/
+$User.User_LongID__c &lt;&gt; &apos;0058W00000EVTGWQA5&apos;, /*babita*/
+ISCHANGED(Relationship_Manager__c),
+RecordType.Name = &apos;Education&apos;,
+OR(
+ShippingCountry = &apos;USA&apos;,
+ShippingCountry = &apos;United States&apos;))
+&amp;&amp; Acc_Val_Bypass__c = false</errorConditionFormula>
+    <errorDisplayField>Relationship_Manager__c</errorDisplayField>
+    <errorMessage>Please contact your manager to request a change of Relationship Manager for this account.</errorMessage>
+</ValidationRule>

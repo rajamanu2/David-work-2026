@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>KYC_Application_Status__c</fullName>
+    <description>The current status of the related KYC Application.</description>
+    <externalId>false</externalId>
+    <formula>KYC_Application__r.Status__c</formula>
+    <inlineHelpText>Application applied (submitted but not reviewed for KYC), In Review (KYC in process of reviewing), Approved, Rejected (account declined prior to accepting application), Cancelled (Account Services discontinued after application was initally reviewed)</inlineHelpText>
+    <label>KYC Application Status</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

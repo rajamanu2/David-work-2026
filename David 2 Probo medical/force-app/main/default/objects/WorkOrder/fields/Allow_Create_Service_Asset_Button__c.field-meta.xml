@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Allow_Create_Service_Asset_Button__c</fullName>
+    <formula>(WorkTypeId == &quot;08qVA000000249BYAQ&quot; || WorkTypeId == &quot;08qVA000000249B&quot; ||
+ WorkTypeId == &quot;08qVA0000003VNRYA2&quot; || WorkTypeId == &quot;08qVA0000003VNR&quot;|| 
+WorkTypeId == &quot;08qVA0000002OavYAE&quot; || WorkTypeId == &quot;08qVA0000002Oav&quot;) &amp;&amp;  ISBLANK(AssetId)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Allow Create Service Asset Button</label>
+    <trackHistory>false</trackHistory>
+    <type>Checkbox</type>
+</CustomField>

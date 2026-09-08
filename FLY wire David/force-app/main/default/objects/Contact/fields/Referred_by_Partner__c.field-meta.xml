@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Referred_by_Partner__c</fullName>
+    <deleteConstraint>Restrict</deleteConstraint>
+    <description>Indicates which partners sent over this Contact (Independently of whether it currently exist of not)</description>
+    <inlineHelpText>Indicates which partners sent over this Contact (Independently of whether it currently exist of not)</inlineHelpText>
+    <label>Referred by Partner</label>
+    <referenceTo>Account</referenceTo>
+    <relationshipLabel>Contacts</relationshipLabel>
+    <relationshipName>Contacts</relationshipName>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>true</trackHistory>
+    <type>Lookup</type>
+</CustomField>

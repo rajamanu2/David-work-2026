@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>RMA_2_Loaner_Sent_Repair_not_Received</fullName>
+    <booleanFilter>1 and 2 and 3 and 4 and 5</booleanFilter>
+    <columns>NAME</columns>
+    <columns>Opportunity_No__c</columns>
+    <columns>Opportunity_Owner__c</columns>
+    <columns>Account_Name__c</columns>
+    <columns>CREATED_DATE</columns>
+    <columns>Date_Loaner_Shipped__c</columns>
+    <columns>Loaner_Asset_Number__c</columns>
+    <columns>Loaner_Probe_Model__c</columns>
+    <columns>Customer_PO_Number__c</columns>
+    <columns>Field_Service_Engineer__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>RMA_Type__c</field>
+        <operation>equals</operation>
+        <value>customer repair evaluation,warranty repair</value>
+    </filters>
+    <filters>
+        <field>Date_shipped__c</field>
+        <operation>equals</operation>
+    </filters>
+    <filters>
+        <field>Repair_turned_to_Exchange__c</field>
+        <operation>equals</operation>
+        <value>0</value>
+    </filters>
+    <filters>
+        <field>Loaner_Asset_Number__c</field>
+        <operation>notEqual</operation>
+    </filters>
+    <filters>
+        <field>Date_RMA_Item_Received__c</field>
+        <operation>equals</operation>
+    </filters>
+    <label>RMA 2. Loaner Sent-Repair not Received</label>
+    <sharedTo>
+        <allInternalUsers></allInternalUsers>
+    </sharedTo>
+</ListView>

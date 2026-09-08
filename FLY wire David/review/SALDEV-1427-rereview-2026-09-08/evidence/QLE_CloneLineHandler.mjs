@@ -1,0 +1,73 @@
+/* CANONICAL FIELD CONFIGURATION (SALDEV-1371 / SALDEV-1427)
+* Centralized ARR field list to avoid cross-script drift.
+*/
+const ARR_FIELDS_TO_NULL = [
+'DOM_Outgoing_PYMTS__c', 'Utilization__c', 'Actual_12_Months_Tuition_CC_Vol__c',
+'Annual_Number_of_Domestic_Transactions__c', 'Annual_No_Surcharge_Transactions__c',
+'Annual_Total_CC_Volume__c', 'Annual_Total_Surcharge_Volume__c', 'Avg_FX_Trans_Amt__c',
+'BPS_Upcharge__c', 'Client_Home_CCY_XB_PYMNTS__c', 'Domestic_Sponsor__c',
+'Est_Annual_MM__c', 'Estimated_Volume__c', 'Expected_of_Apps_per_Year__c',
+'FX_XB_Outgoing_PYMTS__c', 'International_Sponsor__c', 'Interchange_Rate__c',
+'Last_12_Months_Payment_Plans__c', 'MPP_Card_Usage_Included__c', 'No_International_Payers__c',
+'One_Door__c', 'Per_Transaction_Upcharge__c', 'No_Processed_Volume__c',
+'Total_Flows__c', 'Yearly_Invoiced_Sent__c'
+];
+
+export function onAfterCloneLine(quoteModel, clonedLines) {
+// Array of ARR-calculating input fields to clear on cloned lines (SALDEV-1371)
+const arrFieldsToNull = ARR_FIELDS_TO_NULL;
+
+let linesToProcess = [];
+
+// Safely extract cloned lines across standard, flat-array, and segmented structures (SALDEV-1427)
+if (Array.isArray(clonedLines)) {
+linesToProcess = clonedLines;
+} else if (clonedLines && clonedLines.clonedLines) {
+if (Array.isArray(clonedLines.clonedLines)) {
+linesToProcess = clonedLines.clonedLines;
+} else if (clonedLines.clonedLines.standard) {
+linesToProcess = linesToProcess.concat(clonedLines.clonedLines.standard);
+if (clonedLines.clonedLines.segmented) {
+linesToProcess = linesToProcess.concat(clonedLines.clonedLines.segmented);
+}
+}
+}
+
+// Process extracted cloned line models
+if (linesToProcess.length > 0) {
+linesToProcess.forEach(function(line) {
+// Safely resolve the underlying data record object across CPQ wrapper variations
+const rec = line.record || (line.model ? line.model.record : null) || line;
+
+if (rec) {
+// SALDEV-1371: Always clear NetSuite ID and Opportunity Line ID on cloned lines
+rec['NS_ID__c'] = null;
+rec['Opportunity_Line_Id__c'] = null;
+
+// SALDEV-1371 / SALDEV-1351: Nullify all inherited ARR input fields on the record directly
+arrFieldsToNull.forEach(function(fieldApi) {
+rec[fieldApi] = null;
+});
+}
+
+// Fallback: Also clear fields on line.record if line was a wrapper object
+if (line.record) {
+line.record['NS_ID__c'] = null;
+line.record['Opportunity_Line_Id__c'] = null;
+arrFieldsToNull.forEach(function(fieldApi) {
+line.record[fieldApi] = null;
+});
+}
+
+// Fallback: Also clear fields on line.record if line was a wrapper object
+if (line.record) {
+line.record['NS_ID__c'] = null;
+arrFieldsToNull.forEach(function(fieldApi) {
+line.record[fieldApi] = null;
+});
+}
+});
+}
+
+return Promise.resolve();
+}

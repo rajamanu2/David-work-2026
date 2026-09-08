@@ -1,0 +1,318 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>66.0</apiVersion>
+    <areMetricsLoggedToDataCloud>false</areMetricsLoggedToDataCloud>
+    <assignments>
+        <description>&quot;INTERNAL &quot; &amp; varEntityName &amp; formulaDirection &amp; varAccountEntityName &amp; &quot; - &quot; &amp; formulaFinalAssetString &amp; &quot; - &quot; &amp; formulaTypeLabel</description>
+        <name>Assign_Final_Opportunity_Name</name>
+        <label>Assign Final Opportunity Name</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <assignmentItems>
+            <assignToReference>varOpportunityName</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>formulaOpportunityName</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Update_Opportunity_Name</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Set_Names</name>
+        <label>Set Names</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <assignmentItems>
+            <assignToReference>varEntityName</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>$Record.Entity__c</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>varAccountEntityName</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>formulaCovertAccountToCountry</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Assign_Final_Opportunity_Name</targetReference>
+        </connector>
+    </assignments>
+    <description>15/06/2026 - SP - Excluding the &quot;External Repair / Testing&quot; Opportunity ID (012U00000001sNsIAI) and and Opportunities with the &quot;Purchasing Opportunity Type&quot; as &quot;Sourcing&quot; in the entry criteria.</description>
+    <environments>Default</environments>
+    <formulas>
+        <name>formulaAssetStringClean</name>
+        <dataType>String</dataType>
+        <expression>LEFT({!varAssetString}, LEN({!varAssetString}) - 2)</expression>
+    </formulas>
+    <formulas>
+        <name>formulaCovertAccountToCountry</name>
+        <dataType>String</dataType>
+        <expression>CASE(
+    $Record.Account.Name,
+    &quot;Probo Medical LTD (UK)&quot;, &quot;UK&quot;,
+    &quot;Probo Medical - Indy&quot;, &quot;US&quot;,
+    &quot;Probo Medical - Tulsa&quot;, &quot;US&quot;,
+    &quot;Probo Medical - Tampa&quot;, &quot;US&quot;,
+    &quot;Probo Medical SAS (IMAX Medical)&quot;, &quot;FR&quot;,
+    &quot;UNKNOWN&quot;
+)</expression>
+    </formulas>
+    <formulas>
+        <name>formulaDirection</name>
+        <dataType>String</dataType>
+        <expression>IF({!formulaIsPurchase}, &quot; from &quot;, &quot; to &quot;)</expression>
+    </formulas>
+    <formulas>
+        <name>formulaEntityFinal</name>
+        <dataType>String</dataType>
+        <expression>CASE(
+    {!formulaSubstitutedEntity},
+    
+    &quot;SAS&quot;, &quot;FR&quot;,
+    
+    {!formulaSubstitutedEntity}
+)</expression>
+    </formulas>
+    <formulas>
+        <name>formulaFinalAssetString</name>
+        <dataType>String</dataType>
+        <expression>IF(
+    formulaIsPurchase,
+    IF(
+        NOT(ISBLANK($Record.Related_Opportunity__c)),
+IF(
+LEN(TRIM({!$Record.Related_Opportunity__r.Asset_Summary__c})) &gt; 0,
+{!$Record.Related_Opportunity__r.Asset_Summary__c},
+{!$Record.Related_Opportunity__r.Opportunity_Number__c}
+),
+&quot;Ref: &quot; &amp; {!$Record.Related_Opportunity__r.Opportunity_Number__c} &amp; &quot; (No Related Opp Found)&quot;
+),
+{!$Record.Asset_Summary__c}
+)</expression>
+    </formulas>
+    <formulas>
+        <name>formulaIsPurchase</name>
+        <dataType>Boolean</dataType>
+        <expression>CONTAINS($Record.RecordType.Name, &quot;Purchasing&quot;)</expression>
+    </formulas>
+    <formulas>
+        <name>formulaOpportunityName</name>
+        <dataType>String</dataType>
+        <expression>&quot;INTERNAL &quot; &amp;
+&quot; - &quot; &amp;
+{!formulaEntityFinal} &amp;
+{!formulaDirection} &amp;
+{!varAccountEntityName} &amp;
+&quot; - &quot; &amp;
+LEFT(
+    {!formulaFinalAssetString},
+    MAX(
+        0,
+        120 -
+        LEN(
+            &quot;INTERNAL &quot; &amp;
+            &quot; - &quot; &amp;
+            {!formulaEntityFinal} &amp;
+            {!formulaDirection} &amp;
+            {!varAccountEntityName} &amp;
+            &quot; - &quot; &amp;
+            &quot; - &quot; &amp;
+            {!formulaTypeLabel}
+        )
+    )
+) &amp;
+&quot; - &quot; &amp;
+{!formulaTypeLabel}</expression>
+    </formulas>
+    <formulas>
+        <name>formulaSubstitutedEntity</name>
+        <dataType>String</dataType>
+        <expression>SUBSTITUTE({!varEntityName}, &quot;Probo-&quot;, &quot;&quot;)</expression>
+    </formulas>
+    <formulas>
+        <name>formulaTypeLabel</name>
+        <dataType>String</dataType>
+        <expression>IF({!formulaIsPurchase}, &quot; PURCHASE &quot;, &quot; SALE &quot;)</expression>
+    </formulas>
+    <interviewLabel>Opportunity - Creation and Update - Set Intercompany Transaction Opportunity Name {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Opportunity - Creation and Update - Set Intercompany Transaction Opportunity Name</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <recordUpdates>
+        <name>Update_Opportunity_Name</name>
+        <label>Update Opportunity Name</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <inputAssignments>
+            <field>Name</field>
+            <value>
+                <elementReference>varOpportunityName</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <start>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <filterLogic>(1 OR 2) AND 3 AND (4 OR 5 OR 6 OR 7 OR 8) AND 9 AND 10 AND 11 AND 12</filterLogic>
+        <filters>
+            <field>Entity__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>Probo-UK</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>Entity__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>Probo-SAS</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>Account_Name__c</field>
+            <operator>Contains</operator>
+            <value>
+                <stringValue>Probo Medical</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>Count_Products_with_Costs__c</field>
+            <operator>IsChanged</operator>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </filters>
+        <filters>
+            <field>Asset_Summary__c</field>
+            <operator>IsChanged</operator>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </filters>
+        <filters>
+            <field>Amount</field>
+            <operator>IsChanged</operator>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </filters>
+        <filters>
+            <field>Related_Opportunity__c</field>
+            <operator>IsChanged</operator>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </filters>
+        <filters>
+            <field>Opportunity_Notes__c</field>
+            <operator>IsChanged</operator>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </filters>
+        <filters>
+            <field>AccountId</field>
+            <operator>NotEqualTo</operator>
+            <value>
+                <stringValue>001Ro000016gHeoIAE</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>RecordTypeId</field>
+            <operator>NotEqualTo</operator>
+            <value>
+                <stringValue>0120B000000QyQFQA0</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>RecordTypeId</field>
+            <operator>NotEqualTo</operator>
+            <value>
+                <stringValue>012U00000001sNsIAI</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>Purchasing_Opportunity_Type__c</field>
+            <operator>NotEqualTo</operator>
+            <value>
+                <stringValue>Sourcing</stringValue>
+            </value>
+        </filters>
+        <object>Opportunity</object>
+        <recordTriggerType>CreateAndUpdate</recordTriggerType>
+        <scheduledPaths>
+            <connector>
+                <targetReference>Set_Names</targetReference>
+            </connector>
+            <pathType>AsyncAfterCommit</pathType>
+        </scheduledPaths>
+        <triggerType>RecordAfterSave</triggerType>
+    </start>
+    <status>Active</status>
+    <variables>
+        <name>colvarOpportunityProduct</name>
+        <dataType>SObject</dataType>
+        <isCollection>true</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+        <objectType>OpportunityLineItem</objectType>
+    </variables>
+    <variables>
+        <name>varAccountEntityName</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <name>varAssetString</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <name>varEntityFinal</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <name>varEntityName</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <name>varOpportunityName</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+</Flow>

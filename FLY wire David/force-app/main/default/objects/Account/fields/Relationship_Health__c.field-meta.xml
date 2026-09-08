@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Relationship_Health__c</fullName>
+    <description>Requested by Marybeth on ticket SAL-1909 for EDU / SAL-3111
+This field is to get the objective opinion of the account rep while being able to compare to the performance health field (in request below). This is critical in checking on references, client “asks” ect.</description>
+    <inlineHelpText>Please select the overall relationship we have with the main stakeholders at this account</inlineHelpText>
+    <label>Relationship Health</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>MultiselectPicklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Very Satisfied</fullName>
+                <default>false</default>
+                <label>😍 Very Satisfied</label>
+            </value>
+            <value>
+                <fullName>Neutral</fullName>
+                <default>false</default>
+                <label>😐 Neutral</label>
+            </value>
+            <value>
+                <fullName>Not Satisfied</fullName>
+                <default>false</default>
+                <label>🙁 Not Satisfied</label>
+            </value>
+            <value>
+                <fullName>At Risk</fullName>
+                <default>false</default>
+                <label>😡 At Risk</label>
+            </value>
+            <value>
+                <fullName>Green</fullName>
+                <default>false</default>
+                <label>Green</label>
+            </value>
+            <value>
+                <fullName>Yellow</fullName>
+                <default>false</default>
+                <label>Yellow</label>
+            </value>
+            <value>
+                <fullName>Red</fullName>
+                <default>false</default>
+                <label>Red</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+    <visibleLines>4</visibleLines>
+</CustomField>

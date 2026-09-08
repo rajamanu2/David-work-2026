@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Acc_Val_Bypass__c</fullName>
+    <description>Admin field not for reporting. Used to bypass validation rules when Flows are triggered. Works with Opp Bypass DateTime</description>
+    <formula>Acc_Bypass_DateTime__c &gt; NOW() - 0.00005787037 /*Five Seconds*/</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <inlineHelpText>Admin field not for reporting. Used to bypass validation rules when Flows are triggered. Works with Opp Bypass DateTime</inlineHelpText>
+    <label>Acc Val Bypass</label>
+    <trackHistory>false</trackHistory>
+    <type>Checkbox</type>
+</CustomField>

@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>FK_OPP_RECORDTYPE</field>
+    </columns>
+    <columns>
+        <field>bizible2__Bizible_Attribution_Touchpoint__c.bizible2__Marketing_Channel__c</field>
+    </columns>
+    <columns>
+        <field>bizible2__Bizible_Attribution_Touchpoint__c.bizible2__SF_Campaign__c</field>
+    </columns>
+    <columns>
+        <field>FK_ACC_NAME</field>
+    </columns>
+    <columns>
+        <field>FK_NAME</field>
+    </columns>
+    <columns>
+        <field>FK_OPP_OWNER_NAME</field>
+    </columns>
+    <columns>
+        <aggregateTypes>Sum</aggregateTypes>
+        <field>FK_$Opportunity.ARR__c</field>
+    </columns>
+    <columns>
+        <aggregateTypes>Sum</aggregateTypes>
+        <field>FK_$Opportunity.Avg_Value_per_Touchpoint__c</field>
+    </columns>
+    <columns>
+        <field>CUST_NAME</field>
+    </columns>
+    <columns>
+        <field>bizible2__Bizible_Attribution_Touchpoint__c.bizible2__Touchpoint_Source__c</field>
+    </columns>
+    <currency>USD</currency>
+    <description>Displays revenue attribution summarized by Marketing Channel and Source</description>
+    <filter>
+        <booleanFilter>1 AND 2 AND 3 AND 4 AND 5 AND (6 OR 7) AND 8</booleanFilter>
+        <criteriaItems>
+            <column>FK_OPP_TYPE</column>
+            <columnToColumn>false</columnToColumn>
+            <isUnlocked>true</isUnlocked>
+            <operator>equals</operator>
+            <value>New Business,Existing Business,Renewal + Upsell</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>FK_OPP_RECORDTYPE</column>
+            <columnToColumn>false</columnToColumn>
+            <isUnlocked>true</isUnlocked>
+            <operator>equals</operator>
+            <value>Opportunity.Education</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>FK_NAME</column>
+            <columnToColumn>false</columnToColumn>
+            <isUnlocked>true</isUnlocked>
+            <operator>notContain</operator>
+            <value>test,Flywire University,Data Cleanup,Delete,Duplicate,Dupe</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>FK_ACC_NAME</column>
+            <columnToColumn>false</columnToColumn>
+            <isUnlocked>true</isUnlocked>
+            <operator>notContain</operator>
+            <value>FW test,Flywire</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>FK_OPP_OWNER_NAME</column>
+            <columnToColumn>false</columnToColumn>
+            <isUnlocked>true</isUnlocked>
+            <operator>notEqual</operator>
+            <value>Ada Cirillo,Allison Campbell,Julie Ko,Laura Luna</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>bizible2__Bizible_Attribution_Touchpoint__c.bizible2__SF_Campaign__c</column>
+            <columnToColumn>false</columnToColumn>
+            <isUnlocked>true</isUnlocked>
+            <operator>equals</operator>
+            <value>Event_EDU_ANUIES Conference_October 2025,Event_EDU_LACUC_2025,Event_EDU_BCASBO_May 2025,Event_EDU_CAPSI_May 2025,Event_EDU_CAUBO_June 2025,Event_EDU_CAUCE_May 2025,Event_EDU_CBIE Atlantic Canada_June 2025,Event_EDU_CBIE Conference_November 2025,Event_EDU_CBIE Regional Conference Ontario_June 2025,Event_EDU_CBIE Regional Quebec_May 2025,Event_EDU_CEUG_October 2025,Event_EDU_HTI Summit_May 2025,Event_EDU_MCIE_May 2025,Event_EDU_OASDI_June 2025,Event_EDU_UCCC_November 2025,Event_EDU_WARUCC_June 2025,Flywire Hosted_EDU_CAD Client Appreciation Holiday Lunch_December 2025,Flywire Hosted_EDU_CAPSI Cocktail Reception_May 2025,Flywire Hosted_EDU_CAUBO Cocktail Reception_June 2025,Flywire Hosted_EDU_CBIE Cocktail Reception_November 2025,Flywire Hosted_EDU_CFO &amp; Treasury Roundtable_April 2025,Event_EDU_AIRC Symposium_May 2025,Event_EDU_Anthology_July 2025,Event_EDU_CBIE Conference Western_May 2025,Event_EDU_CCBO_September 2025,Event_EDU_Ellucian ELive_April 2025,Event_EDU_FOCUS_May 2025,Event_EDU_HEUG Alliance_March 2025,Event_EDU_IACUBO_November 2025,Event_EDU_KASRO Conference_May 2025,Event_EDU_NACUBO SFS_March 2025,Event_EDU_NAFSA_May 2025,Event_EDU_OBA Conference_May 2025,Event_EDU_PacWest_May 2025,Event_EDU_PDG Bursars Conference_April 2025,Event_EDU_TACUBO_June 2025</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>bizible2__Bizible_Attribution_Touchpoint__c.bizible2__SF_Campaign__c</column>
+            <columnToColumn>false</columnToColumn>
+            <isUnlocked>true</isUnlocked>
+            <operator>equals</operator>
+            <value>Event_EDU_THEBO_November 2025,Event_EDU_The Payments Academy Conference_May 2025,Event_EDU_Thesis Element Conference_June 2025,Event_EDU_UBUG_May 2025,Event_EDU_WACUBO_May 2025,Event_EDU_Workday Rising Summit_2025,Flywire Hosted_EDU_BOSTON CFO Dinner_February 2025,Flywire Hosted_EDU_Flywire Fusion Client Conference_October 2025,Flywire Hosted_EDU_HEUG Alliance Cocktail Reception_March 2025,Flywire Hosted_EDU_US StudyLink Rountables_October 2025</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>FK_$Opportunity.Avg_Value_per_Touchpoint__c</column>
+            <columnToColumn>false</columnToColumn>
+            <isUnlocked>true</isUnlocked>
+            <operator>notEqual</operator>
+            <value></value>
+        </criteriaItems>
+    </filter>
+    <format>Tabular</format>
+    <name>2025 EDU Event Bizible (Americas)</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>CustomEntity$bizible2__Bizible_Attribution_Touchpoint__c@bizible2__Bizible_Attribution_Touchpoint__c.bizible2__Opportunity__c</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <showGrandTotal>true</showGrandTotal>
+    <showSubTotals>true</showSubTotals>
+    <timeFrameFilter>
+        <dateColumn>FK_CREATED_DATE</dateColumn>
+        <interval>INTERVAL_CURFY</interval>
+    </timeFrameFilter>
+</Report>

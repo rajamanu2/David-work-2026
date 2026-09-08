@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>SALDEV-934 Notify the Agents Owner on Contract Near Expiry</description>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <name>Notification For Agents</name>
+    <style>none</style>
+    <subject>Contract {!Contract.ContractNumber} will expire on {!Contract.EndDate}</subject>
+    <type>text</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

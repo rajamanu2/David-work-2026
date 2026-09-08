@@ -1,0 +1,46 @@
+<template>
+    <lightning-layout>
+        <lightning-layout-item>
+            <lightning-button label="Previous" icon-name="utility:chevronleft" onclick={previousHandler}></lightning-button>
+        </lightning-layout-item>
+        <lightning-layout-item flexibility="grow">
+            <lightning-card title={pageTitle} icon-name="standard:opportunity">
+                <div class="slds-grid slds-wrap" style="margin-left:20%">
+                        <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2 slds-large-size_1-of-2">
+                               <template if:true={hasAssetSwapData}>
+                                    <div class="slds-form-element slds-form-element_readonly">
+                                        <label class="slds-form-element__label" for="text-input-name">Product Name</label>
+                                        <div class="slds-form-element__control">
+                                            <div class="slds-form-element__static"><lightning-formatted-text value='{currentOLIRecord.Product2_Name__c}' label='{name}' id="text-input-product-name2" ></lightning-formatted-text></div>
+                                        </div>
+                                    </div>
+                                    <div class="slds-form-element slds-form-element_readonly">
+                                        <label class="slds-form-element__label" for="text-input-check-in-type">Asset #</label>
+                                        <div class="slds-form-element__control">
+                                            <div class="slds-form-element__static"><lightning-formatted-text value='{currentOLIRecord.Name}' id="text-input-asset-number" ></lightning-formatted-text></div>
+                                        </div>
+                                    </div>
+                               </template>
+                               <template if:true={hasOLISwapData}>
+                                    <div class="slds-form-element slds-form-element_readonly">
+                                        <label class="slds-form-element__label" for="text-input-name">Product Name</label>
+                                        <div class="slds-form-element__control">
+                                            <div class="slds-form-element__static"><lightning-formatted-text value='{currentOLIRecord.Product_Name__c}' label='{name}' id="text-input-product-name" ></lightning-formatted-text></div>
+                                        </div>
+                                    </div>
+                                    <div class="slds-form-element slds-form-element_readonly">
+                                        <label class="slds-form-element__label" for="text-input-check-in-type">CheckIn Type</label>
+                                        <div class="slds-form-element__control">
+                                            <div class="slds-form-element__static"><lightning-formatted-text value='{currentOLIRecord.Check_In_Type__c}' id="text-input-check-in-type" ></lightning-formatted-text></div>
+                                        </div>
+                                </div>
+                              </template>
+                        </div>
+                </div>
+            </lightning-card>
+        </lightning-layout-item>
+        <lightning-layout-item>
+            <lightning-button label="Next" icon-name="utility:chevronright" icon-position="right" onclick={nextHandler}></lightning-button>
+        </lightning-layout-item>
+    </lightning-layout> 
+</template>

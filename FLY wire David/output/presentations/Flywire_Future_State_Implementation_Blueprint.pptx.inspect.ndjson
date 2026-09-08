@@ -1,0 +1,599 @@
+{"kind":"deck","id":"pr/rlc1jt","name":"Deck"}
+{"kind":"layout","layoutId":"f7f5e437-94d0-44a4-bda6-269fd0615b24","name":"Master","type":"master"}
+{"kind":"layout","layoutId":"efff0d3a-2be2-4c39-9f79-0bf0c53e1310","name":"Title Slide","type":"title"}
+{"kind":"slide","id":"sl/1u5m6w","slide":1,"title":"FLYWIRE","textShapes":6}
+{"kind":"textbox","id":"sh/ru50j2pk","slide":1,"text":"FLYWIRE","textPreview":"FLYWIRE","textChars":7,"textLines":1,"bbox":[42,38,220,28]}
+{"kind":"textbox","id":"sh/svehs7q5","slide":1,"text":"Future-State\nImplementation Blueprint","textPreview":"Future-State | Implementation Blueprint","textChars":37,"textLines":2,"bbox":[42,176,820,212]}
+{"kind":"textbox","id":"sh/dwnilc7q","slide":1,"text":"Clean data model, governed data flow, service design, controls and delivery roadmap","textPreview":"Clean data model, governed data flow, service design, controls and delivery roadmap","textChars":83,"textLines":1,"bbox":[44,430,780,76]}
+{"kind":"shape","id":"sh/exwzuh8b","slide":1,"bbox":[930,152,250,332]}
+{"kind":"textbox","id":"sh/fy50nmpw","slide":1,"text":"ONE\nMODEL","textPreview":"ONE | MODEL","textChars":9,"textLines":2,"bbox":[964,204,180,104]}
+{"kind":"textbox","id":"sh/0zy1wrqh","slide":1,"text":"Customer\nQuote\nContract\nRevenue","textPreview":"Customer | Quote | Contract | Revenue","textChars":31,"textLines":4,"bbox":[966,348,180,108]}
+{"kind":"textbox","id":"sh/107ipc72","slide":1,"text":"Team discussion deck • August 2026","textPreview":"Team discussion deck • August 2026","textChars":34,"textLines":1,"bbox":[44,646,500,26]}
+{"kind":"notes","id":"nt/1u5m6w","slide":1,"text":"\n\n[Sources]\n- C:/Users/LIKKI/Downloads/Flywire Future State Vision_20260814 (1).pdf, pages 4-10\n- C:/Users/LIKKI/Documents/ChatGPT/david/force-app/main/default\n[/Sources]"}
+{"kind":"slide","id":"sl/c7rpkt","slide":2,"title":"IMPLEMENTATION BLUEPRINT","textShapes":19}
+{"kind":"textbox","id":"sh/ridknm50","slide":2,"text":"IMPLEMENTATION BLUEPRINT","textPreview":"IMPLEMENTATION BLUEPRINT","textChars":24,"textLines":1,"bbox":[42,28,390,26]}
+{"kind":"textbox","id":"sh/sjm1gr6l","slide":2,"text":"A single operating model connects customer, quote, contract and revenue data","textPreview":"A single operating model connects customer, quote, contract and revenue data","textChars":76,"textLines":1,"bbox":[42,58,1188,94]}
+{"kind":"shape","id":"sh/dkv2pwnq","slide":2,"bbox":[42,156,1196,1]}
+{"kind":"textbox","id":"sh/el4ji1ob","slide":2,"text":"02","textPreview":"02","textChars":2,"textLines":1,"bbox":[1180,670,56,24]}
+{"kind":"textbox","id":"sh/fmdkr65w","slide":2,"text":"The implementation is organized around one governed commercial record chain. Every downstream process consumes the same validated data instead of reconstructing meaning in each system.","textPreview":"The implementation is organized around one governed commercial record chain. Every downstream process consumes the same validated data in...","textChars":184,"textLines":1,"bbox":[42,176,760,92]}
+{"kind":"shape","id":"sh/0nm1kb6h","slide":2,"bbox":[46,326,160,112]}
+{"kind":"textbox","id":"sh/1ov2tgn2","slide":2,"text":"CUSTOMER","textPreview":"CUSTOMER","textChars":8,"textLines":1,"bbox":[54,350,144,30]}
+{"kind":"shape","id":"sh/up0j6xo7","slide":2,"bbox":[208,369,34,20]}
+{"kind":"shape","id":"sh/vq90f2ps","slide":2,"bbox":[244,326,160,112]}
+{"kind":"textbox","id":"sh/bml87e9s","slide":2,"text":"OPPORTUNITY","textPreview":"OPPORTUNITY","textChars":11,"textLines":1,"bbox":[252,350,144,30]}
+{"kind":"shape","id":"sh/alsry987","slide":2,"bbox":[406,369,34,20]}
+{"kind":"shape","id":"sh/xo3q9ory","slide":2,"bbox":[442,326,160,112]}
+{"kind":"textbox","id":"sh/wnu90jqd","slide":2,"text":"QUOTE","textPreview":"QUOTE","textChars":5,"textLines":1,"bbox":[450,350,144,30]}
+{"kind":"shape","id":"sh/ni183e9w","slide":2,"bbox":[604,369,34,20]}
+{"kind":"shape","id":"sh/2hsru98b","slide":2,"bbox":[640,326,160,112]}
+{"kind":"textbox","id":"sh/9kjq54r2","slide":2,"text":"CONTRACT","textPreview":"CONTRACT","textChars":8,"textLines":1,"bbox":[648,350,144,30]}
+{"kind":"shape","id":"sh/oja9wjqh","slide":2,"bbox":[802,369,34,20]}
+{"kind":"shape","id":"sh/fu18zu9k","slide":2,"bbox":[838,326,160,112]}
+{"kind":"textbox","id":"sh/et8rqp8z","slide":2,"text":"ORDER","textPreview":"ORDER","textChars":5,"textLines":1,"bbox":[846,350,144,30]}
+{"kind":"shape","id":"sh/ip8r2pc7","slide":2,"bbox":[1000,369,34,20]}
+{"kind":"shape","id":"sh/3qhsbuts","slide":2,"bbox":[1036,326,160,112]}
+{"kind":"textbox","id":"sh/4rq94zux","slide":2,"text":"REVENUE","textPreview":"REVENUE","textChars":7,"textLines":1,"bbox":[1044,350,144,30]}
+{"kind":"textbox","id":"sh/5szad4bi","slide":2,"text":"1","textPreview":"1","textChars":1,"textLines":1,"bbox":[42,510,260,58]}
+{"kind":"textbox","id":"sh/qt8r69c3","slide":2,"text":"governed customer identity","textPreview":"governed customer identity","textChars":26,"textLines":1,"bbox":[42,570,260,56]}
+{"kind":"textbox","id":"sh/rehsfeto","slide":2,"text":"1","textPreview":"1","textChars":1,"textLines":1,"bbox":[360,510,260,58]}
+{"kind":"textbox","id":"sh/sfa98zu9","slide":2,"text":"quote-to-contract lifecycle","textPreview":"quote-to-contract lifecycle","textChars":27,"textLines":1,"bbox":[360,570,260,56]}
+{"kind":"textbox","id":"sh/dgjah4bu","slide":2,"text":"1","textPreview":"1","textChars":1,"textLines":1,"bbox":[680,510,260,58]}
+{"kind":"textbox","id":"sh/ehsba9cf","slide":2,"text":"reconciled revenue view","textPreview":"reconciled revenue view","textChars":23,"textLines":1,"bbox":[680,570,260,56]}
+{"kind":"textbox","id":"sh/fi1sjetk","slide":2,"text":"0","textPreview":"0","textChars":1,"textLines":1,"bbox":[992,510,230,58]}
+{"kind":"textbox","id":"sh/9c3u98v2","slide":2,"text":"silent downstream handoffs","textPreview":"silent downstream handoffs","textChars":26,"textLines":1,"bbox":[992,570,230,56]}
+{"kind":"textbox","id":"sh/obud03eh","slide":2,"text":"Flywire future-state implementation","textPreview":"Flywire future-state implementation","textChars":35,"textLines":1,"bbox":[42,671,600,20]}
+{"kind":"notes","id":"nt/c7rpkt","slide":2,"text":"\n\n[Sources]\n- C:/Users/LIKKI/Downloads/Flywire Future State Vision_20260814 (1).pdf, pages 5-6 and 18\n[/Sources]"}
+{"kind":"slide","id":"sl/pihgcd","slide":3,"title":"IMPLEMENTATION BLUEPRINT","textShapes":14}
+{"kind":"textbox","id":"sh/h0by58b2","slide":3,"text":"IMPLEMENTATION BLUEPRINT","textPreview":"IMPLEMENTATION BLUEPRINT","textChars":24,"textLines":1,"bbox":[42,28,390,26]}
+{"kind":"textbox","id":"sh/uxkfutcb","slide":3,"text":"The blueprint covers all three transformation initiatives in one design","textPreview":"The blueprint covers all three transformation initiatives in one design","textChars":71,"textLines":1,"bbox":[42,58,1188,94]}
+{"kind":"shape","id":"sh/vytg3ytw","slide":3,"bbox":[42,156,1196,1]}
+{"kind":"textbox","id":"sh/43mx0nud","slide":3,"text":"03","textPreview":"03","textChars":2,"textLines":1,"bbox":[1180,670,56,24]}
+{"kind":"textbox","id":"sh/54vy9sby","slide":3,"text":"01","textPreview":"01","textChars":2,"textLines":1,"bbox":[42,190,60,48]}
+{"kind":"textbox","id":"sh/i14fydcn","slide":3,"text":"UNIFIED FOUNDATION","textPreview":"UNIFIED FOUNDATION","textChars":18,"textLines":1,"bbox":[42,250,350,42]}
+{"kind":"shape","id":"sh/32dg7it8","slide":3,"bbox":[42,300,350,1]}
+{"kind":"textbox","id":"sh/k7ixoju9","slide":3,"text":"• Golden customer and hierarchy\n• One product and pricing model\n• Governed integration events\n• Single reporting definitions","textPreview":"• Golden customer and hierarchy | • One product and pricing model | • Governed integration events | • Single reporting definitions","textChars":124,"textLines":4,"bbox":[42,326,350,252]}
+{"kind":"textbox","id":"sh/l8ryxobu","slide":3,"text":"02","textPreview":"02","textChars":2,"textLines":1,"bbox":[446,190,60,48]}
+{"kind":"textbox","id":"sh/x8za5wra","slide":3,"text":"QUOTE TO CASH","textPreview":"QUOTE TO CASH","textChars":13,"textLines":1,"bbox":[446,250,350,42]}
+{"kind":"shape","id":"sh/c7qtwrqp","slide":3,"bbox":[446,300,350,1]}
+{"kind":"textbox","id":"sh/b6xs3694","slide":3,"text":"• Guided configuration\n• Tier, ramp and term pricing\n• Risk-based approvals\n• ARR, MRR and TCV\n• Proposal and order handoff","textPreview":"• Guided configuration | • Tier, ramp and term pricing | • Risk-based approvals | • ARR, MRR and TCV | • Proposal and order handoff","textChars":123,"textLines":5,"bbox":[446,326,350,252]}
+{"kind":"textbox","id":"sh/q5obu18j","slide":3,"text":"03","textPreview":"03","textChars":2,"textLines":1,"bbox":[850,190,60,48]}
+{"kind":"textbox","id":"sh/lcza9gr6","slide":3,"text":"CONTRACT LIFECYCLE","textPreview":"CONTRACT LIFECYCLE","textChars":18,"textLines":1,"bbox":[850,250,350,42]}
+{"kind":"shape","id":"sh/kbqt0bql","slide":3,"bbox":[850,300,350,1]}
+{"kind":"textbox","id":"sh/zahs7690","slide":3,"text":"• Contract creation and repository\n• Clause, approval and signature\n• Account/entity association\n• Obligation and status reporting\n• Renewal and amendment controls","textPreview":"• Contract creation and repository | • Clause, approval and signature | • Account/entity association | • Obligation and status reporting ...","textChars":163,"textLines":5,"bbox":[850,326,350,252]}
+{"kind":"textbox","id":"sh/y98by18f","slide":3,"text":"Shared controls: identity • security • audit • data quality • release governance • reconciliation","textPreview":"Shared controls: identity • security • audit • data quality • release governance • reconciliation","textChars":97,"textLines":1,"bbox":[42,612,1196,40]}
+{"kind":"textbox","id":"sh/90judgri","slide":3,"text":"Flywire future-state implementation","textPreview":"Flywire future-state implementation","textChars":35,"textLines":1,"bbox":[42,671,600,20]}
+{"kind":"notes","id":"nt/pihgcd","slide":3,"text":"\n\n[Sources]\n- C:/Users/LIKKI/Downloads/Flywire Future State Vision_20260814 (1).pdf, pages 6-10\n[/Sources]"}
+{"kind":"slide","id":"sl/in2b4a","slide":4,"title":"IMPLEMENTATION BLUEPRINT","textShapes":22}
+{"kind":"textbox","id":"sh/6tgbepsj","slide":4,"text":"IMPLEMENTATION BLUEPRINT","textPreview":"IMPLEMENTATION BLUEPRINT","textChars":24,"textLines":1,"bbox":[42,28,390,26]}
+{"kind":"textbox","id":"sh/tw7ap4bu","slide":4,"text":"Six principles keep the data model, services and process states synchronized","textPreview":"Six principles keep the data model, services and process states synchronized","textChars":76,"textLines":1,"bbox":[42,58,1188,94]}
+{"kind":"shape","id":"sh/svytgzap","slide":4,"bbox":[42,156,1196,1]}
+{"kind":"textbox","id":"sh/fy9cret0","slide":4,"text":"04","textPreview":"04","textChars":2,"textLines":1,"bbox":[1180,670,56,24]}
+{"kind":"textbox","id":"sh/exgbi9sf","slide":4,"text":"01","textPreview":"01","textChars":2,"textLines":1,"bbox":[42,184,56,38]}
+{"kind":"textbox","id":"sh/1krutob6","slide":4,"text":"Single source of truth","textPreview":"Single source of truth","textChars":22,"textLines":1,"bbox":[114,184,300,34]}
+{"kind":"textbox","id":"sh/gjitkjal","slide":4,"text":"Each business concept has one authoritative owner and one stable key.","textPreview":"Each business concept has one authoritative owner and one stable key.","textChars":69,"textLines":1,"bbox":[114,234,300,98]}
+{"kind":"shape","id":"sh/v25sfatw","slide":4,"bbox":[42,344,350,1]}
+{"kind":"textbox","id":"sh/u1wb65sb","slide":4,"text":"02","textPreview":"02","textChars":2,"textLines":1,"bbox":[440,184,56,38]}
+{"kind":"textbox","id":"sh/8fyxknq1","slide":4,"text":"Configuration over branching","textPreview":"Configuration over branching","textChars":28,"textLines":1,"bbox":[512,184,300,34]}
+{"kind":"textbox","id":"sh/9gryd8rm","slide":4,"text":"Pricing and approval policies live in governed rules, not scattered code.","textPreview":"Pricing and approval policies live in governed rules, not scattered code.","textChars":73,"textLines":1,"bbox":[512,234,300,98]}
+{"kind":"shape","id":"sh/mtgfid8v","slide":4,"bbox":[440,344,350,1]}
+{"kind":"textbox","id":"sh/7upgbi9g","slide":4,"text":"03","textPreview":"03","textChars":2,"textLines":1,"bbox":[838,184,56,38]}
+{"kind":"textbox","id":"sh/wjixonqx","slide":4,"text":"State drives behavior","textPreview":"State drives behavior","textChars":21,"textLines":1,"bbox":[910,184,300,34]}
+{"kind":"textbox","id":"sh/hkryhsri","slide":4,"text":"Editability, approvals, documents and handoffs depend on explicit lifecycle states.","textPreview":"Editability, approvals, documents and handoffs depend on explicit lifecycle states.","textChars":83,"textLines":1,"bbox":[910,234,300,98]}
+{"kind":"shape","id":"sh/uh0fmd87","slide":4,"bbox":[838,344,350,1]}
+{"kind":"textbox","id":"sh/vi9gfi9c","slide":4,"text":"04","textPreview":"04","textChars":2,"textLines":1,"bbox":[42,402,56,38]}
+{"kind":"textbox","id":"sh/cnexc3qt","slide":4,"text":"Events carry correlation","textPreview":"Events carry correlation","textChars":24,"textLines":1,"bbox":[114,402,300,34]}
+{"kind":"textbox","id":"sh/xone5ore","slide":4,"text":"Every downstream message can be retried, traced and reconciled.","textPreview":"Every downstream message can be retried, traced and reconciled.","textChars":63,"textLines":1,"bbox":[114,452,300,98]}
+{"kind":"shape","id":"sh/t8fmt0fq","slide":4,"bbox":[42,562,350,1]}
+{"kind":"textbox","id":"sh/s7mlkvyl","slide":4,"text":"05","textPreview":"05","textChars":2,"textLines":1,"bbox":[440,402,56,38]}
+{"kind":"textbox","id":"sh/r6d4rqx0","slide":4,"text":"Metrics use one engine","textPreview":"Metrics use one engine","textChars":22,"textLines":1,"bbox":[512,402,300,34]}
+{"kind":"textbox","id":"sh/6543ilgf","slide":4,"text":"ARR, MRR, TCV and one-time revenue share versioned calculation inputs.","textPreview":"ARR, MRR, TCV and one-time revenue share versioned calculation inputs.","textChars":70,"textLines":1,"bbox":[512,452,300,98]}
+{"kind":"shape","id":"sh/1cfmx0f2","slide":4,"bbox":[440,562,350,1]}
+{"kind":"textbox","id":"sh/gb65oveh","slide":4,"text":"06","textPreview":"06","textChars":2,"textLines":1,"bbox":[838,402,56,38]}
+{"kind":"textbox","id":"sh/fax4vqxw","slide":4,"text":"Controls ship with features","textPreview":"Controls ship with features","textChars":27,"textLines":1,"bbox":[910,402,300,34]}
+{"kind":"textbox","id":"sh/e9o3mlwb","slide":4,"text":"Security, audit, tests and rollback are part of every capability.","textPreview":"Security, audit, tests and rollback are part of every capability.","textChars":65,"textLines":1,"bbox":[910,452,300,98]}
+{"kind":"shape","id":"sh/p0zm1kfy","slide":4,"bbox":[838,562,350,1]}
+{"kind":"textbox","id":"sh/ozq5sfed","slide":4,"text":"Flywire future-state implementation","textPreview":"Flywire future-state implementation","textChars":35,"textLines":1,"bbox":[42,671,600,20]}
+{"kind":"notes","id":"nt/in2b4a","slide":4,"text":"\n\n[Sources]\n- C:/Users/LIKKI/Downloads/Flywire Future State Vision_20260814 (1).pdf, pages 18 and 39-46\n- C:/Users/LIKKI/Documents/ChatGPT/david/force-app/main/default\n[/Sources]"}
+{"kind":"slide","id":"sl/dbjeam","slide":5,"title":"IMPLEMENTATION BLUEPRINT","textShapes":8}
+{"kind":"textbox","id":"sh/h87y1wzi","slide":5,"text":"IMPLEMENTATION BLUEPRINT","textPreview":"IMPLEMENTATION BLUEPRINT","textChars":24,"textLines":1,"bbox":[42,28,390,26]}
+{"kind":"textbox","id":"sh/ulgf6hg7","slide":5,"text":"The target architecture separates experience, orchestration, integration and enterprise platforms","textPreview":"The target architecture separates experience, orchestration, integration and enterprise platforms","textChars":97,"textLines":1,"bbox":[42,58,1188,94]}
+{"kind":"shape","id":"sh/vmpgzmhc","slide":5,"bbox":[42,156,1196,1]}
+{"kind":"textbox","id":"sh/4bihcry9","slide":5,"text":"05","textPreview":"05","textChars":2,"textLines":1,"bbox":[1180,670,56,24]}
+{"kind":"textbox","id":"sh/i9gza1g3","slide":5,"text":"WHY THIS SHAPE","textPreview":"WHY THIS SHAPE","textChars":14,"textLines":1,"bbox":[900,184,280,24]}
+{"kind":"textbox","id":"sh/3apg36ho","slide":5,"text":"• One CRM experience for sales, deal desk and customer success\n• Orchestration owns commercial process; integrations do not\n• Integration layer handles transformation, retry and correlation\n• Finance acknowledgements flow back into reconciliation\n• Reporting consumes governed CRM and data-platform definitions","textPreview":"• One CRM experience for sales, deal desk and customer success | • Orchestration owns commercial process; integrations do not | • Integra...","textChars":310,"textLines":5,"bbox":[900,222,300,330]}
+{"kind":"textbox","id":"sh/kfex07yp","slide":5,"text":"Design rule","textPreview":"Design rule","textChars":11,"textLines":1,"bbox":[900,570,130,24]}
+{"kind":"textbox","id":"sh/lgnytcza","slide":5,"text":"No point-to-point integration may silently change the commercial meaning of a record.","textPreview":"No point-to-point integration may silently change the commercial meaning of a record.","textChars":85,"textLines":1,"bbox":[900,602,300,54]}
+{"kind":"textbox","id":"sh/9sbed83i","slide":5,"text":"Flywire future-state implementation","textPreview":"Flywire future-state implementation","textChars":35,"textLines":1,"bbox":[42,671,600,20]}
+{"kind":"image","id":"im/gfexcv21","slide":5,"name":"","alt":"PlantUML target integration architecture","bbox":[42,166,820,478]}
+{"kind":"notes","id":"nt/dbjeam","slide":5,"text":"\n\n[Sources]\n- C:/Users/LIKKI/Downloads/Flywire Future State Vision_20260814 (1).pdf, pages 18, 48-49\n- C:/Users/LIKKI/Documents/ChatGPT/david/tmp/flywire_future_deck/integration_architecture.puml\n[/Sources]"}
+{"kind":"slide","id":"sl/z3lykw","slide":6,"title":"IMPLEMENTATION BLUEPRINT","textShapes":6}
+{"kind":"textbox","id":"sh/snad0nq5","slide":6,"text":"IMPLEMENTATION BLUEPRINT","textPreview":"IMPLEMENTATION BLUEPRINT","textChars":24,"textLines":1,"bbox":[42,28,390,26]}
+{"kind":"textbox","id":"sh/721c7i9k","slide":6,"text":"The canonical model gives each commercial concept one governed home","textPreview":"The canonical model gives each commercial concept one governed home","textChars":67,"textLines":1,"bbox":[42,58,1188,94]}
+{"kind":"shape","id":"sh/618vex8f","slide":6,"bbox":[42,156,1196,1]}
+{"kind":"textbox","id":"sh/50zu5sru","slide":6,"text":"06","textPreview":"06","textChars":2,"textLines":1,"bbox":[1180,670,56,24]}
+{"kind":"textbox","id":"sh/kzqdcnq9","slide":6,"text":"COMMERCIAL CONFIGURATION","textPreview":"COMMERCIAL CONFIGURATION","textChars":24,"textLines":1,"bbox":[42,174,360,24]}
+{"kind":"textbox","id":"sh/jyhc3i9o","slide":6,"text":"APPROVAL, CONTRACT AND EXECUTION","textPreview":"APPROVAL, CONTRACT AND EXECUTION","textChars":32,"textLines":1,"bbox":[656,174,430,24]}
+{"kind":"textbox","id":"sh/4vud87qd","slide":6,"text":"PlantUML source is included in the implementation working set","textPreview":"PlantUML source is included in the implementation working set","textChars":61,"textLines":1,"bbox":[42,671,600,20]}
+{"kind":"image","id":"im/bq10fmt0","slide":6,"name":"","alt":"PlantUML commercial configuration data model","bbox":[42,204,570,432]}
+{"kind":"image","id":"im/kva1srux","slide":6,"name":"","alt":"PlantUML approval contract and execution data model","bbox":[656,204,570,432]}
+{"kind":"notes","id":"nt/z3lykw","slide":6,"text":"\n\n[Sources]\n- C:/Users/LIKKI/Downloads/Flywire Future State Vision_20260814 (1).pdf, pages 18, 23-31 and 39-46\n- C:/Users/LIKKI/Documents/ChatGPT/david/tmp/flywire_future_deck/data_model_commercial.puml\n- C:/Users/LIKKI/Documents/ChatGPT/david/tmp/flywire_future_deck/data_model_execution.puml\n[/Sources]"}
+{"kind":"slide","id":"sl/crcsm4","slide":7,"title":"IMPLEMENTATION BLUEPRINT","textShapes":33}
+{"kind":"textbox","id":"sh/g3i5krmx","slide":7,"text":"IMPLEMENTATION BLUEPRINT","textPreview":"IMPLEMENTATION BLUEPRINT","textChars":24,"textLines":1,"bbox":[42,28,390,26]}
+{"kind":"textbox","id":"sh/f294bmlc","slide":7,"text":"Ownership rules prevent duplicate truth and uncontrolled updates","textPreview":"Ownership rules prevent duplicate truth and uncontrolled updates","textChars":64,"textLines":1,"bbox":[42,58,1188,94]}
+{"kind":"shape","id":"sh/u10nih4r","slide":7,"bbox":[42,156,1196,1]}
+{"kind":"textbox","id":"sh/p8b6hg3e","slide":7,"text":"07","textPreview":"07","textChars":2,"textLines":1,"bbox":[1180,670,56,24]}
+{"kind":"textbox","id":"sh/4725obmt","slide":7,"text":"DOMAIN","textPreview":"DOMAIN","textChars":6,"textLines":1,"bbox":[42,182,186,36]}
+{"kind":"textbox","id":"sh/36t4f6lo","slide":7,"text":"AUTHORITATIVE RECORD","textPreview":"AUTHORITATIVE RECORD","textChars":20,"textLines":1,"bbox":[238,182,327,36]}
+{"kind":"textbox","id":"sh/25knm143","slide":7,"text":"OWNER","textPreview":"OWNER","textChars":5,"textLines":1,"bbox":[575,182,225,36]}
+{"kind":"textbox","id":"sh/5crm5c3a","slide":7,"text":"KEY CONTROL","textPreview":"KEY CONTROL","textChars":11,"textLines":1,"bbox":[810,182,428,36]}
+{"kind":"shape","id":"sh/kby5c7mp","slide":7,"bbox":[42,226,1196,58]}
+{"kind":"textbox","id":"sh/q5krudgr","slide":7,"text":"Customer","textPreview":"Customer","textChars":8,"textLines":1,"bbox":[50,234,170,42]}
+{"kind":"textbox","id":"sh/b6t83ixc","slide":7,"text":"CustomerAccount + LegalEntity","textPreview":"CustomerAccount + LegalEntity","textChars":29,"textLines":1,"bbox":[246,234,311,42]}
+{"kind":"textbox","id":"sh/c729wnyx","slide":7,"text":"CRM data steward","textPreview":"CRM data steward","textChars":16,"textLines":1,"bbox":[583,234,209,42]}
+{"kind":"textbox","id":"sh/d8bq5sfi","slide":7,"text":"Golden key, hierarchy and match policy","textPreview":"Golden key, hierarchy and match policy","textChars":38,"textLines":1,"bbox":[818,234,412,42]}
+{"kind":"shape","id":"sh/y94rydgn","slide":7,"bbox":[42,293,1196,58]}
+{"kind":"textbox","id":"sh/zad87ix8","slide":7,"text":"Product","textPreview":"Product","textChars":7,"textLines":1,"bbox":[50,301,170,42]}
+{"kind":"textbox","id":"sh/0bm90nyt","slide":7,"text":"Product + PriceBookEntry","textPreview":"Product + PriceBookEntry","textChars":24,"textLines":1,"bbox":[246,301,311,42]}
+{"kind":"textbox","id":"sh/lcvq9sfe","slide":7,"text":"Product operations","textPreview":"Product operations","textChars":18,"textLines":1,"bbox":[583,301,209,42]}
+{"kind":"textbox","id":"sh/mx4r2xgz","slide":7,"text":"SKU uniqueness, eligibility and effective dates","textPreview":"SKU uniqueness, eligibility and effective dates","textChars":47,"textLines":1,"bbox":[818,301,412,42]}
+{"kind":"shape","id":"sh/nydsb2xk","slide":7,"bbox":[42,360,1196,58]}
+{"kind":"textbox","id":"sh/j2x8j2ds","slide":7,"text":"Commercial","textPreview":"Commercial","textChars":10,"textLines":1,"bbox":[50,368,170,42]}
+{"kind":"textbox","id":"sh/i1o7qxw7","slide":7,"text":"Quote + QuoteLine + PricingSchedule","textPreview":"Quote + QuoteLine + PricingSchedule","textChars":35,"textLines":1,"bbox":[246,368,311,42]}
+{"kind":"textbox","id":"sh/54fqlcvi","slide":7,"text":"Sales / deal desk","textPreview":"Sales / deal desk","textChars":17,"textLines":1,"bbox":[583,368,209,42]}
+{"kind":"textbox","id":"sh/k36ps7ex","slide":7,"text":"Version, state, approval and edit locks","textPreview":"Version, state, approval and edit locks","textChars":39,"textLines":1,"bbox":[818,368,412,42]}
+{"kind":"shape","id":"sh/ved8f2dg","slide":7,"bbox":[42,427,1196,58]}
+{"kind":"textbox","id":"sh/ad47mxwv","slide":7,"text":"Contract","textPreview":"Contract","textChars":8,"textLines":1,"bbox":[50,435,170,42]}
+{"kind":"textbox","id":"sh/x0vqhsvm","slide":7,"text":"Contract + ContractLine","textPreview":"Contract + ContractLine","textChars":23,"textLines":1,"bbox":[246,435,311,42]}
+{"kind":"textbox","id":"sh/wzmpone1","slide":7,"text":"Legal / commercial operations","textPreview":"Legal / commercial operations","textChars":29,"textLines":1,"bbox":[583,435,209,42]}
+{"kind":"textbox","id":"sh/nad8bidk","slide":7,"text":"Accepted terms, entity and obligation integrity","textPreview":"Accepted terms, entity and obligation integrity","textChars":47,"textLines":1,"bbox":[818,435,412,42]}
+{"kind":"shape","id":"sh/m947idwz","slide":7,"bbox":[42,494,1196,58]}
+{"kind":"textbox","id":"sh/cfi5sjuh","slide":7,"text":"Order","textPreview":"Order","textChars":5,"textLines":1,"bbox":[50,502,170,42]}
+{"kind":"textbox","id":"sh/dgrmlob2","slide":7,"text":"Order + IntegrationEvent","textPreview":"Order + IntegrationEvent","textChars":24,"textLines":1,"bbox":[246,502,311,42]}
+{"kind":"textbox","id":"sh/qd0nq9cr","slide":7,"text":"Operations","textPreview":"Operations","textChars":10,"textLines":1,"bbox":[583,502,209,42]}
+{"kind":"textbox","id":"sh/be94jetc","slide":7,"text":"Correlation, acknowledgement and retry status","textPreview":"Correlation, acknowledgement and retry status","textChars":45,"textLines":1,"bbox":[818,502,412,42]}
+{"kind":"shape","id":"sh/0j25wjut","slide":7,"bbox":[42,561,1196,58]}
+{"kind":"textbox","id":"sh/lkb6pobe","slide":7,"text":"Revenue","textPreview":"Revenue","textChars":7,"textLines":1,"bbox":[50,569,170,42]}
+{"kind":"textbox","id":"sh/yhknutcn","slide":7,"text":"RevenueMetrics + financial actuals","textPreview":"RevenueMetrics + financial actuals","textChars":34,"textLines":1,"bbox":[246,569,311,42]}
+{"kind":"textbox","id":"sh/zit4nyt8","slide":7,"text":"Finance","textPreview":"Finance","textChars":7,"textLines":1,"bbox":[583,569,209,42]}
+{"kind":"textbox","id":"sh/gny5kzup","slide":7,"text":"Versioned formula and variance reconciliation","textPreview":"Versioned formula and variance reconciliation","textChars":45,"textLines":1,"bbox":[818,569,412,42]}
+{"kind":"textbox","id":"sh/1o7md4bu","slide":7,"text":"Every integration reads from an authoritative record and writes only through an owned service or approved reconciliation path.","textPreview":"Every integration reads from an authoritative record and writes only through an owned service or approved reconciliation path.","textChars":126,"textLines":1,"bbox":[42,640,1140,30]}
+{"kind":"textbox","id":"sh/94jet4be","slide":7,"text":"Flywire future-state implementation","textPreview":"Flywire future-state implementation","textChars":35,"textLines":1,"bbox":[42,671,600,20]}
+{"kind":"notes","id":"nt/crcsm4","slide":7,"text":"\n\n[Sources]\n- C:/Users/LIKKI/Downloads/Flywire Future State Vision_20260814 (1).pdf, pages 18 and 41-46\n[/Sources]"}
+{"kind":"slide","id":"sl/yx73od","slide":8,"title":"IMPLEMENTATION BLUEPRINT","textShapes":32}
+{"kind":"textbox","id":"sh/axkj29s7","slide":8,"text":"IMPLEMENTATION BLUEPRINT","textPreview":"IMPLEMENTATION BLUEPRINT","textChars":24,"textLines":1,"bbox":[42,28,390,26]}
+{"kind":"textbox","id":"sh/xkbixori","slide":8,"text":"Data moves forward only after validation and controlled decisions","textPreview":"Data moves forward only after validation and controlled decisions","textChars":65,"textLines":1,"bbox":[42,58,1188,94]}
+{"kind":"shape","id":"sh/wj214jax","slide":8,"bbox":[42,156,1196,1]}
+{"kind":"textbox","id":"sh/jmd0zy9o","slide":8,"text":"08","textPreview":"08","textChars":2,"textLines":1,"bbox":[1180,670,56,24]}
+{"kind":"shape","id":"sh/ilkj6ts3","slide":8,"bbox":[42,210,164,124]}
+{"kind":"textbox","id":"sh/5ovi1oru","slide":8,"text":"IDENTIFY","textPreview":"IDENTIFY","textChars":8,"textLines":1,"bbox":[52,232,144,28]}
+{"kind":"textbox","id":"sh/knm18ja9","slide":8,"text":"Match customer\nand entity","textPreview":"Match customer | and entity","textChars":25,"textLines":2,"bbox":[54,280,140,44]}
+{"kind":"shape","id":"sh/zq90nu9k","slide":8,"bbox":[208,260,30,20]}
+{"kind":"shape","id":"sh/ep0zupsz","slide":8,"bbox":[240,210,164,124]}
+{"kind":"textbox","id":"sh/snmh03md","slide":8,"text":"CONFIGURE","textPreview":"CONFIGURE","textChars":9,"textLines":1,"bbox":[250,232,144,28]}
+{"kind":"textbox","id":"sh/dovyt8ny","slide":8,"text":"Select product\nand price","textPreview":"Select product | and price","textChars":24,"textLines":2,"bbox":[252,280,140,44]}
+{"kind":"shape","id":"sh/ql4zyd47","slide":8,"bbox":[406,260,30,20]}
+{"kind":"shape","id":"sh/rmdgri5s","slide":8,"bbox":[438,210,164,124]}
+{"kind":"textbox","id":"sh/0r6h4nm9","slide":8,"text":"CALCULATE","textPreview":"CALCULATE","textChars":9,"textLines":1,"bbox":[448,232,144,28]}
+{"kind":"textbox","id":"sh/1sfixsnu","slide":8,"text":"Schedule value\nand metrics","textPreview":"Schedule value | and metrics","textChars":26,"textLines":2,"bbox":[450,280,140,44]}
+{"kind":"shape","id":"sh/ep4z2d43","slide":8,"bbox":[604,260,30,20]}
+{"kind":"shape","id":"sh/fqxgvi5o","slide":8,"bbox":[636,210,164,124]}
+{"kind":"textbox","id":"sh/wv2hsjm5","slide":8,"text":"DECIDE","textPreview":"DECIDE","textChars":6,"textLines":1,"bbox":[646,232,144,28]}
+{"kind":"textbox","id":"sh/hwbylonq","slide":8,"text":"Validate and\napprove","textPreview":"Validate and | approve","textChars":20,"textLines":2,"bbox":[648,280,140,44]}
+{"kind":"shape","id":"sh/xgj69gb2","slide":8,"bbox":[802,260,30,20]}
+{"kind":"shape","id":"sh/cfa50vah","slide":8,"bbox":[834,210,164,124]}
+{"kind":"textbox","id":"sh/be1o7qtc","slide":8,"text":"COMMIT","textPreview":"COMMIT","textChars":6,"textLines":1,"bbox":[844,232,144,28]}
+{"kind":"textbox","id":"sh/adsnylsr","slide":8,"text":"Generate, sign\nand contract","textPreview":"Generate, sign | and contract","textChars":27,"textLines":2,"bbox":[846,280,140,44]}
+{"kind":"shape","id":"sh/l436d0be","slide":8,"bbox":[1000,260,30,20]}
+{"kind":"shape","id":"sh/k3u54vat","slide":8,"bbox":[1032,210,164,124]}
+{"kind":"textbox","id":"sh/z2lobqt8","slide":8,"text":"RECONCILE","textPreview":"RECONCILE","textChars":9,"textLines":1,"bbox":[1042,232,144,28]}
+{"kind":"textbox","id":"sh/y1cn2lsn","slide":8,"text":"Order, bill\nand compare","textPreview":"Order, bill | and compare","textChars":23,"textLines":2,"bbox":[1044,280,140,44]}
+{"kind":"textbox","id":"sh/9836h0ba","slide":8,"text":"CONTROL GATES","textPreview":"CONTROL GATES","textChars":13,"textLines":1,"bbox":[42,390,300,24]}
+{"kind":"textbox","id":"sh/87u58fap","slide":8,"text":"01","textPreview":"01","textChars":2,"textLines":1,"bbox":[42,430,46,30]}
+{"kind":"textbox","id":"sh/qdo32x87","slide":8,"text":"Identity","textPreview":"Identity","textChars":8,"textLines":1,"bbox":[98,430,180,26]}
+{"kind":"textbox","id":"sh/rexkv29s","slide":8,"text":"Golden account, hierarchy and legal entity are resolved.","textPreview":"Golden account, hierarchy and legal entity are resolved.","textChars":56,"textLines":1,"bbox":[98,460,300,48]}
+{"kind":"textbox","id":"sh/sf6l47qd","slide":8,"text":"02","textPreview":"02","textChars":2,"textLines":1,"bbox":[440,430,46,30]}
+{"kind":"textbox","id":"sh/dgf2xcry","slide":8,"text":"Commercial policy","textPreview":"Commercial policy","textChars":17,"textLines":1,"bbox":[496,430,180,26]}
+{"kind":"textbox","id":"sh/eho36h8j","slide":8,"text":"Product, pricing, term, risk and completeness pass.","textPreview":"Product, pricing, term, risk and completeness pass.","textChars":51,"textLines":1,"bbox":[496,460,300,48]}
+{"kind":"textbox","id":"sh/fihkzm94","slide":8,"text":"03","textPreview":"03","textChars":2,"textLines":1,"bbox":[838,430,46,30]}
+{"kind":"textbox","id":"sh/0jql8rq9","slide":8,"text":"Approval","textPreview":"Approval","textChars":8,"textLines":1,"bbox":[894,430,180,26]}
+{"kind":"textbox","id":"sh/1kz21wru","slide":8,"text":"Required personas decide; material values remain locked.","textPreview":"Required personas decide; material values remain locked.","textChars":56,"textLines":1,"bbox":[894,460,300,48]}
+{"kind":"textbox","id":"sh/2l83ah8f","slide":8,"text":"04","textPreview":"04","textChars":2,"textLines":1,"bbox":[42,522,46,30]}
+{"kind":"textbox","id":"sh/nmh43m90","slide":8,"text":"Acceptance","textPreview":"Acceptance","textChars":10,"textLines":1,"bbox":[98,522,180,26]}
+{"kind":"textbox","id":"sh/b2dknm14","slide":8,"text":"Proposal and contract reference the approved quote version.","textPreview":"Proposal and contract reference the approved quote version.","textChars":59,"textLines":1,"bbox":[98,552,300,48]}
+{"kind":"textbox","id":"sh/a143uh0j","slide":8,"text":"05","textPreview":"05","textChars":2,"textLines":1,"bbox":[440,522,46,30]}
+{"kind":"textbox","id":"sh/x4f2pwja","slide":8,"text":"Reconciliation","textPreview":"Reconciliation","textChars":14,"textLines":1,"bbox":[496,522,180,26]}
+{"kind":"textbox","id":"sh/w3mlwrip","slide":8,"text":"Downstream acknowledgement and financial variance are recorded.","textPreview":"Downstream acknowledgement and financial variance are recorded.","textChars":63,"textLines":1,"bbox":[496,552,300,48]}
+{"kind":"textbox","id":"sh/j6xkr61g","slide":8,"text":"Flywire future-state implementation","textPreview":"Flywire future-state implementation","textChars":35,"textLines":1,"bbox":[42,671,600,20]}
+{"kind":"notes","id":"nt/yx73od","slide":8,"text":"\n\n[Sources]\n- C:/Users/LIKKI/Downloads/Flywire Future State Vision_20260814 (1).pdf, pages 23-31\n- C:/Users/LIKKI/Documents/ChatGPT/david/tmp/flywire_future_deck/data_flow.puml\n[/Sources]"}
+{"kind":"slide","id":"sl/86advz","slide":9,"title":"IMPLEMENTATION BLUEPRINT","textShapes":19}
+{"kind":"textbox","id":"sh/behkrap8","slide":9,"text":"IMPLEMENTATION BLUEPRINT","textPreview":"IMPLEMENTATION BLUEPRINT","textChars":24,"textLines":1,"bbox":[42,28,390,26]}
+{"kind":"textbox","id":"sh/wfalkfqt","slide":9,"text":"One quote state model governs edits, approvals, documents and downstream handoffs","textPreview":"One quote state model governs edits, approvals, documents and downstream handoffs","textChars":81,"textLines":1,"bbox":[42,58,1188,94]}
+{"kind":"shape","id":"sh/xgj2tk7e","slide":9,"bbox":[42,156,1196,1]}
+{"kind":"textbox","id":"sh/m98je58r","slide":9,"text":"09","textPreview":"09","textChars":2,"textLines":1,"bbox":[1180,670,56,24]}
+{"kind":"shape","id":"sh/nahknapc","slide":9,"bbox":[42,230,120,70]}
+{"kind":"textbox","id":"sh/obq1gfqx","slide":9,"text":"DRAFT","textPreview":"DRAFT","textChars":5,"textLines":1,"bbox":[50,252,104,26]}
+{"kind":"shape","id":"sh/9cz2pk7i","slide":9,"bbox":[164,248,24,20]}
+{"kind":"shape","id":"sh/65s3q98b","slide":9,"bbox":[191,230,120,70]}
+{"kind":"textbox","id":"sh/76lkzupg","slide":9,"text":"CONFIGURED","textPreview":"CONFIGURED","textChars":10,"textLines":1,"bbox":[199,252,104,26]}
+{"kind":"shape","id":"sh/zmxc3apc","slide":9,"bbox":[313,248,24,20]}
+{"kind":"shape","id":"sh/ylova5o7","slide":9,"bbox":[340,230,120,70]}
+{"kind":"textbox","id":"sh/lozu507i","slide":9,"text":"VALIDATED","textPreview":"VALIDATED","textChars":9,"textLines":1,"bbox":[348,252,104,26]}
+{"kind":"shape","id":"sh/kn6dcv6x","slide":9,"bbox":[462,248,24,20]}
+{"kind":"shape","id":"sh/7ahw7apo","slide":9,"bbox":[489,230,120,70]}
+{"kind":"textbox","id":"sh/m98ve5o3","slide":9,"text":"APPROVED","textPreview":"APPROVED","textChars":8,"textLines":1,"bbox":[497,252,104,26]}
+{"kind":"shape","id":"sh/9cze9k7u","slide":9,"bbox":[611,248,24,20]}
+{"kind":"shape","id":"sh/8bqdgf69","slide":9,"bbox":[638,230,120,70]}
+{"kind":"textbox","id":"sh/vehwbupk","slide":9,"text":"PROPOSAL","textPreview":"PROPOSAL","textChars":8,"textLines":1,"bbox":[646,252,104,26]}
+{"kind":"shape","id":"sh/ud8vipoz","slide":9,"bbox":[760,248,24,20]}
+{"kind":"shape","id":"sh/q9cfat87","slide":9,"bbox":[787,230,120,70]}
+{"kind":"textbox","id":"sh/ralg3e9s","slide":9,"text":"CONTRACTED","textPreview":"CONTRACTED","textChars":10,"textLines":1,"bbox":[795,252,104,26]}
+{"kind":"shape","id":"sh/sbuxcjqd","slide":9,"bbox":[909,248,24,20]}
+{"kind":"shape","id":"sh/dc3y5ory","slide":9,"bbox":[936,230,120,70]}
+{"kind":"textbox","id":"sh/i5sf698b","slide":9,"text":"ORDERED","textPreview":"ORDERED","textChars":7,"textLines":1,"bbox":[944,252,104,26]}
+{"kind":"shape","id":"sh/j61gze9w","slide":9,"bbox":[1058,248,24,20]}
+{"kind":"shape","id":"sh/47ux8jqh","slide":9,"bbox":[1085,230,120,70]}
+{"kind":"textbox","id":"sh/583y1or2","slide":9,"text":"ACTIVATED","textPreview":"ACTIVATED","textChars":9,"textLines":1,"bbox":[1093,252,104,26]}
+{"kind":"shape","id":"sh/21wzid8f","slide":9,"bbox":[360,322,1,90]}
+{"kind":"shape","id":"sh/n25gby90","slide":9,"bbox":[286,414,150,62]}
+{"kind":"textbox","id":"sh/xw7ihcbi","slide":9,"text":"PENDING APPROVAL","textPreview":"PENDING APPROVAL","textChars":16,"textLines":1,"bbox":[296,434,130,24]}
+{"kind":"textbox","id":"sh/cvy187ax","slide":9,"text":"Required after validation when policy thresholds are triggered","textPreview":"Required after validation when policy thresholds are triggered","textChars":62,"textLines":1,"bbox":[470,418,350,50]}
+{"kind":"shape","id":"sh/bup0f2tc","slide":9,"bbox":[1010,322,1,90]}
+{"kind":"shape","id":"sh/atgj6xsr","slide":9,"bbox":[930,414,160,62]}
+{"kind":"textbox","id":"sh/ps7idsb6","slide":9,"text":"AMENDMENT","textPreview":"AMENDMENT","textChars":9,"textLines":1,"bbox":[942,434,136,24]}
+{"kind":"textbox","id":"sh/o7y14nal","slide":9,"text":"Material change returns to validation and approval","textPreview":"Material change returns to validation and approval","textChars":50,"textLines":1,"bbox":[1110,418,120,64]}
+{"kind":"textbox","id":"sh/n6p0bit0","slide":9,"text":"STATE GUARANTEES","textPreview":"STATE GUARANTEES","textChars":16,"textLines":1,"bbox":[42,526,300,24]}
+{"kind":"textbox","id":"sh/25wj2dsv","slide":9,"text":"Draft permits editing • Pending Approval locks commercial values • Proposal references an immutable approved version • Contracted and Ordered require acknowledged handoffs","textPreview":"Draft permits editing • Pending Approval locks commercial values • Proposal references an immutable approved version • Contracted and Ord...","textChars":171,"textLines":1,"bbox":[42,566,1160,54]}
+{"kind":"textbox","id":"sh/9or2pwba","slide":9,"text":"Status is behavior—not a label.","textPreview":"Status is behavior—not a label.","textChars":31,"textLines":1,"bbox":[460,630,360,32]}
+{"kind":"textbox","id":"sh/83i1gra5","slide":9,"text":"Flywire future-state implementation","textPreview":"Flywire future-state implementation","textChars":35,"textLines":1,"bbox":[42,671,600,20]}
+{"kind":"notes","id":"nt/86advz","slide":9,"text":"\n\n[Sources]\n- C:/Users/LIKKI/Downloads/Flywire Future State Vision_20260814 (1).pdf, pages 23, 28-31\n- C:/Users/LIKKI/Documents/ChatGPT/david/tmp/flywire_future_deck/state_model.puml\n[/Sources]"}
+{"kind":"slide","id":"sl/fouvv6","slide":10,"title":"IMPLEMENTATION BLUEPRINT","textShapes":16}
+{"kind":"textbox","id":"sh/q9cvq9cn","slide":10,"text":"IMPLEMENTATION BLUEPRINT","textPreview":"IMPLEMENTATION BLUEPRINT","textChars":24,"textLines":1,"bbox":[42,28,390,26]}
+{"kind":"textbox","id":"sh/dcne14by","slide":10,"text":"Approval rules are configuration, not hard-coded branching","textPreview":"Approval rules are configuration, not hard-coded branching","textChars":58,"textLines":1,"bbox":[42,58,1188,94]}
+{"kind":"shape","id":"sh/cbexsjud","slide":10,"bbox":[42,156,1196,1]}
+{"kind":"textbox","id":"sh/3mlwvutw","slide":10,"text":"10","textPreview":"10","textChars":2,"textLines":1,"bbox":[1180,670,56,24]}
+{"kind":"textbox","id":"sh/2lcvmpcb","slide":10,"text":"RULE INPUT","textPreview":"RULE INPUT","textChars":10,"textLines":1,"bbox":[42,184,260,24]}
+{"kind":"shape","id":"sh/p83ex4b2","slide":10,"bbox":[42,220,350,346]}
+{"kind":"textbox","id":"sh/4nudozuh","slide":10,"text":"• Rule key and effective dates\n• Active flag and priority\n• Discount / ARR / term thresholds\n• Product, entity and currency scope\n• Risk and exception categories\n• Required persona and sequence\n• Parallel-group identifier\n• Human-readable reason template","textPreview":"• Rule key and effective dates | • Active flag and priority | • Discount / ARR / term thresholds | • Product, entity and currency scope |...","textChars":254,"textLines":8,"bbox":[66,246,300,286]}
+{"kind":"shape","id":"sh/fi1wrut0","slide":10,"bbox":[412,360,70,22]}
+{"kind":"textbox","id":"sh/uhsvipcf","slide":10,"text":"EVALUATION","textPreview":"EVALUATION","textChars":10,"textLines":1,"bbox":[500,184,260,24]}
+{"kind":"shape","id":"sh/0fi1cvqx","slide":10,"bbox":[500,220,300,346]}
+{"kind":"textbox","id":"sh/1gri507i","slide":10,"text":"Quote Context","textPreview":"Quote Context","textChars":13,"textLines":1,"bbox":[528,248,240,32]}
+{"kind":"textbox","id":"sh/edgjal87","slide":10,"text":"+","textPreview":"+","textChars":1,"textLines":1,"bbox":[610,298,80,34]}
+{"kind":"textbox","id":"sh/fe903qps","slide":10,"text":"Active Rules","textPreview":"Active Rules","textChars":12,"textLines":1,"bbox":[528,338,240,32]}
+{"kind":"textbox","id":"sh/sry18bq1","slide":10,"text":"↓","textPreview":"↓","textChars":1,"textLines":1,"bbox":[610,386,80,34]}
+{"kind":"textbox","id":"sh/ds7i1g7m","slide":10,"text":"Approval Plan","textPreview":"Approval Plan","textChars":13,"textLines":1,"bbox":[528,432,240,34]}
+{"kind":"textbox","id":"sh/qpgj6l8v","slide":10,"text":"ordered steps • parallel groups • reasons • missing approvers","textPreview":"ordered steps • parallel groups • reasons • missing approvers","textChars":61,"textLines":1,"bbox":[524,482,252,52]}
+{"kind":"shape","id":"sh/rqp0z6pg","slide":10,"bbox":[820,360,70,22]}
+{"kind":"textbox","id":"sh/cn21kfq5","slide":10,"text":"CONTROLLED ACTION","textPreview":"CONTROLLED ACTION","textChars":17,"textLines":1,"bbox":[908,184,300,24]}
+{"kind":"shape","id":"sh/xob2dk7q","slide":10,"bbox":[908,220,300,346]}
+{"kind":"textbox","id":"sh/lsnahgvy","slide":10,"text":"• Create approval request\n• Resolve approvers by persona\n• Lock commercial values\n• Record each decision\n• Notify only required participants\n• Recall or reject with reason\n• Unlock through controlled transition\n• Retain audit history","textPreview":"• Create approval request | • Resolve approvers by persona | • Lock commercial values | • Record each decision | • Notify only required p...","textChars":233,"textLines":8,"bbox":[932,246,252,286]}
+{"kind":"textbox","id":"sh/kre98bed","slide":10,"text":"Phase 1 can run in evaluation-only mode before submission is enabled.","textPreview":"Phase 1 can run in evaluation-only mode before submission is enabled.","textChars":69,"textLines":1,"bbox":[42,610,1166,38]}
+{"kind":"textbox","id":"sh/zq5sf6ds","slide":10,"text":"Flywire future-state implementation","textPreview":"Flywire future-state implementation","textChars":35,"textLines":1,"bbox":[42,671,600,20]}
+{"kind":"notes","id":"nt/fouvv6","slide":10,"text":"\n\n[Sources]\n- C:/Users/LIKKI/Downloads/Flywire Future State Vision_20260814 (1).pdf, pages 23-26\n- C:/Users/LIKKI/Documents/ChatGPT/david/force-app/main/default\n[/Sources]"}
+{"kind":"slide","id":"sl/in3oyd","slide":11,"title":"IMPLEMENTATION BLUEPRINT","textShapes":10}
+{"kind":"textbox","id":"sh/eh036d8f","slide":11,"text":"IMPLEMENTATION BLUEPRINT","textPreview":"IMPLEMENTATION BLUEPRINT","textChars":24,"textLines":1,"bbox":[42,28,390,26]}
+{"kind":"textbox","id":"sh/1krm18r6","slide":11,"text":"Approval services isolate policy decisions from lifecycle execution","textPreview":"Approval services isolate policy decisions from lifecycle execution","textChars":67,"textLines":1,"bbox":[42,58,1188,94]}
+{"kind":"shape","id":"sh/0jil8nql","slide":11,"bbox":[42,156,1196,1]}
+{"kind":"textbox","id":"sh/rup4vy94","slide":11,"text":"11","textPreview":"11","textChars":2,"textLines":1,"bbox":[1180,670,56,24]}
+{"kind":"textbox","id":"sh/dg7mx8ru","slide":11,"text":"Context","textPreview":"Context","textChars":7,"textLines":1,"bbox":[42,534,350,30]}
+{"kind":"textbox","id":"sh/sfyl43q9","slide":11,"text":"Build one immutable view of quote, line, customer and risk inputs.","textPreview":"Build one immutable view of quote, line, customer and risk inputs.","textChars":66,"textLines":1,"bbox":[42,572,350,62]}
+{"kind":"textbox","id":"sh/3qp4ry9s","slide":11,"text":"Decision","textPreview":"Decision","textChars":8,"textLines":1,"bbox":[440,534,350,30]}
+{"kind":"textbox","id":"sh/ipw3yt87","slide":11,"text":"Evaluate active rules and produce an explainable approval plan.","textPreview":"Evaluate active rules and produce an explainable approval plan.","textChars":63,"textLines":1,"bbox":[440,572,350,62]}
+{"kind":"textbox","id":"sh/07mlkjal","slide":11,"text":"Lifecycle","textPreview":"Lifecycle","textChars":9,"textLines":1,"bbox":[838,534,350,30]}
+{"kind":"textbox","id":"sh/l8v2dob6","slide":11,"text":"Create requests, lock values, record decisions and preserve audit.","textPreview":"Create requests, lock values, record decisions and preserve audit.","textChars":66,"textLines":1,"bbox":[838,572,350,62]}
+{"kind":"textbox","id":"sh/y543i9sf","slide":11,"text":"Flywire future-state implementation","textPreview":"Flywire future-state implementation","textChars":35,"textLines":1,"bbox":[42,671,600,20]}
+{"kind":"image","id":"im/za5s765w","slide":11,"name":"","alt":"PlantUML approval service class diagram","bbox":[42,170,1196,346]}
+{"kind":"notes","id":"nt/in3oyd","slide":11,"text":"\n\n[Sources]\n- C:/Users/LIKKI/Downloads/Flywire Future State Vision_20260814 (1).pdf, pages 23-26\n- C:/Users/LIKKI/Documents/ChatGPT/david/tmp/flywire_future_deck/approval_class_diagram.puml\n[/Sources]"}
+{"kind":"slide","id":"sl/jp4pui","slide":12,"title":"IMPLEMENTATION BLUEPRINT","textShapes":20}
+{"kind":"textbox","id":"sh/6d4jypgf","slide":12,"text":"IMPLEMENTATION BLUEPRINT","textPreview":"IMPLEMENTATION BLUEPRINT","textChars":24,"textLines":1,"bbox":[42,28,390,26]}
+{"kind":"textbox","id":"sh/t0vi94zq","slide":12,"text":"Pricing schedules and revenue metrics share one versioned calculation model","textPreview":"Pricing schedules and revenue metrics share one versioned calculation model","textChars":75,"textLines":1,"bbox":[42,58,1188,94]}
+{"kind":"shape","id":"sh/sfm10zy5","slide":12,"bbox":[42,156,1196,1]}
+{"kind":"textbox","id":"sh/f2d0behw","slide":12,"text":"12","textPreview":"12","textChars":2,"textLines":1,"bbox":[1180,670,56,24]}
+{"kind":"shape","id":"sh/e14j29gb","slide":12,"bbox":[42,210,166,128]}
+{"kind":"textbox","id":"sh/14fid4z2","slide":12,"text":"CATALOGUE","textPreview":"CATALOGUE","textChars":9,"textLines":1,"bbox":[52,230,146,28]}
+{"kind":"textbox","id":"sh/g3m14zyh","slide":12,"text":"Product, bundle, eligibility","textPreview":"Product, bundle, eligibility","textChars":28,"textLines":1,"bbox":[54,274,142,48]}
+{"kind":"shape","id":"sh/36x0fehs","slide":12,"bbox":[210,260,28,20]}
+{"kind":"shape","id":"sh/25oj69gn","slide":12,"bbox":[240,210,166,128]}
+{"kind":"textbox","id":"sh/gzi98ve5","slide":12,"text":"PRICE BOOK","textPreview":"PRICE BOOK","textChars":10,"textLines":1,"bbox":[250,230,146,28]}
+{"kind":"textbox","id":"sh/h0rq10fq","slide":12,"text":"Currency, list price, dates","textPreview":"Currency, list price, dates","textChars":27,"textLines":1,"bbox":[252,274,142,48]}
+{"kind":"shape","id":"sh/ud076lwz","slide":12,"bbox":[408,260,28,20]}
+{"kind":"shape","id":"sh/fe98zqxk","slide":12,"bbox":[438,210,166,128]}
+{"kind":"textbox","id":"sh/4329cve1","slide":12,"text":"PRICING RULE","textPreview":"PRICING RULE","textChars":12,"textLines":1,"bbox":[448,230,146,28]}
+{"kind":"textbox","id":"sh/p4bq50fm","slide":12,"text":"Tier, ramp, term, exception","textPreview":"Tier, ramp, term, exception","textChars":27,"textLines":1,"bbox":[450,274,142,48]}
+{"kind":"shape","id":"sh/21kra5wb","slide":12,"bbox":[606,260,28,20]}
+{"kind":"shape","id":"sh/32t83axg","slide":12,"bbox":[636,210,166,128]}
+{"kind":"textbox","id":"sh/c729gfed","slide":12,"text":"QUOTE LINE","textPreview":"QUOTE LINE","textChars":10,"textLines":1,"bbox":[646,230,146,28]}
+{"kind":"textbox","id":"sh/d8bq9kvy","slide":12,"text":"Quantity and net price","textPreview":"Quantity and net price","textChars":22,"textLines":1,"bbox":[648,274,142,48]}
+{"kind":"shape","id":"sh/lorqtkn2","slide":12,"bbox":[804,260,28,20]}
+{"kind":"shape","id":"sh/knyp0f6h","slide":12,"bbox":[834,210,166,128]}
+{"kind":"textbox","id":"sh/zmp8ra5w","slide":12,"text":"SCHEDULE","textPreview":"SCHEDULE","textChars":8,"textLines":1,"bbox":[844,230,146,28]}
+{"kind":"textbox","id":"sh/ylg7y5ob","slide":12,"text":"Period-level amount","textPreview":"Period-level amount","textChars":19,"textLines":1,"bbox":[846,274,142,48]}
+{"kind":"shape","id":"sh/9srqxkny","slide":12,"bbox":[1002,260,28,20]}
+{"kind":"shape","id":"sh/8ri94f6d","slide":12,"bbox":[1032,210,166,128]}
+{"kind":"textbox","id":"sh/7q98va5s","slide":12,"text":"METRICS","textPreview":"METRICS","textChars":7,"textLines":1,"bbox":[1042,230,146,28]}
+{"kind":"textbox","id":"sh/mp0r2pon","slide":12,"text":"ARR, MRR, TCV, one-time","textPreview":"ARR, MRR, TCV, one-time","textChars":23,"textLines":1,"bbox":[1044,274,142,48]}
+{"kind":"shape","id":"sh/pw7ql07u","slide":12,"bbox":[42,390,560,202]}
+{"kind":"textbox","id":"sh/ovepsv69","slide":12,"text":"CALCULATION CONTRACT","textPreview":"CALCULATION CONTRACT","textChars":20,"textLines":1,"bbox":[66,414,300,24]}
+{"kind":"textbox","id":"sh/e1cn2147","slide":12,"text":"• Inputs are captured with quote-version and rule-version identifiers\n• Schedules preserve escalation and ramp-period detail\n• One-time lines never distort recurring metrics\n• Currency conversion uses an explicit rate date and source","textPreview":"• Inputs are captured with quote-version and rule-version identifiers | • Schedules preserve escalation and ramp-period detail | • One-ti...","textChars":233,"textLines":4,"bbox":[66,452,510,120]}
+{"kind":"shape","id":"sh/f2lovmls","slide":12,"bbox":[632,390,576,202]}
+{"kind":"textbox","id":"sh/g3u54rmx","slide":12,"text":"OUTPUT AND RECONCILIATION","textPreview":"OUTPUT AND RECONCILIATION","textChars":25,"textLines":1,"bbox":[656,414,340,24]}
+{"kind":"textbox","id":"sh/1436xw3i","slide":12,"text":"ARR = normalized recurring value\nMRR = recurring value ÷ service months\nTCV = sum of all scheduled contract value\nVariance = contracted metric − financial actual","textPreview":"ARR = normalized recurring value | MRR = recurring value ÷ service months | TCV = sum of all scheduled contract value | Variance = contra...","textChars":161,"textLines":4,"bbox":[656,452,520,118]}
+{"kind":"textbox","id":"sh/25wn6143","slide":12,"text":"Flywire future-state implementation","textPreview":"Flywire future-state implementation","textChars":35,"textLines":1,"bbox":[42,671,600,20]}
+{"kind":"notes","id":"nt/jp4pui","slide":12,"text":"\n\n[Sources]\n- C:/Users/LIKKI/Downloads/Flywire Future State Vision_20260814 (1).pdf, pages 23-26 and 43\n- C:/Users/LIKKI/Documents/ChatGPT/david/force-app/main/default\n[/Sources]"}
+{"kind":"slide","id":"sl/cf8eif","slide":13,"title":"IMPLEMENTATION BLUEPRINT","textShapes":15}
+{"kind":"textbox","id":"sh/1wnqhwre","slide":13,"text":"IMPLEMENTATION BLUEPRINT","textPreview":"IMPLEMENTATION BLUEPRINT","textChars":24,"textLines":1,"bbox":[42,28,390,26]}
+{"kind":"textbox","id":"sh/e9wrmhs3","slide":13,"text":"Product governance separates catalogue, price, packaging and eligibility","textPreview":"Product governance separates catalogue, price, packaging and eligibility","textChars":72,"textLines":1,"bbox":[42,58,1188,94]}
+{"kind":"shape","id":"sh/fu58fm9o","slide":13,"bbox":[42,156,1196,1]}
+{"kind":"textbox","id":"sh/s7u9k7ax","slide":13,"text":"13","textPreview":"13","textChars":2,"textLines":1,"bbox":[1180,670,56,24]}
+{"kind":"shape","id":"sh/d8nqdcri","slide":13,"bbox":[82,180,1030,66]}
+{"kind":"textbox","id":"sh/q5crihsr","slide":13,"text":"SELLABLE EXPERIENCE","textPreview":"SELLABLE EXPERIENCE","textChars":19,"textLines":1,"bbox":[110,194,240,30]}
+{"kind":"textbox","id":"sh/r6l8bm9c","slide":13,"text":"Guided selection • compatible options • customer-friendly labels","textPreview":"Guided selection • compatible options • customer-friendly labels","textChars":64,"textLines":1,"bbox":[360,194,660,34]}
+{"kind":"shape","id":"sh/c3y9wbq1","slide":13,"bbox":[108,268,978,66]}
+{"kind":"textbox","id":"sh/x47apgrm","slide":13,"text":"PACKAGING","textPreview":"PACKAGING","textChars":9,"textLines":1,"bbox":[136,282,240,30]}
+{"kind":"textbox","id":"sh/18fmd0zu","slide":13,"text":"Bundles • required/optional components • product relationships","textPreview":"Bundles • required/optional components • product relationships","textChars":62,"textLines":1,"bbox":[378,282,624,34]}
+{"kind":"shape","id":"sh/g7654vy9","slide":13,"bbox":[134,356,926,66]}
+{"kind":"textbox","id":"sh/f6x4bah4","slide":13,"text":"PRICING","textPreview":"PRICING","textChars":7,"textLines":1,"bbox":[162,370,240,30]}
+{"kind":"textbox","id":"sh/e5on25gj","slide":13,"text":"Price books • currency • effective dates • tier/ramp/term rules","textPreview":"Price books • currency • effective dates • tier/ramp/term rules","textChars":63,"textLines":1,"bbox":[396,370,588,34]}
+{"kind":"shape","id":"sh/t4fm90zy","slide":13,"bbox":[160,444,874,66]}
+{"kind":"textbox","id":"sh/s3650vid","slide":13,"text":"CATALOGUE","textPreview":"CATALOGUE","textChars":9,"textLines":1,"bbox":[188,458,240,30]}
+{"kind":"textbox","id":"sh/rix47qhs","slide":13,"text":"SKU • product family • lifecycle • billing and revenue classification","textPreview":"SKU • product family • lifecycle • billing and revenue classification","textChars":69,"textLines":1,"bbox":[414,458,552,34]}
+{"kind":"shape","id":"sh/6h4nyl07","slide":13,"bbox":[186,532,822,66]}
+{"kind":"textbox","id":"sh/d0z6lkz2","slide":13,"text":"GOVERNANCE","textPreview":"GOVERNANCE","textChars":10,"textLines":1,"bbox":[214,546,240,30]}
+{"kind":"textbox","id":"sh/czq5cfyh","slide":13,"text":"Owner • approval • data quality • release and audit","textPreview":"Owner • approval • data quality • release and audit","textChars":51,"textLines":1,"bbox":[432,546,516,34]}
+{"kind":"textbox","id":"sh/wvix4na5","slide":13,"text":"New products enter through a governed lifecycle—not through direct production edits.","textPreview":"New products enter through a governed lifecycle—not through direct production edits.","textChars":84,"textLines":1,"bbox":[140,620,960,30]}
+{"kind":"textbox","id":"sh/xwryxsbq","slide":13,"text":"Flywire future-state implementation","textPreview":"Flywire future-state implementation","textChars":35,"textLines":1,"bbox":[42,671,600,20]}
+{"kind":"notes","id":"nt/cf8eif","slide":13,"text":"\n\n[Sources]\n- C:/Users/LIKKI/Downloads/Flywire Future State Vision_20260814 (1).pdf, pages 23-26, 33 and 43\n- C:/Users/LIKKI/Documents/ChatGPT/david/force-app/main/default\n[/Sources]"}
+{"kind":"slide","id":"sl/8izcq0","slide":14,"title":"IMPLEMENTATION BLUEPRINT","textShapes":16}
+{"kind":"textbox","id":"sh/x07exwje","slide":14,"text":"IMPLEMENTATION BLUEPRINT","textPreview":"IMPLEMENTATION BLUEPRINT","textChars":24,"textLines":1,"bbox":[42,28,390,26]}
+{"kind":"textbox","id":"sh/axgvmh0n","slide":14,"text":"Proposal generation consumes the same approved quote model","textPreview":"Proposal generation consumes the same approved quote model","textChars":58,"textLines":1,"bbox":[42,58,1188,94]}
+{"kind":"shape","id":"sh/bypwvm18","slide":14,"bbox":[42,156,1196,1]}
+{"kind":"textbox","id":"sh/ovedkrix","slide":14,"text":"14","textPreview":"14","textChars":2,"textLines":1,"bbox":[1180,670,56,24]}
+{"kind":"shape","id":"sh/9wnetcji","slide":14,"bbox":[42,240,196,176]}
+{"kind":"textbox","id":"sh/mtwvih0r","slide":14,"text":"APPROVED QUOTE","textPreview":"APPROVED QUOTE","textChars":14,"textLines":1,"bbox":[54,262,172,38]}
+{"kind":"textbox","id":"sh/nu5wrm1c","slide":14,"text":"Immutable version\nApproved values","textPreview":"Immutable version | Approved values","textChars":33,"textLines":2,"bbox":[58,322,164,70]}
+{"kind":"shape","id":"sh/8rixwbi1","slide":14,"bbox":[240,312,48,21]}
+{"kind":"shape","id":"sh/tsre5gjm","slide":14,"bbox":[292,240,196,176]}
+{"kind":"textbox","id":"sh/94r2pori","slide":14,"text":"NORMALIZED DATA","textPreview":"NORMALIZED DATA","textChars":15,"textLines":1,"bbox":[304,262,172,38]}
+{"kind":"textbox","id":"sh/83y1wjqx","slide":14,"text":"Customer + groups\nLines + schedules","textPreview":"Customer + groups | Lines + schedules","textChars":35,"textLines":2,"bbox":[308,322,164,70]}
+{"kind":"shape","id":"sh/n2p0ne9c","slide":14,"bbox":[490,312,48,21]}
+{"kind":"shape","id":"sh/m1gju98r","slide":14,"bbox":[542,240,196,176]}
+{"kind":"textbox","id":"sh/l07il4r6","slide":14,"text":"TEMPLATE","textPreview":"TEMPLATE","textChars":8,"textLines":1,"bbox":[554,262,172,38]}
+{"kind":"textbox","id":"sh/0zy1szql","slide":14,"text":"Conditional sections\nReusable fragments","textPreview":"Conditional sections | Reusable fragments","textChars":39,"textLines":2,"bbox":[558,322,164,70]}
+{"kind":"shape","id":"sh/zyp0ju9g","slide":14,"bbox":[740,312,48,21]}
+{"kind":"shape","id":"sh/yxgjq98v","slide":14,"bbox":[792,240,196,176]}
+{"kind":"textbox","id":"sh/5wb2x8rq","slide":14,"text":"RENDERED PROPOSAL","textPreview":"RENDERED PROPOSAL","textChars":17,"textLines":1,"bbox":[804,262,172,38]}
+{"kind":"textbox","id":"sh/kv2143q5","slide":14,"text":"Client-facing terms\nClear price schedules","textPreview":"Client-facing terms | Clear price schedules","textChars":41,"textLines":2,"bbox":[808,322,164,70]}
+{"kind":"shape","id":"sh/4zal07y1","slide":14,"bbox":[990,312,48,21]}
+{"kind":"shape","id":"sh/p0jmtcfm","slide":14,"bbox":[1042,240,196,176]}
+{"kind":"textbox","id":"sh/2d83yxgb","slide":14,"text":"SIGNED ARTIFACT","textPreview":"SIGNED ARTIFACT","textChars":15,"textLines":1,"bbox":[1054,262,172,38]}
+{"kind":"textbox","id":"sh/3eh4r2xw","slide":14,"text":"Envelope status\nContent hash","textPreview":"Envelope status | Content hash","textChars":28,"textLines":2,"bbox":[1058,322,164,70]}
+{"kind":"shape","id":"sh/gbqlw7y5","slide":14,"bbox":[42,478,1196,120]}
+{"kind":"textbox","id":"sh/hczmpcfq","slide":14,"text":"Document controls","textPreview":"Document controls","textChars":17,"textLines":1,"bbox":[66,500,220,28]}
+{"kind":"textbox","id":"sh/u983uxgz","slide":14,"text":"Template version • input schema version • quote version • generation timestamp • content hash • signature envelope • retention policy","textPreview":"Template version • input schema version • quote version • generation timestamp • content hash • signature envelope • retention policy","textChars":133,"textLines":1,"bbox":[66,544,1110,34]}
+{"kind":"textbox","id":"sh/fahkn2hk","slide":14,"text":"Flywire future-state implementation","textPreview":"Flywire future-state implementation","textChars":35,"textLines":1,"bbox":[42,671,600,20]}
+{"kind":"notes","id":"nt/8izcq0","slide":14,"text":"\n\n[Sources]\n- C:/Users/LIKKI/Downloads/Flywire Future State Vision_20260814 (1).pdf, pages 23-26\n- C:/Users/LIKKI/Documents/ChatGPT/david/force-app/main/default\n[/Sources]"}
+{"kind":"slide","id":"sl/eca50j","slide":15,"title":"IMPLEMENTATION BLUEPRINT","textShapes":21}
+{"kind":"textbox","id":"sh/ih4f254z","slide":15,"text":"IMPLEMENTATION BLUEPRINT","textPreview":"IMPLEMENTATION BLUEPRINT","textChars":24,"textLines":1,"bbox":[42,28,390,26]}
+{"kind":"textbox","id":"sh/5kfydk3q","slide":15,"text":"Contract lifecycle begins with accepted structured data—not a document upload","textPreview":"Contract lifecycle begins with accepted structured data—not a document upload","textChars":77,"textLines":1,"bbox":[42,58,1188,94]}
+{"kind":"shape","id":"sh/4jmx4fm5","slide":15,"bbox":[42,156,1196,1]}
+{"kind":"textbox","id":"sh/rmxgfalg","slide":15,"text":"15","textPreview":"15","textChars":2,"textLines":1,"bbox":[1180,670,56,24]}
+{"kind":"textbox","id":"sh/qlof65kv","slide":15,"text":"01","textPreview":"01","textChars":2,"textLines":1,"bbox":[42,210,64,42]}
+{"kind":"textbox","id":"sh/d8fyhk3m","slide":15,"text":"ACCEPT","textPreview":"ACCEPT","textChars":6,"textLines":1,"bbox":[42,270,190,34]}
+{"kind":"textbox","id":"sh/sn6x8f21","slide":15,"text":"Capture signature and accepted quote version","textPreview":"Capture signature and accepted quote version","textChars":44,"textLines":1,"bbox":[42,324,190,94]}
+{"kind":"shape","id":"sh/7qtg3qlc","slide":15,"bbox":[238,232,32,1]}
+{"kind":"textbox","id":"sh/mpkful4r","slide":15,"text":"02","textPreview":"02","textChars":2,"textLines":1,"bbox":[280,210,64,42]}
+{"kind":"textbox","id":"sh/s7qpo7qx","slide":15,"text":"CREATE","textPreview":"CREATE","textChars":6,"textLines":1,"bbox":[280,270,190,34]}
+{"kind":"textbox","id":"sh/t8z6hcri","slide":15,"text":"Create contract and line records with legal entity","textPreview":"Create contract and line records with legal entity","textChars":50,"textLines":1,"bbox":[280,324,190,94]}
+{"kind":"shape","id":"sh/6l8nmx8r","slide":15,"bbox":[476,232,32,1]}
+{"kind":"textbox","id":"sh/76hof29c","slide":15,"text":"03","textPreview":"03","textChars":2,"textLines":1,"bbox":[518,210,64,42]}
+{"kind":"textbox","id":"sh/gbqpsrqt","slide":15,"text":"VALIDATE","textPreview":"VALIDATE","textChars":8,"textLines":1,"bbox":[518,270,190,34]}
+{"kind":"textbox","id":"sh/hcz6lwre","slide":15,"text":"Verify dates, currency, products and obligations","textPreview":"Verify dates, currency, products and obligations","textChars":48,"textLines":1,"bbox":[518,324,190,94]}
+{"kind":"shape","id":"sh/u987qh8n","slide":15,"bbox":[714,232,32,1]}
+{"kind":"textbox","id":"sh/fahojm98","slide":15,"text":"04","textPreview":"04","textChars":2,"textLines":1,"bbox":[756,210,64,42]}
+{"kind":"textbox","id":"sh/wf65gnqp","slide":15,"text":"ACTIVATE","textPreview":"ACTIVATE","textChars":8,"textLines":1,"bbox":[756,270,190,34]}
+{"kind":"textbox","id":"sh/xgf69sra","slide":15,"text":"Publish order and billing events","textPreview":"Publish order and billing events","textChars":32,"textLines":1,"bbox":[756,324,190,94]}
+{"kind":"shape","id":"sh/xc7mdojy","slide":15,"bbox":[952,232,32,1]}
+{"kind":"textbox","id":"sh/cbylkj2d","slide":15,"text":"05","textPreview":"05","textChars":2,"textLines":1,"bbox":[994,210,64,42]}
+{"kind":"textbox","id":"sh/bap4be1s","slide":15,"text":"MONITOR","textPreview":"MONITOR","textChars":7,"textLines":1,"bbox":[994,270,190,34]}
+{"kind":"textbox","id":"sh/a9w3i9k7","slide":15,"text":"Track obligations, actuals, renewal and amendments","textPreview":"Track obligations, actuals, renewal and amendments","textChars":50,"textLines":1,"bbox":[994,324,190,94]}
+{"kind":"shape","id":"sh/l07mhoju","slide":15,"bbox":[42,480,1196,138]}
+{"kind":"textbox","id":"sh/kzy5ojip","slide":15,"text":"Minimum contract data quality gate","textPreview":"Minimum contract data quality gate","textChars":34,"textLines":1,"bbox":[66,506,360,30]}
+{"kind":"textbox","id":"sh/zep4fy14","slide":15,"text":"Account and entity match • accepted terms • contract dates • currency • products • recurring value • obligations • source quote version","textPreview":"Account and entity match • accepted terms • contract dates • currency • products • recurring value • obligations • source quote version","textChars":135,"textLines":1,"bbox":[66,554,1100,40]}
+{"kind":"textbox","id":"sh/ydg3mtkj","slide":15,"text":"Flywire future-state implementation","textPreview":"Flywire future-state implementation","textChars":35,"textLines":1,"bbox":[42,671,600,20]}
+{"kind":"notes","id":"nt/eca50j","slide":15,"text":"\n\n[Sources]\n- C:/Users/LIKKI/Downloads/Flywire Future State Vision_20260814 (1).pdf, pages 28-31 and 43\n[/Sources]"}
+{"kind":"slide","id":"sl/bplbbg","slide":16,"title":"IMPLEMENTATION BLUEPRINT","textShapes":10}
+{"kind":"textbox","id":"sh/3a507ad4","slide":16,"text":"IMPLEMENTATION BLUEPRINT","textPreview":"IMPLEMENTATION BLUEPRINT","textChars":24,"textLines":1,"bbox":[42,28,390,26]}
+{"kind":"textbox","id":"sh/obe10fup","slide":16,"text":"Execution services preserve traceability through contract activation","textPreview":"Execution services preserve traceability through contract activation","textChars":68,"textLines":1,"bbox":[42,58,1188,94]}
+{"kind":"shape","id":"sh/pcni9kba","slide":16,"bbox":[42,156,1196,1]}
+{"kind":"textbox","id":"sh/e5czu5cn","slide":16,"text":"16","textPreview":"16","textChars":2,"textLines":1,"bbox":[1180,670,56,24]}
+{"kind":"textbox","id":"sh/g7u1wfud","slide":16,"text":"Generate","textPreview":"Generate","textChars":8,"textLines":1,"bbox":[42,536,350,30]}
+{"kind":"textbox","id":"sh/183i5kvy","slide":16,"text":"Proposal and signature are tied to one quote version.","textPreview":"Proposal and signature are tied to one quote version.","textChars":53,"textLines":1,"bbox":[42,574,350,60]}
+{"kind":"textbox","id":"sh/y1gj69cr","slide":16,"text":"Handoff","textPreview":"Handoff","textChars":7,"textLines":1,"bbox":[440,536,350,30]}
+{"kind":"textbox","id":"sh/z2p0futc","slide":16,"text":"Contract and integration events carry stable correlation identifiers.","textPreview":"Contract and integration events carry stable correlation identifiers.","textChars":69,"textLines":1,"bbox":[440,574,350,60]}
+{"kind":"textbox","id":"sh/zm9sjilo","slide":16,"text":"Reconcile","textPreview":"Reconcile","textChars":9,"textLines":1,"bbox":[838,536,350,30]}
+{"kind":"textbox","id":"sh/e10rad43","slide":16,"text":"Financial actuals are matched back to contracted metrics.","textPreview":"Financial actuals are matched back to contracted metrics.","textChars":57,"textLines":1,"bbox":[838,574,350,60]}
+{"kind":"textbox","id":"sh/lorals3u","slide":16,"text":"Flywire future-state implementation","textPreview":"Flywire future-state implementation","textChars":35,"textLines":1,"bbox":[42,671,600,20]}
+{"kind":"image","id":"im/6p8rm5ob","slide":16,"name":"","alt":"PlantUML quote execution service class diagram","bbox":[42,168,1196,350]}
+{"kind":"notes","id":"nt/bplbbg","slide":16,"text":"\n\n[Sources]\n- C:/Users/LIKKI/Downloads/Flywire Future State Vision_20260814 (1).pdf, pages 28-31 and 49\n- C:/Users/LIKKI/Documents/ChatGPT/david/tmp/flywire_future_deck/execution_class_diagram.puml\n[/Sources]"}
+{"kind":"slide","id":"sl/agveee","slide":17,"title":"IMPLEMENTATION BLUEPRINT","textShapes":18}
+{"kind":"textbox","id":"sh/ju1grm1g","slide":17,"text":"IMPLEMENTATION BLUEPRINT","textPreview":"IMPLEMENTATION BLUEPRINT","textChars":24,"textLines":1,"bbox":[42,28,390,26]}
+{"kind":"textbox","id":"sh/4vahkri1","slide":17,"text":"Integration events are idempotent, observable and reconcilable","textPreview":"Integration events are idempotent, observable and reconcilable","textChars":62,"textLines":1,"bbox":[42,58,1188,94]}
+{"kind":"shape","id":"sh/5wjytwjm","slide":17,"bbox":[42,156,1196,1]}
+{"kind":"textbox","id":"sh/upsfeh0z","slide":17,"text":"17","textPreview":"17","textChars":2,"textLines":1,"bbox":[1180,670,56,24]}
+{"kind":"shape","id":"sh/vq1gn21k","slide":17,"bbox":[42,214,164,100]}
+{"kind":"textbox","id":"sh/wrahg7i5","slide":17,"text":"CRM CHANGE","textPreview":"CRM CHANGE","textChars":10,"textLines":1,"bbox":[52,248,144,32]}
+{"kind":"shape","id":"sh/hsjypcja","slide":17,"bbox":[208,248,30,20]}
+{"kind":"shape","id":"sh/m18fax0n","slide":17,"bbox":[240,214,164,100]}
+{"kind":"textbox","id":"sh/72hgj218","slide":17,"text":"OUTBOX EVENT","textPreview":"OUTBOX EVENT","textChars":12,"textLines":1,"bbox":[250,248,144,32]}
+{"kind":"shape","id":"sh/7u9ov6xg","slide":17,"bbox":[406,248,30,20]}
+{"kind":"shape","id":"sh/6t07mlwv","slide":17,"bbox":[438,214,164,100]}
+{"kind":"textbox","id":"sh/twbqxgfm","slide":17,"text":"TRANSFORM","textPreview":"TRANSFORM","textChars":9,"textLines":1,"bbox":[448,248,144,32]}
+{"kind":"shape","id":"sh/8vipobe1","slide":17,"bbox":[604,248,30,20]}
+{"kind":"shape","id":"sh/vyt8zqxs","slide":17,"bbox":[636,214,164,100]}
+{"kind":"textbox","id":"sh/uxk7qlw7","slide":17,"text":"DELIVER","textPreview":"DELIVER","textChars":7,"textLines":1,"bbox":[646,248,144,32]}
+{"kind":"shape","id":"sh/h0bq10fy","slide":17,"bbox":[802,248,30,20]}
+{"kind":"shape","id":"sh/gz2psved","slide":17,"bbox":[834,214,164,100]}
+{"kind":"textbox","id":"sh/b2ponmx8","slide":17,"text":"ACK","textPreview":"ACK","textChars":3,"textLines":1,"bbox":[844,248,144,32]}
+{"kind":"shape","id":"sh/a1g7e1w3","slide":17,"bbox":[1000,248,30,20]}
+{"kind":"shape","id":"sh/ehormpgb","slide":17,"bbox":[1032,214,164,100]}
+{"kind":"textbox","id":"sh/fixsvuhw","slide":17,"text":"RECONCILE","textPreview":"RECONCILE","textChars":9,"textLines":1,"bbox":[1042,248,144,32]}
+{"kind":"textbox","id":"sh/0j6tozyh","slide":17,"text":"Identity","textPreview":"Identity","textChars":8,"textLines":1,"bbox":[42,388,180,30]}
+{"kind":"textbox","id":"sh/1kfax4z2","slide":17,"text":"Correlation ID, source record ID and event version","textPreview":"Correlation ID, source record ID and event version","textChars":50,"textLines":1,"bbox":[232,388,380,54]}
+{"kind":"shape","id":"sh/qt4ripgf","slide":17,"bbox":[42,460,560,1]}
+{"kind":"textbox","id":"sh/rudsruh0","slide":17,"text":"Delivery","textPreview":"Delivery","textChars":8,"textLines":1,"bbox":[640,388,180,30]}
+{"kind":"textbox","id":"sh/sv69kzyl","slide":17,"text":"Idempotency key, retry count and terminal status","textPreview":"Idempotency key, retry count and terminal status","textChars":48,"textLines":1,"bbox":[830,388,380,54]}
+{"kind":"shape","id":"sh/dwfat4z6","slide":17,"bbox":[640,460,560,1]}
+{"kind":"textbox","id":"sh/ip4re5g3","slide":17,"text":"Contract","textPreview":"Contract","textChars":8,"textLines":1,"bbox":[42,506,180,30]}
+{"kind":"textbox","id":"sh/3qdsnaho","slide":17,"text":"Schema version, required fields and validation result","textPreview":"Schema version, required fields and validation result","textChars":53,"textLines":1,"bbox":[232,506,380,54]}
+{"kind":"shape","id":"sh/lkjutsj6","slide":17,"bbox":[42,578,560,1]}
+{"kind":"textbox","id":"sh/kjadkni1","slide":17,"text":"Evidence","textPreview":"Evidence","textChars":8,"textLines":1,"bbox":[640,506,180,30]}
+{"kind":"textbox","id":"sh/ji1cri1g","slide":17,"text":"Payload hash, timestamp, actor and response reference","textPreview":"Payload hash, timestamp, actor and response reference","textChars":53,"textLines":1,"bbox":[830,506,380,54]}
+{"kind":"shape","id":"sh/yhsvid0v","slide":17,"bbox":[640,578,560,1]}
+{"kind":"textbox","id":"sh/xgjup8ja","slide":17,"text":"Flywire future-state implementation","textPreview":"Flywire future-state implementation","textChars":35,"textLines":1,"bbox":[42,671,600,20]}
+{"kind":"notes","id":"nt/agveee","slide":17,"text":"\n\n[Sources]\n- C:/Users/LIKKI/Downloads/Flywire Future State Vision_20260814 (1).pdf, pages 18 and 48-49\n[/Sources]"}
+{"kind":"slide","id":"sl/ldd7aw","slide":18,"title":"IMPLEMENTATION BLUEPRINT","textShapes":21}
+{"kind":"textbox","id":"sh/hkzqxwbi","slide":18,"text":"IMPLEMENTATION BLUEPRINT","textPreview":"IMPLEMENTATION BLUEPRINT","textChars":24,"textLines":1,"bbox":[42,28,390,26]}
+{"kind":"textbox","id":"sh/uhormhc7","slide":18,"text":"Security and governance are built into every state transition","textPreview":"Security and governance are built into every state transition","textChars":61,"textLines":1,"bbox":[42,58,1188,94]}
+{"kind":"shape","id":"sh/vih8vmts","slide":18,"bbox":[42,156,1196,1]}
+{"kind":"textbox","id":"sh/47q9sbu9","slide":18,"text":"18","textPreview":"18","textChars":2,"textLines":1,"bbox":[1180,670,56,24]}
+{"kind":"textbox","id":"sh/58za1wbu","slide":18,"text":"01","textPreview":"01","textChars":2,"textLines":1,"bbox":[42,196,50,38]}
+{"kind":"textbox","id":"sh/il8rq1c3","slide":18,"text":"ACCESS","textPreview":"ACCESS","textChars":6,"textLines":1,"bbox":[42,252,190,32]}
+{"kind":"textbox","id":"sh/j6hsz6to","slide":18,"text":"Persona-based permissions\nLeast privilege\nSegregation of duties","textPreview":"Persona-based permissions | Least privilege | Segregation of duties","textChars":63,"textLines":3,"bbox":[42,310,190,112]}
+{"kind":"textbox","id":"sh/kb69g7up","slide":18,"text":"02","textPreview":"02","textChars":2,"textLines":1,"bbox":[280,196,50,38]}
+{"kind":"textbox","id":"sh/lcfqpcba","slide":18,"text":"DATA","textPreview":"DATA","textChars":4,"textLines":1,"bbox":[280,252,190,32]}
+{"kind":"textbox","id":"sh/xgnqpwjm","slide":18,"text":"Field classification\nEncryption and retention\nGolden-record stewardship","textPreview":"Field classification | Encryption and retention | Golden-record stewardship","textChars":71,"textLines":3,"bbox":[280,310,190,112]}
+{"kind":"textbox","id":"sh/wfe9wri1","slide":18,"text":"03","textPreview":"03","textChars":2,"textLines":1,"bbox":[518,196,50,38]}
+{"kind":"textbox","id":"sh/bel8nm1g","slide":18,"text":"PROCESS","textPreview":"PROCESS","textChars":7,"textLines":1,"bbox":[518,252,190,32]}
+{"kind":"textbox","id":"sh/atcruh0v","slide":18,"text":"State-based edit locks\nApproval authority\nControlled amendments","textPreview":"State-based edit locks | Approval authority | Controlled amendments","textChars":63,"textLines":3,"bbox":[518,310,190,112]}
+{"kind":"textbox","id":"sh/lknqtwji","slide":18,"text":"04","textPreview":"04","textChars":2,"textLines":1,"bbox":[756,196,50,38]}
+{"kind":"textbox","id":"sh/kje90rix","slide":18,"text":"INTEGRATION","textPreview":"INTEGRATION","textChars":11,"textLines":1,"bbox":[756,252,190,32]}
+{"kind":"textbox","id":"sh/ji58rm1c","slide":18,"text":"Named authentication\nSchema validation\nReplay protection","textPreview":"Named authentication | Schema validation | Replay protection","textChars":56,"textLines":3,"bbox":[756,310,190,112]}
+{"kind":"textbox","id":"sh/yhwryh07","slide":18,"text":"05","textPreview":"05","textChars":2,"textLines":1,"bbox":[994,196,50,38]}
+{"kind":"textbox","id":"sh/to7axgju","slide":18,"text":"AUDIT","textPreview":"AUDIT","textChars":5,"textLines":1,"bbox":[994,252,190,32]}
+{"kind":"textbox","id":"sh/8ny94bi9","slide":18,"text":"Decision reasons\nPayload hashes\nCorrelation and lineage","textPreview":"Decision reasons | Payload hashes | Correlation and lineage","textChars":55,"textLines":3,"bbox":[994,310,190,112]}
+{"kind":"shape","id":"sh/c361gzuh","slide":18,"bbox":[42,484,1196,126]}
+{"kind":"textbox","id":"sh/d4z2p4b2","slide":18,"text":"Release governance","textPreview":"Release governance","textChars":18,"textLines":1,"bbox":[66,508,260,30]}
+{"kind":"textbox","id":"sh/q1oje9cr","slide":18,"text":"One source repository • isolated capability packages • automated tests • check-only validation • business UAT • controlled activation • rollback evidence","textPreview":"One source repository • isolated capability packages • automated tests • check-only validation • business UAT • controlled activation • r...","textChars":153,"textLines":1,"bbox":[66,554,1110,36]}
+{"kind":"textbox","id":"sh/r2xknetw","slide":18,"text":"Flywire future-state implementation","textPreview":"Flywire future-state implementation","textChars":35,"textLines":1,"bbox":[42,671,600,20]}
+{"kind":"notes","id":"nt/ldd7aw","slide":18,"text":"\n\n[Sources]\n- C:/Users/LIKKI/Downloads/Flywire Future State Vision_20260814 (1).pdf, pages 18, 40 and 46\n- C:/Users/LIKKI/Documents/ChatGPT/david/force-app/main/default\n[/Sources]"}
+{"kind":"slide","id":"sl/kgbu2f","slide":19,"title":"IMPLEMENTATION BLUEPRINT","textShapes":33}
+{"kind":"textbox","id":"sh/v61sjm90","slide":19,"text":"IMPLEMENTATION BLUEPRINT","textPreview":"IMPLEMENTATION BLUEPRINT","textChars":24,"textLines":1,"bbox":[42,28,390,26]}
+{"kind":"textbox","id":"sh/w7a9srql","slide":19,"text":"Salesforce implementation components align directly to business capabilities","textPreview":"Salesforce implementation components align directly to business capabilities","textChars":76,"textLines":1,"bbox":[42,58,1188,94]}
+{"kind":"shape","id":"sh/x83alwr6","slide":19,"bbox":[42,156,1196,1]}
+{"kind":"textbox","id":"sh/m1srmx8j","slide":19,"text":"19","textPreview":"19","textChars":2,"textLines":1,"bbox":[1180,670,56,24]}
+{"kind":"textbox","id":"sh/n21sf294","slide":19,"text":"CAPABILITY","textPreview":"CAPABILITY","textChars":10,"textLines":1,"bbox":[42,176,206,36]}
+{"kind":"textbox","id":"sh/83a9o7qp","slide":19,"text":"CONFIGURATION","textPreview":"CONFIGURATION","textChars":13,"textLines":1,"bbox":[258,176,280,36]}
+{"kind":"textbox","id":"sh/94jahcru","slide":19,"text":"SERVICE / AUTOMATION","textPreview":"SERVICE / AUTOMATION","textChars":20,"textLines":1,"bbox":[548,176,344,36]}
+{"kind":"textbox","id":"sh/6xcby18n","slide":19,"text":"EVIDENCE","textPreview":"EVIDENCE","textChars":8,"textLines":1,"bbox":[902,176,336,36]}
+{"kind":"shape","id":"sh/7ylsr698","slide":19,"bbox":[42,220,1196,59]}
+{"kind":"textbox","id":"sh/z6h0321o","slide":19,"text":"Customer foundation","textPreview":"Customer foundation","textChars":19,"textLines":1,"bbox":[50,228,190,42]}
+{"kind":"textbox","id":"sh/y58zax03","slide":19,"text":"Match rules, hierarchy fields","textPreview":"Match rules, hierarchy fields","textChars":29,"textLines":1,"bbox":[266,228,264,42]}
+{"kind":"textbox","id":"sh/l8zi5cju","slide":19,"text":"Account identity service","textPreview":"Account identity service","textChars":24,"textLines":1,"bbox":[556,228,328,42]}
+{"kind":"textbox","id":"sh/k7qhc7i9","slide":19,"text":"Duplicate and hierarchy reports","textPreview":"Duplicate and hierarchy reports","textChars":31,"textLines":1,"bbox":[910,228,320,42]}
+{"kind":"shape","id":"sh/7ah07m1k","slide":19,"bbox":[42,288,1196,59]}
+{"kind":"textbox","id":"sh/m98jeh0z","slide":19,"text":"Product & pricing","textPreview":"Product & pricing","textChars":17,"textLines":1,"bbox":[50,296,190,42]}
+{"kind":"textbox","id":"sh/9wji9czq","slide":19,"text":"Catalogue, price books, pricing rules","textPreview":"Catalogue, price books, pricing rules","textChars":37,"textLines":1,"bbox":[266,296,264,42]}
+{"kind":"textbox","id":"sh/8va1gri5","slide":19,"text":"Pricing and schedule service","textPreview":"Pricing and schedule service","textChars":28,"textLines":1,"bbox":[556,296,328,42]}
+{"kind":"textbox","id":"sh/vy10bmhw","slide":19,"text":"Rule-version calculation log","textPreview":"Rule-version calculation log","textChars":28,"textLines":1,"bbox":[910,296,320,42]}
+{"kind":"shape","id":"sh/uxsjih0b","slide":19,"bbox":[42,356,1196,59]}
+{"kind":"textbox","id":"sh/q5wbqpov","slide":19,"text":"Quote approval","textPreview":"Quote approval","textChars":14,"textLines":1,"bbox":[50,364,190,42]}
+{"kind":"textbox","id":"sh/r65czupg","slide":19,"text":"Approval rule metadata, personas","textPreview":"Approval rule metadata, personas","textChars":32,"textLines":1,"bbox":[266,364,264,42]}
+{"kind":"textbox","id":"sh/c7etsz6l","slide":19,"text":"Decision, lifecycle and lock services","textPreview":"Decision, lifecycle and lock services","textChars":37,"textLines":1,"bbox":[556,364,328,42]}
+{"kind":"textbox","id":"sh/d87u1k76","slide":19,"text":"Approval request, steps and reasons","textPreview":"Approval request, steps and reasons","textChars":35,"textLines":1,"bbox":[910,364,320,42]}
+{"kind":"shape","id":"sh/i1wbm5oj","slide":19,"bbox":[42,424,1196,59]}
+{"kind":"textbox","id":"sh/325cvap4","slide":19,"text":"Proposal","textPreview":"Proposal","textChars":8,"textLines":1,"bbox":[50,432,190,42]}
+{"kind":"textbox","id":"sh/43etof6p","slide":19,"text":"Template and schema versions","textPreview":"Template and schema versions","textChars":28,"textLines":1,"bbox":[266,432,264,42]}
+{"kind":"textbox","id":"sh/54nuxk7a","slide":19,"text":"Document generation service","textPreview":"Document generation service","textChars":27,"textLines":1,"bbox":[556,432,328,42]}
+{"kind":"textbox","id":"sh/mxgvy9o3","slide":19,"text":"Document reference and content hash","textPreview":"Document reference and content hash","textChars":35,"textLines":1,"bbox":[910,432,320,42]}
+{"kind":"shape","id":"sh/nypc7e58","slide":19,"bbox":[42,492,1196,59]}
+{"kind":"textbox","id":"sh/xsbex87q","slide":19,"text":"Contract","textPreview":"Contract","textChars":8,"textLines":1,"bbox":[50,500,190,42]}
+{"kind":"textbox","id":"sh/wr2x43q5","slide":19,"text":"Contract types, obligations, clauses","textPreview":"Contract types, obligations, clauses","textChars":36,"textLines":1,"bbox":[266,500,264,42]}
+{"kind":"textbox","id":"sh/bq9wvy9k","slide":19,"text":"Contract handoff service","textPreview":"Contract handoff service","textChars":24,"textLines":1,"bbox":[556,500,328,42]}
+{"kind":"textbox","id":"sh/ap0f2t8z","slide":19,"text":"Quote-to-contract lineage","textPreview":"Quote-to-contract lineage","textChars":25,"textLines":1,"bbox":[910,500,320,42]}
+{"kind":"shape","id":"sh/94retore","slide":19,"bbox":[42,560,1196,59]}
+{"kind":"textbox","id":"sh/o3ix0jqt","slide":19,"text":"Integration","textPreview":"Integration","textChars":11,"textLines":1,"bbox":[50,568,190,42]}
+{"kind":"textbox","id":"sh/n29wry9o","slide":19,"text":"Endpoint and event configuration","textPreview":"Endpoint and event configuration","textChars":32,"textLines":1,"bbox":[266,568,264,42]}
+{"kind":"textbox","id":"sh/m10fyt83","slide":19,"text":"Publisher, retry and reconciliation","textPreview":"Publisher, retry and reconciliation","textChars":35,"textLines":1,"bbox":[556,568,328,42]}
+{"kind":"textbox","id":"sh/t0vy5s7y","slide":19,"text":"Delivery receipt and variance result","textPreview":"Delivery receipt and variance result","textChars":36,"textLines":1,"bbox":[910,568,320,42]}
+{"kind":"textbox","id":"sh/8zmxwnqd","slide":19,"text":"Naming standard: capability + responsibility. Legacy organization-specific names are not carried forward.","textPreview":"Naming standard: capability + responsibility. Legacy organization-specific names are not carried forward.","textChars":105,"textLines":1,"bbox":[120,632,1000,26]}
+{"kind":"textbox","id":"sh/grqxg3mh","slide":19,"text":"Flywire future-state implementation","textPreview":"Flywire future-state implementation","textChars":35,"textLines":1,"bbox":[42,671,600,20]}
+{"kind":"notes","id":"nt/kgbu2f","slide":19,"text":"\n\n[Sources]\n- C:/Users/LIKKI/Downloads/Flywire Future State Vision_20260814 (1).pdf, pages 23-31 and 41-46\n- C:/Users/LIKKI/Documents/ChatGPT/david/force-app/main/default\n[/Sources]"}
+{"kind":"slide","id":"sl/0sjel5","slide":20,"title":"IMPLEMENTATION BLUEPRINT","textShapes":17}
+{"kind":"textbox","id":"sh/36pw769s","slide":20,"text":"IMPLEMENTATION BLUEPRINT","textPreview":"IMPLEMENTATION BLUEPRINT","textChars":24,"textLines":1,"bbox":[42,28,390,26]}
+{"kind":"textbox","id":"sh/47yxgbad","slide":20,"text":"Delivery moves from evidence to pilot to scalable operating model","textPreview":"Delivery moves from evidence to pilot to scalable operating model","textChars":65,"textLines":1,"bbox":[42,58,1188,94]}
+{"kind":"shape","id":"sh/p87e9gry","slide":20,"bbox":[42,156,1196,1]}
+{"kind":"textbox","id":"sh/q9gfilsj","slide":20,"text":"20","textPreview":"20","textChars":2,"textLines":1,"bbox":[1180,670,56,24]}
+{"kind":"shape","id":"sh/rupwbq9o","slide":20,"bbox":[78,348,1090,1]}
+{"kind":"shape","id":"sh/cvixkva9","slide":20,"bbox":[78,338,20,20]}
+{"kind":"textbox","id":"sh/dwred0ru","slide":20,"text":"0–6 WEEKS","textPreview":"0–6 WEEKS","textChars":9,"textLines":1,"bbox":[78,210,220,30]}
+{"kind":"textbox","id":"sh/ex0fm5sf","slide":20,"text":"DESIGN","textPreview":"DESIGN","textChars":6,"textLines":1,"bbox":[78,258,220,34]}
+{"kind":"textbox","id":"sh/zy9wfq90","slide":20,"text":"Confirm process, data definitions, ownership, rules, vendor boundaries and acceptance criteria.","textPreview":"Confirm process, data definitions, ownership, rules, vendor boundaries and acceptance criteria.","textChars":95,"textLines":1,"bbox":[78,390,232,136]}
+{"kind":"shape","id":"sh/n2d07qxw","slide":20,"bbox":[364,338,20,20]}
+{"kind":"textbox","id":"sh/21kzylgb","slide":20,"text":"7–16 WEEKS","textPreview":"7–16 WEEKS","textChars":10,"textLines":1,"bbox":[364,210,220,30]}
+{"kind":"textbox","id":"sh/povi9gf2","slide":20,"text":"PILOT","textPreview":"PILOT","textChars":5,"textLines":1,"bbox":[364,258,220,34]}
+{"kind":"textbox","id":"sh/onmh0vyh","slide":20,"text":"Build evaluation-only approval, metric engine, controlled proposal and one integration path.","textPreview":"Build evaluation-only approval, metric engine, controlled proposal and one integration path.","textChars":92,"textLines":1,"bbox":[364,390,232,136]}
+{"kind":"shape","id":"sh/fyt036x0","slide":20,"bbox":[650,338,20,20]}
+{"kind":"textbox","id":"sh/exkzu1gf","slide":20,"text":"4–8 MONTHS","textPreview":"4–8 MONTHS","textChars":10,"textLines":1,"bbox":[650,210,220,30]}
+{"kind":"textbox","id":"sh/10bi5gf6","slide":20,"text":"SCALE","textPreview":"SCALE","textChars":5,"textLines":1,"bbox":[650,258,220,34]}
+{"kind":"textbox","id":"sh/0z2hwbyl","slide":20,"text":"Enable approval lifecycle, contract handoff, reconciliation and broader product/entity coverage.","textPreview":"Enable approval lifecycle, contract handoff, reconciliation and broader product/entity coverage.","textChars":96,"textLines":1,"bbox":[650,390,232,136]}
+{"kind":"shape","id":"sh/zux0fax4","slide":20,"bbox":[936,338,20,20]}
+{"kind":"textbox","id":"sh/yt4j65gj","slide":20,"text":"8–12 MONTHS","textPreview":"8–12 MONTHS","textChars":11,"textLines":1,"bbox":[936,210,220,30]}
+{"kind":"textbox","id":"sh/u1sbut43","slide":20,"text":"CONSOLIDATE","textPreview":"CONSOLIDATE","textChars":11,"textLines":1,"bbox":[936,258,220,34]}
+{"kind":"textbox","id":"sh/v21cnylo","slide":20,"text":"Migrate remaining users/data, rationalize integrations and establish one release model.","textPreview":"Migrate remaining users/data, rationalize integrations and establish one release model.","textChars":87,"textLines":1,"bbox":[936,390,232,136]}
+{"kind":"shape","id":"sh/g3atw3m9","slide":20,"bbox":[42,574,1196,70]}
+{"kind":"textbox","id":"sh/hojup83u","slide":20,"text":"Pilot success gate: explainable approvals + stable metrics + approved document + acknowledged downstream handoff","textPreview":"Pilot success gate: explainable approvals + stable metrics + approved document + acknowledged downstream handoff","textChars":112,"textLines":1,"bbox":[62,596,1156,28]}
+{"kind":"textbox","id":"sh/ipsbyd4f","slide":20,"text":"Flywire future-state implementation","textPreview":"Flywire future-state implementation","textChars":35,"textLines":1,"bbox":[42,671,600,20]}
+{"kind":"notes","id":"nt/0sjel5","slide":20,"text":"\n\n[Sources]\n- C:/Users/LIKKI/Downloads/Flywire Future State Vision_20260814 (1).pdf, pages 10, 21, 26 and 31\n[/Sources]"}
+{"kind":"slide","id":"sl/b1y32b","slide":21,"title":"IMPLEMENTATION BLUEPRINT","textShapes":22}
+{"kind":"textbox","id":"sh/l43i18ba","slide":21,"text":"IMPLEMENTATION BLUEPRINT","textPreview":"IMPLEMENTATION BLUEPRINT","textChars":24,"textLines":1,"bbox":[42,28,390,26]}
+{"kind":"textbox","id":"sh/y1sj6tsj","slide":21,"text":"Quality gates prove data, logic and integration integrity before activation","textPreview":"Quality gates prove data, logic and integration integrity before activation","textChars":75,"textLines":1,"bbox":[42,58,1188,94]}
+{"kind":"shape","id":"sh/z210zyt4","slide":21,"bbox":[42,156,1196,1]}
+{"kind":"textbox","id":"sh/8ru1cnal","slide":21,"text":"21","textPreview":"21","textChars":2,"textLines":1,"bbox":[1180,670,56,24]}
+{"kind":"textbox","id":"sh/9s3258b6","slide":21,"text":"01","textPreview":"01","textChars":2,"textLines":1,"bbox":[42,178,58,38]}
+{"kind":"textbox","id":"sh/mpcjadsv","slide":21,"text":"MODEL","textPreview":"MODEL","textChars":5,"textLines":1,"bbox":[116,178,220,32]}
+{"kind":"textbox","id":"sh/nql03itg","slide":21,"text":"Required entities, keys, ownership and lifecycle states are approved.","textPreview":"Required entities, keys, ownership and lifecycle states are approved.","textChars":69,"textLines":1,"bbox":[116,220,470,66]}
+{"kind":"shape","id":"sh/wve1gnax","slide":21,"bbox":[42,294,550,1]}
+{"kind":"textbox","id":"sh/xwn29sbi","slide":21,"text":"02","textPreview":"02","textChars":2,"textLines":1,"bbox":[640,178,58,38]}
+{"kind":"textbox","id":"sh/lcnydkzy","slide":21,"text":"RULES","textPreview":"RULES","textChars":5,"textLines":1,"bbox":[714,178,220,32]}
+{"kind":"textbox","id":"sh/kbeh4fyd","slide":21,"text":"Boundary values, overlaps, missing approvers and effective dates are tested.","textPreview":"Boundary values, overlaps, missing approvers and effective dates are tested.","textChars":76,"textLines":1,"bbox":[714,220,470,66]}
+{"kind":"shape","id":"sh/za5gbahs","slide":21,"bbox":[640,294,550,1]}
+{"kind":"textbox","id":"sh/y9cz25g7","slide":21,"text":"03","textPreview":"03","textChars":2,"textLines":1,"bbox":[42,324,58,38]}
+{"kind":"textbox","id":"sh/90nyhkzu","slide":21,"text":"METRICS","textPreview":"METRICS","textChars":7,"textLines":1,"bbox":[116,324,220,32]}
+{"kind":"textbox","id":"sh/8zeh8fyp","slide":21,"text":"ARR, MRR, TCV and one-time revenue reconcile across test scenarios.","textPreview":"ARR, MRR, TCV and one-time revenue reconcile across test scenarios.","textChars":67,"textLines":1,"bbox":[116,366,470,66]}
+{"kind":"shape","id":"sh/7e5gfah4","slide":21,"bbox":[42,440,550,1]}
+{"kind":"textbox","id":"sh/mdwz65gj","slide":21,"text":"04","textPreview":"04","textChars":2,"textLines":1,"bbox":[640,324,58,38]}
+{"kind":"textbox","id":"sh/p43y5gzq","slide":21,"text":"SECURITY","textPreview":"SECURITY","textChars":8,"textLines":1,"bbox":[714,324,220,32]}
+{"kind":"textbox","id":"sh/ojuhwvy5","slide":21,"text":"Personas can perform only authorized actions in each state.","textPreview":"Personas can perform only authorized actions in each state.","textChars":59,"textLines":1,"bbox":[714,366,470,66]}
+{"kind":"shape","id":"sh/gnyhcv61","slide":21,"bbox":[640,440,550,1]}
+{"kind":"textbox","id":"sh/1o7yl07m","slide":21,"text":"05","textPreview":"05","textChars":2,"textLines":1,"bbox":[42,470,58,38]}
+{"kind":"textbox","id":"sh/elwzal8v","slide":21,"text":"INTEGRATION","textPreview":"INTEGRATION","textChars":11,"textLines":1,"bbox":[116,470,220,32]}
+{"kind":"textbox","id":"sh/fm5gjqpg","slide":21,"text":"Retry, duplicate delivery, schema failure and acknowledgement paths are proven.","textPreview":"Retry, duplicate delivery, schema failure and acknowledgement paths are proven.","textChars":79,"textLines":1,"bbox":[116,512,470,66]}
+{"kind":"shape","id":"sh/oryhgv6d","slide":21,"bbox":[42,586,550,1]}
+{"kind":"textbox","id":"sh/ps7ip07i","slide":21,"text":"06","textPreview":"06","textChars":2,"textLines":1,"bbox":[640,470,58,38]}
+{"kind":"textbox","id":"sh/2pgze5o7","slide":21,"text":"BUSINESS UAT","textPreview":"BUSINESS UAT","textChars":12,"textLines":1,"bbox":[714,470,220,32]}
+{"kind":"textbox","id":"sh/3qpgnqps","slide":21,"text":"Sales, deal desk, legal, finance and operations accept end-to-end outcomes.","textPreview":"Sales, deal desk, legal, finance and operations accept end-to-end outcomes.","textChars":75,"textLines":1,"bbox":[714,512,470,66]}
+{"kind":"shape","id":"sh/cfihkf69","slide":21,"bbox":[640,586,550,1]}
+{"kind":"textbox","id":"sh/dgritk7u","slide":21,"text":"Flywire future-state implementation","textPreview":"Flywire future-state implementation","textChars":35,"textLines":1,"bbox":[42,671,600,20]}
+{"kind":"notes","id":"nt/b1y32b","slide":21,"text":"\n\n[Sources]\n- C:/Users/LIKKI/Downloads/Flywire Future State Vision_20260814 (1).pdf, pages 21, 26 and 31\n- C:/Users/LIKKI/Documents/ChatGPT/david/force-app/main/default\n[/Sources]"}
+{"kind":"slide","id":"sl/ml61yi","slide":22,"title":"IMPLEMENTATION BLUEPRINT","textShapes":18}
+{"kind":"textbox","id":"sh/0bmdsfal","slide":22,"text":"IMPLEMENTATION BLUEPRINT","textPreview":"IMPLEMENTATION BLUEPRINT","textChars":24,"textLines":1,"bbox":[42,28,390,26]}
+{"kind":"textbox","id":"sh/zatcja9g","slide":22,"text":"The first 30 days convert this blueprint into an approved implementation backlog","textPreview":"The first 30 days convert this blueprint into an approved implementation backlog","textChars":80,"textLines":1,"bbox":[42,58,1188,94]}
+{"kind":"shape","id":"sh/e9kvq5sv","slide":22,"bbox":[42,156,1196,1]}
+{"kind":"textbox","id":"sh/d8buh0ra","slide":22,"text":"22","textPreview":"22","textChars":2,"textLines":1,"bbox":[1180,670,56,24]}
+{"kind":"textbox","id":"sh/c72dovap","slide":22,"text":"WEEK 1","textPreview":"WEEK 1","textChars":6,"textLines":1,"bbox":[42,194,220,30]}
+{"kind":"textbox","id":"sh/r6tcfq94","slide":22,"text":"Confirm ownership","textPreview":"Confirm ownership","textChars":17,"textLines":1,"bbox":[42,244,250,50]}
+{"kind":"textbox","id":"sh/qlkvmlsj","slide":22,"text":"Name accountable owners for customer, product, quote, contract, integration and metrics.","textPreview":"Name accountable owners for customer, product, quote, contract, integration and metrics.","textChars":88,"textLines":1,"bbox":[42,326,250,132]}
+{"kind":"textbox","id":"sh/x4fet4re","slide":22,"text":"WEEK 2","textPreview":"WEEK 2","textChars":6,"textLines":1,"bbox":[340,194,220,30]}
+{"kind":"textbox","id":"sh/w36d0zqt","slide":22,"text":"Validate the model","textPreview":"Validate the model","textChars":18,"textLines":1,"bbox":[340,244,250,50]}
+{"kind":"textbox","id":"sh/qhofix07","slide":22,"text":"Map existing fields and records to the canonical model; identify duplicates and gaps.","textPreview":"Map existing fields and records to the canonical model; identify duplicates and gaps.","textChars":85,"textLines":1,"bbox":[340,326,250,132]}
+{"kind":"textbox","id":"sh/bixgr2hs","slide":22,"text":"WEEK 3","textPreview":"WEEK 3","textChars":6,"textLines":1,"bbox":[638,194,220,30]}
+{"kind":"textbox","id":"sh/cjqxk7id","slide":22,"text":"Define pilot rules","textPreview":"Define pilot rules","textChars":18,"textLines":1,"bbox":[638,244,250,50]}
+{"kind":"textbox","id":"sh/dkzytszy","slide":22,"text":"Select approval, pricing, metric and document scenarios for the first controlled pilot.","textPreview":"Select approval, pricing, metric and document scenarios for the first controlled pilot.","textChars":87,"textLines":1,"bbox":[638,326,250,132]}
+{"kind":"textbox","id":"sh/2dofed0b","slide":22,"text":"WEEK 4","textPreview":"WEEK 4","textChars":6,"textLines":1,"bbox":[936,194,220,30]}
+{"kind":"textbox","id":"sh/3exgnihw","slide":22,"text":"Approve the backlog","textPreview":"Approve the backlog","textChars":19,"textLines":1,"bbox":[936,244,250,50]}
+{"kind":"textbox","id":"sh/of6xgnih","slide":22,"text":"Agree components, acceptance criteria, test data, release gates and decision log.","textPreview":"Agree components, acceptance criteria, test data, release gates and decision log.","textChars":81,"textLines":1,"bbox":[936,326,250,132]}
+{"kind":"shape","id":"sh/pgfypsz2","slide":22,"bbox":[42,506,1196,132]}
+{"kind":"textbox","id":"sh/m98zqh0f","slide":22,"text":"Decisions required from the team","textPreview":"Decisions required from the team","textChars":32,"textLines":1,"bbox":[72,540,390,44]}
+{"kind":"textbox","id":"sh/nahgzmh0","slide":22,"text":"Pilot segment • source-of-truth owners • approval personas • metric definitions • contract boundary • integration priority • success measures","textPreview":"Pilot segment • source-of-truth owners • approval personas • metric definitions • contract boundary • integration priority • success meas...","textChars":141,"textLines":1,"bbox":[470,538,720,52]}
+{"kind":"textbox","id":"sh/jutcrexc","slide":22,"text":"Flywire future-state implementation","textPreview":"Flywire future-state implementation","textChars":35,"textLines":1,"bbox":[42,671,600,20]}
+{"kind":"notes","id":"nt/ml61yi","slide":22,"text":"\n\n[Sources]\n- C:/Users/LIKKI/Downloads/Flywire Future State Vision_20260814 (1).pdf, pages 10, 21, 26 and 31\n[/Sources]"}

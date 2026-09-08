@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CloseDateCantBeBeforeCloseLostDate</fullName>
+    <active>false</active>
+    <description>When the opp Stage is changed to Close Lost, the Close Date cannot be older than the date the stage is changed.</description>
+    <errorConditionFormula>AND(
+RecordType.Name != &apos;Bank-PSP Partner&apos;,
+RecordType.Name != &apos;Strategic Partner&apos;,
+RecordType.Name != &apos;Agents&apos;,
+ISPICKVAL (StageName, &quot;Closed Lost&quot;),
+CloseDate &lt; TODAY (),
+$Profile.Name &lt;&gt; &quot;System Administrator&quot;
+)</errorConditionFormula>
+    <errorDisplayField>CloseDate</errorDisplayField>
+    <errorMessage>Close Date can&apos;t be set in the past. Please update the Close Date to the day the Opp is set as Close Lost.</errorMessage>
+</ValidationRule>

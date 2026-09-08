@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PathAssistant xmlns="http://soap.sforce.com/2006/04/metadata">
+    <active>true</active>
+    <entityName>Opportunity</entityName>
+    <fieldName>StageName</fieldName>
+    <masterLabel>B2B Opportunity</masterLabel>
+    <pathAssistantSteps>
+        <fieldNames>CloseDate</fieldNames>
+        <fieldNames>NextStep</fieldNames>
+        <info>&lt;p&gt;Use Bid/No Bid button to complete Bid/No Bid form. If approved, then use &amp;#39;Create Loopio Project&amp;#39; button to request a response to RFP by the RFP team. Note: during an active RFP we should not be contacting the prospect&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;You will need to create Quote to add Products to opportunity before moving to the next stage.&lt;/p&gt;</info>
+        <picklistValueName>Active RFP</picklistValueName>
+    </pathAssistantSteps>
+    <pathAssistantSteps>
+        <fieldNames>Competitor_Name__c</fieldNames>
+        <fieldNames>Lost_Reason__c</fieldNames>
+        <fieldNames>Lost_Sub_Reason__c</fieldNames>
+        <fieldNames>Lost_Reason_Details__c</fieldNames>
+        <info>&lt;ul&gt;&lt;li&gt;&lt;span style=&quot;font-size: 10pt; font-family: Arial;&quot;&gt;Provide Lost Reason and Lost Sub-Reason&lt;/span&gt;&lt;/li&gt;&lt;/ul&gt;</info>
+        <picklistValueName>Closed Lost</picklistValueName>
+    </pathAssistantSteps>
+    <pathAssistantSteps>
+        <fieldNames>Reason_Won__c</fieldNames>
+        <info>&lt;p&gt;Kick-off onboarding process by creating a Build Request and sending it to Implementation&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;</info>
+        <picklistValueName>Closed Won</picklistValueName>
+    </pathAssistantSteps>
+    <pathAssistantSteps>
+        <fieldNames>CloseDate</fieldNames>
+        <fieldNames>No_International_Payers_At_Opportunity__c</fieldNames>
+        <fieldNames>Competitor_Name__c</fieldNames>
+        <fieldNames>NextStep</fieldNames>
+        <info>&lt;ul&gt;&lt;li&gt;Discovery knowledge is transferred to create tailored demo experience&lt;/li&gt;&lt;li&gt;Prospect has shown interest in seeing the solution&lt;/li&gt;&lt;li&gt;Champion has pulled in colleagues to learn more about Flywire&lt;/li&gt;&lt;li&gt;Collected relevant data on Payers, Volumes, Payment Methods and Currencies&lt;/li&gt;&lt;li&gt;Confirm that Flywire is a priority&lt;/li&gt;&lt;li&gt;Determine if an ROI is appropriate&lt;/li&gt;&lt;li&gt;Add Opportunity Contacts via &amp;#39;Contact Roles&amp;#39;&lt;/li&gt;&lt;/ul&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;To go to next Stage:&lt;/p&gt;&lt;ul&gt;&lt;li&gt;Go to the Account record and update:&lt;ul&gt;&lt;li&gt;&amp;#39;ERP&amp;#39; and &amp;#39;Invoicing Platform&amp;#39; fields&lt;/li&gt;&lt;li&gt;Ensure Account Record has &amp;#39;Client Legal Entity Name&amp;#39;, &amp;#39;Billing Address&amp;#39;, Shipping Address&amp;#39;, &amp;#39;Separate Legal Entity/Tax ID&amp;#39; complete&lt;/li&gt;&lt;/ul&gt;&lt;/li&gt;&lt;li&gt;Confirm currency on Account &amp;amp; Opportunity &lt;/li&gt;&lt;li&gt;&lt;strong&gt;Create Quote&lt;/strong&gt; to add Products to opportunity&lt;/li&gt;&lt;li&gt;Update Key Fields&lt;/li&gt;&lt;/ul&gt;</info>
+        <picklistValueName>Demo/Building Support</picklistValueName>
+    </pathAssistantSteps>
+    <pathAssistantSteps>
+        <fieldNames>Type</fieldNames>
+        <fieldNames>Total_Payers_At_Opportunity__c</fieldNames>
+        <fieldNames>CloseDate</fieldNames>
+        <fieldNames>NextStep</fieldNames>
+        <fieldNames>Description</fieldNames>
+        <info>&lt;p&gt;&lt;strong style=&quot;font-size: 13px;&quot;&gt;Entrance criteria:&lt;/strong&gt;&lt;/p&gt;&lt;ul&gt;&lt;li&gt;Compelling event present&lt;/li&gt;&lt;li&gt;Determined good fit for Flywire&lt;/li&gt;&lt;li&gt;Project timelines mentioned&lt;/li&gt;&lt;/ul&gt;&lt;p&gt;&lt;strong style=&quot;font-size: 13px;&quot;&gt;To go to next stage:&lt;/strong&gt;&lt;/p&gt;&lt;ul&gt;&lt;li&gt;Have identified champion and linked to Opportunity via &amp;#39;Contact Role&amp;#39;&lt;/li&gt;&lt;li&gt;Understand the decision making process&lt;/li&gt;&lt;li&gt;Agree next steps and start of an account plan&lt;/li&gt;&lt;li&gt;Add Products to Opportunity.&lt;/li&gt;&lt;/ul&gt;&lt;p&gt;&lt;strong style=&quot;font-size: 13px;&quot;&gt;Additional fields:&lt;/strong&gt;&lt;/p&gt;&lt;ul&gt;&lt;li&gt;On the &lt;strong&gt;Account&lt;/strong&gt; record fill in: &lt;span style=&quot;font-size: 13px;&quot;&gt;&amp;#39;Account Sub Industry&amp;#39;, &amp;#39;Revenue Range&amp;#39;, &amp;#39;Website&amp;#39;, &lt;/span&gt;&amp;#39;Ownership Type&amp;#39;, &lt;span style=&quot;font-size: 13px;&quot;&gt;&amp;#39;Employee Range&amp;#39; and &lt;/span&gt;&amp;#39;Account Status&amp;#39;.&lt;/li&gt;&lt;/ul&gt;</info>
+        <picklistValueName>Discovery/Qualifying</picklistValueName>
+    </pathAssistantSteps>
+    <pathAssistantSteps>
+        <fieldNames>CloseDate</fieldNames>
+        <fieldNames>NextStep</fieldNames>
+        <info>&lt;p&gt;To submit Opportunity for Approval: &lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;ul&gt;&lt;li&gt;All Opportunity record fields are complete and you have no further modifications to any fields or notes on the record.&lt;/li&gt;&lt;li&gt;Quote must be in &amp;#39;Customer Approved&amp;#39; status&lt;/li&gt;&lt;li&gt;KYC Approval for the Contracted and Ship To Account(s) is complete. &lt;/li&gt;&lt;li&gt;Finalize any outstanding ARR fields, these fields are required for the Opportunity approval process and once submitted to Legal the Opportunity can get closed by the Flywire Legal Team at any point.&lt;/li&gt;&lt;li&gt;Complete the “Note to Legal” field – provide information such as requests from the customer for contract dates/terms to the Flywire Legal Team.&lt;/li&gt;&lt;/ul&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;Click &amp;quot;Preview Approval&amp;quot; when ready to submit.&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;The Opportunity is checked by the Deal Desk Approval Team(s) in-order by: Credit Risk Team, Finance / Revenue Team (if applicable), &amp;amp; Legal Team. If there are any issues the approval team will reach out to you.&lt;/p&gt;</info>
+        <picklistValueName>Legal</picklistValueName>
+    </pathAssistantSteps>
+    <pathAssistantSteps>
+        <fieldNames>NextStep</fieldNames>
+        <fieldNames>Average_PYMNT_size__c</fieldNames>
+        <fieldNames>Total_Addressable_ARR__c</fieldNames>
+        <fieldNames>Total_Addressable_ARR_w_FW_Capabilities__c</fieldNames>
+        <fieldNames>Year_1_ARR_Projection__c</fieldNames>
+        <info>&lt;ul&gt;&lt;li&gt;Prospect has agreed to review a proposal and timing is right&lt;/li&gt;&lt;li&gt;Anticipate objections and prepare negotiation plan&lt;/li&gt;&lt;/ul&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;To go to next Stage:&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;ul&gt;&lt;li&gt;On Account Record: &lt;ul&gt;&lt;li&gt;Fill in &amp;#39;Annual PYMT Volume&amp;#39; and &amp;#39;No. Annual PYMT&amp;#39;&lt;/li&gt;&lt;li&gt;Ensure that Account Record has &amp;#39;Client Legal Entity Name&amp;#39;, &amp;#39;Billing Address&amp;#39;, Shipping Address&amp;#39;, &amp;#39;Separate Legal Entity/Tax ID&amp;#39;, complete.&lt;/li&gt;&lt;/ul&gt;&lt;/li&gt;&lt;li&gt;Gain approval for Quote (if not complete) &amp;amp; generate Quote document&lt;/li&gt;&lt;li&gt;Finalize the close plan that includes decision date&lt;/li&gt;&lt;li&gt;Identify who Flywire works with on KYC and Request KYC&lt;/li&gt;&lt;li&gt;Attach Proposal to &amp;#39;Opportunity Notes&amp;#39;&lt;/li&gt;&lt;li&gt;Update Close Date, Next Steps and other key fields&lt;/li&gt;&lt;/ul&gt;</info>
+        <picklistValueName>Proposal/Negotiating</picklistValueName>
+    </pathAssistantSteps>
+    <pathAssistantSteps>
+        <fieldNames>CloseDate</fieldNames>
+        <fieldNames>NextStep</fieldNames>
+        <fieldNames>Desired_Go_Live_Date__c</fieldNames>
+        <info>&lt;ul&gt;&lt;li&gt;Get Decision maker/ Champion agreement verbally or in writing that prospect is moving forward with Flywire&lt;/li&gt;&lt;li&gt;Cover anticipated objections&lt;/li&gt;&lt;/ul&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;To go to next Stage:&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;ul&gt;&lt;li&gt;Go Live dates have been determined&lt;/li&gt;&lt;li&gt;Internal sign-off from Solutions Consulting/Product&lt;/li&gt;&lt;li&gt;Update Key Fields&lt;/li&gt;&lt;li&gt;Quote must have &amp;#39;Customer Approved&amp;#39; status&lt;/li&gt;&lt;li&gt;KYC Approval must be complete. &lt;/li&gt;&lt;/ul&gt;</info>
+        <picklistValueName>Verbal Selection</picklistValueName>
+    </pathAssistantSteps>
+    <recordTypeName>B2B</recordTypeName>
+</PathAssistant>

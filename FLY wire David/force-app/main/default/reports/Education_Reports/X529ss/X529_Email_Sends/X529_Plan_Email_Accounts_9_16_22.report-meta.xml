@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>ACCOUNT.NAME</field>
+    </columns>
+    <currency>USD</currency>
+    <filter>
+        <booleanFilter>1 OR 2</booleanFilter>
+        <criteriaItems>
+            <column>ACCOUNT.NAME</column>
+            <columnToColumn>false</columnToColumn>
+            <isUnlocked>true</isUnlocked>
+            <operator>equals</operator>
+            <value>Academy of Art University,Albany State University,American College of Healthcare Sciences,Angelo State University,Azusa Pacific University,Beloit College,Biola University,Cal Poly Humboldt,California Institute of Technology,California State University - East Bay,California State University - San Bernardino,Chemeketa Community College,City College of San Francisco,City University of Seattle,Clackamas Community College,Clark College,Coastline College,Concordia University,DigiPen Institute of Technology,El Camino College,Fielding Graduate University,Foothill - DeAnza Community College District,Fuller Theological Seminary,GETS Theological Seminary,Gnomon School of Visual Effects,Golden Gate University,Golden West College,Graduate Theological Union,Green River College,Holy Names University,International Technological University,Internexus Los Angeles,La Sierra University,Lane Community College,Linfield College,Loma Linda University,Lower Columbia College,Marshall B. Ketchum University,Marymount California University,Musicians Institute,National University,Orange Coast College,Otis College of Art and Design,Pacific Lutheran University,Pacific Union College,Pepperdine University,Portland Community College,Prairie View A&amp;M University,Providence Christian College</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>ACCOUNT.NAME</column>
+            <columnToColumn>false</columnToColumn>
+            <isUnlocked>true</isUnlocked>
+            <operator>equals</operator>
+            <value>Saint Martin&apos;s University,San Francisco Art Institute,Santa Barbara City College,Sofia University,Tacoma Community College,Texas A&amp;M University - Commerce,Texas A&amp;M University - Corpus Christi,Texas A&amp;M University - Kingsville,Texas A&amp;M University - San Antonio,University Bridge,University of California - Santa Cruz,University of Kentucky,University of Maryland - Baltimore,University of Miami,University of the Pacific,University of Western States,Walla Walla Community College,Westcliff University,Western Washington University,Whatcom Community College</value>
+        </criteriaItems>
+    </filter>
+    <format>Summary</format>
+    <groupingsDown>
+        <dateGranularity>Day</dateGranularity>
+        <field>Account.Relationship_Manager__c</field>
+        <sortOrder>Asc</sortOrder>
+    </groupingsDown>
+    <name>529 Plan Email Accounts - 9.16.22</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>AccountList</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <showGrandTotal>true</showGrandTotal>
+    <showSubTotals>true</showSubTotals>
+    <timeFrameFilter>
+        <dateColumn>CREATED_DATE</dateColumn>
+        <interval>INTERVAL_CUSTOM</interval>
+    </timeFrameFilter>
+</Report>

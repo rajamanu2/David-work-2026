@@ -1,0 +1,50 @@
+<template>
+    <lightning-layout-item size=12>
+        <div class="slds-table--header-fixed_container" style="height:300px;">      
+            <div class="slds-scrollable_y" style="height:100%;">
+                <template if:true={swapPRLIDataAvailable}>
+                <table class="slds-table slds-table_cell-buffer slds-table_bordered slds-table--header-fixed">
+                    <thead>  
+                        <tr>
+                            <th class="" scope="col"><div class="slds-truncate slds-cell-fixed" title="Product Name">Original Product Name</div></th>
+                            <th class="" scope="col"><div class="slds-truncate slds-cell-fixed" title="Lot Number">Original Lot No</div></th>
+                            <th class="" scope="col"><div class="slds-truncate slds-cell-fixed" title="Product Name">Swapped Product Name</div></th>
+                            <th class="" scope="col"><div class="slds-truncate slds-cell-fixed" title="Lot Number">Swapped Lot No</div></th>
+                        </tr>  
+                    </thead>
+                    <tbody>
+                        <template for:each={swapPRLIRecords} for:item='item'>
+                                <tr class="slds-hint-parent" key={item.id}>
+                                    <template if:true={hasPRLISwapData}>
+                                        <td data-label="Original Product Name">
+                                            <div class="slds-truncate" key={item.id}><lightning-formatted-text value='{item.originData.IR_Product_Name__c}'></lightning-formatted-text></div>
+                                        </td>
+                                        <td data-label="Original Lot Number">
+                                            <div class="slds-truncate" key={item.id}><lightning-formatted-text value='{item.originData.Lot_Number__c}'></lightning-formatted-text></div>
+                                        </td>
+                                    </template>
+                                    <template if:true={hasIRProductSwapData}>
+                                        
+                                        <td data-label="Original Product Name">
+                                            <div class="slds-truncate" key={item.id}><lightning-formatted-text value='{item.originData.IR_Product_Name__c}'></lightning-formatted-text></div>
+                                        </td>
+                                        <td data-label="Original Lot Number">
+                                            <div class="slds-truncate" key={item.id}><lightning-formatted-text value='{item.originData.Lot_Number__c}'></lightning-formatted-text></div>
+                                        </td>
+                                    </template>
+                                    
+                                    <td data-label="Swapped Product Name">
+                                        <div class="slds-truncate" key={item.id}><lightning-formatted-text value='{item.swapData.Product_Name__c}'></lightning-formatted-text></div>
+                                    </td> 
+                                    <td data-label="Swapped Lot Number">
+                                        <div class="slds-truncate" key={item.id}><lightning-formatted-text value='{item.swapData.Lot_Number__c}'></lightning-formatted-text></div>
+                                    </td> 
+                                </tr>    
+                        </template>
+                    </tbody>  
+                </table>
+                </template>
+            </div>
+        </div>
+    </lightning-layout-item>
+</template>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Asset_No_to_be_returned_is_not_blank</fullName>
+    <active>true</active>
+    <errorConditionFormula>IF(
+AND(
+(NOT(isblank(Date_RMA_Item_Received__c))), 
+RecordType.DeveloperName =&apos;Return_from_Sale&apos;,isblank(ProductItem__c)), True, False)</errorConditionFormula>
+    <errorDisplayField>ProductItem__c</errorDisplayField>
+    <errorMessage>ProductItem can&apos;t be blank</errorMessage>
+</ValidationRule>

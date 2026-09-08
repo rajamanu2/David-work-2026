@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Participation_Level__c</fullName>
+    <description>Level we are participating at the event.</description>
+    <inlineHelpText>At what level is Flywire investing in this event?</inlineHelpText>
+    <label>Participation Level</label>
+    <required>false</required>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Attending Only</fullName>
+                <default>false</default>
+                <label>Attending Only</label>
+            </value>
+            <value>
+                <fullName>Exhibiting</fullName>
+                <default>false</default>
+                <label>Exhibiting</label>
+            </value>
+            <value>
+                <fullName>Other Activation</fullName>
+                <default>false</default>
+                <label>Other Activation</label>
+            </value>
+            <value>
+                <fullName>Other Sponsorship</fullName>
+                <default>false</default>
+                <label>Other Sponsorship</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

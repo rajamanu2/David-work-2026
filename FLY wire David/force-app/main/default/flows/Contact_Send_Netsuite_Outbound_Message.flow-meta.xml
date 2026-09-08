@@ -1,0 +1,217 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionCalls>
+        <description>Billing Contact not existing in Netsuite</description>
+        <name>Create_contact_missing_from_Netsuite</name>
+        <label>Create contact missing from Netsuite</label>
+        <locationX>314</locationX>
+        <locationY>647</locationY>
+        <actionName>Contact.Billing_Contact_not_existing_in_Netsuite</actionName>
+        <actionType>outboundMessage</actionType>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
+        <nameSegment>Contact.Billing_Contact_not_existing_in_Netsuite</nameSegment>
+        <offset>0</offset>
+    </actionCalls>
+    <actionCalls>
+        <name>New_contact_to_netsuite</name>
+        <label>New contact to Netsuite</label>
+        <locationX>50</locationX>
+        <locationY>431</locationY>
+        <actionName>Contact.New_contact_to_netsuite</actionName>
+        <actionType>outboundMessage</actionType>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
+        <nameSegment>Contact.New_contact_to_netsuite</nameSegment>
+        <offset>0</offset>
+    </actionCalls>
+    <actionCalls>
+        <name>Update_Netsuite_contact</name>
+        <label>Update Netsuite contact</label>
+        <locationX>578</locationX>
+        <locationY>647</locationY>
+        <actionName>Contact.Update_Netsuite_existing_contact</actionName>
+        <actionType>outboundMessage</actionType>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
+        <nameSegment>Contact.Update_Netsuite_existing_contact</nameSegment>
+        <offset>0</offset>
+    </actionCalls>
+    <apiVersion>63.0</apiVersion>
+    <areMetricsLoggedToDataCloud>false</areMetricsLoggedToDataCloud>
+    <decisions>
+        <name>New_or_Updated_Record</name>
+        <label>New or Updated Record</label>
+        <locationX>314</locationX>
+        <locationY>323</locationY>
+        <defaultConnector>
+            <targetReference>Is_Billing_Contact_Changed</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Updated Billing Contact</defaultConnectorLabel>
+        <rules>
+            <name>New_Billing_Contact</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>IsNew</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Billing_Contact__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>New_contact_to_netsuite</targetReference>
+            </connector>
+            <label>New Billing Contact</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Outbound_Message_Type</name>
+        <label>Outbound Message Type</label>
+        <locationX>578</locationX>
+        <locationY>539</locationY>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Billing_Contact_not_in_Netsuite</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Billing_Contact__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>IsNew</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Netsuite_ID__c</leftValueReference>
+                <operator>IsBlank</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Create_contact_missing_from_Netsuite</targetReference>
+            </connector>
+            <label>Billing Contact not in Netsuite</label>
+        </rules>
+        <rules>
+            <name>Netsuite_Existing_Contact</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Netsuite_ID__c</leftValueReference>
+                <operator>IsBlank</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>IsNew</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Netsuite_ID__c</leftValueReference>
+                <operator>IsChanged</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Update_Netsuite_contact</targetReference>
+            </connector>
+            <label>Netsuite Existing Contact</label>
+        </rules>
+    </decisions>
+    <description>BOPI-843 Use outbound messages to update the contacts in netsuite</description>
+    <environments>Default</environments>
+    <formulas>
+        <name>IsBillingChanged</name>
+        <dataType>Boolean</dataType>
+        <expression>IF({!$Record__Prior.Billing_Contact__c} = {!$Record.Billing_Contact__c}, false, true)</expression>
+    </formulas>
+    <formulas>
+        <name>IsInactiveChangedFor</name>
+        <dataType>Boolean</dataType>
+        <expression>IF({!$Record__Prior.Inactive__c} = {!$Record.Inactive__c}, false, true)</expression>
+    </formulas>
+    <formulas>
+        <name>IsNew</name>
+        <dataType>Boolean</dataType>
+        <expression>ISNEW()</expression>
+    </formulas>
+    <interviewLabel>(Contact) Send Netsuite Outbound Message {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>(Contact) Send Netsuite Outbound Message</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <recordUpdates>
+        <name>Is_Billing_Contact_Changed</name>
+        <label>Is Billing/Inactive Contact Changed</label>
+        <locationX>578</locationX>
+        <locationY>431</locationY>
+        <connector>
+            <targetReference>Outbound_Message_Type</targetReference>
+        </connector>
+        <inputAssignments>
+            <field>Is_Billing_Contact_Changed__c</field>
+            <value>
+                <elementReference>IsBillingChanged</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Is_Inactive_changed__c</field>
+            <value>
+                <elementReference>IsInactiveChangedFor</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <start>
+        <locationX>188</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>New_or_Updated_Record</targetReference>
+        </connector>
+        <filterFormula>OR(
+    ISNEW(),
+    ISCHANGED({!$Record.AccountId}),
+    ISCHANGED({!$Record.Billing_Contact__c}),
+    ISCHANGED({!$Record.Company_Phone__c}),
+    ISCHANGED({!$Record.Email}),
+    ISCHANGED({!$Record.Netsuite_ID__c}),
+    ISCHANGED({!$Record.Title}),
+    ISCHANGED({!$Record.Inactive__c}) 
+)</filterFormula>
+        <object>Contact</object>
+        <recordTriggerType>CreateAndUpdate</recordTriggerType>
+        <triggerType>RecordAfterSave</triggerType>
+    </start>
+    <status>Obsolete</status>
+</Flow>

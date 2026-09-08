@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Req_FullAddres_To_Submit_Approval</fullName>
+    <active>true</active>
+    <description>The Shipping and Billing address must be completed before submitting for approval
+
+BOPI-581 ByPass added to skip validations when syncing quote with account changes</description>
+    <errorConditionFormula>AND(
+ ISCHANGED(ApprovalStatus__c),
+ OR(
+ISBLANK(SBQQ__Account__r.ShippingCountry),
+ISBLANK(SBQQ__Account__r.ShippingPostalCode),
+ISBLANK(SBQQ__Account__r.ShippingState),
+ISBLANK(SBQQ__Account__r.ShippingStreet),
+ISBLANK(SBQQ__Account__r.BillingCity),
+ISBLANK(SBQQ__Account__r.BillingCountry),
+ISBLANK(SBQQ__Account__r.BillingPostalCode),
+ISBLANK(SBQQ__Account__r.BillingState),
+ISBLANK(SBQQ__Account__r.BillingStreet)
+)
+)
+&amp;&amp; Quote_Val_Bypass__c = false</errorConditionFormula>
+    <errorMessage>Please complete the full Billing and Shipping Addresses on the Account record</errorMessage>
+</ValidationRule>

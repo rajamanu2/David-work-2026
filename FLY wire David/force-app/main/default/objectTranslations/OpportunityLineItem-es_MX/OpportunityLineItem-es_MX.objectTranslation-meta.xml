@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fieldSets>
+        <label><!-- AA Opp Approval Request --></label>
+        <name>AA_Opp_Approval_Request</name>
+    </fieldSets>
+    <fieldSets>
+        <label><!-- AA Opp Approval Request with Ship to Account --></label>
+        <name>AA_Opp_Approval_Request_with_Ship_to_Acc</name>
+    </fieldSets>
+    <fieldSets>
+        <label><!-- Revenue Approval Request --></label>
+        <name>Revenue_Approval_Request</name>
+    </fieldSets>
+    <fieldSets>
+        <label><!-- Revenue Approval Request with Ship To --></label>
+        <name>Revenue_Approval_Request_with_Ship_To</name>
+    </fieldSets>
+    <fieldSets>
+        <label><!-- Deal Desk --></label>
+        <name>sbaa__DealDesk</name>
+    </fieldSets>
+    <validationRules>
+        <errorMessage>
+            <!-- The following fields on the Account are required to add Products:
+ Shipping Country,
+ Account Industry,
+ Account Sub Industry, if Accomodations. -->
+        </errorMessage>
+        <name>ARR_ReqField_Travel</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage>
+            <!-- The following Account fields are required to calculate ARR:
+ Shipping Country,
+ Account Sub Industry,
+ Ownership Type (For Australia Only),
+Go the your Account and fill these in before adding product. -->
+        </errorMessage>
+        <name>ARR_ReqFields_Edu</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- The Account &apos;Shipping Country&apos; must be filled to calculate the ARR --></errorMessage>
+        <name>ARR_Req_Country_Payables</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- The field &apos;No. International Payers At Opportunity&apos; must be filled in to calculate Cross Border ARR --></errorMessage>
+        <name>ARR_Req_Edu_Payers_90</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- The Opportunity Type is required for adding productsThe &quot;Type&quot; field on the Opportunity must be filled in before adding products. Go back to the Opportunity and fill that in then try adding product again. --></errorMessage>
+        <name>ARR_Req_Type_Opp</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Can&apos;t Modify Product after Opp is Won. See Admin for help. --></errorMessage>
+        <name>Cant_Modify_Product_After_Opp_Closed</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage>
+            <!-- The fields are required for adding a Payables product
+On Opportunity:
+ &apos;Avg FX Trans Amt&apos;,
+ &apos;FX XB Outgoing PYMTS&apos;,
+ &apos;Client Home CCY XB PYMNTS&apos;,
+ &apos;# DOM Outgoing PYMTS&apos; -->
+        </errorMessage>
+        <name>OBS_ARR_ReqFields_Payables_90</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Please update the Close Date as it is currently in the past. --></errorMessage>
+        <name>Opp_Past_Closed_Date</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Quantity should always be 1 --></errorMessage>
+        <name>Quantity_1_only</name>
+    </validationRules>
+</CustomObjectTranslation>

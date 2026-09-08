@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Last_Modified</fullName>
+    <columns>NAME</columns>
+    <columns>Account_Country__c</columns>
+    <columns>CC_Country__c</columns>
+    <columns>Key__c</columns>
+    <columns>Locally_Issued__c</columns>
+    <columns>Non_Local_Currency__c</columns>
+    <columns>Payment_Method__c</columns>
+    <columns>Recurring__c</columns>
+    <columns>Surcharging__c</columns>
+    <columns>Transaction_Type__c</columns>
+    <columns>Usage_Rate__c</columns>
+    <columns>Usage_Rate_Amt__c</columns>
+    <columns>Usage_Type__c</columns>
+    <columns>Vertical__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>LAST_UPDATE</field>
+        <operation>equals</operation>
+        <value>TODAY</value>
+    </filters>
+    <label>Last Modified</label>
+</ListView>

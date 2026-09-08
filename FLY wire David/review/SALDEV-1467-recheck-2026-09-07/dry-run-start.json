@@ -1,0 +1,15 @@
+{
+  "name": "ClientTimeoutError",
+  "message": "The command has timed out, although the deployment is still running. Use \"sf project deploy resume\" to resume watching the deployment.",
+  "exitCode": 1,
+  "context": "DeployMetadata",
+  "data": {
+    "id": "0AfhG000001eMpFSAU"
+  },
+  "stack": "ClientTimeoutError: The command has timed out, although the deployment is still running. Use \"sf project deploy resume\" to resume watching the deployment.\n    at SfCommandError.from (file:///C:/Users/LIKKI/AppData/Local/sf/client/2.134.6-f556e1e/node_modules/@salesforce/sf-plugins-core/lib/SfCommandError.js:48:16)\n    at DeployMetadata.catch (file:///C:/Users/LIKKI/AppData/Local/sf/client/2.134.6-f556e1e/node_modules/@salesforce/sf-plugins-core/lib/sfCommand.js:332:47)\n    at DeployMetadata.catch (file:///C:/Users/LIKKI/AppData/Local/sf/client/2.134.6-f556e1e/node_modules/@salesforce/plugin-deploy-retrieve/lib/commands/project/deploy/start.js:286:31)\n    at DeployMetadata._run (C:\\Users\\LIKKI\\AppData\\Local\\sf\\client\\2.134.6-f556e1e\\node_modules\\@oclif\\core\\lib\\command.js:187:29)\n    at async Config.runCommand (C:\\Users\\LIKKI\\AppData\\Local\\sf\\client\\2.134.6-f556e1e\\node_modules\\@oclif\\core\\lib\\config\\config.js:445:25)\n    at async run (C:\\Users\\LIKKI\\AppData\\Local\\sf\\client\\2.134.6-f556e1e\\node_modules\\@oclif\\core\\lib\\main.js:97:16)\n    at async file:///C:/Users/LIKKI/AppData/Local/sf/client/2.134.6-f556e1e/bin/run.js:15:1",
+  "cause": "undefined",
+  "warnings": [],
+  "code": "ClientTimeoutError",
+  "status": 1,
+  "commandName": "DeployMetadata"
+}

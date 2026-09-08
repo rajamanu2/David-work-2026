@@ -1,0 +1,60 @@
+@startuml
+top to bottom direction
+skinparam backgroundColor white
+skinparam shadowing false
+skinparam classBackgroundColor #F6F7F8
+skinparam classBorderColor #222222
+skinparam classArrowColor #3D8DFF
+skinparam classHeaderBackgroundColor #D0EDFA
+hide methods
+hide circle
+class CustomerAccount {
+  +GoldenRecordKey : String
+  +ParentAccountId : Id
+  +LifecycleStatus : String
+}
+class LegalEntity {
+  +EntityCode : String
+  +Country : String
+  +BaseCurrency : String
+}
+class Opportunity {
+  +Stage : String
+  +PrimaryEntityId : Id
+}
+class Quote {
+  +Version : Integer
+  +Status : QuoteStatus
+  +CurrencyIsoCode : String
+  +ARR : Currency
+  +TCV : Currency
+}
+class QuoteLine {
+  +Quantity : Decimal
+  +NetPrice : Currency
+  +RevenueType : String
+}
+class Product {
+  +SKU : String
+  +ProductFamily : String
+  +LifecycleStatus : String
+}
+class PriceBookEntry {
+  +CurrencyIsoCode : String
+  +ListPrice : Currency
+  +EffectiveDates : DateRange
+}
+class PricingSchedule {
+  +PeriodNumber : Integer
+  +EscalationPercent : Decimal
+  +PeriodNetAmount : Currency
+}
+CustomerAccount "1" -- "0..*" CustomerAccount : hierarchy
+CustomerAccount "1" -- "1..*" LegalEntity
+CustomerAccount "1" -- "0..*" Opportunity
+Opportunity "1" -- "0..*" Quote
+Quote "1" *-- "1..*" QuoteLine
+Product "1" -- "0..*" PriceBookEntry
+PriceBookEntry "1" -- "0..*" QuoteLine
+QuoteLine "1" *-- "0..*" PricingSchedule
+@enduml

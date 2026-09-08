@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Integration</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Integrations</value>
+    </caseValues>
+    <recordTypes>
+        <description><!-- Comprehensive Receivables (CRS) Integration Records --></description>
+        <label><!-- Comprehensive Receivables --></label>
+        <name>Comprehensive_Receivables</name>
+    </recordTypes>
+    <recordTypes>
+        <description><!-- Integration Record for Flywire Incoming Payment Portal --></description>
+        <label><!-- Incoming Payment Portal --></label>
+        <name>Incoming_Payment_Portal</name>
+    </recordTypes>
+    <recordTypes>
+        <description><!-- Integration Configuration details for Payment Service Providers &amp;  Banks. --></description>
+        <label><!-- Payment Method --></label>
+        <name>Payment_Method</name>
+    </recordTypes>
+    <startsWith>Consonant</startsWith>
+    <validationRules>
+        <errorMessage><!-- Must fill out Access Type --></errorMessage>
+        <name>Access_Type_Not_Null</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- You must fill in the Project Kick Off Date. --></errorMessage>
+        <name>Kickoff_Not_empty</name>
+    </validationRules>
+</CustomObjectTranslation>

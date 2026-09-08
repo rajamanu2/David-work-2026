@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <encodingKey>UTF-8</encodingKey>
+    <name>Sorry, Bad Country Email (Travel)</name>
+    <style>none</style>
+    <subject>Thank you for your interest- until next time!</subject>
+    <textOnly>Thank you for your interest in Flywire! Unfortunately, we are currently not permitted to sign up organizations in {{lead.Country:default=your country}}. 
+
+However, we are always expanding our reach and capabilities, and will be in touch when we&apos;re able to partner with organizations in {{lead.Country:default=your country}}.
+
+If the country listed is incorrect, please reply directly to this email. 
+
+Need help with a payment? Flywire&apos;s support team is available! 
+Contact 
+Support &lt;[[https://help.flywire.com/hc/en-us]]&gt;.
+
+Best, 
+The Flywire Team
+Flywire Global Headquarters
+ 141 Tremont Street, Boston, MA 02111
+ United States
+Copyright ©Flywire. 2011-2020 All rights reserved.
+
+ Flywire is a trademark of Flywire Corporation. 
+
+
+The availability of our products or services and our product or service descriptions will vary subject to applicable law and geographic location.
+Privacy Policy &lt;[[https://www.flywire.com/legal/privacy-policy]]&gt;   
+|   
+Unsubscribe &lt;[[{{system.unsubscribeLink}}]]&gt;  
+|   
+Forward to friend &lt;[[{{system.forwardToFriendLink}}]]&gt;</textOnly>
+    <type>custom</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

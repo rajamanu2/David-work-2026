@@ -1,0 +1,243 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <buckets>
+        <bucketType>picklist</bucketType>
+        <developerName>BucketField_57432384</developerName>
+        <masterLabel>Inbound/Outbound</masterLabel>
+        <nullTreatment>n</nullTreatment>
+        <sourceColumnName>LEAD_SOURCE</sourceColumnName>
+        <useOther>false</useOther>
+        <values>
+            <sourceValues>
+                <sourceValue>Account Based Marketing</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>Content</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>Content Syndication</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>Event</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>Online Advertising</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>Paid Social</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>Partner</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>Referral</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>Virtual Event</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>Webinar</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>Website</sourceValue>
+            </sourceValues>
+            <value>Inbound</value>
+        </values>
+        <values>
+            <sourceValues>
+                <sourceValue>Sourcing</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>Sourcing - LinkedIn</sourceValue>
+            </sourceValues>
+            <value>Outbound</value>
+        </values>
+    </buckets>
+    <buckets>
+        <bucketType>text</bucketType>
+        <developerName>BucketField_41386032</developerName>
+        <masterLabel>Source</masterLabel>
+        <nullTreatment>n</nullTreatment>
+        <otherBucketLabel>Other</otherBucketLabel>
+        <sourceColumnName>CAMPAIGN_SOURCE</sourceColumnName>
+        <useOther>true</useOther>
+        <values>
+            <sourceValues>
+                <sourceValue>Website_Demo Request_Generic</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>Website_Demo Request_Global Payments</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>Website_Demo Request_Header Button</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>Website_Demo Request_Home Page</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>Website_Demo Request_Travel</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>Website_Demo Request_Travel_Accommodations</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>Website_Demo Request_Travel_DMC</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>Website_Demo Request_Travel_Invoicing Solution</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>Website_Demo Request_Travel_OTAs</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>Website_Demo Request_Travel_Serandipians_Agents</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>Website_Demo Request_Travel_Timeshares &amp; Vacation Clubs</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>Website_Demo Request_Travel Operators</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>Website_Payments Assessment_Travel</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>AD_GoogleAdwords_PPC_Brand</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>AD_GoogleAdwords_PPC_Payments</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>AD_TRAVEL_GoogleAdwords_PPC</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>AD_Travel_GoogleAdwords_PPC_Competitors</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>AD_TRAVEL_LI_DemoRequest</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>Ad_Travel_LI_PaymentAssessment</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>Website_Demo Request_Payment Integrations</sourceValue>
+            </sourceValues>
+            <value>Demo</value>
+        </values>
+    </buckets>
+    <chart>
+        <backgroundColor1>#FFFFFF</backgroundColor1>
+        <backgroundColor2>#FFFFFF</backgroundColor2>
+        <backgroundFadeDir>Diagonal</backgroundFadeDir>
+        <chartSummaries>
+            <axisBinding>y</axisBinding>
+            <column>RowCount</column>
+        </chartSummaries>
+        <chartType>Donut</chartType>
+        <enableHoverLabels>false</enableHoverLabels>
+        <expandOthers>false</expandOthers>
+        <groupingColumn>CREATED_DATE</groupingColumn>
+        <legendPosition>Right</legendPosition>
+        <location>CHART_BOTTOM</location>
+        <showAxisLabels>false</showAxisLabels>
+        <showPercentage>false</showPercentage>
+        <showTotal>true</showTotal>
+        <showValues>false</showValues>
+        <size>Medium</size>
+        <summaryAxisRange>Auto</summaryAxisRange>
+        <textColor>#000000</textColor>
+        <textSize>12</textSize>
+        <titleColor>#000000</titleColor>
+        <titleSize>18</titleSize>
+    </chart>
+    <columns>
+        <field>OPPORTUNITY_NAME</field>
+    </columns>
+    <columns>
+        <field>STAGE_NAME</field>
+    </columns>
+    <columns>
+        <field>FULL_NAME</field>
+    </columns>
+    <columns>
+        <aggregateTypes>Sum</aggregateTypes>
+        <field>AMOUNT</field>
+    </columns>
+    <columns>
+        <field>CAMPAIGN_SOURCE</field>
+    </columns>
+    <columns>
+        <field>CLOSE_DATE</field>
+    </columns>
+    <currency>USD</currency>
+    <filter>
+        <criteriaItems>
+            <column>CREATED_DATE</column>
+            <columnToColumn>false</columnToColumn>
+            <isUnlocked>true</isUnlocked>
+            <operator>equals</operator>
+            <value>THIS_YEAR</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>RECORDTYPE</column>
+            <columnToColumn>false</columnToColumn>
+            <isUnlocked>true</isUnlocked>
+            <operator>equals</operator>
+            <value>Opportunity.Travel</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>STAGE_NAME</column>
+            <columnToColumn>false</columnToColumn>
+            <isUnlocked>true</isUnlocked>
+            <operator>equals</operator>
+            <value>,Discovery/Qualifying,Demo/Building Support,Active RFP,Proposal/Negotiating,Verbal Selection,Legal,Closed Won,Closed Lost</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Opportunity.BDR_Owner__c</column>
+            <columnToColumn>false</columnToColumn>
+            <isUnlocked>true</isUnlocked>
+            <operator>equals</operator>
+            <value>Mubz Rahman,Sophie Brockbank,Charlie Dreher,Leah Prigmore,Chloe Engle</value>
+        </criteriaItems>
+    </filter>
+    <format>Summary</format>
+    <groupingsDown>
+        <dateGranularity>Month</dateGranularity>
+        <field>CREATED_DATE</field>
+        <sortOrder>Asc</sortOrder>
+    </groupingsDown>
+    <groupingsDown>
+        <dateGranularity>Day</dateGranularity>
+        <field>Opportunity.BDR_Owner__c</field>
+        <sortOrder>Asc</sortOrder>
+    </groupingsDown>
+    <groupingsDown>
+        <dateGranularity>Day</dateGranularity>
+        <field>BucketField_41386032</field>
+        <sortOrder>Asc</sortOrder>
+    </groupingsDown>
+    <name>BDR Opportunities per Quarter</name>
+    <params>
+        <name>open</name>
+        <value>all</value>
+    </params>
+    <params>
+        <name>probability</name>
+        <value>&gt;0</value>
+    </params>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>Opportunity</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <showGrandTotal>true</showGrandTotal>
+    <showSubTotals>true</showSubTotals>
+    <sortColumn>STAGE_NAME</sortColumn>
+    <sortOrder>Asc</sortOrder>
+    <timeFrameFilter>
+        <dateColumn>CREATED_DATE</dateColumn>
+        <interval>INTERVAL_CURRENTQ</interval>
+    </timeFrameFilter>
+</Report>

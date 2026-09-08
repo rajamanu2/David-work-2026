@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>65.0</apiVersion>
+    <areMetricsLoggedToDataCloud>false</areMetricsLoggedToDataCloud>
+    <decisions>
+        <name>Error_Decision_Re_Syncable</name>
+        <label>Error Decision Re-Syncable?</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Within_a_Transaction_Period_That_s_Closed</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Intacct_AP_Bill_Error_Message__c</leftValueReference>
+                <operator>Contains</operator>
+                <rightValue>
+                    <stringValue>Your transaction date</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Re_Sync_after_Updating_GL_Posting_Date</targetReference>
+            </connector>
+            <label>Within a Transaction Period That&apos;s Closed?</label>
+        </rules>
+    </decisions>
+    <description>10/31/2025 - Resyncs a PO Bill if there is a date that can be fixed</description>
+    <environments>Default</environments>
+    <interviewLabel>PO Bill - Resync if error is received. {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>PO Bill - Resync if error is received.</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <recordUpdates>
+        <name>Re_Sync_after_Updating_GL_Posting_Date</name>
+        <label>Re-Sync after Updating GL Posting Date</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <inputAssignments>
+            <field>GL_Posting_Date__c</field>
+            <value>
+                <elementReference>$Flow.CurrentDate</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Intacct_AP_Bill_Sync_Status__c</field>
+            <value>
+                <stringValue>Sync</stringValue>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <start>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Error_Decision_Re_Syncable</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Intacct_AP_Bill_Sync_Status__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>Error</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>Intacct_AP_Bill_Timestamp__c</field>
+            <operator>GreaterThan</operator>
+            <value>
+                <dateTimeValue>2025-10-20T04:00:00.000Z</dateTimeValue>
+            </value>
+        </filters>
+        <object>PO_Bill__c</object>
+        <schedule>
+            <frequency>Once</frequency>
+            <startDate>2025-10-31</startDate>
+            <startTime>08:00:00.000Z</startTime>
+        </schedule>
+        <triggerType>Scheduled</triggerType>
+    </start>
+    <status>Active</status>
+</Flow>

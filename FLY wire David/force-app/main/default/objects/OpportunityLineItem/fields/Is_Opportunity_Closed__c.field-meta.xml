@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Is_Opportunity_Closed__c</fullName>
+    <description>This field saves us an extra Get Record element on the (ACC) ARR Recalculation flow.</description>
+    <formula>Opportunity.IsClosed</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Is Opportunity Closed</label>
+    <type>Checkbox</type>
+</CustomField>

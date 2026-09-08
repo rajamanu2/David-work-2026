@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>B2B_Leads</fullName>
+    <columns>FULL_NAME</columns>
+    <columns>LEAD.COMPANY</columns>
+    <columns>LEAD.TITLE</columns>
+    <columns>LEAD.EMAIL</columns>
+    <columns>Lead_Person_Status__c</columns>
+    <columns>LEAD.LEAD_SOURCE</columns>
+    <columns>Engagement_Status__c</columns>
+    <columns>LEAD.LAST_ACTIVITY</columns>
+    <columns>CORE.USERS.ALIAS</columns>
+    <columns>LEAD.COUNTRY</columns>
+    <columns>LEAD.CREATED_DATE</columns>
+    <columns>MQL_Timestamp__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Lead_Industry__c</field>
+        <operation>equals</operation>
+        <value>Business</value>
+    </filters>
+    <filters>
+        <field>Lead_Person_Status__c</field>
+        <operation>equals</operation>
+        <value>MQL (Marketing Qualified Lead),SWL (Sales Working Lead),SQL (Sales Qualified Lead)</value>
+    </filters>
+    <label>B2B Leads</label>
+    <sharedTo>
+        <roleAndSubordinatesInternal>Director_B2B</roleAndSubordinatesInternal>
+    </sharedTo>
+</ListView>

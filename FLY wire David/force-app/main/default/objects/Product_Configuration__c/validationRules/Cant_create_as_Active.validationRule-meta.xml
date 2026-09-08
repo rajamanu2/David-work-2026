@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Cant_create_as_Active</fullName>
+    <active>false</active>
+    <description>Prevent Prod Config from being created as Active.</description>
+    <errorConditionFormula>AND ( 
+$Profile.Name &lt;&gt; &apos;System Administrator&apos;,
+$Profile.Name &lt;&gt; &quot;B - Looker&quot;,
+ISNEW(),
+ISPICKVAL (Product_Status__c, &quot;Active (Product Live)&quot;)
+)</errorConditionFormula>
+    <errorMessage>You can not create a Prod Config with Status Active. You must create it in another Status and then update it after record creation. Be sure the status date is correct before moving to Active.</errorMessage>
+</ValidationRule>

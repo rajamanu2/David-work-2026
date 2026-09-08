@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Customer_Repairs_complete_byrep</fullName>
+    <booleanFilter>(1 OR (6 AND 7 ) OR 8) and 2 and 3 and 4 and 5</booleanFilter>
+    <columns>Date__c</columns>
+    <columns>NAME</columns>
+    <columns>Account_Name__c</columns>
+    <columns>Opportunity__c</columns>
+    <columns>Opportunity_Owner__c</columns>
+    <columns>ProductItem__c</columns>
+    <columns>Customer_PO_Number__c</columns>
+    <columns>Date_RMA_Item_Received__c</columns>
+    <columns>Date_Repair_Approved__c</columns>
+    <columns>Amount__c</columns>
+    <columns>Opportunity_Stage__c</columns>
+    <columns>RMA_Type__c</columns>
+    <columns>Location__c</columns>
+    <filterScope>Mine</filterScope>
+    <filters>
+        <field>RMA_Type__c</field>
+        <operation>equals</operation>
+        <value>customer repair evaluation</value>
+    </filters>
+    <filters>
+        <field>Date_shipped__c</field>
+        <operation>equals</operation>
+    </filters>
+    <filters>
+        <field>Repair_turned_to_Exchange__c</field>
+        <operation>equals</operation>
+        <value>0</value>
+    </filters>
+    <filters>
+        <field>Date_Opportunity_Item_Shipped__c</field>
+        <operation>equals</operation>
+    </filters>
+    <filters>
+        <field>Date__c</field>
+        <operation>notEqual</operation>
+    </filters>
+    <filters>
+        <field>Customer_Expectation__c</field>
+        <operation>equals</operation>
+        <value>Customer wants probe back</value>
+    </filters>
+    <filters>
+        <field>RECORDTYPE</field>
+        <operation>equals</operation>
+        <value>RMA__c.Warranty_Claim</value>
+    </filters>
+    <filters>
+        <field>RECORDTYPE</field>
+        <operation>equals</operation>
+        <value>RMA__c.Customer_Repair_Warranty,RMA__c.Warranty_Repair</value>
+    </filters>
+    <label>6. Cust. Repair BY REP-Approved to Ship</label>
+    <sharedTo>
+        <allInternalUsers></allInternalUsers>
+    </sharedTo>
+</ListView>

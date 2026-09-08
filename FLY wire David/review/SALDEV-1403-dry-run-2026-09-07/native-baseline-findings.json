@@ -1,0 +1,229 @@
+[
+  {
+    "quote": "Q-37640",
+    "grouped": true,
+    "shipTo": "No",
+    "actualGroupOrder": [
+      "Ramp up Year 1",
+      "Ramp up Year 2",
+      "Ramp up Year 3"
+    ],
+    "expectedGroupOrder": [
+      "Ramp up Year 1",
+      "Ramp up Year 2",
+      "Ramp up Year 3"
+    ],
+    "outputLineCount": 12,
+    "lineComparisons": [
+      {
+        "group": "Ramp up Year 1",
+        "sameLineMultiset": true,
+        "matchesQLEOrder": true
+      },
+      {
+        "group": "Ramp up Year 2",
+        "sameLineMultiset": true,
+        "matchesQLEOrder": false
+      },
+      {
+        "group": "Ramp up Year 3",
+        "sameLineMultiset": true,
+        "matchesQLEOrder": false
+      }
+    ]
+  },
+  {
+    "quote": "Q-37912",
+    "grouped": true,
+    "shipTo": "No",
+    "actualGroupOrder": [
+      "Group3",
+      "Group1",
+      "Group2",
+      "Group4"
+    ],
+    "expectedGroupOrder": [
+      "Group4",
+      "Group1",
+      "Group2",
+      "Group3"
+    ],
+    "outputLineCount": 78,
+    "lineComparisons": [
+      {
+        "group": "Group1",
+        "sameLineMultiset": true,
+        "matchesQLEOrder": false
+      },
+      {
+        "group": "Group2",
+        "sameLineMultiset": true,
+        "matchesQLEOrder": false
+      },
+      {
+        "group": "Group3",
+        "sameLineMultiset": true,
+        "matchesQLEOrder": false
+      },
+      {
+        "group": "Group4",
+        "sameLineMultiset": true,
+        "matchesQLEOrder": false
+      }
+    ]
+  },
+  {
+    "quote": "Q-38009",
+    "grouped": false,
+    "shipTo": "Yes",
+    "actualGroupOrder": [],
+    "expectedGroupOrder": [],
+    "outputLineCount": 9,
+    "lineComparisons": [
+      {
+        "group": "ungrouped",
+        "sameLineMultiset": true,
+        "matchesQLEOrder": true
+      }
+    ]
+  },
+  {
+    "quote": "Q-38023",
+    "grouped": false,
+    "shipTo": "No",
+    "actualGroupOrder": [],
+    "expectedGroupOrder": [],
+    "outputLineCount": 2,
+    "lineComparisons": [
+      {
+        "group": "ungrouped",
+        "sameLineMultiset": true,
+        "matchesQLEOrder": true
+      }
+    ]
+  },
+  {
+    "quote": "Q-37723",
+    "grouped": true,
+    "shipTo": "Yes",
+    "actualGroupOrder": [
+      "Group1",
+      "Group3",
+      "Group4",
+      "Group5",
+      "Group1"
+    ],
+    "expectedGroupOrder": [
+      "Group1",
+      "Group3",
+      "Group1",
+      "Group4",
+      "Group5"
+    ],
+    "outputLineCount": 14,
+    "lineComparisons": [
+      {
+        "group": "Group1",
+        "sameLineMultiset": true,
+        "matchesQLEOrder": true
+      },
+      {
+        "group": "Group3",
+        "sameLineMultiset": true,
+        "matchesQLEOrder": true
+      },
+      {
+        "group": "Group4",
+        "sameLineMultiset": true,
+        "matchesQLEOrder": true
+      },
+      {
+        "group": "Group5",
+        "sameLineMultiset": true,
+        "matchesQLEOrder": true
+      },
+      {
+        "group": "Group1",
+        "sameLineMultiset": true,
+        "matchesQLEOrder": true
+      }
+    ]
+  },
+  {
+    "quote": "Q-37780",
+    "grouped": true,
+    "shipTo": "No",
+    "actualGroupOrder": [
+      "1TimeProd_SameShipTo",
+      "1TimeProd_Differentship to",
+      "1TimeProd_MultipleShipTo",
+      "Stepup pricing for multiple shipto group 1",
+      "Clone StepUp group for multiple ship to group 2"
+    ],
+    "expectedGroupOrder": [
+      "1TimeProd_SameShipTo",
+      "1TimeProd_Differentship to",
+      "1TimeProd_MultipleShipTo",
+      "Stepup pricing for multiple shipto group 1",
+      "Clone StepUp group for multiple ship to group 2"
+    ],
+    "outputLineCount": 18,
+    "lineComparisons": [
+      {
+        "group": "1TimeProd_SameShipTo",
+        "sameLineMultiset": true,
+        "matchesQLEOrder": true
+      },
+      {
+        "group": "1TimeProd_Differentship to",
+        "sameLineMultiset": true,
+        "matchesQLEOrder": true
+      },
+      {
+        "group": "1TimeProd_MultipleShipTo",
+        "sameLineMultiset": true,
+        "matchesQLEOrder": false
+      },
+      {
+        "group": "Stepup pricing for multiple shipto group 1",
+        "sameLineMultiset": true,
+        "matchesQLEOrder": true
+      },
+      {
+        "group": "Clone StepUp group for multiple ship to group 2",
+        "sameLineMultiset": true,
+        "matchesQLEOrder": true
+      }
+    ]
+  },
+  {
+    "quote": "Q-38021",
+    "grouped": false,
+    "shipTo": "No",
+    "actualGroupOrder": [],
+    "expectedGroupOrder": [],
+    "outputLineCount": 20,
+    "lineComparisons": [
+      {
+        "group": "ungrouped",
+        "sameLineMultiset": true,
+        "matchesQLEOrder": false
+      }
+    ]
+  },
+  {
+    "quote": "Q-38029",
+    "grouped": false,
+    "shipTo": "No",
+    "actualGroupOrder": [],
+    "expectedGroupOrder": [],
+    "outputLineCount": 0,
+    "lineComparisons": [
+      {
+        "group": "ungrouped",
+        "sameLineMultiset": true,
+        "matchesQLEOrder": true
+      }
+    ]
+  }
+]

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Term_Semester_Payment_Plans__c</fullName>
+    <description>For RM team - Describe client&apos;s billing cycle including when ebills are pushed and due dates for each term</description>
+    <inlineHelpText>Describe client&apos;s billing cycle including when ebills are pushed and due dates for each term</inlineHelpText>
+    <label>Term/Semester Payment Plans</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>2-4 Weeks</fullName>
+                <default>false</default>
+                <label>2-4 Weeks</label>
+            </value>
+            <value>
+                <fullName>Monthly</fullName>
+                <default>false</default>
+                <label>Monthly</label>
+            </value>
+            <value>
+                <fullName>Quarter</fullName>
+                <default>false</default>
+                <label>Quarter</label>
+            </value>
+            <value>
+                <fullName>Semester</fullName>
+                <default>false</default>
+                <label>Semester</label>
+            </value>
+            <value>
+                <fullName>Trimester</fullName>
+                <default>false</default>
+                <label>Trimester</label>
+            </value>
+            <value>
+                <fullName>Weekly</fullName>
+                <default>false</default>
+                <label>Weekly</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

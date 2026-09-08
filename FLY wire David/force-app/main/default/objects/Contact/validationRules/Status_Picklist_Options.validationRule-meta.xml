@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Status_Picklist_Options</fullName>
+    <active>true</active>
+    <description>Only allows users to change status to SWL, SQL, Marketing Only, Nurture, or Disqualified.
+SAL-2335. Updated to exclude Brette/Kim</description>
+    <errorConditionFormula>AND(
+$Profile.Name &lt;&gt; &apos;System Administrator&apos;,
+$Profile.Name &lt;&gt; &apos;B - Marketo Integration&apos;,
+$User.User_LongID__c &lt;&gt; &apos;005f2000009yztxAAA&apos;,
+$User.User_LongID__c &lt;&gt; &apos;0058W00000AFZm6QAH&apos;,
+NOT(ISNEW()),
+ISCHANGED(Contact_Status__c),
+NOT(ISBLANK(TEXT(Contact_Status__c))),
+TEXT(Contact_Status__c)&lt;&gt;&quot;SWL (Sales Working Lead)&quot;,
+TEXT(Contact_Status__c)&lt;&gt;&quot;SQL (Sales Qualified Lead)&quot;,
+TEXT(Contact_Status__c)&lt;&gt;&quot;Marketing Only&quot;,
+TEXT(Contact_Status__c)&lt;&gt;&quot;Nurture&quot;,
+TEXT(Contact_Status__c)&lt;&gt;&quot;Disqualified&quot;
+)
+&amp;&amp; Contact_Automation_Bypassed__c = False</errorConditionFormula>
+    <errorDisplayField>Contact_Status__c</errorDisplayField>
+    <errorMessage>You can only update the status to SWL, SQL, Marketing Only, Nurture, or Disqualified.</errorMessage>
+</ValidationRule>

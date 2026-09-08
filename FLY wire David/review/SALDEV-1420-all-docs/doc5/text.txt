@@ -1,0 +1,179 @@
+For your ref:  | SALDEV-1420
+Update Email templates for stepped up pricing - Email template
+Type:
+ Story
+Resolution:
+Unresolved
+Priority:
+ Medium
+Fix Version/s:
+vStep-up Pricing
+Affects Version/s:
+None
+Labels:
+Dependency
+  | ReadyToBuild
+  | RevOps
+Epic Link:
+[EPIC] StepUp - Output Documents
+Sprint:
+Sprint 18: 7/27 - 8/7, Sprint 19: 8/10 - 8/21, Sprint 20: 8/24 - 9/4, Sprint 21: 9/7 - 9/18
+Story Points:
+3
+User Story:
+Opportunity Email Templates must be updated for stepped-up pricing, keeping grouped products together in tables.
+RevOps to determine how Start/End dates should be displayed as. the dates will not align with the Contract start date.
+Requirement Detail:
+Add quote line groups to email templates, ensure they appear in correct
+Order and the quote lines within each group are in order they appear in the QLE, keeping bundle options under bundle parents, etc.
+MV 8/10: Combining the details from  | SALDEV-1426 |  here, since that work was done in conjunction with this ticket: | The Rate Details field currently appears in a new column on the legal email template. This should instead be merged with the text that originates in the Line Description field during quoting, so that it's a continuous text block. This is to make the template more visually appealing, since this section is pasted directly into the contract documents created by Legal. | Review Parth's suggestions from  | SALDEV-1042 |  investigation, and update the Legal email template with the best alternative. | There shouldn't be any indication in the email if the Rate Details field is blank, such as blank spaces with punctuation, etc. | Once the solution is designed, this must be reviewed with Legal to confirm that it meets their requirements
+Design Detail:
+MV 8/17: From today's meeting - see Ada's comment below. Legal has requested changes to the header text and the sort order of the groups.
+Group Header: | Email Template Header for groups: should have "Term" + <a sequential number starting with 1> + " : "+ <number from the Subscription terms field in the group> + "Months". | Order: Groups should be ordered by Start Date with the longest terms length first. | ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ | Update all email templates to include quote line groups, for both approvals and legal | For quotes without stepped-up pricing, ensure the doc and templates still look as they do today. For Legal, there cannot be a 'Group 1' if there are no other groups on the quote. This may require separate templates for grouped and non-grouped quotes | Until the duplicate rules have been updated, you will not be able to test this exactly for stepped-up pricing, because you cannot save such quotes. In the meantime, you can create multiple groups for different products or different ship to accounts to replicate the same visual effect on the output doc and templates. | Include Start and End Date fields in the quote line groups, in preparation for the stepped up pricing functionality | MV 8/4: After reviewing with Parth, we agreed to use a quote line field set on the opp templates instead of opp product field set, so that the grouping can be displayed. If that doesn't work, we can create a new field on Opp Product for the quote line group id from quote line, and then use that id to create the groups on the opp templates. | MV 8/10: For amendments, we only want to show the quote lines where changes have been made (as was being done with Opp Products previously). Exclude quote lines where Quote Line Type = Amendment from the template | Additional details from  | SALDEV-1426 | , which was also configured on this ticket: | Parth's suggestions: | Reviewed possibility to add Quote document to email template sent to Legal team for approval. It is not possible to attach existing document (content document) to visualforce email template. | Apex trigger can be written on OpportunityLineItem Object to update new long text field which is equals to concat of descrption field + rate details field. | Other options to concat fields directly in email template which were considered but not possible are: | Right now OpportunityLineItem data table is fetched from field set. Two fields cannot be concatenated in field set. | Table cannot be created in visualforce email template for OpportunityLineItem as Aggregate relationship is not possible for fetching data table. Error on template: Aggregate Relationship is used in an unsupported complex expression. | External visualforce component cannot be inserted in visualforce email template. | This was split off to  | SALDEV-1403 | : | Update the omnistudio template for quotes to dynamically show quote line groups when they are included in the quotes
+Implementation Detail:
+New visualforce component EmailTableVFComponent created and added in email templates to insert table. Columns for each email template is set in custom metadata records Email_Table__mdt.
+Visualforce email template passes attributes QuoteId and email tempalte name to VF component. VF component EmailTableVFComponent calls apex class EmailTableController to get list of records to be displayed in table. Apex class fetches fields related to email template name and query all Quote Line records related to QuoteId.
+List of components: | 1. Visualforce component: EmailtableVFComponent | 2. Apex class: EmailTableController | 3. Apex class: EmailTableControllerTest | 4. Custom metdata: Email_Table__mdt | 5. Custom metadata fields: Column_Header__c | 6. Custom metadata fields: Column_Order__c | 7. Custom metadata fields: Email_Template__c | 8. Custom metadata fields: Field_API_Name__c | 9. Custom metadata page layout: Opportunity Product Email Table Layout | 10. Email template: Credit Risk - Approval Request | 11. Email template: Legal - Approval Request | 12. Email template: Request - Quote Approval Request - AQS | 13. Email template: Revenue - Approval Request | 14. All Email_Table__mdt custom metadata records | Post deployment steps: | Add apex class EmailTableController access to CPQ Sales Permission set.
+Acceptance Criteria:
+Update 8/20:
+In Addition to the requirements previously tested. The new grouping order and header requirements should tested:
+Group Header: | Email Template Header for groups: should have "Term" + <a sequential number starting with 1> + " : "+ <number from the Subscription terms field in the group> + "Months". | Example: | Term 1: 36 Months | Term 2: 12 Months | Term 3: 12 Months | Term 4: 12 Months | Groups should be ordered by Start Date with the longest terms length first. | _______ | Email templates for all approvals , Credit Risk, Revenue, Legal, show products in groups as present in the quote and in same order as quote. If a quote does not have quote line groups, then the templates/output doc appear as without groups. Verify that only the products listed on the Opp (Opp Products) are present and not displaying amendment lines in the quote when doing an amendment. | Ensure you add at least one Product with Rate Details. Add both bundled and standalone products to ensure they appear in the correct order within the groups. | On the Legal approval email, when there is a product for which the Rate Details field has been populated, the information in the Rate Details field is not shown in a separate column in the table it sould be part of the "Description" column. Ensure there is no duplication of text. The Rate Details text should be appended to the text in the Description column. | Verify that the text is formatted properly, with necessary spacing and punctuation for clarity. Verify that if there is no value in the Rate Details field that there isn't anything shown in the Description text on the template that indicates there is missing text, such as hanging commas or "NULL", etc. | Test across new, amendment and renewal. | ~~~~~~~~~ | This is no longer necessary, as further work has been done to allow for stepped up pricing groups | Until the duplicate rules have been updated, you will not be able to test this exactly for stepped-up pricing, because you cannot save such quotes. In the meantime, you can create multiple groups for different products or different ship to accounts to replicate the same visual effect on the output doc and templates.
+Description
+None
+Attachments
+Options
+Drop files to attach, or  | browse.
+Issue Links
+clones
+  | SALDEV-1403 |  Update Quote Document for stepped up pricing - Omnistudio
+ 
+In Progress
+Delete this link
+is duplicated by
+  | SALDEV-1426 |  Update Legal Email Template for Rate Details
+ 
+Duplicate
+Delete this link
+relates to
+  | SALDEV-1389 |  [Investigate] Output document updates for stepped-up pricing
+ 
+Closed
+Delete this link
+  | SALDEV-1426 |  Update Legal Email Template for Rate Details
+ 
+Duplicate
+Delete this link
+requires
+  | SALDEV-1404 |  Update QCP duplicate rules for stepped-up pricing
+ 
+Blocked
+Delete this link
+Show 1 more links |   | (1 mentioned in)
+Add Link
+Activity
+All
+Comments
+Work Log
+History
+Activity
+Timepiece
+Transitions
+Oldest first
+You can now pin up to five comments to highlight important information. Pinned comments will appear above all other comments, so they're easy to find.
+Got it | Learn more about pinned comments
+Load more older comments
+ Collapse comment: Ada Cirillo added a comment - 17/Aug/26 6:20 PM, Edited by Ada Cirillo - 17/Aug/26 6:30 PM
+Ada Cirillo |  added a comment -  | 17/Aug/26 6:20 PM |  -  | edited
+Per PreGrooming Meeting with  | Kirk Hornberger |   | Meg Vogler |   | David Okolo |   8/17:
+We have two options for how to name the header of groups and how to order them.  | Parth Tare |  please review and give LOE for each. depending on LOE we will decide which option to go with. 
+HEADER | Option 1 -  | Group Header | :  | (Preferred) | Email Template Header for groups: should have "Term" + <a sequential number starting with 1> + " : "+ <number from the Subscription terms field in the group> + "Months".
+Example:
+Term 1: 36 Months
+Term 2: 12 Months
+Term 3: 12 Months
+Term 4: 12 Months
+Option 2 -  | Group Header | :
+Take the Group Name from the quote and append : "+ <number from the Subscription terms field in the group> + "Months".
+Example:
+Made up Name: 36 Months
+Group 2: 12 Months
+Year 5: 12 Months
+Grouping: 12 Months
+ORDER BY
+Option 1 -  | Auto Order By | :  | (Preferred)
+ Add groups in order by 1.  Start Date with the longest terms length first. 
+Option 2 -  | Auto Order By:
+Order in the way they are in the quote.
+If no groups, then no change needed.
+Edit | Delete | Pin
+ Collapse comment: Varini Rajkumar added a comment - 18/Aug/26 11:09 AM
+Varini Rajkumar |  added a comment -  | 18/Aug/26 11:09 AM
+Hi Team,
+Completed the verification of the Build done from before Ada's comments on the 17th August 2026. Verified for Multiple Scenario's that the Email Templates (Request - Quote Approval Request - AQS, Credit Risk- Approval Request, Legal - Approval Request, Revenue - Approval Request) are updated with the accurate Metadata and are displayed on the Draft.
+Under Grouping and Ordering: |  The Groups are displayed as on the QLE.  | Note: |  The Order of the Lines are  | not as same |  as the that in the QLE (Parth is aware of this - This will be done on the next updates), the  | "Multiple Ship-To Account" |  is not getting updated automatically when Groups are used -  | https://flywire | –partial.sandbox.lightning.force.com/lightning/r/SBQQ_ | Quote | _c/a2NhG000003f9wtUAA/view  
+There are no separate Rate -Details column, The Values are now Concatenated with Description successfully.
+On Amendment, the lines where Transaction Type = 'Amendment' are not displayed on the Email-Template accurately.  | Note: |  The Start and End dates are also not completely configured for the Amendments.
+P.S.  | Parth Tare |   is aware of the above mentioned notes.
+Document Link:  | https://docs.google.com/document/d/1z5f2o8-BHGsarnptQNbCrRoZCPRJW-htg5Xor1wozh8/edit?usp=sharing |  
+cc  | Ada Cirillo |   | Meg Vogler |   | Sunita Bhattad |  
+Edit | Delete | Pin
+ Collapse comment: Parth Tare added a comment - 20/Aug/26 1:38 PM
+Parth Tare |  added a comment -  | 20/Aug/26 1:38 PM
+Hi  | Ada Cirillo |  - Please find attached document with screenshots for email table scenarios. Below scenarios are considered. Thanks
+Stepped up groups
+Stepped up + non stepped up groups
+no groups
+ 
+https://docs.google.com/document/d/1yFwupoV2jfYSK3E49srnmg0UzQ9WY0RjToa3MxO8A5c/edit?tab=t.0
+Edit | Delete | Pin
+ Collapse comment: Ada Cirillo added a comment - 20/Aug/26 5:43 PM
+Ada Cirillo |  added a comment -  | 20/Aug/26 5:43 PM
+Varini Rajkumar |  I've updated the acceptance Criteria with the new Header and Order requirements. We understand the Multiple Ship to Account issue and have created a new ticket so you cna ignaore that for now.  Amendment lines should still not be visible. Thank you.
+Edit | Delete | Pin
+ Collapse comment: Kirk Hornberger added a comment - 20/Aug/26 6:27 PM
+Kirk Hornberger |  added a comment -  | 20/Aug/26 6:27 PM
+Ada Cirillo |   | Varini Rajkumar |  Confirming that I reviewed the doc and it is in line with what I would expect for these scenarios. Thanks!
+Edit | Delete | Pin
+ Collapse comment: Parth Tare added a comment - 24/Aug/26 8:35 AM, Edited by Parth Tare - 24/Aug/26 8:36 AM
+Parth Tare |  added a comment -  | 24/Aug/26 8:35 AM |  -  | edited
+Additional work is done on this ticket as per updates requested in review. Story points for this ticket needs to be updated from 3 to 5 for development and testing efforts. Thanks
+cc:  | Stuti Saxena |  
+Edit | Delete | Pin
+ Collapse comment: Meg Vogler added a comment - 27/Aug/26 1:28 PM, Edited by Meg Vogler - 27/Aug/26 1:30 PM
+Meg Vogler |  added a comment -  | 27/Aug/26 1:28 PM |  -  | edited
+To clarify - the groups should be ordered by Start Date plus Subscription Term when the Start Dates are identical. 
+In this way, non-ramped groups that run the entire quote's term will appear on top
+Then the ramped groups will appear in sequential order by start date only, not by subscription term
+EG:
+Groups 1-3 have Subscription Term = 12 and are ramped
+Group 4 has Subscription Term = 36 and is not ramped
+ 
+The email template will have group 4 first because it has the same start date as group 1, but the longer subscription term
+Then it will have groups 1-3 in that order (ie by start date) because they have shorter subscription terms.
+This will also address scenarios where group 1 = 12 months, group 2 = 6 months, group 3 = 18 months.  They should appear in 1, 2, 3 order based on their start dates, not the subscription terms. 
+ 
+ 
+Edit | Delete | Pin
+ Collapse comment: Varini Rajkumar added a comment - 28/Aug/26 12:02 PM
+Varini Rajkumar |  added a comment -  | 28/Aug/26 12:02 PM
+As per  | Parth Tare |  's ask, Confirmed with Meg that the below scenarios are the build that is needed for the 'Groups should be ordered by Start Date with the longest terms length first.' Build and test part of the AC. As discussed, Assigning this back to Parth's Queue.
+Thanks
+cc  | Ada Cirillo |   | Meg Vogler
+Year | Subscription term | Number of Groups | Number of Ramped up Group and Subscription term ands Start date year | Number of Non-Ramped up Group (Same Term as Column 2) | Ordering in the Email template | 2026-2029 | 36 | 3 | 3 (G1 = 12 - 2026, G2 = 6 - 2027, G3 = 18 - 2028) | 0 | G1:G2:G3 | 2026-2029 | 36 | 3 | 0 | 3 (G1 = 36, G2 = 36, G3 = 36) | G1:G2:G3 | 2026-2029 | 36 | 3 | 2 (G2 = 12, G3 = 24) | 1 (G1 = 36) | G1:G2:G3 | 2026-2032 | 72 | 4 | 3 (G1 = 24 - 2026, G2 = 12,- 2028, G3 = 36 - 2029) | 1 (G4 = 72) | G4:G1:G2:G3 | 2026-2032 | 72 | 4 | 2 (G1 = 24 - 2026 , G2 = 48 - 2029) | 2 (G3 = 72, G4 = 72) | G3:G4:G1:G2 | 2026-2029 | 36 | 0 |   |   | Same as what is on the Quote
+Edit | Delete | Pin
+ Collapse comment: Parth Tare added a comment - 31/Aug/26 10:34 AM, Edited by Parth Tare - 01/Sep/26 1:29 PM
+Parth Tare |  added a comment -  | 1 week ago |  -  | edited
+Thanks  | Varini Rajkumar |  for detailed acceptance criteria. 
+Changes are completed as per latest updates required. Please find attached doc for first 3 scenarios. Thanks
+https://docs.google.com/document/d/14L1zkN-L6v92Tx5SARarhcNhhinQ9B5TzrX | –NpQb94/edit?tab=t.0
+ 
+ 
+Edit | Delete | Pin
+ Collapse comment: Kyle Formo added a comment - 02/Sep/26 7:22 PM
+Kyle Formo |  added a comment -  | 4 days ago
+Tested in Partial: QA Passed.
+When submitting an Opp for Legal Approval:
+1. When Quote has no groups, it shows up as it does in the QLE:  | https://docs.google.com/document/d/1azlnMATssSNgVRdIL2Pvu4G0O7DaPVkQdP3kci8HY0E/edit?tab=t.0
+2. When Quote has 2 Non-Ramped Groups, it shows up as 2 groups, with the Term 1: 72 months and Term 2: 72 months:  | https://docs.google.com/document/d/1Azok64LzsVBxcrACh9pCcjwMCqdl-Wp7qJxmlF03o2U/edit?tab=t.0
+3. When Quote has 1 Non-Ramped Group with 2 Ramped Groups with the same term, it starts with the non-ramped group. Then displays the 2 Ramped Groups:  | https://docs.google.com/document/d/1mTPdDSD_MhZ2SaiMJj6Gk5ubCxK7P7BcoH8sGZaRX5E/edit?tab=t.0
+4. When Quote has 1 Non-Ramped Group with 3 Ramped Groups with different terms, it starts with the non-ramped group and then sorts the ramped groups by term length:  | https://docs.google.com/document/d/15lnfvk342PHmIm8lXQvTPOOwcq71_CcsNtwtP6LvLI0/edit?tab=t.0

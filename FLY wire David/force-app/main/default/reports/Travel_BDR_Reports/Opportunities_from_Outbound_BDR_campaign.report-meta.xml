@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>SUBJECT</field>
+    </columns>
+    <columns>
+        <field>OPPORTUNITY_OWNER</field>
+    </columns>
+    <columns>
+        <field>Account.BDR_Owner__c</field>
+    </columns>
+    <currency>USD</currency>
+    <description>Updated with campaigns 2/7</description>
+    <filter>
+        <criteriaItems>
+            <column>Activity.ywr__YeswareCampaignName__c</column>
+            <columnToColumn>false</columnToColumn>
+            <isUnlocked>true</isUnlocked>
+            <operator>equals</operator>
+            <value>Biking Tours Campaign - CC,Food/Wine Tours,12/9 - CC,Cycling Outbound (ITALIAN),11/22 - SF,Niche Operators,11/22 - CC,Food &amp; Wine (ENGLISH),12/22 - SF,Wellness Campaign - Outbound,Villas (ENGLISH),1/23 - SF,Food &amp; Wine 11/9 - CD,Niche Operators (ITALIAN),Villas - Short term accommodations,1/10 - CC,WTM London (ENGLISH),Niche Operators (ENGLISH),11/22 - CD,Cycling Outbound (ENGLISH),Scuba Diving Campaign - CC,WTM London 11/21 - CC,Targeted Leads (1/19),CD - Biking Tours Campaign,Villas - ASK,Qualifying - FX (9/13),WTM London (11/21) - CD,Food &amp; Wine 12/9 - ASK,Trekking 1/30 - CD,Food &amp; Wine 12/9 (French) - ASK,Wellness Retreat Campaign - CC,Hiking/Trekking Campaign 1/30 CC,1/10 - CD,CD - Scuba Campaign,Named Accounts Campaign 1/30 CC,Past follow ups,Trekking - ASK</value>
+        </criteriaItems>
+    </filter>
+    <format>Summary</format>
+    <groupingsDown>
+        <dateGranularity>Day</dateGranularity>
+        <field>OPPORTUNITY_NAME</field>
+        <sortOrder>Asc</sortOrder>
+    </groupingsDown>
+    <name>Opportunities from Outbound BDR campaign</name>
+    <params>
+        <name>closed</name>
+        <value>closed</value>
+    </params>
+    <params>
+        <name>type</name>
+        <value>te</value>
+    </params>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>OpportunityActivity</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <showGrandTotal>true</showGrandTotal>
+    <showSubTotals>true</showSubTotals>
+    <timeFrameFilter>
+        <dateColumn>DUE_DATE</dateColumn>
+        <interval>INTERVAL_CUSTOM</interval>
+    </timeFrameFilter>
+</Report>

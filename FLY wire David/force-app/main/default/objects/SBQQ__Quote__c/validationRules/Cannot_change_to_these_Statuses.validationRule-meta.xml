@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Cannot_change_to_these_Statuses</fullName>
+    <active>true</active>
+    <description>Created for SALDEV-1082</description>
+    <errorConditionFormula>OR(
+AND(
+OR(
+ISPICKVAL(ApprovalStatus__c, &apos;Approved&apos;),
+ISPICKVAL(ApprovalStatus__c, &apos;Pending&apos;),
+ISPICKVAL(ApprovalStatus__c, &apos;Rejected&apos;)),
+ISPICKVAL(SBQQ__Status__c, &apos;Draft&apos;)),
+	
+AND(
+NOT(ISPICKVAL(ApprovalStatus__c, &apos;Pending&apos;)),
+ISPICKVAL(SBQQ__Status__c, &apos;FW in Review&apos;)),
+				
+AND(
+NOT(ISPICKVAL(ApprovalStatus__c, &apos;Approved&apos;)),
+ISPICKVAL(SBQQ__Status__c, &apos;FW Approved&apos;)),
+				
+AND(
+NOT(ISPICKVAL(ApprovalStatus__c, &apos;Rejected&apos;)),
+ISPICKVAL(SBQQ__Status__c, &apos;FW Rejected&apos;)),
+
+AND(
+NOT(ISPICKVAL(ApprovalStatus__c, &apos;Approved&apos;)),
+ISPICKVAL(SBQQ__Status__c, &apos;Client in Review&apos;)),
+
+AND(
+NOT(ISPICKVAL(ApprovalStatus__c, &apos;Approved&apos;)),
+ISPICKVAL(SBQQ__Status__c, &apos;Client_Approved&apos;)),
+
+AND(
+NOT(ISPICKVAL(ApprovalStatus__c, &apos;Approved&apos;)),
+ISPICKVAL(SBQQ__Status__c, &apos;Client Rejected&apos;)),
+
+AND(
+ISCHANGED(SBQQ__Status__c),
+ISPICKVAL(ApprovalStatus__c, &apos;Approved&apos;),
+TEXT(PRIORVALUE(SBQQ__Status__c)) = &quot;Client Rejected&quot;,
+TEXT(SBQQ__Status__c) = &quot;Client In Review&quot;),
+
+AND(
+ISCHANGED(SBQQ__Status__c),
+ISPICKVAL(ApprovalStatus__c, &apos;Approved&apos;),
+TEXT(PRIORVALUE(SBQQ__Status__c)) = &quot;Client Rejected&quot;,
+TEXT(SBQQ__Status__c) = &quot;FW Approved&quot;))
+
+&amp;&amp; Quote_Val_Bypass__c = false</errorConditionFormula>
+    <errorMessage>You cannot move the Quote to this Status</errorMessage>
+</ValidationRule>

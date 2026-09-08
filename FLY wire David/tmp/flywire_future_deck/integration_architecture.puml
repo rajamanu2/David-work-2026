@@ -1,0 +1,57 @@
+@startuml
+skinparam backgroundColor white
+skinparam shadowing false
+skinparam componentBackgroundColor #F6F7F8
+skinparam componentBorderColor #222222
+skinparam componentArrowColor #3D8DFF
+skinparam componentFontColor #111111
+
+package "Experience" {
+  [Sales Workspace]
+  [Deal Desk Workspace]
+  [Customer Success View]
+}
+package "Unified CRM" {
+  [Customer & Opportunity]
+  [Product & Pricing]
+  [Quote Orchestration]
+  [Approval & Audit]
+  [Contract Lifecycle]
+  [Reporting]
+}
+package "Integration Layer" {
+  [API Gateway]
+  [Event Router]
+  [Transformation & Retry]
+  [Reconciliation]
+}
+package "Enterprise Platforms" {
+  [Identity]
+  [Marketing]
+  [Electronic Signature]
+  [Finance & Billing]
+  [Support]
+  [Data Platform]
+}
+
+[Sales Workspace] --> [Customer & Opportunity]
+[Deal Desk Workspace] --> [Quote Orchestration]
+[Customer Success View] --> [Reporting]
+[Customer & Opportunity] --> [Quote Orchestration]
+[Product & Pricing] --> [Quote Orchestration]
+[Quote Orchestration] --> [Approval & Audit]
+[Quote Orchestration] --> [Contract Lifecycle]
+[Contract Lifecycle] --> [API Gateway]
+[Approval & Audit] --> [Event Router]
+[API Gateway] --> [Transformation & Retry]
+[Event Router] --> [Transformation & Retry]
+[Transformation & Retry] --> [Identity]
+[Transformation & Retry] --> [Marketing]
+[Transformation & Retry] --> [Electronic Signature]
+[Transformation & Retry] --> [Finance & Billing]
+[Transformation & Retry] --> [Support]
+[Transformation & Retry] --> [Data Platform]
+[Reconciliation] --> [Quote Orchestration]
+[Finance & Billing] --> [Reconciliation]
+[Data Platform] --> [Reporting]
+@enduml

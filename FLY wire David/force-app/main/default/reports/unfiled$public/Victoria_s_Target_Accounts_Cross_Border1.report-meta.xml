@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>USERS.NAME</field>
+    </columns>
+    <columns>
+        <field>ACCOUNT.NAME</field>
+    </columns>
+    <columns>
+        <field>ADDRESS1_STATE</field>
+    </columns>
+    <columns>
+        <field>URL</field>
+    </columns>
+    <currency>USD</currency>
+    <filter>
+        <criteriaItems>
+            <column>ACCOUNT.NAME</column>
+            <columnToColumn>false</columnToColumn>
+            <isUnlocked>true</isUnlocked>
+            <operator>equals</operator>
+            <value>Ann &amp; Robert H Lurie Childrens Hospital Of Chicago,Boston Children&apos;s Hospital,BJC Healthcare,Cancer Treatment Centers of America,Cedars-Sinai Health System,Childrens Hospital Of Los Angeles,Childrens Hospital of Philadelphia,Children&apos;s Mercy Kansas City,Cook Childrens Health Care System,Dignity Health (FKA Catholic Healthcare West),Houston Methodist (FKA Methodist Hospital System),Keck Medicine of USC,Lahey Hospital &amp; Medical Center (FKA: Lahey Clinic Hospital),Mass General Brigham (FKA Partners HealthCare),Montefiore Health System (AKA Montefiore Medical Center - Health System),Nationwide Childrens Hospital,Nemours Childrens Health System,Northwestern Medicine (AKA Northwestern Memorial Healthcare),Hospital Of University Of Pennsylvania,Philadelphia International Medicine,Phoenix Spine Surgery Center,Sharp HealthCare,Texas Childrens Hospital,University of Chicago Medicine,UCLA Health System (AKA UCLA Hospital System),University of Pittsburgh Medical Center (UPMC),Childrens Hospital of Pittsburgh of UPMC,Yale New Haven Hospital</value>
+        </criteriaItems>
+    </filter>
+    <format>Tabular</format>
+    <name>Victoria&apos;s Target Accounts Cross Border</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>AccountList</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <showGrandTotal>true</showGrandTotal>
+    <showSubTotals>true</showSubTotals>
+    <timeFrameFilter>
+        <dateColumn>CREATED_DATE</dateColumn>
+        <interval>INTERVAL_CUSTOM</interval>
+    </timeFrameFilter>
+</Report>

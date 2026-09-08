@@ -1,0 +1,251 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <areMetricsLoggedToDataCloud>false</areMetricsLoggedToDataCloud>
+    <assignments>
+        <name>Assignment_1</name>
+        <label>Assignment 1</label>
+        <locationX>176</locationX>
+        <locationY>242</locationY>
+        <assignmentItems>
+            <assignToReference>varStoredFormat</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>varFetchedChecksheetOutput</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Update_Checksheet_Output</targetReference>
+        </connector>
+    </assignments>
+    <description>03/10/2025 (BW) - Allows technicians to update the checksheet output after it&apos;s been generated</description>
+    <environments>Default</environments>
+    <formulas>
+        <name>formUpdatedResultsV2</name>
+        <dataType>String</dataType>
+        <expression>SUBSTITUTE(SUBSTITUTE(SUBSTITUTE(SUBSTITUTE(SUBSTITUTE(SUBSTITUTE(SUBSTITUTE(SUBSTITUTE(SUBSTITUTE(SUBSTITUTE(SUBSTITUTE(SUBSTITUTE(SUBSTITUTE(SUBSTITUTE(SUBSTITUTE(SUBSTITUTE(SUBSTITUTE(SUBSTITUTE(SUBSTITUTE(SUBSTITUTE(SUBSTITUTE(SUBSTITUTE({!Current_Checksheet_Output}, &quot;General Checks&quot;, &quot;&lt;b&gt;General Checks&lt;/b&gt;&lt;br/&gt;&quot;), &quot;Mechanical Checks&quot;, &quot;&lt;b&gt;Mechanical Checks&lt;/b&gt;&lt;br/&gt;&quot;), &quot;Electrical Checks&quot;, &quot;&lt;b&gt;Electrical Checks&lt;/b&gt;&lt;br/&gt;&quot;), &quot;Exposure Checks&quot;, &quot;&lt;b&gt;Exposure Checks&lt;/b&gt;&lt;br/&gt;&quot;), &quot;Imaging Checks&quot;, &quot;&lt;b&gt;Imaging Checks&lt;/b&gt;&lt;br/&gt;&quot;), &quot;Final Works&quot;, &quot;&lt;b&gt;Final Works&lt;/b&gt;&lt;br/&gt;&quot;), &quot;Additional Documentation References:&quot;, &quot;&lt;b&gt;Additional Documentation References:&lt;/b&gt;&lt;br/&gt;&quot;), BR() + BR(), BR() + BR()), BR(), &quot;&lt;br/&gt;&quot;), &quot;&lt;br/&gt;&lt;br/&gt;&quot;, &quot;&lt;br/&gt;&lt;br/&gt;&quot;), &quot;&amp;amp;&quot;, &quot;&amp;&quot;), &quot;&amp;lt;&quot;, &quot;&lt;&quot;), &quot;&amp;gt;&quot;, &quot;&gt;&quot;), &quot;&lt;i&gt;&quot;, &quot;&quot;), &quot;&lt;/i&gt;&quot;, &quot;&quot;), &quot;&lt;em&gt;&quot;, &quot;&quot;), &quot;&lt;/em&gt;&quot;, &quot;&quot;), &quot;  &quot;, &quot; &quot;), &quot;&lt;br/&gt;&lt;b&gt;&quot;, &quot;&lt;br/&gt;&lt;br/&gt;&lt;b&gt;&quot;), &quot;&lt;b&gt;&lt;br/&gt;&quot;, &quot;&lt;b&gt;&quot;), BR(), &quot;&lt;br/&gt;&quot;), BR() + &quot;\&quot;&quot;, &quot;&quot;)</expression>
+    </formulas>
+    <formulas>
+        <name>formVarTT_FetchedOutput</name>
+        <dataType>String</dataType>
+        <expression>{!TT_FetchedChecksheetOutput}</expression>
+    </formulas>
+    <formulas>
+        <name>ReFormattedOutput</name>
+        <dataType>String</dataType>
+        <expression> SUBSTITUTE({!Current_Checksheet_Output},&quot;BR()&quot;,&quot;HI THERE&quot;)</expression>
+    </formulas>
+    <formulas>
+        <name>TestingUpdateFormat</name>
+        <dataType>String</dataType>
+        <expression>SUBSTITUTE(
+    SUBSTITUTE(
+        SUBSTITUTE(
+            SUBSTITUTE(
+                SUBSTITUTE(
+                    SUBSTITUTE(
+                        SUBSTITUTE(
+                            SUBSTITUTE(
+                                SUBSTITUTE(
+                                    SUBSTITUTE(
+                                        SUBSTITUTE(
+                                            SUBSTITUTE(
+                                                SUBSTITUTE(
+                                                    SUBSTITUTE(
+                                                        SUBSTITUTE(
+                                                            SUBSTITUTE(
+                                                                SUBSTITUTE(
+                                                                    {!varFetchedChecksheetOutput},
+                                                                    &quot;&lt;p&gt;&quot;, &quot;&quot;
+                                                                ),
+                                                                &quot;&lt;/p&gt;&quot;, BR()
+                                                            ),
+                                                            &quot;&lt;b&gt;&quot;, &quot;&quot;
+                                                        ),
+                                                        &quot;&lt;/b&gt;&quot;, &quot;&quot;
+                                                    ),
+                                                    &quot;&lt;u&gt;&quot;, &quot;&quot;
+                                                ),
+                                                &quot;&lt;/u&gt;&quot;, &quot;&quot;
+                                            ),
+                                            &quot;&lt;br&gt;&quot;, BR()
+                                        ),
+                                        &quot;&amp;amp;&quot;, &quot;&amp;&quot;
+                                    ),
+                                    &quot;&amp;lt;&quot;, &quot;&lt;&quot;
+                                ),
+                                &quot;&amp;gt;&quot;, &quot;&gt;&quot;
+                            ),
+                            &quot;&lt;i&gt;&quot;, &quot;&quot;
+                        ),
+                        &quot;&lt;/i&gt;&quot;, &quot;&quot;
+                    ),
+                    &quot;&lt;em&gt;&quot;, &quot;&quot;
+                ),
+                &quot;&lt;/em&gt;&quot;, &quot;&quot;
+            ),
+            BR() + BR(), BR() + BR()  /* Ensures only double line breaks for section transitions */
+        ),
+        BR() + &quot;\&quot;&quot;, &quot;&quot;  /* Remove trailing &quot; */
+    ),
+    &quot;\&quot;&quot; + BR(), &quot;&quot;  /* Remove leading &quot; */
+)</expression>
+    </formulas>
+    <interviewLabel>FSL Screen Flow: Update Checksheet Output After It&apos;s Been Generated {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>FSL Screen Flow: Update Checksheet Output After It&apos;s Been Generated</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>FieldServiceMobile</processType>
+    <recordLookups>
+        <name>Get_Current_Service_Appointment</name>
+        <label>Get Current Service Appointment</label>
+        <locationX>176</locationX>
+        <locationY>134</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Assignment_1</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>ServiceAppointmentId</elementReference>
+            </value>
+        </filters>
+        <object>ServiceAppointment</object>
+        <outputAssignments>
+            <assignToReference>varFetchedChecksheetOutput</assignToReference>
+            <field>Checklist_Output_Formatted__c</field>
+        </outputAssignments>
+    </recordLookups>
+    <recordUpdates>
+        <name>Update_Service_Appointment</name>
+        <label>Update Service Appointment</label>
+        <locationX>176</locationX>
+        <locationY>566</locationY>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>ServiceAppointmentId</elementReference>
+            </value>
+        </filters>
+        <inputAssignments>
+            <field>Checklist_Output_Formatted__c</field>
+            <value>
+                <elementReference>TestingUpdateFormat</elementReference>
+            </value>
+        </inputAssignments>
+        <object>ServiceAppointment</object>
+    </recordUpdates>
+    <screens>
+        <name>Test_Screen</name>
+        <label>Test Screen</label>
+        <locationX>176</locationX>
+        <locationY>458</locationY>
+        <allowBack>true</allowBack>
+        <allowFinish>true</allowFinish>
+        <allowPause>true</allowPause>
+        <connector>
+            <targetReference>Update_Service_Appointment</targetReference>
+        </connector>
+        <fields>
+            <name>TestUpdate</name>
+            <fieldText>&lt;p&gt;{!TestingUpdateFormat}&lt;/p&gt;</fieldText>
+            <fieldType>DisplayText</fieldType>
+            <styleProperties>
+                <verticalAlignment>
+                    <stringValue>top</stringValue>
+                </verticalAlignment>
+                <width>
+                    <stringValue>12</stringValue>
+                </width>
+            </styleProperties>
+        </fields>
+        <showFooter>true</showFooter>
+        <showHeader>true</showHeader>
+    </screens>
+    <screens>
+        <name>Update_Checksheet_Output</name>
+        <label>Update Checksheet Output</label>
+        <locationX>176</locationX>
+        <locationY>350</locationY>
+        <allowBack>true</allowBack>
+        <allowFinish>true</allowFinish>
+        <allowPause>true</allowPause>
+        <connector>
+            <targetReference>Test_Screen</targetReference>
+        </connector>
+        <fields>
+            <name>Current_Checksheet_Output</name>
+            <defaultValue>
+                <stringValue>{!TestingUpdateFormat}</stringValue>
+            </defaultValue>
+            <fieldText>Current Checksheet Output</fieldText>
+            <fieldType>LargeTextArea</fieldType>
+            <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+            <isRequired>false</isRequired>
+            <styleProperties>
+                <verticalAlignment>
+                    <stringValue>top</stringValue>
+                </verticalAlignment>
+                <width>
+                    <stringValue>12</stringValue>
+                </width>
+            </styleProperties>
+        </fields>
+        <showFooter>true</showFooter>
+        <showHeader>true</showHeader>
+    </screens>
+    <start>
+        <locationX>50</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Get_Current_Service_Appointment</targetReference>
+        </connector>
+    </start>
+    <status>Draft</status>
+    <textTemplates>
+        <name>TT_FetchedChecksheetOutput</name>
+        <isViewedAsPlainText>true</isViewedAsPlainText>
+        <text>{!formUpdatedResultsV2}</text>
+    </textTemplates>
+    <variables>
+        <name>ServiceAppointmentId</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <name>varFetchedChecksheetOutput</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <name>varStoredFormat</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+</Flow>

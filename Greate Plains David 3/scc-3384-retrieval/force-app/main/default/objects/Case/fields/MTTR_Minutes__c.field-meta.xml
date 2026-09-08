@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>MTTR_Minutes__c</fullName>
+    <externalId>false</externalId>
+    <formula>IF(
+    Has_Work_Order__c,
+
+    IF(
+        ISBLANK(Work_Order_Completion_Date__c),
+        NULL,
+
+        (
+            Work_Order_Completion_Date__c
+            -
+            CreatedDate
+        ) * 1440
+
+        -
+
+        IF(
+            ISBLANK(Pending_Customer_Start__c),
+            0,
+
+            (
+                IF(
+                    OR(
+                        ISBLANK(Pending_Customer_End__c),
+                        Pending_Customer_End__c &gt;
+                        Work_Order_Completion_Date__c
+                    ),
+                    Work_Order_Completion_Date__c,
+                    Pending_Customer_End__c
+                )
+                -
+                Pending_Customer_Start__c
+            ) * 1440
+        )
+    ),
+
+    IF(
+        ISBLANK(ClosedDate),
+        NULL,
+
+        (
+            ClosedDate
+            -
+            CreatedDate
+        ) * 1440
+
+        -
+
+        IF(
+            ISBLANK(Pending_Customer_Start__c),
+            0,
+
+            (
+                IF(
+                    OR(
+                        ISBLANK(Pending_Customer_End__c),
+                        Pending_Customer_End__c &gt; ClosedDate
+                    ),
+                    ClosedDate,
+                    Pending_Customer_End__c
+                )
+                -
+                Pending_Customer_Start__c
+            ) * 1440
+        )
+    )
+)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>MTTR Minutes</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>0</scale>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Number</type>
+    <unique>false</unique>
+</CustomField>

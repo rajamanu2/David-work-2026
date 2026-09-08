@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>63.0</apiVersion>
+    <areMetricsLoggedToDataCloud>false</areMetricsLoggedToDataCloud>
+    <decisions>
+        <name>Scheduled_Start_Date_is_Today</name>
+        <label>Scheduled Start Date is Today</label>
+        <locationX>182</locationX>
+        <locationY>252</locationY>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Scheduled_Start_is_Today</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>varSchedStartDate</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <elementReference>$Flow.CurrentDate</elementReference>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Update_the_Status_of_the_Service_Appointment_to_Dispatched</targetReference>
+            </connector>
+            <label>Scheduled Start is Today</label>
+        </rules>
+    </decisions>
+    <description>05/07/2025 (BW) - Updates the scheduled service appointments for today to dispatched</description>
+    <environments>Default</environments>
+    <formulas>
+        <name>varSchedStartDate</name>
+        <dataType>Date</dataType>
+        <expression>{!$Record.SchedStartTime}</expression>
+    </formulas>
+    <interviewLabel>Daily: Update Scheduled Jobs for Today to Dispatched {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Daily: Update Scheduled Jobs for Today to Dispatched</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <recordUpdates>
+        <name>Update_the_Status_of_the_Service_Appointment_to_Dispatched</name>
+        <label>Update the Status of the Service Appointment to Dispatched</label>
+        <locationX>50</locationX>
+        <locationY>360</locationY>
+        <inputAssignments>
+            <field>Status</field>
+            <value>
+                <stringValue>Dispatched</stringValue>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <start>
+        <locationX>56</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Scheduled_Start_Date_is_Today</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Status</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>Scheduled</stringValue>
+            </value>
+        </filters>
+        <object>ServiceAppointment</object>
+        <schedule>
+            <frequency>Daily</frequency>
+            <startDate>2025-05-07</startDate>
+            <startTime>00:00:00.000Z</startTime>
+        </schedule>
+        <triggerType>Scheduled</triggerType>
+    </start>
+    <status>Active</status>
+</Flow>

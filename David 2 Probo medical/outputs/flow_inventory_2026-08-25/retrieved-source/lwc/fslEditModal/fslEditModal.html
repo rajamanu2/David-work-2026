@@ -1,0 +1,32 @@
+<template>
+    <div class="sfs-modal-backdrop sfs-modal-backdrop_expandable" onclick={handleClose}>
+        <div class="sfs-modal sfs-modal_expandable" onclick={stopPropagation}>
+            <div class="sfs-modal-header">
+                <h3 class="sfs-modal-title">{modalTitle}</h3>
+                <button class="sfs-modal-close" type="button" onclick={handleClose}>✕</button>
+            </div>
+            <template if:true={showPo}>
+                <p class="sfs-modal-copy">Enter the PO number for this work order.</p>
+                <lightning-input type="text" name="poNumber" label="PO Number" value={poNumber} onkeydown={handlePoKeydown}></lightning-input>
+            </template>
+            <template if:true={showAddress}>
+                <p class="sfs-modal-copy">Enter the work order address so it can be scheduled.</p>
+                <lightning-radio-group name="addressMode" label="Work order address options" options={addressModeOptions} value={addressMode} type="radio" onchange={handleAddressModeChange}></lightning-radio-group>
+                <template if:true={showSavedAddressOption}>
+                    <lightning-combobox name="addressSelection" label="Saved address" value={addressSelection} options={shippingAddressOptions} onchange={handleAddressSelection}></lightning-combobox>
+                </template>
+                <template if:true={showManualAddressOption}>
+                    <lightning-textarea name="street" label="Street" value={addressForm.street}></lightning-textarea>
+                    <lightning-input name="city" label="City" value={addressForm.city}></lightning-input>
+                    <lightning-input name="state" label="State/Province (2-digit)" value={addressForm.state}></lightning-input>
+                    <lightning-input name="country" label="Country" value={addressForm.country}></lightning-input>
+                    <lightning-input name="postalCode" label="Zip/Postal Code" value={addressForm.postalCode}></lightning-input>
+                </template>
+            </template>
+            <div class="sfs-actions sfs-modal-actions">
+                <lightning-button variant="brand" label="Save" onclick={handleSave} disabled={saving}></lightning-button>
+                <lightning-button variant="neutral" label="Cancel" onclick={handleClose}></lightning-button>
+            </div>
+        </div>
+    </div>
+</template>

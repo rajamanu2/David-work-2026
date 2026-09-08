@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>EMAIL</field>
+    </columns>
+    <columns>
+        <field>FIRST_NAME</field>
+    </columns>
+    <columns>
+        <field>LAST_NAME</field>
+    </columns>
+    <columns>
+        <field>ACCOUNT.NAME</field>
+    </columns>
+    <columns>
+        <field>TITLE</field>
+    </columns>
+    <columns>
+        <field>LEAD_SOURCE</field>
+    </columns>
+    <columns>
+        <field>Contact.Sub_Lead_Source__c</field>
+    </columns>
+    <columns>
+        <field>Account.Account_Region__c</field>
+    </columns>
+    <columns>
+        <field>ACCOUNT.ADDRESS2_COUNTRY</field>
+    </columns>
+    <currency>USD</currency>
+    <description>Prospects only, UK &amp; Ireland</description>
+    <filter>
+        <criteriaItems>
+            <column>Account.Account_Industry__c</column>
+            <columnToColumn>false</columnToColumn>
+            <isUnlocked>true</isUnlocked>
+            <operator>equals</operator>
+            <value>Education,Education Agent</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Account.Account_Sub_Industry__c</column>
+            <columnToColumn>false</columnToColumn>
+            <isUnlocked>true</isUnlocked>
+            <operator>equals</operator>
+            <value>Higher Ed</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Contact.Inactive__c</column>
+            <columnToColumn>false</columnToColumn>
+            <isUnlocked>true</isUnlocked>
+            <operator>equals</operator>
+            <value>0</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Contact.Email_Preference__c</column>
+            <columnToColumn>false</columnToColumn>
+            <isUnlocked>true</isUnlocked>
+            <operator>equals</operator>
+            <value>Opted-In,Unknown</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Account.Account_Status__c</column>
+            <columnToColumn>false</columnToColumn>
+            <isUnlocked>true</isUnlocked>
+            <operator>notEqual</operator>
+            <value>Active (Product Live)</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>ACCOUNT.ADDRESS2_COUNTRY</column>
+            <columnToColumn>false</columnToColumn>
+            <isUnlocked>true</isUnlocked>
+            <operator>equals</operator>
+            <value>United Kingdom,Ireland</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>TITLE</column>
+            <columnToColumn>false</columnToColumn>
+            <isUnlocked>true</isUnlocked>
+            <operator>notContain</operator>
+            <value>no longer at school</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>OWNER_FULL_NAME</column>
+            <columnToColumn>false</columnToColumn>
+            <isUnlocked>true</isUnlocked>
+            <operator>equals</operator>
+            <value>Tom Jones,Fiona Broadbent,Galem Girmay,Sarah Hamilton,Stephen Beaumont</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>ACCOUNT.NAME</column>
+            <columnToColumn>false</columnToColumn>
+            <isUnlocked>true</isUnlocked>
+            <operator>notEqual</operator>
+            <value>London Business School,Grwp Llandrillo Menai,Pearson College,Guildhall School of Music and Drama,The Open University,Universities Scotland,Institute of Cancer Research,St MaryG��s University College,Scotland Rural College (SRUC),National Film &amp; Television School,Manchester Business School,The University of the Highlands and Islands,The National Centre for Circus Arts,Pearson University Partnerships,Pearson Education Inc,Holmes UK Holdings Limited,Conservatoire for Dance and Drama,Newman University,Isle of Wight College,Cirencester College,Central Bedfordshire College,University of Wales,Trinity Saint David,Rambert School of Ballet and Contemporary Dance,City of London School for girls,Murray Edwards College Cambridge,Emmanuel College Cambridge,Peterhouse Cambridge,BIMM Institute,QA Higher Education,Richmond,the American University in London,Warwickshire College group,Tring Park School,Griffith College,Highbury College,Royal Central School of Speech and Drama,Leeds College of Music,Scotland&apos;s Rural College,Ashridge Business School,Hugh Baird College,Westminster Kingsway College,Dudley College,Colchester Institute,Mont Rose College,Elizabeth College,Peterborough Regional College,New College Nottingham,College of North West London,Independent College Dublin,London School of Business and Finance,Moor Park</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>ACCOUNT.NAME</column>
+            <columnToColumn>false</columnToColumn>
+            <isUnlocked>true</isUnlocked>
+            <operator>notContain</operator>
+            <value>University of Bristol,Brunel University,Bishop Grosseteste University,University of Hull,Greenes College,Lougborough Schools Foundations,Liffey College,Goldsmiths</value>
+        </criteriaItems>
+    </filter>
+    <format>Summary</format>
+    <groupingsDown>
+        <dateGranularity>Day</dateGranularity>
+        <field>OWNER_FULL_NAME</field>
+        <sortOrder>Asc</sortOrder>
+    </groupingsDown>
+    <name>UK Virtual Roadshow- August 2020</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>ContactList</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <showGrandTotal>true</showGrandTotal>
+    <showSubTotals>true</showSubTotals>
+    <timeFrameFilter>
+        <dateColumn>CREATED_DATE</dateColumn>
+        <interval>INTERVAL_CUSTOM</interval>
+    </timeFrameFilter>
+</Report>

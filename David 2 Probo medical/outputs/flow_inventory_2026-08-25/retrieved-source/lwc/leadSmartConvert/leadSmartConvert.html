@@ -1,0 +1,397 @@
+<template>
+  <lightning-card title="Smart Lead Convert" icon-name="standard:lead">
+    <div class="wrap">
+
+      <!-- ===== RESULTS-ONLY VIEW AFTER CONVERSION ===== -->
+      <template if:true={showResultsOnly}>
+        <section class="section">
+          <div class="section__title">
+            <lightning-icon icon-name="utility:success" size="small" class="section__icon"></lightning-icon>
+            <h3>Converted Records</h3>
+          </div>
+
+          <div class="grid-3">
+            <template if:true={resultAccount}>
+              <lightning-card>
+                <a class="card-link" href={resultAccountUrl} target="_blank" rel="noopener noreferrer">
+                  <div class="card-center">
+                    <lightning-icon icon-name="standard:account" size="large"></lightning-icon>
+                    <div class="card-name">{resultAccount.Name}</div>
+                  </div>
+                </a>
+              </lightning-card>
+            </template>
+
+            <template if:true={resultContact}>
+              <lightning-card>
+                <a class="card-link" href={resultContactUrl} target="_blank" rel="noopener noreferrer">
+                  <div class="card-center">
+                    <lightning-icon icon-name="standard:contact" size="large"></lightning-icon>
+                    <div class="card-name">{resultContact.Name}</div>
+                  </div>
+                </a>
+              </lightning-card>
+            </template>
+
+            <template if:true={resultOpportunity}>
+              <lightning-card>
+                <a class="card-link" href={resultOpportunityUrl} target="_blank" rel="noopener noreferrer">
+                  <div class="card-center">
+                    <lightning-icon icon-name="standard:opportunity" size="large"></lightning-icon>
+                    <div class="card-name">{resultOpportunity.Name}</div>
+                  </div>
+                </a>
+              </lightning-card>
+            </template>
+          </div>
+        </section>
+      </template>
+
+      <!-- ===== FULL FORM (HIDDEN AFTER CONVERSION) ===== -->
+      <template if:false={showResultsOnly}>
+        <!-- Summary / Lead -->
+        <div class="summary">
+        </div>
+
+        <!-- Account (row) -->
+          <section class="section">
+            <div class="section__title">
+              <lightning-icon icon-name="standard:account" size="small" class="section__icon"></lightning-icon>
+              <h3>Account</h3>
+            </div>
+
+            <lightning-input
+              type="toggle"
+              label="Create a new Account"
+              checked={createNewAccount}
+              onchange={handleCreateNewAccount}>
+            </lightning-input>
+
+            <!-- If creating new, show hint -->
+            <template if:true={createNewAccount}>
+              <p class="hint slds-m-top_small">A new Account will be created from the Lead.</p>
+            </template>
+
+            <!-- Existing account selection -->
+            <template if:false={createNewAccount}>
+
+              <!-- Show selected account as a pill -->
+              <template if:true={accountId}>
+                <div class="slds-pill_container slds-m-top_small slds-m-bottom_x-small">
+                  <lightning-pill
+                    label={selectedAccount.label}
+                    name="selectedAccount"
+                    icon-name="standard:account"
+                    href={accountUrl}
+                    onremove={clearAccountSelection}>
+                  </lightning-pill>
+                  <template if:true={selectedAccount.subtitle}>
+                    <div class="slds-text-color_weak slds-m-top_x-small">
+                      {selectedAccount.subtitle}
+                    </div>
+                  </template>
+                </div>
+              </template>
+
+              <!-- Rich account combobox (name + billing address + Payment_Terms__c) -->
+              <template if:false={accountId}>
+                <label class="slds-form-element__label slds-m-top_small">Account</label>
+                <div class="slds-combobox_container">
+                  <div class={acctComboboxClass}>
+                    <div class="slds-combobox__form-element slds-input-has-icon slds-input-has-icon_right">
+                      <input
+                        class="slds-input"
+                        type="text"
+                        placeholder="Search Accounts by name or billing address"
+                        value={acctSearchTerm}
+                        oninput={handleAcctInput}
+                        onfocus={openAcct}
+                        onkeydown={handleAcctKeydown}
+                        onblur={handleAcctBlur} />
+                      <lightning-button-icon icon-name="utility:search" variant="bare" alternative-text="Search"></lightning-button-icon>
+                    </div>
+
+                    <div if:true={isAcctOpen} class="slds-combobox__dropdown slds-dropdown slds-dropdown_fluid">
+                      <ul class="slds-listbox slds-listbox_vertical" role="presentation">
+                        <template if:true={acctResults.length}>
+                          <template for:each={acctResults} for:item="rec">
+                            <li key={rec.id} class="slds-listbox__item" data-id={rec.id} onclick={handleAcctClick}>
+                              <div class="slds-media slds-listbox__option slds-listbox__option_plain account-option">
+                                <!-- Right side badge (reverse figure) -->
+                                <div class="slds-media__figure slds-media__figure_reverse">
+                                  <template if:true={rec.meta}>
+                                    <span class="terms-badge">Terms: {rec.meta}</span>
+                                  </template>
+                                </div>
+
+                                <!-- Name + Address -->
+                                <div class="slds-media__body">
+                                  <div class="slds-truncate slds-text-title_bold" title={rec.label}>{rec.label}</div>
+                                  <template if:true={rec.subtitle}>
+                                    <div class="slds-truncate slds-text-color_weak account-subline" title={rec.subtitle}>
+                                      {rec.subtitle}
+                                    </div>
+                                  </template>
+                                </div>
+                              </div>
+                            </li>
+                          </template>
+                        </template>
+                        <template if:false={acctResults.length}>
+                          <li class="slds-listbox__item">
+                            <div class="slds-media slds-listbox__option slds-listbox__option_plain">
+                              <span class="slds-media__body slds-text-color_weak">No matches</span>
+                            </div>
+                          </li>
+                        </template>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </template>
+            </template>
+          </section>
+
+
+        <!-- Contact row -->
+        <section class="section">
+          <div class="section__title">
+            <lightning-icon icon-name="standard:contact" size="small" class="section__icon"></lightning-icon>
+            <h3>Contact</h3>
+          </div>
+
+          <lightning-input
+            type="toggle"
+            label="Create a new Contact"
+            checked={createNewContact}
+            onchange={handleCreateNewContact}>
+          </lightning-input>
+
+          <template if:false={createNewContact}>
+            <template if:true={contactId}>
+              <div class="slds-pill_container slds-m-top_small">
+                <lightning-pill
+                  label={contactSelectedLabel}
+                  name="selectedContact"
+                  icon-name="standard:contact"
+                  href={contactUrl}
+                  onremove={clearContactSelection}>
+                </lightning-pill>
+              </div>
+            </template>
+
+            <!-- Scoped contact search (disabled until Account is chosen) -->
+            <template if:false={contactId}>
+            <label class="slds-form-element__label slds-m-top_small">
+                Contact (under selected Account)
+            </label>
+
+            <!-- 👇 Add this container just like the Opportunity field -->
+            <div class="slds-combobox_container">
+                <div class={contactComboboxClass}>
+                <div class="slds-combobox__form-element slds-input-has-icon slds-input-has-icon_right">
+                    <input
+                    class="slds-input"
+                    type="text"
+                    placeholder={contactPlaceholder}
+                    disabled={isContactSearchDisabled}
+                    value={contactSearchTerm}
+                    oninput={handleContactInput}
+                    onfocus={openContact}
+                    onkeydown={handleContactKeydown}
+                    onblur={handleContactBlur} />
+                    <lightning-button-icon icon-name="utility:search" variant="bare" alternative-text="Search"></lightning-button-icon>
+                </div>
+
+                <div if:true={showContactListbox} class="slds-combobox__dropdown slds-dropdown slds-dropdown_fluid">
+                    <ul class="slds-listbox slds-listbox_vertical" role="presentation">
+                    <template if:true={hasContactResults}>
+                        <template for:each={contactResults} for:item="rec">
+                        <li key={rec.id} class="slds-listbox__item" data-id={rec.id} onclick={handleContactClick}>
+                            <div class="slds-media slds-listbox__option slds-listbox__option_plain">
+                            <span class="slds-media__body">
+                                <span class="slds-truncate" title={rec.label}>{rec.label}</span>
+                                <span class="slds-text-color_weak slds-truncate" title={rec.subtitle}>{rec.subtitle}</span>
+                            </span>
+                            </div>
+                        </li>
+                        </template>
+                    </template>
+                    <template if:false={hasContactResults}>
+                        <li class="slds-listbox__item">
+                        <div class="slds-media slds-listbox__option slds-listbox__option_plain">
+                            <span class="slds-media__body slds-text-color_weak">No matches</span>
+                        </div>
+                        </li>
+                    </template>
+                    </ul>
+                </div>
+                </div>
+            </div>
+            </template>
+
+          </template>
+
+          <template if:true={createNewContact}>
+            <p class="hint slds-m-top_small">A new Contact will be created from the Lead.</p>
+          </template>
+        </section>
+
+        <!-- Opportunity row -->
+        <section class="section">
+          <div class="section__title">
+            <lightning-icon icon-name="standard:opportunity" size="small" class="section__icon"></lightning-icon>
+            <h3>Opportunity</h3>
+          </div>
+
+          <lightning-input
+            type="toggle"
+            label="Create a new Opportunity"
+            checked={createOpportunity}
+            onchange={handleCreateOppToggle}>
+          </lightning-input>
+
+          <!-- Existing Opportunity by number -->
+          <template if:false={createOpportunity}>
+            <label class="slds-form-element__label slds-m-top_small">Opportunity (by Number)</label>
+
+            <template if:true={opportunityId}>
+              <div class="slds-pill_container slds-m-top_x-small slds-m-bottom_x-small">
+                <lightning-pill
+                  label={oppSelectedLabel}
+                  name="selectedOpp"
+                  icon-name="standard:opportunity"
+                  href={oppUrl}
+                  onremove={clearOpportunitySelection}>
+                </lightning-pill>
+              </div>
+            </template>
+
+            <template if:true={selectedOppServiceContract}>
+                  <div class="slds-text-body_small slds-m-top_x-small">
+                    Service Contract: &nbsp;
+                    <a href={selectedOppServiceContractUrl} target="_blank" rel="noopener noreferrer">
+                      {selectedOppServiceContract.Name}
+                    </a>
+                  </div>
+            </template>
+
+            <template if:true={hasOppAccountMismatch}>
+              <div class="mismatch slds-m-top_small" role="alert">
+                <div class="mismatch__icon">
+                  <lightning-icon icon-name="utility:warning" size="small"></lightning-icon>
+                </div>
+
+                <div class="mismatch__msg">
+                  The selected Opportunity belongs to&nbsp;
+                  <strong>{selectedOppParentName}</strong>, which doesn’t match the Account you chose.
+                </div>
+
+                <div class="mismatch__actions">
+                  <lightning-button
+                    variant="brand-outline"
+                    label="Use Opportunity’s Account"
+                    onclick={useOppAccount}>
+                  </lightning-button>
+                </div>
+              </div>
+            </template>
+
+
+
+            <template if:false={opportunityId}>
+              <div class="slds-combobox_container">
+                <div class={comboboxClass}>
+                  <div class="slds-combobox__form-element slds-input-has-icon slds-input-has-icon_right">
+                    <input
+                      class="slds-input"
+                      type="text"
+                      placeholder="Search by Opportunity Number"
+                      value={oppSearchTerm}
+                      oninput={handleOppInput}
+                      onfocus={openOpp}
+                      onkeydown={handleKeydown}
+                      onblur={handleBlur} />
+                    <lightning-button-icon icon-name="utility:search" variant="bare" alternative-text="Search"></lightning-button-icon>
+                  </div>
+
+                  <div if:true={showListbox} class="slds-combobox__dropdown slds-dropdown slds-dropdown_fluid">
+                    <ul class="slds-listbox slds-listbox_vertical" role="presentation">
+                      <template if:true={hasOppResults}>
+                        <template for:each={oppResults} for:item="rec">
+                          <li key={rec.id} class="slds-listbox__item" data-id={rec.id} onclick={handleOppClick}>
+                            <div class="slds-media slds-listbox__option slds-listbox__option_plain">
+                              <span class="slds-media__body">
+                                <span class="slds-truncate" title={rec.label}>{rec.label}</span>
+                                <span class="slds-text-color_weak slds-truncate" title={rec.subtitle}>{rec.subtitle}</span>
+                              </span>
+                            </div>
+                          </li>
+                        </template>
+                      </template>
+                      <template if:false={hasOppResults}>
+                        <li class="slds-listbox__item">
+                          <div class="slds-media slds-listbox__option slds-listbox__option_plain">
+                            <span class="slds-media__body slds-text-color_weak">No matches</span>
+                          </div>
+                        </li>
+                      </template>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </template>            
+          </template>
+
+          <!-- New Opportunity fields -->
+          <template if:true={createOpportunity}>
+            <div class="grid-2">
+              <lightning-input
+                class="field"
+                type="text"
+                label="New Opportunity Name"
+                value={opportunityName}
+                onchange={handleOpportunityNameChange}>
+              </lightning-input>
+
+              <lightning-combobox
+                class="field"
+                label="Opportunity Record Type"
+                placeholder="Select a record type"
+                value={opportunityRecordTypeId}
+                options={oppRecordTypeOptions}
+                onchange={handleOppRecordTypeChange}>
+              </lightning-combobox>
+            </div>
+          </template>
+
+         <template if:true={resultServiceContract}>
+              <div class="slds-text-body_small slds-m-top_x-small">
+                Service Contract:&nbsp;
+                <a href={resultServiceContractUrl} target="_blank" rel="noopener noreferrer">
+                  {resultServiceContract.Name}
+                </a>
+              </div>
+            </template>
+        </section>
+
+        <!-- Actions / messages -->
+        <div class="footer">
+          <lightning-button
+            variant="brand"
+            label="Convert Lead"
+            onclick={handleConvert}
+            disabled={convertDisabled}>
+          </lightning-button>
+
+          <template if:true={errorMessage}>
+            <div class="msg msg--error">{errorMessage}</div>
+          </template>
+          <template if:true={successMessage}>
+            <div class="msg msg--success">{successMessage}</div>
+          </template>
+        </div>
+      </template>
+    </div>
+  </lightning-card>
+</template>

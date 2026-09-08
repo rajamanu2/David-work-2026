@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Applied_Discount__c</fullName>
+    <description>This fields is used on approval email templates to show the discount percentage of a product regardless of its usage or rate type.</description>
+    <formula>IF(
+    IF(
+        NOT(ISBLANK(Usage_Rate_Discount__c)),
+        Usage_Rate_Discount__c,
+        IF(SBQQ__TotalDiscountRate__c = 0, null, SBQQ__TotalDiscountRate__c)
+    ) &gt; 0,
+    IF(
+        NOT(ISBLANK(Usage_Rate_Discount__c)),
+        Usage_Rate_Discount__c,
+        IF(SBQQ__TotalDiscountRate__c = 0, null, SBQQ__TotalDiscountRate__c)
+    ),
+    null
+)</formula>
+    <inlineHelpText>Total discount</inlineHelpText>
+    <label>Applied Discount</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>2</scale>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Percent</type>
+</CustomField>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>NS_Usage_Rate__c</fullName>
+    <externalId>false</externalId>
+    <formula>IF( NOT(ISBLANK(Adjusted_Rate_Percent__c)),  Adjusted_Rate_Percent__c ,
+IF(NOT(ISBLANK( Adjusted_Rate_Amount__c )),  Adjusted_Rate_Amount__c ,
+IF(NOT(ISBLANK( Usage_Rate__c )), Usage_Rate__c,
+ Usage_Rate_Amt__c )))</formula>
+    <label>NS Usage Rate</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>4</scale>
+    <trackHistory>false</trackHistory>
+    <type>Number</type>
+    <unique>false</unique>
+</CustomField>

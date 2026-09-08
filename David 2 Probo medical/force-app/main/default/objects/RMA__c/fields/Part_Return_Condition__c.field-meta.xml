@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Part_Return_Condition__c</fullName>
+    <description>This is used to keep track of what status parts are in when they return.</description>
+    <inlineHelpText>Why has this part been returned?</inlineHelpText>
+    <label>Part Return Condition</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Part Tested and Good</fullName>
+                <default>false</default>
+                <label>Part Tested and Good</label>
+            </value>
+            <value>
+                <fullName>Part Not Fitted</fullName>
+                <default>false</default>
+                <label>Part Not Fitted</label>
+            </value>
+            <value>
+                <fullName>Part Dead on Arrival</fullName>
+                <default>false</default>
+                <label>Part Dead on Arrival</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

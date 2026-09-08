@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>66.0</apiVersion>
+    <areMetricsLoggedToDataCloud>false</areMetricsLoggedToDataCloud>
+    <customErrors>
+        <description>SCC-3380: Blocks linking a non-Trouble Ticket Case to an Incident through Case Related Issue.</description>
+        <name>Block_Non_Trouble_Ticket</name>
+        <label>Block Non Trouble Ticket</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <customErrorMessages>
+            <errorMessage>SCC-3380: Only Trouble Ticket cases can be related to an Incident. Select a Trouble Ticket or change the case record type.</errorMessage>
+            <fieldSelection>CaseId</fieldSelection>
+            <isFieldError>true</isFieldError>
+        </customErrorMessages>
+    </customErrors>
+    <decisions>
+        <description>SCC-3380: RelatedEntityType is often blank on insert, so the Incident Id prefix (0ny) is used as well.</description>
+        <name>Is_Non_Trouble_Ticket_On_Incident</name>
+        <label>Is Non Trouble Ticket On Incident</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <defaultConnectorLabel>Allowed</defaultConnectorLabel>
+        <rules>
+            <name>Block_Link</name>
+            <conditionLogic>1 AND (2 OR 3)</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Case.RecordType.DeveloperName</leftValueReference>
+                <operator>NotEqualTo</operator>
+                <rightValue>
+                    <stringValue>Trouble_Ticket</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.RelatedEntityType</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Incident</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.RelatedIssueId</leftValueReference>
+                <operator>StartsWith</operator>
+                <rightValue>
+                    <stringValue>0ny</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Block_Non_Trouble_Ticket</targetReference>
+            </connector>
+            <label>Block Link</label>
+        </rules>
+    </decisions>
+    <description>SCC-3380: Before a Case Related Issue is saved, blocks linking a Case that is not a Trouble Ticket to an Incident. Complements the validation rule because RelatedEntityType is not populated until after insert.</description>
+    <environments>Default</environments>
+    <interviewLabel>SCC-3380 Case Related Issue Before Save {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>SCC-3380 Case Related Issue Before Save</label>
+    <processType>AutoLaunchedFlow</processType>
+    <start>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Is_Non_Trouble_Ticket_On_Incident</targetReference>
+        </connector>
+        <object>CaseRelatedIssue</object>
+        <recordTriggerType>Create</recordTriggerType>
+        <triggerType>RecordBeforeSave</triggerType>
+    </start>
+    <status>Active</status>
+</Flow>

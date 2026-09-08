@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Marketing_Contact__c</fullName>
+    <deleteConstraint>SetNull</deleteConstraint>
+    <description>Primary Flywire contact about the event.</description>
+    <inlineHelpText>Questions about the event? Contact this person.</inlineHelpText>
+    <label>Marketing Contact</label>
+    <referenceTo>User</referenceTo>
+    <relationshipName>Campaigns</relationshipName>
+    <required>false</required>
+    <type>Lookup</type>
+</CustomField>

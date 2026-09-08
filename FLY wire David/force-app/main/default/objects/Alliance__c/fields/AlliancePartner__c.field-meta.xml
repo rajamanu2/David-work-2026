@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>AlliancePartner__c</fullName>
+    <deleteConstraint>Restrict</deleteConstraint>
+    <inlineHelpText>The Partner type Account you want to create an association with. e,g,. Strategic Partner, Agent, Consultant etc.</inlineHelpText>
+    <label>Alliance-Partner</label>
+    <lookupFilter>
+        <active>true</active>
+        <filterItems>
+            <field>Account.RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Agents, Sales Partner, Payment Service Provider, Strategic Partner, Bank Partner, Deactivated</value>
+        </filterItems>
+        <isOptional>false</isOptional>
+    </lookupFilter>
+    <referenceTo>Account</referenceTo>
+    <relationshipLabel>Alliances</relationshipLabel>
+    <relationshipName>PartnerAssociations</relationshipName>
+    <required>true</required>
+    <trackTrending>false</trackTrending>
+    <type>Lookup</type>
+</CustomField>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Avg_Value_per_Touchpoint__c</fullName>
+    <description>Calculates the average value per Bizible touchpoint on the Opportunity. Formulat is  ARR / # of Bizible Touchpoints.</description>
+    <formula>ARR__c/No_of_Bizible_Touches__c</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <inlineHelpText>Calculates the average value per Bizible touchpoint on the Opportunity. Formulat is  ARR / # of Bizible Touchpoints.</inlineHelpText>
+    <label>Avg Value per Touchpoint</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>2</scale>
+    <trackHistory>false</trackHistory>
+    <type>Currency</type>
+</CustomField>

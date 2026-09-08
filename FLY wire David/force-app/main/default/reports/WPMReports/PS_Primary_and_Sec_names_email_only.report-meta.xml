@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>EMAIL</field>
+    </columns>
+    <columns>
+        <field>FIRST_NAME</field>
+    </columns>
+    <columns>
+        <field>LAST_NAME</field>
+    </columns>
+    <columns>
+        <field>Contact.Payment_Security_Role__c</field>
+    </columns>
+    <columns>
+        <field>Contact.Payment_Security_Training__c</field>
+    </columns>
+    <columns>
+        <aggregateTypes>Sum</aggregateTypes>
+        <field>Contact.Inactive__c</field>
+    </columns>
+    <currency>USD</currency>
+    <description>Contacts Payment Security Role = Primary Contact, Secondary Contact</description>
+    <filter>
+        <booleanFilter>1 AND 2 AND 3 AND (4 OR 5 OR 6)</booleanFilter>
+        <criteriaItems>
+            <column>Contact.Payment_Security_Role__c</column>
+            <columnToColumn>false</columnToColumn>
+            <isUnlocked>true</isUnlocked>
+            <operator>equals</operator>
+            <value>Primary Contact,Secondary Contact</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>ACCOUNT_RECORDTYPE</column>
+            <columnToColumn>false</columnToColumn>
+            <isUnlocked>true</isUnlocked>
+            <operator>equals</operator>
+            <value>Account.Education</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Account.Account_Region__c</column>
+            <columnToColumn>false</columnToColumn>
+            <isUnlocked>true</isUnlocked>
+            <operator>equals</operator>
+            <value>EMEA</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>OWNER_FULL_NAME</column>
+            <columnToColumn>false</columnToColumn>
+            <isUnlocked>true</isUnlocked>
+            <operator>equals</operator>
+            <value>David Neild,Joanna Brewin,Michael Vale,Philippa Watson,Simon Mander,Bridget Walker,Dave Lund Yates,Sean Wilkins,Sean McTaggart,Debra Barnes,Carol Charlton,Nichole Godley,Lucy Harris,Sharon Clark,Dawn Sherwood,Michael Green,Danielle Bennett,Laura Brown,Rachel Hillier,Simon Scott,Scott Muir,Lewis Parker,Chris Morgan</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Account.Relationship_Manager__c</column>
+            <columnToColumn>false</columnToColumn>
+            <isUnlocked>true</isUnlocked>
+            <operator>equals</operator>
+            <value>David Neild,Joanna Brewin,Michael Vale,Philippa Watson,Simon Mander,Bridget Walker,Dave Lund Yates,Sean Wilkins,Sean McTaggart,Debra Barnes,Carol Charlton,Nichole Godley,Lucy Harris,Sharon Clark,Dawn Sherwood,Michael Green,Danielle Bennett,Laura Brown,Rachel Hillier,Simon Scott,Scott Muir,Lewis Parker,Chris Morgan</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Account.CS_Specialist__c</column>
+            <columnToColumn>false</columnToColumn>
+            <isUnlocked>true</isUnlocked>
+            <operator>equals</operator>
+            <value>David Neild,Joanna Brewin,Michael Vale,Philippa Watson,Simon Mander,Bridget Walker,Dave Lund Yates,Sean Wilkins,Sean McTaggart,Debra Barnes,Carol Charlton,Nichole Godley,Lucy Harris,Sharon Clark,Dawn Sherwood,Michael Green,Danielle Bennett,Laura Brown,Rachel Hillier,Simon Scott,Scott Muir,Lewis Parker,Chris Morgan</value>
+        </criteriaItems>
+    </filter>
+    <format>Tabular</format>
+    <name>PS Primary and Sec names email only</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>ContactList</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <showGrandTotal>true</showGrandTotal>
+    <showSubTotals>true</showSubTotals>
+    <sortColumn>EMAIL</sortColumn>
+    <sortOrder>Asc</sortOrder>
+    <timeFrameFilter>
+        <dateColumn>CREATED_DATE</dateColumn>
+        <interval>INTERVAL_CUSTOM</interval>
+    </timeFrameFilter>
+</Report>

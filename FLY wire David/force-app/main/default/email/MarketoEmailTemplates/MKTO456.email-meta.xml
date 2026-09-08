@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <encodingKey>UTF-8</encodingKey>
+    <name>Event_TRAVEL_Miami_2022_CocktailParty.4. Registration Alert</name>
+    <style>none</style>
+    <subject>=?UTF-8?Q?=F0=9F=8D=B8?= Cabana Cocktail Party in Miami RSVP: {{lead.First Name:default=edit me}} {{lead.Last Name:default=edit me}} from {{company.Company Name:default=edit me}}</subject>
+    <textOnly>Great news! We have a new RSVP for our Cabana Cocktail Party in Miami!
+
+
+Name: {{lead.First Name:default=edit me}} {{lead.Last Name:default=edit me}}
+
+Title: {{lead.Job Title:default=edit me}}
+
+Company: {{company.Company Name:default=edit me}}
+
+Email: {{lead.Email Address:default=edit me}}
+
+
+
+
+{{SP_Send_Alert_Info:default=edit me}}</textOnly>
+    <type>custom</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

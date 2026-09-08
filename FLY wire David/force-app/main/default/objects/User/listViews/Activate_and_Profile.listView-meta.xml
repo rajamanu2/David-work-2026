@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Activate_and_Profile</fullName>
+    <columns>IS_FROZEN</columns>
+    <columns>FULL_NAME</columns>
+    <columns>CORE.PROFILE.NAME</columns>
+    <columns>CORE.USER_ROLE.NAME</columns>
+    <columns>User_Region__c</columns>
+    <columns>Vertical__c</columns>
+    <columns>CPQ_User__c</columns>
+    <columns>CORE.USERS.LAST_LOGIN</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>CORE.USERS.ACTIVE</field>
+        <operation>equals</operation>
+        <value>1</value>
+    </filters>
+    <label>Active with Profile</label>
+</ListView>

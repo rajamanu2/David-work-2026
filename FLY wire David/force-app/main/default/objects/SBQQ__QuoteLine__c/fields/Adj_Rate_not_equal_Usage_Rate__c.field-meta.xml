@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Adj_Rate_not_equal_Usage_Rate__c</fullName>
+    <description>Created for SALDEV-1131.</description>
+    <formula>IF(
+AND(
+OR(
+AND(
+ISBLANK(Usage_Rate_Amt__c),
+Adjusted_Rate_Amount__c &gt; 0),
+Usage_Rate_Amt__c &lt;&gt; Adjusted_Rate_Amount__c),
+OR(
+Quote_Line_Type_background__c = &apos;New&apos;,
+Quote_Line_Type_background__c = &apos;Price Change&apos;,
+Quote_Line_Type_background__c = &apos;Quantity Increase&apos;,
+Quote_Line_Type_background__c = &apos;Quantity Reduction&apos;)),
+true, false)</formula>
+    <label>Adj Rate not equal Usage Rate</label>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

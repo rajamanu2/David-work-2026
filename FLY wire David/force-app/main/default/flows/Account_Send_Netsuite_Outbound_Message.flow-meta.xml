@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionCalls>
+        <description>This outbound message is sent to Workato, which subsequently updates NetSuite.</description>
+        <name>Update_Netsuite_Account</name>
+        <label>Update Netsuite Account</label>
+        <locationX>176</locationX>
+        <locationY>431</locationY>
+        <actionName>Account.Account_NetSuite_Update</actionName>
+        <actionType>outboundMessage</actionType>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
+        <nameSegment>Account.Account_NetSuite_Update</nameSegment>
+        <offset>0</offset>
+    </actionCalls>
+    <apiVersion>63.0</apiVersion>
+    <areMetricsLoggedToDataCloud>false</areMetricsLoggedToDataCloud>
+    <description>BOPI-843 Use outbound messages to update the accounts in netsuite</description>
+    <environments>Default</environments>
+    <formulas>
+        <name>IsRMChanged</name>
+        <dataType>Boolean</dataType>
+        <expression>IF({!$Record__Prior.Relationship_Manager__c} = {!$Record.Relationship_Manager__c}, false, true)</expression>
+    </formulas>
+    <interviewLabel>(Account) Send Netsuite Outbound Message {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>(Account) Send Netsuite Outbound Message</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <recordUpdates>
+        <name>Is_RM_Changed</name>
+        <label>Is RM Changed</label>
+        <locationX>176</locationX>
+        <locationY>323</locationY>
+        <connector>
+            <targetReference>Update_Netsuite_Account</targetReference>
+        </connector>
+        <inputAssignments>
+            <field>Is_RM_Changed__c</field>
+            <value>
+                <elementReference>IsRMChanged</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <start>
+        <locationX>50</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Is_RM_Changed</targetReference>
+        </connector>
+        <filterFormula>AND(
+    NOT(ISBLANK({!$Record.Netsuite_ID__c})),
+    OR(
+        ISNEW(),
+        ISCHANGED({!$Record.BillingCity}),
+        ISCHANGED({!$Record.BillingCountry}),
+        ISCHANGED({!$Record.BillingGeocodeAccuracy}),
+        ISCHANGED({!$Record.BillingLatitude}),
+        ISCHANGED({!$Record.BillingLongitude}),
+        ISCHANGED({!$Record.BillingPostalCode}),
+        ISCHANGED({!$Record.BillingState}),
+        ISCHANGED({!$Record.BillingStreet}),
+        ISCHANGED({!$Record.Client_Legal_Entity_Name__c}),
+        ISCHANGED({!$Record.Netsuite_ID__c}),
+        ISCHANGED({!$Record.Relationship_Manager__c})
+    )
+)</filterFormula>
+        <object>Account</object>
+        <recordTriggerType>Update</recordTriggerType>
+        <triggerType>RecordAfterSave</triggerType>
+    </start>
+    <status>Active</status>
+</Flow>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Account_RM_cannot_be_inactive_on_Legal</fullName>
+    <active>true</active>
+    <description>Account RM cannot be inactive to submit opportunity other than renewal for approval.</description>
+    <errorConditionFormula>AND(
+$Profile.Name &lt;&gt; &apos;System Administrator&apos;,
+$Profile.Name &lt;&gt; &quot;B - Looker&quot;,
+$User.Alias &lt;&gt; &quot;Workato&quot;,
+Pricebook2.Name = &apos;CPQ&apos;,
+/* Probability is more than 80 when stage is updated to legal */
+Probability &gt; 0.80,
+NOT(ISPICKVAL(Type,&quot;Auto Renewal&quot;)),
+NOT(Account.Relationship_Manager__r.IsActive)
+)</errorConditionFormula>
+    <errorMessage>The Account must have an Active Relationship Manager.</errorMessage>
+</ValidationRule>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Acc_GM_Cost__c</fullName>
+    <description>Rollup of Gross Margin Cost from Prod config records</description>
+    <inlineHelpText>Rollup of Gross Margin Cost from Prod config records</inlineHelpText>
+    <label>Acc GM Cost</label>
+    <summarizedField>Product_Configuration__c.Portal_Margin_Cost__c</summarizedField>
+    <summaryForeignKey>Product_Configuration__c.Account__c</summaryForeignKey>
+    <summaryOperation>sum</summaryOperation>
+    <trackHistory>false</trackHistory>
+    <type>Summary</type>
+</CustomField>

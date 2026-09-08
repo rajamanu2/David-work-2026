@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>Campaign.CampaignMembers$Contact.Account.AccountLongID__c</field>
+    </columns>
+    <columns>
+        <field>Campaign.CampaignMembers$Contact.Account.Relationship_Manager__c</field>
+    </columns>
+    <columns>
+        <field>Campaign.CampaignMembers$Contact.Account.Name</field>
+    </columns>
+    <currency>USD</currency>
+    <filter>
+        <criteriaItems>
+            <column>Campaign$Name</column>
+            <columnToColumn>false</columnToColumn>
+            <isUnlocked>true</isUnlocked>
+            <operator>equals</operator>
+            <value>Flywire Hosted_EDU_Flywire Fusion Client Conference_October 2025</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Campaign.CampaignMembers$Status</column>
+            <columnToColumn>false</columnToColumn>
+            <isUnlocked>true</isUnlocked>
+            <operator>equals</operator>
+            <value>Registered</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Campaign.CampaignMembers$Contact.Account.Relationship_Manager__c</column>
+            <columnToColumn>false</columnToColumn>
+            <isUnlocked>true</isUnlocked>
+            <operator>equals</operator>
+            <value>jane bottomley,lauren tinger,queenie wei,laura mackenzie,catherine de hollain</value>
+        </criteriaItems>
+    </filter>
+    <format>Tabular</format>
+    <name>Flywire Fusion October 2025 - SMB</name>
+    <params>
+        <name>scopeid</name>
+        <value></value>
+    </params>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>Campaigns_with_Members_C__c</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <showGrandTotal>true</showGrandTotal>
+    <showSubTotals>true</showSubTotals>
+    <sortColumn>Campaign.CampaignMembers$Contact.Account.Relationship_Manager__c</sortColumn>
+    <sortOrder>Asc</sortOrder>
+    <timeFrameFilter>
+        <dateColumn>Campaign$CreatedDate</dateColumn>
+        <interval>INTERVAL_CUSTOM</interval>
+    </timeFrameFilter>
+</Report>

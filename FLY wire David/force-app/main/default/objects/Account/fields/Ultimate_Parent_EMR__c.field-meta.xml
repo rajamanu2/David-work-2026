@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Ultimate_Parent_EMR__c</fullName>
+    <description>Ultimate Parent Account EMR Grouping. Used for HC AE assignment.</description>
+    <externalId>false</externalId>
+    <formula>IF(CONTAINS(Parent.texcellency__DefHC_EMR_Vendor_Inpatient__c, &quot;Cerner&quot;), &quot;Cerner&quot;,
+IF(CONTAINS(Parent.texcellency__DefHC_EMR_Vendor_Inpatient__c, &quot;cerner&quot;), &quot;Cerner&quot;,
+IF(CONTAINS(Parent.texcellency__DefHC_EMR_Vendor_Inpatient__c, &quot;EPIC&quot;), &quot;EPIC&quot;,
+IF(CONTAINS(Parent.texcellency__DefHC_EMR_Vendor_Inpatient__c, &quot;Epic&quot;), &quot;EPIC&quot;,
+IF(CONTAINS(Parent.texcellency__DefHC_EMR_Vendor_Inpatient__c, &quot;athena&quot;), &quot;Athena&quot;,
+IF(CONTAINS(Parent.texcellency__DefHC_EMR_Vendor_Inpatient__c, &quot;Meditech&quot;), &quot;Meditech&quot;,
+IF(CONTAINS(Parent.texcellency__DefHC_EMR_Vendor_Inpatient__c, &quot;MEDITECH&quot;), &quot;Meditech&quot;,
+IF(CONTAINS(Parent.texcellency__DefHC_EMR_Vendor_Inpatient__c, &quot;Allscpripts&quot;), &quot;AllScripts&quot;,
+IF(CONTAINS(Parent.texcellency__DefHC_EMR_Vendor_Inpatient__c, &quot;Proprietary&quot;), &quot;Proprietary&quot;,
+IF(CONTAINS(Parent.texcellency__DefHC_EMR_Vendor_Inpatient__c, &quot;Netsmart&quot;), &quot;Netsmart&quot;,
+IF(CONTAINS(Parent.texcellency__DefHC_EMR_Vendor_Inpatient__c, &quot;Evident&quot;), &quot;Evident&quot;,
+
+IF(CONTAINS(Parent.Parent.texcellency__DefHC_EMR_Vendor_Inpatient__c, &quot;Cerner&quot;), &quot;Cerner&quot;,
+IF(CONTAINS(Parent.Parent.texcellency__DefHC_EMR_Vendor_Inpatient__c, &quot;cerner&quot;), &quot;Cerner&quot;,
+IF(CONTAINS(Parent.Parent.texcellency__DefHC_EMR_Vendor_Inpatient__c, &quot;EPIC&quot;), &quot;EPIC&quot;,
+IF(CONTAINS(Parent.Parent.texcellency__DefHC_EMR_Vendor_Inpatient__c, &quot;Epic&quot;), &quot;EPIC&quot;,
+IF(CONTAINS(Parent.Parent.texcellency__DefHC_EMR_Vendor_Inpatient__c, &quot;athena&quot;), &quot;Athena&quot;,
+IF(CONTAINS(Parent.Parent.texcellency__DefHC_EMR_Vendor_Inpatient__c, &quot;Meditech&quot;), &quot;Meditech&quot;,
+IF(CONTAINS(Parent.Parent.texcellency__DefHC_EMR_Vendor_Inpatient__c, &quot;MEDITECH&quot;), &quot;Meditech&quot;,
+IF(CONTAINS(Parent.Parent.texcellency__DefHC_EMR_Vendor_Inpatient__c, &quot;Allscpripts&quot;), &quot;AllScripts&quot;,
+IF(CONTAINS(Parent.Parent.texcellency__DefHC_EMR_Vendor_Inpatient__c, &quot;Proprietary&quot;), &quot;Proprietary&quot;,
+IF(CONTAINS(Parent.Parent.texcellency__DefHC_EMR_Vendor_Inpatient__c, &quot;Netsmart&quot;), &quot;Netsmart&quot;,
+IF(CONTAINS(Parent.Parent.texcellency__DefHC_EMR_Vendor_Inpatient__c, &quot;Evident&quot;), &quot;Evident&quot;,
+
+IF(CONTAINS(Parent.Parent.Parent.texcellency__DefHC_EMR_Vendor_Inpatient__c, &quot;Cerner&quot;), &quot;Cerner&quot;,
+IF(CONTAINS(Parent.Parent.Parent.texcellency__DefHC_EMR_Vendor_Inpatient__c, &quot;cerner&quot;), &quot;Cerner&quot;,
+IF(CONTAINS(Parent.Parent.Parent.texcellency__DefHC_EMR_Vendor_Inpatient__c, &quot;EPIC&quot;), &quot;EPIC&quot;,
+IF(CONTAINS(Parent.Parent.Parent.texcellency__DefHC_EMR_Vendor_Inpatient__c, &quot;Epic&quot;), &quot;EPIC&quot;,
+IF(CONTAINS(Parent.Parent.Parent.texcellency__DefHC_EMR_Vendor_Inpatient__c, &quot;athena&quot;), &quot;Athena&quot;,
+IF(CONTAINS(Parent.Parent.Parent.texcellency__DefHC_EMR_Vendor_Inpatient__c, &quot;Meditech&quot;), &quot;Meditech&quot;,
+IF(CONTAINS(Parent.Parent.Parent.texcellency__DefHC_EMR_Vendor_Inpatient__c, &quot;MEDITECH&quot;), &quot;Meditech&quot;,
+IF(CONTAINS(Parent.Parent.Parent.texcellency__DefHC_EMR_Vendor_Inpatient__c, &quot;Allscpripts&quot;), &quot;AllScripts&quot;,
+IF(CONTAINS(Parent.Parent.Parent.texcellency__DefHC_EMR_Vendor_Inpatient__c, &quot;Proprietary&quot;), &quot;Proprietary&quot;,
+IF(CONTAINS(Parent.Parent.Parent.texcellency__DefHC_EMR_Vendor_Inpatient__c, &quot;Netsmart&quot;), &quot;Netsmart&quot;,
+IF(CONTAINS(Parent.Parent.Parent.texcellency__DefHC_EMR_Vendor_Inpatient__c, &quot;Evident&quot;), &quot;Evident&quot;,
+
+&quot;Other&quot;)))))))))))))))))))))))))))))))))</formula>
+    <inlineHelpText>Ultimate Parent Account EMR Grouping. Used for HC AE assignment.</inlineHelpText>
+    <label>Ultimate Parent EMR</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

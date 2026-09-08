@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SharingRules xmlns="http://soap.sforce.com/2006/04/metadata">
+    <sharingOwnerRules>
+        <fullName>Edit_Admin_Campaigns</fullName>
+        <accessLevel>All</accessLevel>
+        <description>Allow Marketing Users to Edit/ Delete Marketo Admin created Campaigns</description>
+        <label>Edit Admin Campaigns</label>
+        <sharedTo>
+            <group>Marketing</group>
+        </sharedTo>
+        <sharedFrom>
+            <role>Admin</role>
+        </sharedFrom>
+    </sharingOwnerRules>
+    <sharingOwnerRules>
+        <fullName>Marketing_Campaigns</fullName>
+        <accessLevel>All</accessLevel>
+        <description>Give Marketing Permissions over all Marketing Owned Campaigns</description>
+        <label>Marketing Campaigns</label>
+        <sharedTo>
+            <role>Marketing</role>
+        </sharedTo>
+        <sharedFrom>
+            <role>Marketing</role>
+        </sharedFrom>
+    </sharingOwnerRules>
+</SharingRules>

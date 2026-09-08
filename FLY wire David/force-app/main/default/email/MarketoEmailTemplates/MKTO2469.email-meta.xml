@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <encodingKey>UTF-8</encodingKey>
+    <name>Website_Demo Request_Education_Mexican Institutions.3. Auto Responder</name>
+    <style>none</style>
+    <subject>Hemos recibido tu solicitud para agendar una llamada con Flywire</subject>
+    <textOnly>Hola, {{lead.First Name:default=}}
+
+
+¡Gracias por tu interés en conversar con nosotros! 
+Hemos recibido tu solicitud para agendar una llamada 1:1 con nuestro equipo. Muy pronto uno de nuestros especialistas se pondrá en contacto contigo para coordinar la fecha y hora que mejor se ajusten a tu agenda.
+
+Mientras tanto, si tienes alguna pregunta o información adicional que quieras compartir, no dudes en responder a este correo.
+
+Nos encantará conocerte y explorar juntos cómo podemos apoyar a {{company.Company Name:default=edit me}} para 
+alcanzar sus objetivos.
+
+Saludos,
+El equipo de Flywire
+Flywire Global Headquarters
+ 141 Tremont Street, Boston, MA 02111
+ United States</textOnly>
+    <type>custom</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

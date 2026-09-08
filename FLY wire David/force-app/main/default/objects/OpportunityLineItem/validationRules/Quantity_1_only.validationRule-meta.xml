@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Quantity_1_only</fullName>
+    <active>false</active>
+    <description>Product quantity should always be 1.</description>
+    <errorConditionFormula>Quantity != 1</errorConditionFormula>
+    <errorDisplayField>Quantity</errorDisplayField>
+    <errorMessage>Quantity should always be 1</errorMessage>
+</ValidationRule>

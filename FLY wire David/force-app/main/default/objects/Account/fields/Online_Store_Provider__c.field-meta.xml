@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Online_Store_Provider__c</fullName>
+    <description>For Edu, to denote when a client or prospect uses another provider for their E-Store. To help target potential E-Stire clients.</description>
+    <inlineHelpText>If this Client/Prospect has an Online Store (E-Store), select their provider.</inlineHelpText>
+    <label>Online Store Provider</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>CAPITA</fullName>
+                <default>false</default>
+                <label>CAPITA</label>
+            </value>
+            <value>
+                <fullName>Flywire</fullName>
+                <default>false</default>
+                <label>Flywire</label>
+            </value>
+            <value>
+                <fullName>Moneris</fullName>
+                <default>false</default>
+                <label>Moneris</label>
+            </value>
+            <value>
+                <fullName>Nelnet</fullName>
+                <default>false</default>
+                <label>Nelnet</label>
+            </value>
+            <value>
+                <fullName>Other</fullName>
+                <default>false</default>
+                <label>Other</label>
+            </value>
+            <value>
+                <fullName>Shopify</fullName>
+                <default>false</default>
+                <label>Shopify</label>
+            </value>
+            <value>
+                <fullName>Touchnet</fullName>
+                <default>false</default>
+                <label>Touchnet</label>
+            </value>
+            <value>
+                <fullName>Transact</fullName>
+                <default>false</default>
+                <label>Transact</label>
+            </value>
+            <value>
+                <fullName>WPM</fullName>
+                <default>false</default>
+                <label>WPM</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

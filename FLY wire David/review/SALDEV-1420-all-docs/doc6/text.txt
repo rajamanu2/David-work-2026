@@ -1,0 +1,85 @@
+Story Test Execution Document for SALDEV-1420
+Tested in Org: Partial
+Tested as Profile/User: Cognizant Tester
+Jira URL:  | https://jira.flywire.tech/browse/SALDEV-1420 |  
+Created a Quote and took it through Approval:  | https://flywire--partial.sandbox.lightning.force.com/lightning/r/SBQQ__Quote__c/a2NhG000003d843UAA/view |  
+https://flywire--partial.sandbox.lightning.force.com/lightning/r/Opportunity/006hG000006dBLJQA2/view |  
+Metadata verification:
+Set-up -> Custom Metadata Types (In Quick Find) -> Email Table (API Name:  | Email_Table__mdt)
+The Email Tables Data:
+The Email Templates:
+Scenario- | 1 | : As System Admin,  | D | ata created with 3 Groups in total. Group 1 and Group 2 are Step up Pricing (Allow Product Ramping = True) and Group 3 is Non-Step Up.
+As confirmed with the developer, 
+Quote Approval |  - Request - Quote Approval Request - AQS
+Legal  | for Legal - Approval Request
+Revenue Approval  | for Revenue - Approval Request.
+Legal |  for Credit Risk Approval
+For Request - Quote Approval Request - AQS - Should have the following Table headers under the Quote Line Items Title on the Email:
+Label | Email Table Name | Column Header | Column Order | Email Template | Field API Name | Quote Approval Field 1 | Quote_Approval_Field_1 | Product Name | 1 | Quote Approval | SBQQ__ProductName__c | Quote Approval Field 2 | Quote_Approval_Field_2 | Applied Discount | 2 | Quote Approval | Applied_Discount__c | Quote Approval Field 3 | Quote_Approval_Field_3 | Price | 3 | Quote Approval | Price__c | Quote Approval Field 4 | Quote_Approval_Field_4 | Quantity | 4 | Quote Approval | SBQQ__Quantity__c | Quote Approval Field 5 | Quote_Approval_Field_5 | Billing Frequency | 6 | Quote Approval | SBQQ__BillingFrequency__c | Quote Approval Field 6 | Quote_Approval_Field_6 | Subscription Type | 6 | Quote Approval | SBQQ__SubscriptionType__c | Quote Approval Field 7 | Quote_Approval_Field_7 | Description | 7 | Quote Approval | CONCAT:SBQQ__Description__c,Rate_Details__c | Quote Approval Field 8 | Quote_Approval_Field_8 | Quote Line Type | 8 | Quote Approval | Quote_Line_Type__c | Quote Approval Field 9 | Quote_Approval_Field_9 | Ship to Account | 9 | Quote Approval | Ship_To_Account__r.Name
+For Credit Risk Approval and Legal - Approval request the Following fields must be visible:
+Label | Email Table Name | Column Header | Column Order | Email Template | Field API Name | Legal field 1 | Legal_field_1 | Product Name | 1 | Legal | SBQQ__ProductName__c | Legal field 2 | Legal_field_2 | Price | 2 | Legal | Price__c | Legal field 3 | Legal_field_3 | Quantity | 3 | Legal | SBQQ__Quantity__c | Legal field 4 | Legal_field_4 | Billing Frequency | 4 | Legal | SBQQ__BillingFrequency__c | Legal field 5 | Legal_field_5 | Description | 5 | Legal | CONCAT: External_Description__c, Rate_Details__c | Legal field 6 | Legal_field_6 | Ship to Account | 6 | Legal | Ship_To_Account__r.Name
+Legal Approval Request:
+For Revenue - Approval Request, The Following fields are displayed:
+Label | Email Table Name | Column Header | Column Order | Email Template | Field API Name | Revenue Approval Field 1 | Revenue_Approval_Field_1 | Product Name | 1 | Revenue Approval | SBQQ__ProductName__c | Revenue Approval Field 2 | Revenue_Approval_Field_2 | Applied Discount | 2 | Revenue Approval | Applied_Discount__c | Revenue Approval Field 3 | Revenue_Approval_Field_3 | Price | 3 | Revenue Approval | Price__c | Revenue Approval Field 4 | Revenue_Approval_Field_4 | Quantity | 4 | Revenue Approval | SBQQ__Quantity__c | Revenue Approval Field 5 | Revenue_Approval_Field_5 | Billing Frequency | 5 | Revenue Approval | SBQQ__BillingFrequency__c | Revenue Approval Field 6 | Revenue_Approval_Field_6 | Description | 6 | Revenue Approval | CONCAT: SBQQ__Description__c,Rate_Details__c
+Grouping, Order and Hierarchy:
+Scenario-2 | : When an Education Quote has No Group:
+On Quote Approval, No Group Names Headers are displayed, Email looks like the Standard Flat Table:
+Note: Ship to account field visibility depends on if Quote.Multiple ship to account = Yes. When there are no Group, The Table will not have the Ship To Account Column
+On Opportunity Approvals:
+Legal Approval Template:
+Credit Risk Approval Template:
+Revenue Approval Template:
+Scenario-3: |  Travel Quote with 3 Groups (Stepped Up) subsequently yearned with High Discount to trigger Revenue Approval - As Multiple Ship to Account = No, The Ship-To Account Field is not displayed:
+https://flywire--partial.sandbox.lightning.force.com/lightning/r/Opportunity/006hG000006ajhYQAQ/view |  
+Note: When Cloning for Grouping, Make sure to change the Group Name
+Quote Approval:
+Opportunity Approvals:
+Legal Approval: 
+Credit Rick Approval:
+Revenue Approval:
+Scenario-4:  | B2B Quote with 3 Groups, But no Step-Up and Added 2 Ship-To- Accounts for 2 groups, But Multiple Ship To Account field = No:  | https://flywire--partial.sandbox.lightning.force.com/lightning/r/Opportunity/006hG000006bOkfQAE/view |  
+Quote Approval Template:
+Legal Approval Template:
+Credit Risk Approval Template:
+Revenue Approval Template:
+Scenario-5:  | On Amendment, The only lines where Transaction Type = Price changes/New/Cancellation are displayed on the Email, Not the Lines where Transaction Type = Amendment.  | https://flywire--partial.sandbox.lightning.force.com/lightning/r/SBQQ__Quote__c/a2NhG000003gCpSUAU/view |  
+Quote Approval template:
+Credit Risk Template:
+Legal Approval template:
+Revenue Approval template:
+Updated Testing from Ada’s comment on 17th August 2026 -  | The new grouping order and header requirements:
+Email Template Header for groups: should have "Term" + <a sequential number starting with 1> + " : "+ <number from the Subscription terms field in the group> + "Months".
+Example:
+Term 1: 36 Months
+Groups should be ordered by Start Date with the longest terms length first. 
+Note: The Multiple Ship to Account issue is being taken care of in a new ticket.
+3 Groups - All Ramped up:  | https://flywire--partial.sandbox.lightning.force.com/lightning/r/Opportunity/006hG000007C3pJQAS/view |  
+Quote Approval template:
+Credit Risk Template:
+Legal Approval template:
+Revenue Approval template:
+3 Groups - No ramping:
+Quote Approval template:
+Credit Risk Template:
+Legal Approval template:
+Revenue Approval template:
+3 Groups -  2 Ramped up, 1 Non-ramped up:
+Quote Approval template:
+Credit Risk Template:
+Legal Approval template:
+Revenue Approval template:
+4 Groups - 3 Ramped up, 1 Non-ramped up:
+Quote Approval template:
+Credit Risk Template:
+Legal Approval template:
+Revenue Approval template:
+4 Groups - 2 Ramped up, 2 Non-ramped up:
+Quote Approval template:
+Credit Risk Template:
+Legal Approval template:
+Revenue Approval template:
+No groups:
+Quote Approval template:
+Credit Risk Template:
+Legal Approval template:
+Revenue Approval template:

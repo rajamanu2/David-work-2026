@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Prompt xmlns="http://soap.sforce.com/2006/04/metadata">
+    <masterLabel>Contract URL and Entity</masterLabel>
+    <promptVersions>
+        <actionButtonLabel>Google Legal Drive</actionButtonLabel>
+        <actionButtonLink>https://drive.google.com/drive/folders/1M9VVW8BFlTVYP4O4sAbvJA1-Bre3z4dO</actionButtonLink>
+        <body>The Contract URL field should point to the location in the Shared Legal Drive Folder where the final countersigned contract has been placed.  The Flywire Entity has legal implications, be sure to enter the correct entity per the contract.</body>
+        <customApplication>standard__LightningSalesConsole</customApplication>
+        <delayDays>1</delayDays>
+        <description>Notify users of Contract URL location and importance of Entity field.</description>
+        <dismissButtonLabel>I understand</dismissButtonLabel>
+        <displayPosition>BottomCenter</displayPosition>
+        <displayType>FloatingPanel</displayType>
+        <image>Screen_Shot_20210217_at_110829_AM</image>
+        <imageAltText>Google Drive Shared Folder</imageAltText>
+        <imageLocation>Bottom</imageLocation>
+        <isPublished>true</isPublished>
+        <masterLabel>Contract URL and Entity</masterLabel>
+        <publishedDate>2021-02-17</publishedDate>
+        <shouldDisplayActionButton>true</shouldDisplayActionButton>
+        <shouldIgnoreGlobalDelay>true</shouldIgnoreGlobalDelay>
+        <startDate>2021-02-17</startDate>
+        <targetPageKey1>Contract</targetPageKey1>
+        <targetPageKey2>view</targetPageKey2>
+        <targetPageType>standard__recordPage</targetPageType>
+        <timesToDisplay>10</timesToDisplay>
+        <title>Contract Entity and URL</title>
+        <userAccess>Everyone</userAccess>
+        <userProfileAccess>Everyone</userProfileAccess>
+        <versionNumber>1</versionNumber>
+    </promptVersions>
+</Prompt>

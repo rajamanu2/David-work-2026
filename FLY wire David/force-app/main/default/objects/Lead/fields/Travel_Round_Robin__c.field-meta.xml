@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Travel_Round_Robin__c</fullName>
+    <description>Assigns Travel Round Robin ID to Lead Record during upload.</description>
+    <externalId>false</externalId>
+    <formula>MOD(VALUE(Lead_Number__c),5)+1</formula>
+    <inlineHelpText>Assigns Travel Round Robin ID to Lead Record during upload.</inlineHelpText>
+    <label>Travel Round Robin</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>0</scale>
+    <trackHistory>false</trackHistory>
+    <type>Number</type>
+    <unique>false</unique>
+</CustomField>

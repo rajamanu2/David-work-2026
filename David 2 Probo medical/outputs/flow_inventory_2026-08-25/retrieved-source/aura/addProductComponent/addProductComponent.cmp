@@ -1,0 +1,6 @@
+<aura:component implements="force:hasRecordId,flexipage:availableForAllPageTypes">
+    <aura:attribute name="opportunityId" type="String" access="public"/>
+    <aura:attribute name="action" type="String" access="public"/>
+    <aura:handler name="init" value="{!this}" action="{!c.initialize}"/>
+    <c:addProductLwc opportunityId="{!v.opportunityId}" action="{!v.action}"/>
+</aura:component>

@@ -1,0 +1,338 @@
+{
+  "scope": "Offline candidate checks and read-only current-org baseline; NOT a native candidate execution or deployment validation",
+  "results": [
+    {
+      "check": "baseline-result.json execution",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "baseline-result.json no DML",
+      "status": "PASS",
+      "detail": "Read-only current configuration execution"
+    },
+    {
+      "check": "baseline-extra-result.json execution",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "baseline-extra-result.json no DML",
+      "status": "PASS",
+      "detail": "Read-only current configuration execution"
+    },
+    {
+      "check": "Q-37640 native baseline mapper errors",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "Q-37640 Ship-To flag",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "Q-37640 grouped flag exclusivity",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "Q-37912 native baseline mapper errors",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "Q-37912 Ship-To flag",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "Q-37912 grouped flag exclusivity",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "Q-38009 native baseline mapper errors",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "Q-38009 Ship-To flag",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "Q-38009 grouped flag exclusivity",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "Q-38023 native baseline mapper errors",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "Q-38023 Ship-To flag",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "Q-38023 grouped flag exclusivity",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "Q-37723 native baseline mapper errors",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "Q-37723 Ship-To flag",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "Q-37723 grouped flag exclusivity",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "Q-37780 native baseline mapper errors",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "Q-37780 Ship-To flag",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "Q-37780 grouped flag exclusivity",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "Q-38021 native baseline mapper errors",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "Q-38021 Ship-To flag",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "Q-38021 grouped flag exclusivity",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "Q-38029 native baseline mapper errors",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "Q-38029 Ship-To flag",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "Q-38029 grouped flag exclusivity",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "Local-only scope",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "Exact mapper change scope",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "Formula before-values match live snapshot",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "Preserve whole group list mapping",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "Preserve amendment exclusion filters",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "Null-safe description formula cases",
+      "status": "PASS",
+      "detail": "40 exact candidate formula evaluations; includes amendment labels and rates"
+    },
+    {
+      "check": "Q-37912 expected group order",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "Exact proposed ORDER BY accepted by live SOQL",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "Q-37912 sequential header data",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "Q-37640 local QLE sort keeps bundle subtrees",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "Q-37723 local QLE sort keeps bundle subtrees",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "Q-37780 local QLE sort keeps bundle subtrees",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "Q-37912 local QLE sort keeps bundle subtrees",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "Q-38009 local QLE sort keeps bundle subtrees",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "Q-38021 local QLE sort keeps bundle subtrees",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "Q-38023 local QLE sort keeps bundle subtrees",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "Q-38029 local QLE sort keeps bundle subtrees",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "Captured source line identities unique",
+      "status": "PASS",
+      "detail": "155 lines inspected"
+    },
+    {
+      "check": "All 164 mapper items unchanged after dry run",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "Template configuration unchanged after dry run",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "Active OmniScript remains version 2",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "DOCX ZIP integrity",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "No service date tokens or group name heading",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "Both group branches use subscription term",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "Both headings use sequential Word numbering",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "Template conditional nesting",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "All original tables preserved",
+      "status": "PASS",
+      "detail": ""
+    }
+  ],
+  "nativeBaselineQuotes": [
+    "Q-37640",
+    "Q-37912",
+    "Q-38009",
+    "Q-38023",
+    "Q-37723",
+    "Q-37780",
+    "Q-38021",
+    "Q-38029"
+  ],
+  "missingTermGroups": [
+    {
+      "quote": "Q-37723",
+      "group": "Group1"
+    },
+    {
+      "quote": "Q-37723",
+      "group": "Group3"
+    },
+    {
+      "quote": "Q-37723",
+      "group": "Group4"
+    },
+    {
+      "quote": "Q-37723",
+      "group": "Group5"
+    },
+    {
+      "quote": "Q-37723",
+      "group": "Group1"
+    },
+    {
+      "quote": "Q-37780",
+      "group": "1TimeProd_SameShipTo"
+    },
+    {
+      "quote": "Q-37780",
+      "group": "1TimeProd_Differentship to"
+    },
+    {
+      "quote": "Q-37780",
+      "group": "1TimeProd_MultipleShipTo"
+    },
+    {
+      "quote": "Q-37780",
+      "group": "Stepup pricing for multiple shipto group 1"
+    },
+    {
+      "quote": "Q-37780",
+      "group": "Clone StepUp group for multiple ship to group 2"
+    }
+  ],
+  "pending": [
+    "Native execution of candidate mapper changes",
+    "Native DocGen preservation of sequential Word numbering",
+    "Generated-document business UAT",
+    "Metadata API check-only unavailable for these records"
+  ]
+}

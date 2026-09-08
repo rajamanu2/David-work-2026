@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>62.0</apiVersion>
+    <areMetricsLoggedToDataCloud>false</areMetricsLoggedToDataCloud>
+    <environments>Default</environments>
+    <formulas>
+        <name>Cost</name>
+        <dataType>Currency</dataType>
+        <expression>IF(
+ISBLANK({!$Record.Total_Cost_of_Assets_Used_in_Repair__c}),
+{!$Record.Cost__c},
+{!$Record.Cost__c}+{!$Record.Total_Cost_of_Assets_Used_in_Repair__c})</expression>
+        <scale>2</scale>
+    </formulas>
+    <formulas>
+        <name>DateAssetMovedFormula</name>
+        <dataType>Date</dataType>
+        <expression>IF(ISNULL({!$Record__Prior.Date_Asset_Moved_to_Rental__c}), {!TODAY}, {!$Record__Prior.Date_Asset_Moved_to_Rental__c})</expression>
+    </formulas>
+    <formulas>
+        <name>NEW</name>
+        <dataType>Boolean</dataType>
+        <expression>ISNEW()</expression>
+    </formulas>
+    <formulas>
+        <name>TODAY</name>
+        <dataType>Date</dataType>
+        <expression>TODAY()</expression>
+    </formulas>
+    <interviewLabel>Asset Check in Type {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Asset Check in Type</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <recordCreates>
+        <name>Create_Transfer</name>
+        <label>Create Transfer</label>
+        <locationX>176</locationX>
+        <locationY>323</locationY>
+        <connector>
+            <targetReference>Update_Asset</targetReference>
+        </connector>
+        <inputAssignments>
+            <field>Asset2__c</field>
+            <value>
+                <elementReference>$Record.Id</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Cost__c</field>
+            <value>
+                <elementReference>Cost</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Date_of_Transfer__c</field>
+            <value>
+                <elementReference>DateAssetMovedFormula</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Intacct_Transfer_Sync_Status__c</field>
+            <value>
+                <stringValue>Sync</stringValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Previous_Check_in_Type__c</field>
+            <value>
+                <elementReference>$Record__Prior.Check_In_Type__c</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Type__c</field>
+            <value>
+                <elementReference>$Record.Check_In_Type__c</elementReference>
+            </value>
+        </inputAssignments>
+        <object>Capital_Asset_Transfer__c</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordCreates>
+    <recordUpdates>
+        <name>Update_Asset</name>
+        <label>Update Asset</label>
+        <locationX>176</locationX>
+        <locationY>431</locationY>
+        <inputAssignments>
+            <field>Date_of_Transfer__c</field>
+            <value>
+                <elementReference>DateAssetMovedFormula</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <start>
+        <locationX>50</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Create_Transfer</targetReference>
+        </connector>
+        <doesRequireRecordChangedToMeetCriteria>true</doesRequireRecordChangedToMeetCriteria>
+        <filterLogic>or</filterLogic>
+        <filters>
+            <field>Check_In_Type__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>Loaner Pool</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>Check_In_Type__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>Rental inventory</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>Check_In_Type__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>Vet - Loaner Pool</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>Check_In_Type__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>Vet - Rental Inventory</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>Check_In_Type__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>Demo Pool</stringValue>
+            </value>
+        </filters>
+        <object>ProductItem__c</object>
+        <recordTriggerType>CreateAndUpdate</recordTriggerType>
+        <triggerType>RecordAfterSave</triggerType>
+    </start>
+    <status>Active</status>
+    <variables>
+        <name>vCost</name>
+        <dataType>Currency</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+        <scale>2</scale>
+    </variables>
+</Flow>

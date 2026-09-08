@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>My_ARR_Quota__c</fullName>
+    <description>If the person looking at this is the user then show the ARR otherwise, show 0</description>
+    <formula>IF(
+Id = $User.Id,  ARR_Quota__c , 0
+)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <inlineHelpText>If the person looking at this is the user then show the ARR otherwise, show 0</inlineHelpText>
+    <label>My ARR Quota</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>0</scale>
+    <trackHistory>false</trackHistory>
+    <type>Currency</type>
+</CustomField>

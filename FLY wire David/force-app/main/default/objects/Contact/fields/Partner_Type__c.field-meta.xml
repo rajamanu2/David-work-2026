@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Partner_Type__c</fullName>
+    <description>Select the partner type so marketing and sales know if this is for sales partnerships or global payments partnerships.</description>
+    <label>OBS Partner Type</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Banking Partner</fullName>
+                <default>false</default>
+                <label>Banking Partner</label>
+            </value>
+            <value>
+                <fullName>Payment Service Provider</fullName>
+                <default>false</default>
+                <label>Payment Service Provider</label>
+            </value>
+            <value>
+                <fullName>Strategic Partner</fullName>
+                <default>false</default>
+                <label>Strategic Partner</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

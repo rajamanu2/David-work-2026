@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Trisonics_RMA_Received_but_not_Closed</fullName>
+    <columns>NAME</columns>
+    <columns>RMA_Type__c</columns>
+    <columns>CREATEDBY_USER</columns>
+    <columns>Location__c</columns>
+    <columns>ProductItem__c</columns>
+    <columns>RMA_Item_Serial_Number__c</columns>
+    <columns>Date_RMA_Item_Received__c</columns>
+    <columns>Check_In_Type__c</columns>
+    <columns>Account_Name__c</columns>
+    <columns>Quality_Issue_Reported__c</columns>
+    <columns>Quality_Issue_Notes__c</columns>
+    <columns>RMA_Tracking__c</columns>
+    <columns>Vendor_RMA__c</columns>
+    <columns>RECORDTYPE</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>RMA_Type__c</field>
+        <operation>contains</operation>
+        <value>warranty,return from sale,loaner return</value>
+    </filters>
+    <filters>
+        <field>Warranty_Claim_Action__c</field>
+        <operation>equals</operation>
+    </filters>
+    <filters>
+        <field>CREATEDBY_USER</field>
+        <operation>contains</operation>
+        <value>lynne,kathy</value>
+    </filters>
+    <filters>
+        <field>Date_RMA_Item_Received__c</field>
+        <operation>notEqual</operation>
+    </filters>
+    <label>Trisonics - RMA Received but not Closed</label>
+    <sharedTo>
+        <allInternalUsers></allInternalUsers>
+    </sharedTo>
+</ListView>

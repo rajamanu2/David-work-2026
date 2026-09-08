@@ -1,0 +1,305 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionCalls>
+        <name>ACR_Contact_Activated</name>
+        <label>ACR Contact Activated</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <actionName>AccountContactRelation.ACR_Contact_Activated</actionName>
+        <actionType>outboundMessage</actionType>
+        <connector>
+            <targetReference>Update_Sync_Event_Type</targetReference>
+        </connector>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
+        <nameSegment>AccountContactRelation.ACR_Contact_Activated</nameSegment>
+        <offset>0</offset>
+    </actionCalls>
+    <actionCalls>
+        <name>ACR_Contact_Inactivated</name>
+        <label>ACR Contact Inactivated</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <actionName>AccountContactRelation.ACR_Contact_Inactivated</actionName>
+        <actionType>outboundMessage</actionType>
+        <connector>
+            <targetReference>Sync_Event_Type</targetReference>
+        </connector>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
+        <nameSegment>AccountContactRelation.ACR_Contact_Inactivated</nameSegment>
+        <offset>0</offset>
+    </actionCalls>
+    <actionCalls>
+        <name>ACR_Contact_Name_Updated</name>
+        <label>ACR Contact Name Updated</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <actionName>AccountContactRelation.ACR_Existing_Contact_Name_Field_Updated</actionName>
+        <actionType>outboundMessage</actionType>
+        <connector>
+            <targetReference>Update_SyncEvent_Type_Field</targetReference>
+        </connector>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
+        <nameSegment>AccountContactRelation.ACR_Existing_Contact_Name_Field_Updated</nameSegment>
+        <offset>0</offset>
+    </actionCalls>
+    <actionCalls>
+        <name>ACR_Email_Updated</name>
+        <label>ACR Email Updated</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <actionName>AccountContactRelation.ACR_Existing_Contact_Fields_Updated</actionName>
+        <actionType>outboundMessage</actionType>
+        <connector>
+            <targetReference>Update_Sync_Type</targetReference>
+        </connector>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
+        <nameSegment>AccountContactRelation.ACR_Existing_Contact_Fields_Updated</nameSegment>
+        <offset>0</offset>
+    </actionCalls>
+    <actionCalls>
+        <name>Billing_Contact_For_Acc_Added</name>
+        <label>Billing Contact For Acc Added</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <actionName>AccountContactRelation.ACR_Billing_Contact_For_Account_Added</actionName>
+        <actionType>outboundMessage</actionType>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
+        <nameSegment>AccountContactRelation.ACR_Billing_Contact_For_Account_Added</nameSegment>
+        <offset>0</offset>
+    </actionCalls>
+    <actionCalls>
+        <name>Billing_Contact_For_Account_Removed</name>
+        <label>Billing Contact For Account Removed</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <actionName>AccountContactRelation.ACR_Billing_Contact_For_Account_Removed</actionName>
+        <actionType>outboundMessage</actionType>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
+        <nameSegment>AccountContactRelation.ACR_Billing_Contact_For_Account_Removed</nameSegment>
+        <offset>0</offset>
+    </actionCalls>
+    <apiVersion>66.0</apiVersion>
+    <areMetricsLoggedToDataCloud>false</areMetricsLoggedToDataCloud>
+    <decisions>
+        <name>Check_For_Sync_Event</name>
+        <label>Check For Sync Event</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>IsName_Changed</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Sync_Event_Type__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Name Updated</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>ACR_Contact_Name_Updated</targetReference>
+            </connector>
+            <label>IsName Changed?</label>
+        </rules>
+        <rules>
+            <name>Is_Email_Updated</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Sync_Event_Type__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Email Updated</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>ACR_Email_Updated</targetReference>
+            </connector>
+            <label>Is Email Updated</label>
+        </rules>
+        <rules>
+            <name>Contact_Activated</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Sync_Event_Type__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Contact Activated</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>ACR_Contact_Activated</targetReference>
+            </connector>
+            <label>Contact Activated</label>
+        </rules>
+        <rules>
+            <name>Contact_Inactivated</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Sync_Event_Type__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Contact Inactivated</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>ACR_Contact_Inactivated</targetReference>
+            </connector>
+            <label>Contact Inactivated</label>
+        </rules>
+        <rules>
+            <name>Billing_Contact_For_Acc_Activated</name>
+            <conditionLogic>(1 AND 2) OR (3 AND 4)</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Billing_Contact_for_Account__c</leftValueReference>
+                <operator>IsChanged</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Billing_Contact_for_Account__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>IsNew</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Billing_Contact_for_Account__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Billing_Contact_For_Acc_Added</targetReference>
+            </connector>
+            <label>Billing Contact For Acc Activated</label>
+        </rules>
+        <rules>
+            <name>Billing_Contact_for_account_Inactivated</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Billing_Contact_for_Account__c</leftValueReference>
+                <operator>IsChanged</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Billing_Contact_for_Account__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Billing_Contact_For_Account_Removed</targetReference>
+            </connector>
+            <label>Billing Contact for account Inactivated</label>
+        </rules>
+    </decisions>
+    <description>SALDEV-1088 [Send Outbound messages for Billing Contact For Account on ACR object]
+SALDEV-1103 [Send Outbound messages for Contact Name Updated]</description>
+    <environments>Default</environments>
+    <formulas>
+        <name>IsNew</name>
+        <dataType>Boolean</dataType>
+        <expression>ISNEW()</expression>
+    </formulas>
+    <interviewLabel>Send Workato {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>(Billing Contact For Acc) Send Netsuite Outbound Message</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <recordUpdates>
+        <name>Sync_Event_Type</name>
+        <label>Sync Event Type</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <inputAssignments>
+            <field>Sync_Event_Type__c</field>
+            <value>
+                <stringValue></stringValue>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>Update_Sync_Event_Type</name>
+        <label>Update Sync Event Type</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <inputAssignments>
+            <field>Sync_Event_Type__c</field>
+            <value>
+                <stringValue></stringValue>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>Update_Sync_Type</name>
+        <label>Update Sync Type</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <inputAssignments>
+            <field>Sync_Event_Type__c</field>
+            <value>
+                <stringValue></stringValue>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>Update_SyncEvent_Type_Field</name>
+        <label>Update SyncEvent Type Field</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <inputAssignments>
+            <field>Sync_Event_Type__c</field>
+            <value>
+                <stringValue></stringValue>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <start>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Check_For_Sync_Event</targetReference>
+        </connector>
+        <filterFormula>OR(
+    ISNEW(),
+    ISCHANGED({!$Record.Billing_Contact_for_Account__c}),
+    ISCHANGED({!$Record.Workato_Sync_Field__c}) 
+)</filterFormula>
+        <object>AccountContactRelation</object>
+        <recordTriggerType>CreateAndUpdate</recordTriggerType>
+        <triggerType>RecordAfterSave</triggerType>
+    </start>
+    <status>Obsolete</status>
+</Flow>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Opp_Stage_Closed_Won</fullName>
+    <active>true</active>
+    <description>Cannot move Opp stage to Closed Won unless Approval status is &quot;Approved&quot; on Opportunity.
+BOPI-526 Removed Agents from this validation. They will not use CPQ or sbaa
+BOPI-600 updated to prevent auto renewals from stopping</description>
+    <errorConditionFormula>AND(
+    ISPICKVAL(StageName, &quot;Closed Won&quot;),
+    NOT(ISPICKVAL(sbaa__ApprovalStatus__c, &quot;Approved&quot;)),
+    ISCHANGED(StageName),
+    OR(
+        RecordType.Name = &apos;B2B&apos;,
+        RecordType.Name = &apos;Education&apos;,
+        RecordType.Name = &apos;Healthcare&apos;,
+        RecordType.Name = &apos;Travel&apos;
+    ),
+    NOT(ISPICKVAL(Type, &quot;Auto Renewal&quot;)),
+    $Profile.Name &lt;&gt; &apos;System Administrator&apos;,
+    $Profile.Name &lt;&gt; &quot;B - Looker&quot;,
+    $User.Alias &lt;&gt; &quot;Workato&quot;
+)</errorConditionFormula>
+    <errorMessage>Click Submit for Approval button. Once fully approved, the Opportunity Stage will automatically change to Closed Won</errorMessage>
+</ValidationRule>

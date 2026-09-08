@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>Contract$Account</field>
+    </columns>
+    <columns>
+        <field>Contract$ContractNumber</field>
+    </columns>
+    <columns>
+        <field>Contract$StartDate</field>
+    </columns>
+    <columns>
+        <field>Contract$Contract_URL__c</field>
+    </columns>
+    <columns>
+        <field>Contract$Status</field>
+    </columns>
+    <columns>
+        <field>Contract$ActivatedDate</field>
+    </columns>
+    <columns>
+        <field>Contract$Flywire_Entity__c</field>
+    </columns>
+    <columns>
+        <field>Contract$Pricebook2</field>
+    </columns>
+    <columns>
+        <field>Contract$Account.RecordType</field>
+    </columns>
+    <currency>USD</currency>
+    <description>SAL-7303: Request all contracts generated in 2025</description>
+    <filter>
+        <criteriaItems>
+            <column>Contract$Status</column>
+            <columnToColumn>false</columnToColumn>
+            <isUnlocked>true</isUnlocked>
+            <operator>equals</operator>
+            <value>FW_Activated_Draft,FW Activated,Superseded_Draft,Superseded,Terminated_Draft,Terminated,Activated,Executed</value>
+        </criteriaItems>
+    </filter>
+    <format>Summary</format>
+    <groupingsDown>
+        <dateGranularity>Day</dateGranularity>
+        <field>Contract$Account.Client_Legal_Entity_Name__c</field>
+        <sortOrder>Asc</sortOrder>
+    </groupingsDown>
+    <name>SAL-7303: New contracts 2025</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>Custom_Contract__c</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <showGrandTotal>true</showGrandTotal>
+    <showSubTotals>true</showSubTotals>
+    <timeFrameFilter>
+        <dateColumn>Contract$StartDate</dateColumn>
+        <interval>INTERVAL_CURFY</interval>
+    </timeFrameFilter>
+</Report>

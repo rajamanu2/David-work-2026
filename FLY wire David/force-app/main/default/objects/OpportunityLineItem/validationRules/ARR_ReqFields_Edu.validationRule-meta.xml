@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>ARR_ReqFields_Edu</fullName>
+    <active>false</active>
+    <description>Check fields needed for Edu ARR Calculation are filled in to add product</description>
+    <errorConditionFormula>AND(
+    $Profile.Name &lt;&gt; &apos;System Administrator&apos;,
+    Opportunity.RecordType.DeveloperName = &apos;Education&apos;,
+    Family__c = &apos;Cross Border&apos;,
+    OR (
+        ISBLANK(Opportunity.Account.ShippingCountry),
+        ISBLANK(TEXT(Opportunity.Account.Account_Sub_Industry__c)),
+        AND(
+            ISBLANK(TEXT(Opportunity.Account.Ownership_Type__c)),
+            Opportunity.Account.ShippingCountry = &apos;Australia&apos;
+        )
+     )
+)</errorConditionFormula>
+    <errorMessage>The following Account fields are required to calculate ARR:
+ Shipping Country,
+ Account Sub Industry,
+ Ownership Type (For Australia Only),
+Go the your Account and fill these in before adding product.</errorMessage>
+</ValidationRule>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>HC_Add_Net_Price_when_Partner_is_Added</fullName>
+    <active>false</active>
+    <description>SAL:3938: For Healthcare opportunities. When Fiserv is added as Referred by Partner, an amount must be entered in the Product Net Price</description>
+    <errorConditionFormula>AND(
+$Profile.Name &lt;&gt; &quot;System Administrator&quot;,
+$Profile.Name &lt;&gt; &quot;B - Looker&quot;,
+RecordType.Name = &quot;Healthcare&quot;,
+Probability &gt;0.90,
+Referred_by_Partner__r.AccountLongID__c = &quot;001f200001snGwBAAU&quot;,
+Net_Amount__c = 0
+)</errorConditionFormula>
+    <errorMessage>***Product must have Net Price entered***</errorMessage>
+</ValidationRule>

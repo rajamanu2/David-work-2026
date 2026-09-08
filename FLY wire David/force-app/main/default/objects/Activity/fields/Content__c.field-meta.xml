@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Content__c</fullName>
+    <description>For CS tracking, What was covered in the session? Requested SAL-2221</description>
+    <inlineHelpText>Select what was covered in the session.</inlineHelpText>
+    <label>Content</label>
+    <required>false</required>
+    <type>MultiselectPicklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Client Sense Checking</fullName>
+                <default>false</default>
+                <label>Client Sense Checking</label>
+            </value>
+            <value>
+                <fullName>General Catch Up</fullName>
+                <default>false</default>
+                <label>General Catch Up</label>
+            </value>
+            <value>
+                <fullName>Training</fullName>
+                <default>false</default>
+                <label>1:1 Training</label>
+            </value>
+            <value>
+                <fullName>Signposting</fullName>
+                <default>false</default>
+                <label>Signposting</label>
+            </value>
+            <value>
+                <fullName>Product Review</fullName>
+                <default>false</default>
+                <label>Product Review</label>
+            </value>
+            <value>
+                <fullName>Support Issue Escalation</fullName>
+                <default>false</default>
+                <label>Support Issue Escalation</label>
+            </value>
+            <value>
+                <fullName>General Outreach</fullName>
+                <default>false</default>
+                <label>General Outreach</label>
+            </value>
+            <value>
+                <fullName>Other</fullName>
+                <default>false</default>
+                <label>Other</label>
+            </value>
+            <value>
+                <fullName>1:Many Training</fullName>
+                <default>false</default>
+                <label>1:Many Training</label>
+            </value>
+            <value>
+                <fullName>Signposting Update</fullName>
+                <default>false</default>
+                <label>Signposting Update</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+    <visibleLines>4</visibleLines>
+</CustomField>

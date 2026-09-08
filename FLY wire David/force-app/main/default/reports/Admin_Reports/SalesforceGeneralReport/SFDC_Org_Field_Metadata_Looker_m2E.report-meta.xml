@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>EntityDefinition.FieldDefinitions$MasterLabel</field>
+    </columns>
+    <columns>
+        <field>EntityDefinition.FieldDefinitions$DeveloperName</field>
+    </columns>
+    <columns>
+        <field>EntityDefinition.FieldDefinitions$QualifiedApiName</field>
+    </columns>
+    <columns>
+        <field>EntityDefinition.FieldDefinitions$DataType</field>
+    </columns>
+    <columns>
+        <aggregateTypes>Sum</aggregateTypes>
+        <field>EntityDefinition.FieldDefinitions$IsFieldHistoryTracked</field>
+    </columns>
+    <columns>
+        <field>EntityDefinition.FieldDefinitions$LastModifiedDate</field>
+    </columns>
+    <columns>
+        <field>EntityDefinition.FieldDefinitions$Description</field>
+    </columns>
+    <currency>USD</currency>
+    <description>Report of All fields on Account, Account Metrics, Opps, Prod Config to compare Field labels and Api names.</description>
+    <filter>
+        <criteriaItems>
+            <column>EntityDefinition$Label</column>
+            <columnToColumn>false</columnToColumn>
+            <isUnlocked>true</isUnlocked>
+            <operator>equals</operator>
+            <value>Account,Account Metrics,Opportunity,Product Configuration</value>
+        </criteriaItems>
+    </filter>
+    <format>Summary</format>
+    <groupingsDown>
+        <dateGranularity>Day</dateGranularity>
+        <field>EntityDefinition$Label</field>
+        <sortOrder>Asc</sortOrder>
+    </groupingsDown>
+    <name>SFDC Org Field Metadata - Looker</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>Field_Metadata__c</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <showGrandTotal>true</showGrandTotal>
+    <showSubTotals>true</showSubTotals>
+    <timeFrameFilter>
+        <dateColumn>EntityDefinition$CreatedDate</dateColumn>
+        <interval>INTERVAL_CUSTOM</interval>
+    </timeFrameFilter>
+</Report>

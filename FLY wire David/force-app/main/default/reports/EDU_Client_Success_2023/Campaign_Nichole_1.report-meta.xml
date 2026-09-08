@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>EMAIL</field>
+    </columns>
+    <columns>
+        <field>FIRST_NAME</field>
+    </columns>
+    <columns>
+        <field>ACCOUNT.NAME</field>
+    </columns>
+    <columns>
+        <field>TITLE</field>
+    </columns>
+    <currency>USD</currency>
+    <description>Template for AEP Campaigns</description>
+    <filter>
+        <criteriaItems>
+            <column>ACCOUNT.NAME</column>
+            <columnToColumn>false</columnToColumn>
+            <isUnlocked>true</isUnlocked>
+            <operator>equals</operator>
+            <value>,Apollo Language Centre,Europa School of English,Malvern House International,CIE Oxford,Britannia English Academy,International House Bristol,The Bournemouth School of English,Liffey College,Castleforbes College,Brighton Language College,Isca School Of English,LILA Liverpool Ltd,Languages United Ltd BATH,ICON GUARDIANSHIP UK LTD,Hilderstone College,University of Chicago Booth - London Campus,Godsil Education,Atlas Language School,University of Roehampton - Laureate,Delfin English School Dublin,BEET Language Centre,More Than English,Communicate School of English,New College Group,Colchester English Study Centre,Future Learning Language School,Dublin College of Advanced Studies,CNELM,Southbourne School of English,Clubclass Ltd,Melton College,Cavendish School of English,Elac Study Vacations,Academic Bridge,Loxdale English Centre,Oscars International,Tti School of English,Homestay English Teaching,ETC International College,Lexis School of Languages,Torquay International School Ltd,Pitsford School</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>EMAIL_OPT_OUT</column>
+            <columnToColumn>false</columnToColumn>
+            <isUnlocked>true</isUnlocked>
+            <operator>equals</operator>
+            <value>0</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Contact.Inactive__c</column>
+            <columnToColumn>false</columnToColumn>
+            <isUnlocked>true</isUnlocked>
+            <operator>equals</operator>
+            <value>0</value>
+        </criteriaItems>
+    </filter>
+    <format>Tabular</format>
+    <name>Campaign Nichole 1</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>ContactList</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <showGrandTotal>true</showGrandTotal>
+    <showSubTotals>true</showSubTotals>
+    <timeFrameFilter>
+        <dateColumn>CREATED_DATE</dateColumn>
+        <interval>INTERVAL_CUSTOM</interval>
+    </timeFrameFilter>
+</Report>

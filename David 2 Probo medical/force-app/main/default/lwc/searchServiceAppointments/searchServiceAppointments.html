@@ -1,0 +1,12 @@
+<template>
+    <lightning-card title="Choose Service Appointment">
+        <p>Work Order: {workOrderId}</p>
+        <lightning-record-picker
+            label="Service Appointment"
+            object-api-name="ServiceAppointment"
+            display-info={displayInfo}
+			filter={filter}
+            >
+        </lightning-record-picker>
+    </lightning-card>
+</template>

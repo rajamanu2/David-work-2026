@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Top_5_CCY_Sent__c</fullName>
+    <description>The top 5 currencies most frequently used currencies. SAL-2642</description>
+    <inlineHelpText>The top 5 currencies most frequently used currencies.</inlineHelpText>
+    <label>Top 5 CCY Sent</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>MultiselectPicklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetName>Currencies</valueSetName>
+    </valueSet>
+    <visibleLines>5</visibleLines>
+</CustomField>

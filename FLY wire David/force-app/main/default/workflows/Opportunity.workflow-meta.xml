@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Workflow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <alerts>
+        <fullName>Edu_Won_Opp_Slack_Notification</fullName>
+        <ccEmails>b3m3k5c6n5h7x7i1@flywire.slack.com</ccEmails>
+        <description>Edu Won Opp Slack Notification</description>
+        <protected>false</protected>
+        <senderType>DefaultWorkflowUser</senderType>
+        <template>Slack_Messages/Edu_Won_Opp_Notification</template>
+    </alerts>
+    <alerts>
+        <fullName>Email_reps_when_Opp_is_auto_closed_won</fullName>
+        <description>BOPI-554 Email reps when Opp is auto closed/won</description>
+        <protected>false</protected>
+        <recipients>
+            <type>owner</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>unfiled$public/Opportunity_Auto_Closed_Won</template>
+    </alerts>
+    <alerts>
+        <fullName>Renewal_Opportunity_Created</fullName>
+        <description>BOPI-580 Notify the sales rep that a renewal opportunity has been created</description>
+        <protected>false</protected>
+        <recipients>
+            <type>owner</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>unfiled$public/Renewal_Opportunity_Created</template>
+    </alerts>
+    <alerts>
+        <fullName>SALDEV_934_Notify_the_Agents_Opportunity_Owner_on_Contract_Near_to_Expiry</fullName>
+        <description>SALDEV-934 Notify the Agents Opportunity Owner on Contract Near to Expiry</description>
+        <protected>false</protected>
+        <recipients>
+            <type>owner</type>
+        </recipients>
+        <senderType>DefaultWorkflowUser</senderType>
+        <template>unfiled$public/Notification_For_Agents</template>
+    </alerts>
+    <fieldUpdates>
+        <fullName>Captures_Previous_Stage</fullName>
+        <description>Captures Previous Stage</description>
+        <field>Previous_Stage__c</field>
+        <formula>TEXT(PRIORVALUE(StageName))</formula>
+        <name>Captures Previous Stage</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <rules>
+        <fullName>Capture Previous Stage</fullName>
+        <actions>
+            <name>Captures_Previous_Stage</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <description>When &quot;Opportunity Stage&quot; changes, copies previous stage to &quot;Previous Stage&quot; and sends to Slack.</description>
+        <formula>ISCHANGED(StageName)</formula>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+    <rules>
+        <fullName>zaapit__Call Opportunity</fullName>
+        <actions>
+            <name>zaapit__Call_oppts</name>
+            <type>Task</type>
+        </actions>
+        <active>false</active>
+        <description>Call Opportunity - by ZaapIT</description>
+        <formula>false</formula>
+        <triggerType>onCreateOnly</triggerType>
+    </rules>
+    <rules>
+        <fullName>zaapit__Email Opportunity</fullName>
+        <actions>
+            <name>zaapit__Email_oppts</name>
+            <type>Task</type>
+        </actions>
+        <active>false</active>
+        <description>Email Opportunity - by ZaapIT</description>
+        <formula>false</formula>
+        <triggerType>onCreateOnly</triggerType>
+    </rules>
+    <rules>
+        <fullName>zaapit__Send Letter Opportunity</fullName>
+        <actions>
+            <name>zaapit__Send_Letter_oppts</name>
+            <type>Task</type>
+        </actions>
+        <active>false</active>
+        <description>Send Letter Opportunity - by ZaapIT</description>
+        <formula>false</formula>
+        <triggerType>onCreateOnly</triggerType>
+    </rules>
+    <rules>
+        <fullName>zaapit__Send Quote Opportunity</fullName>
+        <actions>
+            <name>zaapit__Send_Quote_oppts</name>
+            <type>Task</type>
+        </actions>
+        <active>false</active>
+        <description>Send Quote Opportunity - by ZaapIT</description>
+        <formula>false</formula>
+        <triggerType>onCreateOnly</triggerType>
+    </rules>
+    <tasks>
+        <fullName>zaapit__Call_oppts</fullName>
+        <assignedToType>owner</assignedToType>
+        <dueDateOffset>1</dueDateOffset>
+        <notifyAssignee>true</notifyAssignee>
+        <priority>Normal</priority>
+        <protected>false</protected>
+        <status>Not Started</status>
+        <subject>Call</subject>
+    </tasks>
+    <tasks>
+        <fullName>zaapit__Email_oppts</fullName>
+        <assignedToType>owner</assignedToType>
+        <dueDateOffset>1</dueDateOffset>
+        <notifyAssignee>true</notifyAssignee>
+        <priority>Normal</priority>
+        <protected>false</protected>
+        <status>Not Started</status>
+        <subject>Email</subject>
+    </tasks>
+    <tasks>
+        <fullName>zaapit__Send_Letter_oppts</fullName>
+        <assignedToType>owner</assignedToType>
+        <dueDateOffset>1</dueDateOffset>
+        <notifyAssignee>true</notifyAssignee>
+        <priority>Normal</priority>
+        <protected>false</protected>
+        <status>Not Started</status>
+        <subject>Send Letter</subject>
+    </tasks>
+    <tasks>
+        <fullName>zaapit__Send_Quote_oppts</fullName>
+        <assignedToType>owner</assignedToType>
+        <dueDateOffset>1</dueDateOffset>
+        <notifyAssignee>true</notifyAssignee>
+        <priority>Normal</priority>
+        <protected>false</protected>
+        <status>Not Started</status>
+        <subject>Send Quote</subject>
+    </tasks>
+</Workflow>

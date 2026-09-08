@@ -1,0 +1,70 @@
+{
+  "status": 0,
+  "result": {
+    "records": [
+      {
+        "attributes": {
+          "type": "OmniProcessElement",
+          "url": "/services/data/v68.0/sobjects/OmniProcessElement/0kEhG0000002UgLUAU"
+        },
+        "Id": "0kEhG0000002UgLUAU",
+        "Name": "GetQuoteProposalData",
+        "Type": "DataRaptor Extract Action",
+        "PropertySetConfig": "{\"controlWidth\":12,\"label\":\"GetQuoteProposalData\",\"bundle\":\"GetQuoteProposalDataSteppedUpPricing\",\"ignoreCache\":false,\"dataRaptor Input Parameters\":[{\"element\":\"ContextId\",\"inputParam\":\"Id\"}],\"remoteTimeout\":30000,\"responseJSONPath\":\"\",\"responseJSONNode\":\"\",\"inProgressMessage\":\"In Progress\",\"postMessage\":\"Done\",\"failureNextLabel\":\"Continue\",\"failureAbortLabel\":\"Abort\",\"failureGoBackLabel\":\"Go Back\",\"failureAbortMessage\":\"Are you sure?\",\"validationRequired\":\"Step\",\"redirectPageName\":\"\",\"redirectTemplateUrl\":\"vlcAcknowledge.html\",\"redirectNextLabel\":\"Next\",\"redirectNextWidth\":3,\"redirectPreviousLabel\":\"Previous\",\"redirectPreviousWidth\":3,\"showPersistentComponent\":[true,false],\"show\":null,\"HTMLTemplateId\":\"\",\"wpm\":false,\"ssm\":false,\"message\":{},\"pubsub\":false,\"errorMessage\":{\"custom\":[],\"default\":null},\"enableDefaultAbort\":false,\"enableActionMessage\":false,\"businessCategory\":\"\",\"businessEvent\":\"\"}"
+      },
+      {
+        "attributes": {
+          "type": "OmniProcessElement",
+          "url": "/services/data/v68.0/sobjects/OmniProcessElement/0kEhG0000002UgMUAU"
+        },
+        "Id": "0kEhG0000002UgMUAU",
+        "Name": "SetTemplateValues",
+        "Type": "Set Values",
+        "PropertySetConfig": "{\"pubsub\":false,\"message\":{},\"ssm\":false,\"wpm\":false,\"HTMLTemplateId\":\"\",\"show\":null,\"showPersistentComponent\":[true,false],\"elementValueMap\":{\"TemplateType\":\"MicrosoftWord\",\"ObjectId\":\"=%ContextId%\",\"Vertical\":\"All\",\"DocType\":\"Quote\"},\"label\":\"SetTemplateValues\",\"controlWidth\":12}"
+      },
+      {
+        "attributes": {
+          "type": "OmniProcessElement",
+          "url": "/services/data/v68.0/sobjects/OmniProcessElement/0kEhG0000002UgNUAU"
+        },
+        "Id": "0kEhG0000002UgNUAU",
+        "Name": "Generate Document",
+        "Type": "Step",
+        "PropertySetConfig": "{\"label\":\"Generate Document\",\"validationRequired\":true,\"previousLabel\":\"Previous\",\"previousWidth\":3,\"nextLabel\":\"Next\",\"nextWidth\":3,\"cancelLabel\":\"Cancel\",\"cancelMessage\":\"Are you sure?\",\"saveLabel\":\"Save for later\",\"saveMessage\":\"Are you sure you want to save it for later?\",\"completeLabel\":\"Complete\",\"completeMessage\":\"Are you sure you want to complete the script?\",\"instruction\":\"\",\"showPersistentComponent\":[true,false],\"remoteClass\":\"\",\"remoteMethod\":\"\",\"remoteTimeout\":30000,\"remoteOptions\":{},\"knowledgeOptions\":{\"language\":\"English\",\"publishStatus\":\"Online\",\"keyword\":\"\",\"dataCategoryCriteria\":\"\",\"remoteTimeout\":30000,\"typeFilter\":\"\"},\"show\":null,\"conditionType\":\"Hide if False\",\"HTMLTemplateId\":\"\",\"instructionKey\":\"\",\"chartLabel\":null,\"allowSaveForLater\":false,\"errorMessage\":{\"custom\":[],\"default\":null},\"wpm\":false,\"ssm\":false,\"message\":{},\"pubsub\":false,\"businessCategory\":\"\",\"businessEvent\":\"\",\"lwcComponentOverride\":\"\"}"
+      },
+      {
+        "attributes": {
+          "type": "OmniProcessElement",
+          "url": "/services/data/v68.0/sobjects/OmniProcessElement/0kEhG0000002UgOUAU"
+        },
+        "Id": "0kEhG0000002UgOUAU",
+        "Name": "GetDocumentTemplate",
+        "Type": "DataRaptor Extract Action",
+        "PropertySetConfig": "{\"controlWidth\":12,\"label\":\"GetDocumentTemplate\",\"bundle\":\"GetDocumentTemplate\",\"ignoreCache\":false,\"dataRaptor Input Parameters\":[{\"element\":\"TemplateType\",\"inputParam\":\"templateType\"},{\"element\":\"Vertical\",\"inputParam\":\"vertical\"},{\"element\":\"DocType\",\"inputParam\":\"docType\"}],\"remoteTimeout\":30000,\"responseJSONPath\":\"\",\"responseJSONNode\":\"\",\"inProgressMessage\":\"In Progress\",\"postMessage\":\"Done\",\"failureNextLabel\":\"Continue\",\"failureAbortLabel\":\"Abort\",\"failureGoBackLabel\":\"Go Back\",\"failureAbortMessage\":\"Are you sure?\",\"validationRequired\":\"Step\",\"redirectPageName\":\"\",\"redirectTemplateUrl\":\"vlcAcknowledge.html\",\"redirectNextLabel\":\"Next\",\"redirectNextWidth\":3,\"redirectPreviousLabel\":\"Previous\",\"redirectPreviousWidth\":3,\"showPersistentComponent\":[true,false],\"show\":null,\"HTMLTemplateId\":\"\",\"wpm\":false,\"ssm\":false,\"message\":{},\"pubsub\":false,\"errorMessage\":{\"custom\":[],\"default\":null},\"enableDefaultAbort\":false,\"enableActionMessage\":false,\"businessCategory\":\"\",\"businessEvent\":\"\"}"
+      },
+      {
+        "attributes": {
+          "type": "OmniProcessElement",
+          "url": "/services/data/v68.0/sobjects/OmniProcessElement/0kEhG0000002UgPUAU"
+        },
+        "Id": "0kEhG0000002UgPUAU",
+        "Name": "SetGenerationOptions",
+        "Type": "Set Values",
+        "PropertySetConfig": "{\"controlWidth\":12,\"label\":\"SetGenerationOptions\",\"elementValueMap\":{\"selectedTemplate\":\"=%DocumentTemplate%\",\"templateType\":\"%DocumentTemplate:Type%\",\"attachFileFormat\":\"pdf\",\"docGenerationMechanism\":\"ClientSide\",\"documentViewer\":\"PDF\",\"downloadFileFormat\":\"pdf\",\"pdfGenerationSource\":\"ClientSide\",\"useTemplateDRExtract\":\"No\",\"documentTitle\":\"=\\\"Quote Proposal - \\\" + (new Date().toLocaleDateString('en-US'))\\n\",\"documentGenerationFontSource\":\"Rich Text Editor Font\",\"insertSpaceforRepeatingContentTokens\":\"Yes\"},\"showPersistentComponent\":[true,false],\"show\":null,\"HTMLTemplateId\":\"\",\"wpm\":false,\"ssm\":false,\"message\":{},\"pubsub\":false}"
+      },
+      {
+        "attributes": {
+          "type": "OmniProcessElement",
+          "url": "/services/data/v68.0/sobjects/OmniProcessElement/0kEhG0000002UgQUAU"
+        },
+        "Id": "0kEhG0000002UgQUAU",
+        "Name": "GenerateDocumentLWC",
+        "Type": "Custom Lightning Web Component",
+        "PropertySetConfig": "{\"controlWidth\":12,\"label\":\"GenerateDocumentLWC\",\"show\":null,\"conditionType\":\"Hide if False\",\"hide\":false,\"lwcName\":\"omnistudio__clmOsDocxGenerateDocument\",\"bStandalone\":false,\"customAttributes\":[{\"name\":\"context-id\",\"source\":\"%ObjectId%\"},{\"name\":\"selected-template\",\"source\":\"%selectedTemplate%\"},{\"name\":\"debug\",\"source\":\"false\"},{\"name\":\"document-title\",\"source\":\"%documentTitle%\"}]}"
+      }
+    ],
+    "totalSize": 6,
+    "done": true
+  },
+  "warnings": []
+}

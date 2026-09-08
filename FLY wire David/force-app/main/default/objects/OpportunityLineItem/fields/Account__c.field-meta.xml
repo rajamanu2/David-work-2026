@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Account__c</fullName>
+    <deleteConstraint>SetNull</deleteConstraint>
+    <description>Lookup field to the Account, auto populate when Opp Won. This gives a. related list on the  Account this Product is/has been Sold to.</description>
+    <inlineHelpText>Account this Product has been Sold to.(auto Populated)</inlineHelpText>
+    <label>Account</label>
+    <referenceTo>Account</referenceTo>
+    <relationshipLabel>Product(s) on Won Opps</relationshipLabel>
+    <relationshipName>Opportunity_Product_Won</relationshipName>
+    <required>false</required>
+    <type>Lookup</type>
+</CustomField>

@@ -1,0 +1,15 @@
+<template>
+    <template if:true={showOLISelectionPage}>
+        <c-existing-line-item-lwc parent-id={localRecordId}  name={localObjectName} action={localAction} onselectioncomplete={handleOLISelectionComplete}></c-existing-line-item-lwc>
+    </template>
+    <template if:true={showAddProductPage}>
+        <c-add-product-search-lwc  parent-id={localRecordId}  name={localObjectName} action={localAction} selected-oli={selectedOLIData}></c-add-product-search-lwc>
+    </template>
+    <template if:true={showAddIRProductPage}>
+        <c-add-item-receipt-product-search-lwc  parent-id={localRecordId}  name={localObjectName} action={localAction} selected-prli={selectedPRLIData}></c-add-item-receipt-product-search-lwc>
+    </template>
+    <template if:true={showPRLISelectionPage}>
+        <c-existing-line-item-lwc parent-id={localRecordId}  name={localObjectName} action={localAction} onselectioncomplete={handlePRLISelectionComplete}></c-existing-line-item-lwc>
+    </template>
+    
+</template>

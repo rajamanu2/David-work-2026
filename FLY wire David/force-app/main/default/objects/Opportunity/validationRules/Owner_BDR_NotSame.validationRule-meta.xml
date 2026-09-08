@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Owner_BDR_NotSame</fullName>
+    <active>false</active>
+    <description>The Opp owner and the BDR Owner can&apos;t be the same.</description>
+    <errorConditionFormula>AND(
+$Profile.Name &lt;&gt; &quot;System Administrator&quot;,
+Probability &gt;0.95,
+BDR_Owner__r.Id = OwnerId,
+Opp_Val_Bypass__c = false
+)</errorConditionFormula>
+    <errorDisplayField>BDR_Owner__c</errorDisplayField>
+    <errorMessage>The BDR and the Opportunity Owner can not be the same person. If you are a Sales rep and you did not get this Opportunity from a BDR, leave this blank. Otherwise, enter the name of the BDR who prospected this lead for you.</errorMessage>
+</ValidationRule>

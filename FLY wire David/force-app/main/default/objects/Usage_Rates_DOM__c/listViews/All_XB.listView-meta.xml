@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>All_XB</fullName>
+    <columns>NAME</columns>
+    <columns>Product_Code__c</columns>
+    <columns>Account_Country__c</columns>
+    <columns>Vertical__c</columns>
+    <columns>Payment_Method__c</columns>
+    <columns>Transaction_Type__c</columns>
+    <columns>CC_Country__c</columns>
+    <columns>Non_Local_Currency__c</columns>
+    <columns>Surcharging__c</columns>
+    <columns>Usage_Type__c</columns>
+    <columns>Usage_Rate__c</columns>
+    <columns>Usage_Rate_Amt__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Vertical__c</field>
+        <operation>equals</operation>
+        <value>B2B</value>
+    </filters>
+    <filters>
+        <field>Usage_Type__c</field>
+        <operation>equals</operation>
+        <value>Amount</value>
+    </filters>
+    <label>All DOM</label>
+</ListView>

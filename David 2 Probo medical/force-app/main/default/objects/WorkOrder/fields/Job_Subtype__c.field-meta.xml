@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Job_Subtype__c</fullName>
+    <label>Job Subtype</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Training</fullName>
+                <default>false</default>
+                <label>Training</label>
+            </value>
+            <value>
+                <fullName>Customer Sales Calls</fullName>
+                <default>false</default>
+                <label>Customer Sales Calls</label>
+            </value>
+            <value>
+                <fullName>Non - Billable Travel</fullName>
+                <default>false</default>
+                <label>Non - Billable Travel</label>
+            </value>
+            <value>
+                <fullName>Non - Billable Tech Support</fullName>
+                <default>false</default>
+                <label>Non - Billable Tech Support</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

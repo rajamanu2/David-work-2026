@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Product_Status_Date__c</fullName>
+    <description>Enter the date associated with the status of this product.  This will help with reporting where in the old instance we use &quot;date first contract signed&quot; - now we can use the product status date.</description>
+    <inlineHelpText>Update the status date every time you change the Account Status. The date is auto copied to Opp and Account, be sure it&apos;s accurate when changing status to Active.</inlineHelpText>
+    <label>Product Status Date</label>
+    <required>false</required>
+    <trackHistory>true</trackHistory>
+    <trackTrending>true</trackTrending>
+    <type>Date</type>
+</CustomField>

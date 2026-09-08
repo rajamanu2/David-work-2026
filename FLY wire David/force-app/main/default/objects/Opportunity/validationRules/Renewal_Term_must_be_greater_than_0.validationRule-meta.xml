@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Renewal_Term_must_be_greater_than_0</fullName>
+    <active>true</active>
+    <description>Created for SALDEV-986</description>
+    <errorConditionFormula>AND(
+$Profile.Name &lt;&gt; &quot;System Administrator&quot;,
+$Profile.Name &lt;&gt; &quot;B - Looker&quot;,
+$User.Alias &lt;&gt; &quot;Workato&quot;,
+Probability &gt; 0.80,
+OR(
+Pricebook2.Name = &quot;CPQ&quot;,
+ISBLANK(Pricebook2Id)
+),
+OR(
+RecordType.DeveloperName = &quot;Education&quot;,
+RecordType.DeveloperName = &quot;Travel&quot;,
+RecordType.DeveloperName = &quot;B2B&quot;,
+RecordType.DeveloperName = &quot;Healthcare&quot;
+),
+OR(
+ISBLANK(SBQQ__PrimaryQuote__c),
+NOT(ISPICKVAL(SBQQ__PrimaryQuote__r.SBQQ__Status__c, &quot;Client_Approved&quot;)),
+ISBLANK(TEXT(SBQQ__PrimaryQuote__r.Contract_has_Auto_Renewal_Terms__c)),
+ISBLANK(SBQQ__PrimaryQuote__r.SBQQ__RenewalTerm__c),
+SBQQ__PrimaryQuote__r.SBQQ__RenewalTerm__c = 0),
+NOT(ISPICKVAL(Type, &quot;Auto Renewal&quot;))
+)</errorConditionFormula>
+    <errorMessage>Please enter a Renewal Term. If there is no auto-renewal, enter the full term of the contract (e.g. 36). If there is an auto-renewal, enter the monthly auto renewal term (e.g. 12). This can be adjusted at any time prior to legal stage if needed.</errorMessage>
+</ValidationRule>

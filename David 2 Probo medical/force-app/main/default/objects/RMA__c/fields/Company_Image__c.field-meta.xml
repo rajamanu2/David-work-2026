@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Company_Image__c</fullName>
+    <externalId>false</externalId>
+    <formula>IF(NOT(ISBLANK(TEXT(Logo_Override__c))), IF(TEXT(Logo_Override__c) = &quot;MedCorp&quot;, &quot;https://probomedical--c.na131.content.force.com/servlet/servlet.FileDownload?file=0154O0000072Aav&quot;, IF(TEXT(Logo_Override__c) = &quot;Trisonics&quot;, &quot;https://probomedical--c.na131.content.force.com/servlet/servlet.FileDownload?file=0154O0000072Aax&quot;, &quot;https://probomedical--c.na131.content.force.com/servlet/servlet.FileDownload?file=0154O0000072Aaw&quot;)), IF( Shipping_FROM_Location__c = &quot;Harrisburg, PA&quot;, &quot;https://probomedical--c.na131.content.force.com/servlet/servlet.FileDownload?file=0154O0000072Aax&quot;, IF(Shipping_FROM_Location__c = &quot;Tampa, FL&quot;, &quot;https://probomedical--c.na131.content.force.com/servlet/servlet.FileDownload?file=0154O0000072Aav&quot;, &quot;https://probomedical--c.na131.content.force.com/servlet/servlet.FileDownload?file=0154O0000072Aaw&quot;)))</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Company Image</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

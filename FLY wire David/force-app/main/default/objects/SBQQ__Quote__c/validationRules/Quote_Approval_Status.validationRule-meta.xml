@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Quote_Approval_Status</fullName>
+    <active>true</active>
+    <description>Created for BOPI-180. Prevents Quote being manually Client Approved without submitting the quote for approval.
+BOPI-600 updated to prevent auto renewals from stopping
+
+BOPI-581 ByPass added to skip validations when syncing quote with account changes</description>
+    <errorConditionFormula>AND(
+    OR(
+    ISPICKVAL(SBQQ__Status__c, &quot;FW Approved&quot;),
+    ISPICKVAL(SBQQ__Status__c, &quot;Client_Approved&quot;)),
+    NOT(ISPICKVAL(ApprovalStatus__c, &quot;Approved&quot;)),
+    NOT(ISPICKVAL(SBQQ__Opportunity2__r.Type, &quot;Auto Renewal&quot;))
+)
+&amp;&amp; Quote_Val_Bypass__c = false</errorConditionFormula>
+    <errorMessage>Please click the Submit for Approval button to update the Status</errorMessage>
+</ValidationRule>

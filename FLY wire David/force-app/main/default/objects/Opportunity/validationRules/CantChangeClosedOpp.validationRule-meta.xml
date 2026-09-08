@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CantChangeClosedOpp</fullName>
+    <active>false</active>
+    <description>Do not allow edits to Closed Opportunities to be modified except by Admin or to update First Opp product Live field.</description>
+    <errorConditionFormula>AND (
+   $Profile.Name &lt;&gt; &apos;System Administrator&apos;,
+   $Profile.Name &lt;&gt; &quot;B - Looker&quot;,
+   IsClosed = True,
+(OR (
+   ISCHANGED(Amount),
+   ISCHANGED(Previous_Stage__c),
+   ISCHANGED(No_International_Payers_At_Opportunity__c),
+   ISCHANGED(ContractId),
+   ISCHANGED(Pricing_Ticket_Link__c),
+   ISCHANGED(Type),
+   ISCHANGED(OwnerId),
+   ISCHANGED(RecordTypeId)
+  )
+)
+)
+&amp;&amp; Opp_Val_Bypass__c = false</errorConditionFormula>
+    <errorMessage>You can not update a Closed Opportunity. If you need a correction made, please submit a Flywire Ticket via OKTA for your Salesforce Administrator and include the link to this Opportunity.</errorMessage>
+</ValidationRule>

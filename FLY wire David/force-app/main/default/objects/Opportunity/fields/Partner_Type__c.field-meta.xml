@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Partner_Type__c</fullName>
+    <description>Field to better distinguish the type of relationship this Opp has to our Partner. To work with the &apos;Partner Name&apos; which used to be Referred by Partner.</description>
+    <inlineHelpText>Choose the type of Partnership this Opportunity has with the Partner, listed in &quot;Partner&quot; field.</inlineHelpText>
+    <label>Partner Type</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Flywire Refers Partner</fullName>
+                <default>false</default>
+                <label>Flywire Refers Partner</label>
+            </value>
+            <value>
+                <fullName>Partner Refers Flywire</fullName>
+                <default>false</default>
+                <label>Partner Refers Flywire</label>
+            </value>
+            <value>
+                <fullName>Flywire Resells Partner Product</fullName>
+                <default>false</default>
+                <label>Flywire Resells Partner Product</label>
+            </value>
+            <value>
+                <fullName>Partner Resells Flywire Product</fullName>
+                <default>false</default>
+                <label>Partner Resells Flywire Product</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

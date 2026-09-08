@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Campaign_Refresh</fullName>
+    <columns>FULL_NAME</columns>
+    <columns>LEAD.EMAIL</columns>
+    <columns>LEAD.COMPANY</columns>
+    <columns>Lead_Person_Status__c</columns>
+    <columns>LEAD.LEAD_SOURCE</columns>
+    <columns>CORE.USERS.ALIAS</columns>
+    <columns>BDR_Owner__c</columns>
+    <columns>LEAD.LAST_ACTIVITY</columns>
+    <columns>LEAD.COUNTRY</columns>
+    <columns>UPDATEDBY_USER.ALIAS</columns>
+    <columns>LEAD.LAST_UPDATE</columns>
+    <filterScope>Mine</filterScope>
+    <filters>
+        <field>Lead_Person_Status__c</field>
+        <operation>equals</operation>
+        <value>SWL (Sales Working Lead)</value>
+    </filters>
+    <filters>
+        <field>BDR_Owner__c</field>
+        <operation>equals</operation>
+        <value>Caitlin Cowdrey,Anne-Sophie Kadjo,Charlie Dreher,Stefano Fontana</value>
+    </filters>
+    <filters>
+        <field>LEAD.RATING</field>
+        <operation>equals</operation>
+        <value>Green</value>
+    </filters>
+    <label>Campaign Refresh</label>
+    <sharedTo>
+        <roleAndSubordinatesInternal>Director_Travel</roleAndSubordinatesInternal>
+    </sharedTo>
+</ListView>

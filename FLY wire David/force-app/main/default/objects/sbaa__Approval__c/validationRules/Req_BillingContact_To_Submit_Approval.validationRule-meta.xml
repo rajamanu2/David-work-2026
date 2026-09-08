@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Req_BillingContact_To_Submit_Approval</fullName>
+    <active>false</active>
+    <description>BOPI-592 The Billing contact is required before submitting for approval
+BOPI-627 Moved from Quote to Approval Object
+BOPI-600 updated to prevent auto renewals from stopping
+SALDEV-1058, replace Billing Contact field with Has Billing field on Account</description>
+    <errorConditionFormula>AND(
+    ISNEW(),
+    NOT(ISBLANK(AQS_Quote__c)),
+    AQS_Quote__r.SBQQ__Account__r.Has_Billing_Contact__c = false,
+    NOT(ISPICKVAL(AQS_Quote__r.SBQQ__Opportunity2__r.Type, &quot;Auto Renewal&quot;))
+)</errorConditionFormula>
+    <errorMessage>You must have at least one Billing Contact related to the Account in order to submit for Approval.</errorMessage>
+</ValidationRule>

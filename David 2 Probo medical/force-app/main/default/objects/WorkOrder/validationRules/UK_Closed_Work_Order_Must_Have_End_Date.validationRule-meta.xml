@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>UK_Closed_Work_Order_Must_Have_End_Date</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND(ISPICKVAL($User.Location__c, &quot;Gloucester, UK&quot;),
+RecordTypeId = &quot;0125b000000LW89AAG&quot;, OR( 
+ISPICKVAL(Status, &quot;Completed WO&quot;),ISPICKVAL(Status, &quot;Closed&quot;),ISPICKVAL(Status, &quot;Cannot Complete&quot;),ISPICKVAL(Status, &quot;Canceled&quot;),ISPICKVAL(Status, &quot;Closed - Paid&quot;)),ISNULL(EndDate)
+)</errorConditionFormula>
+    <errorMessage>You cannot Close a Work Order without having the End Date field completed. The End Date and time must come after the Start Date and time.</errorMessage>
+</ValidationRule>

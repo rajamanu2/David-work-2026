@@ -1,0 +1,51 @@
+<apex:component controller="EmailTableController" access="global">
+
+    <apex:attribute name="recordId" type="Id" description="Quote Id" assignTo="{!quoteId}" />
+    <apex:attribute name="templateContext" type="String" description="Email Template Context" assignTo="{!templateName}" />
+    
+    <apex:outputPanel rendered="{!hasError}">
+        <p style="color: red; font-family: Arial, sans-serif;">
+            {!errorMessage}
+        </p>
+    </apex:outputPanel>
+    
+    <apex:outputPanel rendered="{!NOT(hasError)}">
+
+        <apex:repeat value="{!groupedLines}" var="group">
+            
+            <!-- CONDITIONAL RENDER: Only shows if showTitle is true -->
+            <apex:outputPanel rendered="{!group.showTitle}">
+                <p style="margin-top: 15px; margin-bottom: 5px; font-family: Arial, sans-serif;">
+                    <strong>{!group.groupName}</strong>
+                    
+                    <span style="font-size: 12px; color: #666666; margin-left: 15px;">
+                        Ramped Up: {!IF(group.rampedUp, 'Yes', 'No')} | 
+                        Start Date: <apex:outputText value="{0,date,MM/dd/yyyy}"><apex:param value="{!group.startDate}" /></apex:outputText> | 
+                        End Date: <apex:outputText value="{0,date,MM/dd/yyyy}"><apex:param value="{!group.endDate}" /></apex:outputText>
+                    </span>
+                </p>
+            </apex:outputPanel>
+            
+            <table style="width:100%; border-collapse:collapse; border: 1px solid #dddddd; font-family: Arial, sans-serif; margin-bottom: 15px;">
+                <tr style="background-color: #f2f2f2;">
+                    <apex:repeat value="{!columns}" var="col">
+                        <th style="padding: 8px; border: 1px solid #dddddd; text-align: left;">
+                            {!col.header}
+                        </th>
+                    </apex:repeat>
+                </tr>
+                
+                <apex:repeat value="{!group.rows}" var="row">
+                    <tr>
+                        <apex:repeat value="{!row.cellValues}" var="cell">
+                            <td style="padding: 8px; border: 1px solid #dddddd;">
+                                {!cell}
+                            </td>
+                        </apex:repeat>
+                    </tr>
+                </apex:repeat>
+            </table>
+            
+        </apex:repeat>
+    </apex:outputPanel>
+</apex:component>

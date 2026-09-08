@@ -1,0 +1,251 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <aggregates>
+        <calculatedFormula>Activity.ywr__Yesware_Sent__c:SUM+Activity.ywr__Yesware_TotalCall__c:SUM</calculatedFormula>
+        <datatype>number</datatype>
+        <developerName>FORMULA1</developerName>
+        <isActive>false</isActive>
+        <isCrossBlock>false</isCrossBlock>
+        <masterLabel># Touches</masterLabel>
+        <scale>0</scale>
+    </aggregates>
+    <aggregates>
+        <calculatedFormula>IF(
+(Activity.ywr__Yesware_Reply__c:SUM+Activity.ywr__Yesware_ConnectCall__c:SUM)*100
+/
+(Activity.ywr__Yesware_Sent__c:SUM+Activity.ywr__Yesware_TotalCall__c:SUM) &gt;100,100,
+IF(
+Activity.ywr__Yesware_Sent__c:SUM+Activity.ywr__Yesware_TotalCall__c:SUM&lt;&gt;0, 
+(Activity.ywr__Yesware_Reply__c:SUM+Activity.ywr__Yesware_ConnectCall__c:SUM)*100
+/
+(Activity.ywr__Yesware_Sent__c:SUM+Activity.ywr__Yesware_TotalCall__c:SUM), 
+0))</calculatedFormula>
+        <datatype>number</datatype>
+        <developerName>FORMULA2</developerName>
+        <isActive>false</isActive>
+        <isCrossBlock>false</isCrossBlock>
+        <masterLabel>Connect %</masterLabel>
+        <scale>2</scale>
+    </aggregates>
+    <aggregates>
+        <calculatedFormula>Activity.ywr__Yesware_Reply__c:SUM+Activity.ywr__Yesware_ConnectCall__c:SUM</calculatedFormula>
+        <datatype>number</datatype>
+        <developerName>FORMULA3</developerName>
+        <isActive>false</isActive>
+        <isCrossBlock>false</isCrossBlock>
+        <masterLabel>Total Connects</masterLabel>
+        <scale>2</scale>
+    </aggregates>
+    <buckets>
+        <bucketType>text</bucketType>
+        <developerName>BucketField_29045272</developerName>
+        <masterLabel>Campaign bucket</masterLabel>
+        <nullTreatment>n</nullTreatment>
+        <otherBucketLabel>Other</otherBucketLabel>
+        <sourceColumnName>Activity.ywr__YeswareCampaignName__c</sourceColumnName>
+        <useOther>true</useOther>
+        <values>
+            <sourceValues>
+                <sourceValue>Wellness Campaign- Outbound, SF</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>Wellness Retreat Campaign - CC</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>Wellness Campaign - Outbound</sourceValue>
+            </sourceValues>
+            <value>Wellness</value>
+        </values>
+        <values>
+            <sourceValues>
+                <sourceValue>Cycling Outbound (ENGLISH), 11/22 - SF</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>Cycling Outbound (ITALIAN), 11/22 - SF</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>CD - Biking Tours Campaign</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>Biking Tours Campaign - CC</sourceValue>
+            </sourceValues>
+            <value>Cycling</value>
+        </values>
+        <values>
+            <sourceValues>
+                <sourceValue>CD - Scuba Campaign</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>Scuba Diving Campaign - CC</sourceValue>
+            </sourceValues>
+            <value>Diving</value>
+        </values>
+        <values>
+            <sourceValues>
+                <sourceValue>Niche Operators, 11/22 - CD</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>Niche Operators (ENGLISH), 11/22 - SF</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>Niche Operators (Italian), 11/22 - SF</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>Niche Operators, 11/22 - CC</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>Tour Operator/Niche Campaign - CC</sourceValue>
+            </sourceValues>
+            <value>Niche</value>
+        </values>
+        <values>
+            <sourceValues>
+                <sourceValue>Food &amp; Wine 12/9 (French) - ASK</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>Food &amp; Wine 12/9 - ASK</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>Food &amp; Wine 11/9 - CD</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>Food/Wine Tours, 12/9 - CC</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>Food &amp; Wine (ENGLISH), 12/22 - SF</sourceValue>
+            </sourceValues>
+            <value>Food &amp; Wine</value>
+        </values>
+        <values>
+            <sourceValues>
+                <sourceValue>WTM London (11/21) - CD</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>WTM London 11/21 - CC</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>WTM London 11/21- SF</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>WTM London (ENGLISH), 12/22 - SF</sourceValue>
+            </sourceValues>
+            <value>WTM</value>
+        </values>
+    </buckets>
+    <chart>
+        <backgroundColor1>#FFFFFF</backgroundColor1>
+        <backgroundColor2>#FFFFFF</backgroundColor2>
+        <backgroundFadeDir>Diagonal</backgroundFadeDir>
+        <chartSummaries>
+            <axisBinding>y</axisBinding>
+            <column>RowCount</column>
+        </chartSummaries>
+        <chartType>HorizontalBarStacked</chartType>
+        <enableHoverLabels>false</enableHoverLabels>
+        <expandOthers>true</expandOthers>
+        <groupingColumn>ASSIGNED</groupingColumn>
+        <legendPosition>Right</legendPosition>
+        <location>CHART_BOTTOM</location>
+        <secondaryGroupingColumn>BucketField_29045272</secondaryGroupingColumn>
+        <showAxisLabels>false</showAxisLabels>
+        <showPercentage>false</showPercentage>
+        <showTotal>false</showTotal>
+        <showValues>false</showValues>
+        <size>Medium</size>
+        <summaryAxisRange>Auto</summaryAxisRange>
+        <textColor>#000000</textColor>
+        <textSize>12</textSize>
+        <titleColor>#000000</titleColor>
+        <titleSize>18</titleSize>
+    </chart>
+    <columns>
+        <field>SUBJECT</field>
+    </columns>
+    <columns>
+        <aggregateTypes>Sum</aggregateTypes>
+        <field>Activity.ywr__Yesware_Sent__c</field>
+    </columns>
+    <columns>
+        <aggregateTypes>Sum</aggregateTypes>
+        <field>Activity.yw__YeswareOpens__c</field>
+    </columns>
+    <currency>USD</currency>
+    <filter>
+        <booleanFilter>1 AND 2 AND (3 OR 4 OR 5 OR 6)</booleanFilter>
+        <criteriaItems>
+            <column>Activity.ywr__YeswareIsCampaign__c</column>
+            <columnToColumn>false</columnToColumn>
+            <isUnlocked>false</isUnlocked>
+            <operator>equals</operator>
+            <value>1</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>SUBJECT</column>
+            <columnToColumn>false</columnToColumn>
+            <isUnlocked>false</isUnlocked>
+            <operator>startsWith</operator>
+            <value>Message Sent:,Reply:,Call,YW Call,YW Custom</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>ASSIGNED</column>
+            <columnToColumn>false</columnToColumn>
+            <isUnlocked>true</isUnlocked>
+            <operator>equals</operator>
+            <value>Charlie Dreher</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>ASSIGNED</column>
+            <columnToColumn>false</columnToColumn>
+            <isUnlocked>true</isUnlocked>
+            <operator>equals</operator>
+            <value>Caitlin Cowdrey</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>ASSIGNED</column>
+            <columnToColumn>false</columnToColumn>
+            <isUnlocked>true</isUnlocked>
+            <operator>equals</operator>
+            <value>Stefano Fontana</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>ASSIGNED</column>
+            <columnToColumn>false</columnToColumn>
+            <isUnlocked>true</isUnlocked>
+            <operator>equals</operator>
+            <value>Anne-Sophie Kadjo</value>
+        </criteriaItems>
+    </filter>
+    <format>Summary</format>
+    <groupingsDown>
+        <dateGranularity>Day</dateGranularity>
+        <field>ASSIGNED</field>
+        <sortOrder>Asc</sortOrder>
+    </groupingsDown>
+    <groupingsDown>
+        <dateGranularity>Day</dateGranularity>
+        <field>BucketField_29045272</field>
+        <sortOrder>Asc</sortOrder>
+    </groupingsDown>
+    <name>Activities by Campaign Travel</name>
+    <params>
+        <name>closed</name>
+        <value>closed</value>
+    </params>
+    <params>
+        <name>type</name>
+        <value>t</value>
+    </params>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>Activity</reportType>
+    <scope>team</scope>
+    <showDetails>false</showDetails>
+    <showGrandTotal>true</showGrandTotal>
+    <showSubTotals>true</showSubTotals>
+    <timeFrameFilter>
+        <dateColumn>CREATED_DATE</dateColumn>
+        <interval>INTERVAL_CURRENT</interval>
+    </timeFrameFilter>
+</Report>

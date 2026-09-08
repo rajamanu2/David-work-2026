@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <buckets>
+        <bucketType>picklist</bucketType>
+        <developerName>BucketField_41978009</developerName>
+        <masterLabel>Lead Industry</masterLabel>
+        <nullTreatment>n</nullTreatment>
+        <sourceColumnName>Lead.Lead_Industry__c</sourceColumnName>
+        <useOther>false</useOther>
+        <values>
+            <sourceValues>
+                <sourceValue>Education</sourceValue>
+            </sourceValues>
+            <value>Education</value>
+        </values>
+        <values>
+            <sourceValues>
+                <sourceValue>Healthcare</sourceValue>
+            </sourceValues>
+            <value>Healthcare</value>
+        </values>
+        <values>
+            <sourceValues>
+                <sourceValue>Accommodations</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>DMC</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>Travel</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>Travel Operator</sourceValue>
+            </sourceValues>
+            <value>Travel</value>
+        </values>
+        <values>
+            <sourceValues>
+                <sourceValue>Business</sourceValue>
+            </sourceValues>
+            <value>Business</value>
+        </values>
+        <values>
+            <sourceValues>
+                <sourceValue>Education Agent</sourceValue>
+            </sourceValues>
+            <value>Education Agent</value>
+        </values>
+    </buckets>
+    <buckets>
+        <bucketType>picklist</bucketType>
+        <developerName>BucketField_40686309</developerName>
+        <masterLabel>Source Channel</masterLabel>
+        <nullTreatment>n</nullTreatment>
+        <sourceColumnName>LEAD_SOURCE</sourceColumnName>
+        <useOther>false</useOther>
+        <values>
+            <sourceValues>
+                <sourceValue>Account Based Marketing</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>Content</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>Content Syndication</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>Direct Mail</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>Event</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>Online Advertising</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>Paid Social</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>Partner</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>Training</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>Virtual Event</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>Webinar</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>Website</sourceValue>
+            </sourceValues>
+            <value>Marketing Sourced</value>
+        </values>
+        <values>
+            <sourceValues>
+                <sourceValue>Referral</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>Sourcing</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>Sourcing - LinkedIn</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>Zoominfo</sourceValue>
+            </sourceValues>
+            <value>Sales Sourced</value>
+        </values>
+    </buckets>
+    <columns>
+        <field>FIRST_NAME</field>
+    </columns>
+    <columns>
+        <field>LAST_NAME</field>
+    </columns>
+    <columns>
+        <field>TITLE</field>
+    </columns>
+    <columns>
+        <field>EMAIL</field>
+    </columns>
+    <columns>
+        <field>COMPANY</field>
+    </columns>
+    <columns>
+        <field>COUNTRY_CODE</field>
+    </columns>
+    <currency>USD</currency>
+    <filter>
+        <criteriaItems>
+            <column>COUNTRY</column>
+            <columnToColumn>false</columnToColumn>
+            <isUnlocked>true</isUnlocked>
+            <operator>equals</operator>
+            <value>Austria,Belgium,Bulgaria,Croatia,Cyprus,Czech Republic,Denmark,Estonia,Finland,France,Germany,Greece,Hungary,Ireland,Italy,Latvia,Lithuania,Luxembourg,Malta,The Netherlands,Poland,Portugal,Romania,Slovakia,Slovenia,Spain,Sweden,United Kingdom</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>CONVERTED</column>
+            <columnToColumn>false</columnToColumn>
+            <isUnlocked>true</isUnlocked>
+            <operator>equals</operator>
+            <value>0</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>EMAIL_OPT_OUT</column>
+            <columnToColumn>false</columnToColumn>
+            <isUnlocked>true</isUnlocked>
+            <operator>equals</operator>
+            <value>0</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Lead.Lead_Industry__c</column>
+            <columnToColumn>false</columnToColumn>
+            <isUnlocked>true</isUnlocked>
+            <operator>equals</operator>
+            <value>Accommodations,Business,DMC,Education,Education Agent,Healthcare,Travel,Travel Operator</value>
+        </criteriaItems>
+    </filter>
+    <format>Summary</format>
+    <groupingsDown>
+        <dateGranularity>Day</dateGranularity>
+        <field>BucketField_41978009</field>
+        <sortOrder>Desc</sortOrder>
+    </groupingsDown>
+    <groupingsDown>
+        <dateGranularity>Day</dateGranularity>
+        <field>LEAD_SOURCE</field>
+        <sortOrder>Asc</sortOrder>
+    </groupingsDown>
+    <groupingsDown>
+        <dateGranularity>Year</dateGranularity>
+        <field>CREATED_DATE</field>
+        <sortOrder>Asc</sortOrder>
+    </groupingsDown>
+    <name>Leads in GDPR Countries</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>LeadList</reportType>
+    <scope>org</scope>
+    <showDetails>false</showDetails>
+    <showGrandTotal>true</showGrandTotal>
+    <showSubTotals>true</showSubTotals>
+    <timeFrameFilter>
+        <dateColumn>CREATED_DATE</dateColumn>
+        <interval>INTERVAL_CUSTOM</interval>
+    </timeFrameFilter>
+</Report>

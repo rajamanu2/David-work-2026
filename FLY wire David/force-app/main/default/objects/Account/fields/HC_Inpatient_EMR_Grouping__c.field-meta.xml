@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>HC_Inpatient_EMR_Grouping__c</fullName>
+    <description>Groups DHC inpatient EMR data into buckets for reporting.</description>
+    <externalId>false</externalId>
+    <formula>IF(CONTAINS(texcellency__DefHC_EMR_Vendor_Inpatient__c, &quot;Cerner&quot;), &quot;Cerner&quot;,
+IF(CONTAINS(texcellency__DefHC_EMR_Vendor_Inpatient__c, &quot;cerner&quot;), &quot;Cerner&quot;,
+IF(CONTAINS(texcellency__DefHC_EMR_Vendor_Inpatient__c, &quot;EPIC&quot;), &quot;EPIC&quot;,
+IF(CONTAINS(texcellency__DefHC_EMR_Vendor_Inpatient__c, &quot;Epic&quot;), &quot;EPIC&quot;,
+IF(CONTAINS(texcellency__DefHC_EMR_Vendor_Inpatient__c, &quot;athena&quot;), &quot;Athena&quot;,
+IF(CONTAINS(texcellency__DefHC_EMR_Vendor_Inpatient__c, &quot;Meditech&quot;), &quot;Meditech&quot;,
+IF(CONTAINS(texcellency__DefHC_EMR_Vendor_Inpatient__c, &quot;MEDITECH&quot;), &quot;Meditech&quot;,
+IF(CONTAINS(texcellency__DefHC_EMR_Vendor_Inpatient__c, &quot;Allscpripts&quot;), &quot;AllScripts&quot;,
+IF(CONTAINS(texcellency__DefHC_EMR_Vendor_Inpatient__c, &quot;Proprietary&quot;), &quot;Proprietary&quot;,
+IF(CONTAINS(texcellency__DefHC_EMR_Vendor_Inpatient__c, &quot;Netsmart&quot;), &quot;Netsmart&quot;,
+IF(CONTAINS(texcellency__DefHC_EMR_Vendor_Inpatient__c, &quot;Evident&quot;), &quot;Evident&quot;,
+IF(CONTAINS(texcellency__DefHC_EMR_Vendor_Inpatient__c, &quot;None&quot;), &quot;None&quot;,
+
+&quot;Other&quot;))))))))))))</formula>
+    <inlineHelpText>Groups DHC inpatient EMR data into buckets for reporting.</inlineHelpText>
+    <label>HC Inpatient EMR Grouping</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

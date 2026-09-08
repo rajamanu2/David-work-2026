@@ -1,0 +1,367 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionCalls>
+        <description>The Work Orders listed in this email are those that were marked as &quot;In Prgoress&quot; and had a &quot;Next Service Date&quot; after the &quot;Decommission Date&quot;.</description>
+        <name>Email_Service_Coordination_Team_With_Canceled_Work_Orders</name>
+        <label>Email Service Coordination Team With Canceled Work Orders</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <actionName>emailSimple</actionName>
+        <actionType>emailSimple</actionType>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
+        <inputParameters>
+            <name>recipientAddresses</name>
+            <value>
+                <collectionElements>
+                    <elementReference>formulaEmailRecipient</elementReference>
+                </collectionElements>
+                <collectionElements>
+                    <stringValue>Sacha.Pearce@probomedical.co.uk</stringValue>
+                </collectionElements>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>composeEmailContent</name>
+            <value>
+                <stringValue>True</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>emailSubject</name>
+            <value>
+                <inputConfiguratorMode>Resource</inputConfiguratorMode>
+                <stringValue>Decommission: Work Orders Marked as &quot;Canceled&quot;</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>emailBody</name>
+            <value>
+                <inputConfiguratorMode>Custom</inputConfiguratorMode>
+                <stringValue>&lt;p&gt;{!texttemplateEmailBody}&lt;/p&gt;</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>sendRichBody</name>
+            <value>
+                <booleanValue>true</booleanValue>
+                <inputConfiguratorMode>Resource</inputConfiguratorMode>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>useLineBreaks</name>
+            <value>
+                <booleanValue>true</booleanValue>
+                <inputConfiguratorMode>Resource</inputConfiguratorMode>
+            </value>
+        </inputParameters>
+        <nameSegment>emailSimple</nameSegment>
+        <offset>0</offset>
+        <versionString>3.0.1</versionString>
+    </actionCalls>
+    <apiVersion>67.0</apiVersion>
+    <areMetricsLoggedToDataCloud>false</areMetricsLoggedToDataCloud>
+    <assignments>
+        <description>This adds the current item to &quot;colvarWorkOrdersPreviouslyBooked&quot; and builds the &quot;varCanceledWorkOrderList&quot;.</description>
+        <name>Add_Work_Order_to_colvarcWorkOrdersPreviouslyBooked</name>
+        <label>Add Work Order to colvarWorkOrdersPreviouslyBooked</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <assignmentItems>
+            <assignToReference>colvarWorkOrdersPreviouslyBooked</assignToReference>
+            <operator>Add</operator>
+            <value>
+                <elementReference>Loop_Retrieved_Work_Orders</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>varCanceledWorkOrderList</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>formulaCanceledWorkOrderListBuilder</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Assign_Canceled_Status</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Add_Work_Orders_to_colvarWorkOrdersToUpdate</name>
+        <label>Add Work Order to colvarWorkOrdersToUpdate</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <assignmentItems>
+            <assignToReference>colvarWorkOrdersToUpdate</assignToReference>
+            <operator>Add</operator>
+            <value>
+                <elementReference>Loop_Retrieved_Work_Orders</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Loop_Retrieved_Work_Orders</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Assign_Canceled_Status</name>
+        <label>Assign Canceled Status</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <assignmentItems>
+            <assignToReference>Loop_Retrieved_Work_Orders.Status</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>Canceled</stringValue>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Add_Work_Orders_to_colvarWorkOrdersToUpdate</targetReference>
+        </connector>
+    </assignments>
+    <decisions>
+        <description>This checks to see if any WorkOrders were booked and have been cancelled. If they have, then a Service Coordination Team is notified.</description>
+        <name>Notify_Team_Check</name>
+        <label>Notify Team Check</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>colvarWorkOrdersPreviousBooked_is_Not_Null</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>colvarWorkOrdersPreviouslyBooked</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Email_Service_Coordination_Team_With_Canceled_Work_Orders</targetReference>
+            </connector>
+            <label>colvarWorkOrdersPreviousBooked is Not Null</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <description>This checks to see if the current item is marked as &quot;In Progress&quot; and doesn&apos;t have a blank &quot;Next Service Date&quot; value. If the &quot;Status is In Progress&quot; route is taken, the Work Order is added to a the collection variable titled &quot;colvarWorkOrdersPreviousBooked&quot; and helps build a list of cancelled Work Orders in &quot;varCanceledWorkOrderList&quot;.</description>
+        <name>Status_Check</name>
+        <label>Status Check</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <defaultConnector>
+            <targetReference>Assign_Canceled_Status</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Status_is_In_Progress</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>Loop_Retrieved_Work_Orders.Status</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>In Progress</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>Loop_Retrieved_Work_Orders.Next_Service_Date__c</leftValueReference>
+                <operator>NotEqualTo</operator>
+            </conditions>
+            <connector>
+                <targetReference>Add_Work_Order_to_colvarcWorkOrdersPreviouslyBooked</targetReference>
+            </connector>
+            <label>Status is In Progress</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <description>This is to stop the Flow from running when no Work Orders are retrieved (primarily to exclude any inadvertent US records).</description>
+        <name>Work_Orders_Found_Check</name>
+        <label>Work Orders Found Check</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Work_Orders_Found</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>Get_Work_Orders</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Loop_Retrieved_Work_Orders</targetReference>
+            </connector>
+            <label>Work Orders Found</label>
+        </rules>
+    </decisions>
+    <description>30/07/2026 - SP - Adding descriptions into elements to help with Flow clarity and any future debugging.</description>
+    <environments>Default</environments>
+    <formulas>
+        <name>formulaCanceledWorkOrderListBuilder</name>
+        <dataType>String</dataType>
+        <expression>{!varCanceledWorkOrderList} &amp;
+BR() &amp;
+&quot;Work Order: &quot; &amp; {!Loop_Retrieved_Work_Orders.WorkOrderNumber} &amp;
+&quot; | Service Date: &quot; &amp; TEXT({!Loop_Retrieved_Work_Orders.Next_Service_Date__c})</expression>
+    </formulas>
+    <formulas>
+        <name>formulaEmailRecipient</name>
+        <dataType>String</dataType>
+        <expression>IF(TEXT({!$Record.Modality__c}) = &quot;Ultrasound&quot;, &quot;Ultrasound.Service@probomedical.co.uk&quot;, &quot;Imaging.Service@probomedical.co.uk&quot;)</expression>
+    </formulas>
+    <interviewLabel>Contract Line Item - Cancel Work Orders on Decommissioning {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Contract Line Item - Cancel Work Orders on Decommissioning</label>
+    <loops>
+        <name>Loop_Retrieved_Work_Orders</name>
+        <label>Loop Retrieved Work Orders</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <collectionReference>Get_Work_Orders</collectionReference>
+        <iterationOrder>Asc</iterationOrder>
+        <nextValueConnector>
+            <targetReference>Status_Check</targetReference>
+        </nextValueConnector>
+        <noMoreValuesConnector>
+            <targetReference>Cancel_Retrieved_Work_Orders</targetReference>
+        </noMoreValuesConnector>
+    </loops>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <recordLookups>
+        <description>WorkTypeId of &quot;08qRo0000000JttIAE&quot; is for &quot;PPM&quot;.
+This gets Work Orders that:
+1. Related to the Contract Line Item
+2. Have a &quot;Next Service Date&quot; after the &quot;Decommission Date&quot; or left blank
+3. Are in the &quot;New&quot; or &quot;In Progress&quot; statuses
+4. Have their &quot;Contract Type&quot; set as &quot;UK - Service Contract&quot;
+5. Have the &quot;PPM&quot; Work Type</description>
+        <name>Get_Work_Orders</name>
+        <label>Get Work Orders</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Work_Orders_Found_Check</targetReference>
+        </connector>
+        <filterLogic>1 AND 4 AND (2 OR 3) AND (5 OR 6) AND 7</filterLogic>
+        <filters>
+            <field>Contract_Line_Item__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>$Record.Id</elementReference>
+            </value>
+        </filters>
+        <filters>
+            <field>Next_Service_Date__c</field>
+            <operator>GreaterThan</operator>
+            <value>
+                <elementReference>$Record.Decommission_Date__c</elementReference>
+            </value>
+        </filters>
+        <filters>
+            <field>Next_Service_Date__c</field>
+            <operator>EqualTo</operator>
+        </filters>
+        <filters>
+            <field>Contract_Type__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>UK - Service Contract</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>Status</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>New</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>Status</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>In Progress</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>WorkTypeId</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>08qRo0000000JttIAE</stringValue>
+            </value>
+        </filters>
+        <getFirstRecordOnly>false</getFirstRecordOnly>
+        <object>WorkOrder</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordUpdates>
+        <name>Cancel_Retrieved_Work_Orders</name>
+        <label>Cancel Retrieved Work Orders</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Notify_Team_Check</targetReference>
+        </connector>
+        <inputReference>colvarWorkOrdersToUpdate</inputReference>
+    </recordUpdates>
+    <start>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Get_Work_Orders</targetReference>
+        </connector>
+        <doesRequireRecordChangedToMeetCriteria>true</doesRequireRecordChangedToMeetCriteria>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Decommission_Date__c</field>
+            <operator>NotEqualTo</operator>
+        </filters>
+        <object>ContractLineItem</object>
+        <recordTriggerType>Update</recordTriggerType>
+        <triggerType>RecordAfterSave</triggerType>
+    </start>
+    <status>Active</status>
+    <textTemplates>
+        <name>texttemplateEmailBody</name>
+        <isViewedAsPlainText>false</isViewedAsPlainText>
+        <text>&lt;p&gt;Hello,&lt;/p&gt;&lt;p&gt;Contract Line Item &lt;a href=&quot;https://probomedical.lightning.force.com/lightning/r/ServiceContract/{!$Record.Id}/view&quot; rel=&quot;noopener noreferrer&quot; target=&quot;_blank&quot;&gt;{!$Record.System_Serial_Number__c}&lt;/a&gt; has been decommissioned.&lt;/p&gt;&lt;p&gt;The related following Work Orders were previously booked but have now been marked as &quot;Canceled&quot;:&lt;/p&gt;&lt;p&gt;{!varCanceledWorkOrderList}&lt;/p&gt;</text>
+    </textTemplates>
+    <variables>
+        <name>colvarWorkOrdersPreviouslyBooked</name>
+        <dataType>SObject</dataType>
+        <isCollection>true</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+        <objectType>WorkOrder</objectType>
+    </variables>
+    <variables>
+        <name>colvarWorkOrdersToUpdate</name>
+        <dataType>SObject</dataType>
+        <isCollection>true</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+        <objectType>WorkOrder</objectType>
+    </variables>
+    <variables>
+        <name>varCanceledWorkOrderList</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+</Flow>

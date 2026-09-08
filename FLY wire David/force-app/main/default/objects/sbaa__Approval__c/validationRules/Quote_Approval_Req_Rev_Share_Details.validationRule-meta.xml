@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Quote_Approval_Req_Rev_Share_Details</fullName>
+    <active>false</active>
+    <description>Quote approval status cannot be &quot;Approved&quot; if there are one or more Rev Share products and the Rev Share Details field on Opp has not been filled out.
+BOPI-600 updated to prevent auto renewals from stopping
+
+BOPI-627 Moved from Quote to Approval Object</description>
+    <errorConditionFormula>AND(
+    NOT(ISBLANK(AQS_Quote__c)),
+    AQS_Quote__r.Number_of_Rev_Share_Products__c &gt;= 1,
+    AQS_Quote__r.SBQQ__Opportunity2__r.Revenue_Share_Details__c = &quot;&quot;,
+    ISPICKVAL(sbaa__Status__c, &quot;Approved&quot;),
+    NOT(ISPICKVAL(AQS_Quote__r.SBQQ__Opportunity2__r.Type, &quot;Renewal&quot;))
+)</errorConditionFormula>
+    <errorMessage>Cannot move Quote to approved until the Revenue Share Details field has been filled out</errorMessage>
+</ValidationRule>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<FlowDefinition xmlns="http://soap.sforce.com/2006/04/metadata">
+    <activeVersionNumber>6</activeVersionNumber>
+    <description>Products:
+Cross Border Payments - FWXB1000
+
+Migrated from the [Opp Product] B2B XB Utilization Calculation process using multiple criteria.
+ARR Calculation for &quot;Cross Border - Commercial&quot; with Utilization and Estimated Annual Money Moved. Added ByPass to skip validation rules on Opportunity 05/14/2024. Update to make currency conversion and filter by product code; renewals should not generate ARR; use Ship_To_Account__r 07/24/2024. Use Quote_Line_Type__c instead of Opportunity.Type 07/26/2024. BOPI-511 Updated to calculate ARR when Quote Line Type not &apos;Cancellation&apos; or &apos;Renewal&apos;. BOPI-518 removing Opp criteria filters to let the flow run when renewals are created and the quote line fields are empty. BOPI-603 updated to set ARR to 0 for cancelled lines. BOPI-620 updated to set the ARR for cancelled lines to the original amount as a negative value
+BOPI-857 Allow reps to set ARR to $0
+SALDEV-1184 updated formulas for B2B XB ARR, UtilizationRevenueText, Added new Decision for &quot;New&quot; Quote Lines and Added an &quot;End&quot; if it didnt meet any criteria.
+SALDEV-1277 – updated formula for constant 4% on FX version ≠ bank transfer
+SALDEV-1312 - updated formulas again for constant 4% on FX version, broke out Same Currency into separate formulas for amount and percent based usage amounts.</description>
+    <masterLabel>(Opp Product) B2B XB Utilization Calculation</masterLabel>
+</FlowDefinition>

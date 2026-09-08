@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Edu_Int_Payers_30</fullName>
+    <active>false</active>
+    <description>Edu must have Int Payer</description>
+    <errorConditionFormula>AND(
+$Profile.Name &lt;&gt; &apos;System Administrator&apos;,
+$Profile.Name &lt;&gt; &quot;B - Looker&quot;,
+RecordType.Name = &apos;Education&apos;,
+IsClosed = False,
+Probability &gt;= 0.30,
+OR
+(
+ISNULL(No_International_Payers_At_Opportunity__c)
+)
+)
+&amp;&amp; Opp_Val_Bypass__c = false</errorConditionFormula>
+    <errorDisplayField>No_International_Payers_At_Opportunity__c</errorDisplayField>
+    <errorMessage>***  Fill In: &apos;No International Payers At Opportunity&apos; on Opp. ***</errorMessage>
+</ValidationRule>

@@ -1,0 +1,61 @@
+                                                                                                                         DRAFT      
+                                                                                                                                    
+       Proposed      Future   State   Architecture                                                                                  
+                                                                                                                                    
+                                                                                                                                    
+                                                                                                                                    
+                                                                                                                                    
+                                                                        Architectural Recommendations   K EY H IG HL IG H T S       
+                                                                           Repoint / Consolidate / Remove                           
+                                                                                                                                    
+                                                                           Maxio, Okta, ZoomInfo - Repoint                          
+                                                                                                   1                                
+                                                                            Already shared across Flywire and Sertifi before Unified CRM Layer with one singular
+                                                                           consolidation. Merging to one connection each removes    
+                                                                           duplicate integration overhead, not duplicate tooling. environment to power GTM team
+                                                                              Churnzero - Repoint                                   
+                                                                          No Flywire-side customer success tool exists. Zendesk solves
+                                                                           different problems and are typically run together, not as 2 Simplified Integration Footprint
+                                                                                  alternatives.       Downstream systems and external applications
+                                                                                                       connects to one Salesforce endpoint instead of
+                                                                               Gridbuddy - Repoint                                  
+                                                                                                                 three              
+                                                                           Salesforce productivity / mass-edit tool. Was            
+                          6      5                                            connected to Sertifi before                           
+                                                    1                                                                               
+                                                                                                   3                                
+                                                                                                        Lower License & Maintenance Cost
+                                                                              Amadeus - Repoint                                     
+                                              3                            Travel/GDS system tied to Sertifi's hospitality-specific One CRM, CPQ, and marketing automation license
+                                     2                                      business model. No e t q a u i g v e a n le e n r t ic . tool with a Flywire pool instead of three
+                      4                                                    Passfort/Maxsight → DotFile - 4                          
+                                                                                                      Single Source of Truth for Customer Data
+                                                                               Repoint & Extend                                     
+                                                                                                      One consistent record per account across all three
+                                                                          Already in transition on the Flywire side. Extending it org-
+                                                                           wide completes one KYB/compliance path instead of a legacy businesses, closing the cross-org duplication
+                                                                                Flywire-only migration.                             
+                                                                                                                  risk              
+                                                                           Zendesk – Invoiced - Consolidate                         
+                                                                                                   5                                
+                                                                           Same product (Zendesk) as the Flywire-side instance. Unified Reporting & Forecasting
+                                                                          Merging tenants is a consolidation, not a tool replacement
+                                                                                                     Leadership sees one pipeline and one revenue view
+                                                                                                             natively in Salesforce 
+                                                                            ActiveCampaign - Remove                                 
+                                                                          Marketing automation — same core purpose as Marketo.      
+                                                                           Three platforms doing one job is the direct driver of the
+                                                                              licensing-cost finding raised earlier. 6              
+                                                                                                       Single Release & Deployment Pipeline
+                    7                                                                                                               
+                                                                                                       One sandbox strategy, one CI/CD pipeline, one
+                                                                              HubSpot - Remove                                      
+                                                                                                               regression suite     
+                                                                           Same reasoning as ActiveCampaign — retires in favor of   
+                                                                          Marketo as the org-wide marketing automation platform.    
+                                                                                                   7                                
+                                                                              Quickbooks - Remove     Stronger Data Foundation for AI/Analytics
+                                                                           Solve same purpose as NetSuite (general ledger, AP/AR, Predictive scoring and forecasting improve on one
+                                                                           reporting) at a smaller scale. NetSuite already handles  
+                                                                            Flywire's needs at the tier Sertifi would require. complete dataset
+  49                                                                                                                                

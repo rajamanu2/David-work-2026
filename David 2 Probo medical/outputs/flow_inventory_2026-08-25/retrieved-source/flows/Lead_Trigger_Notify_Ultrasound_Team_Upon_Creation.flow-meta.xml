@@ -1,0 +1,533 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionCalls>
+        <description>Amber &amp; Ashley</description>
+        <name>Send_basic_lead_email_to_US_Team</name>
+        <label>Send basic lead email to US Team</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <actionName>emailSimple</actionName>
+        <actionType>emailSimple</actionType>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
+        <inputParameters>
+            <name>emailAddresses</name>
+            <value>
+                <stringValue>ahironimus@probomedical.com, amadson@probomedical.com</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>composeEmailContent</name>
+            <value>
+                <stringValue>True</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>emailSubject</name>
+            <value>
+                <elementReference>BasicEmailSubject</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>emailBody</name>
+            <value>
+                <elementReference>BasicEmailBody</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>sendRichBody</name>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>relatedRecordId</name>
+            <value>
+                <elementReference>$Record.Id</elementReference>
+            </value>
+        </inputParameters>
+        <nameSegment>emailSimple</nameSegment>
+        <offset>0</offset>
+        <versionString>1.0.1</versionString>
+    </actionCalls>
+    <actionCalls>
+        <name>Send_Part_Sale_Notification</name>
+        <label>Send Part Sale Notification</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <actionName>emailSimple</actionName>
+        <actionType>emailSimple</actionType>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
+        <inputParameters>
+            <name>emailAddresses</name>
+            <value>
+                <stringValue>ahironimus@probomedical.com, amadson@probomedical.com</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>composeEmailContent</name>
+            <value>
+                <stringValue>True</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>emailSubject</name>
+            <value>
+                <elementReference>PartSaleSubject</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>emailBody</name>
+            <value>
+                <elementReference>UltrasoundPartSaleBody</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>sendRichBody</name>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>relatedRecordId</name>
+            <value>
+                <elementReference>$Record.Id</elementReference>
+            </value>
+        </inputParameters>
+        <nameSegment>emailSimple</nameSegment>
+        <offset>0</offset>
+        <versionString>1.0.1</versionString>
+    </actionCalls>
+    <actionCalls>
+        <name>Send_Probe_Repair_Email</name>
+        <label>Send Probe Repair Email</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <actionName>emailSimple</actionName>
+        <actionType>emailSimple</actionType>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
+        <inputParameters>
+            <name>emailAddresses</name>
+            <value>
+                <stringValue>ahironimus@probomedical.com, amadson@probomedical.com</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>composeEmailContent</name>
+            <value>
+                <stringValue>True</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>emailSubject</name>
+            <value>
+                <elementReference>ProbeRepairSubject</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>emailBody</name>
+            <value>
+                <elementReference>UltrasoundProbeRepairBody</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>sendRichBody</name>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>relatedRecordId</name>
+            <value>
+                <elementReference>$Record.Id</elementReference>
+            </value>
+        </inputParameters>
+        <nameSegment>emailSimple</nameSegment>
+        <offset>0</offset>
+        <versionString>1.0.1</versionString>
+    </actionCalls>
+    <actionCalls>
+        <name>Send_Probe_Sale_Notification</name>
+        <label>Send Probe Sale Notification</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <actionName>emailSimple</actionName>
+        <actionType>emailSimple</actionType>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
+        <inputParameters>
+            <name>emailAddresses</name>
+            <value>
+                <stringValue>ahironimus@probomedical.com, amadson@probomedical.com</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>composeEmailContent</name>
+            <value>
+                <stringValue>True</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>emailSubject</name>
+            <value>
+                <elementReference>ProbeSaleSubject</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>emailBody</name>
+            <value>
+                <elementReference>Ultrasound_Probe_Sale</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>sendRichBody</name>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>relatedRecordId</name>
+            <value>
+                <elementReference>$Record.Id</elementReference>
+            </value>
+        </inputParameters>
+        <nameSegment>emailSimple</nameSegment>
+        <offset>0</offset>
+        <versionString>1.0.1</versionString>
+    </actionCalls>
+    <actionCalls>
+        <name>Send_System_Depot_Repair_Email</name>
+        <label>Send System Depot Repair Email</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <actionName>emailSimple</actionName>
+        <actionType>emailSimple</actionType>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
+        <inputParameters>
+            <name>emailAddresses</name>
+            <value>
+                <stringValue>ahironimus@probomedical.com, amadson@probomedical.com</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>composeEmailContent</name>
+            <value>
+                <stringValue>True</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>emailSubject</name>
+            <value>
+                <elementReference>SystemDepotSubject</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>emailBody</name>
+            <value>
+                <elementReference>UltrasoundSystemDepotRepairBody</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>sendRichBody</name>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>relatedRecordId</name>
+            <value>
+                <elementReference>$Record.Id</elementReference>
+            </value>
+        </inputParameters>
+        <nameSegment>emailSimple</nameSegment>
+        <offset>0</offset>
+        <versionString>1.0.1</versionString>
+    </actionCalls>
+    <apiVersion>64.0</apiVersion>
+    <areMetricsLoggedToDataCloud>false</areMetricsLoggedToDataCloud>
+    <decisions>
+        <name>Found_SA</name>
+        <label>Found SA</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <defaultConnector>
+            <isGoTo>true</isGoTo>
+            <targetReference>Send_basic_lead_email_to_US_Team</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>SA_Found</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>Get_Service_Appointment</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Lead_Type_Decision</targetReference>
+            </connector>
+            <label>SA Found</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Found_Work_Order</name>
+        <label>Found Work Order</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <defaultConnector>
+            <targetReference>Send_basic_lead_email_to_US_Team</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Record_Found</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>Get_Related_Work_Order</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Get_Service_Appointment</targetReference>
+            </connector>
+            <label>Record Found</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Lead_Type_Decision</name>
+        <label>Lead Type Decision</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <defaultConnector>
+            <targetReference>Send_basic_lead_email_to_US_Team</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Ultrasound_Probe_Sale</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Lead_Type__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Sales Lead</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Send_Probe_Sale_Notification</targetReference>
+            </connector>
+            <label>Ultrasound Probe Sale</label>
+        </rules>
+        <rules>
+            <name>Ultrasound_Part_Sale</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Lead_Type__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Parts Request</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Send_Part_Sale_Notification</targetReference>
+            </connector>
+            <label>Ultrasound Part Sale</label>
+        </rules>
+        <rules>
+            <name>Ultrasound_System_Dopot</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Lead_Type__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Ultrasound System</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Send_System_Depot_Repair_Email</targetReference>
+            </connector>
+            <label>Ultrasound System Dopot</label>
+        </rules>
+        <rules>
+            <name>Ultrasound_Probe_Repair</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Lead_Type__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Probe Evaluation</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Send_Probe_Repair_Email</targetReference>
+            </connector>
+            <label>Ultrasound Probe Repair</label>
+        </rules>
+    </decisions>
+    <description>9/02/2025 - Kyle/Delegate - Adding other templates for lead type</description>
+    <environments>Default</environments>
+    <formulas>
+        <name>LeadLink</name>
+        <dataType>String</dataType>
+        <expression>{!$Label.SalesforceURL}&amp;{!recordId}</expression>
+    </formulas>
+    <interviewLabel>Lead - Trigger - Notify Ultrasound Team Upon Creation {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Lead - Trigger - Notify Ultrasound Team Upon Creation</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <recordLookups>
+        <name>Get_Related_Work_Order</name>
+        <label>Get Related Work Order</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Found_Work_Order</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Lead__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>$Record.Id</elementReference>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>WorkOrder</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordLookups>
+        <name>Get_Service_Appointment</name>
+        <label>Get Service Appointment</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Found_SA</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Work_Order__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>Get_Related_Work_Order.Id</elementReference>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>ServiceAppointment</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <start>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Get_Related_Work_Order</targetReference>
+        </connector>
+        <filterLogic>1 AND (2 OR 3)</filterLogic>
+        <filters>
+            <field>RecordTypeId</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>012Ro000004RBQ5IAO</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>Country</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>United States</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>CountryCode</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>US</stringValue>
+            </value>
+        </filters>
+        <object>Lead</object>
+        <recordTriggerType>Create</recordTriggerType>
+        <triggerType>RecordAfterSave</triggerType>
+    </start>
+    <status>Active</status>
+    <textTemplates>
+        <name>BasicEmailBody</name>
+        <isViewedAsPlainText>false</isViewedAsPlainText>
+        <text>&lt;p&gt;Hello,&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;Please review the associated US FSL Lead Details:&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;Link: {!LeadLink}&lt;/p&gt;&lt;p&gt;Name: &lt;span style=&quot;background-color: rgb(255, 255, 255);&quot;&gt;{!$Record.FirstName}&amp;amp;&quot; &quot;&amp;amp;{!$Record.LastName}&lt;/span&gt;&lt;/p&gt;&lt;p&gt;Company: {!$Record.Company}&lt;/p&gt;&lt;p&gt;Phone: {!$Record.Phone}&lt;/p&gt;&lt;p&gt;Email: {!$Record.Email}&lt;/p&gt;&lt;p&gt;&lt;span style=&quot;background-color: rgb(255, 255, 255);&quot;&gt;Record Id: {!$Record.Id}&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot;background-color: rgb(255, 255, 255);&quot;&gt;Lead Type: {!$Record.Lead_Type__c}&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot;background-color: rgb(255, 255, 255);&quot;&gt;Product Type: {!$Record.Product_Type__c}&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot;background-color: rgb(255, 255, 255);&quot;&gt;Lead Description: {!$Record.Description}&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot;background-color: rgb(255, 255, 255);&quot;&gt;Lead Part No: {!$Record.PartNo__c}&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot;background-color: rgb(255, 255, 255);&quot;&gt;Lead Parts or Probes Needed: {!$Record.PartsorProbesNeeded__c}&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;strong style=&quot;background-color: rgb(255, 255, 255);&quot;&gt;Asset2: {!$Record.Related_Sales_Asset_Asset2__c}&lt;/strong&gt;&lt;/p&gt;&lt;p&gt;&lt;strong style=&quot;background-color: rgb(255, 255, 255);&quot;&gt;Need Quote By: {!$Record.Need_Quote_By__c}&lt;/strong&gt;&lt;/p&gt;</text>
+    </textTemplates>
+    <textTemplates>
+        <name>BasicEmailSubject</name>
+        <isViewedAsPlainText>false</isViewedAsPlainText>
+        <text>&lt;p&gt;Notice: A new US FSL Lead has been Created: {!$Record.FirstName}&amp;amp;&quot; &quot;&amp;amp;{!$Record.LastName}&lt;/p&gt;</text>
+    </textTemplates>
+    <textTemplates>
+        <name>PartSaleSubject</name>
+        <isViewedAsPlainText>false</isViewedAsPlainText>
+        <text>&lt;p&gt;&lt;span style=&quot;background-color: rgb(255, 255, 255);&quot;&gt;Notice: A new US FSL &quot;Parts Sale&quot; Lead has been Created: {!$Record.FirstName}&amp;amp;&quot; &quot;&amp;amp;{!$Record.LastName}&lt;/span&gt;&lt;/p&gt;</text>
+    </textTemplates>
+    <textTemplates>
+        <name>ProbeRepairSubject</name>
+        <isViewedAsPlainText>false</isViewedAsPlainText>
+        <text>&lt;p&gt;&lt;span style=&quot;background-color: rgb(255, 255, 255);&quot;&gt;Notice: A new US FSL &quot;Probe Repair&quot; Lead has been Created: {!$Record.FirstName}&amp;amp;&quot; &quot;&amp;amp;{!$Record.LastName}&lt;/span&gt;&lt;/p&gt;</text>
+    </textTemplates>
+    <textTemplates>
+        <name>ProbeSaleSubject</name>
+        <isViewedAsPlainText>false</isViewedAsPlainText>
+        <text>&lt;p&gt;&lt;span style=&quot;background-color: rgb(255, 255, 255);&quot;&gt;Notice: A new US FSL &quot;Probe Sale&quot; Lead has been Created: {!$Record.FirstName}&amp;amp;&quot; &quot;&amp;amp;{!$Record.LastName}&lt;/span&gt;&lt;/p&gt;</text>
+    </textTemplates>
+    <textTemplates>
+        <name>SystemDepotSubject</name>
+        <isViewedAsPlainText>false</isViewedAsPlainText>
+        <text>&lt;p&gt;&lt;span style=&quot;background-color: rgb(255, 255, 255);&quot;&gt;Notice: A new US FSL &quot;System Depot Repair&quot; Lead has been Created: {!$Record.FirstName}&amp;amp;&quot; &quot;&amp;amp;{!$Record.LastName}&lt;/span&gt;&lt;/p&gt;</text>
+    </textTemplates>
+    <textTemplates>
+        <name>UltrasoundPartSaleBody</name>
+        <isViewedAsPlainText>false</isViewedAsPlainText>
+        <text>&lt;p&gt;Hello, Please see the below &lt;strong&gt;Ultrasound&amp;nbsp;Part Sale Details:&amp;nbsp;&lt;/strong&gt;&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;&lt;u&gt;Lead Info:&lt;/u&gt;&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;Link: {!LeadLink}&lt;/p&gt;&lt;p&gt;Name: &lt;span style=&quot;background-color: rgb(255, 255, 255);&quot;&gt;{!$Record.FirstName}&amp;amp;&quot; &quot;&amp;amp;{!$Record.LastName}&lt;/span&gt;&lt;/p&gt;&lt;p&gt;Company: {!$Record.Company}&lt;/p&gt;&lt;p&gt;Phone: {!$Record.Phone}&lt;/p&gt;&lt;p&gt;Email: {!$Record.Email}&lt;/p&gt;&lt;p&gt;&lt;span style=&quot;background-color: rgb(255, 255, 255);&quot;&gt;Record Id: {!$Record.Id}&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot;background-color: rgb(255, 255, 255);&quot;&gt;Lead Type: {!$Record.Lead_Type__c}&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot;background-color: rgb(255, 255, 255);&quot;&gt;Product Type: {!$Record.Product_Type__c}&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot;background-color: rgb(255, 255, 255);&quot;&gt;Lead Description: {!$Record.Description}&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot;background-color: rgb(255, 255, 255);&quot;&gt;Lead Part No: {!$Record.PartNo__c}&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot;background-color: rgb(255, 255, 255);&quot;&gt;Lead Parts or Probes Needed: {!$Record.PartsorProbesNeeded__c}&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;strong style=&quot;background-color: rgb(255, 255, 255);&quot;&gt;Asset2: {!$Record.Related_Sales_Asset_Asset2__c}&lt;/strong&gt;&lt;/p&gt;&lt;p&gt;&lt;strong style=&quot;background-color: rgb(255, 255, 255);&quot;&gt;Need Quote By: {!$Record.Need_Quote_By__c}&lt;/strong&gt;&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;&lt;u&gt;Work Order Info:&lt;/u&gt;&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;Work Order Number:&lt;span style=&quot;background-color: rgb(255, 255, 255);&quot;&gt;{!Get_Related_Work_Order.WorkOrderNumber}&lt;/span&gt;&lt;/p&gt;&lt;p&gt;Customer Bill To Account: {!Get_Related_Work_Order.Account_Name__c}&lt;/p&gt;&lt;p&gt;Service/Site Location: &lt;span style=&quot;background-color: rgb(255, 255, 255);&quot;&gt;{!Get_Related_Work_Order.Location_of_Equipment_Address__c}&lt;/span&gt;&lt;/p&gt;&lt;p&gt;Ship To Location (i.e Fedex hold, FSE home, direct to customer): &lt;span style=&quot;background-color: rgb(255, 255, 255);&quot;&gt;{!Get_Related_Work_Order.Shipping_Address__c}&lt;/span&gt;&lt;/p&gt;&lt;p&gt;System Type: &lt;span style=&quot;background-color: rgb(255, 255, 255);&quot;&gt;{!Get_Related_Work_Order.Line_Item_System__c}&lt;/span&gt;&lt;/p&gt;&lt;p&gt;Part Name: &lt;span style=&quot;background-color: rgb(255, 255, 255);&quot;&gt;{!Get_Related_Work_Order.Make_Model__c}&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot;background-color: rgb(255, 255, 255);&quot;&gt;Thanks,&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot;background-color: rgb(255, 255, 255);&quot;&gt;US Ultrasound Team&lt;/span&gt;&lt;/p&gt;</text>
+    </textTemplates>
+    <textTemplates>
+        <description>still to add, need to identify source: Customer Complaint:
+
+Loaner Needed Y/N?
+
+Ship to Location of Loaner</description>
+        <name>UltrasoundProbeRepairBody</name>
+        <isViewedAsPlainText>false</isViewedAsPlainText>
+        <text>&lt;p&gt;Hello, please see the below&lt;strong&gt; Ultrasound&amp;nbsp;Probe&amp;nbsp;Repair Details:&lt;/strong&gt;&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;&lt;u&gt;Lead Info:&lt;/u&gt;&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;Link: {!LeadLink}&lt;/p&gt;&lt;p&gt;Name: &lt;span style=&quot;background-color: rgb(255, 255, 255);&quot;&gt;{!$Record.FirstName}&amp;amp;&quot; &quot;&amp;amp;{!$Record.LastName}&lt;/span&gt;&lt;/p&gt;&lt;p&gt;Company: {!$Record.Company}&lt;/p&gt;&lt;p&gt;Phone: {!$Record.Phone}&lt;/p&gt;&lt;p&gt;Email: {!$Record.Email}&lt;/p&gt;&lt;p&gt;&lt;span style=&quot;background-color: rgb(255, 255, 255);&quot;&gt;Record Id: {!$Record.Id}&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot;background-color: rgb(255, 255, 255);&quot;&gt;Lead Type: {!$Record.Lead_Type__c}&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot;background-color: rgb(255, 255, 255);&quot;&gt;Product Type: {!$Record.Product_Type__c}&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot;background-color: rgb(255, 255, 255);&quot;&gt;Lead Description: {!$Record.Description}&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;strong style=&quot;background-color: rgb(255, 255, 255);&quot;&gt;﻿Asset2: {!$Record.Related_Sales_Asset_Asset2__c}&lt;/strong&gt;&lt;/p&gt;&lt;p&gt;&lt;strong style=&quot;background-color: rgb(255, 255, 255);&quot;&gt;Need Quote By: {!$Record.Need_Quote_By__c}&lt;/strong&gt;&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;&lt;u&gt;Work Order Info:&lt;/u&gt;&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;Work Order Number:&lt;span style=&quot;background-color: rgb(255, 255, 255);&quot;&gt;{!Get_Related_Work_Order.WorkOrderNumber}&lt;/span&gt;&lt;/p&gt;&lt;p&gt;Customer Bill To Account: {!Get_Related_Work_Order.Account_Name__c}&lt;/p&gt;&lt;p&gt;Service/Site Location: &lt;span style=&quot;background-color: rgb(255, 255, 255);&quot;&gt;{!Get_Related_Work_Order.Location_of_Equipment_Address__c}&lt;/span&gt;&lt;/p&gt;&lt;p&gt;System Type: &lt;span style=&quot;background-color: rgb(255, 255, 255);&quot;&gt;{!Get_Related_Work_Order.Line_Item_System__c}&lt;/span&gt;&lt;/p&gt;&lt;p&gt;Probe&amp;nbsp;Model: &lt;span style=&quot;background-color: rgb(255, 255, 255);&quot;&gt;{!Get_Related_Work_Order.Make_Model__c}&lt;/span&gt;&lt;/p&gt;&lt;p&gt;Probe&amp;nbsp;Serial Number: {!Get_Related_Work_Order.Serial_Number__c}&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot;background-color: rgb(255, 255, 255);&quot;&gt;Thanks,&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot;background-color: rgb(255, 255, 255);&quot;&gt;US Ultrasound Team&lt;/span&gt;&lt;/p&gt;</text>
+    </textTemplates>
+    <textTemplates>
+        <name>UltrasoundProbeSaleBody</name>
+        <isViewedAsPlainText>false</isViewedAsPlainText>
+        <text>&lt;p&gt;Hello, Please see the below &lt;strong&gt;Ultrasound&amp;nbsp;Probe Sale Details:&amp;nbsp;&lt;/strong&gt;&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;&lt;u&gt;Lead Info:&lt;/u&gt;&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;Link: {!LeadLink}&lt;/p&gt;&lt;p&gt;Name: &lt;span style=&quot;background-color: rgb(255, 255, 255);&quot;&gt;{!$Record.FirstName}&amp;amp;&quot; &quot;&amp;amp;{!$Record.LastName}&lt;/span&gt;&lt;/p&gt;&lt;p&gt;Company: {!$Record.Company}&lt;/p&gt;&lt;p&gt;Phone: {!$Record.Phone}&lt;/p&gt;&lt;p&gt;Email: {!$Record.Email}&lt;/p&gt;&lt;p&gt;&lt;span style=&quot;background-color: rgb(255, 255, 255);&quot;&gt;Record Id: {!$Record.Id}&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot;background-color: rgb(255, 255, 255);&quot;&gt;Lead Type: {!$Record.Lead_Type__c}&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot;background-color: rgb(255, 255, 255);&quot;&gt;Product Type: {!$Record.Product_Type__c}&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot;background-color: rgb(255, 255, 255);&quot;&gt;Lead Description: {!$Record.Description}&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot;background-color: rgb(255, 255, 255);&quot;&gt;Lead Part No: {!$Record.PartNo__c}&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot;background-color: rgb(255, 255, 255);&quot;&gt;Lead Parts or Probes Needed: {!$Record.PartsorProbesNeeded__c}&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;strong style=&quot;background-color: rgb(255, 255, 255);&quot;&gt;﻿Asset2: {!$Record.Related_Sales_Asset_Asset2__c}&lt;/strong&gt;&lt;/p&gt;&lt;p&gt;&lt;strong style=&quot;background-color: rgb(255, 255, 255);&quot;&gt;Need Quote By: {!$Record.Need_Quote_By__c}&lt;/strong&gt;&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;&lt;u&gt;Work Order Info:&lt;/u&gt;&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;Work Order Number:&lt;span style=&quot;background-color: rgb(255, 255, 255);&quot;&gt;{!Get_Related_Work_Order.WorkOrderNumber}&lt;/span&gt;&lt;/p&gt;&lt;p&gt;Customer Bill To Account: {!Get_Related_Work_Order.Account_Name__c}&lt;/p&gt;&lt;p&gt;Service/Site Location: {!Get_Related_Work_Order.Location_of_Equipment_Address__c}&lt;/p&gt;&lt;p&gt;Ship To Location (i.e Fedex hold, FSE home, direct to customer): {!Get_Related_Work_Order.Shipping_Address__c}&lt;/p&gt;&lt;p&gt;System Type: {!Get_Related_Work_Order.Line_Item_System__c}&lt;/p&gt;&lt;p&gt;Probe&amp;nbsp;Model: {!Get_Related_Work_Order.Make_Model__c}&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot;background-color: rgb(255, 255, 255);&quot;&gt;Thanks,&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot;background-color: rgb(255, 255, 255);&quot;&gt;US Ultrasound Team&lt;/span&gt;&lt;/p&gt;</text>
+    </textTemplates>
+    <textTemplates>
+        <description>still to add: Customer Complaint</description>
+        <name>UltrasoundSystemDepotRepairBody</name>
+        <isViewedAsPlainText>false</isViewedAsPlainText>
+        <text>&lt;p&gt;Hello, please see the below&lt;strong&gt; Ultrasound System Depot Repair Details:&lt;/strong&gt;&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;&lt;u&gt;Lead Info:&lt;/u&gt;&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;Link: {!LeadLink}&lt;/p&gt;&lt;p&gt;Name: &lt;span style=&quot;background-color: rgb(255, 255, 255);&quot;&gt;{!$Record.FirstName}&amp;amp;&quot; &quot;&amp;amp;{!$Record.LastName}&lt;/span&gt;&lt;/p&gt;&lt;p&gt;Company: {!$Record.Company}&lt;/p&gt;&lt;p&gt;Phone: {!$Record.Phone}&lt;/p&gt;&lt;p&gt;Email: {!$Record.Email}&lt;/p&gt;&lt;p&gt;&lt;span style=&quot;background-color: rgb(255, 255, 255);&quot;&gt;Record Id: {!$Record.Id}&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot;background-color: rgb(255, 255, 255);&quot;&gt;Lead Type: {!$Record.Lead_Type__c}&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot;background-color: rgb(255, 255, 255);&quot;&gt;Product Type: {!$Record.Product_Type__c}&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot;background-color: rgb(255, 255, 255);&quot;&gt;Lead Description: {!$Record.Description}&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot;background-color: rgb(255, 255, 255);&quot;&gt;Lead Part No: {!$Record.PartNo__c}&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot;background-color: rgb(255, 255, 255);&quot;&gt;Lead Parts or Probes Needed: {!$Record.PartsorProbesNeeded__c}&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;strong style=&quot;background-color: rgb(255, 255, 255);&quot;&gt;﻿Asset2: {!$Record.Related_Sales_Asset_Asset2__c}&lt;/strong&gt;&lt;/p&gt;&lt;p&gt;&lt;strong style=&quot;background-color: rgb(255, 255, 255);&quot;&gt;Need Quote By: {!$Record.Need_Quote_By__c}&lt;/strong&gt;&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;&lt;u&gt;Work Order Info:&lt;/u&gt;&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;Work Order Number:&lt;span style=&quot;background-color: rgb(255, 255, 255);&quot;&gt;{!Get_Related_Work_Order.WorkOrderNumber}&lt;/span&gt;&lt;/p&gt;&lt;p&gt;Customer Bill To Account: {!Get_Related_Work_Order.Account_Name__c}&lt;/p&gt;&lt;p&gt;Service/Site Location: &lt;span style=&quot;background-color: rgb(255, 255, 255);&quot;&gt;{!Get_Related_Work_Order.Location_of_Equipment_Address__c}&lt;/span&gt;&lt;/p&gt;&lt;p&gt;System Type: &lt;span style=&quot;background-color: rgb(255, 255, 255);&quot;&gt;{!Get_Related_Work_Order.Line_Item_System__c}&lt;/span&gt;&lt;/p&gt;&lt;p&gt;System Serial Number: {!Get_Related_Work_Order.System_Serial_Number__c}&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot;background-color: rgb(255, 255, 255);&quot;&gt;Thanks,&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot;background-color: rgb(255, 255, 255);&quot;&gt;US Ultrasound Team&lt;/span&gt;&lt;/p&gt;</text>
+    </textTemplates>
+    <variables>
+        <name>recordId</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+</Flow>

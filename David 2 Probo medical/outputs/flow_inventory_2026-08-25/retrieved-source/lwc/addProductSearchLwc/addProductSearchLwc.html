@@ -1,0 +1,1098 @@
+<template>
+    <template if:false={hideSpinner}><lightning-spinner alternative-text="Loading"></lightning-spinner></template>
+    <template if:true={hideSpinner}>
+        <template if:true={messages.warningMessageAvailable}>
+                <c-add-product-warning-lwc header={messages.warningHeader} message={messages.warningMessage} cancel-label={messages.closeButtonLabel} show-confirm={messages.showConfirmationButton} onconfirmmessage={handleWarningConfirmation}  onclosemessage={handleCancel}></c-add-product-warning-lwc>
+            </template> 
+        <template if:false={messages.warningMessageAvailable}>   
+            <template if:true={messages.saveOLISuccessMessageAvailable}> 
+                    <div class="slds-grid slds-wrap slds-text-align_center"><div class="slds-col slds-size_1-of-1"><p class="slds-text-heading_medium" style="font-weight: bold"><lightning-formatted-text value='{messages.saveOLISuccessMessage}' class="slds-text-color_success" style="font-weight: bold"></lightning-formatted-text></p> </div></div>
+            </template>
+            <!--<c-search-service-appointments work-order-id={parentId}></c-search-service-appointments>
+            <lightning-card title="Choose Service Appointment">
+                <p>Opp or Work Order: {parentId}</p>
+                <lightning-record-picker
+                    label="Service Appointment"
+                    object-api-name="ServiceAppointment"
+                    display-info={displayInfo}
+                    filter={filter}
+                    onchange={handleAppointmentSelection}
+                    >
+                </lightning-record-picker>
+            </lightning-card>-->
+            <lightning-card title="Add Product">
+                <div class="slds-var-m-around_medium" title="Selected Items to Swap" style="width: 1000px">
+                    <template if:true={selectedOLIDataAvailable}> 
+                        <c-oli-paginator-lwc oli-records={selectedOLIData} onprevious={handlePrevious}  onnext={handleNext}> </c-oli-paginator-lwc> 
+                    </template>
+                </div>
+                <div class="slds-grid  slds-wrap" style="display: flex; min-width: initial; max-width: 1000px">
+                        <div class="slds-col slds-size_1-of-3 slds-medium-size_1-of-1 slds-large-size_1-of-1" style="text-align: center">
+                                <template if:true={selectedOLIDataAvailable}>
+                                    <lightning-button variant="brand" label="Swap" title="Swap" name="swapItems" onclick={handleSwap} class="slds-var-m-left_x-small"></lightning-button>
+                                </template>
+                                <lightning-button variant="brand" label="Save" title="Save" name="save"  onclick={handleSave} class="slds-var-m-left_x-small" disabled={selections.saveInProgress}></lightning-button>
+                                <lightning-button variant="brand" label="Save &amp; Close" title="Save and Close" name="saveAndClose"  onclick={handleSaveAndClose} class="slds-var-m-left_x-small" disabled={selections.saveInProgress}></lightning-button>
+                                <lightning-button variant="brand" label="Cancel" title="Cancel" name="cancelRemoval"  onclick={handleCancel} class="slds-var-m-left_x-small"></lightning-button>
+                        </div>
+                        <template if:true={messages.saveOLIerrorMessageAvailable}> 
+                                <div class="slds-grid slds-wrap" style="margin-left:2%"><div class="slds-col slds-size_1-of-1"><p class="slds-text-heading_medium" style="font-weight: bold"><lightning-formatted-text value='{messages.saveOLIErrorMessage}' class="slds-text-color_error" style="font-weight: bold"></lightning-formatted-text></p> </div> </div>
+                        </template>  
+                </div>
+                
+                    <lightning-layout multiple-rows="true">
+                            <lightning-layout-item padding="around-small" size="12"><lightning-input label="Search" value={searchTerm} onchange={handleSearchKeyChange} type="search" style="min-width: initial; max-width: 600px"></lightning-input></lightning-layout-item>
+                            <lightning-layout-item padding="around-small" size="12">
+                                <div class="slds-grid slds-wrap">
+                                    <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-1 slds-large-size_1-of-1">
+                                        <div class="slds-form-element" title="Functional Rating">  
+                                            <label class="slds-form-element__label" for="lightning-button-group-functional-rating">Functional Rating</label>         
+                                            <div class="slds-form-element__control">
+                                                <lightning-button-group id="lightning-button-group-functional-rating">
+                                                    <template for:each={selections.functionalRatings} for:item='functionalRating'>
+                                                        <lightning-button-stateful  key={functionalRating.value} label-when-off={functionalRating.value} label-when-on={functionalRating.value} label-when-hover={functionalRating.value} icon-name-when-off="utility:add"
+                                                                                    icon-name-when-on="utility:check" icon-name-when-hover="utility:close" data-value={functionalRating.value} selected={functionalRating.selected} onclick={handleFunctionalRatingSelectionChange}>
+                                                        </lightning-button-stateful>
+                                                    </template>
+                                                </lightning-button-group>
+                                            </div>
+                                        </div>
+                                        <div class="slds-form-element" title="Check In Type" style="margin-top: 10px">  
+                                                <label class="slds-form-element__label" for="lightning-button-group-check-in-type">Check In Type</label>         
+                                                <div class="slds-form-element__control">
+                                                    <lightning-button-group id="lightning-button-group-check-in-type">
+                                                        <template for:each={selections.checkInTypes} for:item='checkInType'>
+                                                            <lightning-button-stateful  key={checkInType.value} label-when-off={checkInType.value} label-when-on={checkInType.value} label-when-hover={checkInType.value} icon-name-when-off="utility:add"
+                                                                                        icon-name-when-on="utility:check" icon-name-when-hover="utility:close" data-value={checkInType.value} selected={checkInType.selected} onclick={handleCheckInTypeSelectionChange}>
+                                                                                     
+                                                            </lightning-button-stateful>
+                                                        </template>
+                                                    </lightning-button-group>
+                                                </div>
+                                        </div>
+                                        <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-1 slds-large-size_1-of-1">
+                                            <!--<div class="slds-form-element" title="Hide Reserved Items">
+                                                    <lightning-input type="toggle" label="hideReserved" message-toggle-active="Yes"  message-toggle-inactive="No" onchange={handleHideReservedToggleChange} checked></lightning-input>
+                                            </div>-->
+                                            
+                                            <div class="slds-form-element" title="Available Items Only" style="margin-top: 10px">
+                                                    <lightning-input type="toggle" label="Available Only" message-toggle-active="Yes"  message-toggle-inactive="No" onchange={handleAvailableToggleChange}></lightning-input>
+                                            </div>
+                                        </div>
+                                        <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-1 slds-large-size_1-of-1">
+                                            <div class="slds-form-element" title="Exact Product Search">
+                                                    <lightning-input type="toggle" label="Exact Search" message-toggle-active="Yes"  message-toggle-inactive="No" onchange={handleExactSearchToggleChange}></lightning-input>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </lightning-layout-item>
+                        <lightning-accordion allow-multiple-sections-open active-section-name={pageSettings.activeSections}>
+                            <lightning-accordion-section name="filterSection" label="Filter" style="min-width: initial; max-width: 1000px">
+                                <lightning-layout-item padding="around-small" size="12">
+                                    <div class="slds-grid slds-wrap">
+                                        <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-1 slds-large-size_1-of-1">
+                                            <div class="slds-form-element" title="Domestic Options">
+                                                    <lightning-input type="toggle" label="Domestic" message-toggle-active="Yes"  message-toggle-inactive="No" onchange={handleDomesticToggleChange} checked></lightning-input>
+                                            </div>
+                                        </div>
+
+                                        <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-1 slds-large-size_1-of-1">
+                                            <div class="slds-form-element" title="Product Ownership">  
+                                                <label class="slds-form-element__label" for="lightning-button-group-product-ownership">Product Ownership</label>         
+                                                <div class="slds-form-element__control">
+                                                    <lightning-button-group id="lightning-button-group-product-ownership">
+                                                        <template for:each={selections.productOwnerships} for:item='productOwnership'>
+                                                        <lightning-button-stateful key={productOwnership.value} label-when-on={productOwnership.value}  label-when-hover={productOwnership.value} icon-name-when-off="utility:add" icon-name-when-on="utility:check"                                                        label-when-off={}
+                                                                icon-name-when-hover="utility:close" data-value={productOwnership.value} selected={productOwnership.selected} onclick={handleProductOwnershipSelectionChange}>
+                                                        </lightning-button-stateful>
+                                                        </template>
+                                                    </lightning-button-group>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-1 slds-large-size_1-of-1">
+                                            <div class="slds-form-element" title="Product Location">  
+                                                <label class="slds-form-element__label" for="lightning-button-group-product-location">Product Location</label>         
+                                                <div class="slds-form-element__control">
+                                                    <lightning-button-group id="lightning-button-group-product-location">
+                                                        <template for:each={selections.productLocations} for:item='productLocation'>
+                                                        <lightning-button-stateful key={productLocation.value} label-when-on={productLocation.value}  label-when-hover={productLocation.value} icon-name-when-off="utility:add" icon-name-when-on="utility:check" label-when-off={productLocation.value}
+                                                                icon-name-when-hover="utility:close" data-value={productLocation.value} selected={productLocation.selected} onclick={handleProductLocationSelectionChange}>
+                                                        </lightning-button-stateful>
+                                                        </template>
+                                                    </lightning-button-group>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-1 slds-large-size_1-of-1">
+                                            <div class="slds-form-element" title="Product Family">  
+                                                <label class="slds-form-element__label" for="lightning-button-group-product-family">Product Family</label>         
+                                                <div class="slds-form-element__control">
+                                                    <lightning-button-group id="lightning-button-group-product-family">
+                                                        <template for:each={selections.productFamilies} for:item='productFamily'>
+                                                        <lightning-button-stateful key={productFamily.value} label-when-on={productFamily.value}  label-when-hover={productFamily.value} icon-name-when-off="utility:add" icon-name-when-on="utility:check" label-when-off={productFamily.value}
+                                                                icon-name-when-hover="utility:close" data-value={productFamily.value} selected={productFamily.selected} onclick={handleProductFamilySelectionChange}>
+                                                        </lightning-button-stateful>
+                                                        </template>
+                                                    </lightning-button-group>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        
+                                    </div>
+                                </lightning-layout-item>
+                                <lightning-layout>
+                                        <lightning-layout-item size="6" padding="horizontal-small">
+                                            <div class="slds-form-element" title="Review Status">
+                                                    <label class="slds-form-element__label">Review Status</label>  
+                                                    <template if:true={reviewStatusPicklistValues.data}>
+                                                        <div class="slds-form-element__control">   
+                                                            <template for:each={reviewStatusPicklistValues.data.values} for:item="revStatus">
+                                                                <lightning-input placeholder="Review Status" key={revStatus.value} label={revStatus.label} data-value={revStatus.value} type="checkbox" onchange={handleReviewStatusSelectionChange}></lightning-input>
+                                                            </template>
+                                                        </div>  
+                                                    </template>
+                                            </div>
+                                        </lightning-layout-item>
+                                        <lightning-layout-item size="6" padding="horizontal-small">
+                                            <div class="slds-form-element" title="Cosmetic Rating">
+                                                    <label class="slds-form-element__label">Cosmetic Rating</label>  
+                                                    <template if:true={cosmeticRatingPicklistValues.data}>
+                                                        <div class="slds-form-element__control">   
+                                                            <template for:each={cosmeticRatingPicklistValues.data.values} for:item="cosRating">
+                                                                <lightning-input placeholder="Cosmetic Rating" key={cosRating.value} label={cosRating.label} data-value={cosRating.value} type="checkbox"  onchange={handleCosmeticRatingSelectionChange}></lightning-input>
+                                                            </template>
+                                                        </div>  
+                                                    </template>
+                                            </div>
+                                        </lightning-layout-item>
+                                    </lightning-layout>
+                                    <!-- NEW FILTERS-->
+                                    <template if:true={partsOnlySearch}>
+                                    <lightning-record-edit-form object-api-name="Product2">
+                                        <lightning-layout style="padding-top: 2%;">
+                                            <lightning-layout-item size="6" padding="horizontal-small">
+                                                <lightning-input type="toggle" label="Include Compatible Parts" message-toggle-active="Yes"  message-toggle-inactive="No" onchange={handleCompatiblePartsToggleChange} checked></lightning-input>
+
+                                            </lightning-layout-item>
+                                            
+                                        </lightning-layout>
+                                        <lightning-layout>
+                                            <lightning-layout-item size="6" padding="horizontal-small">
+                                                <lightning-input-field field-name="OEM__c" onchange={handleOEMSelectionChange}></lightning-input-field>
+                                            </lightning-layout-item>
+                                            <lightning-layout-item size="6" padding="horizontal-small">
+                                                <lightning-input-field field-name="Part_Type__c" onchange={handlePartTypeSelectionChange}></lightning-input-field>
+                                            </lightning-layout-item>
+                                        </lightning-layout> 
+                                        <lightning-layout> 
+                                            <lightning-layout-item size="6" padding="horizontal-small"> 
+                                                <lightning-input-field field-name="Modality__c" onchange={handleModalitySelectionChange}></lightning-input-field>
+                                            </lightning-layout-item>
+                                            <lightning-layout-item size="6" padding="horizontal-small">
+                                                <div class="slds-form-element" title="Spacer"></div>
+                                            </lightning-layout-item>
+                                        </lightning-layout> 
+                                        <div style="padding-top: 1%;">
+                                            <lightning-button class="slds-section__title-action" icon-position="left" variant="base" label="Compatitble System" ></lightning-button>
+                                        </div>
+                                        <lightning-layout >
+                                            <lightning-layout-item size="6" padding="horizontal-small">
+                                                <lightning-input-field field-name="Compatible_System_OEM__c" onchange={handleCompatibleSystemOEMSelectionChange}></lightning-input-field>
+                                            </lightning-layout-item>
+                                            <lightning-layout-item size="6" padding="horizontal-small">
+                                                <lightning-input-field field-name="Compatible_System_Family__c" onchange={handleCompatibleSystemFamilySelectionChange}></lightning-input-field>
+                                            </lightning-layout-item>
+                                        </lightning-layout> 
+                                        <lightning-layout> 
+                                            <lightning-layout-item size="6" padding="horizontal-small"> 
+                                                <lightning-input-field field-name="Compatible_System_Model__c" onchange={handleCompatibleSystemModelSelectionChange}></lightning-input-field>
+                                            </lightning-layout-item>
+                                            <lightning-layout-item size="6" padding="horizontal-small">
+                                                <lightning-input-field field-name="Compatible_System_Software_Version__c" onchange={handleCompatibleSystemSoftwareVersionSelectionChange}></lightning-input-field>
+                                            </lightning-layout-item>
+                                        </lightning-layout> 
+                                        <lightning-layout>  
+                                            <lightning-layout-item size="6" padding="horizontal-small">
+                                                <lightning-input-field field-name="Compatible_System_BT_Revision_Level__c" onchange={handleCompatibleSystemRevisionLevelSelectionChange}></lightning-input-field>
+                                            </lightning-layout-item>
+                                            <lightning-layout-item size="6" padding="horizontal-small">
+                                                <div class="slds-form-element" title="Spacer"></div>
+                                            </lightning-layout-item>
+                                    </lightning-layout>
+                                    </lightning-record-edit-form>
+                                    </template>
+                                     <!-- END NEW FILTERS-->
+                            </lightning-accordion-section>
+                            <lightning-accordion-section name="searchResults" label="Search Results">
+                                <lightning-layout-item size="12" flexibility="auto">
+                                    <div class="slds-grid slds-wrap">
+                                        <div class="slds-form-element"><lightning-formatted-number value='{selectedOLICount}' id="text-input-selected-items-count"></lightning-formatted-number><label class="slds-form-element__label">&nbsp;item(s) selected</label></div>
+                                        <template if:true={selectedOLIDataAvailable}>
+                                            <div class="slds-form-element">
+                                                &nbsp;&nbsp;<lightning-formatted-number value='{swapOLICount}' id="text-input-swap-items-count"></lightning-formatted-number><label class="slds-form-element__label">&nbsp;item(s) swapped</label>
+                                            </div> 
+                                        </template>
+                                    </div>
+                                    <lightning-button class="slds-section__title-action" icon-position="left" variant="base" label="Search Results"></lightning-button>
+                                    <template if:true={messages.searchResultsMessageAvailable}> 
+                                        <div class="slds-grid slds-wrap" style="margin-left:2%"><div class="slds-col slds-size_1-of-1"><p class="slds-text-heading_small"><lightning-formatted-text value='{messages.searchResultsMessage}' class="slds-text-color_default"></lightning-formatted-text></p> </div> </div> 
+                                    </template>  
+                                    <div class="slds-table--header-fixed_container">      
+                                        <div class="slds-scrollable_y" style="height:100%;">
+                                            <template if:true={productDataAvailable}>
+                                            <table class="slds-table slds-table_cell-buffer slds-table_bordered slds-table--header-fixed" style="empty-cells: show; width: 100%;">
+                                                <thead>  
+                                                    <template if:true={isSalesOpportunity}>
+                                                        <tr class="slds-line-height_reset">
+                                                            <th class="slds-text-align_right" scope="col" style="width: 3.25rem;" title="Select">
+                                                                <div class="slds-truncate slds-cell-fixed" title="Item Selection">&nbsp;</div>
+                                                            </th>
+                                                            <th class="slds-text-align_right" scope="col" style="width: 3.25rem;" title="Select">
+                                                                <div class="slds-truncate slds-cell-fixed" title="Information">&nbsp;</div>
+                                                            </th>
+                                                            <th class="" scope="col" title="Asset Number">
+                                                                <div class="slds-truncate slds-cell-fixed" title="Asset Number">Asset No</div>
+                                                            </th>
+                                                            <th class="" scope="col" title="Product Name">
+                                                                <div class="slds-truncate slds-cell-fixed" title="Product Name">Name</div>
+                                                            </th>
+                                                            <template if:true={partsOnlySearch}>
+                                                                <th class="" scope="col" title="part_number__c">
+                                                                    <div class="slds-truncate slds-cell-fixed" title="Part #">Part #</div>
+                                                                </th>
+                                                            </template>
+                                                            <template if:true={partsOnlySearch}>
+                                                                <th class="" scope="col" title="review_status__c">
+                                                                    <div class="slds-truncate slds-cell-fixed" title="Review Status">Review Status</div>
+                                                                </th>
+                                                            </template>
+                                                            <template if:true={partsOnlySearch}>
+                                                            <th class="" scope="col" title="sub_location__c">
+                                                                <div class="slds-truncate slds-cell-fixed" title="Sublocation">Sublocation</div>
+                                                            </th>
+                                                            </template>
+                                                            <template if:true={partsOnlySearch}>
+                                                                <th class="" scope="col" title="Part_Sug_Pr_Ex">
+                                                                    <div class="slds-truncate slds-cell-fixed" title="PartsSugPrEx">PartsSugPrEx</div>
+                                                                </th>
+                                                            </template>
+                                                            <template if:true={partsOnlySearch}>
+                                                                <th class="" scope="col" title="Part_Sug_Pr_Out">
+                                                                    <div class="slds-truncate slds-cell-fixed" title="PartsSugPrOut">PartsSugPrOut</div>
+                                                                </th>
+                                                            </template>
+                                                            
+                                                            <th class="" scope="col" title="Vendor Name">
+                                                                <div class="slds-truncate slds-cell-fixed" title="Vendor Name">Vendor Name</div>
+                                                            </th>
+                                                            <th class="" scope="col" title="Link to Image">
+                                                                <div class="slds-truncate slds-cell-fixed" title="Link to Image">Image</div>
+                                                            </th>
+                                                            <template if:true={columnSettings.showCheckInTypeColumn}>
+                                                                <th class="" scope="col" title="check_in_type__c">
+                                                                    <div class="slds-truncate slds-cell-fixed" title="Check In Type">Check In Type</div>
+                                                                </th>
+                                                            </template>
+                                                            <template if:true={columnSettings.showReservedColumn}>
+                                                                <th class="" scope="col" title="reserved__c">
+                                                                    <div class="slds-truncate slds-cell-fixed" title="Reserved" >Reserved</div>
+                                                                </th>
+                                                            </template>
+                                                            <template if:true={columnSettings.showPurchasingApprovedColumn}>
+                                                                <th class="" scope="col" title="purchasing_approved__c">
+                                                                    <div class="slds-truncate slds-cell-fixed" title="Pur.Appr.">Pur.Appr.</div>
+                                                                </th>
+                                                            </template>
+                                                            <template if:true={columnSettings.showLocationColumn}>
+                                                                <th class="" scope="col" title="location__c">
+                                                                    <div class="slds-truncate slds-cell-fixed" title="Location">Location</div>
+                                                                </th>
+                                                                <th class="" scope="col" title="sub_location__c">
+                                                                    <div class="slds-truncate slds-cell-fixed" title="Sublocation">Sublocation</div>
+                                                                </th>
+                                                            </template>
+                                                            <template if:true={columnSettings.showFunctionalRatingColumn}>
+                                                                <th class="" scope="col" title="functional_rating__c">
+                                                                    <div class="slds-truncate slds-cell-fixed" title="FuncRate">FuncRate</div>
+                                                                </th>
+                                                            </template>
+                                                            <template if:true={columnSettings.showCosmeticRatingColumn}>
+                                                                <th class="" scope="col" title="cosmetic_rating__c">
+                                                                    <div class="slds-truncate slds-cell-fixed" title="CosRate">CosRate</div>
+                                                                </th>
+                                                            </template>
+                                                         <!--<template if:true={columnSettings.showPriceColumn}>
+                                                                <th class="" scope="col" title="price__c">
+                                                                    <div class="slds-truncate slds-cell-fixed" title="Price">Price</div>
+                                                                </th>
+                                                            </template>-->
+                                                            <template if:true={columnSettings.showCostColumn}>
+                                                                <th class="" scope="col" title="cost__c">
+                                                                    <div class="slds-truncate slds-cell-fixed" title="Cost">Cost</div>
+                                                                </th>
+                                                            </template>
+                                                            <template if:true={columnSettings.showRetailPrOutColumn}>
+                                                                <th class="" scope="col" title="retail_pr_out__c">
+                                                                    <div class="slds-truncate slds-cell-fixed" title="RetailPrOut">RetailPrOut</div>
+                                                                </th>
+                                                            </template>
+                                                            <template if:true={columnSettings.showRetailPrExColumn}>
+                                                                <th class="" scope="col" title="retail_pr_ex__c">
+                                                                    <div class="slds-truncate slds-cell-fixed" title="RetailPrEx">RetailPrEx</div>
+                                                                </th>
+                                                            </template>
+                                                            <template if:true={columnSettings.showDealerPrOutColumn}>
+                                                                <th class="" scope="col" title="dealer_pr_out__c">
+                                                                    <div class="slds-truncate slds-cell-fixed" title="DealerPrOut">DealerPrOut</div>
+                                                                </th>
+                                                            </template>
+                                                            <template if:true={columnSettings.showDealerPrExColumn}>
+                                                                <th class="" scope="col" title="dealer_pr_ex__c">
+                                                                    <div class="slds-truncate slds-cell-fixed" title="DealerPrEx">DealerPrEx</div>
+                                                                </th>
+                                                            </template>
+                                                            <!--<template if:true={columnSettings.showSugPrOutColumn}>
+                                                                <th class="" scope="col" title="sug_pr_out__c">
+                                                                    <div class="slds-truncate slds-cell-fixed" title="SugPrOut">SugPrOut</div>
+                                                                </th>
+                                                            </template>
+                                                            <template if:true={columnSettings.showSugPrExColumn}>
+                                                                <th class="" scope="col" title="sug_pr_ex__c">
+                                                                    <div class="slds-truncate slds-cell-fixed" title="SugPrEx">SugPrEx</div>
+                                                                </th>
+                                                            </template>-->
+                                                           <!-- <template if:true={columnSettings.showStdCostOutColumn}>
+                                                                <th class="" scope="col" title="std_cost_out__c">
+                                                                    <div class="slds-truncate slds-cell-fixed" title="StdCostOut">StdCostOut</div>
+                                                                </th>
+                                                            </template>
+                                                            <template if:true={columnSettings.showStdCostExColumn}>
+                                                                <th class="" scope="col" title="std_cost_ex__c">
+                                                                    <div class="slds-truncate slds-cell-fixed" title="StdCostEx">StdCostEx</div>
+                                                                </th>
+                                                            </template>
+                                                            <template if:true={columnSettings.showSugPrWithSystemColumn}>
+                                                                <th class="" scope="col" title="sug_price_with_system__c">
+                                                                    <div class="slds-truncate slds-cell-fixed" title="SugPrWithSystem">SugPrWithSystem</div>
+                                                                </th>
+                                                            </template>-->
+                                                            <template if:true={columnSettings.showNewSugPrOutColumn}>
+                                                                <th class="" scope="col">
+                                                                    <div class="slds-truncate slds-cell-fixed" title="NewSugPrOut">NewSugPrOut</div>
+                                                                </th>
+                                                            </template>
+                                                            <template if:true={columnSettings.showNewSugPrExColumn}>
+                                                                <th class="" scope="col">
+                                                                    <div class="slds-truncate slds-cell-fixed" title="NewSugPrEx">NewSugPrEx</div>
+                                                                </th>
+                                                            </template>
+                                                            <!--<template if:true={columnSettings.showNewStdCostOutColumn}>
+                                                                <th class="" scope="col">
+                                                                    <div class="slds-truncate slds-cell-fixed" title="NewStdCostOut">NewStdCostOut</div>
+                                                                </th>
+                                                            </template>
+                                                            <template if:true={columnSettings.showNewStdCostExColumn}>
+                                                                <th class="" scope="col" >
+                                                                    <div class="slds-truncate slds-cell-fixed" title="NewStdCostEx">NewStdCostEx</div>
+                                                                </th>
+                                                            </template>
+                                                            <template if:true={columnSettings.showPropSTDWholeslPrColumn}>
+                                                                <th class="" scope="col">
+                                                                    <div class="slds-truncate slds-cell-fixed" title="Prop STD Wholesl Pr">Prop STD Wholesl Pr</div>
+                                                                </th>
+                                                            </template>
+                                                            <template if:true={columnSettings.showPropSTDRefurbColumn}>
+                                                                <th class="" scope="col">
+                                                                    <div class="slds-truncate slds-cell-fixed" title="Prop STD Refurb">Prop STD Refurb</div>
+                                                                </th>
+                                                            </template>
+                                                            <template if:true={columnSettings.showPropSTDRetailColumn}>
+                                                                <th class="" scope="col">
+                                                                    <div class="slds-truncate slds-cell-fixed" title="Prop STD Retail">Prop STD Retail</div>
+                                                                </th>
+                                                            </template>
+                                                            <template if:true={columnSettings.showSpecialOfferColumn}>
+                                                                <th class="" scope="col" title="special_offer_pricing__c">
+                                                                    <div class="slds-truncate slds-cell-fixed" title="Special Offer">Special Offer</div>
+                                                                </th>
+                                                            </template>
+                                                            <template if:true={columnSettings.showCompatibleSystemColumn}>
+                                                                    <th class="" scope="col" title="compatible_system__c">
+                                                                        <div class="slds-truncate slds-cell-fixed" title="Compatible System">Compatible System</div>
+                                                                    </th>
+                                                            </template>-->
+                                                            <th class="" scope="col" title="Core Exchange">
+                                                                <div class="slds-truncate slds-cell-fixed" title="Core Exchange">Core Exchange</div>
+                                                            </th>
+                                                            <template if:true={columnSettings.showReviewStatusColumn}>
+                                                                    <th class="" scope="col" title="review_status__c">
+                                                                        <div class="slds-truncate slds-cell-fixed" title="Review Status">Review Status</div>
+                                                                    </th>
+                                                            </template>
+                                                            <template if:true={columnSettings.showSerialNumberColumn}>
+                                                                <th class="" scope="col" title="serial_no__c">
+                                                                    <div class="slds-truncate slds-cell-fixed" title="Serial #">Serial #</div>
+                                                                </th>
+                                                            </template>
+                                                            <template if:true={columnSettings.showPartNumberColumn}>
+                                                                <th class="" scope="col" title="part_number__c">
+                                                                    <div class="slds-truncate slds-cell-fixed" title="Part #">Part #</div>
+                                                                </th>
+                                                            </template>
+                                                            <template if:true={columnSettings.showSysSoftColumn}>
+                                                                <th class="" scope="col" title="system_software__c">
+                                                                    <div class="slds-truncate slds-cell-fixed" title="SysSoft">SysSoft</div>
+                                                                </th>
+                                                            </template>
+                                                            <template if:true={columnSettings.showDOMColumn}>
+                                                                <th class="" scope="col" title="date_of_manufacture__c">
+                                                                    <div class="slds-truncate slds-cell-fixed" title="DOM">DOM</div>
+                                                                </th>
+                                                            </template>
+                                                            <template if:true={columnSettings.showSystemTestColumn}>
+                                                                <th class="" scope="col" title="d_system_test__c" >
+                                                                    <div class="slds-truncate slds-cell-fixed">SystemTest for -D</div>
+                                                                </th>
+                                                            </template>
+                                                        </tr>  
+                                                    </template> 
+                                                    
+                                                    <template if:false={isSalesOpportunity}>
+                                                            <tr class="slds-line-height_reset">
+                                                                <th class="slds-text-align_right" scope="col" style="width: 3.25rem;" title="Select">
+                                                                    <div class="slds-truncate slds-cell-fixed" title="Item Selection">&nbsp;</div>
+                                                                </th>
+                                                                <th class="slds-text-align_right" scope="col" style="width: 3.25rem;" title="Select">
+                                                                    <div class="slds-truncate slds-cell-fixed" title="Information">&nbsp;</div>
+                                                                </th>
+                                                                <th class="" scope="col" title="Asset Number">
+                                                                    <div class="slds-truncate slds-cell-fixed" title="Asset Number">Asset No</div>
+                                                                </th>
+                                                                <th class="" scope="col" title="Product Name">
+                                                                    <div class="slds-truncate slds-cell-fixed" title="Product Name">Name</div>
+                                                                </th>
+                                                                <th class="" scope="col" title="Vendor Name">
+                                                                    <div class="slds-truncate slds-cell-fixed" title="Vendor Name">Vendor Name</div>
+                                                                </th>
+                                                                <th class="" scope="col" title="Link to Image">
+                                                                    <div class="slds-truncate slds-cell-fixed" title="Link to Image">Image</div>
+                                                                </th>
+                                                                <template if:true={columnSettings.showCompatibleSystemColumn}>
+                                                                    <th class="" scope="col" title="compatible_system__c">
+                                                                        <div class="slds-truncate slds-cell-fixed" title="Compatible System">Compatible System</div>
+                                                                    </th>
+                                                                </template>
+                                                                <th class="" scope="col" title="Core Exchange">
+                                                                    <div class="slds-truncate slds-cell-fixed" title="Core Exchange">Core Exchange</div>
+                                                                </th>
+                                                                <th class="" scope="col" title="Quantity">
+                                                                    <div class="slds-truncate slds-cell-fixed" title="Quantity">Quantity</div>
+                                                                </th>
+                                                                <th class="" scope="col" title="Probo's Offer">
+                                                                    <div class="slds-truncate slds-cell-fixed" title="Probo's Offer">Probo's Offer</div>
+                                                                </th>
+                                                                <th class="" scope="col" title="Supplier's Quote">
+                                                                    <div class="slds-truncate slds-cell-fixed" title="Supplier's Quote">Supplier's Quote</div>
+                                                                </th>
+                                                                <th class="" scope="col" title="Avg Probo Offer">
+                                                                    <div class="slds-truncate slds-cell-fixed" title="Avg Probo Offer">Avg Probo Offer</div>
+                                                                </th>
+                                                                <th class="" scope="col" title="Avg Supplier Offer">
+                                                                        <div class="slds-truncate slds-cell-fixed" title="Avg Supplier Offer">Avg Supplier Offer</div>
+                                                                </th>
+                                                                <template if:true={columnSettings.showStdCostOutColumn}>
+                                                                    <th class="" scope="col" title="std_cost_out__c">
+                                                                        <div class="slds-truncate slds-cell-fixed" title="StdCostOut">StdCostOut</div>
+                                                                    </th>
+                                                                </template>
+                                                                <template if:true={columnSettings.showSugPrOutColumn}>
+                                                                    <th class="" scope="col" title="sug_pr_out__c">
+                                                                        <div class="slds-truncate slds-cell-fixed" title="SugPrOut">SugPrOut</div>
+                                                                    </th>
+                                                                </template>
+                                                                <th class="" scope="col" title="Total No. of Req">
+                                                                    <div class="slds-truncate slds-cell-fixed" title="Total No. of Req">Total No. of Req</div>
+                                                                </th>
+                                                                <th class="" scope="col" title="Total Qty in Stock">
+                                                                    <div class="slds-truncate slds-cell-fixed" title="Total Qty in Stock">Total Qty in Stock</div>
+                                                                </th>
+                                                                <th class="" scope="col" title="Func. Good Used">
+                                                                    <div class="slds-truncate slds-cell-fixed" title="Func. Good Used">Func. Good Used</div>
+                                                                </th>
+                                                                <th class="" scope="col" title="Func. Good New">
+                                                                    <div class="slds-truncate slds-cell-fixed" title="Func. Good New">Func. Good New</div>
+                                                                </th>
+                                                                <th class="" scope="col" title="Func. Good Total">
+                                                                    <div class="slds-truncate slds-cell-fixed" title="Func. Good Total">Func. Good Total</div>
+                                                                </th>
+                                                                <th class="" scope="col" title="Qty Ready to Ship">
+                                                                    <div class="slds-truncate slds-cell-fixed" title="Qty Ready to Ship">Qty Ready to Ship</div>
+                                                                </th>
+                                                                <th class="" scope="col" title="Target Qty in Stock">
+                                                                    <div class="slds-truncate slds-cell-fixed" title="Target Qty in Stock">Target Qty in Stock</div>
+                                                                </th>
+                                                                <th class="" scope="col" title="Total Purc on Verbal">
+                                                                    <div class="slds-truncate slds-cell-fixed" title="Total Purc on Verbal">Total Purc on Verbal</div>
+                                                                </th>
+                                                                <th class="" scope="col" title="Avg Sales Price">
+                                                                    <div class="slds-truncate slds-cell-fixed" title="Avg Sales Price">Avg Sales Price</div>
+                                                                </th>
+                                                                <th class="" scope="col" title="Untested Probes">
+                                                                    <div class="slds-truncate slds-cell-fixed" title="Untested Probes">Untested Probes</div>
+                                                                </th>
+                                                                <template if:true={columnSettings.showFunctionalRatingColumn}>
+                                                                    <th class="" scope="col" title="functional_rating__c">
+                                                                        <div class="slds-truncate slds-cell-fixed" title="FuncRate">FuncRate</div>
+                                                                    </th>
+                                                                </template>
+                                                                <template if:true={columnSettings.showCosmeticRatingColumn}>
+                                                                    <th class="" scope="col" title="cosmetic_rating__c">
+                                                                        <div class="slds-truncate slds-cell-fixed" title="CosRate">CosRate</div>
+                                                                    </th>
+                                                                </template>
+                                                                <template if:true={columnSettings.showReviewStatusColumn}>
+                                                                    <th class="" scope="col" title="review_status__c">
+                                                                        <div class="slds-truncate slds-cell-fixed" title="Review Status">Review Status</div>
+                                                                    </th>
+                                                                </template>
+                                                                <template if:true={columnSettings.showLocationColumn}>
+                                                                    <th class="" scope="col" title="location__c">
+                                                                        <div class="slds-truncate slds-cell-fixed" title="Location">Location</div>
+                                                                    </th>
+                                                                </template>
+                                                                <template if:true={columnSettings.showPriceColumn}>
+                                                                    <th class="" scope="col" title="price__c">
+                                                                        <div class="slds-truncate slds-cell-fixed" title="Price">Price</div>
+                                                                    </th>
+                                                                </template>
+                                                                <template if:true={columnSettings.showCostColumn}>
+                                                                    <th class="" scope="col" title="cost__c">
+                                                                        <div class="slds-truncate slds-cell-fixed" title="Cost">Cost</div>
+                                                                    </th>
+                                                                </template>
+                                                                <template if:true={columnSettings.showSugPrExColumn}>
+                                                                    <th class="" scope="col" title="sug_pr_ex__c">
+                                                                        <div class="slds-truncate slds-cell-fixed" title="SugPrEx">SugPrEx</div>
+                                                                    </th>
+                                                                </template>
+                                                                <template if:true={columnSettings.showStdCostExColumn}>
+                                                                    <th class="" scope="col" title="std_cost_ex__c">
+                                                                        <div class="slds-truncate slds-cell-fixed" title="StdCostEx">StdCostEx</div>
+                                                                    </th>
+                                                                </template>
+                                                                <template if:true={columnSettings.showSpecialOfferColumn}>
+                                                                    <th class="" scope="col" title="special_offer_pricing__c">
+                                                                        <div class="slds-truncate slds-cell-fixed" title="Special Offer">Special Offer</div>
+                                                                    </th>
+                                                                </template>
+                                                                <template if:true={columnSettings.showSerialNumberColumn}>
+                                                                    <th class="" scope="col" title="serial_no__c">
+                                                                        <div class="slds-truncate slds-cell-fixed" title="Serial #">Serial #</div>
+                                                                    </th>
+                                                                </template>
+                                                                <template if:true={columnSettings.showPartNumberColumn}>
+                                                                    <th class="" scope="col" title="part_number__c">
+                                                                        <div class="slds-truncate slds-cell-fixed" title="Part #">Part #</div>
+                                                                    </th>
+                                                                </template>
+                                                                <template if:true={columnSettings.showSysSoftColumn}>
+                                                                    <th class="" scope="col" title="system_software__c">
+                                                                        <div class="slds-truncate slds-cell-fixed" title="SysSoft">SysSoft</div>
+                                                                    </th>
+                                                                </template>
+                                                                <template if:true={columnSettings.showDOMColumn}>
+                                                                    <th class="" scope="col" title="date_of_manufacture__c">
+                                                                        <div class="slds-truncate slds-cell-fixed" title="DOM">DOM</div>
+                                                                    </th>
+                                                                </template>
+                                                                <template if:true={columnSettings.showNewSugPrOutColumn}>
+                                                                    <th class="" scope="col">
+                                                                        <div class="slds-truncate slds-cell-fixed" title="NewSugPrOut">NewSugPrOut</div>
+                                                                    </th>
+                                                                </template>
+                                                                <template if:true={columnSettings.showNewSugPrExColumn}>
+                                                                    <th class="" scope="col">
+                                                                        <div class="slds-truncate slds-cell-fixed" title="NewSugPrEx">NewSugPrEx</div>
+                                                                    </th>
+                                                                </template>
+                                                                <template if:true={columnSettings.showNewStdCostOutColumn}>
+                                                                    <th class="" scope="col">
+                                                                        <div class="slds-truncate slds-cell-fixed" title="NewStdCostOut">NewStdCostOut</div>
+                                                                    </th>
+                                                                </template>
+                                                                <template if:true={columnSettings.showNewStdCostExColumn}>
+                                                                    <th class="" scope="col" >
+                                                                        <div class="slds-truncate slds-cell-fixed" title="NewStdCostEx">NewStdCostEx</div>
+                                                                    </th>
+                                                                </template>
+                                                                <template if:true={columnSettings.showPropSTDWholeslPrColumn}>
+                                                                    <th class="" scope="col">
+                                                                        <div class="slds-truncate slds-cell-fixed" title="Prop STD Wholesl Pr">Prop STD Wholesl Pr</div>
+                                                                    </th>
+                                                                </template>
+                                                                <template if:true={columnSettings.showPropSTDRefurbColumn}>
+                                                                    <th class="" scope="col">
+                                                                        <div class="slds-truncate slds-cell-fixed" title="Prop STD Refurb">Prop STD Refurb</div>
+                                                                    </th>
+                                                                </template>
+                                                                <template if:true={columnSettings.showPropSTDRetailColumn}>
+                                                                    <th class="" scope="col">
+                                                                        <div class="slds-truncate slds-cell-fixed" title="Prop STD Retail">Prop STD Retail</div>
+                                                                    </th>
+                                                                </template>
+                                                                <template if:true={columnSettings.showSystemTestColumn}>
+                                                                    <th class="" scope="col" title="d_system_test__c" >
+                                                                        <div class="slds-truncate slds-cell-fixed">SystemTest for -D</div>
+                                                                    </th>
+                                                                </template>
+                                                            </tr>  
+                                                    </template> 
+                                                </thead>
+                                                <tbody>
+                                                    <template if:true={isSalesOpportunity}>
+                                                        <template for:each={salesProductData} for:item='asset'>
+                                                                <tr key={asset.id}>
+                                                                        <td class="slds-text-align_center" style="width: 3.25rem;">
+                                                                            <template if:true={isMaterialTransfer}>
+                                                                                <lightning-input type="checkbox" value={asset.Id} data-selection={asset.id} onchange={handleNewOLISelection}></lightning-input>
+                                                                            </template>
+                                                                            <template if:false={isMaterialTransfer}>
+                                                                                <lightning-input type="checkbox" value={asset.Id} data-selection={asset.id} onchange={handleNewOLISelection} disabled={asset.hideAddProduct}></lightning-input>
+                                                                            </template>
+                                                                        </td>
+                                                                        <td class="slds-text-align_center" style="width: 3.25rem;">
+                                                                            <lightning-icon icon-name="utility:info" alternative-text="Information" size="small" data-record={asset.id} onmouseover={showData} onmouseout={hideData} class={assignClass}></lightning-icon>
+                                                                        </td>
+                                                                        <td data-label="Asset Number" style="min-width: 80px; max-width: none" class="slds-text-align_left">
+                                                                            <div class="slds-truncate"><lightning-formatted-url value='{asset.url}' label='{asset.data.Name}' target="_blank"></lightning-formatted-url></div>
+                                                                        </td>
+                                                                        <td data-label="Product Name" style="min-width: 120px; max-width: none" class="slds-text-align_left">
+                                                                            <div class="slds-truncate"><lightning-formatted-text value='{asset.data.Product_Name__r.Name}'></lightning-formatted-text></div>
+                                                                        </td>
+                                                                        <template if:true={partsOnlySearch}>
+                                                                            <td data-label="Part #" style="min-width: 120px; max-width: none" class="slds-text-align_left" title="part_number__c">
+                                                                                <div class="slds-truncate"><lightning-formatted-text value='{asset.data.Part_Number__c}'></lightning-formatted-text></div>
+                                                                            </td> 
+                                                                        </template>
+                                                                        <template if:true={partsOnlySearch}>
+                                                                            <td data-label="Review Status" style="min-width: 120px; max-width: none" class="slds-text-align_left" title="review_status__c">
+                                                                                <div class="slds-truncate"><lightning-formatted-text value='{asset.data.Review_Status__c}'></lightning-formatted-text></div>
+                                                                            </td> 
+                                                                    </template> 
+                                                                    <template if:true={partsOnlySearch}>
+                                                                        <td data-label="Sublocation" style="min-width: 120px; max-width: none" class="slds-text-align_left" title="sub_location__c">
+                                                                            <div class="slds-truncate"><lightning-formatted-text value='{asset.data.Sub_Location__c}'></lightning-formatted-text></div>
+                                                                        </td>    
+                                                                    </template>
+                                                                    <template if:true={partsOnlySearch}>
+                                                                        <td data-label="PartsSugPrEx" style="min-width: 120px; max-width: none" class="slds-text-align_left" title="Part_Sug_Pr_Ex">
+                                                                            <div class="slds-truncate"><lightning-formatted-number value='{asset.partSugPrEx}'></lightning-formatted-number></div>
+                                                                        </td>    
+                                                                    </template>
+                                                                    <template if:true={partsOnlySearch}>
+                                                                        <td data-label="PartsSugPrOut" style="min-width: 120px; max-width: none" class="slds-text-align_left" title="Part_Sug_Pr_Out">
+                                                                            <div class="slds-truncate"><lightning-formatted-number value='{asset.partSugPrOut}'></lightning-formatted-number></div>
+                                                                        </td>    
+                                                                    </template>
+                                                                    
+
+                                                                        <td data-label="Vendor Name" style="min-width: 120px; max-width: none" class="slds-text-align_left">
+                                                                            <div class="slds-truncate"><lightning-formatted-text value='{asset.data.Vendor_Name__c}'></lightning-formatted-text></div>
+                                                                        </td>
+                                                                        <td data-label="Link to Image" style="min-width: 50px; max-width: 70px;" class="slds-text-align_left">
+                                                                                <div class="slds-truncate"><lightning-formatted-url value='{asset.data.Image__c}' label="View" target="_blank"></lightning-formatted-url></div>
+                                                                        </td>
+                                                                        <template if:true={columnSettings.showCheckInTypeColumn}>
+                                                                            <td data-label="Check In Type" style="min-width: 120px; max-width: none" class="slds-text-align_left" title="check_in_type__c">
+                                                                                <div class="slds-truncate"><lightning-formatted-text value='{asset.data.Check_In_Type__c}'></lightning-formatted-text></div>
+                                                                            </td>   
+                                                                        </template>
+                                                                        <template if:true={columnSettings.showReservedColumn}>
+                                                                            <td data-label="Reserved" style="min-width: 80px; max-width: none" class="slds-text-align_left" title="reserved__c">
+                                                                                <div class="slds-truncate"><lightning-input type="checkbox" checked={asset.data.Reserved__c} disabled></lightning-input></div>
+                                                                            </td>   
+                                                                        </template>
+                                                                        <template if:true={columnSettings.showPurchasingApprovedColumn}>
+                                                                            <td data-label="Pur.Appr." style="min-width: 100px; max-width: none" class="slds-text-align_left" title="purchasing_approved__c">
+                                                                                <div class="slds-truncate" ><lightning-formatted-text value='{asset.purchasingApproved}'></lightning-formatted-text></div>
+                                                                            </td>   
+                                                                        </template>
+                                                                        <template if:true={columnSettings.showLocationColumn}>
+                                                                            <td data-label="Location" style="min-width: 120px; max-width: none" class="slds-text-align_left" title="location__c">
+                                                                                <div class="slds-truncate"><lightning-formatted-text value='{asset.data.Location__c}'></lightning-formatted-text></div>
+                                                                            </td>
+                                                                            <td data-label="Sublocation" style="min-width: 120px; max-width: none" class="slds-text-align_left" title="sub_location__c">
+                                                                                <div class="slds-truncate"><lightning-formatted-text value='{asset.data.Sub_Location__c}'></lightning-formatted-text></div>
+                                                                            </td>    
+                                                                        </template>
+                                                                        <template if:true={columnSettings.showFunctionalRatingColumn}>
+                                                                            <td data-label="FuncRate" style="min-width: 120px; max-width: none" class="slds-text-align_left" title="functional_rating__c">
+                                                                                <div class="slds-truncate"><lightning-formatted-text value='{asset.data.Functional_Rating__c}'></lightning-formatted-text></div>
+                                                                            </td>  
+                                                                        </template>
+                                                                        <template if:true={columnSettings.showCosmeticRatingColumn}>
+                                                                            <td data-label="CosRate" style="min-width: 120px; max-width: none" class="slds-text-align_left" title="cosmetic_rating__c">
+                                                                                <div class="slds-truncate"><lightning-formatted-text value='{asset.data.Cosmetic_Rating__c}'></lightning-formatted-text></div>
+                                                                            </td> 
+                                                                        </template>
+                                                                      <!--  <template if:true={columnSettings.showPriceColumn}>
+                                                                            <td data-label="Price" style="min-width: 100px; max-width: 120px;" class="slds-text-align_left" title="price__c">
+                                                                                <div class="slds-truncate" key={item.id}><lightning-formatted-number value='{item.price}' format-style="currency" currency-code="USD"></lightning-formatted-number></div>
+                                                                            </td> 
+                                                                        </template>-->
+                                                                        <template if:true={columnSettings.showCostColumn}>
+                                                                            <td data-label="Cost" style="min-width: 100px; max-width: 120px;" class="slds-text-align_left" title="cost__c">
+                                                                                <div class="slds-truncate"><lightning-formatted-number value='{asset.cost}' format-style="currency" currency-code="USD"></lightning-formatted-number></div>
+                                                                            </td> 
+                                                                        </template> 
+                                                                        <template if:true={columnSettings.showRetailPrOutColumn}>
+                                                                            <td data-label="RetailPrOut" style="min-width: 120px; max-width: none" class="slds-text-align_left" title="retail_pr_out__c">
+                                                                                <div class="slds-truncate"><lightning-formatted-number value='{asset.retailPrOut}' format-style="currency" currency-code="USD"></lightning-formatted-number></div>
+                                                                            </td> 
+                                                                        </template>
+                                                                        <template if:true={columnSettings.showRetailPrExColumn}>
+                                                                            <td data-label="RetailPrEx" style="min-width: 120px; max-width: none" class="slds-text-align_left" title="retail_pr_ex__c">
+                                                                                <div class="slds-truncate"><lightning-formatted-number value='{asset.data.Product_Name__r.Retail_Pr_Ex__c}' format-style="currency" currency-code="USD"></lightning-formatted-number></div>
+                                                                            </td> 
+                                                                        </template>
+                                                                        <template if:true={columnSettings.showDealerPrOutColumn}>
+                                                                            <td data-label="DealerPrOut" style="min-width: 120px; max-width: none" class="slds-text-align_left" title="dealer_pr_out__c">
+                                                                                <div class="slds-truncate"><lightning-formatted-number value='{asset.data.Product_Name__r.Dealer_Pr_Out__c}' format-style="currency" currency-code="USD"></lightning-formatted-number></div>
+                                                                            </td> 
+                                                                        </template>
+                                                                        <template if:true={columnSettings.showDealerPrExColumn}>
+                                                                            <td data-label="DealerPrEx" style="min-width: 120px; max-width: none" class="slds-text-align_left" title="dealer_pr_ex__c">
+                                                                                <div class="slds-truncate"><lightning-formatted-number value='{asset.data.Product_Name__r.Dealer_Pr_Ex__c}' format-style="currency" currency-code="USD"></lightning-formatted-number></div>
+                                                                            </td> 
+                                                                        </template>
+                                                                    <!--<template if:true={columnSettings.showSugPrOutColumn}> 
+                                                                            <td data-label="SugPrOut" style="min-width: 120px; max-width: none" class="slds-text-align_left" title="sug_pr_out__c">
+                                                                                <div class="slds-truncate" key={item.id}><lightning-formatted-number value='{item.data.Sug_Pr_Out__c}' format-style="currency" currency-code="USD"></lightning-formatted-number></div>
+                                                                            </td> 
+                                                                        </template>
+                                                                        <template if:true={columnSettings.showSugPrExColumn}>
+                                                                            <td data-label="SugPrEx" style="min-width: 120px; max-width: none" class="slds-text-align_left" title="sug_pr_ex__c">
+                                                                                <div class="slds-truncate" key={item.id}><lightning-formatted-number value='{item.data.Sug_Pr_Ex__c}' format-style="currency" currency-code="USD"></lightning-formatted-number></div>
+                                                                            </td> 
+                                                                    </template>-->
+                                                                  <!--  <template if:true={columnSettings.showStdCostOutColumn}>
+                                                                            <td data-label="StdCostOut" style="min-width: 120px; max-width: none" class="slds-text-align_left" title="std_cost_out__c">
+                                                                                <div class="slds-truncate" key={item.id}><lightning-formatted-number value='{item.data.Std_Cost_Out__c}' format-style="currency" currency-code="USD"></lightning-formatted-number></div>
+                                                                            </td> 
+                                                                        </template>
+                                                                        <template if:true={columnSettings.showStdCostExColumn}>
+                                                                            <td data-label="StdCostEx" style="min-width: 120px; max-width: none" class="slds-text-align_left" title="std_cost_ex__c">
+                                                                                <div class="slds-truncate" key={item.id}><lightning-formatted-number value='{item.data.Std_Cost_Ex__c}' format-style="currency" currency-code="USD"></lightning-formatted-number></div>
+                                                                            </td> 
+                                                                        </template>
+                                                                        <template if:true={columnSettings.showSugPrWithSystemColumn}>
+                                                                            <td data-label="SugPrWithSystem" style="min-width: 120px; max-width: none" class="slds-text-align_left" title="sug_price_with_system__c">
+                                                                                <div class="slds-truncate" key={item.id}><lightning-formatted-number value='{item.data.Sug_Price_With_System__c}' format-style="currency" currency-code="USD"></lightning-formatted-number></div>
+                                                                            </td> 
+                                                                        </template>-->
+                                                                        <template if:true={columnSettings.showNewSugPrOutColumn}>
+                                                                            <td data-label="NewSugPrOut" style="min-width: 120px; max-width: none" class="slds-text-align_left">
+                                                                                <div class="slds-truncate"><lightning-formatted-number value='{asset.data.Product_Name__r.New_Sug_Pr_Out__c}' format-style="currency" currency-code="USD"></lightning-formatted-number></div>
+                                                                            </td> 
+                                                                        </template>
+                                                                        <template if:true={columnSettings.showNewSugPrExColumn}>
+                                                                            <td data-label="NewSugPrEx" style="min-width: 120px; max-width: none" class="slds-text-align_left">
+                                                                                <div class="slds-truncate"><lightning-formatted-number value='{asset.data.Product_Name__r.New_Sug_Pr_Ex__c}' format-style="currency" currency-code="USD"></lightning-formatted-number></div>
+                                                                            </td> 
+                                                                        </template>
+                                                                      <!--  <template if:true={columnSettings.showNewStdCostOutColumn}>
+                                                                            <td data-label="NewStdCostOut" style="min-width: 120px; max-width: none" class="slds-text-align_left">
+                                                                                <div class="slds-truncate" key={item.id}><lightning-formatted-number value='{item.data.Product_Name__r.New_Std_Cost_Out__c}' format-style="currency" currency-code="USD"></lightning-formatted-number></div>
+                                                                            </td> 
+                                                                        </template>
+                                                                        <template if:true={columnSettings.showNewStdCostExColumn}>
+                                                                            <td data-label="NewStdCostEx" style="min-width: 120px; max-width: none" class="slds-text-align_left">
+                                                                                <div class="slds-truncate" key={item.id}><lightning-formatted-number value='{item.data.Product_Name__r.New_Std_Cost_Ex__c}' format-style="currency" currency-code="USD"></lightning-formatted-number></div>
+                                                                            </td> 
+                                                                        </template>
+                                                                        <template if:true={columnSettings.showPropSTDWholeslPrColumn}>
+                                                                            <td data-label="Prop STD Wholesl Pr" style="min-width: 140px; max-width: none" class="slds-text-align_left">
+                                                                                <div class="slds-truncate" key={item.id}><lightning-formatted-number value='{item.data.Product_Name__r.Proposed_STD_Wholesale_Price__c}' format-style="currency" currency-code="USD"></lightning-formatted-number></div>
+                                                                            </td> 
+                                                                        </template>
+                                                                        <template if:true={columnSettings.showPropSTDRefurbColumn}>
+                                                                            <td data-label="Prop STD Refurb" style="min-width: 140px; max-width: none" class="slds-text-align_left">
+                                                                                <div class="slds-truncate" key={item.id}><lightning-formatted-number value='{item.data.Product_Name__r.Proposed_STD_w_Refurb_30_day__c}' format-style="currency" currency-code="USD"></lightning-formatted-number></div>
+                                                                            </td> 
+                                                                        </template>
+                                                                        <template if:true={columnSettings.showPropSTDRetailColumn}>
+                                                                            <td data-label="Prop STD Retail" style="min-width: 140px; max-width: none" class="slds-text-align_left" title="">
+                                                                                <div class="slds-truncate" key={item.id}><lightning-formatted-number value='{item.data.Product_Name__r.Proposed_STD_Retail__c}' format-style="currency" currency-code="USD"></lightning-formatted-number></div>
+                                                                            </td> 
+                                                                        </template>
+                                                                        <template if:true={columnSettings.showSpecialOfferColumn}>
+                                                                            <td data-label="Special Offer" style="min-width: 120px; max-width: none" class="slds-text-align_left" title="special_offer_pricing__c">
+                                                                                <div class="slds-truncate" key={item.id}><lightning-formatted-number value='{item.data.Special_Offer_Pricing__c}' format-style="currency" currency-code="USD"></lightning-formatted-number></div>
+                                                                            </td> 
+                                                                        </template>
+                                                                        <template if:true={columnSettings.showCompatibleSystemColumn}>
+                                                                                <td data-label="Compatible System" style="min-width: 140px; max-width: none" class="slds-text-align_left" title="compatible_system__c">
+                                                                                    <div class="slds-truncate" key={item.id}><lightning-formatted-text value='{item.data.Compatible_System__c}'></lightning-formatted-text></div>
+                                                                                </td>   
+                                                                        </template>-->
+                                                                        <td data-label="Core Exchange" style="min-width: 80px; max-width: none" class="slds-text-align_left">
+                                                                            <div class="slds-truncate"><lightning-input type="checkbox" checked={asset.exchange} data-key={asset.id} disabled></lightning-input></div>
+                                                                        </td>
+                                                                        <template if:true={columnSettings.showReviewStatusColumn}>
+                                                                                <td data-label="Review Status" style="min-width: 120px; max-width: none" class="slds-text-align_left" title="review_status__c">
+                                                                                    <div class="slds-truncate"><lightning-formatted-text value='{asset.data.Review_Status__c}'></lightning-formatted-text></div>
+                                                                                </td> 
+                                                                        </template> 
+                                                                        <template if:true={columnSettings.showSerialNumberColumn}>
+                                                                            <td data-label="Serial #" style="min-width: 120px; max-width: none" class="slds-text-align_left" title="serial_no__c">
+                                                                                <div class="slds-truncate"><lightning-formatted-text value='{asset.data.Serial_No__c}'></lightning-formatted-text></div>
+                                                                            </td> 
+                                                                        </template>
+                                                                        <template if:true={columnSettings.showPartNumberColumn}>
+                                                                            <td data-label="Part #" style="min-width: 120px; max-width: none" class="slds-text-align_left" title="part_number__c">
+                                                                                <div class="slds-truncate"><lightning-formatted-text value='{asset.data.Part_Number__c}'></lightning-formatted-text></div>
+                                                                            </td> 
+                                                                        </template>
+                                                                        <template if:true={columnSettings.showSysSoftColumn}>
+                                                                            <td data-label="SysSoft" style="min-width: 120px; max-width: none" class="slds-text-align_left" title="system_software__c">
+                                                                                <div class="slds-truncate"><lightning-formatted-text value='{asset.data.System_Software__c}'></lightning-formatted-text></div>
+                                                                            </td> 
+                                                                        </template>
+                                                                        <template if:true={columnSettings.showDOMColumn}>
+                                                                            <td data-label="DOM" style="min-width: 120px; max-width: none" class="slds-text-align_left" title="date_of_manufacture__c">
+                                                                                <div class="slds-truncate"><lightning-formatted-text value='{asset.data.Date_of_Manufacture__c}'></lightning-formatted-text></div>
+                                                                            </td>
+                                                                        </template>
+                                                                        <template if:true={columnSettings.showSystemTestColumn}>
+                                                                            <td data-label="SystemTest for -D" style="min-width: 140px; max-width: none" class="slds-text-align_left" title="d_system_test__c">
+                                                                                <div class="slds-truncate"><lightning-formatted-text value='{asset.data.D_System_Test__c}'></lightning-formatted-text></div>
+                                                                            </td> 
+                                                                        </template>
+                                                                </tr> 
+                                                        </template>
+                                                    </template>
+                                               
+                                                    <template if:false={isSalesOpportunity}>
+                                                            <template for:each={purchasingProductData} for:item='asset'>
+                                                                    <tr key={asset.id}>
+                                                                            <td class="slds-text-align_center" style="width: 3.25rem;">
+                                                                                <lightning-input type="checkbox" value={asset.Id} data-selection={asset.id} onchange={handleNewOLISelection} disabled={asset.data.Reserved__c}></lightning-input>
+                                                                            </td>
+                                                                            <td class="slds-text-align_center" style="width: 3.25rem;">
+                                                                                <lightning-icon icon-name="utility:info" alternative-text="Information" size="small" data-record={asset.id} onmouseover={showData} onmouseout={hideData} class={assignClass}></lightning-icon>
+                                                                            </td>
+                                                                            <td data-label="Asset Number" style="min-width: 80px; max-width: none" class="slds-text-align_left">
+                                                                                <div class="slds-truncate"><lightning-formatted-url value='{asset.url}' label='{asset.data.Name}' target="_blank"></lightning-formatted-url></div>
+                                                                            </td>
+                                                                            <td data-label="Product Name" style="min-width: 120px; max-width: none" class="slds-text-align_left">
+                                                                                <div class="slds-truncate"><lightning-formatted-text value='{asset.data.Product_Name__r.Name}'></lightning-formatted-text></div>
+                                                                            </td>
+                                                                            <td data-label="Vendor Name" style="min-width: 120px; max-width: none" class="slds-text-align_left">
+                                                                                <div class="slds-truncate"><lightning-formatted-text value='{asset.data.Vendor_Name__c}'></lightning-formatted-text></div>
+                                                                            </td>
+                                                                            <td data-label="Link to Image" style="min-width: 50px; max-width: 70px;" class="slds-text-align_left">
+                                                                                <div class="slds-truncate"><lightning-formatted-url value='{asset.data.Image__c}' label="View" target="_blank"></lightning-formatted-url></div>
+                                                                            </td>
+                                                                            <template if:true={columnSettings.showCompatibleSystemColumn}>
+                                                                                <td data-label="Compatible System" style="min-width: 140px; max-width: none" class="slds-text-align_left" title="compatible_system__c">
+                                                                                    <div class="slds-truncate"><lightning-formatted-text value='{asset.data.Compatible_System__c}'></lightning-formatted-text></div>
+                                                                                </td>   
+                                                                            </template>
+                                                                            <td data-label="Core Exchange" style="min-width: 80px; max-width: none" class="slds-text-align_left">
+                                                                                <div class="slds-truncate"><lightning-input type="checkbox" checked={asset.exchange} data-key={asset.id} disabled></lightning-input></div>
+                                                                            </td>
+                                                                            <td data-label="Quantity" style="min-width: 120px; max-width: none" class="slds-text-align_left">
+                                                                                    <div class="slds-truncate"><lightning-formatted-text value='1.00'></lightning-formatted-text></div>
+                                                                            </td>
+                                                                            <td data-label="Probo's Offer" style="min-width: 120px; max-width: none" class="slds-text-align_left">
+                                                                                <div class="slds-truncate"><lightning-input type="number" value={asset.offer} data-key={asset.id} onchange={handleOfferChange}></lightning-input></div>
+                                                                            </td>
+                                                                            <td data-label="Supplier's Quote" style="min-width: 120px; max-width: none" class="slds-text-align_left">
+                                                                                <div class="slds-truncate"><lightning-input type="number" value={asset.quote} data-key={asset.id} onchange={handleQuoteChange}></lightning-input></div>
+                                                                            </td>
+                                                                            <td data-label="Avg Probo Offer" style="min-width: 120px; max-width: none" class="slds-text-align_left">
+                                                                                <div class="slds-truncate"><lightning-formatted-number value={asset.averageOffer} format-style="currency" currency-code="USD"></lightning-formatted-number></div>
+                                                                            </td>
+                                                                            <td data-label="Avg Supplier Offer" style="min-width: 120px; max-width: none" class="slds-text-align_left">
+                                                                                <div class="slds-truncate"><lightning-formatted-number value={asset.averageQuote} format-style="currency" currency-code="USD"></lightning-formatted-number></div>
+                                                                            </td>
+                                                                            <template if:true={columnSettings.showStdCostOutColumn}>
+                                                                                <td data-label="StdCostOut" style="min-width: 120px; max-width: none" class="slds-text-align_left" title="std_cost_out__c">
+                                                                                    <div class="slds-truncate"><lightning-formatted-number value='{asset.data.Std_Cost_Out__c}' format-style="currency" currency-code="USD"></lightning-formatted-number></div>
+                                                                                </td> 
+                                                                            </template>
+                                                                            <template if:true={columnSettings.showSugPrOutColumn}> 
+                                                                                <td data-label="SugPrOut" style="min-width: 120px; max-width: none" class="slds-text-align_left" title="sug_pr_out__c">
+                                                                                    <div class="slds-truncate"><lightning-formatted-number value='{asset.data.Sug_Pr_Out__c}' format-style="currency" currency-code="USD"></lightning-formatted-number></div>
+                                                                                </td> 
+                                                                            </template>
+                                                                            <td data-label="Total No. of Req" style="min-width: 140px; max-width: none" class="slds-text-align_left">
+                                                                                <div class="slds-truncate"><lightning-formatted-number value='{asset.data.Product_Name__r.Total_no_of_Requests__c}'></lightning-formatted-number></div>
+                                                                            </td>
+                                                                            <td data-label="Total Qty in Stock" style="min-width: 140px; max-width: none" class="slds-text-align_left">
+                                                                                <div class="slds-truncate"><lightning-formatted-number value='{asset.data.Product_Name__r.Total_Qty_in_stock__c}'></lightning-formatted-number></div>
+                                                                            </td>
+                                                                            <td data-label="Func. Good Used" style="min-width: 140px; max-width: none" class="slds-text-align_left">
+                                                                                <div class="slds-truncate"><lightning-formatted-number value='{asset.data.Product_Name__r.Functionally_Good_Probes__c}'></lightning-formatted-number></div>
+                                                                            </td>
+                                                                            <td data-label="Func. Good New" style="min-width: 140px; max-width: none" class="slds-text-align_left">
+                                                                                <div class="slds-truncate"><lightning-formatted-number value='{asset.data.Product_Name__r.Total_Qty_of_New_Probes__c}'></lightning-formatted-number></div>
+                                                                            </td>
+                                                                            <td data-label="Func. Good Total" style="min-width: 140px; max-width: none" class="slds-text-align_left">
+                                                                                <div class="slds-truncate"><lightning-formatted-number value='{asset.data.Product_Name__r.Functionally_Good_Probes_Total__c}'></lightning-formatted-number></div>
+                                                                            </td>
+                                                                            <td data-label="Qty Ready to Ship" style="min-width: 140px; max-width: none" class="slds-text-align_left">
+                                                                                <div class="slds-truncate"><lightning-formatted-number value='{asset.data.Product_Name__r.Qty_Ready_to_Ship__c}'></lightning-formatted-number></div>
+                                                                            </td>
+                                                                            <td data-label="Target Qty in Stock" style="min-width: 140px; max-width: none" class="slds-text-align_left">
+                                                                                <div class="slds-truncate"><lightning-formatted-number value='{asset.data.Product_Name__r.Target_Quantity_in_Stock__c}'></lightning-formatted-number></div>
+                                                                            </td>
+                                                                            <td data-label="Total Purc on Verbal" style="min-width: 140px; max-width: none" class="slds-text-align_left">
+                                                                                <div class="slds-truncate"><lightning-formatted-number value='{asset.data.Product_Name__r.Total_Qty_on_Purchasing_Verbal__c}'></lightning-formatted-number></div>
+                                                                            </td>
+                                                                            <td data-label="Avg Sales Price" style="min-width: 120px; max-width: none" class="slds-text-align_left" title="sug_pr_out__c">
+                                                                                <div class="slds-truncate"><lightning-formatted-number value='{asset.data.Avg_Sale_Price__c}' format-style="currency" currency-code="USD"></lightning-formatted-number></div>
+                                                                            </td> 
+                                                                            <td data-label="Untested Probes" style="min-width: 140px; max-width: none" class="slds-text-align_left">
+                                                                                <div class="slds-truncate"><lightning-formatted-number value='{asset.data.Product_Name__r.Untested_Probes__c}'></lightning-formatted-number></div>
+                                                                            </td>
+                                                                            <template if:true={columnSettings.showFunctionalRatingColumn}>
+                                                                                <td data-label="FuncRate" style="min-width: 120px; max-width: none" class="slds-text-align_left" title="functional_rating__c">
+                                                                                    <div class="slds-truncate"><lightning-formatted-text value='{asset.data.Functional_Rating__c}'></lightning-formatted-text></div>
+                                                                                </td>  
+                                                                            </template>
+                                                                            <template if:true={columnSettings.showCosmeticRatingColumn}>
+                                                                                <td data-label="CosRate" style="min-width: 120px; max-width: none" class="slds-text-align_left" title="cosmetic_rating__c">
+                                                                                    <div class="slds-truncate"><lightning-formatted-text value='{asset.data.Cosmetic_Rating__c}'></lightning-formatted-text></div>
+                                                                                </td> 
+                                                                            </template>
+                                                                            <template if:true={columnSettings.showReviewStatusColumn}>
+                                                                                <td data-label="Review Status" style="min-width: 120px; max-width: none" class="slds-text-align_left" title="review_status__c">
+                                                                                    <div class="slds-truncate"><lightning-formatted-text value='{asset.data.Review_Status__c}'></lightning-formatted-text></div>
+                                                                                </td> 
+                                                                            </template>
+                                                                            <template if:true={columnSettings.showLocationColumn}>
+                                                                                <td data-label="Location" style="min-width: 120px; max-width: none" class="slds-text-align_left" title="location__c">
+                                                                                    <div class="slds-truncate"><lightning-formatted-text value='{asset.data.Location__c}'></lightning-formatted-text></div>
+                                                                                </td>   
+                                                                            </template>
+                                                                            <template if:true={columnSettings.showPriceColumn}>
+                                                                                <td data-label="Price" style="min-width: 100px; max-width: 120px;" class="slds-text-align_left" title="price__c">
+                                                                                    <div class="slds-truncate" ><lightning-formatted-number value='{asset.price}' format-style="currency" currency-code="USD"></lightning-formatted-number></div>
+                                                                                </td> 
+                                                                            </template>
+                                                                            <template if:true={columnSettings.showCostColumn}>
+                                                                                <td data-label="Cost" style="min-width: 100px; max-width: 120px;" class="slds-text-align_left" title="cost__c">
+                                                                                    <div class="slds-truncate"><lightning-formatted-number value='{asset.cost}' format-style="currency" currency-code="USD"></lightning-formatted-number></div>
+                                                                                </td> 
+                                                                            </template>
+                                                                            <template if:true={columnSettings.showSugPrExColumn}>
+                                                                                <td data-label="SugPrEx" style="min-width: 120px; max-width: none" class="slds-text-align_left" title="sug_pr_ex__c">
+                                                                                    <div class="slds-truncate"><lightning-formatted-number value='{asset.data.Sug_Pr_Ex__c}' format-style="currency" currency-code="USD"></lightning-formatted-number></div>
+                                                                                </td> 
+                                                                            </template>
+                                                                            <template if:true={columnSettings.showStdCostExColumn}>
+                                                                                <td data-label="StdCostEx" style="min-width: 120px; max-width: none" class="slds-text-align_left" title="std_cost_ex__c">
+                                                                                    <div class="slds-truncate"><lightning-formatted-number value='{asset.data.Std_Cost_Ex__c}' format-style="currency" currency-code="USD"></lightning-formatted-number></div>
+                                                                                </td> 
+                                                                            </template>
+                                                                            <template if:true={columnSettings.showSpecialOfferColumn}>
+                                                                                <td data-label="Special Offer" style="min-width: 120px; max-width: none" class="slds-text-align_left" title="special_offer_pricing__c">
+                                                                                    <div class="slds-truncate"><lightning-formatted-number value='{asset.data.Special_Offer_Pricing__c}' format-style="currency" currency-code="USD"></lightning-formatted-number></div>
+                                                                                </td> 
+                                                                            </template>
+                                                                            <template if:true={columnSettings.showSerialNumberColumn}>
+                                                                                <td data-label="Serial #" style="min-width: 120px; max-width: none" class="slds-text-align_left" title="serial_no__c">
+                                                                                    <div class="slds-truncate"><lightning-formatted-text value='{asset.data.Serial_No__c}'></lightning-formatted-text></div>
+                                                                                </td> 
+                                                                            </template>
+                                                                            <template if:true={columnSettings.showPartNumberColumn}>
+                                                                                <td data-label="Part #" style="min-width: 120px; max-width: none" class="slds-text-align_left" title="part_number__c">
+                                                                                    <div class="slds-truncate"><lightning-formatted-text value='{asset.data.Part_Number__c}'></lightning-formatted-text></div>
+                                                                                </td> 
+                                                                            </template>
+                                                                            <template if:true={columnSettings.showSysSoftColumn}>
+                                                                                <td data-label="SysSoft" style="min-width: 120px; max-width: none" class="slds-text-align_left" title="system_software__c">
+                                                                                    <div class="slds-truncate"><lightning-formatted-text value='{asset.data.System_Software__c}'></lightning-formatted-text></div>
+                                                                                </td> 
+                                                                            </template>
+                                                                            <template if:true={columnSettings.showDOMColumn}>
+                                                                                <td data-label="DOM" style="min-width: 120px; max-width: none" class="slds-text-align_left" title="date_of_manufacture__c">
+                                                                                    <div class="slds-truncate"><lightning-formatted-text value='{asset.data.Date_of_Manufacture__c}'></lightning-formatted-text></div>
+                                                                                </td>
+                                                                            </template>
+                                                                            <template if:true={columnSettings.showNewSugPrOutColumn}>
+                                                                                <td data-label="NewSugPrOut" style="min-width: 120px; max-width: none" class="slds-text-align_left">
+                                                                                    <div class="slds-truncate"><lightning-formatted-number value='{asset.data.Product_Name__r.New_Sug_Pr_Out__c}' format-style="currency" currency-code="USD"></lightning-formatted-number></div>
+                                                                                </td> 
+                                                                            </template>
+                                                                            <template if:true={columnSettings.showNewSugPrExColumn}>
+                                                                                <td data-label="NewSugPrEx" style="min-width: 120px; max-width: none" class="slds-text-align_left">
+                                                                                    <div class="slds-truncate"><lightning-formatted-number value='{asset.data.Product_Name__r.New_Sug_Pr_Ex__c}' format-style="currency" currency-code="USD"></lightning-formatted-number></div>
+                                                                                </td> 
+                                                                            </template>
+                                                                            <template if:true={columnSettings.showNewStdCostOutColumn}>
+                                                                                <td data-label="NewStdCostOut" style="min-width: 120px; max-width: none" class="slds-text-align_left">
+                                                                                    <div class="slds-truncate"><lightning-formatted-number value='{asset.data.Product_Name__r.New_Std_Cost_Out__c}' format-style="currency" currency-code="USD"></lightning-formatted-number></div>
+                                                                                </td> 
+                                                                            </template>
+                                                                            <template if:true={columnSettings.showNewStdCostExColumn}>
+                                                                                <td data-label="NewStdCostEx" style="min-width: 120px; max-width: none" class="slds-text-align_left">
+                                                                                    <div class="slds-truncate"><lightning-formatted-number value='{asset.data.Product_Name__r.New_Std_Cost_Ex__c}' format-style="currency" currency-code="USD"></lightning-formatted-number></div>
+                                                                                </td> 
+                                                                            </template>
+                                                                            <template if:true={columnSettings.showPropSTDWholeslPrColumn}>
+                                                                                <td data-label="Prop STD Wholesl Pr" style="min-width: 140px; max-width: none" class="slds-text-align_left">
+                                                                                    <div class="slds-truncate"><lightning-formatted-number value='{asset.data.Product_Name__r.Proposed_STD_Wholesale_Price__c}' format-style="currency" currency-code="USD"></lightning-formatted-number></div>
+                                                                                </td> 
+                                                                            </template>
+                                                                            <template if:true={columnSettings.showPropSTDRefurbColumn}>
+                                                                                <td data-label="Prop STD Refurb" style="min-width: 140px; max-width: none" class="slds-text-align_left">
+                                                                                    <div class="slds-truncate"><lightning-formatted-number value='{asset.data.Product_Name__r.Proposed_STD_w_Refurb_30_day__c}' format-style="currency" currency-code="USD"></lightning-formatted-number></div>
+                                                                                </td> 
+                                                                            </template>
+                                                                            <template if:true={columnSettings.showPropSTDRetailColumn}>
+                                                                                <td data-label="Prop STD Retail" style="min-width: 140px; max-width: none" class="slds-text-align_left" title="">
+                                                                                    <div class="slds-truncate"><lightning-formatted-number value='{asset.data.Product_Name__r.Proposed_STD_Retail__c}' format-style="currency" currency-code="USD"></lightning-formatted-number></div>
+                                                                                </td> 
+                                                                            </template>
+                                                                            <template if:true={columnSettings.showSystemTestColumn}>
+                                                                                <td data-label="SystemTest for -D" style="min-width: 140px; max-width: none" class="slds-text-align_left" title="d_system_test__c">
+                                                                                    <div class="slds-truncate"><lightning-formatted-text value='{asset.data.D_System_Test__c}'></lightning-formatted-text></div>
+                                                                                </td> 
+                                                                            </template>
+                                                                    </tr> 
+                                                            </template>
+                                                    </template>
+                                                </tbody>  
+                                            </table>
+                                            </template>
+                                        </div>
+                                    </div>
+                                    <div style="min-width: initial; max-width: 700px">
+                                        <c-oli-popover-lwc hover-record-id={currentHoverRecordId} top-margin={top} left-margin={left} permission-set-name={popOverPermissionSetName}></c-oli-popover-lwc>
+                                    </div>
+                                </lightning-layout-item>
+                            </lightning-accordion-section>
+                            <template if:true={selectedOLIDataAvailable}>
+                                <lightning-accordion-section name="swappedItems" label="Swapped Items" style="min-width: initial; max-width: 1000px">
+                                    <c-swap-product-selections-lwc swap-records={swapOLIRecords} item-count={swapOLICount}></c-swap-product-selections-lwc>
+                                </lightning-accordion-section>
+                            </template>
+                            <lightning-accordion-section name="selectedItems" label="Selected Items" style="min-width: initial; max-width: 1600px">
+                                <c-add-product-selections-lwc oli-data-edited={newOLIEditedData} show-price={columnSettings.showPriceColumn} show-cost={columnSettings.showCostColumn} item-count={selectedOLICount} onpricechange={handlePriceChange} oncostchange={handleCostChange} onexchangechange={handleExchangeChange} ondeselect={handleNewOLIDeselection}></c-add-product-selections-lwc>
+                             </lightning-accordion-section>
+                            
+                        </lightning-accordion>
+                    </lightning-layout>
+                
+            </lightning-card>
+        </template>
+    </template>
+
+</template>

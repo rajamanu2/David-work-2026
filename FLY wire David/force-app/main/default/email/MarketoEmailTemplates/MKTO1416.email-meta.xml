@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <encodingKey>UTF-8</encodingKey>
+    <name>Content_Travel_Report_Travel Provider Insights_December 2023.2. Content Download</name>
+    <style>none</style>
+    <subject>[Report] 2024 Travel Provider Insights</subject>
+    <textOnly>{{lead.First Name:default=Friend}},
+
+
+
+
+Thanks for your interest in our &quot;2024 Travel Provider Insights&quot; report! 
+
+
+
+
+Here&apos;s the download link you requested:
+
+
+
+ &lt;[[https://flywire.foleon.com/report/travel-provider-insights-2024/?utm_source=marketo&amp;utm_medium=email]]&gt;
+To learn more, visit travel.flywire.com &lt;[[https://www.flywire.com/industries/travel]]&gt;!
+
+
+Best, 
+The Flywire Team
+Flywire Global Headquarters
+ 141 Tremont Street, Boston, MA 02111
+ United States
+Copyright ©Flywire. 2011- {{my.Current Year:default=Present Day}} All rights reserved. 
+ Flywire is a trademark of Flywire Corporation. 
+ The availability of our products or services and our product or service descriptions will vary subject to applicable law and geographic location.
+Privacy Policy &lt;[[https://www.flywire.com/legal/privacy-policy]]&gt;   
+|   
+Unsubscribe &lt;[[{{system.unsubscribeLink}}]]&gt;  
+|   
+Forward to friend &lt;[[{{system.forwardToFriendLink}}]]&gt;</textOnly>
+    <type>custom</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

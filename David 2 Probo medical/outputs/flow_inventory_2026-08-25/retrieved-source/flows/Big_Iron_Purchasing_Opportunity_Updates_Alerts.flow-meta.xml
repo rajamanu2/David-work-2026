@@ -1,0 +1,263 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionCalls>
+        <name>Send_Leon_Email</name>
+        <label>Send Leon Email</label>
+        <locationX>407</locationX>
+        <locationY>492</locationY>
+        <actionName>Opportunity.Big_Iron_Moved_to_Verbal_Acceptance</actionName>
+        <actionType>emailAlert</actionType>
+        <connector>
+            <targetReference>Copy_1_of_QA_Required</targetReference>
+        </connector>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
+        <inputParameters>
+            <name>SObjectRowId</name>
+            <value>
+                <elementReference>$Record.Id</elementReference>
+            </value>
+        </inputParameters>
+        <nameSegment>Opportunity.Big_Iron_Moved_to_Verbal_Acceptance</nameSegment>
+        <offset>0</offset>
+    </actionCalls>
+    <actionCalls>
+        <name>Ultrasound_Won_Email</name>
+        <label>Send Stephen Email</label>
+        <locationX>143</locationX>
+        <locationY>492</locationY>
+        <actionName>emailSimple</actionName>
+        <actionType>emailSimple</actionType>
+        <connector>
+            <targetReference>Copy_1_of_QA_Required</targetReference>
+        </connector>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
+        <inputParameters>
+            <name>emailAddresses</name>
+            <value>
+                <stringValue>stephen.glasgow@probomedical.co.uk</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>emailSubject</name>
+            <value>
+                <elementReference>EmailLeon</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>emailBody</name>
+            <value>
+                <elementReference>EmailLeon</elementReference>
+            </value>
+        </inputParameters>
+        <nameSegment>emailSimple</nameSegment>
+        <offset>0</offset>
+    </actionCalls>
+    <apiVersion>54.0</apiVersion>
+    <areMetricsLoggedToDataCloud>false</areMetricsLoggedToDataCloud>
+    <decisions>
+        <name>Copy_1_of_QA_Required</name>
+        <label>Copy 1 of QA Required?</label>
+        <locationX>275</locationX>
+        <locationY>684</locationY>
+        <defaultConnector>
+            <targetReference>UpdateStageToFinalizeComplete</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>QA Is NOT Required</defaultConnectorLabel>
+        <rules>
+            <name>Copy_1_of_QA_IS_Required</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.QA_Required__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Yes</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>UpdateStageToAwaitingQA</targetReference>
+            </connector>
+            <label>Copy 1 of QA IS Required</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Is_Ultrasound</name>
+        <label>Is Ultrasound?</label>
+        <locationX>275</locationX>
+        <locationY>384</locationY>
+        <defaultConnector>
+            <targetReference>Send_Leon_Email</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Ultrasound</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Modality__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Ultrasound</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Ultrasound_Won_Email</targetReference>
+            </connector>
+            <label>Ultrasound?</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Verbal_Acceptance</name>
+        <label>Verbal Acceptance?</label>
+        <locationX>473</locationX>
+        <locationY>276</locationY>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Verbal_Acceptance2</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.StageName</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Verbal Acceptance</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Is_Ultrasound</targetReference>
+            </connector>
+            <label>Verbal Acceptance</label>
+        </rules>
+    </decisions>
+    <description>Simplified the flow due to process changes</description>
+    <environments>Default</environments>
+    <formulas>
+        <name>AssignmentDate</name>
+        <dataType>Date</dataType>
+        <expression>TODAY()</expression>
+    </formulas>
+    <formulas>
+        <name>DueDateforQA</name>
+        <dataType>Date</dataType>
+        <expression>{!$Record.Expected_Removal_date__c} - 30</expression>
+    </formulas>
+    <formulas>
+        <name>QAName</name>
+        <dataType>String</dataType>
+        <expression>&quot;Schedule QA for &quot; + {!$Record.Opportunity_Number__c}</expression>
+    </formulas>
+    <interviewLabel>Big Iron Purchasing Opportunity Updates/Alerts {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Big Iron Purchasing Opportunity Updates/Alerts</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <recordUpdates>
+        <name>UpdateStageToAwaitingQA</name>
+        <label>UpdateStageToAwaitingQA</label>
+        <locationX>143</locationX>
+        <locationY>792</locationY>
+        <inputAssignments>
+            <field>StageName</field>
+            <value>
+                <stringValue>Awaiting QA</stringValue>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>UpdateStageToFinalizeComplete</name>
+        <label>UpdateStageToFinalizeComplete</label>
+        <locationX>407</locationX>
+        <locationY>792</locationY>
+        <inputAssignments>
+            <field>StageName</field>
+            <value>
+                <stringValue>Finalize Transaction</stringValue>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <start>
+        <locationX>50</locationX>
+        <locationY>0</locationY>
+        <doesRequireRecordChangedToMeetCriteria>true</doesRequireRecordChangedToMeetCriteria>
+        <filterLogic>1 AND (2 OR 3 OR 4 OR 5 OR 6 OR 7)</filterLogic>
+        <filters>
+            <field>RecordTypeId</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>0125b000000LWbqAAG</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>StageName</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>Verbal Acceptance</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>StageName</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>Awaiting QA</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>StageName</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>QA Booked</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>StageName</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>QA Approval</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>StageName</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>Finalize Transaction</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>StageName</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>Removal Completed</stringValue>
+            </value>
+        </filters>
+        <object>Opportunity</object>
+        <recordTriggerType>Update</recordTriggerType>
+        <scheduledPaths>
+            <connector>
+                <targetReference>Verbal_Acceptance</targetReference>
+            </connector>
+            <pathType>AsyncAfterCommit</pathType>
+        </scheduledPaths>
+        <triggerType>RecordAfterSave</triggerType>
+    </start>
+    <status>Active</status>
+    <textTemplates>
+        <name>EmailLeon</name>
+        <isViewedAsPlainText>true</isViewedAsPlainText>
+        <text>Opportunity ({!$Record.Opportunity_Number__c}) has been moved to Verbal Acceptance.</text>
+    </textTemplates>
+</Flow>

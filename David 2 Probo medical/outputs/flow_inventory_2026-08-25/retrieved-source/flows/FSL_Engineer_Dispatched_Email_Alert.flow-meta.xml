@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionCalls>
+        <name>Send_Email_to_Ultrasound_Dispatch_Team</name>
+        <label>Send Email to Ultrasound Dispatch Team</label>
+        <locationX>176</locationX>
+        <locationY>323</locationY>
+        <actionName>emailSimple</actionName>
+        <actionType>emailSimple</actionType>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
+        <inputParameters>
+            <name>emailAddresses</name>
+            <value>
+                <stringValue>katy.base@probomedical.co.uk, trudy.gregory@probomedical.co.uk, karla.stancombe@probomedical.co.uk</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>emailSubject</name>
+            <value>
+                <stringValue>Engineer Dispatched</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>emailBody</name>
+            <value>
+                <elementReference>EngineerDispatchedEmailTemplate</elementReference>
+            </value>
+        </inputParameters>
+        <nameSegment>emailSimple</nameSegment>
+        <offset>0</offset>
+    </actionCalls>
+    <apiVersion>63.0</apiVersion>
+    <areMetricsLoggedToDataCloud>false</areMetricsLoggedToDataCloud>
+    <description>11/06/2025 - V7 - Added Appointment Type is not equal to Tech Support Call in the entry conditions. Spoke to the Ultrasound Dispatch Team and they do not need to be notified when Tech Support Calls are set to Dispatched. Case 00008417 also reported that duplicate emails were being sent for Tech Support Calls so this should now be solved as well.
+14/01/2025 - V8 - SP - Adding &quot;Work Type&quot; to the &quot;Engineer DispatchedEmailTemplate&quot; Text Template.</description>
+    <environments>Default</environments>
+    <interviewLabel>FSL - Engineer Dispatched Email Alert {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>FSL - Engineer Dispatched Email Alert</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <start>
+        <locationX>50</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Send_Email_to_Ultrasound_Dispatch_Team</targetReference>
+        </connector>
+        <doesRequireRecordChangedToMeetCriteria>true</doesRequireRecordChangedToMeetCriteria>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Modality__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>Ultrasound</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>Shipping_FROM_Location__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>Gloucester, UK</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>Status</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>Dispatched</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>Appointment_Type__c</field>
+            <operator>NotEqualTo</operator>
+            <value>
+                <stringValue>Tech Support Call</stringValue>
+            </value>
+        </filters>
+        <object>ServiceAppointment</object>
+        <recordTriggerType>Update</recordTriggerType>
+        <triggerType>RecordAfterSave</triggerType>
+    </start>
+    <status>Active</status>
+    <textTemplates>
+        <name>EngineerDispatchedEmailTemplate</name>
+        <isViewedAsPlainText>true</isViewedAsPlainText>
+        <text>Hello,
+
+The following Service Appointment has been dispatched:
+
+- Appointment ID: {!$Record.AppointmentNumber}
+- Work Order: {!$Record.Work_Order__r.WorkOrderNumber}
+- Scheduled Start: {!$Record.SchedStartTime}
+- Scheduled End: {!$Record.SchedEndTime}
+- Assigned Resource: {!$Record.Service_Resource__c}
+- Location: {!$Record.Location_of_Equipment__r.Name}
+- Appointment Type: {!$Record.Appointment_Type__c}
+- Work Type: {!$Record.WorkType.Name}</text>
+    </textTemplates>
+</Flow>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Integration_Partner__c</fullName>
+    <deleteConstraint>SetNull</deleteConstraint>
+    <description>Link to the Account record for the Integration Partner we are integrating this portal with.</description>
+    <inlineHelpText>Search the Account record for the Integration Partner we are integrating this portal with.</inlineHelpText>
+    <label>Integration Partner</label>
+    <referenceTo>Account</referenceTo>
+    <relationshipLabel>Prod Config (Int. Partner)</relationshipLabel>
+    <relationshipName>Integrated_Prod_Config</relationshipName>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <type>Lookup</type>
+</CustomField>

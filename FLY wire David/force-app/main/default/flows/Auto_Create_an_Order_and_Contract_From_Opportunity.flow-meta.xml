@@ -1,0 +1,271 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>61.0</apiVersion>
+    <areMetricsLoggedToDataCloud>false</areMetricsLoggedToDataCloud>
+    <decisions>
+        <name>Check_for_renewed_Contract</name>
+        <label>Check for renewed Contract</label>
+        <locationX>534</locationX>
+        <locationY>276</locationY>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Is_renewed_contract</name>
+            <conditionLogic>1 AND ((2 AND 3) OR (4 AND 5))</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.SBQQ__RenewedContract__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.SBQQ__RenewedContract__r.StatusCode</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Activated</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.SBQQ__RenewedContract__r.Status</leftValueReference>
+                <operator>NotEqualTo</operator>
+                <rightValue>
+                    <stringValue>Superseded</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.SBQQ__RenewedContract__r.StatusCode</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Draft</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.SBQQ__RenewedContract__r.Status</leftValueReference>
+                <operator>NotEqualTo</operator>
+                <rightValue>
+                    <stringValue>Superseded_Draft</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Get_Prior_Contract_Record</targetReference>
+            </connector>
+            <label>Is renewed contract?</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Check_for_Status_Category</name>
+        <label>Check for Status Category</label>
+        <locationX>314</locationX>
+        <locationY>492</locationY>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Is_Draft</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.SBQQ__RenewedContract__r.StatusCode</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Draft</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.SBQQ__RenewedContract__r.Status</leftValueReference>
+                <operator>NotEqualTo</operator>
+                <rightValue>
+                    <stringValue>Superseded_Draft</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Update_Contract_Status_for_Draft_Category</targetReference>
+            </connector>
+            <label>Is Draft?</label>
+        </rules>
+        <rules>
+            <name>Is_Activated</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.SBQQ__RenewedContract__r.StatusCode</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Activated</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.SBQQ__RenewedContract__r.Status</leftValueReference>
+                <operator>NotEqualTo</operator>
+                <rightValue>
+                    <stringValue>Superseded</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Update_Contract_Status</targetReference>
+            </connector>
+            <label>Is Activated?</label>
+        </rules>
+    </decisions>
+    <description>Auto Create an Order and Contract when Opportunity stage is Closed Won. 
+BOPI-525 Updated to ignore non CPQ opps
+BOPI-669 Added Validation Rule ByPass to prevent error when creating the order
+BOPI-883 Prior Contract Status set to Superseded</description>
+    <environments>Default</environments>
+    <interviewLabel>Auto Create an Order and Contract From Opportunity {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Auto Create an Order and Contract From Opportunity</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <recordLookups>
+        <name>Get_Prior_Contract_Record</name>
+        <label>Get Prior Contract Record</label>
+        <locationX>314</locationX>
+        <locationY>384</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Check_for_Status_Category</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>$Record.SBQQ__RenewedContract__c</elementReference>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>Contract</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordUpdates>
+        <name>Activate_Order</name>
+        <label>Activate Order</label>
+        <locationX>930</locationX>
+        <locationY>384</locationY>
+        <connector>
+            <targetReference>Update_Order_Created_Field_to_True</targetReference>
+        </connector>
+        <inputAssignments>
+            <field>Status</field>
+            <value>
+                <stringValue>Activated</stringValue>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record.SBQQ__PrimaryQuote__r.SBQQ__Orders__r</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>Checked_Ordered_Field_On_Quote</name>
+        <label>Checked Ordered Field On Quote</label>
+        <locationX>930</locationX>
+        <locationY>276</locationY>
+        <connector>
+            <targetReference>Activate_Order</targetReference>
+        </connector>
+        <inputAssignments>
+            <field>Quote_Bypass_DateTime__c</field>
+            <value>
+                <elementReference>$Flow.CurrentDateTime</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>SBQQ__Ordered__c</field>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record.SBQQ__PrimaryQuote__r</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>Update_Contract_Status</name>
+        <label>Update Contract Status</label>
+        <locationX>314</locationX>
+        <locationY>600</locationY>
+        <inputAssignments>
+            <field>Status</field>
+            <value>
+                <stringValue>Superseded</stringValue>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record.SBQQ__RenewedContract__r</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>Update_Contract_Status_for_Draft_Category</name>
+        <label>Update Contract Status for Draft Category</label>
+        <locationX>50</locationX>
+        <locationY>600</locationY>
+        <inputAssignments>
+            <field>Status</field>
+            <value>
+                <stringValue>Superseded_Draft</stringValue>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record.SBQQ__RenewedContract__r</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>Update_Order_Created_Field_to_True</name>
+        <label>Update Order Created Field to True</label>
+        <locationX>930</locationX>
+        <locationY>492</locationY>
+        <inputAssignments>
+            <field>Exclusivity__c</field>
+            <value>
+                <elementReference>$Record.SBQQ__PrimaryQuote__r.Exclusivity__c</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Opp_Bypass_DateTime__c</field>
+            <value>
+                <elementReference>$Flow.CurrentDateTime</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Order_Created__c</field>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <start>
+        <locationX>606</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Check_for_renewed_Contract</targetReference>
+        </connector>
+        <filterFormula>AND(
+ISPICKVAL({!$Record.StageName}, &quot;Closed Won&quot;) ,
+NOT({!$Record.Order_Created__c}),
+{!$Record.Pricebook2.Name} = &apos;CPQ&apos;
+)</filterFormula>
+        <object>Opportunity</object>
+        <recordTriggerType>CreateAndUpdate</recordTriggerType>
+        <scheduledPaths>
+            <name>To_Create_Order_and_Contract</name>
+            <connector>
+                <targetReference>Checked_Ordered_Field_On_Quote</targetReference>
+            </connector>
+            <label>To Create Order and Contract</label>
+            <maxBatchSize>1</maxBatchSize>
+            <offsetNumber>1</offsetNumber>
+            <offsetUnit>Minutes</offsetUnit>
+            <recordField>LastModifiedDate</recordField>
+            <timeSource>RecordField</timeSource>
+        </scheduledPaths>
+        <triggerType>RecordAfterSave</triggerType>
+    </start>
+    <status>Active</status>
+    <triggerOrder>5</triggerOrder>
+</Flow>

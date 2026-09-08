@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Show_Generate_Document_Button__c</fullName>
+    <description>BOPI-527 This field controls the visibility of the &apos;Generate Document&apos; quick action button. The button should appear only when all required fields for the current vertical are filled</description>
+    <formula>AND(
+    NOT(ISBLANK(Account_Name__c)),
+    NOT(ISBLANK(Opportunity_Name__c)),
+    NOT(ISBLANK(Project_Desired_Go_Live_Date__c)),
+
+    OR(
+        AND(
+            RecordType.DeveloperName = &quot;Healthcare&quot;,
+            NOT(ISBLANK(Client_PM__c)),
+            NOT(ISBLANK(TEXT(Does_the_client_have_a_lockbox__c))),
+            NOT(ISBLANK(Client_Executive_Sponsor__c)),
+            NOT(ISBLANK(Name_of_Lockbox_Vendor__c)),
+            NOT(ISBLANK(Client_IT_Contact__c)),
+            NOT(ISBLANK(TEXT(Email_Engagement_in_scope__c))),
+            NOT(ISBLANK(TEXT(Text_Engagement_in_scope__c))),
+            NOT(ISBLANK(Desired_Consolidation_Level__c)),
+            NOT(ISBLANK(TEXT(Payment_Plans_in_Scope__c))),
+            NOT(ISBLANK(TEXT(Load_hist_data_or_only_new_placements__c))),
+            NOT(ISBLANK(TEXT(Will_we_be_migrating_historical_payment__c))),
+            NOT(ISBLANK(TEXT(Project_Type__c))),
+            NOT(ISBLANK(Current_Consolidation_Level__c)),
+            NOT(ISBLANK(TEXT(Prompt_Pay_Discount_in_scope__c))),
+            NOT(ISBLANK(TEXT(Prompt_Pay_Discount__c))),
+            NOT(ISBLANK(TEXT(Oracle_Well_Integration__c))),
+            NOT(ISBLANK(TEXT(Oracle_Tonic_Integration__c))),
+            NOT(ISBLANK(TEXT(SSO_Integration_Staff_Ex__c))),
+            NOT(ISBLANK(Current_Bank__c )),
+            NOT(ISBLANK(TEXT(Oracle_HealtheLife__c)))
+        ),
+        
+        AND(
+            RecordType.DeveloperName = &quot;Education&quot;,
+            NOT(ISBLANK(Desired_Project_Kickoff_Date__c)),
+            NOT(ISBLANK(Technical_Contact__c)),
+            NOT(ISBLANK(Hard_Go_Live_Date__c)),
+            NOT(ISBLANK(TEXT(New_Payment_Methods__c))),
+            NOT(ISBLANK(TEXT(New_Bank_Setup__c))),
+            NOT(ISBLANK(TEXT(Internal_Pre_Kickoff_Meeting_Required__c))),
+            NOT(ISBLANK(Client_Functional_Lead_PM__c)),
+            NOT(ISBLANK(TEXT(Is_Client_Ready_for_Portal__c))),
+            NOT(ISBLANK(TEXT(Types_of_portals_required__c)))
+        ),
+        
+        AND(
+            RecordType.DeveloperName = &quot;B2B&quot;,
+            NOT(ISBLANK(TEXT(B2B_Partner__c))),
+            NOT(ISBLANK(TEXT(Settlement_Currency__c))),
+            NOT(ISBLANK(Number_of_Entities__c)),
+            NOT(ISBLANK(Confluence_Page_Link__c))
+        ),
+
+        RecordType.DeveloperName = &quot;Travel&quot;
+    )
+)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Show Generate Document Button</label>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

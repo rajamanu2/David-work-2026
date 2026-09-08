@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>66.0</apiVersion>
+    <areMetricsLoggedToDataCloud>false</areMetricsLoggedToDataCloud>
+    <assignments>
+        <name>Build_varAssetString</name>
+        <label>Build varAssetString</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <assignmentItems>
+            <assignToReference>varAssetString</assignToReference>
+            <operator>Add</operator>
+            <value>
+                <elementReference>formulavarAssetStringBuilder</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Loop_Through_Opportunity_Products</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Clean_varAssetString</name>
+        <label>Clean varAssetString</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <assignmentItems>
+            <assignToReference>varAssetString</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>formulaAssetStringClean</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Update_Related_Opportunity_Asset_Summary</targetReference>
+        </connector>
+    </assignments>
+    <description>07/28/2026 - SP - Updating to run off the &quot;Generate Asset Summary&quot; checkbox for better functionality.</description>
+    <environments>Default</environments>
+    <formulas>
+        <name>formulaAssetStringClean</name>
+        <dataType>String</dataType>
+        <expression>LEFT({!varAssetString}, LEN({!varAssetString}) - 2)</expression>
+    </formulas>
+    <formulas>
+        <name>formulavarAssetStringBuilder</name>
+        <dataType>String</dataType>
+        <expression>IF(
+    {!Loop_Through_Opportunity_Products.Product_Family__c} = &quot;Non Inventory Item&quot;,
+    
+    {!Loop_Through_Opportunity_Products.Product2.Name},
+    
+    IF(
+        NOT(ISBLANK({!Loop_Through_Opportunity_Products.ProductItem__r.Id})),
+        {!Loop_Through_Opportunity_Products.ProductItem__r.Name},
+        {!Loop_Through_Opportunity_Products.Product2.Name}
+    )
+) 
+&amp; &quot;, &quot;</expression>
+    </formulas>
+    <interviewLabel>Opportunity - Create Asset {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Opportunity Line Item - Creation or Update - Set Opportunity Asset Summary</label>
+    <loops>
+        <name>Loop_Through_Opportunity_Products</name>
+        <label>Loop Through Opportunity Products</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <collectionReference>Get_Opportunity_Products</collectionReference>
+        <iterationOrder>Asc</iterationOrder>
+        <nextValueConnector>
+            <targetReference>Build_varAssetString</targetReference>
+        </nextValueConnector>
+        <noMoreValuesConnector>
+            <targetReference>Clean_varAssetString</targetReference>
+        </noMoreValuesConnector>
+    </loops>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <recordLookups>
+        <name>Get_Opportunity_Products</name>
+        <label>Get Opportunity Products</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Loop_Through_Opportunity_Products</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>OpportunityId</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>$Record.Id</elementReference>
+            </value>
+        </filters>
+        <getFirstRecordOnly>false</getFirstRecordOnly>
+        <object>OpportunityLineItem</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordUpdates>
+        <name>Update_Related_Opportunity_Asset_Summary</name>
+        <label>Update Related Opportunity Asset Summary</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <inputAssignments>
+            <field>Asset_Summary__c</field>
+            <value>
+                <elementReference>varAssetString</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Generate_Asset_Summary__c</field>
+            <value>
+                <booleanValue>false</booleanValue>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <start>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <filterLogic>1 AND 2</filterLogic>
+        <filters>
+            <field>Generate_Asset_Summary__c</field>
+            <operator>IsChanged</operator>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </filters>
+        <filters>
+            <field>Generate_Asset_Summary__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </filters>
+        <object>Opportunity</object>
+        <recordTriggerType>CreateAndUpdate</recordTriggerType>
+        <scheduledPaths>
+            <connector>
+                <targetReference>Get_Opportunity_Products</targetReference>
+            </connector>
+            <pathType>AsyncAfterCommit</pathType>
+        </scheduledPaths>
+        <triggerType>RecordAfterSave</triggerType>
+    </start>
+    <status>Active</status>
+    <variables>
+        <name>colvarOpportunityProduct</name>
+        <dataType>SObject</dataType>
+        <isCollection>true</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+        <objectType>OpportunityLineItem</objectType>
+    </variables>
+    <variables>
+        <name>varAssetString</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+</Flow>

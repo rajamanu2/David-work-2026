@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>FULL_NAME</field>
+    </columns>
+    <columns>
+        <field>STAGE_NAME</field>
+    </columns>
+    <columns>
+        <field>FISCAL_QUARTER</field>
+    </columns>
+    <columns>
+        <field>CLOSE_DATE</field>
+    </columns>
+    <columns>
+        <field>CREATED_DATE</field>
+    </columns>
+    <columns>
+        <field>TYPE</field>
+    </columns>
+    <columns>
+        <aggregateTypes>Sum</aggregateTypes>
+        <field>Opportunity.ARR__c</field>
+    </columns>
+    <currency>USD</currency>
+    <filter>
+        <booleanFilter>(1 OR 2) AND 3 AND 4 AND 5 AND 6</booleanFilter>
+        <criteriaItems>
+            <column>ACCOUNT_NAME</column>
+            <columnToColumn>false</columnToColumn>
+            <isUnlocked>true</isUnlocked>
+            <operator>equals</operator>
+            <value>Academy of Art University,Adro,American Express,Arizona State University - Tempe Campus,Austin Community College,Berklee College of Music,Boston University,California State Polytechnic University - Pomona,Carnegie Mellon University,Central Washington University,Chapman University,Citi,Citibank,Columbia University,ConServe,Cornell University,Dartmouth College,Davis College,Discover Global Network,Discover Network,Duke University,Elon University,Emory University,FIU,Flagler College,Florida International University,Georgia Southern University,Georgia State University,Glendale Community College - AZ,GradGuard - College Life Protected,GradGuard,Indiana University,ITC Systems,Los Angeles City College,Marist University,Miami University,Morehouse College,MPOWER,National University,New York University,North Carolina State University,Northeastern University,Northern Arizona University,Oberlin College,Penn State,Pepperdine University,Purdue University - Main Campus,Reed College,Rutgers,The State University of New Jersey (all campuses),Saint Louis University - Main Campus,Salt Lake Community College,San Mateo County Community College District,Santa Clara University,Southern Methodist University,Stanford University,SUNY Fashion Institute of Technology</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>ACCOUNT_NAME</column>
+            <columnToColumn>false</columnToColumn>
+            <isUnlocked>true</isUnlocked>
+            <operator>equals</operator>
+            <value>Tennessee State University,Texas A&amp;M University - San Antonio,Texas A&amp;M University,Texas A&amp;M-San Antonio,Texas State University,The Trustees of Purdue University,Thesis,University of Arizona,University of California - Berkeley,University of California - Los Angeles,University of Chicago,University of Cincinnati,University of Colorado - Boulder,University of Connecticut,University of Illinois,University of Michigan - Ann Arbor,University of Minnesota - Crookston,University of Minnesota - Twin Cities,University of Missouri - Columbia,University of Missouri System,University of New Mexico - Main Campus,University of North Carolina At Chapel Hill,University of North Texas,University of Northern Colorado,University of Northern Iowa,University of Pennsylvania,University of Pittsburgh,University of Portland,University of San Francisco,University of South Florida,University of Southern California,University of Tennessee - Knoxville,University of Texas at Arlington,University of Texas at Austin,University of Texas at Dallas,University of Texas Permian Basin,University of Virginia - Main Campus,Washington State University,William &amp; Mary</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>OPPORTUNITY_NAME</column>
+            <columnToColumn>false</columnToColumn>
+            <isUnlocked>true</isUnlocked>
+            <operator>notContain</operator>
+            <value>test,Flywire University,Data Cleanup,Delete,Duplicate,Dupe,Amend University of Northern Colorado</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>FULL_NAME</column>
+            <columnToColumn>false</columnToColumn>
+            <isUnlocked>true</isUnlocked>
+            <operator>notEqual</operator>
+            <value>Ada Cirillo,Allison Campbell,Julie Ko,Laura Luna,Cheri Gallagher</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>ACCOUNT_NAME</column>
+            <columnToColumn>false</columnToColumn>
+            <isUnlocked>true</isUnlocked>
+            <operator>notContain</operator>
+            <value>FW test,Flywire</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>TYPE</column>
+            <columnToColumn>false</columnToColumn>
+            <isUnlocked>true</isUnlocked>
+            <operator>equals</operator>
+            <value>New Business,Existing Business,Renewal + Upsell</value>
+        </criteriaItems>
+    </filter>
+    <format>Summary</format>
+    <groupingsDown>
+        <dateGranularity>Day</dateGranularity>
+        <field>ACCOUNT_NAME</field>
+        <sortOrder>Asc</sortOrder>
+    </groupingsDown>
+    <groupingsDown>
+        <dateGranularity>Day</dateGranularity>
+        <field>OPPORTUNITY_NAME</field>
+        <sortOrder>Asc</sortOrder>
+    </groupingsDown>
+    <name>2024 Flywire Fusion Accounts + CW Deals</name>
+    <params>
+        <name>open</name>
+        <value>closedwon</value>
+    </params>
+    <params>
+        <name>probability</name>
+        <value>&gt;0</value>
+    </params>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>Opportunity</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <showGrandTotal>true</showGrandTotal>
+    <showSubTotals>true</showSubTotals>
+    <timeFrameFilter>
+        <dateColumn>CLOSE_DATE</dateColumn>
+        <interval>INTERVAL_CUSTOM</interval>
+        <startDate>2024-10-01</startDate>
+    </timeFrameFilter>
+</Report>

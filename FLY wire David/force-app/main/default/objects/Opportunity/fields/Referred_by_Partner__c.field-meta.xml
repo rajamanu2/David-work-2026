@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Referred_by_Partner__c</fullName>
+    <businessStatus>Active</businessStatus>
+    <deleteConstraint>Restrict</deleteConstraint>
+    <description>Partner related to this Opp who is referring or reselling. Use the Partner Type field to specify our relationship. Renamed field label since it is not always referred by. SAL-2584</description>
+    <inlineHelpText>Partner related to this Opp who is referring or reselling. Use the Partner Type field to specify our relationship</inlineHelpText>
+    <label>Refer/Resell Partner</label>
+    <referenceTo>Account</referenceTo>
+    <relationshipLabel>Opp (Refer/Resell Partner)</relationshipLabel>
+    <relationshipName>Opportunities</relationshipName>
+    <required>false</required>
+    <securityClassification>Internal</securityClassification>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>true</trackHistory>
+    <type>Lookup</type>
+</CustomField>

@@ -1,0 +1,1019 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>50.0</apiVersion>
+    <areMetricsLoggedToDataCloud>false</areMetricsLoggedToDataCloud>
+    <assignments>
+        <name>Annual_Assignment</name>
+        <label>Annual Assignment</label>
+        <locationX>865</locationX>
+        <locationY>739</locationY>
+        <assignmentItems>
+            <assignToReference>NextChargeDate</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>AnnualIncreaseDate</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Create_New_Chargent_Order</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Biennual_Assignment</name>
+        <label>Biennual Assignment</label>
+        <locationX>740</locationX>
+        <locationY>734</locationY>
+        <assignmentItems>
+            <assignToReference>NextChargeDate</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>BiennialIncreaseDate</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Create_New_Chargent_Order</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Bimonthly_Assignment</name>
+        <label>Bimonthly Assignment</label>
+        <locationX>1254</locationX>
+        <locationY>492</locationY>
+        <assignmentItems>
+            <assignToReference>NextChargeDate</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>BimonthlyIncreaseDate</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Create_New_Chargent_Order</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Daily_Assignment</name>
+        <label>Daily Assignment</label>
+        <locationX>754</locationX>
+        <locationY>298</locationY>
+        <assignmentItems>
+            <assignToReference>NextChargeDate</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>DailyIncreaseDate</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Create_New_Chargent_Order</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Daily_Assignment_0</name>
+        <label>Weekly Assignment</label>
+        <locationX>867</locationX>
+        <locationY>259</locationY>
+        <assignmentItems>
+            <assignToReference>NextChargeDate</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>WeeklyIncreaseRate</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Create_New_Chargent_Order</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Daily_Assignment_0_0</name>
+        <label>Biweekly Assignment</label>
+        <locationX>987</locationX>
+        <locationY>302</locationY>
+        <assignmentItems>
+            <assignToReference>NextChargeDate</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>BiweeklyIncreaseDate</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Create_New_Chargent_Order</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Daily_Assignment_0_0_0</name>
+        <label>Biweekly Assignment</label>
+        <locationX>1151</locationX>
+        <locationY>358</locationY>
+        <assignmentItems>
+            <assignToReference>NextChargeDate</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>MontlyIncreaseDate</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Create_New_Chargent_Order</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Quarterly_Assignment</name>
+        <label>Quarterly Assignment</label>
+        <locationX>1159</locationX>
+        <locationY>608</locationY>
+        <assignmentItems>
+            <assignToReference>NextChargeDate</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>QuarterlyIncreaseDate</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Create_New_Chargent_Order</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>SemiAnnual_Assignment</name>
+        <label>SemiAnnual Assignment</label>
+        <locationX>1005</locationX>
+        <locationY>732</locationY>
+        <assignmentItems>
+            <assignToReference>NextChargeDate</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>SemiAnnualIncreaseDate</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Create_New_Chargent_Order</targetReference>
+        </connector>
+    </assignments>
+    <decisions>
+        <name>Next_Charge_Date_Equals_Today</name>
+        <label>Next Charge Date Equals Today?</label>
+        <locationX>277</locationX>
+        <locationY>511</locationY>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Yes_Charge_Date_is_Today</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Next_Charge_Date__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <elementReference>TodayDate</elementReference>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Create_New_Recurring_Invoice</targetReference>
+            </connector>
+            <label>Yes Charge Date is Today</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>OppProductCheck</name>
+        <label>Opp Product Check</label>
+        <locationX>182</locationX>
+        <locationY>740</locationY>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Yes_Opp_Products</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>OpportunityProductsCollectionVariable</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Loop_through_current_opportunity_products</targetReference>
+            </connector>
+            <label>Yes Opp Products</label>
+        </rules>
+        <rules>
+            <name>NoOppProducts2</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>OpportunityProductsCollectionVariable</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Recurring_Frequency</targetReference>
+            </connector>
+            <label>No Opp Products</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Recurring_Frequency</name>
+        <label>Recurring Frequency</label>
+        <locationX>859</locationX>
+        <locationY>495</locationY>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Daily</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Recurring_Frequency__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Daily</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Daily_Assignment</targetReference>
+            </connector>
+            <label>Daily</label>
+        </rules>
+        <rules>
+            <name>Weekly</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Recurring_Frequency__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Weekly</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Daily_Assignment_0</targetReference>
+            </connector>
+            <label>Weekly</label>
+        </rules>
+        <rules>
+            <name>Biweekly</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Recurring_Frequency__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Biweekly</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Daily_Assignment_0_0</targetReference>
+            </connector>
+            <label>Biweekly</label>
+        </rules>
+        <rules>
+            <name>Montly</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Recurring_Frequency__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Monthly</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Daily_Assignment_0_0_0</targetReference>
+            </connector>
+            <label>Montly</label>
+        </rules>
+        <rules>
+            <name>Bimonthly</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Recurring_Frequency__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Bimonthly</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Bimonthly_Assignment</targetReference>
+            </connector>
+            <label>Bimonthly</label>
+        </rules>
+        <rules>
+            <name>Quarterly</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Recurring_Frequency__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Quarterly</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Quarterly_Assignment</targetReference>
+            </connector>
+            <label>Quarterly</label>
+        </rules>
+        <rules>
+            <name>SemiAnnual</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Recurring_Frequency__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Semiannual</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>SemiAnnual_Assignment</targetReference>
+            </connector>
+            <label>Semiannual</label>
+        </rules>
+        <rules>
+            <name>Annual</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Recurring_Frequency__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Annual</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Annual_Assignment</targetReference>
+            </connector>
+            <label>Annual</label>
+        </rules>
+        <rules>
+            <name>Biennial</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Recurring_Frequency__c</leftValueReference>
+                <operator>EqualTo</operator>
+            </conditions>
+            <connector>
+                <targetReference>Biennual_Assignment</targetReference>
+            </connector>
+            <label>Biennial</label>
+        </rules>
+    </decisions>
+    <environments>Default</environments>
+    <formulas>
+        <name>AnnualIncreaseDate</name>
+        <dataType>Date</dataType>
+        <expression>IF(
+  AND(
+    MONTH( {!$Record.Next_Charge_Date__c} ) = 2,
+    DAY( {!$Record.Next_Charge_Date__c} ) = 29,
+    NOT( 
+      OR( 
+        MOD( YEAR( {!$Record.Next_Charge_Date__c} ), 400 ) = 0, 
+        AND( 
+          MOD( YEAR( {!$Record.Next_Charge_Date__c} ), 4 ) = 0,
+          MOD( YEAR( {!$Record.Next_Charge_Date__c} ), 100 ) != 0
+        )
+      )
+    ) 
+  ),
+  DATE( YEAR( {!$Record.Next_Charge_Date__c} ) + 1, 3, 1),
+  DATE( YEAR( {!$Record.Next_Charge_Date__c} ) + 1, MONTH( {!$Record.Next_Charge_Date__c} ), DAY( {!$Record.Next_Charge_Date__c} ) )
+)</expression>
+    </formulas>
+    <formulas>
+        <name>BiennialIncreaseDate</name>
+        <dataType>Date</dataType>
+        <expression>IF(
+  AND(
+    MONTH( {!$Record.Next_Charge_Date__c} ) = 2,
+    DAY( {!$Record.Next_Charge_Date__c} ) = 29,
+    NOT( 
+      OR( 
+        MOD( YEAR( {!$Record.Next_Charge_Date__c} ), 400 ) = 0, 
+        AND( 
+          MOD( YEAR( {!$Record.Next_Charge_Date__c} ), 4 ) = 0,
+          MOD( YEAR( {!$Record.Next_Charge_Date__c} ), 100 ) != 0
+        )
+      )
+    ) 
+  ),
+  DATE( YEAR( {!$Record.Next_Charge_Date__c} ) + 2, 3, 1),
+  DATE( YEAR( {!$Record.Next_Charge_Date__c} ) + 2, MONTH( {!$Record.Next_Charge_Date__c} ), DAY( {!$Record.Next_Charge_Date__c} ) )
+)</expression>
+    </formulas>
+    <formulas>
+        <name>BimonthlyIncreaseDate</name>
+        <dataType>Date</dataType>
+        <expression>DATE(
+  YEAR( {!$Record.Next_Charge_Date__c} ) + FLOOR( ( MONTH ( {!$Record.Next_Charge_Date__c} ) + 2 - 1 ) / 12 ),
+  MOD( MONTH ( {!$Record.Next_Charge_Date__c} ) + 2 - 1 + 
+    IF( DAY ( {!$Record.Next_Charge_Date__c} ) &gt; CASE( MOD( MONTH( {!$Record.Next_Charge_Date__c} ) + 2 - 1, 12 ) + 1, 
+      2, 28,
+      4, 30,
+      6, 30,
+      9, 30, 
+      11, 30,
+      31 ), 1, 0 ), 12 ) + 1,
+    IF( DAY( {!$Record.Next_Charge_Date__c} ) &gt; CASE( MOD( MONTH( {!$Record.Next_Charge_Date__c} ) + 2 - 1, 12 ) + 1,
+      2, 28, 
+      4, 30, 
+      6, 30, 
+      9, 30, 
+      11, 30, 
+      31 ), 
+    1, DAY( {!$Record.Next_Charge_Date__c} )
+  )
+)</expression>
+    </formulas>
+    <formulas>
+        <name>BiweeklyIncreaseDate</name>
+        <dataType>Date</dataType>
+        <expression>{!$Record.Next_Charge_Date__c} + 14</expression>
+    </formulas>
+    <formulas>
+        <name>DailyIncreaseDate</name>
+        <dataType>Date</dataType>
+        <expression>{!$Record.Next_Charge_Date__c} + 1</expression>
+    </formulas>
+    <formulas>
+        <name>MontlyIncreaseDate</name>
+        <dataType>Date</dataType>
+        <expression>DATE(
+  YEAR( {!$Record.Next_Charge_Date__c} ) + FLOOR( ( MONTH ( {!$Record.Next_Charge_Date__c} ) + 1 - 1 ) / 12 ),
+  MOD( MONTH ( {!$Record.Next_Charge_Date__c} ) + 1 - 1 + 
+    IF( DAY ( {!$Record.Next_Charge_Date__c} ) &gt; CASE( MOD( MONTH( {!$Record.Next_Charge_Date__c} ) + 1 - 1, 12 ) + 1, 
+      2, 28,
+      4, 30,
+      6, 30,
+      9, 30, 
+      11, 30,
+      31 ), 1, 0 ), 12 ) + 1,
+    IF( DAY( {!$Record.Next_Charge_Date__c} ) &gt; CASE( MOD( MONTH( {!$Record.Next_Charge_Date__c} ) + 1 - 1, 12 ) + 1,
+      2, 28, 
+      4, 30, 
+      6, 30, 
+      9, 30, 
+      11, 30, 
+      31 ), 
+    1, DAY( {!$Record.Next_Charge_Date__c} )
+  )
+)</expression>
+    </formulas>
+    <formulas>
+        <name>QuarterlyIncreaseDate</name>
+        <dataType>Date</dataType>
+        <expression>DATE(
+  YEAR( {!$Record.Next_Charge_Date__c} ) + FLOOR( ( MONTH ( {!$Record.Next_Charge_Date__c} ) + 3 - 1 ) / 12 ),
+  MOD( MONTH ( {!$Record.Next_Charge_Date__c} ) + 3 - 1 + 
+    IF( DAY ( {!$Record.Next_Charge_Date__c} ) &gt; CASE( MOD( MONTH( {!$Record.Next_Charge_Date__c} ) + 3 - 1, 12 ) + 1, 
+      2, 28,
+      4, 30,
+      6, 30,
+      9, 30, 
+      11, 30,
+      31 ), 1, 0 ), 12 ) + 1,
+    IF( DAY( {!$Record.Next_Charge_Date__c} ) &gt; CASE( MOD( MONTH( {!$Record.Next_Charge_Date__c} ) + 3 - 1, 12 ) + 1,
+      2, 28, 
+      4, 30, 
+      6, 30, 
+      9, 30, 
+      11, 30, 
+      31 ), 
+    1, DAY( {!$Record.Next_Charge_Date__c} )
+  )
+)</expression>
+    </formulas>
+    <formulas>
+        <name>SemiAnnualIncreaseDate</name>
+        <dataType>Date</dataType>
+        <expression>DATE(
+  YEAR( {!$Record.Next_Charge_Date__c} ) + FLOOR( ( MONTH ( {!$Record.Next_Charge_Date__c} ) + 6 - 1 ) / 12 ),
+  MOD( MONTH ( {!$Record.Next_Charge_Date__c} ) + 6 - 1 + 
+    IF( DAY ( {!$Record.Next_Charge_Date__c} ) &gt; CASE( MOD( MONTH( {!$Record.Next_Charge_Date__c} ) + 6 - 1, 12 ) + 1, 
+      2, 28,
+      4, 30,
+      6, 30,
+      9, 30, 
+      11, 30,
+      31 ), 1, 0 ), 12 ) + 1,
+    IF( DAY( {!$Record.Next_Charge_Date__c} ) &gt; CASE( MOD( MONTH( {!$Record.Next_Charge_Date__c} ) + 6 - 1, 12 ) + 1,
+      2, 28, 
+      4, 30, 
+      6, 30, 
+      9, 30, 
+      11, 30, 
+      31 ), 
+    1, DAY( {!$Record.Next_Charge_Date__c} )
+  )
+)</expression>
+    </formulas>
+    <formulas>
+        <name>TodayDate</name>
+        <dataType>Date</dataType>
+        <expression>TODAY()</expression>
+    </formulas>
+    <formulas>
+        <name>WeeklyIncreaseRate</name>
+        <dataType>Date</dataType>
+        <expression>{!$Record.Next_Charge_Date__c} + 7</expression>
+    </formulas>
+    <interviewLabel>Recurring Billing Flow {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Recurring Billing Flow</label>
+    <loops>
+        <name>Loop_through_current_opportunity_products</name>
+        <label>Loop through current opportunity products</label>
+        <locationX>410</locationX>
+        <locationY>743</locationY>
+        <collectionReference>OpportunityProductsCollectionVariable</collectionReference>
+        <iterationOrder>Asc</iterationOrder>
+        <nextValueConnector>
+            <targetReference>Create_Opportunity_Product</targetReference>
+        </nextValueConnector>
+        <noMoreValuesConnector>
+            <targetReference>Recurring_Frequency</targetReference>
+        </noMoreValuesConnector>
+    </loops>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>FREE_FORM_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <recordCreates>
+        <name>Create_New_Chargent_Order</name>
+        <label>Create New Chargent Order</label>
+        <locationX>1694</locationX>
+        <locationY>501</locationY>
+        <connector>
+            <targetReference>Create_new_Payment_Request</targetReference>
+        </connector>
+        <inputAssignments>
+            <field>ChargentOrders__Charge_Amount__c</field>
+            <value>
+                <elementReference>$Record.Recurring_Charge_Amount__c</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>ChargentOrders__Payment_Method__c</field>
+            <value>
+                <stringValue>Credit Card</stringValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>ChargentOrders__Subtotal__c</field>
+            <value>
+                <elementReference>$Record.Recurring_Charge_Amount__c</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>ChargentOrders__Tax__c</field>
+            <value>
+                <elementReference>$Record.Invoice__r.X23100_Sales_Tax_Payable__c</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Invoice__c</field>
+            <value>
+                <elementReference>Create_New_Recurring_Invoice</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Next_Charge_Date__c</field>
+            <value>
+                <elementReference>NextChargeDate</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Opportunity__c</field>
+            <value>
+                <elementReference>$Record.Invoice__c</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>OwnerId</field>
+            <value>
+                <elementReference>$Record.Invoice__r.OwnerId</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Recurring_Frequency__c</field>
+            <value>
+                <elementReference>$Record.Recurring_Frequency__c</elementReference>
+            </value>
+        </inputAssignments>
+        <object>ChargentOrders__ChargentOrder__c</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordCreates>
+    <recordCreates>
+        <name>Create_new_Payment_Request</name>
+        <label>Create New Payment Request</label>
+        <locationX>1832</locationX>
+        <locationY>501</locationY>
+        <inputAssignments>
+            <field>ChargentOrders__ChargentOrder__c</field>
+            <value>
+                <elementReference>Create_New_Chargent_Order</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>ChargentOrders__Email_Address__c</field>
+            <value>
+                <elementReference>$Record.Invoice__r.Accounting_Contact_E_mail__c</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>ChargentOrders__Send_Payment_Request_Email__c</field>
+            <value>
+                <booleanValue>false</booleanValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Chargent_Order__c</field>
+            <value>
+                <elementReference>Create_New_Chargent_Order</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Invoice__c</field>
+            <value>
+                <elementReference>$Record.Invoice__c</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Opportunity__c</field>
+            <value>
+                <elementReference>$Record.Opportunity__c</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Payment_Due_Date__c</field>
+            <value>
+                <elementReference>TodayDate</elementReference>
+            </value>
+        </inputAssignments>
+        <object>ChargentOrders__Payment_Request__c</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordCreates>
+    <recordCreates>
+        <name>Create_New_Recurring_Invoice</name>
+        <label>Create New Recurring Invoice</label>
+        <locationX>50</locationX>
+        <locationY>516</locationY>
+        <connector>
+            <targetReference>Get_Invoice_Products</targetReference>
+        </connector>
+        <inputAssignments>
+            <field>Account__c</field>
+            <value>
+                <elementReference>$Record.Invoice__r.Account__c</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Balance_Due__c</field>
+            <value>
+                <elementReference>$Record.Recurring_Charge_Amount__c</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Bill_to_Account__c</field>
+            <value>
+                <elementReference>$Record.Invoice__r.Bill_to_Account__c</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Billing_City__c</field>
+            <value>
+                <elementReference>$Record.Invoice__r.Billing_City__c</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Billing_Country__c</field>
+            <value>
+                <elementReference>$Record.Invoice__r.Billing_Country__c</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Billing_Postal_Code__c</field>
+            <value>
+                <elementReference>$Record.Invoice__r.Billing_Postal_Code__c</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Billing_State__c</field>
+            <value>
+                <elementReference>$Record.Invoice__r.Billing_State__c</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Billing_Street__c</field>
+            <value>
+                <elementReference>$Record.Invoice__r.Billing_Street__c</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Opportunity__c</field>
+            <value>
+                <elementReference>$Record.Opportunity__c</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>OwnerId</field>
+            <value>
+                <elementReference>$Record.Invoice__r.OwnerId</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Physical_Location__c</field>
+            <value>
+                <elementReference>$Record.Invoice__r.Physical_Location__c</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>RecordTypeId</field>
+            <value>
+                <stringValue>0124O0000001xq6QAA</stringValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Ship_to_Account__c</field>
+            <value>
+                <elementReference>$Record.Invoice__r.Ship_to_Account__c</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Shipping_City__c</field>
+            <value>
+                <elementReference>$Record.Invoice__r.Shipping_City__c</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Shipping_Country__c</field>
+            <value>
+                <elementReference>$Record.Invoice__r.Shipping_Country__c</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Shipping_Postal_Code__c</field>
+            <value>
+                <elementReference>$Record.Invoice__r.Shipping_Postal_Code__c</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Shipping_State__c</field>
+            <value>
+                <elementReference>$Record.Invoice__r.Shipping_State__c</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Shipping_Street__c</field>
+            <value>
+                <elementReference>$Record.Invoice__r.Shipping_Street__c</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>X23100_Sales_Tax_Payable__c</field>
+            <value>
+                <elementReference>$Record.Invoice__r.X23100_Sales_Tax_Payable__c</elementReference>
+            </value>
+        </inputAssignments>
+        <object>Invoice__c</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordCreates>
+    <recordCreates>
+        <name>Create_Opportunity_Product</name>
+        <label>Create Opportunity Product</label>
+        <locationX>615</locationX>
+        <locationY>805</locationY>
+        <connector>
+            <targetReference>Loop_through_current_opportunity_products</targetReference>
+        </connector>
+        <inputAssignments>
+            <field>Asset_No__c</field>
+            <value>
+                <elementReference>Loop_through_current_opportunity_products.Asset_No__c</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Asset_is_system__c</field>
+            <value>
+                <elementReference>Loop_through_current_opportunity_products.Asset_is_system__c</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Invoice2__c</field>
+            <value>
+                <elementReference>Create_New_Recurring_Invoice</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Loaner__c</field>
+            <value>
+                <elementReference>Loop_through_current_opportunity_products.Loaner__c</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Model__c</field>
+            <value>
+                <elementReference>Loop_through_current_opportunity_products.Model__c</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>OpportunityId</field>
+            <value>
+                <elementReference>Loop_through_current_opportunity_products.OpportunityId</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Part_Number__c</field>
+            <value>
+                <elementReference>Loop_through_current_opportunity_products.Part_Number__c</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Probo_s_Offer__c</field>
+            <value>
+                <elementReference>Loop_through_current_opportunity_products.Probo_s_Offer__c</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Product2Id</field>
+            <value>
+                <elementReference>Loop_through_current_opportunity_products.Product2Id</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>ProductItem__c</field>
+            <value>
+                <elementReference>Loop_through_current_opportunity_products.ProductItem__c</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Product_Family_TXT__c</field>
+            <value>
+                <elementReference>Loop_through_current_opportunity_products.Product_Family_TXT__c</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Product__c</field>
+            <value>
+                <elementReference>Loop_through_current_opportunity_products.Product__c</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Purchasing_Approval_Time__c</field>
+            <value>
+                <elementReference>Loop_through_current_opportunity_products.Purchasing_Approval_Time__c</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Purchasing_Approved__c</field>
+            <value>
+                <elementReference>Loop_through_current_opportunity_products.Purchasing_Approved__c</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Quantity</field>
+            <value>
+                <elementReference>Loop_through_current_opportunity_products.Quantity</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Rental_Order__c</field>
+            <value>
+                <elementReference>Loop_through_current_opportunity_products.Rental_Order__c</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Sales_Product__c</field>
+            <value>
+                <elementReference>Loop_through_current_opportunity_products.Sales_Product__c</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Serial_No__c</field>
+            <value>
+                <elementReference>Loop_through_current_opportunity_products.Serial_No__c</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Supplier_s_Quote__c</field>
+            <value>
+                <elementReference>Loop_through_current_opportunity_products.Supplier_s_Quote__c</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>UnitPrice</field>
+            <value>
+                <elementReference>Loop_through_current_opportunity_products.UnitPrice</elementReference>
+            </value>
+        </inputAssignments>
+        <object>OpportunityLineItem</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordCreates>
+    <recordLookups>
+        <name>Get_Invoice_Products</name>
+        <label>Get Invoice Products</label>
+        <locationX>50</locationX>
+        <locationY>738</locationY>
+        <assignNullValuesIfNoRecordsFound>true</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>OppProductCheck</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Invoice__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>$Record.Invoice__c</elementReference>
+            </value>
+        </filters>
+        <filters>
+            <field>Product2Id</field>
+            <operator>NotEqualTo</operator>
+            <value>
+                <stringValue>01tU0000002WUUbIAO</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>Product2Id</field>
+            <operator>NotEqualTo</operator>
+            <value>
+                <stringValue>01t5b000006ayLyAAI</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>Product2Id</field>
+            <operator>NotEqualTo</operator>
+            <value>
+                <stringValue>01t5b000006axd3AAA</stringValue>
+            </value>
+        </filters>
+        <object>OpportunityLineItem</object>
+        <outputReference>OpportunityProductsCollectionVariable</outputReference>
+        <queriedFields>Id</queriedFields>
+        <queriedFields>Asset_No__c</queriedFields>
+        <queriedFields>Asset_is_system__c</queriedFields>
+        <queriedFields>Invoice2__c</queriedFields>
+        <queriedFields>Loaner__c</queriedFields>
+        <queriedFields>Model__c</queriedFields>
+        <queriedFields>OpportunityId</queriedFields>
+        <queriedFields>Part_Number__c</queriedFields>
+        <queriedFields>Probo_s_Offer__c</queriedFields>
+        <queriedFields>Product2Id</queriedFields>
+        <queriedFields>ProductItem__c</queriedFields>
+        <queriedFields>Product_Family_TXT__c</queriedFields>
+        <queriedFields>Product__c</queriedFields>
+        <queriedFields>Purchasing_Approval_Time__c</queriedFields>
+        <queriedFields>Purchasing_Approved__c</queriedFields>
+        <queriedFields>Quantity</queriedFields>
+        <queriedFields>Rental_Order__c</queriedFields>
+        <queriedFields>Sales_Product__c</queriedFields>
+        <queriedFields>Serial_No__c</queriedFields>
+        <queriedFields>Supplier_s_Quote__c</queriedFields>
+        <queriedFields>UnitPrice</queriedFields>
+    </recordLookups>
+    <start>
+        <locationX>159</locationX>
+        <locationY>223</locationY>
+        <connector>
+            <targetReference>Next_Charge_Date_Equals_Today</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Next_Charge_Date__c</field>
+            <operator>IsNull</operator>
+            <value>
+                <booleanValue>false</booleanValue>
+            </value>
+        </filters>
+        <filters>
+            <field>Next_Charge_Date__c</field>
+            <operator>GreaterThanOrEqualTo</operator>
+            <value>
+                <dateValue>2022-06-02</dateValue>
+            </value>
+        </filters>
+        <object>ChargentOrders__ChargentOrder__c</object>
+        <schedule>
+            <frequency>Daily</frequency>
+            <startDate>2020-12-29</startDate>
+            <startTime>06:00:00.000Z</startTime>
+        </schedule>
+        <triggerType>Scheduled</triggerType>
+    </start>
+    <status>Active</status>
+    <variables>
+        <name>NextChargeDate</name>
+        <dataType>Date</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <name>OpportunityProductsCollectionVariable</name>
+        <dataType>SObject</dataType>
+        <isCollection>true</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+        <objectType>OpportunityLineItem</objectType>
+    </variables>
+</Flow>

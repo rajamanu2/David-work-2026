@@ -1,0 +1,23 @@
+FILE: C:\Users\LIKKI\Downloads\CPQ Quote Proposal - v3.docx
+PARAGRAPHS: 12
+TABLES: 3
+P1 [normal]: Proposal for {{AccountName}}{{#IF_ShowShipToAddress}}
+P2 [normal]: {{/IF_ShowShipToAddress}}{{#IF_ShowOppShipToAddress}}
+P3 [normal]: {{/IF_ShowOppShipToAddress}}{{#IF_NonStandardTermsPresent}}
+P4 [normal]: Non Standard Terms: {{NonStandardTerms}}{{/IF_NonStandardTermsPresent}}
+P5 [normal]: Generated Date: {{Date}}{{#IF_MultipleShipToAccounts}}
+P6 [normal]: {{/IF_MultipleShipToAccounts}}{{#IF_QuoteLineGroupsPresentFalse}}
+P7 [normal]: {{/IF_QuoteLineGroupsPresentFalse}}{{#IF_QuoteLineGroupsPresentTrue}}{{#Group}}
+P8 [normal]: {{/Group}}{{/IF_QuoteLineGroupsPresentTrue}}{{#IF_PrintSignatureBlock}}
+P9 [normal]: Signatures
+P11 [normal]: {{/IF_PrintSignatureBlock}}
+TABLE 1 (2x6)
+R1: Product | Ship To Account | Qty. | Billing Frequency | Description | Price
+R2: {{#Line}}{{ProductName}} | {{ShipToAccount}} | {{Quantity}} | {{BillingFrequency}} | {{LineDescriptionWithType}} | {{Price}}{{/Line}}
+TABLE 2 (2x5)
+R1: Product | Qty. | Billing Frequency | Description | Price
+R2: {{#Line}}{{ProductName}} | {{Quantity}} | {{BillingFrequency}} | {{LineDescriptionWithType}} | {{Price}} {{/Line}}
+TABLE 3 (3x3)
+R1:  | Signature | Date
+R2: Buyer: |  | 
+R3: Seller: |  | 

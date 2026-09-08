@@ -1,0 +1,324 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>66.0</apiVersion>
+    <areMetricsLoggedToDataCloud>false</areMetricsLoggedToDataCloud>
+    <assignments>
+        <name>Assign_Decommissioned</name>
+        <label>Assign Decommissioned</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <assignmentItems>
+            <assignToReference>varLifecycleStatus</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>Decommissioned</stringValue>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Update_Required_Check</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Assign_In_Service</name>
+        <label>Assign In Service</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <assignmentItems>
+            <assignToReference>varLifecycleStatus</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>In Service</stringValue>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Update_Required_Check</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Assign_Not_Yet_in_Service</name>
+        <label>Assign Not Yet in Service</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <assignmentItems>
+            <assignToReference>varLifecycleStatus</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>Not Yet in Service</stringValue>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Update_Required_Check</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Assign_Out_of_Contract</name>
+        <label>Assign Out of Contract</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <assignmentItems>
+            <assignToReference>varLifecycleStatus</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>Out of Contract</stringValue>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Update_Required_Check</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Assign_Scheduled_for_Decommission</name>
+        <label>Assign Scheduled for Decomission</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <assignmentItems>
+            <assignToReference>varLifecycleStatus</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>Scheduled for Decommission</stringValue>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Update_Required_Check</targetReference>
+        </connector>
+    </assignments>
+    <decisions>
+        <name>Decision_1</name>
+        <label>Contract Line Item Condition Check</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <defaultConnector>
+            <targetReference>Assign_In_Service</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Not_Yet_in_Service</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.StartDate</leftValueReference>
+                <operator>GreaterThan</operator>
+                <rightValue>
+                    <elementReference>$Flow.CurrentDate</elementReference>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Assign_Not_Yet_in_Service</targetReference>
+            </connector>
+            <label>Not Yet in Service</label>
+        </rules>
+        <rules>
+            <name>Scheduled_for_Decommission</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Decommission_Date__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Decommission_Date__c</leftValueReference>
+                <operator>GreaterThan</operator>
+                <rightValue>
+                    <elementReference>$Flow.CurrentDate</elementReference>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Assign_Scheduled_for_Decommission</targetReference>
+            </connector>
+            <label>Scheduled for Decommission</label>
+        </rules>
+        <rules>
+            <name>Decommissioned</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Decommission_Date__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Decommission_Date__c</leftValueReference>
+                <operator>LessThanOrEqualTo</operator>
+                <rightValue>
+                    <elementReference>$Flow.CurrentDate</elementReference>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Assign_Decommissioned</targetReference>
+            </connector>
+            <label>Decommissioned</label>
+        </rules>
+        <rules>
+            <name>Out_of_Contract</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.EndDate</leftValueReference>
+                <operator>LessThan</operator>
+                <rightValue>
+                    <elementReference>$Flow.CurrentDate</elementReference>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Decommission_Date__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Assign_Out_of_Contract</targetReference>
+            </connector>
+            <label>Out of Contract</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <description>If the value in varLifecycleStatus matched the triggering CLIs Lifecycle Status then the record isn&apos;t updated.</description>
+        <name>Update_Required_Check</name>
+        <label>Update Required Check</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <defaultConnector>
+            <targetReference>Update_Triggering_Contract_Line_Item</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Update_Not_Required</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>varLifecycleStatus</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <elementReference>$Record.Lifecycle_Status__c</elementReference>
+                </rightValue>
+            </conditions>
+            <label>Update Not Required</label>
+        </rules>
+    </decisions>
+    <environments>Default</environments>
+    <interviewLabel>Contract Line Item - Creation or Update - Set Lifecycle Status {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Contract Line Item - Creation or Update - Set Lifecycle Status</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <recordUpdates>
+        <name>Lifecycle_Status_to_In_Service</name>
+        <label>Lifecycle Status to In Service</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <inputAssignments>
+            <field>Lifecycle_Status__c</field>
+            <value>
+                <stringValue>In Service</stringValue>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>Lifecycle_Status_to_Out_of_Contract</name>
+        <label>Lifecycle Status to Out of Contract</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <inputAssignments>
+            <field>Lifecycle_Status__c</field>
+            <value>
+                <stringValue>Out of Contract</stringValue>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>Update_Lifecycle_Status_to_Decommissioned</name>
+        <label>Update Lifecycle Status to Decommissioned</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <inputAssignments>
+            <field>Lifecycle_Status__c</field>
+            <value>
+                <stringValue>Decommissioned</stringValue>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>Update_Triggering_Contract_Line_Item</name>
+        <label>Update Triggering Contract Line Item</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <inputAssignments>
+            <field>Lifecycle_Status__c</field>
+            <value>
+                <elementReference>varLifecycleStatus</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <start>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Decision_1</targetReference>
+        </connector>
+        <object>ContractLineItem</object>
+        <recordTriggerType>CreateAndUpdate</recordTriggerType>
+        <scheduledPaths>
+            <name>Mark_Contract_Line_Item_As_Decommissioned</name>
+            <connector>
+                <targetReference>Update_Lifecycle_Status_to_Decommissioned</targetReference>
+            </connector>
+            <label>Mark Contract Line Item As Decommissioned</label>
+            <offsetNumber>0</offsetNumber>
+            <offsetUnit>Days</offsetUnit>
+            <recordField>Decommission_Date__c</recordField>
+            <timeSource>RecordField</timeSource>
+        </scheduledPaths>
+        <scheduledPaths>
+            <name>Mark_Contract_Line_Item_As_In_Service</name>
+            <connector>
+                <targetReference>Lifecycle_Status_to_In_Service</targetReference>
+            </connector>
+            <label>Mark Contract Line Item As In Service</label>
+            <offsetNumber>0</offsetNumber>
+            <offsetUnit>Days</offsetUnit>
+            <recordField>StartDate</recordField>
+            <timeSource>RecordField</timeSource>
+        </scheduledPaths>
+        <scheduledPaths>
+            <name>Mark_Contract_Line_Item_As_Out_of_Service</name>
+            <connector>
+                <targetReference>Lifecycle_Status_to_Out_of_Contract</targetReference>
+            </connector>
+            <label>Mark Contract Line Item As Out of Service</label>
+            <offsetNumber>0</offsetNumber>
+            <offsetUnit>Days</offsetUnit>
+            <recordField>EndDate</recordField>
+            <timeSource>RecordField</timeSource>
+        </scheduledPaths>
+        <triggerType>RecordAfterSave</triggerType>
+    </start>
+    <status>Active</status>
+    <variables>
+        <name>varLifecycleStatus</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+</Flow>

@@ -1,0 +1,27 @@
+<messaging:emailTemplate subject="Opportunity Approval - LGL - RECALLED: {!relatedTo.sbaa__Opportunity__r.Name}"
+recipientType="User"
+relatedToType="sbaa__Approval__c">
+<messaging:HtmlEmailBody >
+<html>
+<body>
+
+<apex:image value="{!LEFT($Api.Enterprise_Server_URL_300, FIND('/services',$Api.Enterprise_Server_URL_300))}/servlet/servlet.ImageServer?id={!$Setup.AQS_AA_Enablement_IDs__c.AQS_Approval_Email_Logo_ID__c}&oid={!$Organization.Id}" 
+/>
+
+<b></b>
+<p></p><br/>
+
+Hello {!recipient.name},
+
+<p> Your approval request for Opportunity {!relatedTo.sbaa__Opportunity__r.Name} has been recalled.
+</p>
+
+<p>
+<b>Opportunity Name: </b>&nbsp;<apex:outputLink value="{!LEFT($Api.Enterprise_Server_URL_300, FIND('/services',$Api.Enterprise_Server_URL_300))}/{!relatedTo.AQS_Quote__r.SBQQ__Opportunity2__r.Id}" >{!relatedTo.sbaa__Opportunity__r.Name}</apex:outputLink><br/>
+</p>
+
+
+</body>
+</html>
+</messaging:HtmlEmailBody>
+</messaging:emailTemplate>

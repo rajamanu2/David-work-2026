@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Missing_Opportunity_Products</fullName>
+    <active>true</active>
+    <description>Created for SALDEV-918. Used to ensure if products are deleted from Opportunity Products, Opp can&apos;t be sent to Legal until the Quote is Re-synced and missing products are back.</description>
+    <errorConditionFormula>AND(
+    $Profile.Name &lt;&gt; &quot;System Administrator&quot;,
+    $Profile.Name &lt;&gt; &quot;B - Looker&quot;,
+    $User.Alias &lt;&gt; &quot;Workato&quot;,
+    Pricebook2.Name = &quot;CPQ&quot;,
+    NOT(ISBLANK(SBQQ__PrimaryQuote__c )),
+    Number_of_Opportunity_Products__c &lt;&gt; SBQQ__PrimaryQuote__r.Number_of_Non_Amendment_Quote_Lines__c,
+    ISPICKVAL(StageName,&quot;Legal&quot;),
+				NOT(ISPICKVAL(Type, &quot;Renewal&quot;)),
+    Opp_Val_Bypass__c = false,
+    SBQQ__PrimaryQuote__r.Quote_Val_Bypass__c = false
+)</errorConditionFormula>
+    <errorMessage>Looks like the Opportunity is missing lines. Recall Quote approval, click Edit Lines and remove unwanted line items, then Save to sync back to the Opportunity correctly.</errorMessage>
+</ValidationRule>

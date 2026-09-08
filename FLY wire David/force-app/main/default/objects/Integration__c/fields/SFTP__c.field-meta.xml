@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>SFTP__c</fullName>
+    <description>Select where the payment files are hosted. This does not apply to Document Collector files.</description>
+    <inlineHelpText>Select where the payment files are hosted. This does not apply to Document Collector files.</inlineHelpText>
+    <label>SFTP Host</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Partner Hosted</fullName>
+                <default>false</default>
+                <label>Partner Hosted</label>
+            </value>
+            <value>
+                <fullName>Flywire Hosted</fullName>
+                <default>false</default>
+                <label>Flywire Hosted</label>
+            </value>
+            <value>
+                <fullName>Third Party Hosted</fullName>
+                <default>false</default>
+                <label>Third Party Hosted</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

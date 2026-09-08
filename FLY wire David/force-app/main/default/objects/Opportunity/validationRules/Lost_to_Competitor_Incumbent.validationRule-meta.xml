@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Lost_to_Competitor_Incumbent</fullName>
+    <active>true</active>
+    <description>12/12/23 Reactivating Val Rule, which seems to have been deactivated 8/9/2023, Updating to run on new sub reason. Should look to see when else it should be filled in.</description>
+    <errorConditionFormula>AND(
+ $Profile.Name &lt;&gt; &apos;System Administrator&apos;,
+$Profile.Name &lt;&gt; &quot;B - Looker&quot;,
+$User.Alias &lt;&gt; &quot;Workato&quot;,
+ RecordType.Name = &apos;Education&apos;,
+ RecordType.Name = &apos;Travel&apos;,
+ ISBLANK ( Competitor_Name__c ),
+ ISPICKVAL ( Lost_Sub_Reason__c , &quot;Staying with Incumbent Provider&quot;)
+)
+&amp;&amp; Opp_Val_Bypass__c = false</errorConditionFormula>
+    <errorDisplayField>Competitor_Name__c</errorDisplayField>
+    <errorMessage>Select the Competitor we lost this Opportunity to.</errorMessage>
+</ValidationRule>

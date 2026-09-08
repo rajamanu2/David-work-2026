@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Shipment_Preference__c</fullName>
+    <externalId>false</externalId>
+    <formula>CASE(TEXT(Shipping_FROM_Location__c),
+&quot;Tampa, FL&quot;, &quot;ShipmatePreference-000002&quot;,
+&quot;Cleveland, OH&quot;, &quot;ShipmatePreference-000000&quot;,
+&quot;Fishers, IN&quot;, &quot;ShipmatePreference-000003&quot;,
+&quot;Harrisburg, PA&quot;, &quot;ShipmatePreference-000001&quot;,
+&quot;Tulsa, OK&quot;, &quot;ShipmatePreference-000004&quot;,
+&quot;Bristol, UK&quot;, &quot;ShippingPreference-000014&quot;,
+&quot;&quot;
+)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Shipment Preference</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

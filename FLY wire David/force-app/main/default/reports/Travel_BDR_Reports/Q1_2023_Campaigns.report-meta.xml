@@ -1,0 +1,257 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <aggregates>
+        <calculatedFormula>Activity.yw__YeswareOpens__c:SUM/Activity.ywr__Yesware_Sent__c:SUM</calculatedFormula>
+        <datatype>percent</datatype>
+        <developerName>FORMULA1</developerName>
+        <isActive>false</isActive>
+        <isCrossBlock>false</isCrossBlock>
+        <masterLabel>Open %</masterLabel>
+        <scale>2</scale>
+    </aggregates>
+    <aggregates>
+        <calculatedFormula>Activity.yw__YeswareOpens__c:SUM/Activity.ywr__Yesware_Sent__c:SUM</calculatedFormula>
+        <datatype>percent</datatype>
+        <developerName>FORMULA2</developerName>
+        <isActive>true</isActive>
+        <isCrossBlock>false</isCrossBlock>
+        <masterLabel>Open Rate</masterLabel>
+        <scale>2</scale>
+    </aggregates>
+    <aggregates>
+        <calculatedFormula>Activity.yw__YeswareLinkClicks__c:SUM/Activity.ywr__Yesware_Sent__c:SUM</calculatedFormula>
+        <datatype>percent</datatype>
+        <developerName>FORMULA3</developerName>
+        <isActive>true</isActive>
+        <isCrossBlock>false</isCrossBlock>
+        <masterLabel>Click Rate</masterLabel>
+        <scale>2</scale>
+    </aggregates>
+    <aggregates>
+        <calculatedFormula>Activity.yw__YeswareReplies__c:SUM/Activity.ywr__Yesware_Sent__c:SUM</calculatedFormula>
+        <datatype>percent</datatype>
+        <developerName>FORMULA4</developerName>
+        <isActive>true</isActive>
+        <isCrossBlock>false</isCrossBlock>
+        <masterLabel>Reply Rate</masterLabel>
+        <scale>2</scale>
+    </aggregates>
+    <aggregates>
+        <calculatedFormula>CONVERTED:SUM/Activity.ywr__Yesware_Sent__c:SUM</calculatedFormula>
+        <datatype>percent</datatype>
+        <developerName>FORMULA5</developerName>
+        <isActive>false</isActive>
+        <isCrossBlock>false</isCrossBlock>
+        <masterLabel>Converted Rate</masterLabel>
+        <scale>2</scale>
+    </aggregates>
+    <buckets>
+        <bucketType>text</bucketType>
+        <developerName>BucketField_79922733</developerName>
+        <masterLabel>Campaign</masterLabel>
+        <nullTreatment>n</nullTreatment>
+        <sourceColumnName>Activity.ywr__YeswareCampaignName__c</sourceColumnName>
+        <useOther>false</useOther>
+        <values>
+            <sourceValues>
+                <sourceValue>Wellness Campaign - Outbound, SF, 10/27/22</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>Wellness Retreat Campaign - CC</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>Wellness Campaign - Outbound</sourceValue>
+            </sourceValues>
+            <value>Wellness</value>
+        </values>
+        <values>
+            <sourceValues>
+                <sourceValue>Cycling Outbound (ENGLISH), 11/22 - SF</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>Cycling Outbound (ITALIAN), 11/22 - SF</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>CD - Biking Tours Campaign</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>Biking Tours Campaign - CC</sourceValue>
+            </sourceValues>
+            <value>Cycling</value>
+        </values>
+        <values>
+            <sourceValues>
+                <sourceValue>CD - Scuba Campaign</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>Scuba Diving Campaign - CC</sourceValue>
+            </sourceValues>
+            <value>Diving</value>
+        </values>
+        <values>
+            <sourceValues>
+                <sourceValue>Niche Operators, 11/22 - CD</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>Niche Operators (ENGLISH), 11/22 - SF</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>Niche Operators (Italian), 11/22 - SF</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>Niche Operators, 11/22 - CC</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>Tour Operator/Niche Campaign - CC</sourceValue>
+            </sourceValues>
+            <value>Niche</value>
+        </values>
+        <values>
+            <sourceValues>
+                <sourceValue>Food &amp; Wine 12/9 (French) - ASK</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>Food &amp; Wine 12/9 - ASK</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>Food &amp; Wine 11/9 - CD</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>Food/Wine Tours, 12/9 - CC</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>Food &amp; Wine (ENGLISH), 12/22 - SF</sourceValue>
+            </sourceValues>
+            <value>Food &amp; Wine</value>
+        </values>
+        <values>
+            <sourceValues>
+                <sourceValue>WTM London (11/21) - CD</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>WTM London 11/21 - CC</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>WTM London 11/21- SF</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>WTM London (ENGLISH), 12/22 - SF</sourceValue>
+            </sourceValues>
+            <value>WTM</value>
+        </values>
+        <values>
+            <sourceValues>
+                <sourceValue>Villas - Short term accommodations, 1/10 - CC</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>Villas (ENGLISH), 1/23 - SF</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>Villas - ASK</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>Villas - Short term accommodations, 1/10 - CD</sourceValue>
+            </sourceValues>
+            <value>Villas</value>
+        </values>
+    </buckets>
+    <chart>
+        <backgroundColor1>#FFFFFF</backgroundColor1>
+        <backgroundColor2>#FFFFFF</backgroundColor2>
+        <backgroundFadeDir>Diagonal</backgroundFadeDir>
+        <chartSummaries>
+            <axisBinding>y</axisBinding>
+            <column>FORMULA4</column>
+        </chartSummaries>
+        <chartType>HorizontalBarStacked</chartType>
+        <enableHoverLabels>false</enableHoverLabels>
+        <expandOthers>true</expandOthers>
+        <groupingColumn>BucketField_79922733</groupingColumn>
+        <legendPosition>Right</legendPosition>
+        <location>CHART_BOTTOM</location>
+        <secondaryGroupingColumn>ASSIGNED</secondaryGroupingColumn>
+        <showAxisLabels>true</showAxisLabels>
+        <showPercentage>false</showPercentage>
+        <showTotal>false</showTotal>
+        <showValues>false</showValues>
+        <size>Medium</size>
+        <summaryAxisRange>Auto</summaryAxisRange>
+        <textColor>#000000</textColor>
+        <textSize>12</textSize>
+        <titleColor>#000000</titleColor>
+        <titleSize>18</titleSize>
+    </chart>
+    <columns>
+        <aggregateTypes>Sum</aggregateTypes>
+        <field>Activity.ywr__Yesware_Sent__c</field>
+    </columns>
+    <columns>
+        <aggregateTypes>Sum</aggregateTypes>
+        <field>Activity.yw__YeswareOpens__c</field>
+    </columns>
+    <columns>
+        <aggregateTypes>Sum</aggregateTypes>
+        <field>Activity.yw__YeswareLinkClicks__c</field>
+    </columns>
+    <columns>
+        <aggregateTypes>Sum</aggregateTypes>
+        <field>Activity.yw__YeswareReplies__c</field>
+    </columns>
+    <currency>USD</currency>
+    <filter>
+        <criteriaItems>
+            <column>Lead.Lead_Industry__c</column>
+            <columnToColumn>false</columnToColumn>
+            <isUnlocked>true</isUnlocked>
+            <operator>equals</operator>
+            <value>Accommodations,DMC,Travel,Travel Operator</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Activity.ywr__YeswareCampaignName__c</column>
+            <columnToColumn>false</columnToColumn>
+            <isUnlocked>true</isUnlocked>
+            <operator>contains</operator>
+            <value>Villas - Short term accommodations,1/10 - CD,Villas - ASK,Villas (ENGLISH),1/23 - SF,1/10 - CC</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>ASSIGNED</column>
+            <columnToColumn>false</columnToColumn>
+            <isUnlocked>true</isUnlocked>
+            <operator>equals</operator>
+            <value>Stefano Fontana,Charlie Dreher,Caitlin Cowdrey,Anne-Sophie Kadjo,Fion Lim,Minori Nishioka</value>
+        </criteriaItems>
+    </filter>
+    <format>Summary</format>
+    <groupingsDown>
+        <dateGranularity>Day</dateGranularity>
+        <field>BucketField_79922733</field>
+        <sortOrder>Asc</sortOrder>
+    </groupingsDown>
+    <groupingsDown>
+        <dateGranularity>Day</dateGranularity>
+        <field>ASSIGNED</field>
+        <sortOrder>Asc</sortOrder>
+    </groupingsDown>
+    <name>Q1 2023 Campaigns</name>
+    <params>
+        <name>closed</name>
+        <value>all</value>
+    </params>
+    <params>
+        <name>type</name>
+        <value>te</value>
+    </params>
+    <params>
+        <name>co</name>
+        <value>0</value>
+    </params>
+    <reportType>LeadActivity</reportType>
+    <scope>organization</scope>
+    <showDetails>false</showDetails>
+    <showGrandTotal>true</showGrandTotal>
+    <showSubTotals>true</showSubTotals>
+    <timeFrameFilter>
+        <dateColumn>DUE_DATE</dateColumn>
+        <interval>INTERVAL_CURRENT</interval>
+    </timeFrameFilter>
+</Report>

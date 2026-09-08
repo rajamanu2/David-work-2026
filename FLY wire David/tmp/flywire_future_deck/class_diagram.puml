@@ -1,0 +1,72 @@
+@startuml
+skinparam backgroundColor white
+skinparam shadowing false
+skinparam classBackgroundColor #F6F7F8
+skinparam classBorderColor #222222
+skinparam classArrowColor #3D8DFF
+skinparam classFontColor #111111
+skinparam classHeaderBackgroundColor #D0EDFA
+hide circle
+
+class QuoteOrchestrationService {
+  +evaluate(quoteId) : EvaluationResult
+  +submit(quoteId) : SubmissionResult
+  +recall(quoteId) : RecallResult
+}
+class QuoteContextProvider {
+  +load(quoteId) : QuoteContext
+}
+class ApprovalRuleRepository {
+  +activeRules() : List<ApprovalRule>
+}
+class ApprovalDecisionEngine {
+  +evaluate(context, rules) : ApprovalPlan
+}
+class ApproverResolver {
+  +resolve(persona, context) : UserId
+}
+class RevenueMetricService {
+  +calculate(context) : RevenueMetrics
+}
+class QuoteLockService {
+  +lockCommercialValues(quoteId)
+  +unlockCommercialValues(quoteId)
+}
+class ApprovalLifecycleService {
+  +createRequest(plan) : ApprovalRequest
+  +recordDecision(stepId, decision)
+}
+class DocumentGenerationService {
+  +generateProposal(quoteId) : DocumentReference
+}
+class ContractHandoffService {
+  +createContract(acceptedQuoteId) : ContractId
+}
+class IntegrationEventPublisher {
+  +publish(event) : DeliveryReceipt
+}
+class AuditService {
+  +record(eventType, payloadHash, actor)
+}
+
+QuoteOrchestrationService --> QuoteContextProvider
+QuoteOrchestrationService --> ApprovalRuleRepository
+QuoteOrchestrationService --> ApprovalDecisionEngine
+QuoteOrchestrationService --> ApproverResolver
+QuoteOrchestrationService --> RevenueMetricService
+QuoteOrchestrationService --> QuoteLockService
+QuoteOrchestrationService --> ApprovalLifecycleService
+QuoteOrchestrationService --> DocumentGenerationService
+QuoteOrchestrationService --> ContractHandoffService
+QuoteOrchestrationService --> IntegrationEventPublisher
+QuoteOrchestrationService --> AuditService
+ApprovalLifecycleService --> ApproverResolver
+
+QuoteContextProvider -[hidden]right- ApprovalRuleRepository
+ApprovalRuleRepository -[hidden]right- RevenueMetricService
+ApprovalDecisionEngine -[hidden]right- ApproverResolver
+ApproverResolver -[hidden]right- QuoteLockService
+ApprovalLifecycleService -[hidden]right- DocumentGenerationService
+DocumentGenerationService -[hidden]right- ContractHandoffService
+IntegrationEventPublisher -[hidden]right- AuditService
+@enduml

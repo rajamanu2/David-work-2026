@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionCalls>
+        <name>Activate_Employment</name>
+        <label>Activate Employment Contracts Access</label>
+        <locationX>177</locationX>
+        <locationY>64</locationY>
+        <actionName>activateSessionPermSet</actionName>
+        <actionType>activateSessionPermSet</actionType>
+        <inputParameters>
+            <name>PermSetName</name>
+            <value>
+                <stringValue>Employment Contracts Access</stringValue>
+            </value>
+        </inputParameters>
+        <nameSegment>activateSessionPermSet</nameSegment>
+    </actionCalls>
+    <apiVersion>49.0</apiVersion>
+    <areMetricsLoggedToDataCloud>false</areMetricsLoggedToDataCloud>
+    <interviewLabel>Activate Contracts Access {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Activate Contracts Access</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>Flow</processType>
+    <startElementReference>Activate_Employment</startElementReference>
+    <status>Draft</status>
+</Flow>

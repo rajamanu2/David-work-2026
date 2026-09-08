@@ -1,0 +1,30 @@
+@startuml
+skinparam backgroundColor white
+skinparam shadowing false
+skinparam stateBackgroundColor #F6F7F8
+skinparam stateBorderColor #222222
+skinparam stateArrowColor #3D8DFF
+
+[*] --> Draft
+Draft --> Configured : products and pricing complete
+Configured --> Validated : policy and data checks pass
+Validated --> PendingApproval : approval required
+Validated --> Approved : no approval required
+PendingApproval --> Approved : all required steps approved
+PendingApproval --> Rejected : any terminal rejection
+PendingApproval --> Recalled : submitter recalls
+Rejected --> Draft : revise quote
+Recalled --> Draft : revise quote
+Approved --> ProposalGenerated : generate document
+ProposalGenerated --> Accepted : customer accepts / signs
+ProposalGenerated --> Draft : controlled amendment
+Accepted --> Contracted : contract created and reconciled
+Contracted --> Ordered : downstream order accepted
+Ordered --> Activated : billing and service activation confirmed
+Activated --> Amended : approved change
+Amended --> PendingApproval : material commercial change
+Activated --> Renewed : renewal accepted
+Activated --> Expired : end date reached
+Renewed --> Activated
+Expired --> [*]
+@enduml

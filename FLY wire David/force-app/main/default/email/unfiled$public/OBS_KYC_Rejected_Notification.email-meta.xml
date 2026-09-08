@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>Email Sales, Legal and Credit Risk the KYC was not approved.</description>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <name>OBS KYC Rejected Notification</name>
+    <style>none</style>
+    <subject>KYC for {!Account.Name} was {!Account.KYC_Status__c}</subject>
+    <type>text</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Must_have_Billing_Contact_for_Legal</fullName>
+    <active>true</active>
+    <description>BOPI-32 Billing Contact needed to send to NS
+Changed to Legal Stage from Closed Won
+BOPI-526 Updated to ignore System users and run only if pricebook is CPQ
+BOPI-581 Updated to bypass quote validation rules from flows
+BOPI-600</description>
+    <errorConditionFormula>AND(
+    $Profile.Name &lt;&gt; &quot;System Administrator&quot;,
+    $Profile.Name &lt;&gt; &quot;B - Looker&quot;,
+    $User.Alias &lt;&gt; &quot;Workato&quot;,
+    Pricebook2.Name = &quot;CPQ&quot;,
+    NOT(ISBLANK(SBQQ__PrimaryQuote__c )),
+    Account.Has_Billing_Contact__c = false,
+    ISPICKVAL(StageName,&quot;Legal&quot;),
+    Opp_Val_Bypass__c = false,
+    SBQQ__PrimaryQuote__r.Quote_Val_Bypass__c = false,
+    NOT(ISPICKVAL(Type, &quot;Auto Renewal&quot;))
+)</errorConditionFormula>
+    <errorMessage>You must have at least one Billing Contact related to the Account in order to proceed to Legal Stage</errorMessage>
+</ValidationRule>

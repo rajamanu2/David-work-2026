@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>X5T_Customer_Repair_Approved_In_Progress</fullName>
+    <booleanFilter>(1 OR (8 AND 9)) AND 2 AND 3 AND 4 AND 5 AND 6 AND 7 AND 10</booleanFilter>
+    <columns>Amount__c</columns>
+    <columns>Date_Repair_Approved__c</columns>
+    <columns>Estimated_Ship_Date__c</columns>
+    <columns>Current_Estimated_Ship_Date__c</columns>
+    <columns>NAME</columns>
+    <columns>ProductItem__c</columns>
+    <columns>Account_Name__c</columns>
+    <columns>Location__c</columns>
+    <columns>Probe_Model__c</columns>
+    <columns>Opportunity__c</columns>
+    <columns>Other_Notes__c</columns>
+    <columns>RMA_Type__c</columns>
+    <columns>OWNER.ALIAS</columns>
+    <columns>Field_Service_Engineer_Text__c</columns>
+    <columns>Field_Service_Engineer__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>RMA_Type__c</field>
+        <operation>equals</operation>
+        <value>customer repair evaluation</value>
+    </filters>
+    <filters>
+        <field>Date_shipped__c</field>
+        <operation>equals</operation>
+    </filters>
+    <filters>
+        <field>Repair_turned_to_Exchange__c</field>
+        <operation>equals</operation>
+        <value>0</value>
+    </filters>
+    <filters>
+        <field>Date_Repair_Approved__c</field>
+        <operation>notEqual</operation>
+    </filters>
+    <filters>
+        <field>Date__c</field>
+        <operation>equals</operation>
+    </filters>
+    <filters>
+        <field>Customer_Declined_all_Repairs__c</field>
+        <operation>equals</operation>
+        <value>0</value>
+    </filters>
+    <filters>
+        <field>Approved_Repairs__c</field>
+        <operation>notEqual</operation>
+        <value>N/A - Customer opted for Exchange</value>
+    </filters>
+    <filters>
+        <field>Customer_Expectation__c</field>
+        <operation>equals</operation>
+        <value>Customer wants Equipment Back</value>
+    </filters>
+    <filters>
+        <field>RMA_Type__c</field>
+        <operation>equals</operation>
+        <value>warranty claim,warranty repair</value>
+    </filters>
+    <filters>
+        <field>Opp_Record_Type__c</field>
+        <operation>contains</operation>
+        <value>Depot</value>
+    </filters>
+    <label>5T. Customer Repair-Approved-In Progress</label>
+</ListView>

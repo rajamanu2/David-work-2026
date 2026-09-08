@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Closeout_Overdue__c</fullName>
+    <formula>AND(
+    DATEVALUE(SchedEndTime) &lt; TODAY(),
+    NOT(
+        OR(
+            ISPICKVAL(StatusCategory,&quot;Completed&quot;),
+            ISPICKVAL(StatusCategory,&quot;Canceled&quot;),
+            ISPICKVAL(StatusCategory,&quot;Cannot Complete&quot;)
+        )
+    )
+)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <inlineHelpText>Automatically checked when the Scheduled Start Date has passed and the Service Appointment hasn&apos;t been closed</inlineHelpText>
+    <label>Closeout Overdue</label>
+    <trackHistory>false</trackHistory>
+    <type>Checkbox</type>
+</CustomField>

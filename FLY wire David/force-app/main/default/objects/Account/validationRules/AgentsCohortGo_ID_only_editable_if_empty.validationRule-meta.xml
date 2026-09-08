@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>AgentsCohortGo_ID_only_editable_if_empty</fullName>
+    <active>true</active>
+    <description>SAL-7666: Allow Agents to edit the Cohort Go ID field only when it&apos;s empty.</description>
+    <errorConditionFormula>AND(
+    $RecordType.Name = &quot;Agents&quot;,
+    NOT($Profile.Name = &quot;System Administrator&quot;),
+    NOT(ISBLANK(PRIORVALUE(CohortGo_ID__c))),
+    ISCHANGED(CohortGo_ID__c)
+)
+&amp;&amp; Acc_Val_Bypass__c = false</errorConditionFormula>
+    <errorDisplayField>CohortGo_ID__c</errorDisplayField>
+    <errorMessage>This field cannot be modified if it has a value. Please contact your System Administrator.</errorMessage>
+</ValidationRule>

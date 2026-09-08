@@ -1,0 +1,5190 @@
+{
+  "records": [
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/01IU0000000omZU.Id"
+      },
+      "DurableId": "01IU0000000omZU.Id",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/01IU0000000omZU"
+        },
+        "QualifiedApiName": "RMA__c"
+      },
+      "QualifiedApiName": "Id",
+      "Label": "Record ID",
+      "DataType": "Lookup()",
+      "IsCalculated": false
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/01IU0000000omZU.Owner"
+      },
+      "DurableId": "01IU0000000omZU.Owner",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/01IU0000000omZU"
+        },
+        "QualifiedApiName": "RMA__c"
+      },
+      "QualifiedApiName": "OwnerId",
+      "Label": "Owner",
+      "DataType": "Lookup(User,Group)",
+      "IsCalculated": false
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/01IU0000000omZU.IsDeleted"
+      },
+      "DurableId": "01IU0000000omZU.IsDeleted",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/01IU0000000omZU"
+        },
+        "QualifiedApiName": "RMA__c"
+      },
+      "QualifiedApiName": "IsDeleted",
+      "Label": "Deleted",
+      "DataType": "Checkbox",
+      "IsCalculated": false
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/01IU0000000omZU.Name"
+      },
+      "DurableId": "01IU0000000omZU.Name",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/01IU0000000omZU"
+        },
+        "QualifiedApiName": "RMA__c"
+      },
+      "QualifiedApiName": "Name",
+      "Label": "RMA Number",
+      "DataType": "Auto Number",
+      "IsCalculated": false
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/01IU0000000omZU.CurrencyIsoCode"
+      },
+      "DurableId": "01IU0000000omZU.CurrencyIsoCode",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/01IU0000000omZU"
+        },
+        "QualifiedApiName": "RMA__c"
+      },
+      "QualifiedApiName": "CurrencyIsoCode",
+      "Label": "Currency",
+      "DataType": "Picklist",
+      "IsCalculated": false
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/01IU0000000omZU.RecordType"
+      },
+      "DurableId": "01IU0000000omZU.RecordType",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/01IU0000000omZU"
+        },
+        "QualifiedApiName": "RMA__c"
+      },
+      "QualifiedApiName": "RecordTypeId",
+      "Label": "Record Type",
+      "DataType": "Record Type",
+      "IsCalculated": false
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/01IU0000000omZU.CreatedDate"
+      },
+      "DurableId": "01IU0000000omZU.CreatedDate",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/01IU0000000omZU"
+        },
+        "QualifiedApiName": "RMA__c"
+      },
+      "QualifiedApiName": "CreatedDate",
+      "Label": "Created Date",
+      "DataType": "Date/Time",
+      "IsCalculated": false
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/01IU0000000omZU.CreatedBy"
+      },
+      "DurableId": "01IU0000000omZU.CreatedBy",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/01IU0000000omZU"
+        },
+        "QualifiedApiName": "RMA__c"
+      },
+      "QualifiedApiName": "CreatedById",
+      "Label": "Created By",
+      "DataType": "Lookup(User)",
+      "IsCalculated": false
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/01IU0000000omZU.LastModifiedDate"
+      },
+      "DurableId": "01IU0000000omZU.LastModifiedDate",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/01IU0000000omZU"
+        },
+        "QualifiedApiName": "RMA__c"
+      },
+      "QualifiedApiName": "LastModifiedDate",
+      "Label": "Last Modified Date",
+      "DataType": "Date/Time",
+      "IsCalculated": false
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/01IU0000000omZU.LastModifiedBy"
+      },
+      "DurableId": "01IU0000000omZU.LastModifiedBy",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/01IU0000000omZU"
+        },
+        "QualifiedApiName": "RMA__c"
+      },
+      "QualifiedApiName": "LastModifiedById",
+      "Label": "Last Modified By",
+      "DataType": "Lookup(User)",
+      "IsCalculated": false
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/01IU0000000omZU.SystemModstamp"
+      },
+      "DurableId": "01IU0000000omZU.SystemModstamp",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/01IU0000000omZU"
+        },
+        "QualifiedApiName": "RMA__c"
+      },
+      "QualifiedApiName": "SystemModstamp",
+      "Label": "System Modstamp",
+      "DataType": "Date/Time",
+      "IsCalculated": false
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/01IU0000000omZU.LastActivityDate"
+      },
+      "DurableId": "01IU0000000omZU.LastActivityDate",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/01IU0000000omZU"
+        },
+        "QualifiedApiName": "RMA__c"
+      },
+      "QualifiedApiName": "LastActivityDate",
+      "Label": "Last Activity Date",
+      "DataType": "Date",
+      "IsCalculated": false
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/01IU0000000omZU.LastViewedDate"
+      },
+      "DurableId": "01IU0000000omZU.LastViewedDate",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/01IU0000000omZU"
+        },
+        "QualifiedApiName": "RMA__c"
+      },
+      "QualifiedApiName": "LastViewedDate",
+      "Label": "Last Viewed Date",
+      "DataType": "Date/Time",
+      "IsCalculated": false
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/01IU0000000omZU.LastReferencedDate"
+      },
+      "DurableId": "01IU0000000omZU.LastReferencedDate",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/01IU0000000omZU"
+        },
+        "QualifiedApiName": "RMA__c"
+      },
+      "QualifiedApiName": "LastReferencedDate",
+      "Label": "Last Referenced Date",
+      "DataType": "Date/Time",
+      "IsCalculated": false
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/01IU0000000omZU.UserRecordAccess"
+      },
+      "DurableId": "01IU0000000omZU.UserRecordAccess",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/01IU0000000omZU"
+        },
+        "QualifiedApiName": "RMA__c"
+      },
+      "QualifiedApiName": "UserRecordAccessId",
+      "Label": "Object Access Level",
+      "DataType": "Lookup(User Record Access)",
+      "IsCalculated": false
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/01IU0000000omZU.00NU0000004lVwD"
+      },
+      "DurableId": "01IU0000000omZU.00NU0000004lVwD",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/01IU0000000omZU"
+        },
+        "QualifiedApiName": "RMA__c"
+      },
+      "QualifiedApiName": "Account_Name__c",
+      "Label": "Account Name",
+      "DataType": "Formula (Text)",
+      "IsCalculated": true
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/01IU0000000omZU.00NU0000004lVwE"
+      },
+      "DurableId": "01IU0000000omZU.00NU0000004lVwE",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/01IU0000000omZU"
+        },
+        "QualifiedApiName": "RMA__c"
+      },
+      "QualifiedApiName": "RMA_Resolution__c",
+      "Label": "RMA Resolution",
+      "DataType": "Long Text Area(32768)",
+      "IsCalculated": false
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/01IU0000000omZU.00NU0000004lVwF"
+      },
+      "DurableId": "01IU0000000omZU.00NU0000004lVwF",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/01IU0000000omZU"
+        },
+        "QualifiedApiName": "RMA__c"
+      },
+      "QualifiedApiName": "Customer_Email__c",
+      "Label": "Customer Email",
+      "DataType": "Email",
+      "IsCalculated": false
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/01IU0000000omZU.00NU0000004lVwG"
+      },
+      "DurableId": "01IU0000000omZU.00NU0000004lVwG",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/01IU0000000omZU"
+        },
+        "QualifiedApiName": "RMA__c"
+      },
+      "QualifiedApiName": "Date_Loaner_Shipped__c",
+      "Label": "Date Loaner Shipped",
+      "DataType": "Date",
+      "IsCalculated": false
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/01IU0000000omZU.00NU0000004lVwH"
+      },
+      "DurableId": "01IU0000000omZU.00NU0000004lVwH",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/01IU0000000omZU"
+        },
+        "QualifiedApiName": "RMA__c"
+      },
+      "QualifiedApiName": "Date_Opportunity_Item_Shipped__c",
+      "Label": "Date Opportunity Item Shipped",
+      "DataType": "Formula (Date)",
+      "IsCalculated": true
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/01IU0000000omZU.00NU0000004lVwI"
+      },
+      "DurableId": "01IU0000000omZU.00NU0000004lVwI",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/01IU0000000omZU"
+        },
+        "QualifiedApiName": "RMA__c"
+      },
+      "QualifiedApiName": "Date_RMA_Item_Received__c",
+      "Label": "Date RMA Item Received",
+      "DataType": "Date",
+      "IsCalculated": false
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/01IU0000000omZU.00NU0000004lVwJ"
+      },
+      "DurableId": "01IU0000000omZU.00NU0000004lVwJ",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/01IU0000000omZU"
+        },
+        "QualifiedApiName": "RMA__c"
+      },
+      "QualifiedApiName": "Date_Repair_Approved__c",
+      "Label": "Date Repair Approved",
+      "DataType": "Date",
+      "IsCalculated": false
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/01IU0000000omZU.00NU0000004lVwK"
+      },
+      "DurableId": "01IU0000000omZU.00NU0000004lVwK",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/01IU0000000omZU"
+        },
+        "QualifiedApiName": "RMA__c"
+      },
+      "QualifiedApiName": "Date_Repair_Evaluation_Sent__c",
+      "Label": "Date Repair Evaluation Sent",
+      "DataType": "Date",
+      "IsCalculated": false
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/01IU0000000omZU.00NU0000004lVwL"
+      },
+      "DurableId": "01IU0000000omZU.00NU0000004lVwL",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/01IU0000000omZU"
+        },
+        "QualifiedApiName": "RMA__c"
+      },
+      "QualifiedApiName": "Loaner_changed_to_sale__c",
+      "Label": "Loaner changed to sale",
+      "DataType": "Checkbox",
+      "IsCalculated": false
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/01IU0000000omZU.00NU0000004lVwM"
+      },
+      "DurableId": "01IU0000000omZU.00NU0000004lVwM",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/01IU0000000omZU"
+        },
+        "QualifiedApiName": "RMA__c"
+      },
+      "QualifiedApiName": "Opportunity_Name__c",
+      "Label": "Opportunity Name",
+      "DataType": "Formula (Text)",
+      "IsCalculated": true
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/01IU0000000omZU.00NU0000004lVwN"
+      },
+      "DurableId": "01IU0000000omZU.00NU0000004lVwN",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/01IU0000000omZU"
+        },
+        "QualifiedApiName": "RMA__c"
+      },
+      "QualifiedApiName": "Opportunity_Owner__c",
+      "Label": "Opportunity Owner",
+      "DataType": "Formula (Text)",
+      "IsCalculated": true
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/01IU0000000omZU.00NU0000004lVwO"
+      },
+      "DurableId": "01IU0000000omZU.00NU0000004lVwO",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/01IU0000000omZU"
+        },
+        "QualifiedApiName": "RMA__c"
+      },
+      "QualifiedApiName": "Opportunity__c",
+      "Label": "Opportunity",
+      "DataType": "Lookup(Opportunity)",
+      "IsCalculated": false
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/01IU0000000omZU.00NU0000004lVwP"
+      },
+      "DurableId": "01IU0000000omZU.00NU0000004lVwP",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/01IU0000000omZU"
+        },
+        "QualifiedApiName": "RMA__c"
+      },
+      "QualifiedApiName": "Probe_Model__c",
+      "Label": "Probe Model",
+      "DataType": "Formula (Text)",
+      "IsCalculated": true
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/01IU0000000omZU.00NU0000004lVwQ"
+      },
+      "DurableId": "01IU0000000omZU.00NU0000004lVwQ",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/01IU0000000omZU"
+        },
+        "QualifiedApiName": "RMA__c"
+      },
+      "QualifiedApiName": "ProductItem__c",
+      "Label": "RMA Item Asset #",
+      "DataType": "Lookup(Asset2)",
+      "IsCalculated": false
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/01IU0000000omZU.00NU0000004vH8L"
+      },
+      "DurableId": "01IU0000000omZU.00NU0000004vH8L",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/01IU0000000omZU"
+        },
+        "QualifiedApiName": "RMA__c"
+      },
+      "QualifiedApiName": "Customer_s_Probe__c",
+      "Label": "Customer's Probe",
+      "DataType": "Checkbox",
+      "IsCalculated": false
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/01IU0000000omZU.00NU0000004lVwS"
+      },
+      "DurableId": "01IU0000000omZU.00NU0000004lVwS",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/01IU0000000omZU"
+        },
+        "QualifiedApiName": "RMA__c"
+      },
+      "QualifiedApiName": "Quality_Issue_Notes__c",
+      "Label": "Quality Issue Notes",
+      "DataType": "Long Text Area(32768)",
+      "IsCalculated": false
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/01IU0000000omZU.00NU0000004lVwT"
+      },
+      "DurableId": "01IU0000000omZU.00NU0000004lVwT",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/01IU0000000omZU"
+        },
+        "QualifiedApiName": "RMA__c"
+      },
+      "QualifiedApiName": "Quality_Issue_Reported__c",
+      "Label": "Quality Issue Reported",
+      "DataType": "Picklist",
+      "IsCalculated": false
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/01IU0000000omZU.00NU0000004lVwU"
+      },
+      "DurableId": "01IU0000000omZU.00NU0000004lVwU",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/01IU0000000omZU"
+        },
+        "QualifiedApiName": "RMA__c"
+      },
+      "QualifiedApiName": "RMA_Item_Serial_Number__c",
+      "Label": "RMA Item SN",
+      "DataType": "Text(255)",
+      "IsCalculated": false
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/01IU0000000omZU.00NU0000004lVwV"
+      },
+      "DurableId": "01IU0000000omZU.00NU0000004lVwV",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/01IU0000000omZU"
+        },
+        "QualifiedApiName": "RMA__c"
+      },
+      "QualifiedApiName": "RMA_Type__c",
+      "Label": "RMA Type",
+      "DataType": "Formula (Text)",
+      "IsCalculated": true
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/01IU0000000omZU.00NU0000004lVwW"
+      },
+      "DurableId": "01IU0000000omZU.00NU0000004lVwW",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/01IU0000000omZU"
+        },
+        "QualifiedApiName": "RMA__c"
+      },
+      "QualifiedApiName": "Root_Cause__c",
+      "Label": "Root Cause (5 Whys)",
+      "DataType": "Long Text Area(32768)",
+      "IsCalculated": false
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/01IU0000000omZU.00NU0000004lVwX"
+      },
+      "DurableId": "01IU0000000omZU.00NU0000004lVwX",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/01IU0000000omZU"
+        },
+        "QualifiedApiName": "RMA__c"
+      },
+      "QualifiedApiName": "Tracking_number_of_RMA_Item_Received__c",
+      "Label": "Tracking # of RMA Item Received",
+      "DataType": "Text(255)",
+      "IsCalculated": false
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/01IU0000000omZU.00NU0000005S5Ny"
+      },
+      "DurableId": "01IU0000000omZU.00NU0000005S5Ny",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/01IU0000000omZU"
+        },
+        "QualifiedApiName": "RMA__c"
+      },
+      "QualifiedApiName": "Opportunity_Owner_Email__c",
+      "Label": "Opportunity Owner Email",
+      "DataType": "Email",
+      "IsCalculated": false
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/01IU0000000omZU.00NU0000005S7Tk"
+      },
+      "DurableId": "01IU0000000omZU.00NU0000005S7Tk",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/01IU0000000omZU"
+        },
+        "QualifiedApiName": "RMA__c"
+      },
+      "QualifiedApiName": "Loaner_Asset_Number__c",
+      "Label": "Loaner Asset Number",
+      "DataType": "Lookup(Asset2)",
+      "IsCalculated": false
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/01IU0000000omZU.00N0B0000061Qtx"
+      },
+      "DurableId": "01IU0000000omZU.00N0B0000061Qtx",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/01IU0000000omZU"
+        },
+        "QualifiedApiName": "RMA__c"
+      },
+      "QualifiedApiName": "Loaner_Serial__c",
+      "Label": "Loaner Serial #",
+      "DataType": "Formula (Text)",
+      "IsCalculated": true
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/01IU0000000omZU.00N0B000005tmIM"
+      },
+      "DurableId": "01IU0000000omZU.00N0B000005tmIM",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/01IU0000000omZU"
+        },
+        "QualifiedApiName": "RMA__c"
+      },
+      "QualifiedApiName": "OverDue_Ship__c",
+      "Label": "Days Ship Date Over Due By",
+      "DataType": "Formula (Number)",
+      "IsCalculated": true
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/01IU0000000omZU.00NU0000004vRgs"
+      },
+      "DurableId": "01IU0000000omZU.00NU0000004vRgs",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/01IU0000000omZU"
+        },
+        "QualifiedApiName": "RMA__c"
+      },
+      "QualifiedApiName": "Repairs_Approved__c",
+      "Label": "Repairs Approved (Old Field)",
+      "DataType": "Text Area(255)",
+      "IsCalculated": false
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/01IU0000000omZU.00NU0000004vRgx"
+      },
+      "DurableId": "01IU0000000omZU.00NU0000004vRgx",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/01IU0000000omZU"
+        },
+        "QualifiedApiName": "RMA__c"
+      },
+      "QualifiedApiName": "Repairs_Declined__c",
+      "Label": "Repairs Declined",
+      "DataType": "Text Area(255)",
+      "IsCalculated": false
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/01IU0000000omZU.00NU0000005S9F7"
+      },
+      "DurableId": "01IU0000000omZU.00NU0000005S9F7",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/01IU0000000omZU"
+        },
+        "QualifiedApiName": "RMA__c"
+      },
+      "QualifiedApiName": "Other_Notes__c",
+      "Label": "Other Notes",
+      "DataType": "Long Text Area(1000)",
+      "IsCalculated": false
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/01IU0000000omZU.00NU0000005S9Ik"
+      },
+      "DurableId": "01IU0000000omZU.00NU0000005S9Ik",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/01IU0000000omZU"
+        },
+        "QualifiedApiName": "RMA__c"
+      },
+      "QualifiedApiName": "Date__c",
+      "Label": "Date Approved to Ship",
+      "DataType": "Date",
+      "IsCalculated": false
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/01IU0000000omZU.00NU0000005SAP9"
+      },
+      "DurableId": "01IU0000000omZU.00NU0000005SAP9",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/01IU0000000omZU"
+        },
+        "QualifiedApiName": "RMA__c"
+      },
+      "QualifiedApiName": "Loaner_Probe_Model__c",
+      "Label": "Loaner Probe Model",
+      "DataType": "Formula (Text)",
+      "IsCalculated": true
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/01IU0000000omZU.00N0B000005txHj"
+      },
+      "DurableId": "01IU0000000omZU.00N0B000005txHj",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/01IU0000000omZU"
+        },
+        "QualifiedApiName": "RMA__c"
+      },
+      "QualifiedApiName": "Required_Repair_Price__c",
+      "Label": "Required Repair Price",
+      "DataType": "Currency(18, 0)",
+      "IsCalculated": false
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/01IU0000000omZU.00N0B000005txww"
+      },
+      "DurableId": "01IU0000000omZU.00N0B000005txww",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/01IU0000000omZU"
+        },
+        "QualifiedApiName": "RMA__c"
+      },
+      "QualifiedApiName": "Probe_Never_Sent_In__c",
+      "Label": "Probe Never Sent In",
+      "DataType": "Checkbox",
+      "IsCalculated": false
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/01IU0000000omZU.00NU0000005SAPT"
+      },
+      "DurableId": "01IU0000000omZU.00NU0000005SAPT",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/01IU0000000omZU"
+        },
+        "QualifiedApiName": "RMA__c"
+      },
+      "QualifiedApiName": "Date_shipped__c",
+      "Label": "Date Shipped",
+      "DataType": "Formula (Date)",
+      "IsCalculated": true
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/01IU0000000omZU.00NU0000004vSi1"
+      },
+      "DurableId": "01IU0000000omZU.00NU0000004vSi1",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/01IU0000000omZU"
+        },
+        "QualifiedApiName": "RMA__c"
+      },
+      "QualifiedApiName": "Customer_Declined_all_Repairs__c",
+      "Label": "Customer Declined all Repairs",
+      "DataType": "Checkbox",
+      "IsCalculated": false
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/01IU0000000omZU.00NU0000005SFKN"
+      },
+      "DurableId": "01IU0000000omZU.00NU0000005SFKN",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/01IU0000000omZU"
+        },
+        "QualifiedApiName": "RMA__c"
+      },
+      "QualifiedApiName": "Customer_PO_Number__c",
+      "Label": "Customer PO #",
+      "DataType": "Formula (Text)",
+      "IsCalculated": true
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/01IU0000000omZU.00NU0000005SFKS"
+      },
+      "DurableId": "01IU0000000omZU.00NU0000005SFKS",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/01IU0000000omZU"
+        },
+        "QualifiedApiName": "RMA__c"
+      },
+      "QualifiedApiName": "Repair_turned_to_Exchange__c",
+      "Label": "Repair turned to Exchange",
+      "DataType": "Checkbox",
+      "IsCalculated": false
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/01IU0000000omZU.00NU0000004vSi6"
+      },
+      "DurableId": "01IU0000000omZU.00NU0000004vSi6",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/01IU0000000omZU"
+        },
+        "QualifiedApiName": "RMA__c"
+      },
+      "QualifiedApiName": "Probe_Deemed_Unrepairable__c",
+      "Label": "Probe Deemed Unrepairable",
+      "DataType": "Checkbox",
+      "IsCalculated": false
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/01IU0000000omZU.00NU0000005SRqI"
+      },
+      "DurableId": "01IU0000000omZU.00NU0000005SRqI",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/01IU0000000omZU"
+        },
+        "QualifiedApiName": "RMA__c"
+      },
+      "QualifiedApiName": "The_Date_Repair_Completed__c",
+      "Label": "The Date Repair Completed",
+      "DataType": "Date",
+      "IsCalculated": false
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/01IU0000000omZU.00NU0000005SRqS"
+      },
+      "DurableId": "01IU0000000omZU.00NU0000005SRqS",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/01IU0000000omZU"
+        },
+        "QualifiedApiName": "RMA__c"
+      },
+      "QualifiedApiName": "The_Date_Last_Test_Completed__c",
+      "Label": "The Date Last Test Completed",
+      "DataType": "Text(255)",
+      "IsCalculated": false
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/01IU0000000omZU.00NU0000004vVZE"
+      },
+      "DurableId": "01IU0000000omZU.00NU0000004vVZE",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/01IU0000000omZU"
+        },
+        "QualifiedApiName": "RMA__c"
+      },
+      "QualifiedApiName": "Estimated_Ship_Date__c",
+      "Label": "Original Estimated Ship Date",
+      "DataType": "Date",
+      "IsCalculated": false
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/01IU0000000omZU.00NU0000005TlH2"
+      },
+      "DurableId": "01IU0000000omZU.00NU0000005TlH2",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/01IU0000000omZU"
+        },
+        "QualifiedApiName": "RMA__c"
+      },
+      "QualifiedApiName": "Exchange_Offer_Declined__c",
+      "Label": "Exchange Offer Declined",
+      "DataType": "Checkbox",
+      "IsCalculated": false
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/01IU0000000omZU.00NU0000005TlH7"
+      },
+      "DurableId": "01IU0000000omZU.00NU0000005TlH7",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/01IU0000000omZU"
+        },
+        "QualifiedApiName": "RMA__c"
+      },
+      "QualifiedApiName": "No_Repairs_Needed__c",
+      "Label": "No Repairs Needed",
+      "DataType": "Checkbox",
+      "IsCalculated": false
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/01IU0000000omZU.00NU0000005TuEv"
+      },
+      "DurableId": "01IU0000000omZU.00NU0000005TuEv",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/01IU0000000omZU"
+        },
+        "QualifiedApiName": "RMA__c"
+      },
+      "QualifiedApiName": "Root_Cause_Notes__c",
+      "Label": "Root Cause Notes",
+      "DataType": "Long Text Area(32768)",
+      "IsCalculated": false
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/01IU0000000omZU.00NU0000005TuF0"
+      },
+      "DurableId": "01IU0000000omZU.00NU0000005TuF0",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/01IU0000000omZU"
+        },
+        "QualifiedApiName": "RMA__c"
+      },
+      "QualifiedApiName": "Corrective_Action_Notes__c",
+      "Label": "Corrective Action Notes",
+      "DataType": "Long Text Area(32768)",
+      "IsCalculated": false
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/01IU0000000omZU.00NU0000005TuF5"
+      },
+      "DurableId": "01IU0000000omZU.00NU0000005TuF5",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/01IU0000000omZU"
+        },
+        "QualifiedApiName": "RMA__c"
+      },
+      "QualifiedApiName": "Warranty_Claim_Status__c",
+      "Label": "Warranty Claim Status",
+      "DataType": "Picklist",
+      "IsCalculated": false
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/01IU0000000omZU.00NU0000005TuFA"
+      },
+      "DurableId": "01IU0000000omZU.00NU0000005TuFA",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/01IU0000000omZU"
+        },
+        "QualifiedApiName": "RMA__c"
+      },
+      "QualifiedApiName": "Issues_Disclosed_Prior_to_Sale__c",
+      "Label": "Issues Disclosed Prior to Sale",
+      "DataType": "Checkbox",
+      "IsCalculated": false
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/01IU0000000omZU.00N0B000005tzAk"
+      },
+      "DurableId": "01IU0000000omZU.00N0B000005tzAk",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/01IU0000000omZU"
+        },
+        "QualifiedApiName": "RMA__c"
+      },
+      "QualifiedApiName": "Preliminary_Assessment__c",
+      "Label": "Preliminary Assessment",
+      "DataType": "Long Text Area(1000)",
+      "IsCalculated": false
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/01IU0000000omZU.00NU00000060dsn"
+      },
+      "DurableId": "01IU0000000omZU.00NU00000060dsn",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/01IU0000000omZU"
+        },
+        "QualifiedApiName": "RMA__c"
+      },
+      "QualifiedApiName": "Location__c",
+      "Label": "Location",
+      "DataType": "Formula (Text)",
+      "IsCalculated": true
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/01IU0000000omZU.00NU00000060dss"
+      },
+      "DurableId": "01IU0000000omZU.00NU00000060dss",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/01IU0000000omZU"
+        },
+        "QualifiedApiName": "RMA__c"
+      },
+      "QualifiedApiName": "Amount__c",
+      "Label": "Amount",
+      "DataType": "Formula (Currency)",
+      "IsCalculated": true
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/01IU0000000omZU.00N0B000005tzEI"
+      },
+      "DurableId": "01IU0000000omZU.00N0B000005tzEI",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/01IU0000000omZU"
+        },
+        "QualifiedApiName": "RMA__c"
+      },
+      "QualifiedApiName": "Returned_In_Worse_Condition__c",
+      "Label": "Returned In Worse Condition",
+      "DataType": "Checkbox",
+      "IsCalculated": false
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/01IU0000000omZU.00N0B000005tzX0"
+      },
+      "DurableId": "01IU0000000omZU.00N0B000005tzX0",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/01IU0000000omZU"
+        },
+        "QualifiedApiName": "RMA__c"
+      },
+      "QualifiedApiName": "Loaner_Restock_Fee_Opportunity__c",
+      "Label": "Loaner / Restock Fee Opportunity",
+      "DataType": "Lookup(Opportunity)",
+      "IsCalculated": false
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/01IU0000000omZU.00N0B000005tzX5"
+      },
+      "DurableId": "01IU0000000omZU.00N0B000005tzX5",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/01IU0000000omZU"
+        },
+        "QualifiedApiName": "RMA__c"
+      },
+      "QualifiedApiName": "Sales_Notes_for_Damaged_Loaner__c",
+      "Label": "Sales Notes for Damaged Loaner",
+      "DataType": "Text Area(255)",
+      "IsCalculated": false
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/01IU0000000omZU.00N0B000005u91O"
+      },
+      "DurableId": "01IU0000000omZU.00N0B000005u91O",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/01IU0000000omZU"
+        },
+        "QualifiedApiName": "RMA__c"
+      },
+      "QualifiedApiName": "Approved_Repairs__c",
+      "Label": "Approved Repairs",
+      "DataType": "Picklist (Multi-Select)",
+      "IsCalculated": false
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/01IU0000000omZU.00N0B000005u99X"
+      },
+      "DurableId": "01IU0000000omZU.00N0B000005u99X",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/01IU0000000omZU"
+        },
+        "QualifiedApiName": "RMA__c"
+      },
+      "QualifiedApiName": "Customer_Paid_for_Damage_or_Outright_ex__c",
+      "Label": "Customer Paid for Damage or Outright Ex.",
+      "DataType": "Checkbox",
+      "IsCalculated": false
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/01IU0000000omZU.00N0B000005u9Hb"
+      },
+      "DurableId": "01IU0000000omZU.00N0B000005u9Hb",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/01IU0000000omZU"
+        },
+        "QualifiedApiName": "RMA__c"
+      },
+      "QualifiedApiName": "Invoice__c",
+      "Label": "Invoice #",
+      "DataType": "Formula (Text)",
+      "IsCalculated": true
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/01IU0000000omZU.00N0B000005u9Hg"
+      },
+      "DurableId": "01IU0000000omZU.00N0B000005u9Hg",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/01IU0000000omZU"
+        },
+        "QualifiedApiName": "RMA__c"
+      },
+      "QualifiedApiName": "Credit_Memo__c",
+      "Label": "Credit Memo #",
+      "DataType": "Formula (Text)",
+      "IsCalculated": true
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/01IU0000000omZU.00N0B000005u9bl"
+      },
+      "DurableId": "01IU0000000omZU.00N0B000005u9bl",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/01IU0000000omZU"
+        },
+        "QualifiedApiName": "RMA__c"
+      },
+      "QualifiedApiName": "Loaner_Status_Reviewed__c",
+      "Label": "Loaner Status Reviewed",
+      "DataType": "Checkbox",
+      "IsCalculated": false
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/01IU0000000omZU.00N0B000005uAAq"
+      },
+      "DurableId": "01IU0000000omZU.00N0B000005uAAq",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/01IU0000000omZU"
+        },
+        "QualifiedApiName": "RMA__c"
+      },
+      "QualifiedApiName": "Opportunity_was_Lost__c",
+      "Label": "Opportunity was Lost",
+      "DataType": "Checkbox",
+      "IsCalculated": false
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/01IU0000000omZU.00N0B0000066Vmr"
+      },
+      "DurableId": "01IU0000000omZU.00N0B0000066Vmr",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/01IU0000000omZU"
+        },
+        "QualifiedApiName": "RMA__c"
+      },
+      "QualifiedApiName": "Vendor_Warranty_Expiration_Date__c",
+      "Label": "Vendor Warranty Expiration Date",
+      "DataType": "Date",
+      "IsCalculated": false
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/01IU0000000omZU.00N0B000005uGdl"
+      },
+      "DurableId": "01IU0000000omZU.00N0B000005uGdl",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/01IU0000000omZU"
+        },
+        "QualifiedApiName": "RMA__c"
+      },
+      "QualifiedApiName": "Airscan__c",
+      "Label": "Airscan",
+      "DataType": "Text(255)",
+      "IsCalculated": false
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/01IU0000000omZU.00N0B000005uGdm"
+      },
+      "DurableId": "01IU0000000omZU.00N0B000005uGdm",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/01IU0000000omZU"
+        },
+        "QualifiedApiName": "RMA__c"
+      },
+      "QualifiedApiName": "Articulation__c",
+      "Label": "Articulation",
+      "DataType": "Text(255)",
+      "IsCalculated": false
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/01IU0000000omZU.00N0B000005uGdn"
+      },
+      "DurableId": "01IU0000000omZU.00N0B000005uGdn",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/01IU0000000omZU"
+        },
+        "QualifiedApiName": "RMA__c"
+      },
+      "QualifiedApiName": "Bending_Rubber__c",
+      "Label": "Bending Rubber",
+      "DataType": "Text(255)",
+      "IsCalculated": false
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/01IU0000000omZU.00N0B000005uGdo"
+      },
+      "DurableId": "01IU0000000omZU.00N0B000005uGdo",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/01IU0000000omZU"
+        },
+        "QualifiedApiName": "RMA__c"
+      },
+      "QualifiedApiName": "CW_Artifacts__c",
+      "Label": "CW Artifacts",
+      "DataType": "Text(255)",
+      "IsCalculated": false
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/01IU0000000omZU.00N0B000005uGdp"
+      },
+      "DurableId": "01IU0000000omZU.00N0B000005uGdp",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/01IU0000000omZU"
+        },
+        "QualifiedApiName": "RMA__c"
+      },
+      "QualifiedApiName": "CW_Pulse__c",
+      "Label": "CW Pulse",
+      "DataType": "Text(255)",
+      "IsCalculated": false
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/01IU0000000omZU.00N0B000005uGdq"
+      },
+      "DurableId": "01IU0000000omZU.00N0B000005uGdq",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/01IU0000000omZU"
+        },
+        "QualifiedApiName": "RMA__c"
+      },
+      "QualifiedApiName": "Cable_Jacket__c",
+      "Label": "Cable Jacket",
+      "DataType": "Text(255)",
+      "IsCalculated": false
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/01IU0000000omZU.00N0B000005uGdr"
+      },
+      "DurableId": "01IU0000000omZU.00N0B000005uGdr",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/01IU0000000omZU"
+        },
+        "QualifiedApiName": "RMA__c"
+      },
+      "QualifiedApiName": "Cap__c",
+      "Label": "Cap",
+      "DataType": "Text(255)",
+      "IsCalculated": false
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/01IU0000000omZU.00N0B000005uGds"
+      },
+      "DurableId": "01IU0000000omZU.00N0B000005uGds",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/01IU0000000omZU"
+        },
+        "QualifiedApiName": "RMA__c"
+      },
+      "QualifiedApiName": "Color_Artifacts__c",
+      "Label": "Color Artifacts",
+      "DataType": "Text(255)",
+      "IsCalculated": false
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/01IU0000000omZU.00N0B000005uGdt"
+      },
+      "DurableId": "01IU0000000omZU.00N0B000005uGdt",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/01IU0000000omZU"
+        },
+        "QualifiedApiName": "RMA__c"
+      },
+      "QualifiedApiName": "Connector__c",
+      "Label": "Connector",
+      "DataType": "Text(255)",
+      "IsCalculated": false
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/01IU0000000omZU.00N0B000005uGdu"
+      },
+      "DurableId": "01IU0000000omZU.00N0B000005uGdu",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/01IU0000000omZU"
+        },
+        "QualifiedApiName": "RMA__c"
+      },
+      "QualifiedApiName": "Control_Housing__c",
+      "Label": "Control Housing",
+      "DataType": "Text(255)",
+      "IsCalculated": false
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/01IU0000000omZU.00N0B000005uGdv"
+      },
+      "DurableId": "01IU0000000omZU.00N0B000005uGdv",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/01IU0000000omZU"
+        },
+        "QualifiedApiName": "RMA__c"
+      },
+      "QualifiedApiName": "Declined_Repairs__c",
+      "Label": "Declined Repairs",
+      "DataType": "Long Text Area(1000)",
+      "IsCalculated": false
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/01IU0000000omZU.00N0B000005uGdw"
+      },
+      "DurableId": "01IU0000000omZU.00N0B000005uGdw",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/01IU0000000omZU"
+        },
+        "QualifiedApiName": "RMA__c"
+      },
+      "QualifiedApiName": "First_Call__c",
+      "Label": "First Call",
+      "DataType": "Text(255)",
+      "IsCalculated": false
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/01IU0000000omZU.00N0B000005uGdx"
+      },
+      "DurableId": "01IU0000000omZU.00N0B000005uGdx",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/01IU0000000omZU"
+        },
+        "QualifiedApiName": "RMA__c"
+      },
+      "QualifiedApiName": "Image__c",
+      "Label": "Image",
+      "DataType": "Text(255)",
+      "IsCalculated": false
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/01IU0000000omZU.00N0B000005uGdy"
+      },
+      "DurableId": "01IU0000000omZU.00N0B000005uGdy",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/01IU0000000omZU"
+        },
+        "QualifiedApiName": "RMA__c"
+      },
+      "QualifiedApiName": "Insertion_Tube__c",
+      "Label": "Insertion Tube",
+      "DataType": "Text(255)",
+      "IsCalculated": false
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/01IU0000000omZU.00N0B000005uGdz"
+      },
+      "DurableId": "01IU0000000omZU.00N0B000005uGdz",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/01IU0000000omZU"
+        },
+        "QualifiedApiName": "RMA__c"
+      },
+      "QualifiedApiName": "Interior__c",
+      "Label": "Interior",
+      "DataType": "Text(255)",
+      "IsCalculated": false
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/01IU0000000omZU.00N0B000005uGe0"
+      },
+      "DurableId": "01IU0000000omZU.00N0B000005uGe0",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/01IU0000000omZU"
+        },
+        "QualifiedApiName": "RMA__c"
+      },
+      "QualifiedApiName": "Leakage_Current__c",
+      "Label": "Leakage Current",
+      "DataType": "Text(255)",
+      "IsCalculated": false
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/01IU0000000omZU.00N0B000005uGe1"
+      },
+      "DurableId": "01IU0000000omZU.00N0B000005uGe1",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/01IU0000000omZU"
+        },
+        "QualifiedApiName": "RMA__c"
+      },
+      "QualifiedApiName": "Lens__c",
+      "Label": "Lens",
+      "DataType": "Text(255)",
+      "IsCalculated": false
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/01IU0000000omZU.00N0B000005uGe2"
+      },
+      "DurableId": "01IU0000000omZU.00N0B000005uGe2",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/01IU0000000omZU"
+        },
+        "QualifiedApiName": "RMA__c"
+      },
+      "QualifiedApiName": "Motor__c",
+      "Label": "Motor",
+      "DataType": "Text(255)",
+      "IsCalculated": false
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/01IU0000000omZU.00N0B000005uGe3"
+      },
+      "DurableId": "01IU0000000omZU.00N0B000005uGe3",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/01IU0000000omZU"
+        },
+        "QualifiedApiName": "RMA__c"
+      },
+      "QualifiedApiName": "Orientation__c",
+      "Label": "Orientation",
+      "DataType": "Text(255)",
+      "IsCalculated": false
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/01IU0000000omZU.00N0B000005uGe4"
+      },
+      "DurableId": "01IU0000000omZU.00N0B000005uGe4",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/01IU0000000omZU"
+        },
+        "QualifiedApiName": "RMA__c"
+      },
+      "QualifiedApiName": "Probe_Handle__c",
+      "Label": "Probe Handle",
+      "DataType": "Text(255)",
+      "IsCalculated": false
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/01IU0000000omZU.00N0B000005uGe5"
+      },
+      "DurableId": "01IU0000000omZU.00N0B000005uGe5",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/01IU0000000omZU"
+        },
+        "QualifiedApiName": "RMA__c"
+      },
+      "QualifiedApiName": "Recommended_Repairs__c",
+      "Label": "Recommended Repairs",
+      "DataType": "Long Text Area(1000)",
+      "IsCalculated": false
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/01IU0000000omZU.00N0B000005uGe6"
+      },
+      "DurableId": "01IU0000000omZU.00N0B000005uGe6",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/01IU0000000omZU"
+        },
+        "QualifiedApiName": "RMA__c"
+      },
+      "QualifiedApiName": "Required_Repairs__c",
+      "Label": "Required Repairs",
+      "DataType": "Long Text Area(1000)",
+      "IsCalculated": false
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/01IU0000000omZU.00N0B000005uGe7"
+      },
+      "DurableId": "01IU0000000omZU.00N0B000005uGe7",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/01IU0000000omZU"
+        },
+        "QualifiedApiName": "RMA__c"
+      },
+      "QualifiedApiName": "Strain_Relief__c",
+      "Label": "Strain Relief",
+      "DataType": "Text(255)",
+      "IsCalculated": false
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/01IU0000000omZU.00N0B000005uGe8"
+      },
+      "DurableId": "01IU0000000omZU.00N0B000005uGe8",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/01IU0000000omZU"
+        },
+        "QualifiedApiName": "RMA__c"
+      },
+      "QualifiedApiName": "Test__c",
+      "Label": "Last Product Test",
+      "DataType": "Lookup(ProductTest)",
+      "IsCalculated": false
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/01IU0000000omZU.00N0B000005uGe9"
+      },
+      "DurableId": "01IU0000000omZU.00N0B000005uGe9",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/01IU0000000omZU"
+        },
+        "QualifiedApiName": "RMA__c"
+      },
+      "QualifiedApiName": "Tip__c",
+      "Label": "Tip",
+      "DataType": "Text(255)",
+      "IsCalculated": false
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/01IU0000000omZU.00N0B000005uGjl"
+      },
+      "DurableId": "01IU0000000omZU.00N0B000005uGjl",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/01IU0000000omZU"
+        },
+        "QualifiedApiName": "RMA__c"
+      },
+      "QualifiedApiName": "Date_Last_Test_Completed__c",
+      "Label": "Date Last Test Completed",
+      "DataType": "Date/Time",
+      "IsCalculated": false
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/01IU0000000omZU.00N0B000005uGkG"
+      },
+      "DurableId": "01IU0000000omZU.00N0B000005uGkG",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/01IU0000000omZU"
+        },
+        "QualifiedApiName": "RMA__c"
+      },
+      "QualifiedApiName": "Required__c",
+      "Label": "Required",
+      "DataType": "Currency(16, 2)",
+      "IsCalculated": false
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/01IU0000000omZU.00N0B000005uGkL"
+      },
+      "DurableId": "01IU0000000omZU.00N0B000005uGkL",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/01IU0000000omZU"
+        },
+        "QualifiedApiName": "RMA__c"
+      },
+      "QualifiedApiName": "Full__c",
+      "Label": "Full",
+      "DataType": "Currency(16, 2)",
+      "IsCalculated": false
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/01IU0000000omZU.00N0B000005uGka"
+      },
+      "DurableId": "01IU0000000omZU.00N0B000005uGka",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/01IU0000000omZU"
+        },
+        "QualifiedApiName": "RMA__c"
+      },
+      "QualifiedApiName": "Opportunity_Owner_Phone__c",
+      "Label": "Opportunity Owner Phone",
+      "DataType": "Formula (Text)",
+      "IsCalculated": true
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/01IU0000000omZU.00N0B0000065vVa"
+      },
+      "DurableId": "01IU0000000omZU.00N0B0000065vVa",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/01IU0000000omZU"
+        },
+        "QualifiedApiName": "RMA__c"
+      },
+      "QualifiedApiName": "Opportunity_Stage__c",
+      "Label": "Opportunity Stage",
+      "DataType": "Formula (Text)",
+      "IsCalculated": true
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/01IU0000000omZU.00N0B0000065xgV"
+      },
+      "DurableId": "01IU0000000omZU.00N0B0000065xgV",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/01IU0000000omZU"
+        },
+        "QualifiedApiName": "RMA__c"
+      },
+      "QualifiedApiName": "Needs_to_be_moved_to_this_location__c",
+      "Label": "Needs to be moved to this location",
+      "DataType": "Picklist",
+      "IsCalculated": false
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/01IU0000000omZU.00N0B0000065xga"
+      },
+      "DurableId": "01IU0000000omZU.00N0B0000065xga",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/01IU0000000omZU"
+        },
+        "QualifiedApiName": "RMA__c"
+      },
+      "QualifiedApiName": "Possible_Repairs__c",
+      "Label": "Possible Repairs",
+      "DataType": "Long Text Area(1000)",
+      "IsCalculated": false
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/01IU0000000omZU.00N0B0000066696"
+      },
+      "DurableId": "01IU0000000omZU.00N0B0000066696",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/01IU0000000omZU"
+        },
+        "QualifiedApiName": "RMA__c"
+      },
+      "QualifiedApiName": "These_Repairs_Cannot_Be_Done__c",
+      "Label": "These Repairs Cannot Be Done",
+      "DataType": "Long Text Area(1000)",
+      "IsCalculated": false
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/01IU0000000omZU.00N0B00000666AE"
+      },
+      "DurableId": "01IU0000000omZU.00N0B00000666AE",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/01IU0000000omZU"
+        },
+        "QualifiedApiName": "RMA__c"
+      },
+      "QualifiedApiName": "Approving_repair_that_cannot_be_done__c",
+      "Label": "Approving repair that cannot be done",
+      "DataType": "Checkbox",
+      "IsCalculated": false
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/01IU0000000omZU.00N0B0000066WF5"
+      },
+      "DurableId": "01IU0000000omZU.00N0B0000066WF5",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/01IU0000000omZU"
+        },
+        "QualifiedApiName": "RMA__c"
+      },
+      "QualifiedApiName": "Asset_Review_Status__c",
+      "Label": "Asset Review Status",
+      "DataType": "Formula (Text)",
+      "IsCalculated": true
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/01IU0000000omZU.00N0B0000066BMn"
+      },
+      "DurableId": "01IU0000000omZU.00N0B0000066BMn",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/01IU0000000omZU"
+        },
+        "QualifiedApiName": "RMA__c"
+      },
+      "QualifiedApiName": "Exchange__c",
+      "Label": "Exchange",
+      "DataType": "Formula (Currency)",
+      "IsCalculated": true
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/01IU0000000omZU.00N0B0000066BMo"
+      },
+      "DurableId": "01IU0000000omZU.00N0B0000066BMo",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/01IU0000000omZU"
+        },
+        "QualifiedApiName": "RMA__c"
+      },
+      "QualifiedApiName": "Loaner__c",
+      "Label": "Loaner",
+      "DataType": "Formula (Currency)",
+      "IsCalculated": true
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/01IU0000000omZU.00N0B0000066BMp"
+      },
+      "DurableId": "01IU0000000omZU.00N0B0000066BMp",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/01IU0000000omZU"
+        },
+        "QualifiedApiName": "RMA__c"
+      },
+      "QualifiedApiName": "Other_Notes_Cosmetic__c",
+      "Label": "Other Notes: Cosmetic",
+      "DataType": "Long Text Area(1000)",
+      "IsCalculated": false
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/01IU0000000omZU.00N0B0000066BMq"
+      },
+      "DurableId": "01IU0000000omZU.00N0B0000066BMq",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/01IU0000000omZU"
+        },
+        "QualifiedApiName": "RMA__c"
+      },
+      "QualifiedApiName": "Other_Notes_Functional__c",
+      "Label": "Other Notes: Functional",
+      "DataType": "Long Text Area(1000)",
+      "IsCalculated": false
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/01IU0000000omZU.00N0B0000066T4J"
+      },
+      "DurableId": "01IU0000000omZU.00N0B0000066T4J",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/01IU0000000omZU"
+        },
+        "QualifiedApiName": "RMA__c"
+      },
+      "QualifiedApiName": "Account_Name_for_customer_portal__c",
+      "Label": "Account Name (for customer portal)",
+      "DataType": "Text(255)",
+      "IsCalculated": false
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/01IU0000000omZU.00N0B0000066Bbt"
+      },
+      "DurableId": "01IU0000000omZU.00N0B0000066Bbt",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/01IU0000000omZU"
+        },
+        "QualifiedApiName": "RMA__c"
+      },
+      "QualifiedApiName": "Warranty_Claim_Approved_By__c",
+      "Label": "Warranty Claim Action Approved By",
+      "DataType": "Text(255)",
+      "IsCalculated": false
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/01IU0000000omZU.00N0B0000066Bby"
+      },
+      "DurableId": "01IU0000000omZU.00N0B0000066Bby",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/01IU0000000omZU"
+        },
+        "QualifiedApiName": "RMA__c"
+      },
+      "QualifiedApiName": "Time_Warranty_Claim_Approved__c",
+      "Label": "Time Warranty/Loaner Action Approved",
+      "DataType": "Date/Time",
+      "IsCalculated": false
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/01IU0000000omZU.00N0B0000066Bbo"
+      },
+      "DurableId": "01IU0000000omZU.00N0B0000066Bbo",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/01IU0000000omZU"
+        },
+        "QualifiedApiName": "RMA__c"
+      },
+      "QualifiedApiName": "Warranty_Claim_Approved__c",
+      "Label": "Warranty Claim Action Approval",
+      "DataType": "Picklist",
+      "IsCalculated": false
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/01IU0000000omZU.00N0B0000066Bcc"
+      },
+      "DurableId": "01IU0000000omZU.00N0B0000066Bcc",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/01IU0000000omZU"
+        },
+        "QualifiedApiName": "RMA__c"
+      },
+      "QualifiedApiName": "Warranty_Claim_Action__c",
+      "Label": "Warranty Claim Action",
+      "DataType": "Picklist",
+      "IsCalculated": false
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/01IU0000000omZU.00N0B0000066Bch"
+      },
+      "DurableId": "01IU0000000omZU.00N0B0000066Bch",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/01IU0000000omZU"
+        },
+        "QualifiedApiName": "RMA__c"
+      },
+      "QualifiedApiName": "Sales_Rep_Warranty_Claim_Actions_Taken__c",
+      "Label": "Sales Rep - Warranty Claim Actions Taken",
+      "DataType": "Text(255)",
+      "IsCalculated": false
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/01IU0000000omZU.00N0B0000066DSt"
+      },
+      "DurableId": "01IU0000000omZU.00N0B0000066DSt",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/01IU0000000omZU"
+        },
+        "QualifiedApiName": "RMA__c"
+      },
+      "QualifiedApiName": "Date_Repaired_Probe_Shipped__c",
+      "Label": "Date Repaired Probe Shipped",
+      "DataType": "Date",
+      "IsCalculated": false
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/01IU0000000omZU.00N0B0000066DSy"
+      },
+      "DurableId": "01IU0000000omZU.00N0B0000066DSy",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/01IU0000000omZU"
+        },
+        "QualifiedApiName": "RMA__c"
+      },
+      "QualifiedApiName": "Core_Exchange_RMA__c",
+      "Label": "Core Exchange RMA",
+      "DataType": "Lookup(RMA)",
+      "IsCalculated": false
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/01IU0000000omZU.00N0B0000066E15"
+      },
+      "DurableId": "01IU0000000omZU.00N0B0000066E15",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/01IU0000000omZU"
+        },
+        "QualifiedApiName": "RMA__c"
+      },
+      "QualifiedApiName": "Customer_Expectation__c",
+      "Label": "Customer Expectation",
+      "DataType": "Picklist",
+      "IsCalculated": false
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/01IU0000000omZU.00N0B0000066E16"
+      },
+      "DurableId": "01IU0000000omZU.00N0B0000066E16",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/01IU0000000omZU"
+        },
+        "QualifiedApiName": "RMA__c"
+      },
+      "QualifiedApiName": "Days_since_evaluation_sent__c",
+      "Label": "Days since evaluation sent",
+      "DataType": "Formula (Number)",
+      "IsCalculated": true
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/01IU0000000omZU.00N0B0000066E17"
+      },
+      "DurableId": "01IU0000000omZU.00N0B0000066E17",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/01IU0000000omZU"
+        },
+        "QualifiedApiName": "RMA__c"
+      },
+      "QualifiedApiName": "Days_since_loaner_shipped__c",
+      "Label": "Days since loaner shipped",
+      "DataType": "Formula (Number)",
+      "IsCalculated": true
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/01IU0000000omZU.00N0B0000066E18"
+      },
+      "DurableId": "01IU0000000omZU.00N0B0000066E18",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/01IU0000000omZU"
+        },
+        "QualifiedApiName": "RMA__c"
+      },
+      "QualifiedApiName": "Days_since_repaired_probe_shipped__c",
+      "Label": "Days since repaired probe shipped",
+      "DataType": "Formula (Number)",
+      "IsCalculated": true
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/01IU0000000omZU.00N0B0000066Ey7"
+      },
+      "DurableId": "01IU0000000omZU.00N0B0000066Ey7",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/01IU0000000omZU"
+        },
+        "QualifiedApiName": "RMA__c"
+      },
+      "QualifiedApiName": "Days_since_RMA_created__c",
+      "Label": "Days since RMA created",
+      "DataType": "Formula (Number)",
+      "IsCalculated": true
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/01IU0000000omZU.00N0B0000066WHa"
+      },
+      "DurableId": "01IU0000000omZU.00N0B0000066WHa",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/01IU0000000omZU"
+        },
+        "QualifiedApiName": "RMA__c"
+      },
+      "QualifiedApiName": "Specific_Issue__c",
+      "Label": "Specific Issue",
+      "DataType": "Picklist (Multi-Select)",
+      "IsCalculated": false
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/01IU0000000omZU.00N0B0000066JP7"
+      },
+      "DurableId": "01IU0000000omZU.00N0B0000066JP7",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/01IU0000000omZU"
+        },
+        "QualifiedApiName": "RMA__c"
+      },
+      "QualifiedApiName": "Loaner_Restock_Fee_Opp_Stage__c",
+      "Label": "Loaner / Restock Fee Opp Stage",
+      "DataType": "Formula (Text)",
+      "IsCalculated": true
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/01IU0000000omZU.00N0B0000066JPC"
+      },
+      "DurableId": "01IU0000000omZU.00N0B0000066JPC",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/01IU0000000omZU"
+        },
+        "QualifiedApiName": "RMA__c"
+      },
+      "QualifiedApiName": "Loaner_Restock_Fee_Opp_Invoice__c",
+      "Label": "Loaner / Restock Fee Opp Invoice #",
+      "DataType": "Formula (Text)",
+      "IsCalculated": true
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/01IU0000000omZU.00N0B0000066THX"
+      },
+      "DurableId": "01IU0000000omZU.00N0B0000066THX",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/01IU0000000omZU"
+        },
+        "QualifiedApiName": "RMA__c"
+      },
+      "QualifiedApiName": "RMA_Status__c",
+      "Label": "RMA Status",
+      "DataType": "Formula (Text)",
+      "IsCalculated": true
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/01IU0000000omZU.00N0B0000066TwQ"
+      },
+      "DurableId": "01IU0000000omZU.00N0B0000066TwQ",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/01IU0000000omZU"
+        },
+        "QualifiedApiName": "RMA__c"
+      },
+      "QualifiedApiName": "Repair_Probe_Asset__c",
+      "Label": "Repair Probe Asset #",
+      "DataType": "Formula (Text)",
+      "IsCalculated": true
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/01IU0000000omZU.00N0B0000066TwV"
+      },
+      "DurableId": "01IU0000000omZU.00N0B0000066TwV",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/01IU0000000omZU"
+        },
+        "QualifiedApiName": "RMA__c"
+      },
+      "QualifiedApiName": "Repair_Probe_SN__c",
+      "Label": "Repair Probe SN",
+      "DataType": "Formula (Text)",
+      "IsCalculated": true
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/01IU0000000omZU.00N4O000006fb7p"
+      },
+      "DurableId": "01IU0000000omZU.00N4O000006fb7p",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/01IU0000000omZU"
+        },
+        "QualifiedApiName": "RMA__c"
+      },
+      "QualifiedApiName": "Return_To_Location__c",
+      "Label": "Return To Location",
+      "DataType": "Picklist",
+      "IsCalculated": false
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/01IU0000000omZU.00N0B0000066Ug4"
+      },
+      "DurableId": "01IU0000000omZU.00N0B0000066Ug4",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/01IU0000000omZU"
+        },
+        "QualifiedApiName": "RMA__c"
+      },
+      "QualifiedApiName": "Probe_Model_Text__c",
+      "Label": "Model",
+      "DataType": "Text(255)",
+      "IsCalculated": false
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/01IU0000000omZU.00N0B0000066V2o"
+      },
+      "DurableId": "01IU0000000omZU.00N0B0000066V2o",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/01IU0000000omZU"
+        },
+        "QualifiedApiName": "RMA__c"
+      },
+      "QualifiedApiName": "Loaner_Due_Back__c",
+      "Label": "Loaner Due Back",
+      "DataType": "Formula (Date)",
+      "IsCalculated": true
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/01IU0000000omZU.00N0B0000066V6R"
+      },
+      "DurableId": "01IU0000000omZU.00N0B0000066V6R",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/01IU0000000omZU"
+        },
+        "QualifiedApiName": "RMA__c"
+      },
+      "QualifiedApiName": "Current_Estimated_Ship_Date__c",
+      "Label": "Updated Ship Date",
+      "DataType": "Date",
+      "IsCalculated": false
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/01IU0000000omZU.00N0B0000066Xda"
+      },
+      "DurableId": "01IU0000000omZU.00N0B0000066Xda",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/01IU0000000omZU"
+        },
+        "QualifiedApiName": "RMA__c"
+      },
+      "QualifiedApiName": "Check_In_Type__c",
+      "Label": "Check In Type",
+      "DataType": "Formula (Text)",
+      "IsCalculated": true
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/01IU0000000omZU.00N0B0000066YZR"
+      },
+      "DurableId": "01IU0000000omZU.00N0B0000066YZR",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/01IU0000000omZU"
+        },
+        "QualifiedApiName": "RMA__c"
+      },
+      "QualifiedApiName": "Added_to_Work_Order__c",
+      "Label": "Added to Work Order",
+      "DataType": "Formula (Checkbox)",
+      "IsCalculated": true
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/01IU0000000omZU.00N0B0000066mof"
+      },
+      "DurableId": "01IU0000000omZU.00N0B0000066mof",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/01IU0000000omZU"
+        },
+        "QualifiedApiName": "RMA__c"
+      },
+      "QualifiedApiName": "Days_since_opportunity_item_shipped__c",
+      "Label": "Days since opportunity item shipped",
+      "DataType": "Formula (Number)",
+      "IsCalculated": true
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/01IU0000000omZU.00N0B0000066mv2"
+      },
+      "DurableId": "01IU0000000omZU.00N0B0000066mv2",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/01IU0000000omZU"
+        },
+        "QualifiedApiName": "RMA__c"
+      },
+      "QualifiedApiName": "Repairs_Completed__c",
+      "Label": "Percent Repairs Completed",
+      "DataType": "Percent(18, 0)",
+      "IsCalculated": false
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/01IU0000000omZU.00N0B0000066u9p"
+      },
+      "DurableId": "01IU0000000omZU.00N0B0000066u9p",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/01IU0000000omZU"
+        },
+        "QualifiedApiName": "RMA__c"
+      },
+      "QualifiedApiName": "Ticket_Number__c",
+      "Label": "Ticket Number",
+      "DataType": "Text(255)",
+      "IsCalculated": false
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/01IU0000000omZU.00N0B0000066vfr"
+      },
+      "DurableId": "01IU0000000omZU.00N0B0000066vfr",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/01IU0000000omZU"
+        },
+        "QualifiedApiName": "RMA__c"
+      },
+      "QualifiedApiName": "White_Glove_Service__c",
+      "Label": "White Glove Service",
+      "DataType": "Checkbox",
+      "IsCalculated": false
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/01IU0000000omZU.00N0B00000676iS"
+      },
+      "DurableId": "01IU0000000omZU.00N0B00000676iS",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/01IU0000000omZU"
+        },
+        "QualifiedApiName": "RMA__c"
+      },
+      "QualifiedApiName": "Inbound_Location__c",
+      "Label": "Inbound Location",
+      "DataType": "Formula (Text)",
+      "IsCalculated": true
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/01IU0000000omZU.00N0B00000676r5"
+      },
+      "DurableId": "01IU0000000omZU.00N0B00000676r5",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/01IU0000000omZU"
+        },
+        "QualifiedApiName": "RMA__c"
+      },
+      "QualifiedApiName": "Shipping_TO_Location__c",
+      "Label": "Shipping TO Location",
+      "DataType": "Formula (Text)",
+      "IsCalculated": true
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/01IU0000000omZU.00N0B00000677P2"
+      },
+      "DurableId": "01IU0000000omZU.00N0B00000677P2",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/01IU0000000omZU"
+        },
+        "QualifiedApiName": "RMA__c"
+      },
+      "QualifiedApiName": "Shipping_from_Location_Address_Line_1__c",
+      "Label": "Shipping from Location Address Line 1",
+      "DataType": "Formula (Text)",
+      "IsCalculated": true
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/01IU0000000omZU.00N0B00000677P7"
+      },
+      "DurableId": "01IU0000000omZU.00N0B00000677P7",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/01IU0000000omZU"
+        },
+        "QualifiedApiName": "RMA__c"
+      },
+      "QualifiedApiName": "Shipping_from_Location_Address_Line_2__c",
+      "Label": "Shipping from Location Address Line 2",
+      "DataType": "Formula (Text)",
+      "IsCalculated": true
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/01IU0000000omZU.00N0B00000677PC"
+      },
+      "DurableId": "01IU0000000omZU.00N0B00000677PC",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/01IU0000000omZU"
+        },
+        "QualifiedApiName": "RMA__c"
+      },
+      "QualifiedApiName": "Shipping_FROM_Location__c",
+      "Label": "Shipping FROM Location",
+      "DataType": "Formula (Text)",
+      "IsCalculated": true
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/01IU0000000omZU.00N0B00000679np"
+      },
+      "DurableId": "01IU0000000omZU.00N0B00000679np",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/01IU0000000omZU"
+        },
+        "QualifiedApiName": "RMA__c"
+      },
+      "QualifiedApiName": "Product_Family__c",
+      "Label": "Product Family",
+      "DataType": "Formula (Text)",
+      "IsCalculated": true
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/01IU0000000omZU.00N0B0000067Dfb"
+      },
+      "DurableId": "01IU0000000omZU.00N0B0000067Dfb",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/01IU0000000omZU"
+        },
+        "QualifiedApiName": "RMA__c"
+      },
+      "QualifiedApiName": "Contact_Name__c",
+      "Label": "Contact Name",
+      "DataType": "Text(255)",
+      "IsCalculated": false
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/01IU0000000omZU.00N0B0000067LB4"
+      },
+      "DurableId": "01IU0000000omZU.00N0B0000067LB4",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/01IU0000000omZU"
+        },
+        "QualifiedApiName": "RMA__c"
+      },
+      "QualifiedApiName": "Customer_Paid__c",
+      "Label": "Customer Paid For",
+      "DataType": "Picklist",
+      "IsCalculated": false
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/01IU0000000omZU.00N4O000006fbEW"
+      },
+      "DurableId": "01IU0000000omZU.00N4O000006fbEW",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/01IU0000000omZU"
+        },
+        "QualifiedApiName": "RMA__c"
+      },
+      "QualifiedApiName": "Vendor_RMA__c",
+      "Label": "Vendor RMA",
+      "DataType": "Text(20)",
+      "IsCalculated": false
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/01IU0000000omZU.00N4O000006fbHL"
+      },
+      "DurableId": "01IU0000000omZU.00N4O000006fbHL",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/01IU0000000omZU"
+        },
+        "QualifiedApiName": "RMA__c"
+      },
+      "QualifiedApiName": "Return_to_Account__c",
+      "Label": "Return to Account",
+      "DataType": "Lookup(Account)",
+      "IsCalculated": false
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/01IU0000000omZU.00N4O000006fbHQ"
+      },
+      "DurableId": "01IU0000000omZU.00N4O000006fbHQ",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/01IU0000000omZU"
+        },
+        "QualifiedApiName": "RMA__c"
+      },
+      "QualifiedApiName": "Return_to_Address_Override__c",
+      "Label": "Return to Address Override",
+      "DataType": "Text Area(255)",
+      "IsCalculated": false
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/01IU0000000omZU.00N4O000006fbHV"
+      },
+      "DurableId": "01IU0000000omZU.00N4O000006fbHV",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/01IU0000000omZU"
+        },
+        "QualifiedApiName": "RMA__c"
+      },
+      "QualifiedApiName": "Return_to_Address__c",
+      "Label": "Return to Address",
+      "DataType": "Formula (Text)",
+      "IsCalculated": true
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/01IU0000000omZU.00N4O000006fbJl"
+      },
+      "DurableId": "01IU0000000omZU.00N4O000006fbJl",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/01IU0000000omZU"
+        },
+        "QualifiedApiName": "RMA__c"
+      },
+      "QualifiedApiName": "Type_of_Nonconformity__c",
+      "Label": "Type of Non-Conformity",
+      "DataType": "Picklist",
+      "IsCalculated": false
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/01IU0000000omZU.00N4O000006fbMB"
+      },
+      "DurableId": "01IU0000000omZU.00N4O000006fbMB",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/01IU0000000omZU"
+        },
+        "QualifiedApiName": "RMA__c"
+      },
+      "QualifiedApiName": "RMA_Tracking__c",
+      "Label": "RMA Tracking #",
+      "DataType": "Text(25)",
+      "IsCalculated": false
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/01IU0000000omZU.00N4O000006fcdI"
+      },
+      "DurableId": "01IU0000000omZU.00N4O000006fcdI",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/01IU0000000omZU"
+        },
+        "QualifiedApiName": "RMA__c"
+      },
+      "QualifiedApiName": "Company_Image__c",
+      "Label": "Company Image",
+      "DataType": "Formula (Text)",
+      "IsCalculated": true
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/01IU0000000omZU.00N4O000006fcdJ"
+      },
+      "DurableId": "01IU0000000omZU.00N4O000006fcdJ",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/01IU0000000omZU"
+        },
+        "QualifiedApiName": "RMA__c"
+      },
+      "QualifiedApiName": "Field_Service_Engineer_Email__c",
+      "Label": "Field Service Engineer Email",
+      "DataType": "Email",
+      "IsCalculated": false
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/01IU0000000omZU.00N4O000006fcdK"
+      },
+      "DurableId": "01IU0000000omZU.00N4O000006fcdK",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/01IU0000000omZU"
+        },
+        "QualifiedApiName": "RMA__c"
+      },
+      "QualifiedApiName": "Field_Service_Engineer__c",
+      "Label": "Field Service Engineer",
+      "DataType": "Formula (Text)",
+      "IsCalculated": true
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/01IU0000000omZU.00N4O000006fcdL"
+      },
+      "DurableId": "01IU0000000omZU.00N4O000006fcdL",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/01IU0000000omZU"
+        },
+        "QualifiedApiName": "RMA__c"
+      },
+      "QualifiedApiName": "Logo_Override__c",
+      "Label": "Logo Override",
+      "DataType": "Picklist",
+      "IsCalculated": false
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/01IU0000000omZU.00N4O000006fcdM"
+      },
+      "DurableId": "01IU0000000omZU.00N4O000006fcdM",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/01IU0000000omZU"
+        },
+        "QualifiedApiName": "RMA__c"
+      },
+      "QualifiedApiName": "Opportunity_No__c",
+      "Label": "Opportunity No",
+      "DataType": "Formula (Text)",
+      "IsCalculated": true
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/01IU0000000omZU.00N4O000006fcdN"
+      },
+      "DurableId": "01IU0000000omZU.00N4O000006fcdN",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/01IU0000000omZU"
+        },
+        "QualifiedApiName": "RMA__c"
+      },
+      "QualifiedApiName": "Send_RMA_Details_Email__c",
+      "Label": "Send RMA Details Email",
+      "DataType": "Checkbox",
+      "IsCalculated": false
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/01IU0000000omZU.00N4O000006fcdO"
+      },
+      "DurableId": "01IU0000000omZU.00N4O000006fcdO",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/01IU0000000omZU"
+        },
+        "QualifiedApiName": "RMA__c"
+      },
+      "QualifiedApiName": "Shipping_From_Location_Company__c",
+      "Label": "Shipping From Location Company",
+      "DataType": "Formula (Text)",
+      "IsCalculated": true
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/01IU0000000omZU.00N4O000006fcdP"
+      },
+      "DurableId": "01IU0000000omZU.00N4O000006fcdP",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/01IU0000000omZU"
+        },
+        "QualifiedApiName": "RMA__c"
+      },
+      "QualifiedApiName": "Tracking_No_from_Opp__c",
+      "Label": "Tracking No (from Opp)",
+      "DataType": "Formula (Text)",
+      "IsCalculated": true
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/01IU0000000omZU.00N4O000006cL9U"
+      },
+      "DurableId": "01IU0000000omZU.00N4O000006cL9U",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/01IU0000000omZU"
+        },
+        "QualifiedApiName": "RMA__c"
+      },
+      "QualifiedApiName": "Closed_Reason__c",
+      "Label": "Closed Reason",
+      "DataType": "Picklist",
+      "IsCalculated": false
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/01IU0000000omZU.00N4O000006cM6v"
+      },
+      "DurableId": "01IU0000000omZU.00N4O000006cM6v",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/01IU0000000omZU"
+        },
+        "QualifiedApiName": "RMA__c"
+      },
+      "QualifiedApiName": "Core_Discount__c",
+      "Label": "Core Discount",
+      "DataType": "Formula (Currency)",
+      "IsCalculated": true
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/01IU0000000omZU.00N4O000006cNNR"
+      },
+      "DurableId": "01IU0000000omZU.00N4O000006cNNR",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/01IU0000000omZU"
+        },
+        "QualifiedApiName": "RMA__c"
+      },
+      "QualifiedApiName": "Depot_Repair_Reported_Issue__c",
+      "Label": "Depot Repair Reported Issue",
+      "DataType": "Long Text Area(32768)",
+      "IsCalculated": false
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/01IU0000000omZU.00N4O000006cPyZ"
+      },
+      "DurableId": "01IU0000000omZU.00N4O000006cPyZ",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/01IU0000000omZU"
+        },
+        "QualifiedApiName": "RMA__c"
+      },
+      "QualifiedApiName": "Total_Days_Out__c",
+      "Label": "Total Days Out",
+      "DataType": "Formula (Number)",
+      "IsCalculated": true
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/01IU0000000omZU.00N4O000006cZEM"
+      },
+      "DurableId": "01IU0000000omZU.00N4O000006cZEM",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/01IU0000000omZU"
+        },
+        "QualifiedApiName": "RMA__c"
+      },
+      "QualifiedApiName": "RMA_Asset_Amount__c",
+      "Label": "RMA Item Asset Amount",
+      "DataType": "Formula (Currency)",
+      "IsCalculated": true
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/01IU0000000omZU.00N4O000006MLyz"
+      },
+      "DurableId": "01IU0000000omZU.00N4O000006MLyz",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/01IU0000000omZU"
+        },
+        "QualifiedApiName": "RMA__c"
+      },
+      "QualifiedApiName": "Loaner_Asset_Cost__c",
+      "Label": "Loaner Asset Cost",
+      "DataType": "Formula (Currency)",
+      "IsCalculated": true
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/01IU0000000omZU.00N4O000006MNTr"
+      },
+      "DurableId": "01IU0000000omZU.00N4O000006MNTr",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/01IU0000000omZU"
+        },
+        "QualifiedApiName": "RMA__c"
+      },
+      "QualifiedApiName": "FSE_Email__c",
+      "Label": "FSE Email",
+      "DataType": "Formula (Text)",
+      "IsCalculated": true
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/01IU0000000omZU.00N4O000006MNTs"
+      },
+      "DurableId": "01IU0000000omZU.00N4O000006MNTs",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/01IU0000000omZU"
+        },
+        "QualifiedApiName": "RMA__c"
+      },
+      "QualifiedApiName": "FSE_Phone__c",
+      "Label": "FSE Phone",
+      "DataType": "Formula (Text)",
+      "IsCalculated": true
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/01IU0000000omZU.00N4O000006VuNI"
+      },
+      "DurableId": "01IU0000000omZU.00N4O000006VuNI",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/01IU0000000omZU"
+        },
+        "QualifiedApiName": "RMA__c"
+      },
+      "QualifiedApiName": "Loaner_Object__c",
+      "Label": "Loaner",
+      "DataType": "Lookup(Loaner)",
+      "IsCalculated": false
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/01IU0000000omZU.00N4O000006VvHz"
+      },
+      "DurableId": "01IU0000000omZU.00N4O000006VvHz",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/01IU0000000omZU"
+        },
+        "QualifiedApiName": "RMA__c"
+      },
+      "QualifiedApiName": "Rental_Order__c",
+      "Label": "Rental Order",
+      "DataType": "Lookup(Rental Order)",
+      "IsCalculated": false
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/01IU0000000omZU.00N4O000006VvXO"
+      },
+      "DurableId": "01IU0000000omZU.00N4O000006VvXO",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/01IU0000000omZU"
+        },
+        "QualifiedApiName": "RMA__c"
+      },
+      "QualifiedApiName": "Service_Contract__c",
+      "Label": "Service Contract",
+      "DataType": "Lookup(Service Contract)",
+      "IsCalculated": false
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/01IU0000000omZU.00N4O000006Vw2H"
+      },
+      "DurableId": "01IU0000000omZU.00N4O000006Vw2H",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/01IU0000000omZU"
+        },
+        "QualifiedApiName": "RMA__c"
+      },
+      "QualifiedApiName": "RMA_Asset_Cost__c",
+      "Label": "RMA Asset Cost",
+      "DataType": "Formula (Currency)",
+      "IsCalculated": true
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/01IU0000000omZU.00N4O000006VwiI"
+      },
+      "DurableId": "01IU0000000omZU.00N4O000006VwiI",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/01IU0000000omZU"
+        },
+        "QualifiedApiName": "RMA__c"
+      },
+      "QualifiedApiName": "Asset_Never_Sent_In__c",
+      "Label": "Asset Never Sent In",
+      "DataType": "Checkbox",
+      "IsCalculated": false
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/01IU0000000omZU.00N4O000006VwiN"
+      },
+      "DurableId": "01IU0000000omZU.00N4O000006VwiN",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/01IU0000000omZU"
+        },
+        "QualifiedApiName": "RMA__c"
+      },
+      "QualifiedApiName": "Rental_Changed_to_Sale__c",
+      "Label": "Rental Changed to Sale",
+      "DataType": "Checkbox",
+      "IsCalculated": false
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/01IU0000000omZU.00N4O000006VwiS"
+      },
+      "DurableId": "01IU0000000omZU.00N4O000006VwiS",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/01IU0000000omZU"
+        },
+        "QualifiedApiName": "RMA__c"
+      },
+      "QualifiedApiName": "Rental_Due_Back__c",
+      "Label": "Rental Due Back",
+      "DataType": "Date",
+      "IsCalculated": false
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/01IU0000000omZU.00N4O000006VwiX"
+      },
+      "DurableId": "01IU0000000omZU.00N4O000006VwiX",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/01IU0000000omZU"
+        },
+        "QualifiedApiName": "RMA__c"
+      },
+      "QualifiedApiName": "Rental_Asset_Cost__c",
+      "Label": "Rental Asset Cost",
+      "DataType": "Formula (Currency)",
+      "IsCalculated": true
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/01IU0000000omZU.00N4O000006Vwic"
+      },
+      "DurableId": "01IU0000000omZU.00N4O000006Vwic",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/01IU0000000omZU"
+        },
+        "QualifiedApiName": "RMA__c"
+      },
+      "QualifiedApiName": "Invoice_Number__c",
+      "Label": "Invoice",
+      "DataType": "Lookup(Invoice)",
+      "IsCalculated": false
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/01IU0000000omZU.00N4O000006Vwih"
+      },
+      "DurableId": "01IU0000000omZU.00N4O000006Vwih",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/01IU0000000omZU"
+        },
+        "QualifiedApiName": "RMA__c"
+      },
+      "QualifiedApiName": "Credit_Memo_Number__c",
+      "Label": "Credit Memo",
+      "DataType": "Lookup(Credit Memo)",
+      "IsCalculated": false
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/01IU0000000omZU.00N4O000006Vwir"
+      },
+      "DurableId": "01IU0000000omZU.00N4O000006Vwir",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/01IU0000000omZU"
+        },
+        "QualifiedApiName": "RMA__c"
+      },
+      "QualifiedApiName": "Rental_Action__c",
+      "Label": "Rental Return Action",
+      "DataType": "Picklist",
+      "IsCalculated": false
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/01IU0000000omZU.00N4O000006Vwiw"
+      },
+      "DurableId": "01IU0000000omZU.00N4O000006Vwiw",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/01IU0000000omZU"
+        },
+        "QualifiedApiName": "RMA__c"
+      },
+      "QualifiedApiName": "Rental_Return_Action_Approved__c",
+      "Label": "Rental Return Action Approved",
+      "DataType": "Picklist",
+      "IsCalculated": false
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/01IU0000000omZU.00N4O000006Vwj1"
+      },
+      "DurableId": "01IU0000000omZU.00N4O000006Vwj1",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/01IU0000000omZU"
+        },
+        "QualifiedApiName": "RMA__c"
+      },
+      "QualifiedApiName": "Rental_Action_Approved_By__c",
+      "Label": "Rental Action Approved By",
+      "DataType": "Text(255)",
+      "IsCalculated": false
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/01IU0000000omZU.00N4O000006W6XP"
+      },
+      "DurableId": "01IU0000000omZU.00N4O000006W6XP",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/01IU0000000omZU"
+        },
+        "QualifiedApiName": "RMA__c"
+      },
+      "QualifiedApiName": "Loaner_Action__c",
+      "Label": "Loaner Action",
+      "DataType": "Picklist",
+      "IsCalculated": false
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/01IU0000000omZU.00N4O000006W6XU"
+      },
+      "DurableId": "01IU0000000omZU.00N4O000006W6XU",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/01IU0000000omZU"
+        },
+        "QualifiedApiName": "RMA__c"
+      },
+      "QualifiedApiName": "Loaner_Action_Approved__c",
+      "Label": "Loaner Action Approved",
+      "DataType": "Picklist",
+      "IsCalculated": false
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/01IU0000000omZU.00N4O000006W6XZ"
+      },
+      "DurableId": "01IU0000000omZU.00N4O000006W6XZ",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/01IU0000000omZU"
+        },
+        "QualifiedApiName": "RMA__c"
+      },
+      "QualifiedApiName": "Loaner_Action_Approved_By__c",
+      "Label": "Loaner Action Approved By",
+      "DataType": "Text(255)",
+      "IsCalculated": false
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/01IU0000000omZU.00N4O000006h9PZ"
+      },
+      "DurableId": "01IU0000000omZU.00N4O000006h9PZ",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/01IU0000000omZU"
+        },
+        "QualifiedApiName": "RMA__c"
+      },
+      "QualifiedApiName": "Loaner_ID__c",
+      "Label": "Loaner ID",
+      "DataType": "Formula (Text)",
+      "IsCalculated": true
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/01IU0000000omZU.00N4O000006h9Pa"
+      },
+      "DurableId": "01IU0000000omZU.00N4O000006h9Pa",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/01IU0000000omZU"
+        },
+        "QualifiedApiName": "RMA__c"
+      },
+      "QualifiedApiName": "Loaner_RMA__c",
+      "Label": "Loaner RMA",
+      "DataType": "Lookup(RMA)",
+      "IsCalculated": false
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/01IU0000000omZU.00N4O000006hA2s"
+      },
+      "DurableId": "01IU0000000omZU.00N4O000006hA2s",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/01IU0000000omZU"
+        },
+        "QualifiedApiName": "RMA__c"
+      },
+      "QualifiedApiName": "Asset_Returned_to_Vendor__c",
+      "Label": "Asset Returned to Vendor",
+      "DataType": "Lookup(Asset2)",
+      "IsCalculated": false
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/01IU0000000omZU.00N4O000006hA2t"
+      },
+      "DurableId": "01IU0000000omZU.00N4O000006hA2t",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/01IU0000000omZU"
+        },
+        "QualifiedApiName": "RMA__c"
+      },
+      "QualifiedApiName": "Date_Rental_Asset_Shipped__c",
+      "Label": "Date Rental Asset Shipped",
+      "DataType": "Date",
+      "IsCalculated": false
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/01IU0000000omZU.00N4O000006hA2u"
+      },
+      "DurableId": "01IU0000000omZU.00N4O000006hA2u",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/01IU0000000omZU"
+        },
+        "QualifiedApiName": "RMA__c"
+      },
+      "QualifiedApiName": "Intacct_RMA_Debug_URL__c",
+      "Label": "Intacct RMA Debug URL",
+      "DataType": "URL(255)",
+      "IsCalculated": false
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/01IU0000000omZU.00N4O000006hA2v"
+      },
+      "DurableId": "01IU0000000omZU.00N4O000006hA2v",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/01IU0000000omZU"
+        },
+        "QualifiedApiName": "RMA__c"
+      },
+      "QualifiedApiName": "Intacct_RMA_Error_Message__c",
+      "Label": "Intacct RMA Error Message",
+      "DataType": "Long Text Area(32768)",
+      "IsCalculated": false
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/01IU0000000omZU.00N4O000006hA2w"
+      },
+      "DurableId": "01IU0000000omZU.00N4O000006hA2w",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/01IU0000000omZU"
+        },
+        "QualifiedApiName": "RMA__c"
+      },
+      "QualifiedApiName": "Intacct_RMA_Timestamp__c",
+      "Label": "Intacct RMA Timestamp",
+      "DataType": "Date/Time",
+      "IsCalculated": false
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/01IU0000000omZU.00N4O000006hA2x"
+      },
+      "DurableId": "01IU0000000omZU.00N4O000006hA2x",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/01IU0000000omZU"
+        },
+        "QualifiedApiName": "RMA__c"
+      },
+      "QualifiedApiName": "Intacct_RMA_Transaction_ID__c",
+      "Label": "Intacct RMA Transaction ID",
+      "DataType": "Text(100)",
+      "IsCalculated": false
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/01IU0000000omZU.00N4O000006hA2y"
+      },
+      "DurableId": "01IU0000000omZU.00N4O000006hA2y",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/01IU0000000omZU"
+        },
+        "QualifiedApiName": "RMA__c"
+      },
+      "QualifiedApiName": "Purchasing_Return__c",
+      "Label": "Purchasing Return",
+      "DataType": "Lookup(Purchasing Return)",
+      "IsCalculated": false
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/01IU0000000omZU.00N4O000006hA2z"
+      },
+      "DurableId": "01IU0000000omZU.00N4O000006hA2z",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/01IU0000000omZU"
+        },
+        "QualifiedApiName": "RMA__c"
+      },
+      "QualifiedApiName": "Replacement_Status__c",
+      "Label": "Replacement Status",
+      "DataType": "Formula (Text)",
+      "IsCalculated": true
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/01IU0000000omZU.00N4O000006hA30"
+      },
+      "DurableId": "01IU0000000omZU.00N4O000006hA30",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/01IU0000000omZU"
+        },
+        "QualifiedApiName": "RMA__c"
+      },
+      "QualifiedApiName": "Return_from_Sale_Action_Approved_By__c",
+      "Label": "Return from Sale Action Approved By",
+      "DataType": "Text(255)",
+      "IsCalculated": false
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/01IU0000000omZU.00N4O000006hA31"
+      },
+      "DurableId": "01IU0000000omZU.00N4O000006hA31",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/01IU0000000omZU"
+        },
+        "QualifiedApiName": "RMA__c"
+      },
+      "QualifiedApiName": "Return_from_Sale_Action__c",
+      "Label": "Return from Sale Action",
+      "DataType": "Picklist",
+      "IsCalculated": false
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/01IU0000000omZU.00N4O000006hA32"
+      },
+      "DurableId": "01IU0000000omZU.00N4O000006hA32",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/01IU0000000omZU"
+        },
+        "QualifiedApiName": "RMA__c"
+      },
+      "QualifiedApiName": "Return_from_Sale_Approval__c",
+      "Label": "Return from Sale Approval",
+      "DataType": "Picklist",
+      "IsCalculated": false
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/01IU0000000omZU.00N4O000006hA33"
+      },
+      "DurableId": "01IU0000000omZU.00N4O000006hA33",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/01IU0000000omZU"
+        },
+        "QualifiedApiName": "RMA__c"
+      },
+      "QualifiedApiName": "Time_Return_from_Sale_Action_Approved__c",
+      "Label": "Time Return from Sale Action Approved",
+      "DataType": "Date/Time",
+      "IsCalculated": false
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/01IU0000000omZU.00N4O000006hA34"
+      },
+      "DurableId": "01IU0000000omZU.00N4O000006hA34",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/01IU0000000omZU"
+        },
+        "QualifiedApiName": "RMA__c"
+      },
+      "QualifiedApiName": "Time_Warranty_Action_Approved__c",
+      "Label": "Time Warranty Action Approved",
+      "DataType": "Date/Time",
+      "IsCalculated": false
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/01IU0000000omZU.00N4O000006hANN"
+      },
+      "DurableId": "01IU0000000omZU.00N4O000006hANN",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/01IU0000000omZU"
+        },
+        "QualifiedApiName": "RMA__c"
+      },
+      "QualifiedApiName": "Intacct_RMA_Sync_Status__c",
+      "Label": "Intacct RMA Sync Status",
+      "DataType": "Picklist",
+      "IsCalculated": false
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/01IU0000000omZU.00N4O000006MuIA"
+      },
+      "DurableId": "01IU0000000omZU.00N4O000006MuIA",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/01IU0000000omZU"
+        },
+        "QualifiedApiName": "RMA__c"
+      },
+      "QualifiedApiName": "Product_Name__c",
+      "Label": "Product Name",
+      "DataType": "Formula (Text)",
+      "IsCalculated": true
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/01IU0000000omZU.00N4O000006N002"
+      },
+      "DurableId": "01IU0000000omZU.00N4O000006N002",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/01IU0000000omZU"
+        },
+        "QualifiedApiName": "RMA__c"
+      },
+      "QualifiedApiName": "Asset_Opportunity_Type__c",
+      "Label": "Asset Opportunity Type",
+      "DataType": "Formula (Text)",
+      "IsCalculated": true
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/01IU0000000omZU.00N4O000006N50l"
+      },
+      "DurableId": "01IU0000000omZU.00N4O000006N50l",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/01IU0000000omZU"
+        },
+        "QualifiedApiName": "RMA__c"
+      },
+      "QualifiedApiName": "Account_Type__c",
+      "Label": "Account Type",
+      "DataType": "Formula (Text)",
+      "IsCalculated": true
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/01IU0000000omZU.00N4O000006N5HK"
+      },
+      "DurableId": "01IU0000000omZU.00N4O000006N5HK",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/01IU0000000omZU"
+        },
+        "QualifiedApiName": "RMA__c"
+      },
+      "QualifiedApiName": "Warranty_Claim__c",
+      "Label": "Warranty Claim",
+      "DataType": "Lookup(Warranty Claim)",
+      "IsCalculated": false
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/01IU0000000omZU.00N4O000006NIbf"
+      },
+      "DurableId": "01IU0000000omZU.00N4O000006NIbf",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/01IU0000000omZU"
+        },
+        "QualifiedApiName": "RMA__c"
+      },
+      "QualifiedApiName": "Time_Rental_Action_Approved__c",
+      "Label": "Time Rental Action Approved",
+      "DataType": "Date/Time",
+      "IsCalculated": false
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/01IU0000000omZU.00N5b00000DWfm4"
+      },
+      "DurableId": "01IU0000000omZU.00N5b00000DWfm4",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/01IU0000000omZU"
+        },
+        "QualifiedApiName": "RMA__c"
+      },
+      "QualifiedApiName": "General_RMA_Status__c",
+      "Label": "General RMA Status",
+      "DataType": "Formula (Text)",
+      "IsCalculated": true
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/01IU0000000omZU.00N5b00000DWlmf"
+      },
+      "DurableId": "01IU0000000omZU.00N5b00000DWlmf",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/01IU0000000omZU"
+        },
+        "QualifiedApiName": "RMA__c"
+      },
+      "QualifiedApiName": "Field_Service_Engineer_Text__c",
+      "Label": "Field Service Engineer Text",
+      "DataType": "Text(255)",
+      "IsCalculated": false
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/01IU0000000omZU.00N5b00000DWmm2"
+      },
+      "DurableId": "01IU0000000omZU.00N5b00000DWmm2",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/01IU0000000omZU"
+        },
+        "QualifiedApiName": "RMA__c"
+      },
+      "QualifiedApiName": "Work_Order__c",
+      "Label": "Work Order",
+      "DataType": "Lookup(Work Order)",
+      "IsCalculated": false
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/01IU0000000omZU.00N5b00000DWohs"
+      },
+      "DurableId": "01IU0000000omZU.00N5b00000DWohs",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/01IU0000000omZU"
+        },
+        "QualifiedApiName": "RMA__c"
+      },
+      "QualifiedApiName": "FSE_Portal_Contact__c",
+      "Label": "FSE Portal Contact",
+      "DataType": "Lookup(Contact)",
+      "IsCalculated": false
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/01IU0000000omZU.00N5b00000DWqfy"
+      },
+      "DurableId": "01IU0000000omZU.00N5b00000DWqfy",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/01IU0000000omZU"
+        },
+        "QualifiedApiName": "RMA__c"
+      },
+      "QualifiedApiName": "Repairnership_Customer__c",
+      "Label": "Repairnership Customer",
+      "DataType": "Formula (Checkbox)",
+      "IsCalculated": true
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/01IU0000000omZU.00N5b00000DWrgT"
+      },
+      "DurableId": "01IU0000000omZU.00N5b00000DWrgT",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/01IU0000000omZU"
+        },
+        "QualifiedApiName": "RMA__c"
+      },
+      "QualifiedApiName": "Customer_Probe_Type__c",
+      "Label": "Customer Probe Type",
+      "DataType": "Picklist",
+      "IsCalculated": false
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/01IU0000000omZU.00N5b00000DWrh2"
+      },
+      "DurableId": "01IU0000000omZU.00N5b00000DWrh2",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/01IU0000000omZU"
+        },
+        "QualifiedApiName": "RMA__c"
+      },
+      "QualifiedApiName": "Customer_Address__c",
+      "Label": "Customer Address",
+      "DataType": "Text(255)",
+      "IsCalculated": false
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/01IU0000000omZU.00N5b00000DWsNX"
+      },
+      "DurableId": "01IU0000000omZU.00N5b00000DWsNX",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/01IU0000000omZU"
+        },
+        "QualifiedApiName": "RMA__c"
+      },
+      "QualifiedApiName": "Core_Charge_Amount__c",
+      "Label": "Core Charge Amount",
+      "DataType": "Currency(16, 2)",
+      "IsCalculated": false
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/01IU0000000omZU.00N5b00000DWux9"
+      },
+      "DurableId": "01IU0000000omZU.00N5b00000DWux9",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/01IU0000000omZU"
+        },
+        "QualifiedApiName": "RMA__c"
+      },
+      "QualifiedApiName": "Opp_Record_Type__c",
+      "Label": "Opp Record Type",
+      "DataType": "Formula (Text)",
+      "IsCalculated": true
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/01IU0000000omZU.00N5b00000DX00W"
+      },
+      "DurableId": "01IU0000000omZU.00N5b00000DX00W",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/01IU0000000omZU"
+        },
+        "QualifiedApiName": "RMA__c"
+      },
+      "QualifiedApiName": "Record_Type_Name__c",
+      "Label": "Record Type Name",
+      "DataType": "Formula (Text)",
+      "IsCalculated": true
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/01IU0000000omZU.00N5b00000DXKNm"
+      },
+      "DurableId": "01IU0000000omZU.00N5b00000DXKNm",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/01IU0000000omZU"
+        },
+        "QualifiedApiName": "RMA__c"
+      },
+      "QualifiedApiName": "Replacement_Sent__c",
+      "Label": "Replacement Sent",
+      "DataType": "Checkbox",
+      "IsCalculated": false
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/01IU0000000omZU.00N5b00000DXN0t"
+      },
+      "DurableId": "01IU0000000omZU.00N5b00000DXN0t",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/01IU0000000omZU"
+        },
+        "QualifiedApiName": "RMA__c"
+      },
+      "QualifiedApiName": "Customer_Company_Name__c",
+      "Label": "Customer Company Name",
+      "DataType": "Text(255)",
+      "IsCalculated": false
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/01IU0000000omZU.00N5b00000DXN0u"
+      },
+      "DurableId": "01IU0000000omZU.00N5b00000DXN0u",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/01IU0000000omZU"
+        },
+        "QualifiedApiName": "RMA__c"
+      },
+      "QualifiedApiName": "Customer_Phone__c",
+      "Label": "Customer Phone",
+      "DataType": "Phone",
+      "IsCalculated": false
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/01IU0000000omZU.00N5b00000DXN0v"
+      },
+      "DurableId": "01IU0000000omZU.00N5b00000DXN0v",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/01IU0000000omZU"
+        },
+        "QualifiedApiName": "RMA__c"
+      },
+      "QualifiedApiName": "Customer_Return_City__c",
+      "Label": "Customer Return City",
+      "DataType": "Text(50)",
+      "IsCalculated": false
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/01IU0000000omZU.00N5b00000DXN0w"
+      },
+      "DurableId": "01IU0000000omZU.00N5b00000DXN0w",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/01IU0000000omZU"
+        },
+        "QualifiedApiName": "RMA__c"
+      },
+      "QualifiedApiName": "Customer_Return_Postal_Code__c",
+      "Label": "Customer Return Postal Code",
+      "DataType": "Text(10)",
+      "IsCalculated": false
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/01IU0000000omZU.00N5b00000DXN0x"
+      },
+      "DurableId": "01IU0000000omZU.00N5b00000DXN0x",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/01IU0000000omZU"
+        },
+        "QualifiedApiName": "RMA__c"
+      },
+      "QualifiedApiName": "Customer_Return_State__c",
+      "Label": "Customer Return State",
+      "DataType": "Text(30)",
+      "IsCalculated": false
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/01IU0000000omZU.00N5b00000DXN0y"
+      },
+      "DurableId": "01IU0000000omZU.00N5b00000DXN0y",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/01IU0000000omZU"
+        },
+        "QualifiedApiName": "RMA__c"
+      },
+      "QualifiedApiName": "Customer_Return_Street__c",
+      "Label": "Customer Return Street",
+      "DataType": "Text(50)",
+      "IsCalculated": false
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/01IU0000000omZU.00N5b00000DXN0z"
+      },
+      "DurableId": "01IU0000000omZU.00N5b00000DXN0z",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/01IU0000000omZU"
+        },
+        "QualifiedApiName": "RMA__c"
+      },
+      "QualifiedApiName": "Notify_Rep_to_Create_Label__c",
+      "Label": "Notify Rep to Create Label",
+      "DataType": "Checkbox",
+      "IsCalculated": false
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/01IU0000000omZU.00N5b00000DXNl3"
+      },
+      "DurableId": "01IU0000000omZU.00N5b00000DXNl3",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/01IU0000000omZU"
+        },
+        "QualifiedApiName": "RMA__c"
+      },
+      "QualifiedApiName": "Create_Shipment__c",
+      "Label": "Create Shipment",
+      "DataType": "Checkbox",
+      "IsCalculated": false
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/01IU0000000omZU.00N5b00000DXOCO"
+      },
+      "DurableId": "01IU0000000omZU.00N5b00000DXOCO",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/01IU0000000omZU"
+        },
+        "QualifiedApiName": "RMA__c"
+      },
+      "QualifiedApiName": "Run_Shipment_Flow__c",
+      "Label": "Run Shipment Flow",
+      "DataType": "Checkbox",
+      "IsCalculated": false
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/01IU0000000omZU.00N5b00000DXRgg"
+      },
+      "DurableId": "01IU0000000omZU.00N5b00000DXRgg",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/01IU0000000omZU"
+        },
+        "QualifiedApiName": "RMA__c"
+      },
+      "QualifiedApiName": "Depot_Repair__c",
+      "Label": "Depot Repair",
+      "DataType": "Checkbox",
+      "IsCalculated": false
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/01IU0000000omZU.00N5b00000DXTqn"
+      },
+      "DurableId": "01IU0000000omZU.00N5b00000DXTqn",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/01IU0000000omZU"
+        },
+        "QualifiedApiName": "RMA__c"
+      },
+      "QualifiedApiName": "Date_RMA_Sent_to_FSE__c",
+      "Label": "Date RMA Sent to FSE",
+      "DataType": "Date",
+      "IsCalculated": false
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/01IU0000000omZU.00N5b00000EGACv"
+      },
+      "DurableId": "01IU0000000omZU.00N5b00000EGACv",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/01IU0000000omZU"
+        },
+        "QualifiedApiName": "RMA__c"
+      },
+      "QualifiedApiName": "Customer_Return_Country__c",
+      "Label": "Customer Return Country",
+      "DataType": "Text(100)",
+      "IsCalculated": false
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/01IU0000000omZU.00N5b00000EGCPD"
+      },
+      "DurableId": "01IU0000000omZU.00N5b00000EGCPD",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/01IU0000000omZU"
+        },
+        "QualifiedApiName": "RMA__c"
+      },
+      "QualifiedApiName": "Count_Credit_Memos__c",
+      "Label": "Count Credit Memos",
+      "DataType": "Number(2, 0)",
+      "IsCalculated": false
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/01IU0000000omZU.00N5b00000EGLda"
+      },
+      "DurableId": "01IU0000000omZU.00N5b00000EGLda",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/01IU0000000omZU"
+        },
+        "QualifiedApiName": "RMA__c"
+      },
+      "QualifiedApiName": "Diagnostics_Test__c",
+      "Label": "Diagnostics Test",
+      "DataType": "Text Area(255)",
+      "IsCalculated": false
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/01IU0000000omZU.00N5b00000EGLdf"
+      },
+      "DurableId": "01IU0000000omZU.00N5b00000EGLdf",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/01IU0000000omZU"
+        },
+        "QualifiedApiName": "RMA__c"
+      },
+      "QualifiedApiName": "Diagnostics_Test_Notes__c",
+      "Label": "Diagnostics Test Notes",
+      "DataType": "Long Text Area(1000)",
+      "IsCalculated": false
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/01IU0000000omZU.00N5b00000EGMzX"
+      },
+      "DurableId": "01IU0000000omZU.00N5b00000EGMzX",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/01IU0000000omZU"
+        },
+        "QualifiedApiName": "RMA__c"
+      },
+      "QualifiedApiName": "Status__c",
+      "Label": "Status",
+      "DataType": "Picklist",
+      "IsCalculated": false
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/01IU0000000omZU.00N5b00000EGb8n"
+      },
+      "DurableId": "01IU0000000omZU.00N5b00000EGb8n",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/01IU0000000omZU"
+        },
+        "QualifiedApiName": "RMA__c"
+      },
+      "QualifiedApiName": "Original_Time_Warranty_Loaner_Action_App__c",
+      "Label": "Original Time Warranty/Loaner Action App",
+      "DataType": "Date/Time",
+      "IsCalculated": false
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/01IU0000000omZU.00N5b00000Dbo2O"
+      },
+      "DurableId": "01IU0000000omZU.00N5b00000Dbo2O",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/01IU0000000omZU"
+        },
+        "QualifiedApiName": "RMA__c"
+      },
+      "QualifiedApiName": "Date_RMA_Record_Type_Changed__c",
+      "Label": "Date RMA Record Type Changed",
+      "DataType": "Date/Time",
+      "IsCalculated": false
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/01IU0000000omZU.00N5b00000Dc10V"
+      },
+      "DurableId": "01IU0000000omZU.00N5b00000Dc10V",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/01IU0000000omZU"
+        },
+        "QualifiedApiName": "RMA__c"
+      },
+      "QualifiedApiName": "RMA_Item_Asset_Sold__c",
+      "Label": "RMA Item Asset Sold?",
+      "DataType": "Formula (Checkbox)",
+      "IsCalculated": true
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/01IU0000000omZU.00N5b00000EHIIb"
+      },
+      "DurableId": "01IU0000000omZU.00N5b00000EHIIb",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/01IU0000000omZU"
+        },
+        "QualifiedApiName": "RMA__c"
+      },
+      "QualifiedApiName": "Accounting_Notes__c",
+      "Label": "Accounting Notes",
+      "DataType": "Text Area(255)",
+      "IsCalculated": false
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/01IU0000000omZU.00N5b00000DzyGa"
+      },
+      "DurableId": "01IU0000000omZU.00N5b00000DzyGa",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/01IU0000000omZU"
+        },
+        "QualifiedApiName": "RMA__c"
+      },
+      "QualifiedApiName": "Number_of_Days_to_Get_Tested__c",
+      "Label": "Number of Days to Get Tested",
+      "DataType": "Formula (Number)",
+      "IsCalculated": true
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/01IU0000000omZU.00N5b00000E00Ns"
+      },
+      "DurableId": "01IU0000000omZU.00N5b00000E00Ns",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/01IU0000000omZU"
+        },
+        "QualifiedApiName": "RMA__c"
+      },
+      "QualifiedApiName": "Owner_Entity_Name__c",
+      "Label": "Owner Entity Name",
+      "DataType": "Formula (Text)",
+      "IsCalculated": true
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/01IU0000000omZU.00NRo000000fF4j"
+      },
+      "DurableId": "01IU0000000omZU.00NRo000000fF4j",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/01IU0000000omZU"
+        },
+        "QualifiedApiName": "RMA__c"
+      },
+      "QualifiedApiName": "Estimated_Time_for_Completion__c",
+      "Label": "Estimated Time for Completion",
+      "DataType": "Picklist",
+      "IsCalculated": false
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/01IU0000000omZU.00NRo00000127vH"
+      },
+      "DurableId": "01IU0000000omZU.00NRo00000127vH",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/01IU0000000omZU"
+        },
+        "QualifiedApiName": "RMA__c"
+      },
+      "QualifiedApiName": "Cause_of_Damage__c",
+      "Label": "Cause of Damage",
+      "DataType": "Picklist",
+      "IsCalculated": false
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/01IU0000000omZU.00NRo000002ZdC0"
+      },
+      "DurableId": "01IU0000000omZU.00NRo000002ZdC0",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/01IU0000000omZU"
+        },
+        "QualifiedApiName": "RMA__c"
+      },
+      "QualifiedApiName": "Endoscopy_Evaluation_Results__c",
+      "Label": "Endoscopy - Evaluation Results",
+      "DataType": "Long Text Area(1000)",
+      "IsCalculated": false
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/01IU0000000omZU.00NRo000002ivpS"
+      },
+      "DurableId": "01IU0000000omZU.00NRo000002ivpS",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/01IU0000000omZU"
+        },
+        "QualifiedApiName": "RMA__c"
+      },
+      "QualifiedApiName": "Repair_Level__c",
+      "Label": "Repair Level",
+      "DataType": "Picklist",
+      "IsCalculated": false
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/01IU0000000omZU.00NRo000002ivpT"
+      },
+      "DurableId": "01IU0000000omZU.00NRo000002ivpT",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/01IU0000000omZU"
+        },
+        "QualifiedApiName": "RMA__c"
+      },
+      "QualifiedApiName": "Rod_Lenses_to_Replace__c",
+      "Label": "Rod Lenses to Replace",
+      "DataType": "Number(2, 0)",
+      "IsCalculated": false
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/01IU0000000omZU.00NRo000002twbh"
+      },
+      "DurableId": "01IU0000000omZU.00NRo000002twbh",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/01IU0000000omZU"
+        },
+        "QualifiedApiName": "RMA__c"
+      },
+      "QualifiedApiName": "RMA_Stamp_Date__c",
+      "Label": "RMA Stamp Date",
+      "DataType": "Date",
+      "IsCalculated": false
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/01IU0000000omZU.00NRo000002xD06"
+      },
+      "DurableId": "01IU0000000omZU.00NRo000002xD06",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/01IU0000000omZU"
+        },
+        "QualifiedApiName": "RMA__c"
+      },
+      "QualifiedApiName": "Days_Between_Ship_and_Warranty__c",
+      "Label": "Days Between Ship and Warranty",
+      "DataType": "Formula (Number)",
+      "IsCalculated": true
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/01IU0000000omZU.00NRo000003VNt3"
+      },
+      "DurableId": "01IU0000000omZU.00NRo000003VNt3",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/01IU0000000omZU"
+        },
+        "QualifiedApiName": "RMA__c"
+      },
+      "QualifiedApiName": "Asset_Total_Cost__c",
+      "Label": "Asset Total Cost",
+      "DataType": "Formula (Currency)",
+      "IsCalculated": true
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/01IU0000000omZU.00NRo000003VNt4"
+      },
+      "DurableId": "01IU0000000omZU.00NRo000003VNt4",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/01IU0000000omZU"
+        },
+        "QualifiedApiName": "RMA__c"
+      },
+      "QualifiedApiName": "Restocking_Fee__c",
+      "Label": "Restocking Fee",
+      "DataType": "Picklist",
+      "IsCalculated": false
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/01IU0000000omZU.00NRo000003VNt5"
+      },
+      "DurableId": "01IU0000000omZU.00NRo000003VNt5",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/01IU0000000omZU"
+        },
+        "QualifiedApiName": "RMA__c"
+      },
+      "QualifiedApiName": "Return_Asset_to_Vendor__c",
+      "Label": "Return Asset to Vendor",
+      "DataType": "Picklist",
+      "IsCalculated": false
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/01IU0000000omZU.00NRo000003VNt6"
+      },
+      "DurableId": "01IU0000000omZU.00NRo000003VNt6",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/01IU0000000omZU"
+        },
+        "QualifiedApiName": "RMA__c"
+      },
+      "QualifiedApiName": "Date_Work_Order_Replacement_Shipped__c",
+      "Label": "Date Work Order Replacement Shipped",
+      "DataType": "Date",
+      "IsCalculated": false
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/01IU0000000omZU.00NRo000003VNt7"
+      },
+      "DurableId": "01IU0000000omZU.00NRo000003VNt7",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/01IU0000000omZU"
+        },
+        "QualifiedApiName": "RMA__c"
+      },
+      "QualifiedApiName": "Exchange_Opportunity__c",
+      "Label": "Exchange/Return Opportunity",
+      "DataType": "Lookup(Opportunity)",
+      "IsCalculated": false
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/01IU0000000omZU.00NRo000003VNt8"
+      },
+      "DurableId": "01IU0000000omZU.00NRo000003VNt8",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/01IU0000000omZU"
+        },
+        "QualifiedApiName": "RMA__c"
+      },
+      "QualifiedApiName": "Restocking_Fee_Reason__c",
+      "Label": "Restocking Fee Reason",
+      "DataType": "Text Area(255)",
+      "IsCalculated": false
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/01IU0000000omZU.00NRo000003VNt9"
+      },
+      "DurableId": "01IU0000000omZU.00NRo000003VNt9",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/01IU0000000omZU"
+        },
+        "QualifiedApiName": "RMA__c"
+      },
+      "QualifiedApiName": "Work_Order_Replacement__c",
+      "Label": "Work Order Replacement",
+      "DataType": "Lookup(Work Order)",
+      "IsCalculated": false
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/01IU0000000omZU.00NRo000003XTO5"
+      },
+      "DurableId": "01IU0000000omZU.00NRo000003XTO5",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/01IU0000000omZU"
+        },
+        "QualifiedApiName": "RMA__c"
+      },
+      "QualifiedApiName": "Date_Work_Order_Shipped__c",
+      "Label": "Date Work Order Shipped",
+      "DataType": "Date",
+      "IsCalculated": false
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/01IU0000000omZU.00NRo000003dySR"
+      },
+      "DurableId": "01IU0000000omZU.00NRo000003dySR",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/01IU0000000omZU"
+        },
+        "QualifiedApiName": "RMA__c"
+      },
+      "QualifiedApiName": "Service_Appointment__c",
+      "Label": "Service Appointment",
+      "DataType": "Lookup(Service Appointment)",
+      "IsCalculated": false
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/01IU0000000omZU.00NRo000004IElO"
+      },
+      "DurableId": "01IU0000000omZU.00NRo000004IElO",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/01IU0000000omZU"
+        },
+        "QualifiedApiName": "RMA__c"
+      },
+      "QualifiedApiName": "Days_to_Receive__c",
+      "Label": "Days to Receive",
+      "DataType": "Formula (Number)",
+      "IsCalculated": true
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/01IU0000000omZU.00NRo000004IGSE"
+      },
+      "DurableId": "01IU0000000omZU.00NRo000004IGSE",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/01IU0000000omZU"
+        },
+        "QualifiedApiName": "RMA__c"
+      },
+      "QualifiedApiName": "Vendor_Sourcing_on_Opp__c",
+      "Label": "Vendor Sourcing on Opp",
+      "DataType": "Checkbox",
+      "IsCalculated": false
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/01IU0000000omZU.00NRo000004ZgTf"
+      },
+      "DurableId": "01IU0000000omZU.00NRo000004ZgTf",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/01IU0000000omZU"
+        },
+        "QualifiedApiName": "RMA__c"
+      },
+      "QualifiedApiName": "Allow_Delete__c",
+      "Label": "Allow Delete",
+      "DataType": "Checkbox",
+      "IsCalculated": false
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/01IU0000000omZU.00NRo000004bbnt"
+      },
+      "DurableId": "01IU0000000omZU.00NRo000004bbnt",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/01IU0000000omZU"
+        },
+        "QualifiedApiName": "RMA__c"
+      },
+      "QualifiedApiName": "Total_Cost_Temp__c",
+      "Label": "Total Cost Temp",
+      "DataType": "Formula (Currency)",
+      "IsCalculated": true
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/01IU0000000omZU.00NRo000004c04j"
+      },
+      "DurableId": "01IU0000000omZU.00NRo000004c04j",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/01IU0000000omZU"
+        },
+        "QualifiedApiName": "RMA__c"
+      },
+      "QualifiedApiName": "Total_RMA_Asset_Cost__c",
+      "Label": "Total RMA Asset Cost",
+      "DataType": "Formula (Currency)",
+      "IsCalculated": true
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/01IU0000000omZU.00NRo000004dfKL"
+      },
+      "DurableId": "01IU0000000omZU.00NRo000004dfKL",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/01IU0000000omZU"
+        },
+        "QualifiedApiName": "RMA__c"
+      },
+      "QualifiedApiName": "Endoscope_Evaluation_Notes__c",
+      "Label": "Endoscope Evaluation Notes",
+      "DataType": "Long Text Area(32000)",
+      "IsCalculated": false
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/01IU0000000omZU.00NRo000004dfKM"
+      },
+      "DurableId": "01IU0000000omZU.00NRo000004dfKM",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/01IU0000000omZU"
+        },
+        "QualifiedApiName": "RMA__c"
+      },
+      "QualifiedApiName": "Received_With__c",
+      "Label": "Received With",
+      "DataType": "Text Area(255)",
+      "IsCalculated": false
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/01IU0000000omZU.00NRo000004p19R"
+      },
+      "DurableId": "01IU0000000omZU.00NRo000004p19R",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/01IU0000000omZU"
+        },
+        "QualifiedApiName": "RMA__c"
+      },
+      "QualifiedApiName": "Invoice_Line_Item__c",
+      "Label": "Invoice Line Item",
+      "DataType": "Lookup(Invoice Line Item)",
+      "IsCalculated": false
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/01IU0000000omZU.00NRo000004qM5N"
+      },
+      "DurableId": "01IU0000000omZU.00NRo000004qM5N",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/01IU0000000omZU"
+        },
+        "QualifiedApiName": "RMA__c"
+      },
+      "QualifiedApiName": "Ship_Receipt_Delta__c",
+      "Label": "Ship/Receipt Delta",
+      "DataType": "Formula (Number)",
+      "IsCalculated": true
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/01IU0000000omZU.00NRo0000053GBp"
+      },
+      "DurableId": "01IU0000000omZU.00NRo0000053GBp",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/01IU0000000omZU"
+        },
+        "QualifiedApiName": "RMA__c"
+      },
+      "QualifiedApiName": "Part_Return_Condition__c",
+      "Label": "Part Return Condition",
+      "DataType": "Picklist",
+      "IsCalculated": false
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/01IU0000000omZU.00NRo000005CR7B"
+      },
+      "DurableId": "01IU0000000omZU.00NRo000005CR7B",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/01IU0000000omZU"
+        },
+        "QualifiedApiName": "RMA__c"
+      },
+      "QualifiedApiName": "Corrective_Action__c",
+      "Label": "Corrective Action",
+      "DataType": "Long Text Area(32768)",
+      "IsCalculated": false
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/01IU0000000omZU.00NRo000005CR7C"
+      },
+      "DurableId": "01IU0000000omZU.00NRo000005CR7C",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/01IU0000000omZU"
+        },
+        "QualifiedApiName": "RMA__c"
+      },
+      "QualifiedApiName": "Part_Name_FSL__c",
+      "Label": "Part Name (FSL)",
+      "DataType": "Text(255)",
+      "IsCalculated": false
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/01IU0000000omZU.00NRo000005CR7D"
+      },
+      "DurableId": "01IU0000000omZU.00NRo000005CR7D",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/01IU0000000omZU"
+        },
+        "QualifiedApiName": "RMA__c"
+      },
+      "QualifiedApiName": "RMA_Item_Asset_Cost__c",
+      "Label": "RMA Item Asset Cost",
+      "DataType": "Formula (Currency)",
+      "IsCalculated": true
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/01IU0000000omZU.00NRo000005OGFF"
+      },
+      "DurableId": "01IU0000000omZU.00NRo000005OGFF",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/01IU0000000omZU"
+        },
+        "QualifiedApiName": "RMA__c"
+      },
+      "QualifiedApiName": "Days_Able_to_Return__c",
+      "Label": "Days Able to Return",
+      "DataType": "Formula (Number)",
+      "IsCalculated": true
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/01IU0000000omZU.00NRo000005VpEf"
+      },
+      "DurableId": "01IU0000000omZU.00NRo000005VpEf",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/01IU0000000omZU"
+        },
+        "QualifiedApiName": "RMA__c"
+      },
+      "QualifiedApiName": "Probe_Type__c",
+      "Label": "Probe Type",
+      "DataType": "Formula (Text)",
+      "IsCalculated": true
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/01IU0000000omZU.00NRo000006DsiK"
+      },
+      "DurableId": "01IU0000000omZU.00NRo000006DsiK",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/01IU0000000omZU"
+        },
+        "QualifiedApiName": "RMA__c"
+      },
+      "QualifiedApiName": "Autogenerated_Credit_Memo_Decision__c",
+      "Label": "Autogenerated Credit Memo Decision",
+      "DataType": "Formula (Text)",
+      "IsCalculated": true
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/01IU0000000omZU.00NRo000006DteL"
+      },
+      "DurableId": "01IU0000000omZU.00NRo000006DteL",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/01IU0000000omZU"
+        },
+        "QualifiedApiName": "RMA__c"
+      },
+      "QualifiedApiName": "Restocking_Fee_Amount__c",
+      "Label": "Restocking Fee Amount",
+      "DataType": "Formula (Number)",
+      "IsCalculated": true
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/01IU0000000omZU.00NRo000006GL1p"
+      },
+      "DurableId": "01IU0000000omZU.00NRo000006GL1p",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/01IU0000000omZU"
+        },
+        "QualifiedApiName": "RMA__c"
+      },
+      "QualifiedApiName": "Engineer_RMA_Tracking__c",
+      "Label": "Engineer RMA Tracking #",
+      "DataType": "Text(255)",
+      "IsCalculated": false
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/01IU0000000omZU.00NRo000006GLBV"
+      },
+      "DurableId": "01IU0000000omZU.00NRo000006GLBV",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/01IU0000000omZU"
+        },
+        "QualifiedApiName": "RMA__c"
+      },
+      "QualifiedApiName": "RMA_Asset_Product_Name__c",
+      "Label": "RMA Asset Product Name",
+      "DataType": "Formula (Text)",
+      "IsCalculated": true
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/01IU0000000omZU.00NRo000006GKyc"
+      },
+      "DurableId": "01IU0000000omZU.00NRo000006GKyc",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/01IU0000000omZU"
+        },
+        "QualifiedApiName": "RMA__c"
+      },
+      "QualifiedApiName": "Opportunity_Number__c",
+      "Label": "Opportunity Number",
+      "DataType": "Formula (Text)",
+      "IsCalculated": true
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/01IU0000000omZU.00NRo000006Oph3"
+      },
+      "DurableId": "01IU0000000omZU.00NRo000006Oph3",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/01IU0000000omZU"
+        },
+        "QualifiedApiName": "RMA__c"
+      },
+      "QualifiedApiName": "Restock_Fee_Percentage_Override__c",
+      "Label": "Restock Fee Percentage - Override",
+      "DataType": "Percent(18, 0)",
+      "IsCalculated": false
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/01IU0000000omZU.00NRo000006Uadh"
+      },
+      "DurableId": "01IU0000000omZU.00NRo000006Uadh",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/01IU0000000omZU"
+        },
+        "QualifiedApiName": "RMA__c"
+      },
+      "QualifiedApiName": "Quality_Team_Owner__c",
+      "Label": "Quality Team Owner",
+      "DataType": "Lookup(User)",
+      "IsCalculated": false
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/01IU0000000omZU.00NRo000006kA0v"
+      },
+      "DurableId": "01IU0000000omZU.00NRo000006kA0v",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/01IU0000000omZU"
+        },
+        "QualifiedApiName": "RMA__c"
+      },
+      "QualifiedApiName": "Engineer_Core_Serial_Number__c",
+      "Label": "Engineer Core Serial Number",
+      "DataType": "Text(255)",
+      "IsCalculated": false
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/01IU0000000omZU.00NRo000007kFPp"
+      },
+      "DurableId": "01IU0000000omZU.00NRo000007kFPp",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/01IU0000000omZU"
+        },
+        "QualifiedApiName": "RMA__c"
+      },
+      "QualifiedApiName": "Customer_indicated_issue_with_loaner__c",
+      "Label": "Customer indicated issue with loaner",
+      "DataType": "Checkbox",
+      "IsCalculated": false
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/01IU0000000omZU.00NRo000007H4eH"
+      },
+      "DurableId": "01IU0000000omZU.00NRo000007H4eH",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/01IU0000000omZU"
+        },
+        "QualifiedApiName": "RMA__c"
+      },
+      "QualifiedApiName": "Customer_Fedex_Account_Number__c",
+      "Label": "Customer Fedex Account Number",
+      "DataType": "Formula (Text)",
+      "IsCalculated": true
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/01IU0000000omZU.00NRo000007H4ft"
+      },
+      "DurableId": "01IU0000000omZU.00NRo000007H4ft",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/01IU0000000omZU"
+        },
+        "QualifiedApiName": "RMA__c"
+      },
+      "QualifiedApiName": "Bill_Transportation_To__c",
+      "Label": "Bill Transportation To",
+      "DataType": "Formula (Text)",
+      "IsCalculated": true
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/01IU0000000omZU.00NRo000007NERF"
+      },
+      "DurableId": "01IU0000000omZU.00NRo000007NERF",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/01IU0000000omZU"
+        },
+        "QualifiedApiName": "RMA__c"
+      },
+      "QualifiedApiName": "Shipping_Account_to_Bill__c",
+      "Label": "Shipping Account to Bill",
+      "DataType": "Picklist",
+      "IsCalculated": false
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/01IU0000000omZU.00NRo000007O9J5"
+      },
+      "DurableId": "01IU0000000omZU.00NRo000007O9J5",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/01IU0000000omZU"
+        },
+        "QualifiedApiName": "RMA__c"
+      },
+      "QualifiedApiName": "No_Problems_Found__c",
+      "Label": "No Problems Found",
+      "DataType": "Checkbox",
+      "IsCalculated": false
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/01IU0000000omZU.00NRo000007Qlth"
+      },
+      "DurableId": "01IU0000000omZU.00NRo000007Qlth",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/01IU0000000omZU"
+        },
+        "QualifiedApiName": "RMA__c"
+      },
+      "QualifiedApiName": "Asset_Shipped_Checker__c",
+      "Label": "Asset Shipped Checker",
+      "DataType": "Formula (Date)",
+      "IsCalculated": true
+    },
+    {
+      "attributes": {
+        "type": "FieldDefinition",
+        "url": "/services/data/v67.0/sobjects/FieldDefinition/01IU0000000omZU.00NRo000007TQPh"
+      },
+      "DurableId": "01IU0000000omZU.00NRo000007TQPh",
+      "EntityDefinition": {
+        "attributes": {
+          "type": "EntityDefinition",
+          "url": "/services/data/v67.0/sobjects/EntityDefinition/01IU0000000omZU"
+        },
+        "QualifiedApiName": "RMA__c"
+      },
+      "QualifiedApiName": "Repair_Asset_Photos_Google_Drive__c",
+      "Label": "Repair Asset Photos (Google Drive)",
+      "DataType": "Formula (Text)",
+      "IsCalculated": true
+    }
+  ],
+  "totalSize": 288,
+  "done": true
+}

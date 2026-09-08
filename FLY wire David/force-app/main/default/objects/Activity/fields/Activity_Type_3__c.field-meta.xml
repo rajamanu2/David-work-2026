@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Activity_Type_3__c</fullName>
+    <description>Combined activity for Yesware, LinkedIn, Marketo, Task Type, and Event Type to be used for reporting.</description>
+    <externalId>false</externalId>
+    <formula>IF((ywr__Yesware_TotalCall__c &gt;= 1), &quot;Call&quot;,
+IF((ywr__Yesware_Meeting__c &gt;= 1), &quot;Meeting&quot;,
+
+IF(BEGINS(Subject,&quot;Message Sent:&quot;), &quot;Email&quot;,
+IF(BEGINS(Subject,&quot;InMail sent from Sales Navigator&quot;), &quot;Email&quot;,
+IF(BEGINS(Subject,&quot;Message sent from Sales Navigator&quot;), &quot;Email&quot;,
+IF(BEGINS(Subject,&quot;Was Sent Email:&quot;), &quot;Email&quot;,
+
+IF(BEGINS(Subject,&quot;Message Opened:&quot;), &quot;Email&quot;,
+IF(BEGINS(Subject,&quot;Opened Email:&quot;), &quot;Email&quot;,
+IF(BEGINS(Subject,&quot;Email:&quot;), &quot;Email&quot;,
+
+IF(BEGINS(Subject,&quot;Reply:&quot;), &quot;Email&quot;,
+
+IF(BEGINS(Subject,&quot;Link Clicked in Message:&quot;), &quot;Email&quot;,
+IF(BEGINS(Subject,&quot;Smart Link View from Sales Navigator&quot;), &quot;Email&quot;,
+IF(BEGINS(Subject,&quot;Clicked Link in Email:&quot;), &quot;Email&quot;,
+
+IF(BEGINS(Subject,&quot;Attachment Opened in Message:&quot;), &quot;Email&quot;,
+
+IF(BEGINS(Subject,&quot;Presentation Viewed in Message:&quot;), &quot;Email&quot;,
+
+IF(BEGINS(Subject,&quot;Filled Out Form&quot;), &quot;Web Form&quot;,
+
+IF(BEGINS(Subject,&quot;Call&quot;), &quot;Call&quot;,
+IF(BEGINS(Subject,&quot;YW Call:&quot;), &quot;Call&quot;,
+IF(BEGINS(Subject,&quot;Phone Call from Sales Navigator&quot;), &quot;Call&quot;,
+
+IF(BEGINS(Subject,&quot;YW Custom&quot;), &quot;Sync&quot;,
+IF(BEGINS(Subject,&quot;Message Sync:&quot;), &quot;Sync&quot;,
+
+IF(BEGINS(Subject,&quot;Notes from Sales Navigator&quot;), &quot;LinkedIn-Note&quot;,
+
+IF(BEGINS(Subject,&quot;Bounce Received:&quot;), &quot;Email&quot;,
+IF(BEGINS(Subject,&quot;Unresolved Email:&quot;), &quot;Email&quot;,
+IF((Subject = &quot;Bounce Received: Delivery Status Notification (Failure)&quot;), &quot;Email&quot;,
+IF(CONTAINS(Subject,&quot;PAS&quot;), &quot;PAS&quot;,
+
+
+&quot;Reminder&quot;))))))))))))))))))))))))))</formula>
+    <label>Activity Channel</label>
+    <required>false</required>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

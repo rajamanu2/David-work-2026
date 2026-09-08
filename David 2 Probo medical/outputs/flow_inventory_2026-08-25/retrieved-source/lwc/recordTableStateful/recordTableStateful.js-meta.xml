@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LightningComponentBundle xmlns="http://soap.sforce.com/2006/04/metadata">
+  <apiVersion>66.0</apiVersion>
+  <masterLabel>Editable Record Table</masterLabel>
+  <isExposed>true</isExposed>
+  <targets>
+    <target>lightning__FlowScreen</target>
+  </targets>
+  <targetConfigs>
+    <targetConfig targets="lightning__FlowScreen">
+
+      <property name="title"              type="String"  role="inputOnly"
+                label="Table Title"/>
+      <property name="initialRecordsJson" type="String"  role="inputOnly" required="true"
+                label="Records (JSON)"/>
+      <property name="columnsJson"        type="String"  role="inputOnly" required="true"
+                label="Columns (JSON)"/>
+      <property name="requiredFieldsCsv"  type="String"  role="inputOnly"
+                label="Always-Required Fields (comma-separated API names)"/>
+      <property name="requiredRulesJson"  type="String"  role="inputOnly"
+                label="Conditional Required Rules (JSON)"/>
+      <property name="maxRowSelection"    type="Integer" role="inputOnly" default="9999"/>
+
+      <property name="updatedRecordsJson"  type="String"  role="outputOnly"
+                label="All Records (JSON)"/>
+      <property name="selectedRecordsJson" type="String"  role="outputOnly"
+                label="Selected Records (JSON)"/>
+      <property name="hasValidationErrors" type="Boolean" role="outputOnly"/>
+
+    </targetConfig>
+  </targetConfigs>
+</LightningComponentBundle>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>GM_Region__c</fullName>
+    <description>Region breakdown how pricing and FP&amp;A look at revenue to be used for Gross Margin calculation. SAL-2785
+04/17/2024 -  Added Antigua &amp; Deps, Burkina, Central African Rep, Congo (Democratic Rep), East Timor, Iran, Ireland (Republic), Korea South, Laos,  Macau, Moldova, Myanmar (Burma), St Kitts &amp; Nevis, St Lucia, Sao Tome &amp; Principe, Syria, Trinidad &amp; Tobago, Vatican City to match Marketo country names in order to enable Country/Territory Picklist. 06/05/2024 Moving India from EMEA to APAC SAL-4009</description>
+    <externalId>false</externalId>
+    <formula>IF(ISBLANK( ShippingCountry ), &quot;None&quot;,
+IF(CONTAINS(&quot;Anguilla:Antigua &amp; Deps:Argentina:Aruba:Bahamas:Barbados:Belize:Bermuda:Bolivia:Bonaire:Brazil:Cayman Islands:Chile:Colombia:Costa Rica:Cuba:Curaçao:Dominica:Dominican Republic:Ecuador:El Salvador:Falkland Islands (Malvinas):French Guiana:Grenada:Guadeloupe:Guatemala:Guyana:Haiti:Honduras:Jamaica:Martinique:Mexico:Montserrat:Nicaragua:Panama:Paraguay:Peru:Saint Barthélemy:Saint Helena, Ascension and Tristan da Cunha:St Kitts &amp; Nevis:St Lucia:Saint Martin (French Part):Sint Maarten (Dutch part):Saint Pierre and Miquelon:Saint Vincent &amp; the Grenadines:South Georgia and The South Sandwich Islands:Suriname:Trinidad &amp; Tobago:Turks and Caicos Islands:Puerto Rico:Uruguay:Venezuela:Virgin Islands, British&quot;,ShippingCountry), &quot;LATAM&quot;,
+
+IF(CONTAINS(&quot;United States&quot;,ShippingCountry), &quot;US&quot;,
+IF(CONTAINS(&quot;Canada&quot;,ShippingCountry), &quot;Canada&quot;,
+IF(CONTAINS(&quot;United Kingdom&quot;,ShippingCountry), &quot;UK&quot;,
+IF(CONTAINS(&quot;Australia:New Zealand&quot;,ShippingCountry), &quot;AUSNZ&quot;,
+
+IF(CONTAINS(&quot;Mongolia:American Samoa:Antarctica:Australia:Bangladesh:Bhutan:Brunei:Cambodia:China:Christmas Island:Cocos (Keeling) Islands:Cook Islands:Fiji:French Polynesia:Guam:Heard Island and McDonald Islands:Hong Kong:Indonesia:Japan:Kiribati:Korea North:Korea South:Laos:Macao:Malaysia:Maldives:Marshall Islands:Micronesia:Myanmar (Burma):Nauru:Nepal:New Caledonia:New Zealand:Niue:Norfolk Island:Northern Mariana Islands:Palau:Papua New Guinea:Philippines:Pitcairn:Samoa:Singapore:Solomon Islands:Sri Lanka:Taiwan:Thailand:East Timor:Tokelau:Tonga:Tuvalu:Vanuatu:Vietnam:Wallis and Futuna:Afghanistan:India&quot;, ShippingCountry ), &quot;APAC&quot;,
+
+IF(CONTAINS(&quot;Bouvet Island:Comoros:Sao Tome &amp; Principe:Algeria:Angola:Benin:Botswana:Burkina:Burundi:Cameroon:Cape Verde:Central African Rep:Chad:Congo:Congo (Democratic Rep):Ivory Coast:Djibouti:Egypt:Equatorial Guinea:Eritrea:Ethiopia:Gabon:Gambia:Ghana:Guinea:Guinea-Bissau:Kenya:Lesotho:Liberia:Libya:Madagascar:Malawi:Mali:Mauritania:Mauritius:Mayotte:Mozambique:Namibia:Niger:Nigeria:Rwanda:Senegal:Seychelles:Sierra Leone:Somalia:South Africa:South Sudan:Sudan:Swaziland:Tanzania:Togo:Tunisia:Uganda:Western Sahara:Zambia:Zimbabwe:Morocco:Faroe Islands:Svalbard and Jan Mayen:Malta:Aland Islands:Albania:Andorra:Armenia:Austria:Azerbaijan:Belarus:Belgium:Bosnia Herzegovina:Bulgaria:Croatia:Cyprus:Czech Republic:Denmark:Estonia:Finland:France:French Southern Territories:Georgia:Germany:Gibraltar:Greece:Greenland:Guernsey:Vatican City:Hungary:Iceland:Ireland (Republic):Isle of Man:Italy:Jersey:Kazakhstan:Kyrgyzstan:Latvia:Liechtenstein:Lithuania:Luxembourg:Macedonia:Moldova:Monaco:Montenegro:Netherlands:Norway:Poland:Portugal:Romania:Russian Federation:San Marino:Serbia:Slovakia:Slovenia:Spain:Sweden:Switzerland:Tajikistan:Turkmenistan:Ukraine:Uzbekistan:Turkey:Réunion:British Indian Ocean Territory:Bahrain:Iran:Iraq:Israel:Jordan:Kuwait:Lebanon:Oman:Pakistan:Palestinian Territory, Occupied:Qatar:Saudi Arabia:Syria:United Arab Emirates:Yemen&quot;, ShippingCountry ), &quot;EMEA&quot;, &quot;Other&quot;))))))))</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <inlineHelpText>Region breakdown how pricing and FP&amp;A look at revenue to be used for Gross Margin calculation.</inlineHelpText>
+    <label>GM Region</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

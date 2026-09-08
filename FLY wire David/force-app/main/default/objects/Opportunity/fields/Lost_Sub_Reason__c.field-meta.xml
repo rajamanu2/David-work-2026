@@ -1,0 +1,300 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Lost_Sub_Reason__c</fullName>
+    <description>Sub Reason values as per SAL-2845</description>
+    <inlineHelpText>Specify the Sub-Reason why the Opportunity was Lost</inlineHelpText>
+    <label>Lost Sub-Reason</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <controllingField>Lost_Reason__c</controllingField>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Alternative Payment Methods</fullName>
+                <default>false</default>
+                <label>Alternative Payment Methods</label>
+            </value>
+            <value>
+                <fullName>Cashiering</fullName>
+                <default>false</default>
+                <label>Cashiering</label>
+            </value>
+            <value>
+                <fullName>Credit</fullName>
+                <default>false</default>
+                <label>Credit</label>
+            </value>
+            <value>
+                <fullName>Domestic Only</fullName>
+                <default>false</default>
+                <label>Domestic Only</label>
+            </value>
+            <value>
+                <fullName>Domestic pricing required and wasn’t competitive</fullName>
+                <default>false</default>
+                <label>Domestic pricing required and wasn’t competitive</label>
+            </value>
+            <value>
+                <fullName>Flywire cannot settle in client jurisdictions</fullName>
+                <default>false</default>
+                <label>Flywire cannot settle in client jurisdictions</label>
+            </value>
+            <value>
+                <fullName>Flywire did not have Licensing</fullName>
+                <default>false</default>
+                <label>Flywire did not have Licensing</label>
+            </value>
+            <value>
+                <fullName>FW ERP Integration did not meet requirements</fullName>
+                <default>false</default>
+                <label>FW ERP Integration did not meet requirements</label>
+            </value>
+            <value>
+                <fullName>Implementation resources</fullName>
+                <default>false</default>
+                <label>Implementation resources</label>
+            </value>
+            <value>
+                <fullName>KYC</fullName>
+                <default>false</default>
+                <label>KYC</label>
+            </value>
+            <value>
+                <fullName>Legal</fullName>
+                <default>false</default>
+                <label>Legal</label>
+            </value>
+            <value>
+                <fullName>Local ACH payouts required</fullName>
+                <default>false</default>
+                <label>Local ACH payouts required</label>
+            </value>
+            <value>
+                <fullName>Local acquiring required</fullName>
+                <default>false</default>
+                <label>Local acquiring required</label>
+            </value>
+            <value>
+                <fullName>Not Budgeted</fullName>
+                <default>false</default>
+                <label>Not Budgeted</label>
+            </value>
+            <value>
+                <fullName>Online Bank Transfer</fullName>
+                <default>false</default>
+                <label>Online Bank Transfer</label>
+            </value>
+            <value>
+                <fullName>Organizational Changes</fullName>
+                <default>false</default>
+                <label>Organizational Changes</label>
+            </value>
+            <value>
+                <fullName>Other</fullName>
+                <default>false</default>
+                <label>Other</label>
+            </value>
+            <value>
+                <fullName>Other (See Details)</fullName>
+                <default>false</default>
+                <label>Other (See Details)</label>
+            </value>
+            <value>
+                <fullName>Partnerships</fullName>
+                <default>false</default>
+                <label>Partnerships</label>
+            </value>
+            <value>
+                <fullName>Payables API</fullName>
+                <default>false</default>
+                <label>Payables API</label>
+            </value>
+            <value>
+                <fullName>Product Not Available in Region</fullName>
+                <default>false</default>
+                <label>Product Not Available in Region</label>
+            </value>
+            <value>
+                <fullName>Receivables API - Client wants to own checkout UI</fullName>
+                <default>false</default>
+                <label>Receivables API - Client wants to own checkout UI</label>
+            </value>
+            <value>
+                <fullName>Recurring Payments</fullName>
+                <default>false</default>
+                <label>Recurring Payments</label>
+            </value>
+            <value>
+                <fullName>References</fullName>
+                <default>false</default>
+                <label>References</label>
+            </value>
+            <value>
+                <fullName>Security</fullName>
+                <default>false</default>
+                <label>Security</label>
+            </value>
+            <value>
+                <fullName>Staying with existing internal process</fullName>
+                <default>false</default>
+                <label>Staying with existing internal process</label>
+            </value>
+            <value>
+                <fullName>Staying with incumbent provider</fullName>
+                <default>false</default>
+                <label>Staying with incumbent provider</label>
+            </value>
+            <value>
+                <fullName>Too expensive</fullName>
+                <default>false</default>
+                <label>Too expensive</label>
+            </value>
+            <value>
+                <fullName>Too small</fullName>
+                <default>false</default>
+                <label>Too small</label>
+            </value>
+            <value>
+                <fullName>Virtual Bank Accounts in Client Name</fullName>
+                <default>false</default>
+                <label>Virtual Bank Accounts in Client Name</label>
+            </value>
+            <value>
+                <fullName>Wallet</fullName>
+                <default>false</default>
+                <label>Wallet</label>
+            </value>
+        </valueSetDefinition>
+        <valueSettings>
+            <controllingFieldValue>Status Quo (Existing Process or Provider)</controllingFieldValue>
+            <valueName>Staying with existing internal process</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Status Quo (Existing Process or Provider)</controllingFieldValue>
+            <valueName>Staying with incumbent provider</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Pricing/Budget</controllingFieldValue>
+            <valueName>Domestic pricing required and wasn’t competitive</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Pricing/Budget</controllingFieldValue>
+            <valueName>Not Budgeted</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Pricing/Budget</controllingFieldValue>
+            <controllingFieldValue>Timing/On Hold/Delayed</controllingFieldValue>
+            <controllingFieldValue>Product Functionality</controllingFieldValue>
+            <controllingFieldValue>Opportunity Size/Profile</controllingFieldValue>
+            <valueName>Other</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Pricing/Budget</controllingFieldValue>
+            <valueName>Too expensive</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Timing/On Hold/Delayed</controllingFieldValue>
+            <valueName>Implementation resources</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Timing/On Hold/Delayed</controllingFieldValue>
+            <valueName>Organizational Changes</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Product Functionality</controllingFieldValue>
+            <valueName>Alternative Payment Methods</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Product Functionality</controllingFieldValue>
+            <valueName>Cashiering</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Product Functionality</controllingFieldValue>
+            <valueName>FW ERP Integration did not meet requirements</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Product Functionality</controllingFieldValue>
+            <valueName>Local ACH payouts required</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Product Functionality</controllingFieldValue>
+            <valueName>Local acquiring required</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Product Functionality</controllingFieldValue>
+            <valueName>Online Bank Transfer</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Product Functionality</controllingFieldValue>
+            <valueName>Payables API</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Product Functionality</controllingFieldValue>
+            <valueName>Product Not Available in Region</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Product Functionality</controllingFieldValue>
+            <valueName>Receivables API - Client wants to own checkout UI</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Product Functionality</controllingFieldValue>
+            <valueName>Recurring Payments</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Product Functionality</controllingFieldValue>
+            <valueName>Virtual Bank Accounts in Client Name</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Product Functionality</controllingFieldValue>
+            <valueName>Wallet</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>KYC/Legal/Credit/Security</controllingFieldValue>
+            <valueName>Credit</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>KYC/Legal/Credit/Security</controllingFieldValue>
+            <valueName>Flywire cannot settle in client jurisdictions</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>KYC/Legal/Credit/Security</controllingFieldValue>
+            <valueName>Flywire did not have Licensing</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>KYC/Legal/Credit/Security</controllingFieldValue>
+            <valueName>KYC</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>KYC/Legal/Credit/Security</controllingFieldValue>
+            <valueName>Legal</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>KYC/Legal/Credit/Security</controllingFieldValue>
+            <valueName>Security</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Opportunity Size/Profile</controllingFieldValue>
+            <valueName>Domestic Only</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Opportunity Size/Profile</controllingFieldValue>
+            <valueName>Too small</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Other</controllingFieldValue>
+            <valueName>Other (See Details)</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Other</controllingFieldValue>
+            <valueName>Partnerships</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Other</controllingFieldValue>
+            <valueName>References</valueName>
+        </valueSettings>
+    </valueSet>
+</CustomField>

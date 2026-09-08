@@ -1,0 +1,56 @@
+<messaging:emailTemplate subject="{!relatedTo.sbaa__Opportunity__r.Account.RecordType.Name} Opp Approval REV Req #{!relatedTo.sbaa__Opportunity__r.Opportunity__c} {!relatedTo.sbaa__Opportunity__r.Name}"
+    recipientType="User"
+    relatedToType="sbaa__Approval__c">
+    <messaging:HtmlEmailBody >
+        <html>
+            <body>
+
+                <!-- <apex:image value="{!LEFT($Api.Enterprise_Server_URL_300, FIND('/services',$Api.Enterprise_Server_URL_300))}/servlet/servlet.ImageServer?id={!$Setup.AQS_AA_Enablement_IDs__c.AQS_Approval_Email_Logo_ID__c}&oid={!$Organization.Id}" 
+                alt="Approval Email Logo" /> -->
+                
+                <!-- <b></b> 
+                <p><br/></p> -->
+
+                Hello {!recipient.name}, 
+
+                <p>{!relatedTo.sbaa__Opportunity__r.Owner.Name} is requesting your approval for an Opportunity, please see below for details.<br/></p>
+
+                <b>Client Legal Name: </b>{!relatedTo.sbaa__Opportunity__r.SBQQ__PrimaryQuote__r.Client_Legal_Entity_Name__c}<br/>
+
+                <apex:outputPanel rendered="{!relatedTo.sbaa__Opportunity__r.SBQQ__PrimaryQuote__r.SBQQ__Account__c != relatedTo.sbaa__Opportunity__r.SBQQ__PrimaryQuote__r.Ship_To_Account__c}">
+                    <b>Bill To Account: </b>{!relatedTo.sbaa__Opportunity__r.SBQQ__PrimaryQuote__r.SBQQ__Account__r.Name}<br/>
+                    <b>Billing Address: </b>{!relatedTo.sbaa__Opportunity__r.SBQQ__PrimaryQuote__r.SBQQ__Account__r.ShippingStreet}, {!relatedTo.sbaa__Opportunity__r.SBQQ__PrimaryQuote__r.SBQQ__Account__r.ShippingCity}, {!relatedTo.sbaa__Opportunity__r.SBQQ__PrimaryQuote__r.SBQQ__Account__r.ShippingState}, {!relatedTo.sbaa__Opportunity__r.SBQQ__PrimaryQuote__r.SBQQ__Account__r.ShippingPostalCode}, {!relatedTo.sbaa__Opportunity__r.SBQQ__PrimaryQuote__r.SBQQ__Account__r.ShippingCountry} <br/>
+                </apex:outputPanel>
+                <b>Ship To Account: </b>{!relatedTo.sbaa__Opportunity__r.Ship_To_Account__r.Name}<br/>
+                <b>Shipping Address: </b>{!relatedTo.sbaa__Opportunity__r.Ship_To_Account__r.ShippingStreet}, {!relatedTo.sbaa__Opportunity__r.Ship_To_Account__r.ShippingCity}, {!relatedTo.sbaa__Opportunity__r.Ship_To_Account__r.ShippingState}, {!relatedTo.sbaa__Opportunity__r.Ship_To_Account__r.ShippingPostalCode}, {!relatedTo.sbaa__Opportunity__r.Ship_To_Account__r.ShippingCountry} <br/>
+
+                <b>Opportunity Type: </b>{!relatedTo.sbaa__Opportunity__r.Type}<br/>
+                <b>Opportunity: </b>&nbsp;<apex:outputLink value="{!LEFT($Api.Enterprise_Server_URL_300, FIND('/services',$Api.Enterprise_Server_URL_300))}/{!relatedTo.sbaa__Opportunity__r.Id}">{!relatedTo.sbaa__Opportunity__r.Name}</apex:outputLink><br/>
+                <b>Contract Term: </b>{!relatedTo.sbaa__Opportunity__r.SBQQ__PrimaryQuote__r.SBQQ__SubscriptionTerm__c}<br/>
+                <b>Total ARR: </b>{!relatedTo.sbaa__Opportunity__r.CurrencyIsoCode} {!relatedTo.sbaa__Opportunity__r.Opp_ARR__c}<br/>
+
+                <p>
+                    <b>Opportunity Line Items:</b><br/>
+                    <sbaa:relatedList rendered="{!AND(relatedTo.sbaa__Opportunity__c != null, relatedTo.sbaa__Opportunity__r.SBQQ__PrimaryQuote__r.Multiple_Ship_to_Accounts__c == 'No')}" 
+                                     recordId="{!relatedTo.sbaa__Opportunity__c}" 
+                                     relationshipName="OpportunityLineItems" 
+                                     fieldSetName="Revenue_Approval_Request"/>
+
+                    <sbaa:relatedList rendered="{!AND(relatedTo.sbaa__Opportunity__c != null, relatedTo.sbaa__Opportunity__r.SBQQ__PrimaryQuote__r.Multiple_Ship_to_Accounts__c == 'Yes')}" 
+                                     recordId="{!relatedTo.sbaa__Opportunity__c}" 
+                                     relationshipName="OpportunityLineItems" 
+                                     fieldSetName="Revenue_Approval_Request_with_Ship_To"/>
+                </p>
+
+                <p><b>Next Step:</b> To approve or reject this request, click on one of these links:&nbsp;&nbsp;
+                    <apex:outputLink value="{!LEFT($Api.Partner_Server_URL_140,FIND('.com',$Api.Partner_Server_URL_140)+4)+'apex/SBAA__Approve?id='+relatedTo.Id}">Approve</apex:outputLink>&nbsp;&nbsp;&nbsp;
+                    <apex:outputLink value="{!LEFT($Api.Partner_Server_URL_140,FIND('.com',$Api.Partner_Server_URL_140)+4)+'apex/SBAA__Reject?id='+relatedTo.Id}">Reject</apex:outputLink>
+                </p>
+
+                <p style="color:white">
+                    <apex:outputText value="{!relatedTo.Id}"/>
+                </p>
+            </body>
+        </html>
+    </messaging:HtmlEmailBody>
+</messaging:emailTemplate>

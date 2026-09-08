@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Req_CPQ_Pricebook_Verticals</fullName>
+    <active>true</active>
+    <description>BOPI-526 The Pricebook for Edu, Travel, Healthcare and B2B must be CPQ</description>
+    <errorConditionFormula>AND(
+    $Profile.Name &lt;&gt; &quot;System Administrator&quot;,
+    $Profile.Name &lt;&gt; &quot;B - Looker&quot;,
+    $User.Alias &lt;&gt; &quot;Workato&quot;,
+    IsClosed = false,
+    ISCHANGED(Pricebook2Id),
+    Pricebook2.Name &lt;&gt; &apos;CPQ&apos;,
+    NOT(ISPICKVAL(Type,&apos;Statement of Work&apos;)),
+    RecordType.DeveloperName != &apos;Agents&apos;,
+    RecordType.DeveloperName != &apos;Healthcare_SOW&apos;,
+    RecordType.DeveloperName != &apos;Bank_PSP_Partner&apos;,
+    RecordType.DeveloperName != &apos;Strategic_Partner&apos;
+)</errorConditionFormula>
+    <errorMessage>The Pricebook for this opportunity must be set to &apos;CPQ&apos; Pricebook.</errorMessage>
+</ValidationRule>

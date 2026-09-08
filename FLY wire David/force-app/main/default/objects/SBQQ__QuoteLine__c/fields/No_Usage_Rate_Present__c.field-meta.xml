@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>No_Usage_Rate_Present__c</fullName>
+    <description>Created for BOPI-410
+BOPI-460 Updated due to NS Usage Rate changed from text to number</description>
+    <formula>IF(AND(NOT(ISBLANK(Attribute_Code__c)), ISBLANK(NS_Usage_Rate__c)), true, false)</formula>
+    <inlineHelpText>Used for the Pricing Team approval rule. Marks Quote Line field as true if there is an attribute code but no values in any of the Usage Rate fields.</inlineHelpText>
+    <label>No Usage Rate Present</label>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

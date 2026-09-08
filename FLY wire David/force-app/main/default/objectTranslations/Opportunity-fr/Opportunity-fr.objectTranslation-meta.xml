@@ -1,0 +1,379 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fieldSets>
+        <label><!-- Deal Desk --></label>
+        <name>sbaa__DealDesk</name>
+    </fieldSets>
+    <recordTypes>
+        <description><!-- Agent --></description>
+        <label><!-- Agents --></label>
+        <name>Agents</name>
+    </recordTypes>
+    <recordTypes>
+        <description><!-- Record type for the B2B vertical --></description>
+        <label><!-- B2B --></label>
+        <name>B2B</name>
+    </recordTypes>
+    <recordTypes>
+        <description><!-- Opportunity Record for potential Bank Partners or Payment Service Providers. --></description>
+        <label><!-- Bank-PSP Partner --></label>
+        <name>Bank_PSP_Partner</name>
+    </recordTypes>
+    <recordTypes>
+        <description><!-- Record Type for Current and Potential Commercial Clients. --></description>
+        <label><!-- Commercial --></label>
+        <name>Commercial</name>
+    </recordTypes>
+    <recordTypes>
+        <description><!-- Record Type for Current and Potential Education Clients. --></description>
+        <label><!-- Education --></label>
+        <name>Education</name>
+    </recordTypes>
+    <recordTypes>
+        <description><!-- Record Type for Current and Potential Healthcare Clients. --></description>
+        <label><!-- Healthcare --></label>
+        <name>Healthcare</name>
+    </recordTypes>
+    <recordTypes>
+        <description><!-- Healthcare Statement of Work Opportunity --></description>
+        <label><!-- Healthcare SOW --></label>
+        <name>Healthcare_SOW</name>
+    </recordTypes>
+    <recordTypes>
+        <description><!-- Simplee Opportunities --></description>
+        <label><!-- Simplee Healthcare --></label>
+        <name>Simplee_Healthcare</name>
+    </recordTypes>
+    <recordTypes>
+        <description><!-- Opportunity record for Strategic Partner --></description>
+        <label><!-- Strategic Partner --></label>
+        <name>Strategic_Partner</name>
+    </recordTypes>
+    <recordTypes>
+        <description><!-- Travel vertical Opportunity record --></description>
+        <label><!-- Travel --></label>
+        <name>Travel</name>
+    </recordTypes>
+    <validationRules>
+        <errorMessage><!-- ** Go to Account Record and select the Ownership Type. ** --></errorMessage>
+        <name>AUS_Acct_Ownership_Reqd</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- ***  Go to Account Record and fill in &apos;Client Legal Entity Name&apos;  *** --></errorMessage>
+        <name>Acc_LegalName_80</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- ***  Go to Account Record and fill in &apos;Client Legal Entity Name&apos;  *** --></errorMessage>
+        <name>Acc_LegalName_90</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- **  Go to Account Record and add full Shipping Address  ** --></errorMessage>
+        <name>Account_FullAddress_80</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- **  Go to Account Record and add full Shipping Address  ** --></errorMessage>
+        <name>Account_FullAddress_90</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Please go to the Account record and update the Account Industry to “Accommodations”, *DMC*, &quot;Hospitality&quot; or &quot;Travel Operator” --></errorMessage>
+        <name>Account_Industry_Cant_BeTravel</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- The Account must have an Active Relationship Manager. --></errorMessage>
+        <name>Account_RM_cannot_be_inactive_on_Legal</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- To change the Account related to this Opportunity. If needed, you will need to start the quoting process over. Go to the Primary Quote and uncheck &quot;Primary&quot;. Then update the Account for this Opportunity. Create a new Quote record by clicking &quot;New Quote&quot; --></errorMessage>
+        <name>Account_cant_be_changed_primary_quote</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Must Fill in: On Account - Agent Tier and Account Industry. On Contract - Flywire Entity, Start and End date. Contract must be activated. If Contract is not Required check *Contract Not Required*. --></errorMessage>
+        <name>Agent_Won_requirements</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- You must add a Product and Int. Payers at Opportunity before moving to next stage --></errorMessage>
+        <name>Agents_Add_Product_10</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Account has Rev. Share Agreement, provide a Contract record. If Contract is not Required check *Contract Not Required*. --></errorMessage>
+        <name>Agents_RevShare_Contract</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage>
+            <!-- The following Fields are required:
+On Account: 
+&apos;Annual PYMT Volume&apos; , 
+&apos;No. Annual PYMT&apos; , 
+On Opp: 
+&apos;Average PYMNT Size&apos; ,  
+&apos;Total Addressable ARR&apos; ,  
+&apos;Total Addressable ARR w/ FW Capabilities&apos; ,  
+&apos;Year 1 ARR Projection&apos; -->
+        </errorMessage>
+        <name>B2B_PYMNT_Fields_Verbal_Rqrd</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- This field is for BDRs only. If you are entering the name of a new BDR, please submit a ticket to Salesforce Admin so they can be added. This field should not be filled in for other purposes, or people in other roles. --></errorMessage>
+        <name>BDR_Owner_Exception_Open_Opps</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage>
+            <!-- The following fields are required:
+On Account:
+- &apos;Client Legal Entity Name&apos;
+On the Primary Quote:
+- &apos;Multiple Ship to Accounts&apos;
+On Opportunity:
+- &apos;Type&apos; -->
+        </errorMessage>
+        <name>CPQ_AA_OPP_Move_To_Legal</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- You can not update a Closed Opportunity. If you need a correction made, please submit a Flywire Ticket via OKTA for your Salesforce Administrator and include the link to this Opportunity. --></errorMessage>
+        <name>CantChangeClosedOpp</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- You can&apos;t change the Ship To Account for an Opportunity with an Approved Quote. Please create a new quote using the &apos;New Quote&apos; button --></errorMessage>
+        <name>Cant_Change_ShipTo_If_Approved_Quote</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Close Date can&apos;t be set in the past. Please update the Close Date to the day the Opp is set as Close Lost. --></errorMessage>
+        <name>CloseDateCantBeBeforeCloseLostDate</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- The Contract linked should be the final countersigned version in the &quot;Legal -Contracts&quot; folder in Drive. Be sure to enter the correct URL. --></errorMessage>
+        <name>ContractURLtoDrive</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Enter Desired Go Live before moving to next stage. --></errorMessage>
+        <name>Desired_Go_Live_80</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Enter Desired Go Live before moving to next stage. --></errorMessage>
+        <name>EDU_Desired_Go_Live_80</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Indicate which competitor(s) we will be taking some or all of the business from if we win. If we lose, this field will indicate the school&apos;s selected competitor. --></errorMessage>
+        <name>Edu_CompetitorName_30</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Indicate which competitor(s) we will be taking some or all of the business from if we win. If we lose, this field will indicate the school&apos;s selected competitor --></errorMessage>
+        <name>Edu_CompetitorName_80</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Indicate which competitor(s) we will be taking some or all of the business from if we win. If we lose, this field will indicate the school&apos;s selected competitor. --></errorMessage>
+        <name>Edu_CompetitorName_90</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- ***  Fill In: &apos;No International Payers At Opportunity&apos; on Opp. *** --></errorMessage>
+        <name>Edu_Int_Payers_30</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- ***  Fill in: Root Cause, Symptoms and Impact fields *** --></errorMessage>
+        <name>Edu_RC_Symptoms_Impact_40</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- ***Product must have Net Price entered*** --></errorMessage>
+        <name>HC_Add_Net_Price_when_Partner_is_Added</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- If there is a Qualifying Integration you must fill in the Integration Partner field. --></errorMessage>
+        <name>Int_Partner_w_Qual_Integration</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- KYC Status must be approved --></errorMessage>
+        <name>KYC_Approved_80</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- KYC Status must be approved --></errorMessage>
+        <name>KYC_Approved_95</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- CompanyId should be a numeric value --></errorMessage>
+        <name>LID__Check_CompanyId_Value</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- CompanyId should be a numeric value --></errorMessage>
+        <name>LID__Check_Company_Id_Value</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Opp can&apos;t be set live if is is not Closed Won yet. --></errorMessage>
+        <name>Live_not_closed</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- You can not update a Closed Opportunity. If you need a correction made, please submit a Flywire Ticket via OKTA for your Salesforce Administrator and include the link to this Opportunity. --></errorMessage>
+        <name>LockClosedOpp</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Opportunity locked. Please ask help from your admin. --></errorMessage>
+        <name>Lock_Opportunity</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Amendments or renewals need to be done from the CPQ contract record --></errorMessage>
+        <name>Lock_Pre_CPQ_Existing_Business_Opps</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Select the Competitor we lost this Opportunity to. --></errorMessage>
+        <name>Lost_to_Competitor_Incumbent</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Looks like the Opportunity is missing lines. Recall Quote approval, click Edit Lines and remove unwanted line items, then Save to sync back to the Opportunity correctly. --></errorMessage>
+        <name>Missing_Opportunity_Products</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- You must have at least one Billing Contact related to the Account in order to proceed to Legal Stage --></errorMessage>
+        <name>Must_have_Billing_Contact_for_Legal</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- The Opportunity Type is required --></errorMessage>
+        <name>OBS_Check_Type_Add_Product_10</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- ***.  You must add Products to your Opportunity in order to continue to the next Stage. From the right hand side, hover over &apos;Products&apos; Choose a Price Book and then select your product(s).  *** --></errorMessage>
+        <name>OBS_Req_Product_60</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- ***  KYC Team must mark  &apos;KYC Status&apos; as Approved on the Account Record. Client Legal Entity on Account must be filled in and Contract record must be linked *** --></errorMessage>
+        <name>OBS_XB_KYC_Won</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Click Submit for Approval button. Once fully approved, the Opportunity Stage will automatically change to Closed Won --></errorMessage>
+        <name>Opp_Stage_Closed_Won</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- The BDR and the Opportunity Owner can not be the same person. If you are a Sales rep and you did not get this Opportunity from a BDR, leave this blank. Otherwise, enter the name of the BDR who prospected this lead for you. --></errorMessage>
+        <name>Owner_BDR_NotSame</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Please update the Close Date as it is currently in the past. --></errorMessage>
+        <name>Past_Closed_Date</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Must have a Jira Pricing Ticket Linked to Close Won this Opp. Refer to your Vertical Lead or Pricing Team with questions. --></errorMessage>
+        <name>PricingRequired_MultiProducts_Won</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Must have a Jira Pricing Ticket Linked to Close Won this Opp. Refer to your Vertical Lead or Pricing Team with questions. --></errorMessage>
+        <name>PricingRequired_NonCBP_Product</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- You can not update a Closed Opportunity. If you need a correction made, please submit a ticket in Jira for your Salesforce Administrator and include the link to this Opportunity and the link for the Pricing Ticket. --></errorMessage>
+        <name>PricingTicketLinkCantBeUpdatedifOppClose</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- To Override the RFP No Bid and submit anyway, Check Override No Bid AND Provide No Bid Override Reason. --></errorMessage>
+        <name>RFP_Override_Reason</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Please enter a Renewal Term. If there is no auto-renewal, enter the full term of the contract (e.g. 36). If there is an auto-renewal, enter the monthly auto renewal term (e.g. 12). This can be adjusted at any time prior to legal stage if needed. --></errorMessage>
+        <name>Renewal_Term_must_be_greater_than_0</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- The Pricebook for this opportunity must be set to &apos;CPQ&apos; Pricebook. --></errorMessage>
+        <name>Req_CPQ_Pricebook_Verticals</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- ***.  Link the Contract Record to Opp, Ensure all Fields are filled in AND it has been Activated by clicking the &apos;Activate&apos; Button.  *** --></errorMessage>
+        <name>Req_Contract_Won</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- ***.  You must add Products to your Opportunity in order to continue to the next Stage. From the right hand side, hover over &apos;Products&apos; Choose a Price Book and then select your product(s).  *** --></errorMessage>
+        <name>Req_Product_40</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- ***   Go to Account Record and fill in &apos;Account Sub Industry&apos; field.   *** --></errorMessage>
+        <name>Req_SubIndustry_30</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Make sure that the Contract Information fields are completed on your primary quote and that your quote is approved. --></errorMessage>
+        <name>Required_fields_for_Legal</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- A LOST REASON AND LOST SUB-REASON ARE REQUIRED --></errorMessage>
+        <name>Requires_a_Reason_For_Closed_Loss_Opp</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- A win reason is required. --></errorMessage>
+        <name>Requires_a_Reason_For_Closed_Won_Opp</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- ** Go to Account Record and add Shipping Country ** --></errorMessage>
+        <name>Shipping_Country_30</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Stage must be Discovery / Qualifying when Opportunity is created. --></errorMessage>
+        <name>Stage_Discovery_IsNew</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Please update the contract paper to the corresponding partner --></errorMessage>
+        <name>Strategic_Partner_Cant_Use_Flywire_Paper</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Tax ID must be populated on the Opportunity&apos;s Account --></errorMessage>
+        <name>Tax_ID_Required_to_move_to_Legal</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- You must add a Product and Opportunity Amount must be over $5000. If you are trying to add a quote, please move Stage back to discovery, add quote then move forward. --></errorMessage>
+        <name>Travel_Amount_10</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Opportunity Type can&apos;t be &apos;New&apos; if contract is renewed or amended --></errorMessage>
+        <name>Type_Not_New_If_Contracted</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- You must recall Quote approval and enter an Adjusted Rate value for all usage products. Resubmit for approval when all lines have a rate entered. --></errorMessage>
+        <name>Usage_Rate_Not_Added_to_All_Lines</name>
+    </validationRules>
+    <webLinks>
+        <label><!-- Create_Loopio_Project --></label>
+        <name>Loopio__Create_Loopio_Project</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- New_Prod_Config --></label>
+        <name>New_Prod_Config</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- Request_Contract --></label>
+        <name>Request_Contract</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- Amend_Assets --></label>
+        <name>SBQQ__Amend_Assets</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- Amend_Contract --></label>
+        <name>SBQQ__Amend_Contract</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- CreateOrder --></label>
+        <name>SBQQ__CreateOrder</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- Include_Document --></label>
+        <name>SBQQ__Include_Document</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- Test_Request_Contract --></label>
+        <name>Test_Request_Contract</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- PreviewApprovals --></label>
+        <name>sbaa__PreviewApprovals</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- RecallApprovals --></label>
+        <name>sbaa__RecallApprovals</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- ResendRequestEmail --></label>
+        <name>sbaa__ResendRequestEmail</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- SubmitForApproval --></label>
+        <name>sbaa__SubmitForApproval</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- zp_actions --></label>
+        <name>zaapit__zp_actions</name>
+    </webLinks>
+</CustomObjectTranslation>

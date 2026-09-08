@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>PricingRequired_NonCBP_Product</fullName>
+    <active>false</active>
+    <description>There is only 1 product on the Opp, if it is NOT Cross Border Payment, Pricing Ticket Link is required.</description>
+    <errorConditionFormula>AND(
+$Profile.Name &lt;&gt; &apos;System Administrator&apos;,
+$Profile.Name &lt;&gt; &quot;B - Looker&quot;,
+XBP_Only__c  = FALSE,
+NOT(ISPICKVAL(Type, &quot;Renewal&quot;)),
+ofProducts__c = 1,
+ISBLANK(Pricing_Ticket_Link__c),
+DATEVALUE(CreatedDate) &gt; DATEVALUE(&quot;2022-06-30&quot;),
+Probability &gt;0.95
+)
+&amp;&amp; Opp_Val_Bypass__c = false</errorConditionFormula>
+    <errorDisplayField>Pricing_Ticket_Link__c</errorDisplayField>
+    <errorMessage>Must have a Jira Pricing Ticket Linked to Close Won this Opp. Refer to your Vertical Lead or Pricing Team with questions.</errorMessage>
+</ValidationRule>

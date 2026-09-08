@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<UiFormatSpecificationSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <field>SBQQ__Quote__c.SBQQ__SubscriptionTerm__c</field>
+    <formatType>ICON</formatType>
+    <masterLabel>Test MV</masterLabel>
+    <sobjectType>SBQQ__Quote__c</sobjectType>
+    <uiFormatSpecifications>
+        <formatProperties>{&quot;icon&quot;:&quot;rocket&quot;,&quot;iconColor&quot;:&quot;red&quot;}</formatProperties>
+        <formatType>ICON</formatType>
+        <order>1</order>
+        <visibilityRule>
+            <criteria>
+                <leftValue>{!Record.SBQQ__Status__c}</leftValue>
+                <operator>EQUAL</operator>
+                <rightValue>Draft</rightValue>
+            </criteria>
+        </visibilityRule>
+    </uiFormatSpecifications>
+</UiFormatSpecificationSet>

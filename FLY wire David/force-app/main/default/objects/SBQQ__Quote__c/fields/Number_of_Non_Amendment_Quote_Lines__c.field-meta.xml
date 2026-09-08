@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Number_of_Non_Amendment_Quote_Lines__c</fullName>
+    <description>Counts the number of Quote Lines that are not listed as amendments. Created for BOPI-770</description>
+    <label>Number of Non-Amendment Quote Lines</label>
+    <summaryFilterItems>
+        <field>SBQQ__QuoteLine__c.Quote_Line_Type_background__c</field>
+        <operation>notEqual</operation>
+        <value>Amendment</value>
+    </summaryFilterItems>
+    <summaryForeignKey>SBQQ__QuoteLine__c.SBQQ__Quote__c</summaryForeignKey>
+    <summaryOperation>count</summaryOperation>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Summary</type>
+</CustomField>

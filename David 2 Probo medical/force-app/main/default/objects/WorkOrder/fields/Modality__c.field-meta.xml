@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Modality__c</fullName>
+    <externalId>false</externalId>
+    <formula>CASE(Contract_Line_Item__r.Product_Family__c,
+    &quot;Ultrasound System&quot;,  &quot;Ultrasound&quot;,
+    &quot;Ultrasound Probe&quot;,   &quot;Ultrasound&quot;,
+    &quot;Part&quot;,               &quot;Part&quot;,
+    &quot;Bone Density&quot;,       &quot;Bone Density&quot;,
+    &quot;Bone Density Scanner&quot;,&quot;Bone Density&quot;,
+    &quot;C-Arm&quot;,              &quot;X-Ray&quot;,
+    &quot;CV&quot;,                 &quot;X-Ray&quot;,
+    &quot;Fluoroscopy&quot;,        &quot;X-Ray&quot;,
+    &quot;X-Ray&quot;,              &quot;X-Ray&quot;,
+    &quot;Dental&quot;,             &quot;X-Ray&quot;,
+    &quot;Mammo&quot;,              &quot;X-Ray&quot;,
+    &quot;Mammography&quot;,        &quot;X-Ray&quot;,
+    &quot;Portable&quot;,           &quot;X-Ray&quot;,
+    &quot;CT&quot;,                 &quot;CT&quot;,
+    &quot;MRI&quot;,                &quot;MRI&quot;,
+    &quot;Injector&quot;,           &quot;Injector&quot;,
+    &quot;Iradimed&quot;,           &quot;Iradimed&quot;,
+    &quot;MI - Gamma Camera&quot;,  &quot;MI - Gamma Camera&quot;,
+    &quot;CR Reader&quot;,          &quot;CR Reader&quot;,
+    &quot;PET&quot;,                &quot;PET&quot;,
+    &quot;Medtron&quot;,            &quot;Medtron&quot;,
+    &quot;&quot;
+)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Modality</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

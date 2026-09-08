@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>Product_Configuration__c$Account__c.Name</field>
+    </columns>
+    <columns>
+        <field>Product_Configuration__c$Code__c</field>
+    </columns>
+    <columns>
+        <field>Product_Configuration__c$Opportunity__c.Opportunity__c</field>
+    </columns>
+    <columns>
+        <field>Product_Configuration__c$Opportunity__c.Name</field>
+    </columns>
+    <columns>
+        <field>Product_Configuration__c$Name</field>
+    </columns>
+    <columns>
+        <field>Product_Configuration__c$Account_LongID__c</field>
+    </columns>
+    <currency>USD</currency>
+    <description>For AMEX</description>
+    <filter>
+        <criteriaItems>
+            <column>Product_Configuration__c$Code__c</column>
+            <columnToColumn>false</columnToColumn>
+            <isUnlocked>true</isUnlocked>
+            <operator>notEqual</operator>
+            <value></value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Product_Configuration__c$RecordType</column>
+            <columnToColumn>false</columnToColumn>
+            <isUnlocked>true</isUnlocked>
+            <operator>equals</operator>
+            <value>Product_Configuration__c.Portal</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Product_Configuration__c$Product_Status__c</column>
+            <columnToColumn>false</columnToColumn>
+            <isUnlocked>true</isUnlocked>
+            <operator>equals</operator>
+            <value>Active (Product Live)</value>
+        </criteriaItems>
+    </filter>
+    <format>Tabular</format>
+    <name>Portal Code &amp; Opp ID</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>Prod_Config_C_Acct_Opp_Contract_fields__c</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <showGrandTotal>true</showGrandTotal>
+    <showSubTotals>true</showSubTotals>
+    <sortColumn>Product_Configuration__c$Account__c.Name</sortColumn>
+    <sortOrder>Asc</sortOrder>
+    <timeFrameFilter>
+        <dateColumn>Product_Configuration__c$CreatedDate</dateColumn>
+        <interval>INTERVAL_CUSTOM</interval>
+    </timeFrameFilter>
+</Report>

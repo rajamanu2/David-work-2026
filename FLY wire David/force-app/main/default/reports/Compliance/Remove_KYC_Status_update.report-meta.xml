@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>Account.Passfort_Profile_Id__c</field>
+    </columns>
+    <columns>
+        <field>Account.AccountLongID__c</field>
+    </columns>
+    <columns>
+        <field>KYC_Application__c.Status__c</field>
+    </columns>
+    <columns>
+        <field>KYC_Application__c.Application_Review_Status__c</field>
+    </columns>
+    <columns>
+        <field>KYC_Application__c.Account_Tags__c</field>
+    </columns>
+    <columns>
+        <field>KYC_Application__c.Company_Legal_Name__c</field>
+    </columns>
+    <columns>
+        <field>ACCOUNT.NAME</field>
+    </columns>
+    <columns>
+        <field>KYC_Application__c.KYC_Assignee__c</field>
+    </columns>
+    <currency>USD</currency>
+    <description>This report informs the KYC team to clear the applicable [Tags] and [ KYC review status (Applied)] custom field in Passfort because the account is now approved.</description>
+    <filter>
+        <criteriaItems>
+            <column>KYC_Application__c.Status__c</column>
+            <columnToColumn>false</columnToColumn>
+            <isUnlocked>true</isUnlocked>
+            <operator>equals</operator>
+            <value>approved</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>KYC_Application__c.Application_Review_Status__c</column>
+            <columnToColumn>false</columnToColumn>
+            <isUnlocked>true</isUnlocked>
+            <operator>excludes</operator>
+            <value></value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Account.KYC_Tags__c</column>
+            <columnToColumn>false</columnToColumn>
+            <isUnlocked>true</isUnlocked>
+            <operator>notContain</operator>
+            <value>KYC Refresh</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>KYC_Application__c.Application_Review_Status__c</column>
+            <columnToColumn>false</columnToColumn>
+            <isUnlocked>true</isUnlocked>
+            <operator>excludes</operator>
+            <value>KYC Refresh</value>
+        </criteriaItems>
+    </filter>
+    <format>Tabular</format>
+    <name>Remove Tags/KYC Status update</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>AccountCustomEntity$KYC_Application__c</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <showGrandTotal>true</showGrandTotal>
+    <showSubTotals>true</showSubTotals>
+    <timeFrameFilter>
+        <dateColumn>DUE_DATE</dateColumn>
+        <interval>INTERVAL_CUSTOM</interval>
+    </timeFrameFilter>
+</Report>

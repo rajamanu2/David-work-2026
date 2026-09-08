@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Performance_Health__c</fullName>
+    <description>This field shows the overall performance Hub health score from Looker. It rolls up “Opportunity, Payer Journey, Product, and Support” scores to actively show where there is potential risk/opportunity at an Account. Requested by Marybeth U. SAL-3111 - SALDEV-1231 Added Yellow as option - HC only</description>
+    <inlineHelpText>Please select the overall relationship we have with the main stakeholders at this account</inlineHelpText>
+    <label>Performance Health</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Red</fullName>
+                <default>false</default>
+                <label>🔴 Red</label>
+            </value>
+            <value>
+                <fullName>Amber</fullName>
+                <default>false</default>
+                <label>🟠 Amber</label>
+            </value>
+            <value>
+                <fullName>Yellow</fullName>
+                <default>false</default>
+                <label>🟡 Yellow</label>
+            </value>
+            <value>
+                <fullName>Green</fullName>
+                <default>false</default>
+                <label>🟢 Green</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

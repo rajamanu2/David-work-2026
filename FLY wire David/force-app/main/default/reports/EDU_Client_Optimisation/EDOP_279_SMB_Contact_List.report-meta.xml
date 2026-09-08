@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>SALUTATION</field>
+    </columns>
+    <columns>
+        <field>FIRST_NAME</field>
+    </columns>
+    <columns>
+        <field>LAST_NAME</field>
+    </columns>
+    <columns>
+        <field>TITLE</field>
+    </columns>
+    <columns>
+        <field>DEPARTMENT</field>
+    </columns>
+    <columns>
+        <field>ACCOUNT.NAME</field>
+    </columns>
+    <columns>
+        <field>EMAIL</field>
+    </columns>
+    <columns>
+        <aggregateTypes>Sum</aggregateTypes>
+        <field>Contact.Main_Point_Person__c</field>
+    </columns>
+    <columns>
+        <aggregateTypes>Sum</aggregateTypes>
+        <field>Contact.Chargeback_Contact__c</field>
+    </columns>
+    <currency>USD</currency>
+    <filter>
+        <criteriaItems>
+            <column>Account.Relationship_Manager__c</column>
+            <columnToColumn>false</columnToColumn>
+            <isUnlocked>true</isUnlocked>
+            <operator>equals</operator>
+            <value>Nichole Godley</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>ACCOUNT.NAME</column>
+            <columnToColumn>false</columnToColumn>
+            <isUnlocked>true</isUnlocked>
+            <operator>equals</operator>
+            <value>Ackworth School,Badminton School,Bishopstrow College,Bosworth Independent College,Bournemouth Collegiate School (BCS),Brooke House College,Cambridge School of Visual and Performing Arts (CSVPA),CATS Global Schools,Clifton College,Cobham Hall School,Culford School,Culford School Trading Ltd,Felsted School,Fettes College,Gordonstoun School,Kent College Canterbury,Loughborough Schools Foundation,Malvern College,Mill Hill School,Millfield School,Padworth College,Queen Anne&apos;s School,Queen&apos;s College Taunton,Repton School,Sedbergh School,Shebbear College,Sherborne School,St David&apos;s School,Stafford House,Sutton Valence School,Taunton School,The Stephen Perse Foundation,Truro School,Warminster School,Woodhouse Grove,Wycliffe College</value>
+        </criteriaItems>
+    </filter>
+    <format>Tabular</format>
+    <name>EDOP-279 - SMB Contact List</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>ContactList</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <showGrandTotal>true</showGrandTotal>
+    <showSubTotals>true</showSubTotals>
+    <timeFrameFilter>
+        <dateColumn>CREATED_DATE</dateColumn>
+        <interval>INTERVAL_CUSTOM</interval>
+    </timeFrameFilter>
+</Report>

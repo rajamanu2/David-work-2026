@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>OBS_ARR_ReqFields_Payables_90</fullName>
+    <active>false</active>
+    <description>Check calculation required fields to add product</description>
+    <errorConditionFormula>AND(
+    $Profile.Name &lt;&gt; &apos;System Administrator&apos;,
+    Opportunity.Probability &gt;= 0.90,
+    Family__c = &apos;Payables&apos;,
+    OR(
+        (ISBLANK(Opportunity.Avg_Trans_Amt__c)),
+        (ISBLANK(Opportunity.FX_XB_Outgoing_PYMTS__c)),
+        (ISBLANK(Opportunity.CAD_XB_PYMTS_Offshore__c)),
+        (ISBLANK(Opportunity.CAD_EFT_Outgoing_PYMTS__c))
+    )
+)</errorConditionFormula>
+    <errorMessage>The fields are required for adding a Payables product
+On Opportunity:
+ &apos;Avg FX Trans Amt&apos;,
+ &apos;FX XB Outgoing PYMTS&apos;,
+ &apos;Client Home CCY XB PYMNTS&apos;,
+ &apos;# DOM Outgoing PYMTS&apos;</errorMessage>
+</ValidationRule>

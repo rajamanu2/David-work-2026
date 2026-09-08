@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>64.0</apiVersion>
+    <areMetricsLoggedToDataCloud>false</areMetricsLoggedToDataCloud>
+    <assignments>
+        <name>Set_Cosmetic_and_Functional_Ratings</name>
+        <label>Set Cosmetic and Functional Ratings</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <assignmentItems>
+            <assignToReference>$Record.Cosmetic_Rating__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>Good - New</stringValue>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>$Record.Functional_Rating__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>Good - New</stringValue>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Update_Asset_Record</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Set_Stock_Checked_Date</name>
+        <label>Set Stock Checked Date</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <assignmentItems>
+            <assignToReference>$Record.Stock_Checked__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>$Record.Receive_date__c</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>New_Asset_From_Vendor_Approved_Supplier</targetReference>
+        </connector>
+    </assignments>
+    <decisions>
+        <name>New_Asset_From_Vendor_Approved_Supplier</name>
+        <label>New Asset From Vendor Approved Supplier?</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Vendor_Approved_Yes</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Purchasing_Opportunity__r.Account.Vendor_Status__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Active</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record__Prior.Id</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Purchasing_Opportunity__r.Contains_Used_Assets__c</leftValueReference>
+                <operator>NotEqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Set_Cosmetic_and_Functional_Ratings</targetReference>
+            </connector>
+            <label>Yes</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Received_Date_Changed</name>
+        <label>Received Date Changed?</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <defaultConnector>
+            <targetReference>New_Asset_From_Vendor_Approved_Supplier</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>No</defaultConnectorLabel>
+        <rules>
+            <name>Received_Date_Yes</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Receive_date__c</leftValueReference>
+                <operator>IsChanged</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Set_Stock_Checked_Date</targetReference>
+            </connector>
+            <label>Yes</label>
+        </rules>
+    </decisions>
+    <description>01/10/2025 - SP - Adjusting the Set Cosmetic and Functional Rations to equals &quot;Good&quot; instead of &quot;Good - New&quot;. This has been cleared with Quality.
+09/10/2025 - SP - Adding the &quot;Contains Used Assets&quot; checkbox condition to the &quot;New Asset From Vendor Approved Supplier and Not Used?&quot; decision. Also reverting the previous change so items now show as &quot;Good - New&quot;.</description>
+    <environments>Default</environments>
+    <interviewLabel>Asset Automations {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Asset Automations</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <recordUpdates>
+        <name>Update_Asset_Record</name>
+        <label>Update Asset Record</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <start>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Received_Date_Changed</targetReference>
+        </connector>
+        <object>ProductItem__c</object>
+        <recordTriggerType>CreateAndUpdate</recordTriggerType>
+        <triggerType>RecordAfterSave</triggerType>
+    </start>
+    <status>Active</status>
+    <variables>
+        <name>varAssetToUpdate</name>
+        <dataType>SObject</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+        <objectType>ProductItem__c</objectType>
+    </variables>
+</Flow>

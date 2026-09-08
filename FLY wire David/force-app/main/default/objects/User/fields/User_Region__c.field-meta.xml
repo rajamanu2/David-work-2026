@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>User_Region__c</fullName>
+    <description>Formula to put countries into regions. Changed Africa from EMEA to UK. 11/15/23 Per Patrik Seus, this is the correct region for them.
+Fixed Vietnam name (Viet Nam)</description>
+    <externalId>false</externalId>
+    <formula>IF(ISBLANK( Country ), &quot;None&quot;,
+IF(CONTAINS(&quot;Anguilla:Antigua and Barbuda:Argentina:Aruba:Bahamas:Barbados:Belize:Bermuda:Bolivia:Bonaire:Brazil:Cayman Islands:Chile:Colombia:Costa Rica:Cuba:Curaçao:Dominica:Dominican Republic:Ecuador:El Salvador:Falkland Islands (malvinas):French Guiana:Grenada:Guadeloupe:Guatemala:Guyana:Haiti:Honduras:Jamaica:Martinique:Mexico:MX;Montserrat:Netherlands Antilles:Nicaragua:Panama:Paraguay:Peru:Saint Barthélemy:Saint Helena:Saint Kitts and Nevis:Saint Lucia:Saint Martin (French Part):Saint Pierre and Miquelon:Saint Vincent and The Grenadines:South Georgia and The South Sandwich Islands:Suriname:Trinidad and Tobago:Turks and Caicos Islands:Puerto Rico:Uruguay:Venezuela:Virgin Islands, British:Virgin Islands&quot;,Country), &quot;LATAM&quot;,
+
+IF(CONTAINS(&quot;United States:USA:US:United States Minor Outlying Islands:U.S.&quot;,Country), &quot;USA&quot;,
+IF(CONTAINS(&quot;Canada:CA&quot;,Country), &quot;CAN&quot;,
+IF(CONTAINS(&quot;Australia:AUS&quot;,Country), &quot;AUS&quot;,
+IF(CONTAINS(&quot;Japan:JP&quot;,Country), &quot;JP&quot;,
+IF(CONTAINS(&quot;United Kingdom:UK:England:EN:Scotland:Wales:Northern Ireland:South Africa:Central African Republic: Africa&quot;,Country), &quot;UK&quot;,
+
+IF(CONTAINS(&quot;Mongolia:American Samoa:Antarctica:Bangladesh:Bhutan:Brunei Darussalam:Cambodia:China:Christmas Island:Cocos (keeling) Islands:Cook Islands:Fiji:French Polynesia:Guam:Heard Island and Mcdonald Islands:Hong Kong:Indonesia:Kiribati:Korea, Democratic People&apos;s Republic of:Korea, Republic of:Lao People&apos;s Democratic Republic:Macao:Malaysia:Maldives:Marshall Islands:Micronesia, Federated States of:Myanmar:Nauru:Nepal:New Caledonia:New Zealand:Niue:Norfolk Island:Northern Mariana Islands:Palau:Papua New Guinea:Philippines:Pitcairn:Samoa:Singapore:Solomon Islands:Sri Lanka:Taiwan, Province of China:Taiwan:Thailand:Timor-Leste:Tokelau:Tonga:Tuvalu:Vanuatu:Vietnam:Wallis and Futuna:Afghanistan&quot;, Country ), &quot;APAC&quot;,
+
+IF(CONTAINS(&quot;Bouvet Island:Comoros:Sao Tome and Principe:Algeria:Angola:Benin:Botswana:Burkina Faso:Burundi:Cameroon:Cape Verde:Chad:Congo:Congo, The Democratic Republic of The:Côte D&apos;ivoire:Djibouti:Egypt:Equatorial Guinea:Eritrea:Ethiopia:Gabon:Gambia:Ghana:Guinea:Guinea-bissau:Kenya:Lesotho:Liberia:Libya:Madagascar:Malawi:Mali:Mauritania:Mauritius:Mayotte:Mozambique:Namibia:Niger:Nigeria:Rwanda:Senegal:Seychelles:Sierra Leone:Somalia:South Sudan:Sudan:Swaziland:Tanzania, United Republic of:Togo:Tunisia:Uganda:Western Sahara:Zambia:Zimbabwe:Morocco:Faroe Islands:Svalbard and Jan Mayen:Malta:Åland Islands:Albania:Andorra:Armenia:Austria:Azerbaijan:Belarus:Belgium:Bosnia and Herzegovina:Bulgaria:Croatia:Cyprus:Czech Republic:Denmark:Estonia:Finland:France:French Southern Territories:Georgia:Germany:Gibraltar:Greece:Greenland:Guernsey:Holy See (vatican City State):Hungary:Iceland:Ireland:Isle of Man:Italy:Jersey:Kazakhstan:Kyrgyzstan:Latvia:Liechtenstein:Lithuania:Luxembourg:Macedonia, The Former Yugoslav Republic of:Moldova, Republic of:Monaco:Montenegro:Netherlands:Norway:Poland:Portugal:Romania:Russian Federation:San Marino:Serbia:Slovakia:Slovenia:Spain:Sweden:Switzerland:Tajikistan:Turkmenistan:Ukraine:Uzbekistan:Turkey:India:Réunion:British Indian Ocean Territory:Bahrain:Iran, Islamic Republic of:Iraq:Israel:Jordan:Kuwait:Lebanon:Oman:Pakistan:Palestinian Territory, Occupied:Qatar:Saudi Arabia:Syrian Arab Republic:United Arab Emirates:Yemen&quot;, Country ), &quot;EMEA&quot;, &quot;Other&quot;)))))))))</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <inlineHelpText>Formula to put countries into regions</inlineHelpText>
+    <label>User Region</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

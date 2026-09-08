@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Package xmlns="http://soap.sforce.com/2006/04/metadata">
+  <types>
+    <members>Incident.Close_Related_Trouble_Tickets__c</members>
+    <name>CustomField</name>
+  </types>
+  <types>
+    <members>Case.SCC_3380_Prevent_Circular_Parent_Case</members>
+    <members>Case.SCC_3380_Child_Must_Be_Trouble_Ticket</members>
+    <members>CaseRelatedIssue.SCC_3380_Case_Must_Be_Trouble_Ticket</members>
+    <name>ValidationRule</name>
+  </types>
+  <types>
+    <members>SCC_3380_Case_Related_Issue_After_Save</members>
+    <members>SCC_3380_Case_Related_Issue_After_Delete</members>
+    <members>SCC_3380_Case_Related_Issue_Before_Save</members>
+    <members>Incident_After_Update</members>
+    <members>Case_After_Trigger_Flow</members>
+    <name>Flow</name>
+  </types>
+  <types>
+    <members>SCC_3380_NOC_Incident_Case_Relationship</members>
+    <name>PermissionSet</name>
+  </types>
+  <types>
+    <members>Incidents_with_Related_Trouble_Tickets</members>
+    <name>ReportType</name>
+  </types>
+  <types>
+    <members>Incident-Outage Incident Layout</members>
+    <members>Case-Trouble Ticket</members>
+    <members>Case-Case Layout</members>
+    <name>Layout</name>
+  </types>
+  <types>
+    <members>Incident_Record_Page1</members>
+    <name>FlexiPage</name>
+  </types>
+  <types>
+    <members>Admin</members>
+    <members>System Administrator - API Only</members>
+    <members>Standard</members>
+    <name>Profile</name>
+  </types>
+  <version>67.0</version>
+</Package>

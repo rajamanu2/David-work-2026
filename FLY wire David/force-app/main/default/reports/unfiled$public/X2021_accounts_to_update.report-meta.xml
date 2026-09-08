@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>USERS.NAME</field>
+    </columns>
+    <columns>
+        <field>ACCOUNT.NAME</field>
+    </columns>
+    <columns>
+        <field>Account.Wire_Processor__c</field>
+    </columns>
+    <columns>
+        <field>Account.Domestic_Payment_Processor__c</field>
+    </columns>
+    <columns>
+        <field>Account.Student_Information_System__c</field>
+    </columns>
+    <columns>
+        <field>Account.Cashiering__c</field>
+    </columns>
+    <currency>USD</currency>
+    <filter>
+        <criteriaItems>
+            <column>USERS.NAME</column>
+            <columnToColumn>false</columnToColumn>
+            <isUnlocked>true</isUnlocked>
+            <operator>equals</operator>
+            <value>Fiona Broadbent,Tom Jones,Sarah Hamilton,Stephen Beaumont,Rob Deacon</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Account.Date_First_Product_Live__c</column>
+            <columnToColumn>false</columnToColumn>
+            <isUnlocked>true</isUnlocked>
+            <operator>greaterThan</operator>
+            <value>1/1/2020</value>
+        </criteriaItems>
+    </filter>
+    <format>Tabular</format>
+    <name>2021 accounts to update</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>AccountList</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <showGrandTotal>true</showGrandTotal>
+    <showSubTotals>true</showSubTotals>
+    <timeFrameFilter>
+        <dateColumn>CREATED_DATE</dateColumn>
+        <interval>INTERVAL_CUSTOM</interval>
+        <startDate>1902-05-17</startDate>
+    </timeFrameFilter>
+</Report>

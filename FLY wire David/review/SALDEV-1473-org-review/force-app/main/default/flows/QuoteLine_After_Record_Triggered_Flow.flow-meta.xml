@@ -1,0 +1,377 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>61.0</apiVersion>
+    <areMetricsLoggedToDataCloud>false</areMetricsLoggedToDataCloud>
+    <assignments>
+        <name>Get_Ultimate_Parent_Id</name>
+        <label>Get Ultimate Parent Id</label>
+        <locationX>880</locationX>
+        <locationY>323</locationY>
+        <assignmentItems>
+            <assignToReference>ParentId</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>$Record.SBQQ__Quote__r.SBQQ__Account__r.Ultimate_Parent_Account__c</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Get_Strategic_Partner_RecordType</targetReference>
+        </connector>
+    </assignments>
+    <customErrors>
+        <name>Validation_Error</name>
+        <label>Validation Error</label>
+        <locationX>50</locationX>
+        <locationY>863</locationY>
+        <connector>
+            <targetReference>Check_for_QuoteLine_Type</targetReference>
+        </connector>
+        <customErrorMessages>
+            <errorMessage>Please ensure that the Ship-To Account entered for each Quote Line is within the primary Account&apos;s hierarchy.</errorMessage>
+            <isFieldError>false</isFieldError>
+        </customErrorMessages>
+    </customErrors>
+    <decisions>
+        <name>Check_Different_Ship_To_Exists</name>
+        <label>Check Different Ship-To Exists</label>
+        <locationX>567</locationX>
+        <locationY>647</locationY>
+        <defaultConnector>
+            <targetReference>Update_Multiple_Ship_Tos_to_No</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>No – Ship-To Same (Default Path)</defaultConnectorLabel>
+        <rules>
+            <name>Yes_Different_Ship_To_Found</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Ship_To_Account__c</leftValueReference>
+                <operator>NotEqualTo</operator>
+                <rightValue>
+                    <elementReference>$Record.SBQQ__Quote__r.SBQQ__Account__c</elementReference>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Check_Invalid_ShipTo</targetReference>
+            </connector>
+            <label>Yes – Different Ship-To Found</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Check_for_Multiple_Ship_To_s_on_Quote</name>
+        <label>Check for Multiple Ship To&apos;s on Quote</label>
+        <locationX>446</locationX>
+        <locationY>863</locationY>
+        <defaultConnector>
+            <targetReference>Check_for_QuoteLine_Type</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>If_Yes_Already_Skip</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.SBQQ__Quote__r.Multiple_Ship_to_Accounts__c</leftValueReference>
+                <operator>NotEqualTo</operator>
+                <rightValue>
+                    <stringValue>Yes</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Update_Quote_Record</targetReference>
+            </connector>
+            <label>If Yes Already Skip</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Check_for_QuoteLine_Type</name>
+        <label>Check for QuoteLine Type</label>
+        <locationX>880</locationX>
+        <locationY>1415</locationY>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>If_it_is_an_New_Or_Quantity_Increase</name>
+            <conditionLogic>(1 OR 2) AND 3</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Quote_Line_Type__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>New</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Quote_Line_Type__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Quantity Increase</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.SBQQ__Quote__r.SBQQ__Type__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Renewal</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Update_Opp_Type</targetReference>
+            </connector>
+            <label>If it is an New Or Quantity Increase</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Check_Invalid_ShipTo</name>
+        <label>Check Invalid ShipTo</label>
+        <locationX>248</locationX>
+        <locationY>755</locationY>
+        <defaultConnector>
+            <targetReference>Check_for_Multiple_Ship_To_s_on_Quote</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>No → Valid ShipTo</defaultConnectorLabel>
+        <rules>
+            <name>Yes_Show_Error</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Ship_To_Account__r.Ultimate_Parent_Account__c</leftValueReference>
+                <operator>NotEqualTo</operator>
+                <rightValue>
+                    <elementReference>ParentId</elementReference>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Validation_Error</targetReference>
+            </connector>
+            <label>Yes → Show Error</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Is_Starategic_Partner</name>
+        <label>Is Starategic Partner</label>
+        <locationX>880</locationX>
+        <locationY>539</locationY>
+        <defaultConnector>
+            <targetReference>Check_for_QuoteLine_Type</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Yes_Strategic_Partner</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.SBQQ__Quote__r.SBQQ__Account__r.RecordTypeId</leftValueReference>
+                <operator>NotEqualTo</operator>
+                <rightValue>
+                    <elementReference>Get_Strategic_Partner_RecordType.Id</elementReference>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Check_Different_Ship_To_Exists</targetReference>
+            </connector>
+            <label>Yes</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Update_Multiple_Ship_Tos_to_No</name>
+        <label>Update Multiple Ship Tos to No</label>
+        <locationX>886</locationX>
+        <locationY>755</locationY>
+        <defaultConnector>
+            <targetReference>Check_for_QuoteLine_Type</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>If_No</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.SBQQ__Quote__r.Multiple_Ship_to_Accounts__c</leftValueReference>
+                <operator>NotEqualTo</operator>
+                <rightValue>
+                    <stringValue>No</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Update_Quote_Multiple_Ship_Tos_to_No</targetReference>
+            </connector>
+            <label>If No</label>
+        </rules>
+    </decisions>
+    <description>All the Ship To Accounts on the QuoteLine should be with in the parent Hierarchy except the Strategic Partner.
+Logic for Multiple Ship To Account On Quote and QuoteLine- BOPI-567.
+BOPI-669 Added Validation Rule ByPass to prevent error when creating the order.
+BOPI-841 Updated to fix a bug where the &apos;Multiple_Ship_To_Accounts__c&apos; field was not being populated on amendment quotes.
+BOPI-929 , SALDEV-1068 Optimized the flow
+
+SALDEV-1473: Flow now runs on both created and updated. Before it was running only when record is updated</description>
+    <environments>Default</environments>
+    <interviewLabel>QuoteLine After Record Triggered Flow {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>QuoteLine After Record Triggered Flow</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <recordLookups>
+        <name>Get_Strategic_Partner_RecordType</name>
+        <label>Get Strategic Partner RecordType</label>
+        <locationX>880</locationX>
+        <locationY>431</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Is_Starategic_Partner</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>SobjectType</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>Account</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>DeveloperName</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>Strategic_Partner</stringValue>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>RecordType</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordUpdates>
+        <name>Update_Opp_Type</name>
+        <label>Update Opp Type</label>
+        <locationX>748</locationX>
+        <locationY>1523</locationY>
+        <inputAssignments>
+            <field>Type</field>
+            <value>
+                <stringValue>Renewal + Upsell</stringValue>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record.SBQQ__Quote__r.SBQQ__Opportunity2__r</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>Update_Quote_Multiple_Ship_Tos_to_No</name>
+        <label>Update Quote Multiple Ship Tos to No</label>
+        <locationX>754</locationX>
+        <locationY>863</locationY>
+        <connector>
+            <targetReference>Check_for_QuoteLine_Type</targetReference>
+        </connector>
+        <inputAssignments>
+            <field>Multiple_Ship_to_Accounts__c</field>
+            <value>
+                <stringValue>No</stringValue>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record.SBQQ__Quote__r</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>Update_Quote_Record</name>
+        <label>Update Quote Record</label>
+        <locationX>314</locationX>
+        <locationY>971</locationY>
+        <connector>
+            <targetReference>Check_for_QuoteLine_Type</targetReference>
+        </connector>
+        <inputAssignments>
+            <field>Multiple_Ship_to_Accounts__c</field>
+            <value>
+                <stringValue>Yes</stringValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Quote_Bypass_DateTime__c</field>
+            <value>
+                <elementReference>$Flow.CurrentDateTime</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record.SBQQ__Quote__r</inputReference>
+    </recordUpdates>
+    <start>
+        <locationX>754</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Get_Ultimate_Parent_Id</targetReference>
+        </connector>
+        <object>SBQQ__QuoteLine__c</object>
+        <recordTriggerType>CreateAndUpdate</recordTriggerType>
+        <triggerType>RecordAfterSave</triggerType>
+    </start>
+    <status>Obsolete</status>
+    <variables>
+        <name>AccountIdCollection</name>
+        <dataType>SObject</dataType>
+        <isCollection>true</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+        <objectType>Account</objectType>
+    </variables>
+    <variables>
+        <name>DifferentShipToLinesWithinHierarchy</name>
+        <dataType>SObject</dataType>
+        <isCollection>true</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+        <objectType>SBQQ__QuoteLine__c</objectType>
+    </variables>
+    <variables>
+        <name>LinesWithBadAccount</name>
+        <dataType>SObject</dataType>
+        <isCollection>true</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+        <objectType>SBQQ__QuoteLine__c</objectType>
+    </variables>
+    <variables>
+        <name>LineWithBadAccount</name>
+        <dataType>SObject</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+        <objectType>SBQQ__QuoteLine__c</objectType>
+    </variables>
+    <variables>
+        <name>LineWithinTheHierarchy</name>
+        <dataType>SObject</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+        <objectType>SBQQ__QuoteLine__c</objectType>
+    </variables>
+    <variables>
+        <name>ParentId</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <name>QuoteCollection2</name>
+        <dataType>SObject</dataType>
+        <isCollection>true</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+        <objectType>SBQQ__QuoteLine__c</objectType>
+    </variables>
+    <variables>
+        <name>QuoteLineList2Records</name>
+        <dataType>SObject</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+        <objectType>SBQQ__QuoteLine__c</objectType>
+    </variables>
+</Flow>

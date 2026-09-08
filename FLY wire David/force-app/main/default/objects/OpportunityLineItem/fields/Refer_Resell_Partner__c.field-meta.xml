@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Refer_Resell_Partner__c</fullName>
+    <deleteConstraint>SetNull</deleteConstraint>
+    <description>Field to better distinguish the type of relationship this Opp has to our Partner. To work with the &apos;Partner Name&apos; which used to be Referred by Partner. Twinned from Quote Line BOPI-512</description>
+    <inlineHelpText>Choose the type of Partnership this Opportunity has with the Partner, listed in &quot;Partner&quot; field.</inlineHelpText>
+    <label>Refer/Resell Partner</label>
+    <referenceTo>Account</referenceTo>
+    <relationshipLabel>Opportunity Product (Refer/Resell Partner)</relationshipLabel>
+    <relationshipName>Opportunity_Product1</relationshipName>
+    <required>false</required>
+    <type>Lookup</type>
+</CustomField>

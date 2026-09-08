@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PermissionSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>SCC-3380: Lets NOC users manage Incident-to-Case relationships through Case Related Issue, confirm bulk close of related Trouble Tickets, and run Incidents with Related Cases reports.</description>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Case.ParentId</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Case.Related_Outage__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Incident.Close_Related_Trouble_Tickets__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <hasActivationRequired>false</hasActivationRequired>
+    <label>SCC-3380 NOC Incident Case Relationship</label>
+    <tabSettings>
+        <tab>standard-Incident</tab>
+        <visibility>Visible</visibility>
+    </tabSettings>
+</PermissionSet>

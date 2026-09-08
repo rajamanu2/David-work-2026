@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Nate_Reassigned_Leads_Nurture</fullName>
+    <columns>LEAD.COMPANY</columns>
+    <columns>BDR_Owner__c</columns>
+    <columns>FULL_NAME</columns>
+    <columns>LEAD.EMAIL</columns>
+    <columns>Lead_Person_Status__c</columns>
+    <columns>LEAD.LAST_ACTIVITY</columns>
+    <columns>LEAD.CREATED_DATE</columns>
+    <columns>CORE.USERS.ALIAS</columns>
+    <columns>LEAD.LAST_UPDATE</columns>
+    <columns>UPDATEDBY_USER.ALIAS</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Lead_Person_Status__c</field>
+        <operation>equals</operation>
+        <value>Nurture</value>
+    </filters>
+    <filters>
+        <field>LEAD.LAST_UPDATE</field>
+        <operation>equals</operation>
+        <value>9/18/2023 12:00 AM</value>
+    </filters>
+    <filters>
+        <field>UPDATEDBY_USER.ALIAS</field>
+        <operation>equals</operation>
+        <value>sbanks</value>
+    </filters>
+    <label>Nate Reassigned Leads- Nurture</label>
+    <sharedTo>
+        <group>All_Travel</group>
+    </sharedTo>
+</ListView>

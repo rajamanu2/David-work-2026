@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PathAssistant xmlns="http://soap.sforce.com/2006/04/metadata">
+    <active>true</active>
+    <entityName>Opportunity</entityName>
+    <fieldName>StageName</fieldName>
+    <masterLabel>Travel Opp</masterLabel>
+    <pathAssistantSteps>
+        <fieldNames>CloseDate</fieldNames>
+        <fieldNames>NextStep</fieldNames>
+        <info>&lt;p&gt;Use Bid/No Bid button to complete Bid/No Bid form. If approved, then use &amp;#39;Create Loopio Project&amp;#39; button to request a response to RFP by the RFP team. Note: during an active RFP we should not be contacting the prospect&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;To go to next step:&lt;/p&gt;&lt;ul&gt;&lt;li&gt;Update Key Fields&lt;/li&gt;&lt;/ul&gt;</info>
+        <picklistValueName>Active RFP</picklistValueName>
+    </pathAssistantSteps>
+    <pathAssistantSteps>
+        <fieldNames>Competitor_Name__c</fieldNames>
+        <fieldNames>Lost_Reason__c</fieldNames>
+        <fieldNames>Lost_Sub_Reason__c</fieldNames>
+        <fieldNames>Lost_Reason_Details__c</fieldNames>
+        <info>&lt;ul&gt;&lt;li&gt;&lt;span style=&quot;font-family: Arial; font-size: 10pt;&quot;&gt;Provide Lost Reason and Lost Sub-Reason&lt;/span&gt;&lt;/li&gt;&lt;/ul&gt;</info>
+        <picklistValueName>Closed Lost</picklistValueName>
+    </pathAssistantSteps>
+    <pathAssistantSteps>
+        <info>&lt;ul&gt;&lt;li&gt;&lt;span style=&quot;font-size: 10pt; font-family: Arial;&quot;&gt;Kick-off onboarding process by creating the Build Request and sending it to Implementation.&lt;/span&gt;&lt;/li&gt;&lt;/ul&gt;</info>
+        <picklistValueName>Closed Won</picklistValueName>
+    </pathAssistantSteps>
+    <pathAssistantSteps>
+        <fieldNames>CloseDate</fieldNames>
+        <fieldNames>NextStep</fieldNames>
+        <info>&lt;ul&gt;&lt;li&gt;Demo Product&lt;/li&gt;&lt;li&gt;Prospect receptive/ product demo meets needs&lt;/li&gt;&lt;li&gt;Possibility of implementation&lt;/li&gt;&lt;li&gt;Initial pricing presented&lt;/li&gt;&lt;li&gt;Stakeholders Identified and added to Opp via &amp;#39;Contact Roles&amp;#39;&lt;/li&gt;&lt;/ul&gt;&lt;p&gt;&lt;strong style=&quot;font-size: 13px;&quot;&gt;Additional required fields:&lt;/strong&gt;&lt;/p&gt;&lt;ul&gt;&lt;li&gt;&lt;span style=&quot;font-size: 10pt; font-family: Arial;&quot;&gt;Ensure that Account Record has &amp;#39;Client Legal Entity Name&amp;#39;, &amp;#39;Billing Address&amp;#39;, Shipping Address&amp;#39;, &amp;#39;Separate Legal Entity/Tax ID&amp;#39; is complete.&lt;/span&gt;&lt;/li&gt;&lt;li&gt;&lt;span style=&quot;font-size: 10pt; font-family: Arial;&quot;&gt;Confirm currency on Account &amp;amp; Opportunity &lt;/span&gt;&lt;/li&gt;&lt;li&gt;&lt;strong style=&quot;font-size: 13px;&quot;&gt;Create Quote to Add Products &lt;/strong&gt;&lt;span style=&quot;font-size: 13px;&quot;&gt;to opportunity &lt;/span&gt;if not complete – (note: if ARR is less than $5000, the Opp is not worth continuing). &lt;span style=&quot;font-size: 12px;&quot;&gt;Est Annual MM&lt;/span&gt; should be added to Quote Line Item.&lt;/li&gt;&lt;li&gt;Update Key Fields&lt;/li&gt;&lt;/ul&gt;</info>
+        <picklistValueName>Demo/Building Support</picklistValueName>
+    </pathAssistantSteps>
+    <pathAssistantSteps>
+        <fieldNames>Type</fieldNames>
+        <fieldNames>CloseDate</fieldNames>
+        <fieldNames>NextStep</fieldNames>
+        <info>&lt;ul&gt;&lt;li&gt;Assess prospect to determine if there is an Opportunity and they are worth going after.&lt;/li&gt;&lt;li&gt;Understand prospect needs, our products align with their needs, Identify the stakeholders&lt;/li&gt;&lt;li&gt;&lt;strong&gt;Create Quote to Add Products&lt;/strong&gt; to opportunity (note: if ARR is less than $5000, the Opp is not worth continuing). &lt;span style=&quot;font-size: 12px;&quot;&gt;Est Annual MM&lt;/span&gt; should be added to Quote Line Item.&lt;/li&gt;&lt;li&gt;Fill in &lt;span style=&quot;font-size: 13px;&quot;&gt; &amp;#39;Account Sub Industry&amp;#39; (Should not be just Travel - must select &amp;#39;Accommodations&amp;#39;, &amp;#39;DMC&amp;#39; or &amp;#39;Travel Operator&amp;#39;) &lt;/span&gt;&lt;span style=&quot;font-size: 13.3333px; font-family: Arial;&quot;&gt; &amp;#39;Billing Address&amp;#39;, Shipping Address&amp;#39;, &amp;#39;Separate Legal Entity/Tax ID&amp;#39; is complete.&lt;/span&gt;&lt;/li&gt;&lt;/ul&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;To go to next Stage:&lt;/p&gt;&lt;ul&gt;&lt;li&gt;Fill in Key Fields&lt;/li&gt;&lt;/ul&gt;</info>
+        <picklistValueName>Discovery/Qualifying</picklistValueName>
+    </pathAssistantSteps>
+    <pathAssistantSteps>
+        <fieldNames>CloseDate</fieldNames>
+        <fieldNames>NextStep</fieldNames>
+        <info>&lt;p&gt;To submit Opportunity for Approval: &lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;ul&gt;&lt;li&gt;All Opportunity record fields are complete and you have no further modifications to any fields or notes on the record.&lt;/li&gt;&lt;li&gt;Quote must be in &amp;#39;Customer Approved&amp;#39; status&lt;/li&gt;&lt;li&gt;KYC Approval for the Contracted and Ship To Account(s) is complete. &lt;/li&gt;&lt;li&gt;Finalize any outstanding ARR fields, these fields are required for the Opportunity approval process and once submitted to Legal the Opportunity can get closed by the Flywire Legal Team at any point.&lt;/li&gt;&lt;li&gt;Complete the “Note to Legal” field – provide information such as requests from the customer for contract dates/terms to the Flywire Legal Team.&lt;/li&gt;&lt;/ul&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;Click &amp;quot;Preview Approval&amp;quot; when ready to submit. &lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;The Opportunity is checked by the Deal Desk Approval Team(s) in-order by: Credit Risk Team, Finance / Revenue Team (if applicable), &amp;amp; Legal Team. If there are any issues the approval team will reach out to you.&lt;/p&gt;</info>
+        <picklistValueName>Legal</picklistValueName>
+    </pathAssistantSteps>
+    <pathAssistantSteps>
+        <fieldNames>CloseDate</fieldNames>
+        <fieldNames>NextStep</fieldNames>
+        <info>&lt;ul&gt;&lt;li&gt;Contact with all stakeholders&lt;/li&gt;&lt;li&gt;&lt;span style=&quot;font-size: 10pt; font-family: Arial;&quot;&gt;Ensure that Account Record has &amp;#39;Client Legal Entity Name&amp;#39;, &amp;#39;Billing Address&amp;#39;, Shipping Address&amp;#39;, &amp;#39;Separate Legal Entity/Tax ID&amp;#39;, complete.&lt;/span&gt;&lt;/li&gt;&lt;li&gt;&lt;strong&gt;Gain approval for Quote&lt;/strong&gt; (if not complete) – Agreement on Pricing, Timing, Product and Implementation Next Steps&lt;/li&gt;&lt;li&gt;Prospect showing intent to buy&lt;/li&gt;&lt;li&gt;&lt;span style=&quot;font-size: 13px;&quot;&gt;Request KYC, where applicable&lt;/span&gt;&lt;/li&gt;&lt;li&gt;Update Key Fields&lt;/li&gt;&lt;/ul&gt;</info>
+        <picklistValueName>Proposal/Negotiating</picklistValueName>
+    </pathAssistantSteps>
+    <pathAssistantSteps>
+        <fieldNames>CloseDate</fieldNames>
+        <fieldNames>NextStep</fieldNames>
+        <info>&lt;ul&gt;&lt;li&gt;&lt;span style=&quot;font-family: Arial; font-size: 10pt;&quot;&gt;Verbal commitment from prospect to move the deal forward including Product(s), Timing, Pricing&lt;/span&gt;&lt;/li&gt;&lt;/ul&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot;font-family: Arial; font-size: 13.3333px;&quot;&gt;To go to next stage: &lt;/span&gt;&lt;/p&gt;&lt;ul&gt;&lt;li&gt;Update key Fields&lt;/li&gt;&lt;li&gt;Quote must have &amp;#39;Customer Approved&amp;#39; status&lt;/li&gt;&lt;li&gt;&lt;span style=&quot;font-size: 13px;&quot;&gt;KYC Approval must be complete. &lt;/span&gt;&lt;/li&gt;&lt;/ul&gt;</info>
+        <picklistValueName>Verbal Selection</picklistValueName>
+    </pathAssistantSteps>
+    <recordTypeName>Travel</recordTypeName>
+</PathAssistant>

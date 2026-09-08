@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Rental_Action__c</fullName>
+    <label>Rental Return Action</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Charge customer for damage</fullName>
+                <default>false</default>
+                <label>Charge customer for damage</label>
+            </value>
+            <value>
+                <fullName>No further action required</fullName>
+                <default>false</default>
+                <label>No further action required</label>
+            </value>
+            <value>
+                <fullName>Repair without charging customer for damage</fullName>
+                <default>false</default>
+                <label>Repair without charging customer for damage</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

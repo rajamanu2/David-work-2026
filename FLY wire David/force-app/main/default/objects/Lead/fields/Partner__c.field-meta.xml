@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Partner__c</fullName>
+    <description>To distinguish between Client or potential client Contacts versus Partner (Player, partners, bank partner etc).</description>
+    <inlineHelpText>Select No, if this person is associated with a Sales Account. If they are associated with a Partner  (Player, strategic partner, bank partner etc), choose Yes. 3/9/20 Update: No longer using this. Use Partner Type, instead.</inlineHelpText>
+    <label>Partner?</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>true</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Yes</fullName>
+                <default>false</default>
+                <label>Yes</label>
+            </value>
+            <value>
+                <fullName>No</fullName>
+                <default>false</default>
+                <label>No</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

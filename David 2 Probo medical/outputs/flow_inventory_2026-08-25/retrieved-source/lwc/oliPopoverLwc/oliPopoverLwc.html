@@ -1,0 +1,27 @@
+<template>
+    <div>
+        <template if:true={currentRecordId} >
+            <lightning-record-view-form
+                    record-id={currentRecordId}
+                    object-api-name="ProductItem__c">
+                <div class="slds-box" style='{boxClass}'>
+                    <template if:true={isDynamic}>
+                        <template for:each={columnsToShow} for:item='field'>
+                            <div key={field}><lightning-output-field field-name='{field}'></lightning-output-field></div>
+                        </template>    
+                    </template>   
+                    <template if:false={isDynamic}>
+                        <lightning-output-field field-name="Functional_Notes__c">
+                        </lightning-output-field>
+                        <lightning-output-field field-name="Cosmetic_Notes__c">
+                        </lightning-output-field>
+                        <lightning-output-field field-name="Repair_Summary__c">
+                        </lightning-output-field>
+                        <lightning-output-field field-name="Review_Status_Notes__c">
+                        </lightning-output-field>
+                    </template>
+                </div>
+            </lightning-record-view-form>
+        </template>
+    </div>  
+</template>

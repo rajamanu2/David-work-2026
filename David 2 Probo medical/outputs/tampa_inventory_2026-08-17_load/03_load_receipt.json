@@ -1,0 +1,89 @@
+{
+  "generatedAt": "2026-08-19T19:11:26.979Z",
+  "source": {
+    "path": "C:/Users/LIKKI/Downloads/Copy of TampaInventory_Dataloader_08172026_BN.xlsx",
+    "sha256": "15FC03C1E63D5B17BFAE38183C624B59D17E63C672B86ED7817319BCCA67C0FB",
+    "rows": 1798,
+    "targetDate": "2026-08-17"
+  },
+  "targetOrg": {
+    "alias": "ProboMedical",
+    "orgId": "00DU0000000LaKoMAK",
+    "name": "Probo Medical",
+    "isSandbox": false,
+    "username": "dokolo@probomedical.com"
+  },
+  "operation": {
+    "object": "ProductItem__c",
+    "type": "update",
+    "approvedScope": "all 1,798 Tampa workbook rows, including the 54 preflight exceptions",
+    "fields": [
+      "Id",
+      "Location__c",
+      "Sub_Location__c",
+      "Current_Location__c",
+      "Inventory_Count_Date__c",
+      "Stock_Checked__c"
+    ],
+    "targetDate": "2026-08-17",
+    "subLocationResult": "cleared to null on all 1,798 records",
+    "nullStrategy": "Bulk API #N/A sentinel in Sub_Location__c"
+  },
+  "jobs": [
+    {
+      "scope": "pilot",
+      "jobId": "750jR000000CD9eQAG",
+      "state": "JobComplete",
+      "processed": 10,
+      "successful": 10,
+      "failed": 0,
+      "retries": 0
+    },
+    {
+      "scope": "main_remaining",
+      "jobId": "750jR000000C2vjQAC",
+      "state": "JobComplete",
+      "processed": 1788,
+      "successful": 1788,
+      "failed": 0,
+      "retries": 0
+    }
+  ],
+  "totals": {
+    "processed": 1798,
+    "successful": 1798,
+    "failed": 0
+  },
+  "verification": {
+    "queriedRecords": 1798,
+    "expectedRecords": 1798,
+    "missingRecords": [],
+    "unexpectedRecords": [],
+    "fieldMismatches": [],
+    "fieldsChecked": [
+      "Location__c",
+      "Sub_Location__c",
+      "Current_Location__c",
+      "Inventory_Count_Date__c",
+      "Stock_Checked__c"
+    ],
+    "passed": true
+  },
+  "artifacts": [
+    {
+      "file": "00_rollback_backup_1798.csv",
+      "rows": 1798,
+      "sha256": "1527A14591BE4E23284BB335D28BA6017FC043C0A71C2D8B9598BEE2DD4B4299"
+    },
+    {
+      "file": "01_pilot_update_10.csv",
+      "rows": 10,
+      "sha256": "537525FB6AC1CF81FD0236B74C44B0F8F70072CFD2E963C6CF7C8BCCF184557A"
+    },
+    {
+      "file": "02_main_remaining_update_1788.csv",
+      "rows": 1788,
+      "sha256": "C89043F4D0AD6DCDA393403624B9A96ACC9448245A6469BFE0C56B11F39CC87F"
+    }
+  ]
+}

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Aggregate_GM__c</fullName>
+    <description>Aggregate of Prod Config GM Revenue - Cost / Revenue % - SAL-2767
+Not needed, this is now calculated in Flow.</description>
+    <formula>( Acc_GM_Revenue__c - Acc_GM_Cost__c )/Acc_GM_Revenue__c</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <inlineHelpText>Aggregate of Prod Config GM Revenue - Cost / Revenue in %</inlineHelpText>
+    <label>Aggregate GM%</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>0</scale>
+    <trackHistory>false</trackHistory>
+    <type>Percent</type>
+</CustomField>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>PricingTicketLinkCantBeUpdatedifOppClose</fullName>
+    <active>false</active>
+    <description>Pricing Ticket Link cannot be updated if the Opportunity is Closed</description>
+    <errorConditionFormula>AND (
+   $Profile.Name &lt;&gt; &apos;System Administrator&apos;,
+   IsClosed = True,
+   ISCHANGED(Pricing_Ticket_Link__c)
+  )
+&amp;&amp; Opp_Val_Bypass__c = false</errorConditionFormula>
+    <errorDisplayField>Pricing_Ticket_Link__c</errorDisplayField>
+    <errorMessage>You can not update a Closed Opportunity. If you need a correction made, please submit a ticket in Jira for your Salesforce Administrator and include the link to this Opportunity and the link for the Pricing Ticket.</errorMessage>
+</ValidationRule>

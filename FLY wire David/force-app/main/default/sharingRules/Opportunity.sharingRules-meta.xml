@@ -1,0 +1,219 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SharingRules xmlns="http://soap.sforce.com/2006/04/metadata">
+    <sharingCriteriaRules>
+        <fullName>Agents_RM_Opp</fullName>
+        <accessLevel>Edit</accessLevel>
+        <description>Share read access to Agent Opps with Agent RM</description>
+        <label>Agents RM Opp</label>
+        <sharedTo>
+            <group>Agents_RM</group>
+        </sharedTo>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Agents</value>
+        </criteriaItems>
+        <includeRecordsOwnedByAll>false</includeRecordsOwnedByAll>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>B2b_Opp</fullName>
+        <accessLevel>Read</accessLevel>
+        <description>Share View Access with B2B Team</description>
+        <label>B2b Opp</label>
+        <sharedTo>
+            <group>All_B2B</group>
+        </sharedTo>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>B2B</value>
+        </criteriaItems>
+        <includeRecordsOwnedByAll>false</includeRecordsOwnedByAll>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>HC_Opp</fullName>
+        <accessLevel>Read</accessLevel>
+        <label>HC Opp</label>
+        <sharedTo>
+            <group>All_HC</group>
+        </sharedTo>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Healthcare</value>
+        </criteriaItems>
+        <includeRecordsOwnedByAll>false</includeRecordsOwnedByAll>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>HC_RM</fullName>
+        <accessLevel>Edit</accessLevel>
+        <label>HC RM</label>
+        <sharedTo>
+            <role>RM_HC</role>
+        </sharedTo>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Healthcare</value>
+        </criteriaItems>
+        <includeRecordsOwnedByAll>true</includeRecordsOwnedByAll>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>Integration_Edit</fullName>
+        <accessLevel>Edit</accessLevel>
+        <description>Allow Inteegration Accounts (Admin) Role to edit Opps</description>
+        <label>Integration Edit</label>
+        <sharedTo>
+            <role>Admin</role>
+        </sharedTo>
+        <booleanFilter>1 OR 2</booleanFilter>
+        <criteriaItems>
+            <field>IsClosed</field>
+            <operation>equals</operation>
+            <value>True</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>IsClosed</field>
+            <operation>equals</operation>
+            <value>False</value>
+        </criteriaItems>
+        <includeRecordsOwnedByAll>false</includeRecordsOwnedByAll>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>Latam_Sales_Cross_Vertical_Opps</fullName>
+        <accessLevel>Edit</accessLevel>
+        <description>Grants permission for LATAM Sales to create HC, B2B and Travel Opps</description>
+        <label>Latam Sales Cross Vertical Opps</label>
+        <sharedTo>
+            <group>Edu_access_to_HC_Opps</group>
+        </sharedTo>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Travel,Healthcare,B2B</value>
+        </criteriaItems>
+        <includeRecordsOwnedByAll>true</includeRecordsOwnedByAll>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>Opp_Travel</fullName>
+        <accessLevel>Read</accessLevel>
+        <description>Share visibility of Opps to all Travel team</description>
+        <label>Opp Travel</label>
+        <sharedTo>
+            <group>All_Travel</group>
+        </sharedTo>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Travel</value>
+        </criteriaItems>
+        <includeRecordsOwnedByAll>false</includeRecordsOwnedByAll>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>Primary_Campaign</fullName>
+        <accessLevel>Edit</accessLevel>
+        <description>Users who can edit Primary Campaign on all Opps</description>
+        <label>Primary Campaign</label>
+        <sharedTo>
+            <group>Primary_Campaign_Editors</group>
+        </sharedTo>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>notEqual</operation>
+            <value>Simplee Healthcare,Healthcare SOW</value>
+        </criteriaItems>
+        <includeRecordsOwnedByAll>false</includeRecordsOwnedByAll>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>RM_B2B</fullName>
+        <accessLevel>Edit</accessLevel>
+        <label>RM B2B</label>
+        <sharedTo>
+            <role>RM_B2B</role>
+        </sharedTo>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>B2B</value>
+        </criteriaItems>
+        <includeRecordsOwnedByAll>true</includeRecordsOwnedByAll>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>RM_Edu</fullName>
+        <accessLevel>Edit</accessLevel>
+        <label>RM Edu</label>
+        <sharedTo>
+            <role>RM_Edu</role>
+        </sharedTo>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Education</value>
+        </criteriaItems>
+        <includeRecordsOwnedByAll>true</includeRecordsOwnedByAll>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>Share_Opps_Edu</fullName>
+        <accessLevel>Read</accessLevel>
+        <label>Share Opps Edu</label>
+        <sharedTo>
+            <group>All_Edu</group>
+        </sharedTo>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Education</value>
+        </criteriaItems>
+        <includeRecordsOwnedByAll>false</includeRecordsOwnedByAll>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>Travel_Edu</fullName>
+        <accessLevel>Edit</accessLevel>
+        <label>Travel Edu</label>
+        <sharedTo>
+            <role>RM_Travel</role>
+        </sharedTo>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Travel</value>
+        </criteriaItems>
+        <includeRecordsOwnedByAll>true</includeRecordsOwnedByAll>
+    </sharingCriteriaRules>
+    <sharingOwnerRules>
+        <fullName>Marketing_Dir_View</fullName>
+        <accessLevel>Edit</accessLevel>
+        <description>Allow Marketing director to view and Edit all Opps and their products</description>
+        <label>Marketing Dir View</label>
+        <sharedTo>
+            <group>Marketing</group>
+        </sharedTo>
+        <sharedFrom>
+            <roleAndSubordinatesInternal>Admin</roleAndSubordinatesInternal>
+        </sharedFrom>
+    </sharingOwnerRules>
+    <sharingOwnerRules>
+        <fullName>Share_All_With_Approver_Teams</fullName>
+        <accessLevel>Edit</accessLevel>
+        <description>Share Opportunities with Legal, Finance, Pricing, Credit Risk teams</description>
+        <label>Share All With Approver Teams</label>
+        <sharedTo>
+            <group>Legal_Fin_CR_Pricing</group>
+        </sharedTo>
+        <sharedFrom>
+            <allInternalUsers></allInternalUsers>
+        </sharedFrom>
+    </sharingOwnerRules>
+    <sharingOwnerRules>
+        <fullName>Support</fullName>
+        <accessLevel>Edit</accessLevel>
+        <description>Give all support profile users access to write to Opp</description>
+        <label>Support</label>
+        <sharedTo>
+            <role>Support_Services</role>
+        </sharedTo>
+        <sharedFrom>
+            <roleAndSubordinatesInternal>Admin</roleAndSubordinatesInternal>
+        </sharedFrom>
+    </sharingOwnerRules>
+</SharingRules>

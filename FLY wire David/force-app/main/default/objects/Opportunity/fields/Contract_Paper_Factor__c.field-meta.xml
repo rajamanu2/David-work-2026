@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Contract_Paper_Factor__c</fullName>
+    <description>BOPI-30 Used in ARR calculations for HC. Discount based on Contract Paper selection</description>
+    <formula>IF(ISPICKVAL(Contract_Paper__c ,&quot;Flywire&quot;), 1,
+IF(ISPICKVAL(Contract_Paper__c ,&quot;Oracle&quot;), 1,
+IF(ISPICKVAL(Contract_Paper__c ,&quot;CommWX&quot;), 1,
+IF(ISPICKVAL(Contract_Paper__c ,&quot;FinThrive&quot;), 1,
+IF(ISPICKVAL(Contract_Paper__c ,&quot;FinVi Ontario Systems&quot;), 0.7,
+0)))))</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <inlineHelpText>Discount applied in ARR based on Contract Paper selection</inlineHelpText>
+    <label>Contract Paper Factor</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>2</scale>
+    <trackHistory>false</trackHistory>
+    <type>Percent</type>
+</CustomField>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Tax_ID_Required_to_move_to_Legal</fullName>
+    <active>true</active>
+    <description>If the Account has a Separate Legal Entity/Tax ID value of &quot;Yes&quot; then Tax ID field is required to move Stage to Legal.
+BOPI-460 Criteria from Legal to Verbal, added system user bypass
+BOPI-600 updated to prevent auto renewals from stopping. 
+BOPI-943</description>
+    <errorConditionFormula>AND(
+    $Profile.Name &lt;&gt; &apos;System Administrator&apos;,
+    $Profile.Name &lt;&gt; &quot;B - Looker&quot;,
+    $User.Alias &lt;&gt; &quot;Workato&quot;,
+    Pricebook2.Name = &apos;CPQ&apos;,
+    Probability &gt; 0.80,
+    ISBLANK(Account.Tax_Id__c),
+    NOT(ISPICKVAL(Type, &quot;Auto Renewal&quot;))
+)
+&amp;&amp; Opp_Val_Bypass__c = false</errorConditionFormula>
+    <errorMessage>Tax ID must be populated on the Opportunity&apos;s Account</errorMessage>
+</ValidationRule>

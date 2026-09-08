@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>PricebookEntry$Product2</field>
+    </columns>
+    <columns>
+        <field>PricebookEntry$Pricebook2</field>
+    </columns>
+    <columns>
+        <field>PricebookEntry$Product2.Description</field>
+    </columns>
+    <columns>
+        <field>PricebookEntry$Product2.Platform__c</field>
+    </columns>
+    <columns>
+        <field>PricebookEntry$Product2.Family</field>
+    </columns>
+    <columns>
+        <field>PricebookEntry$Product2.ProductCode</field>
+    </columns>
+    <columns>
+        <field>PricebookEntry$CreatedDate</field>
+    </columns>
+    <currency>USD</currency>
+    <description>Report of Active Products in Pricebook</description>
+    <filter>
+        <criteriaItems>
+            <column>PricebookEntry$IsActive</column>
+            <columnToColumn>false</columnToColumn>
+            <isUnlocked>true</isUnlocked>
+            <operator>equals</operator>
+            <value>1</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>PricebookEntry$IsActive</column>
+            <columnToColumn>false</columnToColumn>
+            <isUnlocked>true</isUnlocked>
+            <operator>equals</operator>
+            <value>1</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>PricebookEntry$Pricebook2</column>
+            <columnToColumn>false</columnToColumn>
+            <isUnlocked>true</isUnlocked>
+            <operator>notEqual</operator>
+            <value>Standard Price Book</value>
+        </criteriaItems>
+    </filter>
+    <format>Tabular</format>
+    <name>Active Pricebook Entries Report</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>Pricebook_Entries__c</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <showGrandTotal>true</showGrandTotal>
+    <showSubTotals>true</showSubTotals>
+    <sortColumn>PricebookEntry$Product2</sortColumn>
+    <sortOrder>Asc</sortOrder>
+    <timeFrameFilter>
+        <dateColumn>PricebookEntry$CreatedDate</dateColumn>
+        <interval>INTERVAL_CUSTOM</interval>
+    </timeFrameFilter>
+</Report>

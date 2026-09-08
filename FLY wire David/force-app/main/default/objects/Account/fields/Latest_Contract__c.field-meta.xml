@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Latest_Contract__c</fullName>
+    <deleteConstraint>SetNull</deleteConstraint>
+    <description>Auto populated by Flow, look through all contracts linked to Account and select the latest activated or executed contract record.</description>
+    <inlineHelpText>The Latest Active/Executed Contract Record linked to this Account. (Auto populated)</inlineHelpText>
+    <label>Latest Contract</label>
+    <referenceTo>Contract</referenceTo>
+    <relationshipLabel>Accounts (Latest Contract)</relationshipLabel>
+    <relationshipName>AccountsLastContract</relationshipName>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Lookup</type>
+</CustomField>

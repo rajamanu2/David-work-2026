@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<FlowDefinition xmlns="http://soap.sforce.com/2006/04/metadata">
+    <activeVersionNumber>11</activeVersionNumber>
+    <description>Check For Approval Record Status and update the Opportunity Stage accordingly to Verbal Selection or Closed Won.
+Automate the Legal Approval Request to auto approved. Updated BOPI-554 Notify users when opp is auto closed/won.
+BOPI-525 Updated to include an entry criteria
+BOPI-669 Close won Opp only after CR approval
+BOPI-799 Add an update to the Previous Stage field to trigger Process Builder slack messages
+BOPI-844 Create a ByPass for approvals to allow moving Opportunities to &apos;Closed Won&apos; without having to go through an approval process.
+BOPI-846 Use the validation rule ByPass to prevent the quote update from failing.
+BOPII-951 Update Ship To Account on Opp Account Update
+SALDEV-1357 Added the decision to check PrimaryQuote IsBlank.</description>
+    <masterLabel>Opportunity After Record Triggered Flow</masterLabel>
+</FlowDefinition>

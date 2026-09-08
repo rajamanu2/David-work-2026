@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Net_ARR__c</fullName>
+    <description>This number reflects the difference between the original Opportunity Product Line ARR and the renewal actual last 12 months ARR
+BOPI-589 relabeled to better describe the purpose of the field</description>
+    <externalId>false</externalId>
+    <formula>Opp_Product_ARR__c - Baseline_ARR__c</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <inlineHelpText>This number reflects the difference between the original Opportunity Product Line ARR and the renewal actual last 12 months ARR</inlineHelpText>
+    <label>Renewal Net ARR</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>2</scale>
+    <type>Number</type>
+    <unique>false</unique>
+</CustomField>

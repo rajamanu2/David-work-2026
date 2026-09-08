@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>PAS_Accounts</fullName>
+    <booleanFilter>(1 OR 2)</booleanFilter>
+    <columns>ACCOUNT.NAME</columns>
+    <columns>Agent_Client__c</columns>
+    <columns>Agents__c</columns>
+    <filterScope>Mine</filterScope>
+    <filters>
+        <field>Agent_Client__c</field>
+        <operation>equals</operation>
+        <value>Yes - Agent Requested</value>
+    </filters>
+    <filters>
+        <field>Agent_Client__c</field>
+        <operation>equals</operation>
+        <value>Yes</value>
+    </filters>
+    <label>My PAS Accounts</label>
+    <sharedTo>
+        <group>All_Edu</group>
+    </sharedTo>
+</ListView>

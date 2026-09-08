@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>PC_Must_Have_Product</fullName>
+    <active>true</active>
+    <description>Portal code must be filled out on non CRS and Agent portals.</description>
+    <errorConditionFormula>AND(
+$Profile.Name &lt;&gt; &apos;System Administrator&apos;,
+$Profile.Name &lt;&gt; &apos;A - Solutions/CST&apos;,
+$Profile.Name &lt;&gt; &quot;B - Looker&quot;,
+RecordType.Name = &apos;Portal&apos;,
+ISBLANK(Product__c), 
+NOT(
+ISPICKVAL( Portal_Type__c , &apos;AGT - Agent&apos;)
+)
+)</errorConditionFormula>
+    <errorDisplayField>Product__c</errorDisplayField>
+    <errorMessage>Must include what Product on the Opportunity this Prod Config record is for.</errorMessage>
+</ValidationRule>

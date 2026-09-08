@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Priority_Status__c</fullName>
+    <description>Used by Marketo to determine the priority of the person based on a matrix calculation of demographic &amp; behavioral scoring. SAL-4910</description>
+    <inlineHelpText>Displays the priority of the person based on a matrix calculation of demographic &amp; behavioral scoring. Priority 1 = Top priority with Priority 4 = Low priority.</inlineHelpText>
+    <label>Priority Status</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetName>Priority_Status</valueSetName>
+    </valueSet>
+</CustomField>

@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <encodingKey>UTF-8</encodingKey>
+    <name>Termination Notice Brexit (March 2021).1. Email (General)</name>
+    <style>none</style>
+    <subject>Termination of your payment service provided by Flywire</subject>
+    <textOnly>Dear {{lead.First Name:default=Friend}} {{lead.Last Name:default=edit me}},
+
+Further to our multiple communications over recent months, I am writing to confirm that Flywire must now terminate the services that we provide to you and, in turn, terminate our payment processing agreement with you (the “Contract”) as of March 1, 2021. This is due to the fact that we have not received the updated, required KYC documentation that we requested in order to contractually assign your account from our UK entity to our EU (Lithuania) entity as a result of Brexit.
+
+I understand that this news may be disappointing, but I would respectfully highlight that Flywire has communicated with your organisation on multiple occasions 
+over the past 6 months, using different channels to request the limited information that we needed to continue to serve you in a post-Brexit world. Because the necessary information has not been provided and verified by our compliance team as required under the law, we have been left with no choice but to terminate the Contract.
+
+
+
+What happens now?
+
+Your payment portal(s) for {{company.Company Name:default=your institution}} have been deactivated. Your customers can no longer access the payment portal to make payments. Similarly, your dashboard has been deactivated. All funds received prior to deactivation have been paid out to your institution.
+
+
+What about chargebacks?
+
+Pursuant to the Contract, your organisation is liable to Flywire for any chargeback liability that accrues to Flywire in connection with transactions we process on your behalf. Following termination of the Contract, you will remain liable for any additional chargeback liability that accrues to Flywire in connection with card payments we processed on your behalf prior to termination of the Contract. We will be in touch with you for assistance in defending any chargebacks that are raised and to request that you remit to us funds to cover any chargebacks that we are not able to defend successfully.
+
+
+
+May I get my service re-enabled?
+
+In order to resume receiving services from Flywire, you will need to sign a new contract with us and complete KYC and credit checks. You can reach out to clientsuccess@flywire.com &lt;mailto:clientsuccess@flywire.com&gt; for more information.
+
+
+* * *
+
+We regret that we must take this action, as we value our relationship and have enjoyed serving you. However, as a regulated payments company, we must always ensure that we provide services in compliance with all regulations that apply to our business. The significant changes to the European regulatory landscape as a result of Brexit included a requirement that we complete additional KYC/verification procedures on our EU clients in order to continue serving them. We regrettably were not able to obtain the information required to assign our Contract with you to our continental European entity and, therefore, can no longer serve you.
+
+
+
+Your sincerely,
+
+Simon Read
+Vice President of Sales, EMEA
+Flywire
+Flywire Global Headquarters
+ 141 Tremont Street, Boston, MA 02111
+ United States
+Copyright ©Flywire. 2011-2020 All rights reserved.
+
+ Flywire is a trademark of Flywire Corporation. 
+
+
+The availability of our products or services and our product or service descriptions will vary subject to applicable law and geographic location.
+Privacy Policy &lt;[[https://www.flywire.com/legal/privacy-policy]]&gt;   
+|   
+Unsubscribe &lt;[[{{system.unsubscribeLink}}]]&gt;  
+|   
+Forward to friend &lt;[[{{system.forwardToFriendLink}}]]&gt;</textOnly>
+    <type>custom</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

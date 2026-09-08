@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Disqualified_Reason_Required</fullName>
+    <active>true</active>
+    <description>Requires a DQ reason if Disqualified is selected for person status.</description>
+    <errorConditionFormula>AND(
+ISPICKVAL(Contact_Status__c , &quot;Disqualified&quot;),
+ISBLANK(Text(Disqualified_Reason__c)),
+NOT($UserRole.Name = &quot;Admin&quot;) 
+)
+&amp;&amp; Contact_Automation_Bypassed__c = False</errorConditionFormula>
+    <errorDisplayField>Disqualified_Reason__c</errorDisplayField>
+    <errorMessage>Disqualified reason must be filled in.</errorMessage>
+</ValidationRule>

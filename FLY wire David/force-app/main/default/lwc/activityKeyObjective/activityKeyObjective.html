@@ -1,0 +1,242 @@
+<template>
+    <!--
+     <div class="slds-p-vertical_small">
+            <lightning-button label="New Task" icon-name="standard:task" class="slds-m-left_x-small" variant="border-filled" onclick={handleNewTask}></lightning-button>
+            <lightning-button label="New Event" icon-name="standard:event" class="slds-m-left_x-small" variant="border-filled" onclick={handleNewTask}></lightning-button>
+    </div>
+    -->
+
+    <lightning-card title={cardLabel} icon-name="standard:action_list_component">
+
+        <!-- <lightning-accordion allow-multiple-sections-open active-section-name={activeSections}> -->
+            <template lwc:if={showOpenActivities}>
+                <!-- <lightning-accordion-section name="A" label="Upcoming & Overdue" class="slds-button slds-section slds-is-open " heading-level="3">
+                    <template for:each={openActivity} for:item="activityVar">
+                        <ul class="slds-timeline" key={activityVar.Id}>
+                            <li key={activityVar.Id}>
+                                <div class="slds-timeline__item_expandable slds-timeline__item_call">
+                                <span class="slds-assistive-text">log_a_call</span>
+                                <div class="slds-media">
+                                <div class="slds-media__figure">
+                                <button class="slds-button slds-button_icon" title={activityVar.Subject} aria-controls="call-item-expanded-114" aria-expanded="false">
+                                <svg class="slds-button__icon slds-timeline__details-action-icon" aria-hidden="true">
+                                <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#switch"></use>
+                                </svg>
+                                <span class="slds-assistive-text">Toggle details for {activityVar.Subject}</span>
+                                </button>
+                                <div class="slds-icon_container slds-icon-standard-task slds-timeline__icon" title="call">
+                                    <template lwc:if={activityVar.IsTask}>
+                                        <lightning-icon icon-name="standard:task" alternative-text="Task" size="small" title="Task">
+                                        </lightning-icon>
+                                    </template>
+                                    <template lwc:else>
+                                        <lightning-icon icon-name="standard:event" alternative-text="Event" size="small" title="Event">
+                                        </lightning-icon>
+                                    </template>
+                                </div>
+                                </div>
+                                <div class="slds-media__body">
+                                <div class="slds-grid slds-grid_align-spread slds-timeline__trigger">
+                                        
+                                <div class="slds-grid slds-grid_vertical-align-center slds-truncate_container_75 slds-no-space">
+                                    <lightning-input class="slds-no-space" data-target-id={activityVar.Id} type="checkbox"  onchange={handleChange} disabled></lightning-input>
+                                <h3 class="slds-truncate" title={activityVar.Subject}>
+                                <a  data-target-id={activityVar.Id} name={activityVar.Id} onclick={handleNavigateActivity} >
+                                    <strong  data-target-id={activityVar.Id} name={activityVar.Id}>{activityVar.Subject}</strong>
+                                </a>
+                                </h3>
+                                </div>
+                                <div class="slds-timeline__actions slds-timeline__actions_inline">
+                                    <p class="slds-timeline__date">
+                                        <template lwc:if={activityVar.ActivityDate} >
+                                            <template lwc:if={activityVar.IsOverdue} >
+                                                <p class="slds-var-m-right_small dueDate overdue slds-text-color_error"> {activityVar.ActivityDate} </p>
+                                            </template>
+                                            <template lwc:else> 
+                                                {activityVar.ActivityDate}
+                                            </template>
+                                            
+                                        </template>
+                                        <template lwc:else>
+                                            No due date
+                                        </template>
+                                    </p>
+                                
+                                </div>
+                                </div>
+                                <p class="slds-m-horizontal_xx-small">
+                                    <a  data-target-id={activityVar.OwnerId} name={activityVar.OwnerId} onclick={handleNavigateActivity} >
+                                        {activityVar.Owner.Name} 
+                                    </a>
+                                    &nbsp; had
+                                    <template lwc:if={activityVar.IsTask}>
+                                        &nbsp;a task
+                                    </template>
+                                    <template lwc:else>
+                                        &nbsp;an event
+                                    </template>
+
+                                    <template lwc:if={activityVar.PrimaryWhoId}>
+                                        &nbsp;with 
+                                        <a  data-target-id={activityVar.PrimaryWhoId} name={activityVar.PrimaryWhoId} onclick={handleNavigateActivity} >
+                                            &nbsp;{activityVar.PrimaryWho.Name}
+                                        </a>
+                                    </template>
+                                    
+                                    
+                                </p>
+                                <article class="slds-box slds-timeline__item_details slds-theme_shade slds-m-top_x-small slds-m-horizontal_xx-small" id="call-item-expanded-1142" aria-hidden="true">
+                                <ul class="slds-list_horizontal slds-wrap">
+                                <li class="slds-grid slds-grid_vertical slds-size_1-of-2 slds-p-bottom_small">
+                                <span class="slds-text-title slds-p-bottom_x-small">Name</span>
+                                <span class="slds-text-body_medium slds-truncate" title="Adam Chan">
+                                
+                                </span>
+                                </li>
+                                <li class="slds-grid slds-grid_vertical slds-size_1-of-2 slds-p-bottom_small">
+                                <span class="slds-text-title slds-p-bottom_x-small">Related To</span>
+                                <span class="slds-text-body_medium slds-truncate" title="">
+                                </span>
+                                </li>
+                                </ul>
+                                <div>
+                                <span class="slds-text-title">Description</span>
+                                <p class="slds-p-top_x-small"> {activityVar.Description}</p>
+                                </div>
+                                </article>
+                                </div>
+                                </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </template>
+                </lightning-accordion-section> -->
+                <div class="slds-text-heading_small slds-var-m-around_medium">Upcoming & Overdue</div>
+                <div class="slds-var-m-around_medium data-table">
+                    <lightning-datatable 
+                        data-id="openActivities"
+                        key-field="Id"
+                        data={openActivities}
+                        columns={columns}
+                        hide-checkbox-column="true"
+                        enable-infinite-loading
+                        onloadmore={loadMoreOpenActivities}
+                        column-widths-mode="auto"
+                        max-column-width="15em">
+                </lightning-datatable>
+                </div>
+            </template>
+
+            <template lwc:if={showPastActivities}>
+                <!-- <lightning-accordion-section name="B" label="Past Activities" heading-level="3">
+                    <template for:each={activity} for:item="activityVar">
+                        <ul class="slds-timeline" key={activityVar.Id}>
+                            <li key={activityVar.Id}>
+                                <div class="slds-timeline__item_expandable slds-timeline__item_call">
+                                <span class="slds-assistive-text">log_a_call</span>
+                                <div class="slds-media">
+                                <div class="slds-media__figure">
+                                <button class="slds-button slds-button_icon" title={activityVar.Subject} aria-controls="call-item-expanded-114" aria-expanded="false">
+                                <svg class="slds-button__icon slds-timeline__details-action-icon" aria-hidden="true">
+                                <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#switch"></use>
+                                </svg>
+                                <span class="slds-assistive-text">Toggle details for {activityVar.Subject}</span>
+                                </button>
+                                <div class="slds-icon_container slds-icon-standard-task slds-timeline__icon" title="call">
+                                    <template lwc:if={activityVar.IsTask}>
+                                        <lightning-icon icon-name="standard:task" alternative-text="Task" size="small" title="Task">
+                                        </lightning-icon>
+                                    </template>
+                                    <template lwc:else>
+                                        <lightning-icon icon-name="standard:event" alternative-text="Event" size="small" title="Event">
+                                        </lightning-icon>
+                                    </template>
+                                </div>
+                                </div>
+                                <div class="slds-media__body">
+                                <div class="slds-grid slds-grid_align-spread slds-timeline__trigger">
+                                <div class="slds-grid slds-grid_vertical-align-center slds-truncate_container_75 slds-no-space">
+                                <h3 class="slds-truncate" title={activityVar.Subject}>
+                                <a  data-target-id={activityVar.Id} name={activityVar.Id} onclick={handleNavigateActivity} >
+                                    <strong  data-target-id={activityVar.Id} name={activityVar.Id}>{activityVar.Subject}</strong>
+                                </a>
+                                </h3>
+                                </div>
+                                <div class="slds-timeline__actions slds-timeline__actions_inline">
+                                    <p class="slds-timeline__date">
+                                        <template lwc:if={activityVar.ActivityDate}>
+                                            {activityVar.ActivityDate}
+                                        </template>
+                                        <template lwc:else>
+                                            No due date
+                                        </template>
+                                    </p>
+                                
+                                </div>
+                                </div>
+                                <p class="slds-m-horizontal_xx-small">
+                                    <a  data-target-id={activityVar.OwnerId} name={activityVar.OwnerId} onclick={handleNavigateActivity} >
+                                        {activityVar.Owner.Name} 
+                                    </a>
+                                    &nbsp; had
+                                    <template lwc:if={activityVar.IsTask}>
+                                        &nbsp;a task
+                                    </template>
+                                    <template lwc:else>
+                                        &nbsp;an event
+                                    </template>
+
+                                    <template lwc:if={activityVar.PrimaryWhoId}>
+                                        &nbsp;with 
+                                        <a  data-target-id={activityVar.PrimaryWhoId} name={activityVar.PrimaryWhoId} onclick={handleNavigateActivity} >
+                                            &nbsp;{activityVar.PrimaryWho.Name}
+                                        </a>
+                                    </template>
+                                    
+                                    
+                                </p>
+                                <article class="slds-box slds-timeline__item_details slds-theme_shade slds-m-top_x-small slds-m-horizontal_xx-small" id="call-item-expanded-114" aria-hidden="true">
+                                <ul class="slds-list_horizontal slds-wrap">
+                                <li class="slds-grid slds-grid_vertical slds-size_1-of-2 slds-p-bottom_small">
+                                <span class="slds-text-title slds-p-bottom_x-small">Name</span>
+                                <span class="slds-text-body_medium slds-truncate" title="Adam Chan">
+                                
+                                </span>
+                                </li>
+                                <li class="slds-grid slds-grid_vertical slds-size_1-of-2 slds-p-bottom_small">
+                                <span class="slds-text-title slds-p-bottom_x-small">Related To</span>
+                                <span class="slds-text-body_medium slds-truncate" title="">
+                                </span>
+                                </li>
+                                </ul>
+                                <div>
+                                <span class="slds-text-title">Description</span>
+                                <p class="slds-p-top_x-small"> {activityVar.Description}</p>
+                                </div>
+                                </article>
+                                </div>
+                                </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </template>
+                </lightning-accordion-section> -->
+                <div class="slds-text-heading_small slds-var-m-around_medium">Past Activities</div>
+                <div class="slds-var-m-around_medium data-table">
+                    <lightning-datatable
+                        data-id="pastActivities"
+                        key-field="Id"
+                        data={pastActivities}
+                        columns={columns}
+                        hide-checkbox-column="true"
+                        enable-infinite-loading
+                        onloadmore={loadMorePastActivities}
+                        column-widths-mode="auto"
+                        max-column-width="15em">
+                    </lightning-datatable>
+                </div>
+            </template>
+        <!-- </lightning-accordion> -->
+
+    </lightning-card>
+</template>

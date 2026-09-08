@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Product_Configuration__c</fullName>
+    <deleteConstraint>Restrict</deleteConstraint>
+    <description>Prod Config record this contact is related to.</description>
+    <inlineHelpText>Prod Config record this contact is related to.</inlineHelpText>
+    <label>Product Configuration</label>
+    <referenceTo>Product_Configuration__c</referenceTo>
+    <relationshipName>Custom_Related_Contacts</relationshipName>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Lookup</type>
+</CustomField>

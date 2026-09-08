@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Past_Due_Provider__c</fullName>
+    <description>SAL-2934 - For EDU how a school is handling their past due tuition.</description>
+    <inlineHelpText>Provider that helps with past due receivables</inlineHelpText>
+    <label>Past Due Provider</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>MultiselectPicklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>ACI</fullName>
+                <default>false</default>
+                <label>ACI</label>
+            </value>
+            <value>
+                <fullName>Agency Partner</fullName>
+                <default>false</default>
+                <label>Agency Partner</label>
+            </value>
+            <value>
+                <fullName>ECSI</fullName>
+                <default>false</default>
+                <label>ECSI</label>
+            </value>
+            <value>
+                <fullName>Flywire</fullName>
+                <default>false</default>
+                <label>Flywire</label>
+            </value>
+            <value>
+                <fullName>Internal Process</fullName>
+                <default>false</default>
+                <label>Internal Process</label>
+            </value>
+            <value>
+                <fullName>Nelnet</fullName>
+                <default>false</default>
+                <label>Nelnet</label>
+            </value>
+            <value>
+                <fullName>Other</fullName>
+                <default>false</default>
+                <label>Other</label>
+            </value>
+            <value>
+                <fullName>PayMyTuition</fullName>
+                <default>false</default>
+                <label>PayMyTuition</label>
+            </value>
+            <value>
+                <fullName>Touchnet</fullName>
+                <default>false</default>
+                <label>Touchnet</label>
+            </value>
+            <value>
+                <fullName>Transact</fullName>
+                <default>false</default>
+                <label>Transact</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+    <visibleLines>4</visibleLines>
+</CustomField>

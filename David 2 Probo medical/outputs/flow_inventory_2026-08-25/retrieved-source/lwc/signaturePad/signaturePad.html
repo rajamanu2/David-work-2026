@@ -1,0 +1,29 @@
+<template>
+    <lightning-input
+        label={nameLabel}
+        value={signerName}
+        onchange={handleName}>
+    </lightning-input>
+
+    <p class="hint">Sign below &mdash; {label}</p>
+    <canvas class="sig-canvas"></canvas>
+
+    <!-- A pad that failed to start says so, instead of looking identical to a
+         working one and only failing at save time. There is no console in the
+         Field Service Mobile webview, so this is the only diagnostic the
+         engineer can read back to you. -->
+    <template lwc:if={hasInitError}>
+        <div class="sig-error" role="alert">
+            <p>{initError}</p>
+            <lightning-button
+                class="sig-retry"
+                label="Try again"
+                onclick={handleRetry}>
+            </lightning-button>
+        </div>
+    </template>
+
+    <div class="clear-row">
+        <lightning-button label="Clear" onclick={handleClear}></lightning-button>
+    </div>
+</template>

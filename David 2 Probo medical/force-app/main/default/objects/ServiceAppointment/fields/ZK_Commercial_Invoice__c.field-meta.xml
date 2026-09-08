@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>ZK_Commercial_Invoice__c</fullName>
+    <externalId>false</externalId>
+    <formula>IF( NOT(OR(ISPICKVAL( Shipping_Address__CountryCode__s ,&quot;United States&quot;), ISPICKVAL(Shipping_Address__CountryCode__s,&quot;US&quot;), ISPICKVAL(Shipping_Address__CountryCode__s,&quot;United States of America&quot;),ISPICKVAL(Shipping_Address__CountryCode__s,&quot;us&quot;), ISPICKVAL(Shipping_Address__CountryCode__s,&quot;usa&quot;),ISPICKVAL(Shipping_Address__CountryCode__s,&quot;USA&quot;))), &quot;a0k4O00000RO4S4&quot;, &quot;&quot;)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>ZK Commercial Invoice</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

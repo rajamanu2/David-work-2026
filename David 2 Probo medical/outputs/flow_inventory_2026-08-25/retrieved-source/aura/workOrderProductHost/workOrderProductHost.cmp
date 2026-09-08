@@ -1,0 +1,91 @@
+<aura:component
+    implements="lightning:isUrlAddressable,flexipage:availableForAllPageTypes"
+    access="global"
+    controller="WorkOrderLineItemServices">
+
+    <!-- URL/state support -->
+    <aura:attribute name="pageReference" type="Object"/>
+    <aura:attribute name="workOrderId"  type="String"/>
+    <aura:attribute name="action"       type="String" default="add"/> <!-- add | swap -->
+
+    <!-- Swap data -->
+    <aura:attribute name="woItems"      type="Object[]"/>
+    <aura:attribute name="selectedRows" type="Object[]"/>
+    <aura:attribute name="errorMsg"     type="String"/>
+    <aura:attribute name="selectedWoliId" type="String"/>
+
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+
+
+    <!-- When action = swap, show picker + LWC -->
+    <aura:if isTrue="{! v.action == 'swap' }">
+        <lightning:card title="Swap Work Order Product" iconName="standard:work_order">
+            <aura:set attribute="body">
+
+                <!-- 1) Pick a Work Order Line Item -->
+                <div class="slds-p-around_small">
+                    <div class="slds-text-title_caps slds-m-bottom_x-small">1) Pick a Work Order Line Item</div>
+
+                    <aura:if isTrue="{! v.woItems.length }">
+                        <ul class="slds-has-dividers_around-space">
+                            <aura:iteration items="{! v.woItems }" var="item">
+                                <li class="slds-item slds-p-around_x-small">
+                                    <div class="slds-grid slds-gutters slds-align_absolute-center">
+                                        <div class="slds-col slds-grow">
+                                            <!-- Part Name -->
+                                            <div class="slds-text-title_bold">{! item.subLabel }</div>
+                                            <!-- Part Number -->
+                                            <div class="slds-text-body_small slds-text-color_weak">{! item.lineNumber }</div>
+                                        </div>
+                                        <div class="slds-col slds-no-flex">
+                                            <lightning:button
+                                                variant="brand"
+                                                label="Select"
+                                                value="{! item.id }"
+                                                onclick="{! c.handlePick }"/>
+                                        </div>
+                                    </div>
+                                </li>
+                            </aura:iteration>
+                        </ul>
+                        <aura:set attribute="else">
+                            <div class="slds-text-color_weak">No Work Order line items found.</div>
+                        </aura:set>
+                    </aura:if>
+                </div>
+
+                <!-- 2) Search/Swap LWC -->
+                <div class="slds-p-around_small">
+                    <c:addProductSearchLwc
+                    parentId="{! v.workOrderId }"
+                    name="WorkOrder"
+                    action="swap"
+                    selectedOli="{! v.selectedRows }"
+                    pickedWoliId="{! v.selectedWoliId }"
+                    onswapdone="{! c.handleSwapDone }"/>
+                </div>
+
+                <aura:if isTrue="{! not(empty(v.errorMsg)) }">
+                    <div class="slds-p-around_small slds-text-color_error">{! v.errorMsg }</div>
+                </aura:if>
+            </aura:set>
+        </lightning:card>
+
+        <!-- Else: Add-only mode -->
+        <aura:set attribute="else">
+            <lightning:card title="Add Work Order Product" iconName="standard:work_order">
+                <aura:set attribute="body">
+                    <div class="slds-p-around_small">
+                        <c:addProductSearchLwc
+                            parentId="{! v.workOrderId }"
+                            name="WorkOrder"
+                            action="add"/>
+                    </div>
+                    <aura:if isTrue="{! not(empty(v.errorMsg)) }">
+                        <div class="slds-p-around_small slds-text-color_error">{! v.errorMsg }</div>
+                    </aura:if>
+                </aura:set>
+            </lightning:card>
+        </aura:set>
+    </aura:if>
+</aura:component>

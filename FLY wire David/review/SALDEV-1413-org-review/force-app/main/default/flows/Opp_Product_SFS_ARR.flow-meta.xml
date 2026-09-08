@@ -1,0 +1,1265 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>61.0</apiVersion>
+    <areMetricsLoggedToDataCloud>false</areMetricsLoggedToDataCloud>
+    <assignments>
+        <name>Add_ACH_ARR</name>
+        <label>Add ACH ARR</label>
+        <locationX>1458</locationX>
+        <locationY>1355</locationY>
+        <assignmentItems>
+            <assignToReference>ACHARRAdded</assignToReference>
+            <operator>Add</operator>
+            <value>
+                <elementReference>ACHPaymentPlanARR</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>ACHARRAdded</assignToReference>
+            <operator>Add</operator>
+            <value>
+                <elementReference>ACHPaymentsARR</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>ACHARRAdded</assignToReference>
+            <operator>Add</operator>
+            <value>
+                <elementReference>ACHCollMgtARR</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>ACH_ARR</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Add_CC_First_Data_ARR_Net_Price</name>
+        <label>Add CC First Data ARR &amp; Net Price</label>
+        <locationX>1722</locationX>
+        <locationY>1355</locationY>
+        <assignmentItems>
+            <assignToReference>CCFirstDataNetPriceAdded</assignToReference>
+            <operator>Add</operator>
+            <value>
+                <elementReference>CCPaymentPlanNetPrice</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>CCFirstDataNetPriceAdded</assignToReference>
+            <operator>Add</operator>
+            <value>
+                <elementReference>CCPaymentsNetPrice</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>CCFirstDataNetPriceAdded</assignToReference>
+            <operator>Add</operator>
+            <value>
+                <elementReference>CCCollMgtNetPrice</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>CCFirstDataARRAdded</assignToReference>
+            <operator>Add</operator>
+            <value>
+                <elementReference>CCPaymentPlanARR</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>CCFirstDataARRAdded</assignToReference>
+            <operator>Add</operator>
+            <value>
+                <elementReference>CCPaymentsARR</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>CCFirstDataARRAdded</assignToReference>
+            <operator>Add</operator>
+            <value>
+                <elementReference>CCCollMgtARR</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>CC_First_Data_ARR</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Add_CC_MoR_Data_ARR_Net_Price</name>
+        <label>Add CC MoR Data ARR &amp; Net Price</label>
+        <locationX>1986</locationX>
+        <locationY>1355</locationY>
+        <assignmentItems>
+            <assignToReference>CCMoRNetPriceAdded</assignToReference>
+            <operator>Add</operator>
+            <value>
+                <elementReference>CCPaymentPlanNetPrice</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>CCMoRNetPriceAdded</assignToReference>
+            <operator>Add</operator>
+            <value>
+                <elementReference>CCPaymentsNetPrice</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>CCMoRNetPriceAdded</assignToReference>
+            <operator>Add</operator>
+            <value>
+                <elementReference>CCCollMgtNetPrice</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>CCMoRARRAdded</assignToReference>
+            <operator>Add</operator>
+            <value>
+                <elementReference>CCPaymentPlanARR</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>CCMoRARRAdded</assignToReference>
+            <operator>Add</operator>
+            <value>
+                <elementReference>CCPaymentsARR</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>CCMoRARRAdded</assignToReference>
+            <operator>Add</operator>
+            <value>
+                <elementReference>CCCollMgtARR</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>CC_MOR</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Add_Enrollment_Fee_ARR</name>
+        <label>Add Enrollment Fee ARR</label>
+        <locationX>1194</locationX>
+        <locationY>1355</locationY>
+        <assignmentItems>
+            <assignToReference>EnrollmentFeeARRAdded</assignToReference>
+            <operator>Add</operator>
+            <value>
+                <elementReference>EnrollmentPaymentPlanARR</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>EnrollmentFeeARRAdded</assignToReference>
+            <operator>Add</operator>
+            <value>
+                <elementReference>EnrollmentFeeCollMgtARR</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Enrollment_Fee_ARR</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <description>By setting this variable the ARR will include the ARR for collection management</description>
+        <name>Set_Coll_Mgmt_Portion</name>
+        <label>Set Coll. Mgmt. Portion</label>
+        <locationX>1810</locationX>
+        <locationY>971</locationY>
+        <assignmentItems>
+            <assignToReference>GenerateCollectionManagementARR</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>CollectionManagementUsageAmt</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Find_ARR_Components.Average_Quoted_Usage_Amt__c</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Find_ARR_Components</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <description>By setting this variable the ARR will include the ARR for Payments &amp; Payment Plan</description>
+        <name>Set_Payments_Payment_Plan_Portion</name>
+        <label>Set Payments &amp; Payment Plan Portion</label>
+        <locationX>2074</locationX>
+        <locationY>971</locationY>
+        <assignmentItems>
+            <assignToReference>GeneratePaymentPlanARR</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>GeneratePaymentsARR</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Find_ARR_Components</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <description>By setting this variable the ARR will include the ARR for Rev Share</description>
+        <name>Set_Rev_Share_Portion</name>
+        <label>Set Rev Share Portion</label>
+        <locationX>2338</locationX>
+        <locationY>971</locationY>
+        <assignmentItems>
+            <assignToReference>RevShareAdjUsageAmt</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Find_ARR_Components.Average_Quoted_Usage_Amt__c</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Find_ARR_Components</targetReference>
+        </connector>
+    </assignments>
+    <decisions>
+        <name>Has_ARR_Components</name>
+        <label>Has ARR Components</label>
+        <locationX>2206</locationX>
+        <locationY>863</locationY>
+        <defaultConnector>
+            <targetReference>Find_ARR_Components</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Next Item</defaultConnectorLabel>
+        <rules>
+            <name>Has_Coll_Mgmt_portion</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>Find_ARR_Components.SBQQ__ProductCode__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>FWSFS4000</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Set_Coll_Mgmt_Portion</targetReference>
+            </connector>
+            <label>Has Coll. Mgmt. portion</label>
+        </rules>
+        <rules>
+            <name>Has_Payments_Payment_Plan_portion</name>
+            <conditionLogic>or</conditionLogic>
+            <conditions>
+                <leftValueReference>Find_ARR_Components.SBQQ__ProductCode__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>FWSFS5000</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Set_Payments_Payment_Plan_Portion</targetReference>
+            </connector>
+            <label>Has Payments &amp; Payment Plan portion</label>
+        </rules>
+        <rules>
+            <name>Has_Rev_Share_portion</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>Find_ARR_Components.SBQQ__ProductCode__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>FWSFS1700</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Set_Rev_Share_Portion</targetReference>
+            </connector>
+            <label>Has Rev Share portion</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Product_Choice</name>
+        <label>Product Choice</label>
+        <locationX>1722</locationX>
+        <locationY>1247</locationY>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Enrollment_Fee_Payment_Plan</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.ProductCode</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>FWSFS1600</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Add_Enrollment_Fee_ARR</targetReference>
+            </connector>
+            <label>Enrollment Fee - Payment Plan</label>
+        </rules>
+        <rules>
+            <name>ACH_All</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.ProductCode</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>FWPAY2110</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Add_ACH_ARR</targetReference>
+            </connector>
+            <label>ACH - All</label>
+        </rules>
+        <rules>
+            <name>CC_First_Data_All</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.ProductCode</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>FWPAY1700</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Add_CC_First_Data_ARR_Net_Price</targetReference>
+            </connector>
+            <label>CC First Data - All</label>
+        </rules>
+        <rules>
+            <name>CC_FW_MOR_All</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.ProductCode</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>FWPAY1800</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Add_CC_MoR_Data_ARR_Net_Price</targetReference>
+            </connector>
+            <label>CC FW MOR - All</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Quote_Line_Type</name>
+        <label>Quote Line Type</label>
+        <locationX>1282</locationX>
+        <locationY>431</locationY>
+        <defaultConnectorLabel>End</defaultConnectorLabel>
+        <rules>
+            <name>Renewal</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Quote_Line_Type__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Renewal</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Get_Original_Opportunity_Product_Renewal</targetReference>
+            </connector>
+            <label>Renewal</label>
+        </rules>
+        <rules>
+            <name>Cancellation</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Quote_Line_Type__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Cancellation</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Get_Original_Opportunity_Product_Cancellation</targetReference>
+            </connector>
+            <label>Cancellation</label>
+        </rules>
+        <rules>
+            <name>Amendment</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Quote_Line_Type__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Amendment</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Amendment_No_ARR</targetReference>
+            </connector>
+            <label>Amendment</label>
+        </rules>
+        <rules>
+            <name>CalculateARR</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Quote_Line_Type__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>New</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Get_Current_FX_rate</targetReference>
+            </connector>
+            <label>Calculate ARR</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Quote_Meets_Criteria</name>
+        <label>Opp Meets Criteria?</label>
+        <locationX>2030</locationX>
+        <locationY>323</locationY>
+        <defaultConnectorLabel>Exit Flow</defaultConnectorLabel>
+        <rules>
+            <name>Yes</name>
+            <conditionLogic>1 AND 2</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Opportunity.IsClosed</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Opportunity.RecordType.DeveloperName</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Education</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Quote_Line_Type</targetReference>
+            </connector>
+            <label>Yes</label>
+        </rules>
+    </decisions>
+    <description>Products in this calculation:
+Enrollment Fee - FWSFS1600
+ACH PNC Gateway for SFS - FWPAY2110
+CC - First Data - FWPAY1700
+CC - Flywire MoR - FWPAY1800
+
+Updated to use OpportunityLineItem instead of SBQQ_QuoteLine__c. Updated 08/27/2024 to loop through the quote lines to check if ARR should include collection management. Including Net price calculations. Updated 09/06/2024 to account for different ARR components. Use autocalculated Actual 12 Months Tuition CC Vol if not filled by rep. Updated 09/12/2024 calculate each portion of arr depending on the quote lines added to the quote. BOPI-511 Updated to calculate ARR when Quote Line Type not &apos;Cancellation&apos; or &apos;Renewal&apos;. Updated 09/25/2024 Calculate ARR components depending on Dynamic Billing or Collection Management product. Updated 11/22/2024 to add Third Party invoicing calculation. BOPI-589 Updated 11/26/2024 to replace deprecated Net Price field. BOPI-605, updated to move TPI from this automation to a new separate automation for that product. BOPI-603 updated to set ARR to 0 for cancelled lines. BOPI-620 updated to set the ARR for cancelled lines to the original amount as a negative value. SALDEV-1185, Updated formulas for Payment Plans ARR calculations, added new criteria for Calculate ARR step.
+
+SALDEV - 1413: Quote Line field Quoted_Usage_Amt__c, Quoted_Usage_Percent__c replaced with Average_Quoted_Usage_Amount__c, Average_Quoted_Usage_Percent__c</description>
+    <environments>Default</environments>
+    <formulas>
+        <name>ACHARRWithFXRate</name>
+        <dataType>Number</dataType>
+        <expression>{!ACHARRAdded} / {!ConversionRate}</expression>
+        <scale>6</scale>
+    </formulas>
+    <formulas>
+        <description>(
+    (
+        (
+            2 * 
+            (
+                (Total Enrollment - No. International Payers At Account) * 0.05 * 0.25
+            )
+        ) * 0.9
+    ) * Quoted Usage Amount * 11
+)</description>
+        <name>ACHCollMgtARR</name>
+        <dataType>Number</dataType>
+        <expression>IF(
+    {!GenerateCollectionManagementARR} = true,
+    (
+        (
+            (
+                2 * 
+                (
+                    ({!$Record.Ship_To_Account__r.Total_Enrollment__c} - {!$Record.Ship_To_Account__r.No_International_Payers_At_Account__c})* 0.05 * 0.25
+                )
+            )
+        ) * 0.90
+    ) * {!$Record.SBQQ__QuoteLine__r.Average_Quoted_Usage_Amt__c} * 11,
+0
+)</expression>
+        <scale>2</scale>
+    </formulas>
+    <formulas>
+        <description>(
+    (
+        (
+            6 * (
+                    (
+                        (
+                            (Total Enrollment - No. International Payers At Account) - 
+                            (
+                                (Total Enrollment - No. International Payers At Account) * 0.05 * 0.25
+                            )
+                        ) *0.7
+                    ) * 0.15
+                )
+        ) * 0.9
+    ) * Quoted Usage Amount
+)</description>
+        <name>ACHPaymentPlanARR</name>
+        <dataType>Number</dataType>
+        <expression>IF(
+    {!GeneratePaymentPlanARR} = true,
+    (
+        (
+            6 * (
+                    (
+                        (
+                            ({!$Record.Ship_To_Account__r.Total_Enrollment__c}  - {!$Record.Ship_To_Account__r.No_International_Payers_At_Account__c}) - 
+                            (
+                                ({!$Record.Ship_To_Account__r.Total_Enrollment__c}  - {!$Record.Ship_To_Account__r.No_International_Payers_At_Account__c}) * 0.05 * 0.25
+                            )
+                        ) * 0.7
+                    ) * 0.15
+                )
+        ) * 0.90
+    ) * {!$Record.SBQQ__QuoteLine__r.Average_Quoted_Usage_Amt__c},
+    0
+)</expression>
+        <scale>2</scale>
+    </formulas>
+    <formulas>
+        <description>Avg. Tuition By Semester⁽¹⁾ * 2 * 0.9 * 
+    (
+        (
+            (
+                Total Enrollment - No. International Payers At Account - 
+                (
+                    (Total Enrollment - No. International Payers At Account) * 0.05 * 0.25
+                )
+            ) * 0.7
+        ) - 
+        (
+            0.15 * 
+                (
+                    (Total Enrollment - No. International Payers At Account) * 0.05 * 0.25
+                )
+        ) * 0.7
+    ) / (Avg. Tuition By Semester⁽¹⁾ * Quoted Usage Amount)</description>
+        <name>ACHPaymentsARR</name>
+        <dataType>Number</dataType>
+        <expression>IF(
+    {!GeneratePaymentsARR} = true,
+    (
+        {!AvgTuitionBySemester} * 2 * 0.9 * 
+        (
+            (
+                ({!$Record.SBQQ__QuoteLine__r.Ship_To_Account__r.Total_Enrollment__c} - {!$Record.SBQQ__QuoteLine__r.Ship_To_Account__r.No_International_Payers_At_Account__c} -
+                    (
+                        ({!$Record.SBQQ__QuoteLine__r.Ship_To_Account__r.Total_Enrollment__c} - {!$Record.SBQQ__QuoteLine__r.Ship_To_Account__r.No_International_Payers_At_Account__c}) * 0.05 * 0.25
+                    ) 
+                ) * 0.7  
+            ) -
+            (
+                0.15 * 
+                (
+                    (
+                        {!$Record.SBQQ__QuoteLine__r.Ship_To_Account__r.Total_Enrollment__c} - {!$Record.SBQQ__QuoteLine__r.Ship_To_Account__r.No_International_Payers_At_Account__c} -
+                        (
+                            ({!$Record.SBQQ__QuoteLine__r.Ship_To_Account__r.Total_Enrollment__c} - {!$Record.SBQQ__QuoteLine__r.Ship_To_Account__r.No_International_Payers_At_Account__c}) * 0.05 * 0.25
+                        )
+                    ) * 0.7
+                )
+            )
+        ) / {!AvgTuitionBySemester}
+    ) * {!$Record.SBQQ__QuoteLine__r.Average_Quoted_Usage_Amt__c},
+    0
+)</expression>
+        <scale>2</scale>
+    </formulas>
+    <formulas>
+        <name>Actual12MonthsTuitionCCVol</name>
+        <dataType>Number</dataType>
+        <expression>IF({!$Record.SBQQ__QuoteLine__r.Actual_12_Months_Tuition_CC_Vol__c}&gt;0, {!$Record.SBQQ__QuoteLine__r.Actual_12_Months_Tuition_CC_Vol__c},
+{!AvgTuitionBySemester}*2*((0.7*(({!$Record.Ship_To_Account__r.Total_Enrollment__c}-{!$Record.SBQQ__QuoteLine__r.Ship_To_Account__r.No_International_Payers_At_Account__c})-({!$Record.Ship_To_Account__r.Total_Enrollment__c}-{!$Record.SBQQ__QuoteLine__r.Ship_To_Account__r.No_International_Payers_At_Account__c})*0.05*0.25))-(0.15*0.7*(({!$Record.Ship_To_Account__r.Total_Enrollment__c}-{!$Record.SBQQ__QuoteLine__r.Ship_To_Account__r.No_International_Payers_At_Account__c})-({!$Record.Ship_To_Account__r.Total_Enrollment__c}-{!$Record.SBQQ__QuoteLine__r.Ship_To_Account__r.No_International_Payers_At_Account__c})*0.05*0.25)))*0.1
+)</expression>
+        <scale>2</scale>
+    </formulas>
+    <formulas>
+        <name>AvgTuitionBySemester</name>
+        <dataType>Number</dataType>
+        <expression>IF(
+    OR(
+        AND(
+            ISBLANK({!$Record.Ship_To_Account__r.In_State_Avg_Tuition__c}),
+            ISBLANK({!$Record.Ship_To_Account__r.Out_of_State_Avg_Tuition__c})
+        ),
+        AND(
+            ISBLANK({!$Record.Ship_To_Account__r.In_State__c}),
+            ISBLANK({!$Record.Ship_To_Account__r.Out_of_State__c})
+        )
+    ),
+    0,
+    (
+        (
+            (
+                IF(ISBLANK({!$Record.Ship_To_Account__r.In_State_Avg_Tuition__c}),0,{!$Record.Ship_To_Account__r.In_State_Avg_Tuition__c}) * IF(ISBLANK({!$Record.Ship_To_Account__r.In_State__c}),0,{!$Record.Ship_To_Account__r.In_State__c})
+            ) / 2
+        ) + 
+        (
+            (
+                IF(ISBLANK({!$Record.Ship_To_Account__r.Out_of_State_Avg_Tuition__c}),0,{!$Record.Ship_To_Account__r.Out_of_State_Avg_Tuition__c}) * IF(ISBLANK({!$Record.Ship_To_Account__r.Out_of_State__c}),0,{!$Record.Ship_To_Account__r.Out_of_State__c})
+            ) / 2
+        )
+    ) / 100
+)</expression>
+        <scale>2</scale>
+    </formulas>
+    <formulas>
+        <name>Cancelled_ARR</name>
+        <dataType>Number</dataType>
+        <expression>{!Get_Original_Opportunity_Product_Cancellation.Opp_Product_ARR__c} * (-1)</expression>
+        <scale>2</scale>
+    </formulas>
+    <formulas>
+        <name>Cancelled_NetARR</name>
+        <dataType>Number</dataType>
+        <expression>{!Get_Original_Opportunity_Product_Cancellation.Commissions_Net_ARR__c} * (-1)</expression>
+        <scale>2</scale>
+    </formulas>
+    <formulas>
+        <description>(((Total Enrollment - No. International Payers at Account) * 0.05 * 0.25) * 2) * (Avg. Tuition By Semester⁽¹⁾ * 0.1) * Quoted Usage Percent</description>
+        <name>CCCollMgtARR</name>
+        <dataType>Number</dataType>
+        <expression>IF({!GenerateCollectionManagementARR} = true,
+(((({!$Record.SBQQ__QuoteLine__r.Ship_To_Account__r.Total_Enrollment__c} -
+{!$Record.SBQQ__QuoteLine__r.Ship_To_Account__r.No_International_Payers_At_Account__c}) *
+0.05 * 0.25) * 2) * {!AvgTuitionBySemester} * 0.1) * ({!$Record.SBQQ__QuoteLine__r.Average_Quoted_Usage_Percent__c}/100),
+0)</expression>
+        <scale>2</scale>
+    </formulas>
+    <formulas>
+        <description>(((Total Enrollment - No. International Payers at Account) * 0.05 * 0.25) *2) * Avg. Tuition By Semester⁽¹⁾ * 0.1) * ((Quoted Usage Percent - 0.0225) * 0.05</description>
+        <name>CCCollMgtNetPrice</name>
+        <dataType>Number</dataType>
+        <expression>IF({!GenerateCollectionManagementARR} = true,
+(
+    (
+        (
+            (
+                (
+                    {!$Record.SBQQ__QuoteLine__r.Ship_To_Account__r.Total_Enrollment__c} - {!$Record.SBQQ__QuoteLine__r.Ship_To_Account__r.No_International_Payers_At_Account__c}
+                ) * 0.05 * 0.25
+            ) * 2
+        ) * {!AvgTuitionBySemester} * 0.1
+    ) * (({!$Record.SBQQ__QuoteLine__r.Average_Quoted_Usage_Percent__c}/100) - 0.0225) * 0.05
+),
+0)</expression>
+        <scale>2</scale>
+    </formulas>
+    <formulas>
+        <name>CCFirstDataARRWithFXRate</name>
+        <dataType>Number</dataType>
+        <expression>{!CCFirstDataARRAdded} / {!ConversionRate}</expression>
+        <scale>2</scale>
+    </formulas>
+    <formulas>
+        <name>CCFirstDataNetPriceWithFXRate</name>
+        <dataType>Number</dataType>
+        <expression>{!CCFirstDataNetPriceAdded} / {!ConversionRate}</expression>
+        <scale>2</scale>
+    </formulas>
+    <formulas>
+        <name>CCMoRARRWithFxRate</name>
+        <dataType>Number</dataType>
+        <expression>{!CCMoRARRAdded} / {!ConversionRate}</expression>
+        <scale>2</scale>
+    </formulas>
+    <formulas>
+        <name>CCMoRNetPriceWithFXRate</name>
+        <dataType>Number</dataType>
+        <expression>{!CCMoRNetPriceAdded} / {!ConversionRate}</expression>
+        <scale>6</scale>
+    </formulas>
+    <formulas>
+        <description>IF (MPP Card Usage Included = &quot;Yes&quot;, 0, (Quoted Usage Percent * (0.1 * Avg. Tuition By Semester⁽¹⁾ * (((((Total Enrollment - No. International Payers at Account) - ((Total Enrollment - No. Internatioal Payers at Account) * 0.05 * 0.25)) * 0.7) * 0.15) * 2)))</description>
+        <name>CCPaymentPlanARR</name>
+        <dataType>Number</dataType>
+        <expression>IF({!GeneratePaymentPlanARR} = true,
+IF(ISPICKVAL({!$Record.SBQQ__QuoteLine__r.MPP_Card_Usage_Included__c},&quot;Yes&quot;), 0,
+(({!$Record.SBQQ__QuoteLine__r.Average_Quoted_Usage_Percent__c}/100) * (0.1 * {!AvgTuitionBySemester} * 
+((((({!$Record.SBQQ__QuoteLine__r.Ship_To_Account__r.Total_Enrollment__c} - {!$Record.SBQQ__QuoteLine__r.Ship_To_Account__r.No_International_Payers_At_Account__c}) -
+(({!$Record.SBQQ__QuoteLine__r.Ship_To_Account__r.Total_Enrollment__c} - {!$Record.SBQQ__QuoteLine__r.Ship_To_Account__r.No_International_Payers_At_Account__c}) *
+0.05 * 0.25)) *0.7) * 0.15) * 2)))),
+0)</expression>
+        <scale>2</scale>
+    </formulas>
+    <formulas>
+        <description>IF (MPP Card Usage Included = &quot;Yes&quot;, 0, (Quoted Usage Percent - 0.0225) * (0.1 * Avg. Tuition By Semester⁽¹⁾ * (((((Total Enrollment - No. International Payers at Account) - ((Total Enrollment - No. International Payers at Account) * 0.05 * 0.25)) * 0.7) * 0.15) * 2))</description>
+        <name>CCPaymentPlanNetPrice</name>
+        <dataType>Number</dataType>
+        <expression>IF({!GeneratePaymentPlanARR} = true,
+IF(ISPICKVAL({!$Record.SBQQ__QuoteLine__r.MPP_Card_Usage_Included__c}, &apos;Yes&apos;),0,
+(({!$Record.SBQQ__QuoteLine__r.Average_Quoted_Usage_Percent__c}/100)-0.0225) *
+(0.1 * {!AvgTuitionBySemester} * ((((({!$Record.SBQQ__QuoteLine__r.Ship_To_Account__r.Total_Enrollment__c} -
+{!$Record.SBQQ__QuoteLine__r.Ship_To_Account__r.No_International_Payers_At_Account__c}) -
+(({!$Record.SBQQ__QuoteLine__r.Ship_To_Account__r.Total_Enrollment__c} -
+{!$Record.SBQQ__QuoteLine__r.Ship_To_Account__r.No_International_Payers_At_Account__c}) * 
+0.05 * 0.25)) * 0.7) * 0.15) * 2))),
+0)</expression>
+        <scale>2</scale>
+    </formulas>
+    <formulas>
+        <description>Quoted Usage Percent * Actual 12 Months Tuition CC Vol</description>
+        <name>CCPaymentsARR</name>
+        <dataType>Number</dataType>
+        <expression>IF({!GeneratePaymentsARR} = true,
+(({!$Record.SBQQ__QuoteLine__r.Average_Quoted_Usage_Percent__c}/100) * {!Actual12MonthsTuitionCCVol}),
+0)</expression>
+        <scale>2</scale>
+    </formulas>
+    <formulas>
+        <description>(Quoted Usage Percent - 0.025) * Actual 12 Months Tuition CC Vol</description>
+        <name>CCPaymentsNetPrice</name>
+        <dataType>Number</dataType>
+        <expression>IF({!GeneratePaymentsARR} = true,
+(({!$Record.SBQQ__QuoteLine__r.Average_Quoted_Usage_Percent__c/100)-0.0225}) *
+{!Actual12MonthsTuitionCCVol},
+0)</expression>
+        <scale>2</scale>
+    </formulas>
+    <formulas>
+        <name>EnrollmentFeeARRWithFXRate</name>
+        <dataType>Number</dataType>
+        <expression>{!EnrollmentFeeARRAdded} / {!ConversionRate}</expression>
+        <scale>2</scale>
+    </formulas>
+    <formulas>
+        <description>((Total Enrollment - No. International Payers At Account) * 0.05 * 0.25) * FW Portion A/R MPP * 2)</description>
+        <name>EnrollmentFeeCollMgtARR</name>
+        <dataType>Number</dataType>
+        <expression>IF({!GenerateCollectionManagementARR} = true,
+(({!$Record.Ship_To_Account__r.Total_Enrollment__c}  - {!$Record.Ship_To_Account__r.No_International_Payers_At_Account__c}) * 0.05 * 0.25) * ({!CollectionManagementUsageAmt} + ({!RevShareAdjUsageAmt})) * 2,
+0)</expression>
+        <scale>2</scale>
+    </formulas>
+    <formulas>
+        <description>(IF(Last 12 Months Payment Plans &gt; 0, Last 12 Months Payment Plans * FW Portion MPP, (((((Total Enrollment - No. International Payers At Account) - ((Total Enrollment - No. International Payers At Account) * 0.05 * 0.25)) * 0.7) * 0.15) * 2) * FW Portion MPP)</description>
+        <name>EnrollmentPaymentPlanARR</name>
+        <dataType>Number</dataType>
+        <expression>IF({!GeneratePaymentPlanARR} = true,
+IF(
+{!$Record.SBQQ__QuoteLine__r.Last_12_Months_Payment_Plans__c}&gt;0,{!$Record.SBQQ__QuoteLine__r.Last_12_Months_Payment_Plans__c}*({!$Record.SBQQ__QuoteLine__r.Average_Quoted_Usage_Amt__c}+({!RevShareAdjUsageAmt})),
+((((({!$Record.SBQQ__QuoteLine__r.Ship_To_Account__r.Total_Enrollment__c}-{!$Record.SBQQ__QuoteLine__r.Ship_To_Account__r.No_International_Payers_At_Account__c})-
+(({!$Record.SBQQ__QuoteLine__r.Ship_To_Account__r.Total_Enrollment__c}-{!$Record.SBQQ__QuoteLine__r.Ship_To_Account__r.No_International_Payers_At_Account__c})*0.05*0.25))*0.7)*0.15)*2)*
+({!$Record.SBQQ__QuoteLine__r.Average_Quoted_Usage_Amt__c}+({!RevShareAdjUsageAmt}))),
+0)</expression>
+        <scale>2</scale>
+    </formulas>
+    <interviewLabel>(Opp Product) SFS ARR {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>(Opp Product) SFS ARR Calculator</label>
+    <loops>
+        <name>Find_ARR_Components</name>
+        <label>Find ARR Components</label>
+        <locationX>1722</locationX>
+        <locationY>755</locationY>
+        <collectionReference>Get_All_Quote_Lines_on_the_Quote</collectionReference>
+        <iterationOrder>Asc</iterationOrder>
+        <nextValueConnector>
+            <targetReference>Has_ARR_Components</targetReference>
+        </nextValueConnector>
+        <noMoreValuesConnector>
+            <targetReference>Product_Choice</targetReference>
+        </noMoreValuesConnector>
+    </loops>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <recordLookups>
+        <name>Get_All_Quote_Lines_on_the_Quote</name>
+        <label>Get All Quote Lines on the Quote</label>
+        <locationX>1722</locationX>
+        <locationY>647</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Find_ARR_Components</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>SBQQ__Quote__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>$Record.SBQQ__QuoteLine__r.SBQQ__Quote__c</elementReference>
+            </value>
+        </filters>
+        <getFirstRecordOnly>false</getFirstRecordOnly>
+        <object>SBQQ__QuoteLine__c</object>
+        <queriedFields>Id</queriedFields>
+        <queriedFields>SBQQ__ProductCode__c</queriedFields>
+        <queriedFields>Quoted_Usage_Amt__c</queriedFields>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordLookups>
+        <name>Get_Current_FX_rate</name>
+        <label>Get Current FX rate</label>
+        <locationX>1722</locationX>
+        <locationY>539</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Get_All_Quote_Lines_on_the_Quote</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>IsoCode</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>$Record.Opportunity.CurrencyIsoCode</elementReference>
+            </value>
+        </filters>
+        <filters>
+            <field>StartDate</field>
+            <operator>LessThanOrEqualTo</operator>
+            <value>
+                <elementReference>$Flow.CurrentDateTime</elementReference>
+            </value>
+        </filters>
+        <filters>
+            <field>NextStartDate</field>
+            <operator>GreaterThan</operator>
+            <value>
+                <elementReference>$Flow.CurrentDateTime</elementReference>
+            </value>
+        </filters>
+        <object>DatedConversionRate</object>
+        <outputAssignments>
+            <assignToReference>ConversionRate</assignToReference>
+            <field>ConversionRate</field>
+        </outputAssignments>
+    </recordLookups>
+    <recordLookups>
+        <name>Get_Original_Opportunity_Product_Cancellation</name>
+        <label>Get Original Opportunity Product</label>
+        <locationX>314</locationX>
+        <locationY>539</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Cancellation_No_ARR</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Opportunity_Line_Id__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>$Record.Opportunity_Line_Id__c</elementReference>
+            </value>
+        </filters>
+        <filters>
+            <field>Id</field>
+            <operator>NotEqualTo</operator>
+            <value>
+                <elementReference>$Record.Id</elementReference>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>OpportunityLineItem</object>
+        <sortField>CreatedDate</sortField>
+        <sortOrder>Desc</sortOrder>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordLookups>
+        <name>Get_Original_Opportunity_Product_Renewal</name>
+        <label>Get Original Opportunity Product</label>
+        <locationX>50</locationX>
+        <locationY>539</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Renewals_ARR_is_set_manually</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Opportunity_Line_Id__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>$Record.Opportunity_Line_Id__c</elementReference>
+            </value>
+        </filters>
+        <filters>
+            <field>Id</field>
+            <operator>NotEqualTo</operator>
+            <value>
+                <elementReference>$Record.Id</elementReference>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>OpportunityLineItem</object>
+        <sortField>CreatedDate</sortField>
+        <sortOrder>Desc</sortOrder>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordUpdates>
+        <name>ACH_ARR</name>
+        <label>ACH ARR</label>
+        <locationX>1458</locationX>
+        <locationY>1463</locationY>
+        <inputAssignments>
+            <field>Opp_Product_ARR__c</field>
+            <value>
+                <elementReference>ACHARRWithFXRate</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>Amendment_No_ARR</name>
+        <label>Amendment - No ARR</label>
+        <locationX>578</locationX>
+        <locationY>539</locationY>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Quote_Line_Type__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>Amendment</stringValue>
+            </value>
+        </filters>
+        <inputAssignments>
+            <field>Opp_Product_ARR__c</field>
+            <value>
+                <numberValue>0.0</numberValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Revenue_Calculated__c</field>
+            <value>
+                <stringValue>Amendment: No modifications were made to this line</stringValue>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>Cancellation_No_ARR</name>
+        <label>Cancellation - No ARR</label>
+        <locationX>314</locationX>
+        <locationY>647</locationY>
+        <connector>
+            <targetReference>Cancellation_No_Net_ARR</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Quote_Line_Type__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>Cancellation</stringValue>
+            </value>
+        </filters>
+        <inputAssignments>
+            <field>Opp_Product_ARR__c</field>
+            <value>
+                <elementReference>Cancelled_ARR</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Revenue_Calculated__c</field>
+            <value>
+                <stringValue>Line cancelled</stringValue>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>Cancellation_No_Net_ARR</name>
+        <label>Cancellation - No Net ARR</label>
+        <locationX>314</locationX>
+        <locationY>755</locationY>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Quote_Line_Type__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>Cancellation</stringValue>
+            </value>
+        </filters>
+        <inputAssignments>
+            <field>Commissions_Net_ARR__c</field>
+            <value>
+                <elementReference>Cancelled_NetARR</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>CC_First_Data_ARR</name>
+        <label>CC First Data ARR</label>
+        <locationX>1722</locationX>
+        <locationY>1463</locationY>
+        <inputAssignments>
+            <field>Commissions_Net_ARR__c</field>
+            <value>
+                <elementReference>CCFirstDataNetPriceWithFXRate</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Opp_Product_ARR__c</field>
+            <value>
+                <elementReference>CCFirstDataARRWithFXRate</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>CC_MOR</name>
+        <label>CC MoR</label>
+        <locationX>1986</locationX>
+        <locationY>1463</locationY>
+        <inputAssignments>
+            <field>Commissions_Net_ARR__c</field>
+            <value>
+                <elementReference>CCMoRNetPriceWithFXRate</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Opp_Product_ARR__c</field>
+            <value>
+                <elementReference>CCMoRARRWithFxRate</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>Enrollment_Fee_ARR</name>
+        <label>Enrollment Fee ARR</label>
+        <locationX>1194</locationX>
+        <locationY>1463</locationY>
+        <inputAssignments>
+            <field>Opp_Product_ARR__c</field>
+            <value>
+                <elementReference>EnrollmentFeeARRWithFXRate</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <description>Reps should get the last 12 months ARR number and manually update the Opp Product ARR</description>
+        <name>Renewals_ARR_is_set_manually</name>
+        <label>Renewals ARR is set manually</label>
+        <locationX>50</locationX>
+        <locationY>647</locationY>
+        <inputAssignments>
+            <field>Baseline_ARR__c</field>
+            <value>
+                <elementReference>Get_Original_Opportunity_Product_Renewal.Opp_Product_ARR__c</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Do_not_Auto_Calculate_Price__c</field>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Opp_Product_ARR__c</field>
+            <value>
+                <numberValue>0.0</numberValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Revenue_Calculated__c</field>
+            <value>
+                <stringValue>For Renewals, please enter the ARR manually</stringValue>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <start>
+        <locationX>1904</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Quote_Meets_Criteria</targetReference>
+        </connector>
+        <filterLogic>(1 OR 2 OR 3 OR 4) AND 5</filterLogic>
+        <filters>
+            <field>ProductCode</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>FWPAY2110</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>ProductCode</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>FWPAY1700</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>ProductCode</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>FWPAY1800</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>ProductCode</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>FWSFS1600</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>Do_not_Auto_Calculate_Price__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <booleanValue>false</booleanValue>
+            </value>
+        </filters>
+        <object>OpportunityLineItem</object>
+        <recordTriggerType>CreateAndUpdate</recordTriggerType>
+        <triggerType>RecordAfterSave</triggerType>
+    </start>
+    <status>Active</status>
+    <variables>
+        <name>ACHARRAdded</name>
+        <dataType>Number</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+        <scale>2</scale>
+        <value>
+            <numberValue>0.0</numberValue>
+        </value>
+    </variables>
+    <variables>
+        <name>CCFirstDataARRAdded</name>
+        <dataType>Number</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+        <scale>2</scale>
+    </variables>
+    <variables>
+        <name>CCFirstDataNetPriceAdded</name>
+        <dataType>Number</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+        <scale>2</scale>
+        <value>
+            <numberValue>0.0</numberValue>
+        </value>
+    </variables>
+    <variables>
+        <name>CCMoRARRAdded</name>
+        <dataType>Number</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+        <scale>2</scale>
+    </variables>
+    <variables>
+        <name>CCMoRNetPriceAdded</name>
+        <dataType>Number</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+        <scale>2</scale>
+        <value>
+            <numberValue>0.0</numberValue>
+        </value>
+    </variables>
+    <variables>
+        <name>CollectionManagementUsageAmt</name>
+        <dataType>Number</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+        <scale>2</scale>
+        <value>
+            <numberValue>0.0</numberValue>
+        </value>
+    </variables>
+    <variables>
+        <name>ConversionRate</name>
+        <dataType>Number</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+        <scale>6</scale>
+    </variables>
+    <variables>
+        <name>EnrollmentFeeARRAdded</name>
+        <dataType>Number</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+        <scale>2</scale>
+        <value>
+            <numberValue>0.0</numberValue>
+        </value>
+    </variables>
+    <variables>
+        <description>If this is true, the ARR component for Collection Management will be generated</description>
+        <name>GenerateCollectionManagementARR</name>
+        <dataType>Boolean</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+        <value>
+            <booleanValue>false</booleanValue>
+        </value>
+    </variables>
+    <variables>
+        <description>If this is true, the ARR component for Payment Plan will be generated</description>
+        <name>GeneratePaymentPlanARR</name>
+        <dataType>Boolean</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+        <value>
+            <booleanValue>false</booleanValue>
+        </value>
+    </variables>
+    <variables>
+        <description>If this is true, the ARR component for Payments will be generated</description>
+        <name>GeneratePaymentsARR</name>
+        <dataType>Boolean</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+        <value>
+            <booleanValue>false</booleanValue>
+        </value>
+    </variables>
+    <variables>
+        <name>IsQuickStartPackage</name>
+        <dataType>Boolean</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+        <value>
+            <booleanValue>false</booleanValue>
+        </value>
+    </variables>
+    <variables>
+        <name>RevShareAdjUsageAmt</name>
+        <dataType>Number</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+        <scale>2</scale>
+        <value>
+            <numberValue>0.0</numberValue>
+        </value>
+    </variables>
+</Flow>

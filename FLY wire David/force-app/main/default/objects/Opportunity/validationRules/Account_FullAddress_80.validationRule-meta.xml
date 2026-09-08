@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Account_FullAddress_80</fullName>
+    <active>true</active>
+    <description>Full Address must be filled in to &gt;=80%
+BOPI-460 Cloned from previous rule Account_FullAddress_90
+BOPI-600 updated to prevent auto renewals from stopping</description>
+    <errorConditionFormula>AND(
+    $Profile.Name &lt;&gt; &quot;System Administrator&quot;,
+    $Profile.Name &lt;&gt; &quot;B - Looker&quot;,
+    $User.Alias &lt;&gt; &quot;Workato&quot;,
+    IsClosed = False,
+    Probability &gt;=0.80,
+    Pricebook2.Name &lt;&gt; &apos;CPQ&apos;,
+    OR(
+        ISBLANK(Account.ShippingCountry),
+        ISBLANK(Account.ShippingStreet)
+    ),
+    NOT(ISPICKVAL(Type, &quot;Auto Renewal&quot;))
+)
+&amp;&amp; Opp_Val_Bypass__c = false</errorConditionFormula>
+    <errorMessage>**  Go to Account Record and add full Shipping Address  **</errorMessage>
+</ValidationRule>

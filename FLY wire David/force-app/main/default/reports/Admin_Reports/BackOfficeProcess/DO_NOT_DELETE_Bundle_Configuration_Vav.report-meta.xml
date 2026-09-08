@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>FK_$Product2.Vertical__c</field>
+    </columns>
+    <columns>
+        <field>FK_PROD_CUSTOMER_PRODUCT_ID</field>
+    </columns>
+    <columns>
+        <field>FK_NAME</field>
+    </columns>
+    <columns>
+        <field>SBQQ__ProductOption__c.SBQQ__ProductCode__c</field>
+    </columns>
+    <columns>
+        <field>SBQQ__ProductOption__c.SBQQ__OptionalSKU__c</field>
+    </columns>
+    <currency>USD</currency>
+    <description>Feeds gSheet &quot;SF Product Catalog Bundle Source Data&quot; which creates the official &quot;SFDC CPQ Product Catalog&quot;:
+https://docs.google.com/spreadsheets/d/19Rf7cyFy-BUebYeg3ITUMyS6P5NrGcchY1lI8F5d7z8/edit?gid=312748160#gid=312748160</description>
+    <format>Tabular</format>
+    <name>DO NOT DELETE - Bundle Configuration</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>CustomEntity$SBQQ__ProductOption__c@SBQQ__ProductOption__c.SBQQ__ConfiguredSKU__c</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <showGrandTotal>true</showGrandTotal>
+    <showSubTotals>true</showSubTotals>
+    <timeFrameFilter>
+        <dateColumn>CUST_CREATED_DATE</dateColumn>
+        <interval>INTERVAL_CUSTOM</interval>
+    </timeFrameFilter>
+</Report>

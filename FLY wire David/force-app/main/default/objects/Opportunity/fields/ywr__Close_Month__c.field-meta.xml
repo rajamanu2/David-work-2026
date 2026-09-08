@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>ywr__Close_Month__c</fullName>
+    <deprecated>false</deprecated>
+    <externalId>false</externalId>
+    <formula>IF( 
+ TODAY() &gt; CloseDate, &quot;&quot;,
+IF(
+ AND( YEAR(TODAY()) = YEAR(CloseDate), MONTH(TODAY()) = MONTH(CloseDate)), &quot;This Month&quot;,
+IF(
+ AND( YEAR(TODAY()) = YEAR(CloseDate), MONTH(TODAY()) + 1 = MONTH(CloseDate)), &quot;Next Month&quot;,
+IF(
+ AND( YEAR(TODAY()) + 1 = YEAR(CloseDate), MONTH(TODAY()) = 12, MONTH(CloseDate) = 1), &quot;Next Month&quot;,
+&quot;Future&quot;))))</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Close Month</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

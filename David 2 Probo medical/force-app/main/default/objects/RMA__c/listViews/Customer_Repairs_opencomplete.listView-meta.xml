@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Customer_Repairs_opencomplete</fullName>
+    <columns>NAME</columns>
+    <columns>Account_Name__c</columns>
+    <columns>Opportunity__c</columns>
+    <columns>Opportunity_Owner__c</columns>
+    <columns>ProductItem__c</columns>
+    <columns>Date_Loaner_Shipped__c</columns>
+    <columns>Date_RMA_Item_Received__c</columns>
+    <columns>Date_Repair_Evaluation_Sent__c</columns>
+    <columns>Date_Repair_Approved__c</columns>
+    <columns>Date__c</columns>
+    <columns>Date_Opportunity_Item_Shipped__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>RMA_Type__c</field>
+        <operation>equals</operation>
+        <value>customer repair evaluation,warranty repair</value>
+    </filters>
+    <label>All Customer Repairs - Open and Complete</label>
+    <sharedTo>
+        <allInternalUsers></allInternalUsers>
+    </sharedTo>
+</ListView>

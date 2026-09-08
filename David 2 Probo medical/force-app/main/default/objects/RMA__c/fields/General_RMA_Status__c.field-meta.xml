@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>General_RMA_Status__c</fullName>
+    <externalId>false</externalId>
+    <formula>IF(OR( TEXT(Return_from_Sale_Approval__c) = &apos;APPROVED&apos;,  TEXT(Loaner_Action_Approved__c) = &apos;APPROVED&apos;,  TEXT(Rental_Action__c)  = &apos;APPROVED&apos;,  TEXT(Warranty_Claim_Approved__c) = &apos;APPROVED&apos;), &apos;Closed RMA&apos;, &apos;Open RMA&apos;)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>General RMA Status</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

@@ -1,0 +1,615 @@
+<apex:page standardController="ResourceAbsence" recordSetVar="absences" extensions="RecurringAbsenceController" lightningStylesheets="true" docType="html-5.0">
+    <apex:slds />
+    <div class="slds-scope">
+        <apex:sectionHeader title="New Recurring Absence" subtitle="Schedule Multiple Absences" />        
+        <apex:form id="form">
+        <apex:pageMessages id="pageMsgs" />            
+        <apex:pageBlock mode="edit">
+                <apex:pageBlockButtons >
+                    <apex:commandButton action="{!saveAbsences}" value="Save" styleClass="slds-button slds-button_brand" onclick="gatherSelectedDays();" />
+                    <apex:commandButton action="{!cancel}" value="Cancel" styleClass="slds-button slds-button_neutral" />
+                </apex:pageBlockButtons>
+                
+                <!-- Section 1: Absence Details -->
+                <apex:pageBlockSection title="Absence Details" columns="1">
+                    <apex:inputField value="{!absence.ResourceId}" required="true" />
+                    <apex:inputField value="{!absence.RecordTypeId}" required="true" />
+                    <apex:inputField value="{!absence.Type}" required="true" />
+                    <apex:inputField value="{!absence.FSL__GanttLabel__c}" />
+                    <!-- Decoupled Start Field Group with 15-Min picklist -->
+                    <apex:pageBlockSectionItem >
+                        <apex:outputLabel value="Start Time" />
+                        <apex:outputPanel layout="block">
+                            <span style="margin-right: 10px;">
+                                <apex:input type="date" value="{!startDateInput}" styleClass="slds-input" style="width: 150px; display: inline-block;" />
+                            </span>
+                            <span>
+                                <apex:selectList value="{!startTimeInput}" size="1" styleClass="slds-select" style="width: 130px; display: inline-block;">
+                                    <apex:selectOptions value="{!timeOptions}" />
+                                </apex:selectList>
+                            </span>
+                        </apex:outputPanel>
+                    </apex:pageBlockSectionItem>
+
+                    <!-- Decoupled End Field Group with 15-Min picklist -->
+                    <apex:pageBlockSectionItem >
+                        <apex:outputLabel value="End Time" />
+                        <apex:outputPanel layout="block">
+                            <span style="margin-right: 10px;">
+                                <apex:input type="date" value="{!endDateInput}" styleClass="slds-input" style="width: 150px; display: inline-block;" />
+                            </span>
+                            <span>
+                                <apex:selectList value="{!endTimeInput}" size="1" styleClass="slds-select" style="width: 130px; display: inline-block;">
+                                    <apex:selectOptions value="{!timeOptions}" />
+                                </apex:selectList>
+                            </span>
+                        </apex:outputPanel>
+                    </apex:pageBlockSectionItem>
+                </apex:pageBlockSection>
+                
+            <apex:pageBlockSection title="Recurrence Pattern" columns="1">
+                <!-- Recurrence Period -->
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel value="Recurrence Period"/>
+
+                    <apex:selectList value="{!recurrenceType}"
+                                    size="1"
+                                    id="periodPicklist"
+                                    styleClass="slds-select"
+                                    style="width:250px"
+                                    onchange="handlePeriodChange();">
+
+                        <apex:selectOption itemValue="Daily" itemLabel="Days"/>
+                        <apex:selectOption itemValue="Weekly" itemLabel="Weeks"/>
+                        <apex:selectOption itemValue="Monthly" itemLabel="Months"/>
+                        <apex:selectOption itemValue="Yearly" itemLabel="Years"/>
+
+                    </apex:selectList>
+
+                </apex:pageBlockSectionItem>
+
+                <apex:pageBlockSectionItem >
+
+                    <apex:outputLabel value="Frequency"/>
+
+                    <apex:inputText value="{!frequency}"
+                                    styleClass="slds-input"
+                                    style="width:120px"/>
+
+                </apex:pageBlockSectionItem>
+
+                <apex:pageBlockSectionItem >
+
+                    <apex:outputLabel value=""/>
+
+                    <apex:outputPanel id="dailyPanel"
+                                    layout="block">
+
+                        <div class="slds-box slds-theme_default">
+
+                            Every
+                            <strong>{!frequency}</strong>
+                            day(s)
+
+                        </div>
+
+                    </apex:outputPanel>
+
+                </apex:pageBlockSectionItem>
+                    <apex:pageBlockSectionItem >
+
+                        <apex:outputLabel value=""/>
+
+                        <apex:outputPanel id="weeklyPanel" layout="block" style="display:none">
+
+                            <div class="slds-box slds-theme_default">
+
+                                <div class="slds-text-title_bold slds-m-bottom_small">
+                                    Recurrence Days
+                                </div>
+
+                                <apex:inputHidden value="{!selectedRecurrenceDays}"
+                                                id="selectedDaysHidden"/>
+
+                                <div class="slds-checkbox_button-group">
+
+                                    <span class="slds-button slds-checkbox_button">
+                                        <input type="checkbox"
+                                            class="day-checkbox"
+                                            id="sun"
+                                            value="Sun"/>
+
+                                        <label class="slds-checkbox_button__label"
+                                            for="sun">
+
+                                            <span class="slds-checkbox_faux">
+                                                Sun
+                                            </span>
+
+                                        </label>
+                                    </span>
+
+                                    <span class="slds-button slds-checkbox_button">
+                                        <input type="checkbox"
+                                            class="day-checkbox"
+                                            id="mon"
+                                            value="Mon"/>
+
+                                        <label class="slds-checkbox_button__label"
+                                            for="mon">
+
+                                            <span class="slds-checkbox_faux">
+                                                Mon
+                                            </span>
+
+                                        </label>
+                                    </span>
+
+                                    <span class="slds-button slds-checkbox_button">
+                                        <input type="checkbox"
+                                            class="day-checkbox"
+                                            id="tue"
+                                            value="Tue"/>
+
+                                        <label class="slds-checkbox_button__label"
+                                            for="tue">
+
+                                            <span class="slds-checkbox_faux">
+                                                Tue
+                                            </span>
+
+                                        </label>
+                                    </span>
+
+                                    <span class="slds-button slds-checkbox_button">
+                                        <input type="checkbox"
+                                            class="day-checkbox"
+                                            id="wed"
+                                            value="Wed"/>
+
+                                        <label class="slds-checkbox_button__label"
+                                            for="wed">
+
+                                            <span class="slds-checkbox_faux">
+                                                Wed
+                                            </span>
+
+                                        </label>
+                                    </span>
+
+                                    <span class="slds-button slds-checkbox_button">
+                                        <input type="checkbox"
+                                            class="day-checkbox"
+                                            id="thu"
+                                            value="Thu"/>
+
+                                        <label class="slds-checkbox_button__label"
+                                            for="thu">
+
+                                            <span class="slds-checkbox_faux">
+                                                Thu
+                                            </span>
+
+                                        </label>
+                                    </span>
+
+                                    <span class="slds-button slds-checkbox_button">
+                                        <input type="checkbox"
+                                            class="day-checkbox"
+                                            id="fri"
+                                            value="Fri"/>
+
+                                        <label class="slds-checkbox_button__label"
+                                            for="fri">
+
+                                            <span class="slds-checkbox_faux">
+                                                Fri
+                                            </span>
+
+                                        </label>
+                                    </span>
+
+                                    <span class="slds-button slds-checkbox_button">
+                                        <input type="checkbox"
+                                            class="day-checkbox"
+                                            id="sat"
+                                            value="Sat"/>
+
+                                        <label class="slds-checkbox_button__label"
+                                            for="sat">
+
+                                            <span class="slds-checkbox_faux">
+                                                Sat
+                                            </span>
+
+                                        </label>
+                                    </span>
+
+                                </div>
+
+                            </div>
+
+                        </apex:outputPanel>
+
+                    </apex:pageBlockSectionItem>
+
+                    <apex:pageBlockSectionItem >
+
+                        <apex:outputLabel value=""/>
+
+                        <apex:outputPanel id="monthlyPanel"
+                                        layout="block"
+                                        style="display:none">
+
+                            <div class="slds-box slds-theme_default">
+
+                                <div class="slds-text-title_bold slds-m-bottom_medium">
+                                    Recurring On
+                                </div>
+
+                                <apex:inputHidden value="{!monthlyRecurringType}"
+                                                id="monthlyRecurringTypeHidden"/>
+
+                                <!-- Date option -->
+
+                                <label class="slds-radio">
+
+                                    <input type="radio"
+                                        name="monthlyOption"
+                                        id="radioMonthlyDate"
+                                        checked="checked"
+                                        onclick="toggleMonthlyFields()"/>
+
+                                    <span class="slds-radio_faux"></span>
+
+                                    <span class="slds-form-element__label">
+                                        Date
+                                    </span>
+
+                                </label>
+
+                                <div class="slds-m-left_large slds-m-bottom_medium">
+
+                                    Day
+
+                                    <apex:selectList value="{!monthlyDayOfMonth}"
+                                                    size="1"
+                                                    id="monthlyDayField"
+                                                    styleClass="slds-select"
+                                                    style="width:120px">
+
+                                        <apex:selectOptions value="{!monthlyDayOptions}"/>
+
+                                    </apex:selectList>
+
+                                </div>
+
+                                <!-- Day option -->
+
+                                <label class="slds-radio">
+
+                                    <input type="radio"
+                                        name="monthlyOption"
+                                        id="radioMonthlyDay"
+                                        onclick="toggleMonthlyFields()"/>
+
+                                    <span class="slds-radio_faux"></span>
+
+                                    <span class="slds-form-element__label">
+                                        Day
+                                    </span>
+
+                                </label>
+
+                                <div class="slds-grid slds-gutters_small slds-m-left_large">
+
+                                    <div class="slds-col">
+
+                                        <apex:selectList value="{!monthlyWeekPosition}"
+                                                        size="1"
+                                                        id="monthlyInstanceField">
+
+                                            <apex:selectOption itemValue="First" itemLabel="First"/>
+                                            <apex:selectOption itemValue="Second" itemLabel="Second"/>
+                                            <apex:selectOption itemValue="Third" itemLabel="Third"/>
+                                            <apex:selectOption itemValue="Fourth" itemLabel="Fourth"/>
+                                            <apex:selectOption itemValue="Last" itemLabel="Last"/>
+
+                                        </apex:selectList>
+
+                                    </div>
+
+                                    <div class="slds-col">
+
+                                        <apex:selectList value="{!monthlyDayOfWeek}"
+                                                        size="1"
+                                                        id="monthlyDayOfWeekField">
+
+                                            <apex:selectOption itemValue="Sunday" itemLabel="Sunday"/>
+                                            <apex:selectOption itemValue="Monday" itemLabel="Monday"/>
+                                            <apex:selectOption itemValue="Tuesday" itemLabel="Tuesday"/>
+                                            <apex:selectOption itemValue="Wednesday" itemLabel="Wednesday"/>
+                                            <apex:selectOption itemValue="Thursday" itemLabel="Thursday"/>
+                                            <apex:selectOption itemValue="Friday" itemLabel="Friday"/>
+                                            <apex:selectOption itemValue="Saturday" itemLabel="Saturday"/>
+                                            <apex:selectOption itemValue="Day" itemLabel="Day"/>
+                                            <apex:selectOption itemValue="Weekday" itemLabel="Weekday"/>
+                                            <apex:selectOption itemValue="Weekend Day" itemLabel="Weekend Day"/>
+
+                                        </apex:selectList>
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                        </apex:outputPanel>
+
+                    </apex:pageBlockSectionItem>
+
+                    <apex:pageBlockSectionItem >
+
+                        <apex:outputLabel value=""/>
+
+                        <apex:outputPanel id="yearlyPanel"
+                                        layout="block"
+                                        style="display:none">
+
+                            <div class="slds-box slds-theme_default">
+
+                                <div class="slds-text-title_bold slds-m-bottom_medium">
+                                    Recurring On
+                                </div>
+
+                                <apex:inputHidden value="{!yearlyRecurringType}"
+                                                id="yearlyRecurringTypeHidden"/>
+
+                                <!-- Date -->
+
+                                <label class="slds-radio">
+
+                                    <input type="radio"
+                                        id="radioYearlyDate"
+                                        name="yearlyOption"
+                                        checked="checked"
+                                        onclick="toggleYearlyFields();"/>
+
+                                    <span class="slds-radio_faux"></span>
+
+                                    <span class="slds-form-element__label">
+                                        Date
+                                    </span>
+
+                                </label>
+
+                                <div class="slds-grid slds-gutters_small slds-m-left_large slds-m-bottom_medium">
+
+                                    <div class="slds-col">
+
+                                        <apex:selectList value="{!yearlyMonth}"
+                                                        size="1"
+                                                        id="yearMonth">
+
+                                            <apex:selectOptions value="{!monthOptions}"/>
+
+                                        </apex:selectList>
+
+                                    </div>
+
+                                    <div class="slds-col">
+
+                                        <apex:selectList value="{!yearlyDayOfMonth}"
+                                                        size="1"
+                                                        id="yearDay">
+
+                                            <apex:selectOptions value="{!monthlyDayOptions}"/>
+
+                                        </apex:selectList>
+
+                                    </div>
+
+                                </div>
+
+                                <!-- Day -->
+
+                                <label class="slds-radio">
+
+                                    <input type="radio"
+                                        id="radioYearlyDay"
+                                        name="yearlyOption"
+                                        onclick="toggleYearlyFields();"/>
+
+                                    <span class="slds-radio_faux"></span>
+
+                                    <span class="slds-form-element__label">
+                                        Day
+                                    </span>
+
+                                </label>
+
+                                <div class="slds-grid slds-gutters_small slds-m-left_large">
+
+                                    <div class="slds-col">
+
+                                        <apex:selectList value="{!yearlyWeekPosition}"
+                                                        size="1"
+                                                        id="yearInstance">
+
+                                            <apex:selectOption itemValue="First" itemLabel="First"/>
+                                            <apex:selectOption itemValue="Second" itemLabel="Second"/>
+                                            <apex:selectOption itemValue="Third" itemLabel="Third"/>
+                                            <apex:selectOption itemValue="Fourth" itemLabel="Fourth"/>
+                                            <apex:selectOption itemValue="Last" itemLabel="Last"/>
+
+                                        </apex:selectList>
+
+                                    </div>
+
+                                    <div class="slds-col">
+
+                                        <apex:selectList value="{!yearlyDayOfWeek}"
+                                                        size="1"
+                                                        id="yearDayOfWeek">
+
+                                            <apex:selectOption itemValue="Sunday" itemLabel="Sunday"/>
+                                            <apex:selectOption itemValue="Monday" itemLabel="Monday"/>
+                                            <apex:selectOption itemValue="Tuesday" itemLabel="Tuesday"/>
+                                            <apex:selectOption itemValue="Wednesday" itemLabel="Wednesday"/>
+                                            <apex:selectOption itemValue="Thursday" itemLabel="Thursday"/>
+                                            <apex:selectOption itemValue="Friday" itemLabel="Friday"/>
+                                            <apex:selectOption itemValue="Saturday" itemLabel="Saturday"/>
+                                            <apex:selectOption itemValue="Day" itemLabel="Day"/>
+                                            <apex:selectOption itemValue="Weekday" itemLabel="Weekday"/>
+                                            <apex:selectOption itemValue="Weekend Day" itemLabel="Weekend Day"/>
+
+                                        </apex:selectList>
+
+                                    </div>
+
+                                    <div class="slds-col slds-align-middle">
+
+                                        Month
+
+                                    </div>
+
+                                    <div class="slds-col">
+
+                                        <apex:selectList value="{!yearlyWeekMonth}"
+                                                        size="1"
+                                                        id="yearRuleMonth">
+
+                                            <apex:selectOptions value="{!monthOptions}"/>
+
+                                        </apex:selectList>
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                        </apex:outputPanel>
+
+                    </apex:pageBlockSectionItem>
+                    <apex:pageBlockSectionItem >
+                    <apex:outputLabel value="Recurrence End"/>
+                    <apex:outputPanel >
+                        <apex:inputHidden value="{!recurrenceEndType}"
+                                    id="recurrenceEndTypeHidden"/>
+
+                        <label class="slds-radio">
+                            <input type="radio" id="radioOccurrences" name="endType" checked="checked" onclick="toggleEndFields();"/>
+
+                            <span class="slds-radio_faux"></span>
+
+                            <span class="slds-form-element__label"> After Occurrences</span>
+
+                        </label>
+
+                    <div class="slds-m-left_large slds-m-bottom_medium">
+                        <apex:inputText value="{!numberOfOccurrences}" id="numOccurrencesField" styleClass="slds-input" style="width:120px"/>
+                    </div>
+
+                    <label class="slds-radio">
+
+                        <input type="radio" id="radioDate" name="endType"  onclick="toggleEndFields();"/>
+
+                        <span class="slds-radio_faux"></span>
+
+                        <span class="slds-form-element__label"> Date </span>
+
+                    </label>
+
+                    <div class="slds-m-left_large"> <apex:input type="date" value="{!patternEndDate}" id="endDateField" styleClass="slds-input"/> </div>
+
+                    </apex:outputPanel>
+
+                </apex:pageBlockSectionItem>
+
+            </apex:pageBlockSection>
+
+        <!-- Section 3: Details (Address and Description) -->
+            <apex:pageBlockSection title="Details" columns="2">
+                    <apex:inputField value="{!absence.Street}" label="Address" />
+                    <apex:inputField value="{!absence.City}" />
+                    <apex:inputField value="{!absence.State}" />
+                    <apex:inputField value="{!absence.PostalCode}" />
+                    <apex:inputField value="{!absence.Country}" />
+                    <apex:inputField value="{!absence.Description}" style="width: 350px; height: 60px;" />
+            </apex:pageBlockSection>
+		</apex:pageBlock>
+		</apex:form>
+		</div>
+ 		    <script type="text/javascript">
+                function showPanel(id, show) {
+                    var panel = document.querySelector("[id$='" + id + "']");
+
+                    if (panel)
+                        panel.style.display = show ? "block" : "none";
+                }
+
+                function handlePeriodChange() {
+                    var period =
+                        document.querySelector("select[id$='periodPicklist']").value;
+
+                    showPanel("dailyPanel", period === "Daily");
+                    showPanel("weeklyPanel", period === "Weekly");
+                    showPanel("monthlyPanel", period === "Monthly");
+                    showPanel("yearlyPanel", period === "Yearly");
+                }
+
+                function toggleMonthlyFields() {
+                    var date = document.getElementById("radioMonthlyDate").checked;
+                    document.querySelector("select[id$='monthlyDayField']").disabled = !date;
+                    document.querySelector("select[id$='monthlyInstanceField']").disabled = date;
+                    document.querySelector("select[id$='monthlyDayOfWeekField']").disabled = date;
+                    document.querySelector("input[id$='monthlyRecurringTypeHidden']").value =
+                        date ? "Date" : "Day";
+                }
+
+                function toggleYearlyFields() {
+                    var date = document.getElementById("radioYearlyDate").checked;
+
+                    document.querySelector("select[id$='yearMonth']").disabled = !date;
+                    document.querySelector("select[id$='yearDay']").disabled = !date;
+
+                    document.querySelector("select[id$='yearInstance']").disabled = date;
+                    document.querySelector("select[id$='yearDayOfWeek']").disabled = date;
+                    document.querySelector("select[id$='yearRuleMonth']").disabled = date;
+
+                    document.querySelector("input[id$='yearlyRecurringTypeHidden']").value =
+                        date ? "Date" : "Day";
+                }
+
+                function toggleEndFields() {
+                    var occ = document.getElementById("radioOccurrences").checked;
+
+                    document.querySelector("input[id$='numOccurrencesField']").disabled = !occ;
+                    document.querySelector("input[id$='endDateField']").disabled = occ;
+
+                    document.querySelector("input[id$='recurrenceEndTypeHidden']").value =
+                        occ ? "Occurrences" : "Date";
+                }
+
+                function gatherSelectedDays() {
+                    var values = [];
+                    document.querySelectorAll(".day-checkbox:checked").forEach(function(cb) {
+
+                        values.push(cb.value);
+
+                    });
+
+                    document.querySelector("input[id$='selectedDaysHidden']").value =
+                        values.join(",");
+                }
+
+                window.onload = function() {
+
+                    handlePeriodChange();
+                    toggleMonthlyFields();
+                    toggleYearlyFields();
+                    toggleEndFields();
+                };
+            </script>
+</apex:page>

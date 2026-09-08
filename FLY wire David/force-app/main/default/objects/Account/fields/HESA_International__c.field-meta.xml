@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>HESA_International__c</fullName>
+    <description>WPM - Number of International students pulled from HESA each year. HESA Total - HESA UK</description>
+    <externalId>false</externalId>
+    <formula>HESA_Total__c -  HESA_UK__c</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <inlineHelpText>Excludes UK (Year 22/23)</inlineHelpText>
+    <label>HESA International</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>0</scale>
+    <trackHistory>false</trackHistory>
+    <type>Number</type>
+    <unique>false</unique>
+</CustomField>
